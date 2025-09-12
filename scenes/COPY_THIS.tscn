@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7c5p3woxcwaj"]
+[gd_scene load_steps=11 format=3 uid="uid://c7c5p3woxcwaj"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/player_manager.gd" id="1_8jnod"]
 [ext_resource type="Script" uid="uid://cx0wca3wtcorv" path="res://scripts/entities/player/player.gd" id="1_klax2"]
 [ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="2_8jnod"]
-[ext_resource type="Script" uid="uid://b44omo7g5d1cb" path="res://scripts/entities/enemies/demoEnemy.gd" id="4_s3r3p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1m1m0"]
 size = Vector3(60, 2, 60)
@@ -24,8 +23,6 @@ albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3r3p"]
 albedo_color = Color(1, 0, 1, 1)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_s3r3p"]
 
 [node name="Prototype" type="Node3D"]
 
@@ -61,7 +58,7 @@ mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("ShaderMaterial_05f11")
 
 [node name="Player2" type="CharacterBody3D" parent="PlayerManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.72773814, 2.3207395, 3.0115166)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 script = ExtResource("1_klax2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2"]
@@ -72,7 +69,7 @@ mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_8jnod")
 
 [node name="Player3" type="CharacterBody3D" parent="PlayerManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4106002, 2.3207395, 1.8204069)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 script = ExtResource("1_klax2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3"]
@@ -81,12 +78,3 @@ shape = SubResource("CapsuleShape3D_1m1m0")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_s3r3p")
-
-[node name="Node3D" type="CharacterBody3D" parent="."]
-script = ExtResource("4_s3r3p")
-metadata/_custom_type_script = "uid://b44omo7g5d1cb"
-
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Node3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D"]
-shape = SubResource("SphereShape3D_s3r3p")
