@@ -2,8 +2,8 @@
 class_name Enemy extends Entity
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-@export var vision_radius: float
-@export var attack_radius: float
+@export var vision_radius: float = 10
+@export var attack_radius: float = 5
 # TODO: This is jank, use state machine when completed
 @export var is_attacking: bool
 
@@ -12,6 +12,12 @@ func _init() -> void:
 
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
+
+func _enter_tree() -> void:
+	navigation_agent.velocity_computed.connect(_on_velocity_computed)
+
+func _exit_tree() -> void:
+	navigation_agent.velocity_computed.disconnect(Callable(_on_velocity_computed))
 
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.target_position = movement_target
@@ -41,6 +47,11 @@ func _physics_process(_delta: float) -> void:
 	else:
 		_on_velocity_computed(new_velocity)
 
+@export var player_collide : bool
+
 func _on_velocity_computed(safe_velocity: Vector3):
-	velocity = safe_velocity
-	move_and_slide()
+	global_position += safe_velocity
+	
+	if player_collide:
+		velocity = safe_velocity
+		move_and_slide()

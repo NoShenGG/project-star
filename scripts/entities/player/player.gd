@@ -9,24 +9,17 @@ func _ready() -> void:
 func _physics_process(delta):
 	# TODO Track player location via GameManager instead
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
-	var direction = Vector3.ZERO
-	if Input.is_action_pressed("move_left"):
-		direction.x += 1
-	if Input.is_action_pressed("move_right"):
-		direction.x -= 1
-	if Input.is_action_pressed("move_up"):
-		direction.z += 1
-	if Input.is_action_pressed("move_down"):
-		direction.z -= 1
+	var direction : Vector2 = Vector2.ZERO
+	direction = Input.get_vector("move_right", "move_left", "move_down", "move_up")
 	
-	if direction != Vector3.ZERO:
+	if direction.length() > 1:
 		direction = direction.normalized()
 		
 	if Input.is_action_just_pressed("dodge"):
 		direction *= 7
 	
 	target_velocity.x = direction.x * _movement_speed
-	target_velocity.z = direction.z * _movement_speed
+	target_velocity.z = direction.y * _movement_speed
 	
 	velocity = target_velocity
 	move_and_slide()
