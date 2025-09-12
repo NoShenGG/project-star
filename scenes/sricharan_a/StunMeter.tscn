@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://0rd4po7byelo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daxab"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.982498, 0.671412, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lflf"]
+bg_color = Color(0.584052, 0.542394, 0.909845, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.942612, 0.78683, 0.169071, 1)
+
+[node name="StunMeter" type="ProgressBar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.0
+offset_top = -36.0
+offset_right = 298.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_daxab")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5lflf")
+show_percentage = false
