@@ -3,7 +3,7 @@ class_name Player extends Entity
 var target_velocity = Vector3.ZERO
 var pos: Vector3
 
-var SPEED:float = 10
+var SPEED:float = 30
 
 func _ready() -> void:
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
