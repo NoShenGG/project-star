@@ -12,7 +12,7 @@ extends Node3D
 @export var DAMAGE:float = 300;#IDK ABOUT THE VALUES PLEASE SOMEBODY TELL ME THE METERS FOR DAMAGE AND HP
 
 @export var DETECT_DISTANCE:float = 10;
-@export var TRIGGER_DISTANCE:float = 5;
+@export var TRIGGER_DISTANCE:float = 7;
 
 @export var BM_DMGSlOPE:float = 0.75/MAX_BM;
 @export var BM_DMGREDUCTION_MIN = 0.2;
