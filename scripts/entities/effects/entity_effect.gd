@@ -17,6 +17,7 @@ func try_apply(entity: Entity) -> bool:
 		assert(false, "Entity not provided for effect")
 		return false
 	_entity = entity
+	entity.add_child(self)
 	return true
 
 ## Called to process the [EntityEffect] and indicate when it is done.[br]
