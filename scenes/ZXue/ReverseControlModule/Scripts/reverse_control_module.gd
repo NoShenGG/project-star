@@ -82,6 +82,7 @@ func _reverseInputMapping() -> void:
 	InputMap.action_add_event("move_right", normalLeftEvent)
 	InputMap.action_add_event("move_up", normalDownEvent)
 	InputMap.action_add_event("move_down", normalUpEvent)
+	
 #restores input mapping.
 #only locally called. do not call this.
 func _restoreInputMapping() -> void:
