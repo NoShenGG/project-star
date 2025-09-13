@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://drr502wbtq7up"]
+
+[ext_resource type="Script" uid="uid://brc3dyul8370k" path="res://scenes/ZXue/ReverseControlModule/Scripts/reverse_control_module.gd" id="1_gm2io"]
+
+[node name="ReverseControlModule" type="Node"]
+script = ExtResource("1_gm2io")
+
+[node name="AutoRestoreTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="AutoRestoreTimer" to="." method="_on_auto_restore_timer_timeout"]

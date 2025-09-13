@@ -8,7 +8,7 @@ extends Node3D
 @export var COUNTDOWN:float = 4.0;
 @export var SD_BM_CONVERTRATIO:float = (MAX_BM*(2/3))/3;
 @export var SPEED:float = 1;
-@export var SPEED_SELFDESTRUCTION:float = 3;
+@export var SPEED_SELFDESTRUCTION:float = 10;
 @export var DAMAGE:float = 300;#IDK ABOUT THE VALUES PLEASE SOMEBODY TELL ME THE METERS FOR DAMAGE AND HP
 
 @export var DETECT_DISTANCE:float = 10;
@@ -78,6 +78,7 @@ func _physics_process(delta: float) -> void:
 		#Monitors relative position and distance. if too close then launches the self destruction process.
 		if CalculateRelativeDistanceToPlayer(playerPosition) < TRIGGER_DISTANCE:
 			if !selfDestructionProcessOn:
+				print("Triggered")
 				selfDestructionProcessOn = true
 				$SelfDestructionTimer.start()
 		

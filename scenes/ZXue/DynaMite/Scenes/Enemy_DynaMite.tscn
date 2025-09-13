@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqokxhofhov86"]
 
-[ext_resource type="Script" uid="uid://3xfcy408ikw5" path="res://ZXue/DynaMite/Scripts/enemy_dyna_mite.gd" id="1_wqpmk"]
+[ext_resource type="Script" uid="uid://3xfcy408ikw5" path="res://scenes/ZXue/DynaMite/Scripts/enemy_dyna_mite.gd" id="1_wqpmk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wqpmk"]
 radius = 0.1

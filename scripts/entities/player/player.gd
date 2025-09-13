@@ -3,6 +3,8 @@ class_name Player extends Entity
 var target_velocity = Vector3.ZERO
 var pos: Vector3
 
+var SPEED:float = 10
+
 func _ready() -> void:
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
 
@@ -10,14 +12,16 @@ func _physics_process(delta):
 	# TODO Track player location via GameManager instead
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
 	var direction = Vector3.ZERO
+	
+	
 	if Input.is_action_pressed("move_left"):
-		direction.x += 1
+		direction.x += SPEED
 	if Input.is_action_pressed("move_right"):
-		direction.x -= 1
+		direction.x -= SPEED
 	if Input.is_action_pressed("move_up"):
-		direction.z += 1
+		direction.z += SPEED
 	if Input.is_action_pressed("move_down"):
-		direction.z -= 1
+		direction.z -= SPEED
 	
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
