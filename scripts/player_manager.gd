@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 		swap_char(1)
 	elif (Input.is_action_just_pressed("select_char3")):
 		swap_char(2)
-
+	
 '''
 	Uses node hierarchy for character switching, assuming characters are the only direct children 
 	under the player manager. If not, could just group characters under another child node
