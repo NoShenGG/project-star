@@ -25,10 +25,6 @@ var normalRightEvent:InputEvent = InputMap.action_get_events("move_right").get(0
 var normalUpEvent:InputEvent = InputMap.action_get_events("move_up").get(0)
 var normalDownEvent:InputEvent = InputMap.action_get_events("move_down").get(0)
 
-
-func _ready() -> void:
-	pass
-
 #make input go reverse when called.
 func reverseOn() -> void:
 	reverseInputOn = true
@@ -94,4 +90,10 @@ func _restoreInputMapping() -> void:
 #When the timer goes timeout, signal is sent to turn off the reverse controls.
 #only locally called. do not call this.
 func _on_auto_restore_timer_timeout() -> void:
-	reverseOff()
+	'''
+	This if-statement is for avoiding a certain glitch that occured during test.
+	After switching back to normal input, it appears that reverseOn() is still called every reverseTime seconds.
+	This is because the the timer is not stopped and still sends the signal of it stopping every reverseTime seconds.
+	'''
+	if reverseInputOn:#only do this when reverseInputOn is true to avoid glitches in player input.
+		reverseOff()
