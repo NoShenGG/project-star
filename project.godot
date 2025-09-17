@@ -15,6 +15,10 @@ run/main_scene="uid://c7c5p3woxcwaj"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://6yho8q064sn0"
 
+[autoload]
+
+AudioManager="*res://austin_newby/scripts/AudioManager.gd"
+
 [dotnet]
 
 project/assembly_name="Project Star"
