@@ -33,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 		return
 	if is_attacking:
 		return
-	
+		
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 	var new_velocity: Vector3 = global_position.direction_to(next_path_position)
 	if navigation_agent.avoidance_enabled:
@@ -42,5 +42,5 @@ func _physics_process(_delta: float) -> void:
 		_on_velocity_computed(new_velocity)
 
 func _on_velocity_computed(safe_velocity: Vector3):
-	velocity = safe_velocity
+	velocity = safe_velocity * _movement_speed
 	move_and_slide()
