@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b56s3jvwgpp1u"]
+[gd_scene load_steps=13 format=3 uid="uid://b56s3jvwgpp1u"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/player_manager.gd" id="1_a282p"]
+[ext_resource type="Script" uid="uid://727asywd4f55" path="res://scripts/entities/player/nova.gd" id="2_bly0l"]
 [ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="3_ouwxl"]
 [ext_resource type="MeshLibrary" uid="uid://b88u34a3ref8h" path="res://Art Assets/Environment/Level 1/level1tiles.tres" id="4_0lut4"]
 
@@ -58,6 +59,13 @@ script = ExtResource("1_a282p")
 
 [node name="Player" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+script = ExtResource("2_bly0l")
+max_attack_time = null
+min_charge_time = null
+_movement_speed = 30.0
+faction = null
+_hp = null
+_max_hp = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player"]
 shape = SubResource("CapsuleShape3D_1m1m0")
