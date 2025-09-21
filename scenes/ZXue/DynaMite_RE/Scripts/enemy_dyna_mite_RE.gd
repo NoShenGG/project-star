@@ -1,5 +1,4 @@
-@abstract
-class_name DynaMiteRE extends Enemy
+extends Enemy
 
 @export var MAX_HP:float = 50;
 @export var MAX_BM:float = 300;
