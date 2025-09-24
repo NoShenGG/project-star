@@ -45,6 +45,10 @@ func try_heal(heal_amount: float) -> bool:
 		assert(false, "Heal amount cannot be <= 0")
 		return false
 	var new_hp: float = _hp + heal_amount
+	if _status_effects.has(EntityEffect.EffectID.INVINCIBLE):
+		# play invincibility animation perhaps?
+		# print("Damage blocked by invincibility!")
+		return true
 	if new_hp > _max_hp:
 		_hp = _max_hp
 		return true
