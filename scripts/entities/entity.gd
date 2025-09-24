@@ -3,6 +3,8 @@ class_name Entity extends CharacterBody3D
 
 enum Faction {PLAYER, NEUTRAL, HOSTILE}
 
+signal killed
+
 @export var _movement_speed: float = 1.0
 @export var faction: Faction = Faction.NEUTRAL
 @export var _hp: float = 10.0
@@ -51,4 +53,5 @@ func try_heal(heal_amount: float) -> bool:
 		return true
 
 func trigger_death():
-	queue_free()
+	killed.emit()
+	self.call_deferred("queue_free")

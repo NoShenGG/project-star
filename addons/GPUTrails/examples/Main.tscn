@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=3 uid="uid://bkkelkrht7j7a"]
+
+[ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="1_cm0pq"]
+[ext_resource type="Script" uid="uid://dpbu6k4xu88l8" path="res://addons/GPUTrails/examples/GPUTrailsMove.gd" id="1_fos0i"]
+[ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="2_fos0i"]
+[ext_resource type="Texture2D" uid="uid://cagaha4c1ky0e" path="res://vfx/Kenny Particle Pack/spark_05.png" id="4_fos0i"]
+[ext_resource type="Script" uid="uid://bx10tuy8s55pq" path="res://addons/GPUTrails/GPUTrail3D.gd" id="4_lgr22"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trn2v"]
+shader = ExtResource("1_cm0pq")
+
+[sub_resource type="Gradient" id="Gradient_03owx"]
+offsets = PackedFloat32Array(0.14245014, 0.26780626, 1)
+colors = PackedColorArray(0.6236139, 0, 0.285209, 1, 0.30588236, 0.7176471, 1, 1, 1, 0, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wkp8b"]
+gradient = SubResource("Gradient_03owx")
+
+[sub_resource type="Curve" id="Curve_20pc6"]
+bake_resolution = 16
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.06100796, 1), 0.0, 0.0, 0, 0, Vector2(0.7533157, 0.69845366), -1.2350746, -1.2350746, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_5vvyt"]
+curve = SubResource("Curve_20pc6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6i3y"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_fos0i")
+shader_parameter/tex = ExtResource("4_fos0i")
+shader_parameter/uv_offset = Vector2(0.011483073, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_wkp8b")
+shader_parameter/curve = SubResource("CurveTexture_5vvyt")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 45
+
+[sub_resource type="QuadMesh" id="QuadMesh_c2ibq"]
+material = SubResource("ShaderMaterial_c6i3y")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7817895, 0, 0)
+script = ExtResource("1_fos0i")
+speed = 2.0
+distance = 2.0
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.010165632)
+amount = 100
+lifetime = 100.0
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ShaderMaterial_trn2v")
+draw_pass_1 = SubResource("QuadMesh_c2ibq")
+script = ExtResource("4_lgr22")
+length_seconds = 1.6666666666666667
+texture = ExtResource("4_fos0i")
+scroll = Vector2(2.835, 0)
+color_ramp = SubResource("GradientTexture1D_wkp8b")
+curve = SubResource("CurveTexture_5vvyt")
+vertical_texture = true
+billboard = true
+_defaults_have_been_set = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4920218, 5.029621)

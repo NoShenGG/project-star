@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=3 uid="uid://b44w4c8blw236"]
+
+[ext_resource type="Script" uid="uid://sd83ogjaxyrq" path="res://scripts/audio/audio_test.gd" id="1_su1yd"]
+[ext_resource type="Script" uid="uid://cb3ptgr3hju7" path="res://scripts/audio/volume_slider.gd" id="2_ctuwv"]
+
+[node name="audio_test" type="Node2D"]
+script = ExtResource("1_su1yd")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="RMarker2D" type="Marker2D" parent="."]
+position = Vector2(500, 0)
+
+[node name="UMarker2D" type="Marker2D" parent="."]
+position = Vector2(0, -500)
+
+[node name="LMarker2D" type="Marker2D" parent="."]
+position = Vector2(-500, 0)
+
+[node name="DMarker2D" type="Marker2D" parent="."]
+position = Vector2(0, 500)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayingLabel" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+text = "     Music"
+
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_ctuwv")
+bus_name = "music"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+text = "    SFX"
+
+[node name="SFXSlider" type="HSlider" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_ctuwv")
+bus_name = "sfx"
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FunText" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[font_size=15]Welcome to [wave]amazing[/wave] audio test
+
+Press WASD for directional sounds
+Press shift for [shake]fun noise![/shake]
+
+Project Changes: 
+[ul]Added AudioManager as a Global
+Added basic 'music' and 'sfx' Audio Bus[/ul]
+
+Goods:
+[ul] All sounds are preloaded
+ Sounds accesed by name instead of path (allows moving files around)
+ Volume and pitch adjustable w/ AudioManager.edit_sound
+ Each sound has a distinct AudioPlayer, allowing infinite polyphony
+ AudioPlayers are automatically freed on sound completion
+ Sounds can be easily assigned to any Audio Bus
+[/ul]
+
+Bads:
+[ul]No simple method for editing attenuation or max_distance for sounds in 2d space (yet)
+ Area masks cannot be implemented (yet)
+[/ul]
+
+*When added to main, the const for AUDIO_DIRECTORY within AudioManager must be changed to match new path.
+
+Use:
+[ul] Any sound file in the audio directory (including sub-directories) can be played w/[color=gold] AudioManager.play_sound(\"SOUNDNAME\", \"BUSNAME\")[/color]
+ [color=gold]play_sound_2d[/color] requires you to pass a node the sound emanates from"

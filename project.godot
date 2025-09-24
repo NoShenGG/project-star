@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="Project Star"
+<<<<<<< HEAD
 run/main_scene="uid://dv7posnge2p4n"
+=======
+>>>>>>> c9a1bcb9ad91fd24526d5d61e65d8d5182d1d221
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://6yho8q064sn0"
+
+[autoload]
+
+AudioManager="res://scripts/audio/AudioManager.gd"
 
 [dotnet]
 
