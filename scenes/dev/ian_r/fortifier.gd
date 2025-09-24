@@ -9,8 +9,8 @@ signal resetting
 func _init() -> void:
 	super._init()
 	vision_radius = 2
-	# Called when the node enters the scene tree for the first time.
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
 	# Create timer for attack speed
