@@ -10,7 +10,7 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_swy48"]
 material = SubResource("StandardMaterial3D_0ai77")
 
-[node name="TestEnemy" type="CharacterBody3D"]
+[node name="TestEnemy" type="CharacterBody3D" groups=["Enemies"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_ubbc6")

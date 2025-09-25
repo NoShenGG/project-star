@@ -16,7 +16,7 @@ albedo_color = Color(0.819608, 0.207843, 1, 1)
 material = SubResource("StandardMaterial3D_67oe1")
 height = 3.0
 
-[node name="MindMerger" type="CharacterBody3D"]
+[node name="MindMerger" type="CharacterBody3D" groups=["Enemies"]]
 script = ExtResource("1_wql7c")
 EXPANSION_CURVE = SubResource("Curve_wql7c")
 _movement_speed = 3.0

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1ujvuwjyhhn"]
+
+[ext_resource type="Script" uid="uid://13uw6pe5u3b0" path="res://scripts/utility/spawn_area.gd" id="1_nv6y1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nv6y1"]
+transparency = 1
+blend_mode = 3
+albedo_color = Color(0.9999997, 0.42079863, 0.9937175, 0.30980393)
+
+[sub_resource type="BoxMesh" id="BoxMesh_me3p1"]
+material = SubResource("StandardMaterial3D_nv6y1")
+
+[node name="SpawnArea" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.01, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_nv6y1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_me3p1")

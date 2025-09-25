@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx6y3af7ybavb"]
+
+[ext_resource type="PackedScene" uid="uid://b56s3jvwgpp1u" path="res://scenes/final/level_environment_test.tscn" id="1_02qk7"]
+[ext_resource type="Script" uid="uid://coxw7lqgofhhx" path="res://scenes/dev/kj_k/wave_test.gd" id="2_abj5j"]
+[ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_qklsu"]
+[ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="3_fs8cp"]
+[ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="4_m3a5u"]
+[ext_resource type="PackedScene" uid="uid://cy13cantipmem" path="res://scenes/sub/TestEnemy.tscn" id="5_jrnv7"]
+
+[node name="Prototype" instance=ExtResource("1_02qk7")]
+script = ExtResource("2_abj5j")
+
+[node name="WaveManager" type="Node3D" parent="." index="4"]
+script = ExtResource("2_qklsu")
+metadata/_custom_type_script = "uid://cs72ukacrgd4g"
+
+[node name="SpawnArea" parent="WaveManager" index="0" instance=ExtResource("4_m3a5u")]
+transform = Transform3D(2, 0, 0, 0, 0.01, 0, 0, 0, 2, -14.856132, 0, -1.6613503)
+
+[node name="SpawnArea2" parent="WaveManager" index="1" instance=ExtResource("4_m3a5u")]
+transform = Transform3D(4.128, 0, 0, 0, 5, 0, 0, 0, 8.858478, 0.50157905, 2.6878948, 10.382069)
+
+[node name="SpawnArea3" parent="WaveManager" index="2" instance=ExtResource("4_m3a5u")]
+transform = Transform3D(4.128, 0, 0, 0, 1, 0, 0, 0, 4.6915126, 0.502, 0.5, -4.547006)
+
+[node name="Wave" type="Node3D" parent="WaveManager" index="3" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("3_fs8cp")
+enemies = Array[PackedScene]([ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7")])
+spawn_areas = [NodePath("../SpawnArea")]
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
+
+[node name="Wave2" type="Node3D" parent="WaveManager" index="4" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("3_fs8cp")
+enemies = Array[PackedScene]([ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7")])
+spawn_areas = [NodePath("../SpawnArea2")]
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
+
+[node name="Wave3" type="Node3D" parent="WaveManager" index="5" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("3_fs8cp")
+enemies = Array[PackedScene]([ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7")])
+spawn_areas = [NodePath("../SpawnArea"), NodePath("../SpawnArea2"), NodePath("../SpawnArea3")]
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
+
+[node name="Wave4" type="Node3D" parent="WaveManager" index="6" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("3_fs8cp")
+enemies = Array[PackedScene]([ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7"), ExtResource("5_jrnv7")])
+spawn_areas = [NodePath("../SpawnArea"), NodePath("../SpawnArea2"), NodePath("../SpawnArea3")]
+setSpawnAreas = true
+spawnAreaIndices = Array[int]([0, 1, 1, 1, 1, 1, 2])
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
