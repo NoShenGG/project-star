@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqokxhofhov86"]
+[gd_scene load_steps=6 format=3 uid="uid://dgfavyjfcv751"]
 
-<<<<<<<< HEAD:scenes/ZXue/DynaMite/Scenes/Enemy_DynaMite.tscn
-[ext_resource type="Script" uid="uid://3xfcy408ikw5" path="res://scenes/ZXue/DynaMite/Scripts/enemy_dyna_mite.gd" id="1_wqpmk"]
-========
-[ext_resource type="Script" uid="uid://3xfcy408ikw5" path="res://scenes/dev/ZXue/DynaMite/Scripts/enemy_dyna_mite.gd" id="1_wqpmk"]
->>>>>>>> c9a1bcb9ad91fd24526d5d61e65d8d5182d1d221:scenes/dev/ZXue/DynaMite/Scenes/Enemy_DynaMite.tscn
+[ext_resource type="Script" uid="uid://hlftd8bsq8gv" path="res://scenes/ZXue/DynaMite_RE/Scripts/enemy_dyna_mite_RE.gd" id="1_27ax6"]
+[ext_resource type="Script" uid="uid://db64qiny7fgtq" path="res://scenes/ZXue/DynaMite_RE/Scripts/fsm.gd" id="2_4ae7f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wqpmk"]
 radius = 0.1
@@ -12,22 +9,24 @@ height = 0.25
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_wqpmk"]
 
-[node name="EnemyDynaMite" type="Node3D" groups=["Enemies"]]
+[sub_resource type="SphereShape3D" id="SphereShape3D_87ygv"]
+radius = 3.027
+
+[node name="EnemyDynaMiteRE" type="Node3D" groups=["Enemies"]]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0, 0, 0)
-script = ExtResource("1_wqpmk")
+script = ExtResource("1_27ax6")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
 
-[node name="Collision3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="Collision3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(5.405, 0, 0, 0, 5.405, 0, 0, 0, 5.405, 0, 0.499545, 0)
 shape = SubResource("CapsuleShape3D_wqpmk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.53, 0, 0, 0, 1, 0, 0.536494, 0)
 mesh = SubResource("CapsuleMesh_wqpmk")
 
 [node name="SelfDestructionTimer" type="Timer" parent="."]
-process_callback = 0
 wait_time = 4.0
 
 [node name="ExplosionResponse" type="Label" parent="."]
@@ -46,8 +45,15 @@ text = "DYNAMITE EXPLODED!"
 
 [node name="DeathTimer" type="Timer" parent="."]
 
-[node name="LocationOrigin" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5289483, 0)
+[node name="ExplosionArea" type="Area3D" parent="."]
+visible = false
+
+[node name="ExplosionAreaCollision" type="CollisionShape3D" parent="ExplosionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55283505, 0)
+shape = SubResource("SphereShape3D_87ygv")
+
+[node name="FSM" type="Node" parent="."]
+script = ExtResource("2_4ae7f")
 
 [connection signal="timeout" from="SelfDestructionTimer" to="." method="_on_self_destruction_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
