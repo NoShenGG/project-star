@@ -24,8 +24,6 @@ var pos: Vector3
 var current_state: PlayerState = PlayerState.IDLE
 var charge_counter: float = 0
 
-var SPEED:float = 30
-
 func _ready() -> void:
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
 	current_state = PlayerState.IDLE
@@ -33,22 +31,6 @@ func _ready() -> void:
 func _physics_process(delta):
 	# TODO Track player location via GameManager instead
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
-<<<<<<< HEAD
-	var direction = Vector3.ZERO
-	
-	
-	if Input.is_action_pressed("move_left"):
-		direction.x += SPEED
-	if Input.is_action_pressed("move_right"):
-		direction.x -= SPEED
-	if Input.is_action_pressed("move_up"):
-		direction.z += SPEED
-	if Input.is_action_pressed("move_down"):
-		direction.z -= SPEED
-	
-	if direction != Vector3.ZERO:
-		direction = direction.normalized()
-=======
 	# Lose movement control mid attack animation or during burst
 	if current_state != PlayerState.ATTACKING and current_state != PlayerState.BURSTING:
 		var direction = Vector3.ZERO
@@ -60,7 +42,6 @@ func _physics_process(delta):
 			direction.x -= 1
 		if Input.is_action_pressed("move_down"):
 			direction.x += 1
->>>>>>> c9a1bcb9ad91fd24526d5d61e65d8d5182d1d221
 		
 		if direction != Vector3.ZERO:
 			direction = direction.normalized()
