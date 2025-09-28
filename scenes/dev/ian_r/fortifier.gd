@@ -4,7 +4,6 @@ var shield_radius = 5.0
 var attack_speed: Timer
 var attack_cooldown: Timer
 var all_enemies: Array
-var can_attack: bool
 
 signal resetting
 
@@ -29,12 +28,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if global_position.distance_to(navigation_agent.target_position) < attack_radius:
 		if attack_cooldown.get_time_left() <= 0:
-			can_attack = false
+			is_attacking = true
 			attack()
 	if attack_speed.get_time_left() > 0:
 		for enemy in all_enemies:
-			if 0 < abs(position.distance_to(enemy.position)) < shield_radius:
-				enemy.apply_effect(EntityEffect.EffectID.INVINCIBLE)
+			if 0.5 < abs(position.distance_to(enemy.position)) < shield_radius:
+				if not enemy.get_node_or_null("Invincible"):
+					enemy.apply_effect(EntityEffect.EffectID.INVINCIBLE)
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
@@ -42,15 +42,15 @@ func _physics_process(delta: float) -> void:
 
 func attack() -> void:
 	super.attack()
-	#play animation here
+	# play animation here
 	attack_speed.start()
-	#print("attack")
-	$".".visible = true
+	# print("attack")
+	# $".".visible = true
 
 func attack_reset():
 	attack_speed.stop()
 	resetting.emit()
-	can_attack = true
-	$".".visible = false
-	$".".position.x = 0
-	$".".position.z = 0
+	is_attacking = false
+	# $".".visible = false
+	# $".".position.x = 0
+	# $".".position.z = 0
