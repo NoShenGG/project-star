@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dha82qob66a2a"
-path.s3tc="res://.godot/imported/muzzle_05.png-1c6a7af2c85b775b846009f7385b5c75.s3tc.ctex"
+path.s3tc="res://.godot/imported/muzzle_05.png-47de1060a80be5f39dfe022091550b7e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/Kenny Particle Pack/muzzle_05.png"
-dest_files=["res://.godot/imported/muzzle_05.png-1c6a7af2c85b775b846009f7385b5c75.s3tc.ctex"]
+source_file="res://VFX/Kenny Particle Pack/muzzle_05.png"
+dest_files=["res://.godot/imported/muzzle_05.png-47de1060a80be5f39dfe022091550b7e.s3tc.ctex"]
 
 [params]
 

@@ -1,6 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cw87q52v3jxf0"]
-
-[ext_resource type="Script" uid="uid://r8oki41bfmky" path="res://scripts/entities/enemies/ranged_enemy.gd" id="1_6kug1"]
+[gd_scene load_steps=5 format=3 uid="uid://cw87q52v3jxf0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utbal"]
 albedo_color = Color(1, 0, 0, 1)
@@ -14,8 +12,6 @@ albedo_color = Color(1, 0, 0, 1)
 [node name="Enemy" type="CharacterBody3D"]
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_6kug1")
-attack_radius = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)

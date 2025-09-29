@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc2oso0fpv5fw"]
+[gd_scene load_steps=8 format=3 uid="uid://bc2oso0fpv5fw"]
 
-[ext_resource type="Script" uid="uid://cx0wca3wtcorv" path="res://scripts/entities/player/player.gd" id="1_645b4"]
-[ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="2_f23kj"]
+[ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://Shaders/prototype.tres" id="2_f23kj"]
 [ext_resource type="Script" uid="uid://b8slq838gqq8o" path="res://scripts/utility/combo_tracker.gd" id="3_e5ymd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1m1m0"]
@@ -30,7 +29,6 @@ mesh = SubResource("BoxMesh_1m1m0")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
-script = ExtResource("1_645b4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_1m1m0")
