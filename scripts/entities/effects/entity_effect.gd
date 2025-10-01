@@ -2,7 +2,9 @@
 class_name EntityEffect extends Node3D
 
 enum EffectID {
-	DEBUG_EFFECT
+	DEBUG_EFFECT,
+	MERGED,
+	SLOWED
 }
 var id: EffectID
 var _entity: Entity

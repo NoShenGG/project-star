@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy13cantipmem"]
+
+[ext_resource type="Script" uid="uid://ep4kvytqtqxh" path="res://scripts/entities/enemies/merger_test_enemy.gd" id="1_ubbc6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4wg20"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ai77"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_swy48"]
+material = SubResource("StandardMaterial3D_0ai77")
+
+[node name="TestEnemy" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ubbc6")
+_movement_speed = 10.0
+faction = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4wg20")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_swy48")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

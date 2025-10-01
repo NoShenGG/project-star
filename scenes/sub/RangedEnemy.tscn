@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw87q52v3jxf0"]
+
+[ext_resource type="Script" uid="uid://r8oki41bfmky" path="res://scripts/entities/enemies/ranged_enemy.gd" id="1_6kug1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utbal"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uanu2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mrgmk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vl86s"]
+
+[node name="Enemy" type="CharacterBody3D"]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_6kug1")
+attack_radius = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_utbal")
+mesh = SubResource("CapsuleMesh_uanu2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_mrgmk")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 10.0
+target_desired_distance = 2.0
+path_max_distance = 100.01
+debug_enabled = true
+debug_path_custom_color = Color(0, 1, 0, 1)
+
+[node name="RecalculateTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="AggroArea" type="Node3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="AggroArea"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea/Area3D"]
+shape = SubResource("CylinderShape3D_vl86s")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="RecalculateTimer" to="." method="_on_recalculate_timer_timeout"]
+[connection signal="body_entered" from="AggroArea/Area3D" to="." method="_on_aggro_area_body_entered"]
+[connection signal="body_exited" from="AggroArea/Area3D" to="." method="_on_aggro_area_body_exited"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
