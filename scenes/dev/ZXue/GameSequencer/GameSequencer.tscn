@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crf1hfmq127kl"]
+
+[ext_resource type="Script" uid="uid://86gotsxqahbv" path="res://GameSequencer/game_sequencer.gd" id="1_qr8n2"]
+
+[node name="GameSequencer" type="Node"]
+script = ExtResource("1_qr8n2")

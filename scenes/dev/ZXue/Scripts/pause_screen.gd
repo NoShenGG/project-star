@@ -2,8 +2,6 @@
 #This is a preliminary Pause Screen, without much of a thought. I understand there is a better way of achieving this,
 #but GDScript was not very kind with me tonight, so I eventually decided to resort to this solution.
 #I added a new input mapping that takes ESC as the cue for calling up the pause screen.
-
-
 extends Control
 
 

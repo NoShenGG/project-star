@@ -1,9 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://m2ppkxqi0ksw"]
 
+<<<<<<<< HEAD:scenes/ZXue/PauseScreen.tscn
+[ext_resource type="Script" uid="uid://cmhd1g7q6dspf" path="res://scenes/ZXue/Scripts/pause_screen.gd" id="1_11tvl"]
+========
 [ext_resource type="Script" uid="uid://cmhd1g7q6dspf" path="res://scenes/dev/ZXue/Scripts/pause_screen.gd" id="1_11tvl"]
+>>>>>>>> c9a1bcb9ad91fd24526d5d61e65d8d5182d1d221:scenes/dev/ZXue/PauseScreen.tscn
 
 [node name="PauseScreen" type="Control"]
-process_mode = 2
+process_mode = 3
 visible = false
 layout_mode = 3
 anchors_preset = 15
