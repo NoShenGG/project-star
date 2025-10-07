@@ -1,144 +1,68 @@
 @abstract
 class_name Player extends Entity
 
-enum PlayerState {
-	IDLE,
-	ATTACKING,
-	CHARGING,
-	CHARGING_SPECIAL,
-	BURSTING,
-	SWITCHING
-}
+signal player_dashed
+
+@onready var ray: RayCast3D = $ForwardRay
 
 @export_category("Input Thresholds")
-@export var max_click_time: float = 0.1
-@export var min_charge_time: float = 0.5
-@export var special_min_charge_time: float = 0.75
+@export var max_click_time: float = 0.25
+@export_category("Attack")
+@export var attack_charge_time: float = 0.5
+@export var max_attack_charges: int = 1
+@export_category("Special")
+@export var special_charge_time: float = 0.5
+@export var max_special_charges: int = 3
+@export var special_cd: float = 5
 @export_category("Movement Parameters")
-@export var input_smoothing_time: float = 0.1
+@export var input_smoothing_speed: float = 8
+@export var dash_cd: float = 1
 @export var dash_distance: float = 5
 
-var target_velocity = Vector3.ZERO
-var velocity_smoothing_counter: float = 0
-var pos: Vector3
-var current_state: PlayerState = PlayerState.IDLE
-var charge_counter: float = 0
+var can_dash := true
+var has_special := true
+
+var target_velocity := Vector3.ZERO
 
 func _ready() -> void:
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
-	current_state = PlayerState.IDLE
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# TODO Track player location via GameManager instead
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
-	# Lose movement control mid attack animation or during burst
-	if current_state != PlayerState.ATTACKING and current_state != PlayerState.BURSTING:
-		var direction = Vector3.ZERO
-		if Input.is_action_pressed("move_left"):
-			direction.z += 1
-		if Input.is_action_pressed("move_right"):
-			direction.z -= 1
-		if Input.is_action_pressed("move_up"):
-			direction.x -= 1
-		if Input.is_action_pressed("move_down"):
-			direction.x += 1
-		
-		if direction != Vector3.ZERO:
-			direction = direction.normalized()
-		if current_state == PlayerState.CHARGING or current_state == PlayerState.CHARGING_SPECIAL:
-			direction *= 0.25	
-		direction = direction.rotated(Vector3.UP, deg_to_rad(-45))
-			
-		
-		var new_target_velocity = Vector3.ZERO
-		new_target_velocity = direction * _movement_speed
-		
-		if new_target_velocity != target_velocity:
-			velocity_smoothing_counter = 0
-		if velocity_smoothing_counter < 1:
-			velocity_smoothing_counter += delta / input_smoothing_time
-		target_velocity = new_target_velocity
-		
-		# Dash supercedes charge attacks but not regular attacks (no animation cancelling)
-		if Input.is_action_just_pressed("dodge"):
-			if current_state == PlayerState.IDLE:
-				target_velocity += direction * dash_distance/delta
-			if (current_state == PlayerState.CHARGING or current_state == PlayerState.CHARGING_SPECIAL) and charge_counter > max_click_time:
-				target_velocity += direction * dash_distance/delta
-				current_state = PlayerState.IDLE
-		# On Dodge, ignore smoothing for that frame and the frame after.
-		if target_velocity.length() > _movement_speed or velocity.length() > _movement_speed:
-			velocity = target_velocity
-		else:
-			velocity = velocity.lerp(target_velocity, velocity_smoothing_counter)
-	move_and_slide()
-	
-	# Attack processing
-	if Input.is_action_just_pressed("basic_attack"):
-		attack_pressed()
-	if Input.is_action_just_pressed("special_attack"):
-		special_pressed()
-	if current_state == PlayerState.CHARGING:
-		attack_pressed()
-		charge_counter += delta
-	elif current_state == PlayerState.CHARGING_SPECIAL:
-		special_pressed()
-		charge_counter += delta
+
 	
 ## Used for player manager to handle check if Player is in valid state to swap
 func can_swap() -> bool:
-	return current_state == PlayerState.IDLE or current_state == PlayerState.CHARGING or current_state == PlayerState.CHARGING_SPECIAL;
+	return ($StateMachine.state as State).name in ["Idle", "Moving"];
 	
-## Handles Attack Input Logic
-func attack_pressed() -> void:
-	if current_state == PlayerState.IDLE:
-		current_state = PlayerState.CHARGING
-		charge_counter = 0
-		return
-	if current_state == PlayerState.CHARGING and Input.is_action_just_released("basic_attack"):
-		current_state = PlayerState.ATTACKING
-		if charge_counter < max_click_time:
-			_basic_attack()
-		elif charge_counter > min_charge_time:
-			_charged_attack()
-		else:
-			current_state = PlayerState.IDLE
-
-## Triggers when valid Attack Input
-@abstract func _basic_attack() -> void
-
-## Triggers when valid Charged Attack Input
-@abstract func _charged_attack() -> void
-
-## Handles Special Input Logic
-func special_pressed() -> void:
-	if current_state == PlayerState.IDLE:
-		current_state = PlayerState.CHARGING_SPECIAL
-		charge_counter = 0
-		return
-	if current_state == PlayerState.CHARGING_SPECIAL and Input.is_action_just_released("special_attack"):
-		current_state = PlayerState.ATTACKING
-		if charge_counter < max_click_time:
-			_special_attack()
-		elif charge_counter > special_min_charge_time:
-			_charged_special_attack()
-		else:
-			current_state = PlayerState.IDLE
+func move(delta: float, speed_scale := 1.0) -> void:
+	var direction := Input.get_vector("move_up", "move_down", "move_right", "move_left")
 	
-## Triggers when valid Special Attack Input
-@abstract func _special_attack() -> void
+	direction = direction.rotated(deg_to_rad(45))
+	direction = direction * _movement_speed * speed_scale
+	
+	target_velocity.x = direction.x
+	target_velocity.z = direction.y
+	
+	velocity = target_velocity.lerp(velocity, clamp(pow(0.1, input_smoothing_speed * delta), 0, 1))
+	if velocity:
+		look_at(global_position + velocity)
+	move_and_slide()
 
-## Triggers when valid Charged Special Attack Input
-@abstract func _charged_special_attack() -> void
-
-## Calls Synergy Burst Animation TODO: Maybe make synergy bursts centrallized in manager
-func synergy_burst() -> void:
-	current_state = PlayerState.BURSTING
-
-## Calls Swap Out Animation
-func swap_out() -> void:
-	current_state = PlayerState.SWITCHING
-
-## Calls Swap In Animation
-func swap_in() -> void:
-	current_state = PlayerState.SWITCHING
+## Dash function, uses raycast to prevent clipping world but ignores entities
+func dash(dist := dash_distance) -> void:
+	if not can_dash:
+		return
+	player_dashed.emit()
+	can_dash = false
+	ray.force_raycast_update()
+	var dash_target_dist = min(position.distance_to(ray.get_collision_point())-0.5, dash_distance) \
+			if ray.is_colliding() else dist
+	position += Vector3.FORWARD.rotated(Vector3.UP, rotation.y) * dash_target_dist
+	get_tree().create_timer(dash_cd).timeout.connect(func(): can_dash = true)
+	
+func trigger_death() -> void:
+	push_error("Player has Died")
+	assert(false)
+	

@@ -1,7 +1,7 @@
 extends Control
 
-@export var ANIM_TIME: float = 1
-@export var FINISH_LOAD_WAIT_TIME: float = 1
+@export var ANIM_TIME: float = 0.5
+@export var FINISH_LOAD_WAIT_TIME: float = 0.5
 @export var BAR_ANIMATION_EASE_CURVE: Curve # Should be a 0 to 1 easing curve.
 
 @onready var bar = $Center/VBox/Bar
@@ -27,7 +27,13 @@ func _process(delta: float) -> void:
 	
 	## Checks if loading animation is done, then artificially waits.
 	if done_wait > FINISH_LOAD_WAIT_TIME:
-		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(next_scene))
+		# adds the new scene as a child of main_scene rather than changing the whole tree
+		var loaded_scene = ResourceLoader.load_threaded_get(next_scene).instantiate()
+		GameManager.main_scene.add_child(loaded_scene)
+		GameManager.current_level = loaded_scene
+		print_rich("[color=dark_gray]Loaded level: ", next_scene)
+		
+		#get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(next_scene))
 		self.free() # TODO Maybe just Hide?
 		return
 	if done:

@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwo7k5blghvxp"]
+
+[ext_resource type="Script" path="res://scripts/dev/Throttle/DebugFrameScalar.gd" id="1_nvyph"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k472q"]
+font_size = 40
+
+[node name="FrameLimiter" type="Control" node_paths=PackedStringArray("max_frame_rate_label", "current_frame_rate_label", "time_scale_label", "physics_frame_rate_label")]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -409.0
+offset_bottom = 286.0
+grow_horizontal = 0
+script = ExtResource("1_nvyph")
+frame_change_speed = 0.5
+time_change_speed = 0.01
+max_frame_rate_label = NodePath("BoxContainer/MaxFrameRate")
+current_frame_rate_label = NodePath("BoxContainer/CurrentFrameRate")
+time_scale_label = NodePath("BoxContainer/TimeScale")
+physics_frame_rate_label = NodePath("BoxContainer/Physics Fixed Rate")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="MaxFrameRate" type="Label" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Max Frame Rate"
+label_settings = SubResource("LabelSettings_k472q")
+
+[node name="CurrentFrameRate" type="Label" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Current Frame Rate"
+label_settings = SubResource("LabelSettings_k472q")
+
+[node name="TimeScale" type="Label" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "TimeScale"
+label_settings = SubResource("LabelSettings_k472q")
+
+[node name="Physics Fixed Rate" type="Label" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "TimeScale"
+label_settings = SubResource("LabelSettings_k472q")

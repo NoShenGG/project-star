@@ -3,4 +3,4 @@
 [ext_resource type="Script" uid="uid://ckrbqbg53vdv7" path="res://scripts/audio/AudioManager.gd" id="1_lhm2c"]
 
 [node name="AudioManager" type="Node"]
-script = ExtResource("1_lhm2c")
+script = ExtResource("1_ftnqi")

@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://fqcrbpjliw0d"]
+
+[ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/player_manager.gd" id="1_2qyne"]
+[ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="2_p0kwi"]
+[ext_resource type="Script" uid="uid://bmpfx188kp3aj" path="res://austin_newby/levels/button_load_level.gd" id="3_fm3s7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1m1m0"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1m1m0"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1m1m0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ggon3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05f11"]
+render_priority = 0
+shader = ExtResource("2_p0kwi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jnod"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3r3p"]
+albedo_color = Color(1, 0, 1, 1)
+
+[node name="Copied_Level1" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_1m1m0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_1m1m0")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.770402, -0.637558, 0, 0.637558, 0.770402, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -19)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)
+
+[node name="PlayerManager" type="Node3D" parent="."]
+script = ExtResource("1_2qyne")
+
+[node name="Player" type="CharacterBody3D" parent="PlayerManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player"]
+shape = SubResource("CapsuleShape3D_1m1m0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player"]
+mesh = SubResource("CapsuleMesh_ggon3")
+surface_material_override/0 = SubResource("ShaderMaterial_05f11")
+
+[node name="Player2" type="CharacterBody3D" parent="PlayerManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2"]
+shape = SubResource("CapsuleShape3D_1m1m0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2"]
+mesh = SubResource("CapsuleMesh_ggon3")
+surface_material_override/0 = SubResource("StandardMaterial3D_8jnod")
+
+[node name="Player3" type="CharacterBody3D" parent="PlayerManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3"]
+shape = SubResource("CapsuleShape3D_1m1m0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3"]
+mesh = SubResource("CapsuleMesh_ggon3")
+surface_material_override/0 = SubResource("StandardMaterial3D_s3r3p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -49.0
+offset_bottom = 49.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Load Next Level"
+script = ExtResource("3_fm3s7")
+level_name = "Copied_Level2"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "THIS IS LEVEL 1 "
+
+[connection signal="button_down" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_button_down"]

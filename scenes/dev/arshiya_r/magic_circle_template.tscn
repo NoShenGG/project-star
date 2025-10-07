@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://cwtic6pdgjkn7"]
+
+[ext_resource type="Shader" uid="uid://3b3kknb84rhv" path="res://scenes/dev/arshiya_r/spinning_magic_circle.tres" id="1_j1b70"]
+[ext_resource type="Texture2D" uid="uid://cuwr2e2lkhej" path="res://vfx/Kenny Particle Pack/magic_02.png" id="2_ahrdn"]
+[ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/circle_particles.tres" id="3_nrwjk"]
+[ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://vfx/Kenny Particle Pack/star_04.png" id="4_5vsb2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_recpq"]
+render_priority = 0
+shader = ExtResource("1_j1b70")
+shader_parameter/circle_color = Color(0.5372549, 0.96862745, 0.6392157, 1)
+shader_parameter/Circle_Texture = ExtResource("2_ahrdn")
+shader_parameter/Extra_Opacity = 0.10000000475
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xgnm0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8utvy"]
+render_priority = 0
+shader = ExtResource("3_nrwjk")
+shader_parameter/ParticleTexture = ExtResource("4_5vsb2")
+
+[sub_resource type="Curve" id="Curve_5ncbm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.49596772, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n0ury"]
+texture_mode = 1
+curve = SubResource("Curve_5ncbm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_recpq"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+color = Color(0.26666668, 0.9647059, 0.8901961, 1)
+alpha_curve = SubResource("CurveTexture_n0ury")
+
+[sub_resource type="QuadMesh" id="QuadMesh_s5ah3"]
+size = Vector2(0.25, 0.25)
+
+[node name="MagicCircleTemplate" type="Node3D"]
+
+[node name="CircleMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ShaderMaterial_recpq")
+mesh = SubResource("PlaneMesh_xgnm0")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ShaderMaterial_8utvy")
+amount = 10
+speed_scale = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_recpq")
+draw_pass_1 = SubResource("QuadMesh_s5ah3")

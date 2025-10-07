@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d30apqq5s28cn"]
+
+[ext_resource type="Script" uid="uid://usfehr22ou2f" path="res://austin_newby/game_management/main_scene.gd" id="1_rtb0k"]
+
+[node name="MainScene" type="Node"]
+script = ExtResource("1_rtb0k")

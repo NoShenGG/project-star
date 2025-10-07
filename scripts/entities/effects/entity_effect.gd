@@ -4,7 +4,8 @@ class_name EntityEffect extends Node3D
 enum EffectID {
 	DEBUG_EFFECT,
 	MERGED,
-	INVINCIBLE
+	INVINCIBLE,
+	GRABBED
 }
 var id: EffectID
 var _entity: Entity

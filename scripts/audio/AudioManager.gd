@@ -1,8 +1,9 @@
 extends Node
 # This script belongs to the Global 'audio_manager.tscn'
 # Example Usage: AudioManager.play_sound("SOUNDNAME.mp3")
+# NOTE: FMOD IS THE PRIMARY SFX ENGINE -> therefore this code will likely not be used.
 
-const AUDIO_DIRECTORY := "res://austin_newby/sounds" # !!! this must be changed to main audio directory
+const AUDIO_DIRECTORY := "res://austin_newby/audio/sounds" # !!! this must be changed to main audio directory
 
 @onready var playing : Dictionary = {} ## Dictionary of currently active sounds
 var sound_dict : Dictionary  ## Dictionary of all sounds within [member AUDIO_DIRECTORY]
@@ -15,7 +16,7 @@ func _init() -> void:
 func scan_and_load_sounds(directory):
 	var dir = DirAccess.open(directory)
 	if !dir:
-		push_error("Error opening Audio Directory.")
+		push_error("Error opening Audio Directory. Check file location.")
 		return {}
 	var dic := {}
 	dir.list_dir_begin()
@@ -72,12 +73,12 @@ func play_sound(sound_name: String, bus: String):
 	get_tree().get_root().add_child.call_deferred(a)
 	a.play.call_deferred()
 
-func play_sound_2d(sound_name: String, bus: String, parent: Node2D):
+func play_sound_3d(sound_name: String, bus: String, parent: Node2D):
 	if !(sound_name in sound_dict): 
 		push_error("\"%s\" is not a key in the sound dictionary of AudioManager." % [sound_name])
 		return
 	var sound = sound_dict[sound_name]
-	var a = AudioStreamPlayer2D.new()
+	var a = AudioStreamPlayer3D.new()
 	a.name = sound_name
 	a.stream = sound.stream
 	a.volume_db = sound.volume

@@ -4,11 +4,14 @@ class_name Entity extends CharacterBody3D
 enum Faction {PLAYER, NEUTRAL, HOSTILE}
 
 signal killed
+signal hurt(damage : float)
 
 @export var _movement_speed: float = 1.0
 @export var faction: Faction = Faction.NEUTRAL
 @export var _hp: float = 10.0
 @export var _max_hp: float = 10.0
+
+@onready var state_machine: StateMachine = $StateMachine
 
 var _status_effects: Dictionary[EntityEffect.EffectID, EntityEffect] = {}
 var _stopped_effects: Array[EntityEffect.EffectID] = []
@@ -34,6 +37,7 @@ func try_damage(damage_amount: float) -> bool:
 	var new_hp: float = _hp - damage_amount
 	if new_hp > 0.0:
 		_hp = new_hp
+		hurt.emit(damage_amount)
 		return true
 	else:
 		_hp = 0.0
