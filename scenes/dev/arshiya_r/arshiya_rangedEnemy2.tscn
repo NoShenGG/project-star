@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=3 uid="uid://cuytpso4p1xv1"]
+
+[ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_sxgx1"]
+[ext_resource type="Script" uid="uid://727asywd4f55" path="res://scripts/entities/player/debug_player.gd" id="2_w1o6i"]
+[ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="3_jv1dn"]
+[ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="4_2esio"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1m1m0"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_pqd0k"]
+vertices = PackedVector3Array(-29.5, 1.5, -29.5, -29.5, 1.5, 29.5, 29.5, 1.5, 29.5, 29.5, 1.5, -29.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1m1m0"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1m1m0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ggon3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05f11"]
+render_priority = 0
+shader = ExtResource("3_jv1dn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jnod"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3r3p"]
+albedo_color = Color(1, 0, 1, 1)
+
+[node name="Prototype" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_1m1m0")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Ground"]
+navigation_mesh = SubResource("NavigationMesh_pqd0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/NavigationRegion3D"]
+mesh = SubResource("BoxMesh_1m1m0")
+skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.770402, -0.637558, 0, 0.637558, 0.770402, 44.902454, 29.529377, 30.247894)
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)
+
+[node name="PlayerManager" type="Node3D" parent="."]
+script = ExtResource("1_sxgx1")
+
+[node name="Player" type="CharacterBody3D" parent="PlayerManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+script = ExtResource("2_w1o6i")
+_movement_speed = 14.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player"]
+shape = SubResource("CapsuleShape3D_1m1m0")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player"]
+mesh = SubResource("CapsuleMesh_ggon3")
+surface_material_override/0 = SubResource("ShaderMaterial_05f11")
+
+[node name="Player2" type="CharacterBody3D" parent="PlayerManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+script = ExtResource("2_w1o6i")
+_movement_speed = 14.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2"]
+shape = SubResource("CapsuleShape3D_1m1m0")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2"]
+mesh = SubResource("CapsuleMesh_ggon3")
+surface_material_override/0 = SubResource("StandardMaterial3D_8jnod")
+
+[node name="Player3" type="CharacterBody3D" parent="PlayerManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+script = ExtResource("2_w1o6i")
+_movement_speed = 14.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3"]
+shape = SubResource("CapsuleShape3D_1m1m0")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3"]
+mesh = SubResource("CapsuleMesh_ggon3")
+surface_material_override/0 = SubResource("StandardMaterial3D_s3r3p")
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("4_2esio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.567377, 2.321, 0)
+speed = 13
+target_node = NodePath("../PlayerManager")
+vision_radius = 2.0
+attack_radius = 10.0
+_movement_speed = 13.0
+faction = 2

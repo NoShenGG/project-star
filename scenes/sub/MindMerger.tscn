@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://jr71mbkvd0y7"]
+
+[ext_resource type="Script" uid="uid://cqvnsb4oww5ln" path="res://scripts/entities/enemies/mind_merger.gd" id="1_wql7c"]
+
+[sub_resource type="Curve" id="Curve_wql7c"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5163044, 0.49438208), 2.6009421, 2.6009421, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kpfxc"]
+size = Vector3(0.5, 3, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67oe1"]
+albedo_color = Color(0.819608, 0.207843, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kpfxc"]
+material = SubResource("StandardMaterial3D_67oe1")
+height = 3.0
+
+[node name="MindMerger" type="CharacterBody3D"]
+script = ExtResource("1_wql7c")
+EXPANSION_CURVE = SubResource("Curve_wql7c")
+_movement_speed = 3.0
+faction = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_kpfxc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_kpfxc")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = -1.0

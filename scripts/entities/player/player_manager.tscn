@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://brmdsiu0kp6ca"]
+
+[ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_lyudl"]
+[ext_resource type="PackedScene" uid="uid://brw0p1eirto83" path="res://scenes/dev/christian_d/Nova.tscn" id="2_dvwxt"]
+[ext_resource type="Script" uid="uid://br0axf7abuchp" path="res://scripts/camera_target.gd" id="3_3c5ji"]
+[ext_resource type="Material" uid="uid://et88inwch673" path="res://art_assets/environment/level_1/tiles/mountain_wall.tres" id="3_dvwxt"]
+[ext_resource type="Script" uid="uid://djfekv55fum3x" path="res://scripts/pitch_pivot.gd" id="4_mbt4c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3c5ji"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2lxpy"]
+
+[node name="PlayerManager" type="Node3D"]
+script = ExtResource("1_lyudl")
+
+[node name="Nova" parent="." instance=ExtResource("2_dvwxt")]
+process_mode = 3
+top_level = true
+_movement_speed = 5.0
+
+[node name="Nova2" parent="." instance=ExtResource("2_dvwxt")]
+process_mode = 3
+top_level = true
+_movement_speed = 5.0
+
+[node name="MeshInstance3D" parent="Nova2" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3c5ji")
+
+[node name="Nova3" parent="." instance=ExtResource("2_dvwxt")]
+process_mode = 3
+top_level = true
+_movement_speed = 5.0
+
+[node name="MeshInstance3D" parent="Nova3" index="2"]
+surface_material_override/0 = ExtResource("3_dvwxt")
+
+[node name="CameraTarget" type="Node3D" parent="."]
+top_level = true
+script = ExtResource("3_3c5ji")
+metadata/_custom_type_script = "uid://br0axf7abuchp"
+
+[node name="Camera3D" type="Camera3D" parent="CameraTarget"]
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 25, 25, 25)
+projection = 1
+size = 30.0
+
+[node name="Shake" type="Node" parent="CameraTarget/Camera3D"]
+script = ExtResource("4_mbt4c")
+noise = SubResource("FastNoiseLite_2lxpy")
+
+[node name="FmodListener3D" type="FmodListener3D" parent="CameraTarget/Camera3D"]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://sounds/banks/Player.bank"]
+
+[editable path="Nova2"]
+[editable path="Nova3"]
