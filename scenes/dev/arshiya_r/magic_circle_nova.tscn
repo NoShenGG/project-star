@@ -1,0 +1,96 @@
+[gd_scene load_steps=19 format=3 uid="uid://bi2pwq60ilskr"]
+
+[ext_resource type="Shader" uid="uid://cwxym6x8q6dfq" path="res://scenes/dev/arshiya_r/spinning_ring.tres" id="1_8f5l2"]
+[ext_resource type="Texture2D" uid="uid://cne34sq04otv2" path="res://scenes/dev/arshiya_r/nova_ring.png" id="2_g7mh2"]
+[ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/circle_particles.tres" id="3_8f5l2"]
+[ext_resource type="Texture2D" uid="uid://d4lyinrwaq1jv" path="res://scenes/dev/arshiya_r/nova_inner_ring.png" id="3_g7mh2"]
+[ext_resource type="Shader" uid="uid://cjyovschd3cas" path="res://scenes/dev/arshiya_r/magic_circle_center.tres" id="3_pnu6d"]
+[ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://vfx/Kenny Particle Pack/star_04.png" id="4_g7mh2"]
+[ext_resource type="Texture2D" uid="uid://bugefgtvt5a83" path="res://scenes/dev/arshiya_r/nova_star.png" id="4_raqfb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfcmf"]
+render_priority = 0
+shader = ExtResource("1_8f5l2")
+shader_parameter/circle_color = Color(0.90817404, 0, 0.15822014, 1)
+shader_parameter/Circle_Texture = ExtResource("2_g7mh2")
+shader_parameter/Extra_Opacity = 0.10000000475
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a0i5e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pnu6d"]
+render_priority = 0
+shader = ExtResource("1_8f5l2")
+shader_parameter/circle_color = Color(0.8128322, 0.63761204, 0, 1)
+shader_parameter/Circle_Texture = ExtResource("3_g7mh2")
+shader_parameter/Extra_Opacity = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_raqfb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mnait"]
+render_priority = 0
+shader = ExtResource("3_pnu6d")
+shader_parameter/circle_color = Color(1, 0, 0, 1)
+shader_parameter/Circle_Texture = ExtResource("4_raqfb")
+shader_parameter/Extra_Opacity = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_apg51"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ippvo"]
+render_priority = 0
+shader = ExtResource("3_8f5l2")
+shader_parameter/ParticleTexture = ExtResource("4_g7mh2")
+
+[sub_resource type="Curve" id="Curve_nst4l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.49596772, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n0ury"]
+texture_mode = 1
+curve = SubResource("Curve_nst4l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xscg6"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 1.5
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_n0ury")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gajvk"]
+size = Vector2(0.25, 0.25)
+
+[node name="Nova\'s Circle" type="Node3D"]
+
+[node name="outer ring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ShaderMaterial_gfcmf")
+mesh = SubResource("PlaneMesh_a0i5e")
+
+[node name="center" type="Node3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.05, 0)
+
+[node name="inner ring" type="MeshInstance3D" parent="center"]
+material_override = SubResource("ShaderMaterial_pnu6d")
+mesh = SubResource("PlaneMesh_raqfb")
+
+[node name="star" type="MeshInstance3D" parent="center"]
+material_override = SubResource("ShaderMaterial_mnait")
+mesh = SubResource("PlaneMesh_apg51")
+skeleton = NodePath("../..")
+
+[node name="sparks" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ShaderMaterial_ippvo")
+amount = 10
+speed_scale = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xscg6")
+draw_pass_1 = SubResource("QuadMesh_gajvk")
