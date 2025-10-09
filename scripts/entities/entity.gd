@@ -5,6 +5,7 @@ enum Faction {PLAYER, NEUTRAL, HOSTILE}
 
 signal killed
 signal hurt(damage : float)
+signal health_update(percent: float)
 
 @export var _movement_speed: float = 1.0
 @export var faction: Faction = Faction.NEUTRAL
@@ -15,6 +16,9 @@ signal hurt(damage : float)
 
 var _status_effects: Dictionary[EntityEffect.EffectID, EntityEffect] = {}
 var _stopped_effects: Array[EntityEffect.EffectID] = []
+
+func _ready() -> void:
+	health_update.emit(1)
 
 func _process(delta: float) -> void:
 	for id: EntityEffect.EffectID in _status_effects:
@@ -34,31 +38,31 @@ func try_damage(damage_amount: float) -> bool:
 	if damage_amount <= 0:
 		assert(false, "Damage amount cannot be <= 0")
 		return false
+	if _status_effects.has(EntityEffect.EffectID.INVINCIBLE):
+		# play invincibility animation perhaps?
+		print("Damage blocked by invincibility!")
+		return true
 	var new_hp: float = _hp - damage_amount
 	if new_hp > 0.0:
 		_hp = new_hp
 		hurt.emit(damage_amount)
-		return true
 	else:
 		_hp = 0.0
 		trigger_death()
-		return true
+	health_update.emit(_hp / _max_hp)
+	return true
 
 func try_heal(heal_amount: float) -> bool:
 	if heal_amount <= 0:
 		assert(false, "Heal amount cannot be <= 0")
 		return false
 	var new_hp: float = _hp + heal_amount
-	if _status_effects.has(EntityEffect.EffectID.INVINCIBLE):
-		# play invincibility animation perhaps?
-		print("Damage blocked by invincibility!")
-		return true
 	if new_hp > _max_hp:
 		_hp = _max_hp
-		return true
 	else:
 		_hp = new_hp
-		return true
+	health_update.emit(_hp / _max_hp)
+	return true
 
 func trigger_death():
 	killed.emit()
