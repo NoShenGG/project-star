@@ -10,7 +10,7 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pcnfp"]
 
-[node name="RangedWeapon" type="Node3D"]
+[node name="RangedWeapon" type="Node3D" groups=["Enemies"]]
 script = ExtResource("1_duflq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
