@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b23jk7qpglhje"
-path="res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex"
+uid="uid://d4lyinrwaq1jv"
+path.s3tc="res://.godot/imported/nova_inner_ring.png-f4fa884c5026a7a5175217d8ae32f506.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=["res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.s3tc.ctex"]
+source_file="res://scenes/dev/arshiya_r/nova_inner_ring.png"
+dest_files=["res://.godot/imported/nova_inner_ring.png-f4fa884c5026a7a5175217d8ae32f506.s3tc.ctex"]
 
 [params]
 
