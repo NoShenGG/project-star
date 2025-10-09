@@ -26,10 +26,12 @@ script = ExtResource("1_lyudl")
 process_mode = 3
 top_level = true
 _movement_speed = 5.0
+_breakable = false
 
 [node name="Nova2" parent="." instance=ExtResource("2_dvwxt")]
 top_level = true
 _movement_speed = 5.0
+_breakable = false
 
 [node name="MeshInstance3D" parent="Nova2" index="2"]
 mesh = SubResource("CapsuleMesh_chdrm")
@@ -38,6 +40,7 @@ surface_material_override/0 = null
 [node name="Nova3" parent="." instance=ExtResource("2_dvwxt")]
 top_level = true
 _movement_speed = 5.0
+_breakable = false
 
 [node name="MeshInstance3D" parent="Nova3" index="2"]
 mesh = SubResource("CapsuleMesh_kpy7t")
