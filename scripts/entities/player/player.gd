@@ -64,5 +64,3 @@ func dash(dist := dash_distance) -> void:
 	
 func trigger_death() -> void:
 	push_error("Player has Died")
-	assert(false)
-	

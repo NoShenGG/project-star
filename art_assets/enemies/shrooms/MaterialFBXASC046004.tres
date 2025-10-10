@@ -5,4 +5,4 @@
 [resource]
 resource_name = "MaterialFBXASC046004"
 albedo_texture = ExtResource("1_hucqg")
-roughness = 0.72
+roughness = 0.31392077

@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d30qvxvgmp1bf"]
+[gd_scene load_steps=7 format=3 uid="uid://d30qvxvgmp1bf"]
 
 [ext_resource type="Script" uid="uid://b4yuuj85lxdw8" path="res://scripts/entities/enemies/mossum/Mossum.gd" id="1_ecso2"]
+[ext_resource type="PackedScene" uid="uid://ddx34kp4dcdqk" path="res://art_assets/enemies/mossum/mossum_rig.gltf" id="2_g0rg0"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_l26uf"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3sqws"]
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ecso2"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l26uf"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_l26uf"]
+size = Vector3(0.28, 0.36, 1.05)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g0rg0"]
 height = 0.1
@@ -23,12 +20,11 @@ collision_mask = 3
 script = ExtResource("1_ecso2")
 attack_radius = 3.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_overlay = SubResource("StandardMaterial3D_3sqws")
-mesh = SubResource("CapsuleMesh_ecso2")
+[node name="mossum_rig" parent="." instance=ExtResource("2_g0rg0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.18, 0.18)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_l26uf")
+shape = SubResource("BoxShape3D_l26uf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 10.0
@@ -48,7 +44,7 @@ shape = SubResource("CylinderShape3D_g0rg0")
 debug_color = Color(1, 0, 0, 1)
 
 [node name="StatusBars" parent="." instance=ExtResource("2_l26uf")]
-transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.997466, 0)
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 1, 0)
 texture = SubResource("ViewportTexture_g0rg0")
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
