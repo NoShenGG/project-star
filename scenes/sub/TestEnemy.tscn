@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cy13cantipmem"]
 
-[ext_resource type="Script" uid="uid://ep4kvytqtqxh" path="res://scripts/entities/enemies/merger_test_enemy.gd" id="1_ubbc6"]
+[ext_resource type="Script" uid="uid://ep4kvytqtqxh" path="res://scripts/entities/enemies/melee_enemy.gd" id="1_ubbc6"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_oyuv5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4wg20"]

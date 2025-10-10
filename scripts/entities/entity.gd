@@ -34,6 +34,8 @@ func _ready() -> void:
 	health_update.emit(1)
 
 func _process(delta: float) -> void:
+	if (death): return
+	
 	for id: EntityEffect.EffectID in _status_effects:
 		var effect = _status_effects.get(id)
 		if not effect.process(delta):
@@ -50,6 +52,9 @@ func apply_effect(effect: EntityEffect):
 	effect.try_apply(self)
 
 func try_damage(damage_amount: float) -> bool:
+	if (death):
+		return false
+	
 	if damage_amount <= 0:
 		assert(false, "Damage amount cannot be <= 0")
 		return false
@@ -70,6 +75,8 @@ func try_damage(damage_amount: float) -> bool:
 			broken.emit()
 	return true
 
+var death: bool =false
+
 func try_heal(heal_amount: float) -> bool:
 	if heal_amount <= 0:
 		assert(false, "Heal amount cannot be <= 0")
@@ -81,6 +88,10 @@ func try_heal(heal_amount: float) -> bool:
 		_hp = new_hp
 	return true
 
+
 func trigger_death():
 	killed.emit()
+	death = true
+	collision_layer = 0
+	await get_tree().create_timer(2.5).timeout
 	self.call_deferred("queue_free")

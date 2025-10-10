@@ -47,6 +47,7 @@ height = 16
 
 [node name="StatusBars" type="Sprite3D"]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 0, 0)
+billboard = 2
 texture = SubResource("ViewportTexture_y83ja")
 script = ExtResource("1_wpcfj")
 BAR_ANIMATION_EASE_CURVE = SubResource("Curve_3ijnh")
