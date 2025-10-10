@@ -15,16 +15,11 @@ func _process(delta: float) -> void:
 		
 		set_movement_target(Vector3(pos.x, position.y, pos.z))
 		rotate_y(global_basis.z.signed_angle_to(dir, Vector3.UP) * delta * 10)
-	elif (is_attacking):
-		rotate_y(global_basis.z.signed_angle_to(global_position - GameManager.curr_player.global_position, Vector3.UP) * delta * 10)
-		
+	
+	## code for attacking player / directly looking at player
+	#rotate_y(global_basis.z.signed_angle_to(global_position - GameManager.curr_player.global_position, Vector3.UP) * delta * 10)
+	
 	super(delta)
-
-signal on_attack
-
-func attack() -> void:
-	super()
-	on_attack.emit()
 
 func try_damage(damage_amount: float) -> bool:
 	print("OUCH " + str(damage_amount))

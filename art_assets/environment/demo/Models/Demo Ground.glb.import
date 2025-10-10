@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://jn7imbi14pmb"
-path="res://.godot/imported/nova_animations_mixamo.glb-766bc4d9abf9d8acb191a940d5860504.scn"
+uid="uid://brm5pex5efdsp"
+path="res://.godot/imported/Demo Ground.glb-6b64959eb8cc585fbbcad69d8583fd8f.scn"
 
 [deps]
 
-source_file="res://art_assets/characters/Nova/nova_animations_mixamo.glb"
-dest_files=["res://.godot/imported/nova_animations_mixamo.glb-766bc4d9abf9d8acb191a940d5860504.scn"]
+source_file="res://art_assets/environment/demo/Models/Demo Ground.glb"
+dest_files=["res://.godot/imported/Demo Ground.glb-6b64959eb8cc585fbbcad69d8583fd8f.scn"]
 
 [params]
 
@@ -38,9 +38,21 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Main/Skeleton3D": {
-"retarget/bone_map": Resource("uid://dm4nn4gi7noub", "res://art_assets/enemies/kobold/KoboldBonemapMap.tres")
+"materials": {
+"Grass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/demo/Models/grassDemo.tres",
+"use_external/path": "uid://c7j6s6ajxku2i"
+},
+"Stone": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/demo/Models/stoneDemo.tres",
+"use_external/path": "uid://bpalo5rgcs0wl"
+},
+"Wood": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/demo/Models/woodDemo.tres",
+"use_external/path": "uid://7j5sv1f5iur5"
 }
 }
 }

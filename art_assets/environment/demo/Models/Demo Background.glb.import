@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://jn7imbi14pmb"
-path="res://.godot/imported/nova_animations_mixamo.glb-766bc4d9abf9d8acb191a940d5860504.scn"
+uid="uid://bglkvqjeppdbu"
+path="res://.godot/imported/Demo Background.glb-3ab8c68b82984ef2318dcfee87cf07b7.scn"
 
 [deps]
 
-source_file="res://art_assets/characters/Nova/nova_animations_mixamo.glb"
-dest_files=["res://.godot/imported/nova_animations_mixamo.glb-766bc4d9abf9d8acb191a940d5860504.scn"]
+source_file="res://art_assets/environment/demo/Models/Demo Background.glb"
+dest_files=["res://.godot/imported/Demo Background.glb-3ab8c68b82984ef2318dcfee87cf07b7.scn"]
 
 [params]
 
@@ -38,9 +38,16 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Main/Skeleton3D": {
-"retarget/bone_map": Resource("uid://dm4nn4gi7noub", "res://art_assets/enemies/kobold/KoboldBonemapMap.tres")
+"materials": {
+"Rock": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/demo/Models/rockDemo.tres",
+"use_external/path": "uid://c8utdyjqrygmp"
+},
+"Stone": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/demo/Models/stoneDemo.tres",
+"use_external/path": "uid://bpalo5rgcs0wl"
 }
 }
 }
