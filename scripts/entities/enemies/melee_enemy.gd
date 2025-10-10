@@ -1,5 +1,5 @@
 ## Test Enemy to be controlled by Mind Merger
-class_name MergerTestEnemy extends Enemy
+class_name MeleeEnemy extends Enemy
 
 ## distance from player before stopping
 @export var attack_distance : float = 1
