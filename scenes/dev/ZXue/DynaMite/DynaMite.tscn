@@ -20,7 +20,13 @@ radius = 3.463
 viewport_path = NodePath("SubViewport")
 
 [node name="DynaMite" type="CharacterBody3D" groups=["Enemies"]]
+collision_layer = 10
+collision_mask = 3
 script = ExtResource("1_gnlae")
+COUNTDOWN_RANGE = 3.0
+COUNTDOWN = 1.0
+DAMAGE = 7.0
+attack_radius = 3.0
 passive_death_time = 0.5
 metadata/_custom_type_script = "uid://cetk67agmcktg"
 
@@ -69,4 +75,6 @@ shape = SubResource("SphereShape3D_g2vom")
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 1.5, 0)
 texture = SubResource("ViewportTexture_0gklw")
 
+[connection signal="break_update" from="." to="StatusBars" method="update_break"]
+[connection signal="health_update" from="." to="StatusBars" method="update_health"]
 [connection signal="timeout" from="CountdownTimer" to="StateMachine/countdown" method="_on_countdown_timer_timeout"]

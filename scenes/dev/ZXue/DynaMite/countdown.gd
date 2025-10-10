@@ -45,18 +45,6 @@ func exit() -> void:
 
 #when countdown ends
 func _on_countdown_timer_timeout() -> void:
-	#DEBUG
-	print("countdown timer is out")
-	#handles the finish of this state
-	#firstly, explode.
-	#and firstly, open up the hitbox.
-	$"../../Hitbox".set_disabled(false)
-	#DEBUG
-	print("hitbox disabled")
-	#then......then what?
-	#does this work???
-	print("calling player damage")
-	$"../..".playerRef.call("try_damage", $"../..".DAMAGE)
-	print("player damage called")
-	#finally, close hitbox and yes, finish this state.
+	if (dynamite.global_position.distance_to(dynamite.playerRef.global_position) < dynamite.attack_radius):
+		dynamite.playerRef.try_damage(dynamite.DAMAGE)
 	trigger_finished.emit("dead")
