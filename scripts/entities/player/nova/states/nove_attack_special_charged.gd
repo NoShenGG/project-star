@@ -52,6 +52,7 @@ func physics_update(delta: float) -> void:
 		
 func do_damage() -> void:
 	await get_tree().physics_frame
+	await get_tree().physics_frame
 	for node in nova.dash_box.get_overlapping_bodies():
 		if not node is Enemy:
 			continue

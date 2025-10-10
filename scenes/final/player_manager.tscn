@@ -13,7 +13,7 @@ script = ExtResource("1_lyudl")
 [node name="Nova" parent="." instance=ExtResource("2_dvwxt")]
 process_mode = 3
 top_level = true
-_movement_speed = 5.0
+_movement_speed = 10.0
 _hp = 30.0
 _max_hp = 30.0
 _breakable = false
@@ -116,6 +116,8 @@ _hp = 30.0
 _max_hp = 30.0
 _breakable = false
 
+<<<<<<< HEAD
+=======
 [node name="GeneralSkeleton" parent="Nova3/nova_animations_kobold/Armature" index="0"]
 bones/0/position = Vector3(-7.7406215e-10, 0.7089215, -0.012175957)
 bones/0/rotation = Quaternion(6.7331674e-10, 0.99996024, 0.008918356, 7.549492e-08)
@@ -144,6 +146,7 @@ bones/21/rotation = Quaternion(0.5967692, 0.002726545, 0.012935521, 0.802304)
 [node name="Hand_L" parent="Nova3/nova_animations_kobold/Armature/GeneralSkeleton" index="0"]
 transform = Transform3D(-0.3185169, -0.61992717, 0.71710354, -0.15898205, -0.7108524, -0.68513805, 0.93448997, -0.3322347, 0.12786122, 0.48736513, 0.91873586, -0.050785374)
 
+>>>>>>> upstream/m2
 [node name="Idle" parent="Nova3/nova_animations_kobold" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
