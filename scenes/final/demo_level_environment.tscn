@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bry7x0hcx2p1b"]
+[gd_scene load_steps=13 format=3 uid="uid://bry7x0hcx2p1b"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_kaa7a"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="2_0tv2d"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cy13cantipmem" path="res://scenes/sub/TestEnemy.tscn" id="4_44u6p"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="5_0tv2d"]
 [ext_resource type="PackedScene" uid="uid://cwo7k5blghvxp" path="res://scripts/dev/Throttle/FrameLimiter.tscn" id="5_v8q31"]
+[ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="7_wg1h0"]
 
 [sub_resource type="Environment" id="Environment_bly0l"]
 background_mode = 1
@@ -74,6 +75,7 @@ transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357
 texture = SubResource("ViewportTexture_wg1h0")
 
 [node name="FrameLimiter" parent="." instance=ExtResource("5_v8q31")]
+visible = false
 offset_left = -228.99994
 offset_top = 14.0
 offset_right = 180.0
@@ -85,5 +87,8 @@ event_name = "event:/Levels/GrassLand/Background Ambiance"
 event_guid = "{fbb12ac9-23d2-4ea8-a105-cdd7402e8bca}"
 autoplay = true
 
+[node name="GameUi" parent="." instance=ExtResource("7_wg1h0")]
+
+[connection signal="player_hp_update" from="PlayerManager" to="GameUi" method="update_health"]
 [connection signal="break_update" from="TestEnemy" to="TestEnemy/Healthbar" method="update_break"]
 [connection signal="health_update" from="TestEnemy" to="TestEnemy/Healthbar" method="update_health"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bx6y3af7ybavb"]
+[gd_scene load_steps=19 format=3 uid="uid://bx6y3af7ybavb"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_7ji1e"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="2_5klj7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cy13cantipmem" path="res://scenes/sub/TestEnemy.tscn" id="5_jrnv7"]
 [ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://vfx/Kenny Particle Pack/circle_01.png" id="9_pc856"]
 [ext_resource type="Script" uid="uid://13uw6pe5u3b0" path="res://scripts/utility/spawn_area.gd" id="10_ahgbm"]
+[ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="11_5klj7"]
 
 [sub_resource type="Environment" id="Environment_1p1tq"]
 background_mode = 1
@@ -152,6 +153,8 @@ mesh = SubResource("PlaneMesh_u2m4g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0275345, 0, 18.775848)
 script = ExtResource("10_ahgbm")
 metadata/_custom_type_script = "uid://13uw6pe5u3b0"
+
+[node name="GameUi" parent="." instance=ExtResource("11_5klj7")]
 
 [connection signal="fight_ended" from="WaveManager" to="WaveManager/End" method="play_one_shot"]
 [connection signal="fight_started" from="WaveManager" to="WaveManager/Start" method="play_one_shot"]
