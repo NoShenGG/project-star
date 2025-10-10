@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bry7x0hcx2p1b"]
+[gd_scene load_steps=11 format=3 uid="uid://bry7x0hcx2p1b"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_kaa7a"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="2_0tv2d"]
 [ext_resource type="MeshLibrary" uid="uid://b88u34a3ref8h" path="res://art_assets/environment/level_1/level1tiles.tres" id="3_wg1h0"]
-[ext_resource type="PackedScene" uid="uid://cy13cantipmem" path="res://scenes/sub/TestEnemy.tscn" id="4_44u6p"]
-[ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="5_0tv2d"]
+[ext_resource type="PackedScene" uid="uid://dikwtund4a5xs" path="res://scenes/dev/ZXue/DynaMite/DynaMite.tscn" id="4_0tv2d"]
 [ext_resource type="PackedScene" uid="uid://cwo7k5blghvxp" path="res://scripts/dev/Throttle/FrameLimiter.tscn" id="5_v8q31"]
 [ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="7_wg1h0"]
 
@@ -27,9 +26,6 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 albedo_color = Color(0.16739999, 0.40878665, 0.62, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0lut4"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_wg1h0"]
-viewport_path = NodePath("SubViewport")
 
 [node name="Prototype" type="Node3D"]
 
@@ -66,13 +62,8 @@ material_override = SubResource("StandardMaterial3D_bly0l")
 mesh = SubResource("PlaneMesh_0lut4")
 skeleton = NodePath("../..")
 
-[node name="TestEnemy" parent="." instance=ExtResource("4_44u6p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.163902, 1.1084971, 0)
-_movement_speed = 5.0
-
-[node name="Healthbar" parent="TestEnemy" instance=ExtResource("5_0tv2d")]
-transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2, 0)
-texture = SubResource("ViewportTexture_wg1h0")
+[node name="DynaMite" parent="." instance=ExtResource("4_0tv2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0089295, 0)
 
 [node name="FrameLimiter" parent="." instance=ExtResource("5_v8q31")]
 visible = false
@@ -95,5 +86,3 @@ offset_bottom = -1063.0
 scale = Vector2(0.12, 0.12)
 
 [connection signal="player_hp_update" from="PlayerManager" to="GameUi" method="update_health"]
-[connection signal="break_update" from="TestEnemy" to="TestEnemy/Healthbar" method="update_break"]
-[connection signal="health_update" from="TestEnemy" to="TestEnemy/Healthbar" method="update_health"]
