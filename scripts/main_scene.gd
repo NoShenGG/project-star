@@ -12,4 +12,4 @@ Loading is handled by loading_screen.gd and is called in GameManager.gd
 
 func _ready() -> void:
 	GameManager.main_scene = self
-	GameManager.load_level("Copied_Level1")
+	GameManager.load_level("main_menu")

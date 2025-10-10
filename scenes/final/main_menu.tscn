@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://xbdggdj3pecd" path="res://scenes/dev/rachael_s/JTAS Title Banner.png" id="2_sfiom"]
 [ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_p0ndc"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0ndc"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_638d5"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u7n6r"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0ndc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iv24n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u7n6r"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -47,25 +47,25 @@ grow_vertical = 0
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../QuitButton")
-theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
-theme_override_colors/font_hover_color = Color(0.886275, 0.545098, 0.639216, 1)
 theme_override_colors/font_focus_color = Color(0.886275, 0.545098, 0.639216, 1)
+theme_override_colors/font_hover_color = Color(0.886275, 0.545098, 0.639216, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
 theme_override_fonts/font = ExtResource("3_p0ndc")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p0ndc")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_638d5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p0ndc")
 text = "Start"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
-theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
-theme_override_colors/font_hover_color = Color(0.886275, 0.545098, 0.639216, 1)
 theme_override_colors/font_focus_color = Color(0.886275, 0.545098, 0.639216, 1)
+theme_override_colors/font_hover_color = Color(0.886275, 0.545098, 0.639216, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
 theme_override_fonts/font = ExtResource("3_p0ndc")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/focus = SubResource("StyleBoxEmpty_u7n6r")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_iv24n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u7n6r")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

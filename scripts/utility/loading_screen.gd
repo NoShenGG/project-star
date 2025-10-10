@@ -65,8 +65,8 @@ func change_scene(next: String) -> void:
 	
 ## List of loading screen tips
 const tooltips: Array[String] = [
-	"Useful Hint",
-	"Not so Useful Hint",
-	"Hellooooo",
-	"Test Idea 4"
+	"To reach the arduous star",
+	"In times both dark and bright",
+	"Seek the shine of the distant tree",
+	"For the one who bears the world"
 	]
