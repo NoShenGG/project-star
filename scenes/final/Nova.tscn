@@ -1,7 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://brw0p1eirto83"]
+[gd_scene load_steps=47 format=3 uid="uid://brw0p1eirto83"]
 
 [ext_resource type="Script" uid="uid://om4qdtr1cye0" path="res://scripts/entities/player/nova/nova.gd" id="1_p5oh7"]
-[ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="2_xdlwu"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="3_6m1nx"]
 [ext_resource type="Script" uid="uid://cvw6ajdumfkos" path="res://scripts/entities/player/nova/nova_dummy_anim.gd" id="3_h31i5"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="4_lfcoe"]
@@ -16,14 +15,81 @@
 [ext_resource type="Script" uid="uid://dssk02ahlboui" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
 [ext_resource type="Script" uid="uid://cauiecxurft0c" path="res://scripts/entities/player/nova/states/nove_attack_special_charged.gd" id="12_k5vrc"]
 [ext_resource type="Script" uid="uid://cty8d5lvonei1" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
+[ext_resource type="PackedScene" uid="uid://jn7imbi14pmb" path="res://art_assets/characters/Nova/nova_animations_mixamo.glb" id="16_r5kh5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_7ch2h"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r5kh5"]
+animation = &"nova_charge_mixamo"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lnm4i"]
-render_priority = 0
-shader = ExtResource("2_xdlwu")
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ranno"]
+animation = &"nova_hurt_mixamo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e701o"]
+animation = &"nova_idle_mixamo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ato7d"]
+animation = &"nova_jumping_slash_mixamo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wsli6"]
+animation = &"nova_run_mixamo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_60tca"]
+animation = &"nova_slash_mixamo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u6tct"]
+animation = &"nova_slide_attack_mixamo"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k2lop"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ob225"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h46t7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uws5v"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ygt4u"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qhfg"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mwi3y"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5up7p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vrbf8"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6qoku"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mm718"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ajeah"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gedrv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n6rgu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sbbhh"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ldc4w"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_lk157"]
+states/End/position = Vector2(1472, 107)
+states/nova_charge_mixamo/node = SubResource("AnimationNodeAnimation_r5kh5")
+states/nova_charge_mixamo/position = Vector2(697, -11)
+states/nova_hurt_mixamo/node = SubResource("AnimationNodeAnimation_ranno")
+states/nova_hurt_mixamo/position = Vector2(924, -11)
+states/nova_idle_mixamo/node = SubResource("AnimationNodeAnimation_e701o")
+states/nova_idle_mixamo/position = Vector2(345, 100)
+states/nova_jumping_slash_mixamo/node = SubResource("AnimationNodeAnimation_ato7d")
+states/nova_jumping_slash_mixamo/position = Vector2(1008, 115)
+states/nova_run_mixamo/node = SubResource("AnimationNodeAnimation_wsli6")
+states/nova_run_mixamo/position = Vector2(576, 100)
+states/nova_slash_mixamo/node = SubResource("AnimationNodeAnimation_60tca")
+states/nova_slash_mixamo/position = Vector2(754, 168)
+states/nova_slide_attack_mixamo/node = SubResource("AnimationNodeAnimation_u6tct")
+states/nova_slide_attack_mixamo/position = Vector2(1128, 48)
+transitions = ["Start", "nova_idle_mixamo", SubResource("AnimationNodeStateMachineTransition_k2lop"), "nova_idle_mixamo", "nova_run_mixamo", SubResource("AnimationNodeStateMachineTransition_ob225"), "nova_run_mixamo", "nova_charge_mixamo", SubResource("AnimationNodeStateMachineTransition_h46t7"), "nova_run_mixamo", "nova_slash_mixamo", SubResource("AnimationNodeStateMachineTransition_uws5v"), "nova_slash_mixamo", "nova_jumping_slash_mixamo", SubResource("AnimationNodeStateMachineTransition_ygt4u"), "nova_jumping_slash_mixamo", "nova_slide_attack_mixamo", SubResource("AnimationNodeStateMachineTransition_8qhfg"), "nova_slide_attack_mixamo", "nova_run_mixamo", SubResource("AnimationNodeStateMachineTransition_mwi3y"), "nova_jumping_slash_mixamo", "nova_run_mixamo", SubResource("AnimationNodeStateMachineTransition_5up7p"), "nova_slash_mixamo", "nova_run_mixamo", SubResource("AnimationNodeStateMachineTransition_vrbf8"), "nova_run_mixamo", "nova_idle_mixamo", SubResource("AnimationNodeStateMachineTransition_6qoku"), "nova_run_mixamo", "nova_hurt_mixamo", SubResource("AnimationNodeStateMachineTransition_mm718"), "nova_slash_mixamo", "nova_hurt_mixamo", SubResource("AnimationNodeStateMachineTransition_ajeah"), "nova_jumping_slash_mixamo", "nova_hurt_mixamo", SubResource("AnimationNodeStateMachineTransition_gedrv"), "nova_slide_attack_mixamo", "nova_hurt_mixamo", SubResource("AnimationNodeStateMachineTransition_n6rgu"), "nova_hurt_mixamo", "nova_run_mixamo", SubResource("AnimationNodeStateMachineTransition_sbbhh"), "nova_charge_mixamo", "nova_hurt_mixamo", SubResource("AnimationNodeStateMachineTransition_ldc4w")]
+graph_offset = Vector2(96, -46)
 
 [sub_resource type="BoxMesh" id="BoxMesh_x427t"]
 size = Vector3(0.1, 0.1, 5)
@@ -106,10 +172,85 @@ script = ExtResource("13_5otq2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_21ndv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_7ch2h")
-surface_material_override/0 = SubResource("ShaderMaterial_lnm4i")
+[node name="nova_animations_mixamo" parent="." instance=ExtResource("16_r5kh5")]
+transform = Transform3D(-0.555, 0, -4.851964e-08, 0, 0.555, 0, 4.851964e-08, 0, -0.555, 0, 0, -0.14)
+
+[node name="Skeleton3D" parent="nova_animations_mixamo/Main" index="0"]
+bones/0/position = Vector3(-10.144676, -36.6112, -164.95436)
+bones/0/rotation = Quaternion(-0.6668161, -0.09341231, 0.07769723, 0.7352507)
+bones/1/position = Vector3(4.7683716e-06, 10.5276165, 0.43764547)
+bones/1/rotation = Quaternion(0.22001548, 0.042381547, 0.013852476, 0.9744768)
+bones/2/position = Vector3(-3.2186508e-06, 12.292816, 9.387731e-06)
+bones/2/rotation = Quaternion(0.032192808, 0.010754597, -0.0074378047, 0.99939615)
+bones/3/position = Vector3(1.1920911e-06, 14.048965, -2.1755695e-06)
+bones/3/rotation = Quaternion(0.032127425, 0.011395317, -0.0074884417, 0.9993908)
+bones/4/position = Vector3(4.529951e-06, 15.805076, 6.2372783e-06)
+bones/4/rotation = Quaternion(-0.13098134, 0.012326016, 0.018478045, 0.99113595)
+bones/5/rotation = Quaternion(-0.12424726, 0.06421475, -0.036875054, 0.98948437)
+bones/6/position = Vector3(1.1920929e-07, 97.992615, 9.074194)
+bones/7/position = Vector3(16.403793, 6.214157, 0.05386043)
+bones/7/rotation = Quaternion(0.6555527, 0.39087003, -0.40998012, 0.49938732)
+bones/8/position = Vector3(2.5762401e-06, 32.58179, -1.8156084e-05)
+bones/8/rotation = Quaternion(0.89396214, -0.25333992, 0.07809237, 0.36132032)
+bones/9/position = Vector3(-2.1052663e-05, 1.9758527, -9.230355e-06)
+bones/9/rotation = Quaternion(0.1486062, -0.67766917, 0.19835572, 0.69234073)
+bones/10/position = Vector3(6.1496958e-06, 30.447693, -5.134577e-06)
+bones/10/rotation = Quaternion(0.17924497, 0.95031244, -0.025042675, 0.25327954)
+bones/11/position = Vector3(-4.5610414, 19.069725, 3.337861e-06)
+bones/11/rotation = Quaternion(0.012526676, -0.08405943, 0.16100878, 0.983287)
+bones/12/position = Vector3(0.2712059, 15.683752, 1.1930861e-06)
+bones/12/rotation = Quaternion(0.24148394, 0.1606139, -0.21153407, 0.9333499)
+bones/13/position = Vector3(-1.8930779, 7.8050733, 2.0256153e-05)
+bones/13/rotation = Quaternion(0.5311639, 0.20167144, -0.18932906, 0.80084217)
+bones/14/position = Vector3(1.6218553, 3.813013, 4.7683807e-07)
+bones/15/position = Vector3(-2.848477e-05, 38.261547, 0.10430988)
+bones/15/rotation = Quaternion(0.54699385, -0.113566495, 0.35603055, 0.7490946)
+bones/16/position = Vector3(0.27875137, 7.187783, 1.3452869e-05)
+bones/16/rotation = Quaternion(0.27892977, -0.043600213, 0.23213449, 0.9308119)
+bones/17/position = Vector3(0.63734984, 5.554159, 3.679177e-06)
+bones/17/rotation = Quaternion(0.73949665, 0.063432604, 0.3931587, 0.5427223)
+bones/18/position = Vector3(-0.9160924, 1.8992691, -1.0967256e-05)
+bones/19/position = Vector3(-16.403784, 6.2427945, 0.74238485)
+bones/19/rotation = Quaternion(0.64774823, -0.40665907, 0.29677615, 0.5718169)
+bones/20/position = Vector3(4.4769163e-06, 32.581802, 8.061688e-06)
+bones/20/rotation = Quaternion(0.5822651, 0.23016056, -0.05406818, 0.77786255)
+bones/21/position = Vector3(4.7003778e-06, 4.1262765, -6.9116304e-06)
+bones/21/rotation = Quaternion(-0.45593056, 0.22236484, -0.7418827, 0.43851036)
+bones/22/position = Vector3(-5.307753e-07, 30.446672, -4.801498e-06)
+bones/22/rotation = Quaternion(0.06784365, -0.31002688, -0.20704107, 0.92542666)
+bones/23/position = Vector3(4.294343, 19.581867, -4.291549e-06)
+bones/23/rotation = Quaternion(-0.03742789, -0.1149307, -0.049107846, 0.9914527)
+bones/24/position = Vector3(0.44142222, 16.03172, -2.6342268e-05)
+bones/24/rotation = Quaternion(0.30012098, 0.10166782, 0.2288148, 0.92045367)
+bones/25/position = Vector3(1.1519909, 8.137494, 1.2122293e-05)
+bones/25/rotation = Quaternion(0.24998215, 0.10653427, 0.32556537, 0.9056305)
+bones/26/position = Vector3(-1.5934334, 3.3020773, 1.4781952e-05)
+bones/27/position = Vector3(2.653649e-05, 35.265915, 0.5178594)
+bones/27/rotation = Quaternion(0.20807931, -0.087766, -0.08293428, 0.9706297)
+bones/28/position = Vector3(-1.7069788, 8.267293, -6.113645e-06)
+bones/28/rotation = Quaternion(0.70541334, 0.026224777, -0.56076, 0.4327269)
+bones/29/position = Vector3(0.9090843, 7.0969224, 1.3406709e-05)
+bones/29/rotation = Quaternion(0.31339446, -0.060204502, -0.17838068, 0.93077374)
+bones/30/position = Vector3(0.7978735, 2.5626369, -9.536744e-07)
+bones/31/rotation = Quaternion(0.030056437, 0.38927165, 0.9149656, -0.10199095)
+bones/32/position = Vector3(1.0882089e-06, 73.490814, -8.777785e-06)
+bones/32/rotation = Quaternion(-0.4926785, -0.010811044, 0.009785328, 0.8700893)
+bones/33/position = Vector3(1.683517e-06, 72.29305, -5.849164e-06)
+bones/33/rotation = Quaternion(0.639259, -0.023936601, -0.04950486, 0.7670231)
+bones/34/rotation = Quaternion(0.14492409, 0.006328327, 0.016052773, 0.9892924)
+bones/36/rotation = Quaternion(-0.10117676, 0.14757986, 0.9791525, 0.09614442)
+bones/37/rotation = Quaternion(-0.3489991, 0.052660663, -0.026606392, 0.93526393)
+bones/38/position = Vector3(4.6984387e-06, 63.12727, -8.478778e-06)
+bones/38/rotation = Quaternion(0.5496563, -0.060039904, 0.12046089, 0.8244771)
+bones/39/position = Vector3(-2.3387222e-06, 28.003176, 2.4298195e-06)
+bones/39/rotation = Quaternion(0.24645628, 0.1421765, -0.030123984, 0.9581951)
+
+[node name="mixamorig_LeftHand" parent="nova_animations_mixamo/Main/Skeleton3D" index="0"]
+transform = Transform3D(0.13881303, -0.8289727, -0.5417895, -0.70441353, 0.3018898, -0.6423896, 0.6960841, 0.4708162, -0.54203296, 11.037254, -3.5937963, -167.85483)
+
+[node name="AnimationTree" type="AnimationTree" parent="nova_animations_mixamo"]
+tree_root = SubResource("AnimationNodeStateMachine_lk157")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="DummyAnimation" type="Node" parent="."]
 script = ExtResource("3_h31i5")
@@ -195,3 +336,5 @@ event_guid = "{c01c64a7-fee5-463c-adda-e0bf3a57057b}"
 [connection signal="attack_charged_hit" from="DummyAnimation" to="StateMachine/AttackingCharged" method="do_damage"]
 [connection signal="attack_done" from="DummyAnimation" to="StateMachine/Attacking" method="end"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking" method="do_damage"]
+
+[editable path="nova_animations_mixamo"]
