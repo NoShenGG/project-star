@@ -60,9 +60,4 @@ func _on_countdown_timer_timeout() -> void:
 	$"../..".playerRef.call("try_damage", $"../..".DAMAGE)
 	print("player damage called")
 	#finally, close hitbox and yes, finish this state.
-	print("ready to die")#up to this point everything is ok
-	$"../../Hitbox".set_disabled(true)
-	$"../../deathTimer".timeout.connect(Callable($".", "end"))
-	$"../../deathTimer".start(0.5)
-	print("death timer on")
-	#after this deathTimer thing is done, signal: finished will be emitted.
+	trigger_finished.emit("dead")

@@ -18,6 +18,7 @@ radius = 3.463
 
 [node name="DynaMite" type="CharacterBody3D" groups=["Enemies"]]
 script = ExtResource("1_gnlae")
+passive_death_time = 0.5
 metadata/_custom_type_script = "uid://cetk67agmcktg"
 
 [node name="dynamite_rig" parent="." instance=ExtResource("2_i3822")]
@@ -58,9 +59,6 @@ metadata/_custom_type_script = "uid://c1iptw5vqre6f"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 visible = false
 shape = SubResource("SphereShape3D_g2vom")
-
-[node name="deathTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 

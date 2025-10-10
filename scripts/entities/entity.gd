@@ -24,6 +24,7 @@ signal break_update(percent: float)
 @export var _break_gain_rate: float = 2.0
 @export var _break_drain_rate: float = 0.05
 @export var _break_cooldown: float = 5.0
+@export var passive_death_time : float = 2.5
 
 @onready var state_machine: StateMachine = $StateMachine
 
@@ -93,5 +94,5 @@ func trigger_death():
 	killed.emit()
 	death = true
 	collision_layer = 0
-	await get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(passive_death_time).timeout
 	self.call_deferred("queue_free")

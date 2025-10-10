@@ -4,8 +4,6 @@ class_name Enemy extends Entity
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @export var vision_radius: float = 1
 @export var attack_radius: float = 1
-# TODO: This is jank, use state machine when completed
-@export var is_attacking: bool
 
 signal move
 signal idle
@@ -33,15 +31,8 @@ func set_movement_target(movement_target: Vector3):
 		print("moving")
 	navigation_agent.target_position = movement_target
 
-func attack() -> void:
-	# INCLUDE YOUR IMPLEMENTATION WHEN EXTENDING
-	is_attacking = false
-
 func _process(delta: float) -> void:
 	super(delta)
-	if global_position.distance_to(navigation_agent.target_position) < attack_radius:
-		is_attacking = true
-		attack()
 
 func _physics_process(_delta: float) -> void:
 	if (death): return
@@ -49,9 +40,6 @@ func _physics_process(_delta: float) -> void:
 	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
 	if navigation_agent.is_navigation_finished():
-		moving = false
-		return
-	if is_attacking:
 		moving = false
 		return
 	
