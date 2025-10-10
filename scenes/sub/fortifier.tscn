@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://bo8i2glbe0u23"]
+
+[ext_resource type="Script" uid="uid://bfq0pt6ajyow1" path="res://scripts/entities/enemies/fortifier/fortifier.gd" id="1_3ex7s"]
+[ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_oocy5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ex7s"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oocy5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l26uf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g0rg0"]
+height = 1.0
+radius = 15.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3ex7s"]
+height = 1.0
+radius = 10.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g0rg0"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Fortifier" type="CharacterBody3D"]
+collision_layer = 10
+collision_mask = 3
+script = ExtResource("1_3ex7s")
+vision_radius = 10.0
+attack_radius = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_overlay = SubResource("StandardMaterial3D_3ex7s")
+mesh = SubResource("CapsuleMesh_oocy5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_l26uf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 7.0
+path_max_distance = 100.01
+debug_enabled = true
+debug_path_custom_color = Color(0, 1, 0, 1)
+
+[node name="HitBoxes" type="Node3D" parent="."]
+
+[node name="Aggro" type="Area3D" parent="HitBoxes"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxes/Aggro"]
+shape = SubResource("CylinderShape3D_g0rg0")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="Shield" type="Area3D" parent="HitBoxes"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxes/Shield"]
+shape = SubResource("CylinderShape3D_3ex7s")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="StatusBars" parent="." instance=ExtResource("2_oocy5")]
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.997466, 0)
+texture = SubResource("ViewportTexture_g0rg0")
+
+[connection signal="break_update" from="." to="StatusBars" method="update_break"]
+[connection signal="health_update" from="." to="StatusBars" method="update_health"]
+[connection signal="body_entered" from="HitBoxes/Aggro" to="." method="_on_aggro_body_entered"]
+[connection signal="body_exited" from="HitBoxes/Aggro" to="." method="_on_aggro_body_exited"]
+[connection signal="body_entered" from="HitBoxes/Shield" to="." method="_on_shield_body_entered"]
+[connection signal="body_exited" from="HitBoxes/Shield" to="." method="_on_shield_body_exited"]
