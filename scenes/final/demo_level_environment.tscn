@@ -194,7 +194,7 @@ event_name = "event:/UI/Back"
 event_guid = "{e0b49aba-ee10-44ce-86fd-a6253bb589f0}"
 
 [node name="Wave Start Enter" type="Area3D" parent="WaveManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 9.55)
 collision_layer = 0
 collision_mask = 4
 

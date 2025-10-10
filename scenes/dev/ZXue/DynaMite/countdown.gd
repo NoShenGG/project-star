@@ -48,3 +48,7 @@ func _on_countdown_timer_timeout() -> void:
 	if (dynamite.global_position.distance_to(dynamite.playerRef.global_position) < dynamite.attack_radius):
 		dynamite.playerRef.try_damage(dynamite.DAMAGE)
 	trigger_finished.emit("dead")
+
+
+func _on_dyna_mite_explode_start() -> void:
+	pass # Replace with function body.
