@@ -1,13 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgfavyjfcv751"]
 
-[ext_resource type="Script" uid="uid://hlftd8bsq8gv" path="res://scenes/ZXue/DynaMite_RE/Scripts/enemy_dyna_mite_RE.gd" id="1_27ax6"]
-[ext_resource type="Script" uid="uid://db64qiny7fgtq" path="res://scenes/ZXue/DynaMite_RE/Scripts/fsm.gd" id="2_4ae7f"]
+[ext_resource type="Script" uid="uid://hlftd8bsq8gv" path="res://scenes/dev/ZXue/DynaMite_RE/Scripts/enemy_dyna_mite_RE.gd" id="1_27ax6"]
+[ext_resource type="PackedScene" uid="uid://b0liiu5ijolin" path="res://art_assets/enemies/dyna_mite/dynamite_rig.gltf" id="2_2t1gp"]
+[ext_resource type="Script" uid="uid://db64qiny7fgtq" path="res://scenes/dev/ZXue/DynaMite_RE/Scripts/fsm.gd" id="2_4ae7f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wqpmk"]
 radius = 0.1
 height = 0.25
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_wqpmk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_87ygv"]
 radius = 3.027
@@ -22,9 +21,7 @@ script = ExtResource("1_27ax6")
 transform = Transform3D(5.405, 0, 0, 0, 5.405, 0, 0, 0, 5.405, 0, 0.499545, 0)
 shape = SubResource("CapsuleShape3D_wqpmk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.53, 0, 0, 0, 1, 0, 0.536494, 0)
-mesh = SubResource("CapsuleMesh_wqpmk")
+[node name="dynamite_rig" parent="RigidBody3D" instance=ExtResource("2_2t1gp")]
 
 [node name="SelfDestructionTimer" type="Timer" parent="."]
 wait_time = 4.0
