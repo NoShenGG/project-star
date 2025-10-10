@@ -18,6 +18,7 @@ func recalc_path():
 		
 
 func _process(_delta: float) -> void:
+	super(_delta)
 	if target and can_attack and \
 			global_position.distance_to(target.global_position) < attack_radius:
 		mossum_attack.emit()
