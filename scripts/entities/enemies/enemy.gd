@@ -26,14 +26,11 @@ func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
 func set_movement_target(movement_target: Vector3):
-<<<<<<< Updated upstream
-=======
 	var move_distance : float = global_position.slide(Vector3.UP).distance_to(movement_target.slide(Vector3.UP))
 	print(move_distance)
 	if (!moving and move_distance > 1):
 		moving = true
 		print("moving")
->>>>>>> Stashed changes
 	navigation_agent.target_position = movement_target
 
 func attack() -> void:
