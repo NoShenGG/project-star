@@ -32,6 +32,7 @@ func reset_shield():
 	get_tree().create_timer(attack_cd).timeout.connect(func(): can_attack = true)
 
 func _process(_delta: float) -> void:
+	super(_delta)
 	if can_attack:
 		shield_enemy.emit()
 		shield()

@@ -14,10 +14,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(_delta: float) -> bool:
-	if abs(get_parent().global_position.distance_to(fortifier.global_position)) > fortifier.attack_radius:
-		fortifier.reset_shield()
+	if fortifier != null and abs(get_parent().global_position.distance_to(fortifier.global_position)) > fortifier.attack_radius:
 		return false
 	return active
 
 func stop() -> void:
-	pass
+	if fortifier != null:
+		fortifier.reset_shield()
