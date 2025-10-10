@@ -68,5 +68,15 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_iv24n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u7n6r")
 text = "Quit"
 
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/Music/Main Menu Music"
+event_guid = "{eab26c0b-1f9c-4cea-ab86-41a3ece4b152}"
+autoplay = true
+
+[node name="FmodListener2D" type="FmodListener2D" parent="."]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://sounds/banks/Music.bank"]
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

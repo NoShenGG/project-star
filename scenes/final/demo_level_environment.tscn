@@ -62,7 +62,7 @@ albedo_texture = ExtResource("18_wel6h")
 [node name="Prototype" type="Node3D"]
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://sounds/banks/Enemys.bank", "res://sounds/banks/Ambiance.bank"]
+bank_paths = ["res://sounds/banks/Enemys.bank", "res://sounds/banks/Ambiance.bank", "res://sounds/banks/Music.bank"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)
@@ -146,6 +146,12 @@ scale = Vector2(0.52616984, 0.52616984)
 event_name = "event:/Levels/GrassLand/Background Ambiance"
 event_guid = "{fbb12ac9-23d2-4ea8-a105-cdd7402e8bca}"
 autoplay = true
+
+[node name="Music" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Music/Game Music"
+event_guid = "{5b2682d3-d1f8-41c2-89c6-d1d077472eb1}"
+autoplay = true
+volume = 0.3
 
 [node name="GameUi" parent="." instance=ExtResource("7_wg1h0")]
 offset_left = -37.999996
