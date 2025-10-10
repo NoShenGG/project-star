@@ -47,8 +47,8 @@ grow_vertical = 0
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../QuitButton")
-theme_override_colors/font_focus_color = Color(0.886275, 0.545098, 0.639216, 1)
-theme_override_colors/font_hover_color = Color(0.886275, 0.545098, 0.639216, 1)
+theme_override_colors/font_focus_color = Color(0.6509804, 0.43137255, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.8392157, 0.5529412, 0.77254903, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
 theme_override_fonts/font = ExtResource("3_p0ndc")
 theme_override_font_sizes/font_size = 40
@@ -59,8 +59,8 @@ text = "Start"
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
-theme_override_colors/font_focus_color = Color(0.886275, 0.545098, 0.639216, 1)
-theme_override_colors/font_hover_color = Color(0.886275, 0.545098, 0.639216, 1)
+theme_override_colors/font_focus_color = Color(0.6509804, 0.43137255, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.8392157, 0.5529412, 0.77254903, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
 theme_override_fonts/font = ExtResource("3_p0ndc")
 theme_override_font_sizes/font_size = 40

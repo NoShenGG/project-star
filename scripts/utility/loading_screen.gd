@@ -1,6 +1,6 @@
 extends Control
 
-@export var ANIM_TIME: float = 0.5
+@export var ANIM_TIME: float = 0.7
 @export var FINISH_LOAD_WAIT_TIME: float = 0.5
 @export var BAR_ANIMATION_EASE_CURVE: Curve # Should be a 0 to 1 easing curve.
 
@@ -11,6 +11,7 @@ extends Control
 var next_scene: String
 var progress_arr: Array[float]
 var progress: float
+var old_progress: float
 var anim_step: float
 var loading_status: int
 var done_wait: float
@@ -18,11 +19,14 @@ var done: bool
 	
 func _process(delta: float) -> void:
 	loading_status = ResourceLoader.load_threaded_get_status(next_scene, progress_arr)
-	if progress_arr[0] != progress: # On load status update, reset anim_step and update progress
-		progress = progress_arr[0]
+	if progress_arr[0] * 100 != progress: # On load status update, reset anim_step and update progress
+		old_progress = bar.value
+		progress = progress_arr[0] * 100
 		anim_step = 0
-	anim_step += delta/ANIM_TIME
-	bar.value = BAR_ANIMATION_EASE_CURVE.sample(anim_step) * (progress * 100) # Curve to ease bar animation to current load progress
+	if anim_step < 1:
+		anim_step += delta / ANIM_TIME
+	bar.value = old_progress + \
+			BAR_ANIMATION_EASE_CURVE.sample(clamp(anim_step, 0, 1)) * (progress-old_progress) # Curve to ease bar animation to current load progress
 	text.text = str(roundf(bar.value*100)/100) + "%"
 	
 	## Checks if loading animation is done, then artificially waits.
@@ -56,6 +60,8 @@ func change_scene(next: String) -> void:
 	tooltip.text = tooltips[randi() % tooltips.size()]
 	done = false
 	bar.value = 0
+	old_progress = 0
+	anim_step = 0
 	text.text = str(0) + "%"
 	set_process(false)
 	await get_tree().create_timer(0.5).timeout
