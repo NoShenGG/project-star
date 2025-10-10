@@ -7,7 +7,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	nova.dash_box.monitoring = true
 	nova.can_dash = true
 	get_tree().physics_frame.connect(do_damage)
-	player.dash(nova.special_dash_dist)
+	player.dash(nova.special_dash_dist, false)
 	
 
 func update(_delta: float) -> void:

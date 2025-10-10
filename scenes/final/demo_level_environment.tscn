@@ -13,13 +13,13 @@
 [ext_resource type="MeshLibrary" uid="uid://c5vd83b5on38d" path="res://art_assets/environment/demo/demo ground MeshLibrary.tres" id="8_80vh4"]
 [ext_resource type="MeshLibrary" uid="uid://cpj676w5wpmoy" path="res://art_assets/environment/invisible_box.tres" id="9_c4lms"]
 [ext_resource type="PackedScene" uid="uid://dnfgpacphxpuf" path="res://scenes/dev/chrizz/corruption_base.tscn" id="9_wpi1y"]
-[ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="14_vslm2"]
-[ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="15_0xxlr"]
-[ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="16_aynb2"]
+[ext_resource type="Script" path="res://scripts/utility/wave_manager.gd" id="14_vslm2"]
+[ext_resource type="PackedScene" path="res://scenes/tool/spawn_area.tscn" id="15_0xxlr"]
+[ext_resource type="Script" path="res://scripts/utility/wave.gd" id="16_aynb2"]
 [ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="17_ek652"]
-[ext_resource type="PackedScene" uid="uid://cy13cantipmem" path="res://scenes/sub/TestEnemy.tscn" id="17_m6d5a"]
 [ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="18_vslm2"]
 [ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://vfx/Kenny Particle Pack/circle_01.png" id="18_wel6h"]
+[ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="19_vslm2"]
 
 [sub_resource type="Environment" id="Environment_bly0l"]
 background_mode = 1
@@ -84,7 +84,6 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="invisible walls" type="GridMap" parent="."]
-visible = false
 mesh_library = ExtResource("9_c4lms")
 cell_size = Vector3(1, 1, 1)
 data = {
@@ -183,7 +182,7 @@ spawn_areas = [NodePath("../SpawnArea2")]
 
 [node name="Wave3" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("16_aynb2")
-enemies = Array[PackedScene]([ExtResource("17_m6d5a"), ExtResource("17_m6d5a"), ExtResource("17_m6d5a"), ExtResource("17_m6d5a"), ExtResource("17_m6d5a"), ExtResource("17_m6d5a"), ExtResource("17_m6d5a")])
+enemies = Array[PackedScene]([ExtResource("19_vslm2"), ExtResource("19_vslm2"), ExtResource("19_vslm2"), ExtResource("19_vslm2"), ExtResource("19_vslm2"), ExtResource("19_vslm2"), ExtResource("19_vslm2")])
 spawn_areas = [NodePath("../SpawnArea"), NodePath("../SpawnArea2"), NodePath("../SpawnArea3")]
 
 [node name="Start" type="FmodEventEmitter3D" parent="WaveManager"]
