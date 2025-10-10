@@ -79,5 +79,10 @@ event_guid = "{fbb12ac9-23d2-4ea8-a105-cdd7402e8bca}"
 autoplay = true
 
 [node name="GameUi" parent="." instance=ExtResource("7_wg1h0")]
+offset_left = -37.999996
+offset_top = -415.0
+offset_right = -1190.0
+offset_bottom = -1063.0
+scale = Vector2(0.12, 0.12)
 
 [connection signal="player_hp_update" from="PlayerManager" to="GameUi" method="update_health"]
