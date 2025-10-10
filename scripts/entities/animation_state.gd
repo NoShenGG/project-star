@@ -25,7 +25,6 @@ class_name AnimationState
 @export_storage var animation_tree : AnimationTree
 
 func _enter_tree() -> void:
-	print("finding statemachine")
 	var value : AnimationTree = null
 	
 	value = get_parent() as AnimationTree
@@ -42,7 +41,7 @@ func _enter_tree() -> void:
 
 
 func enter():
-	print(state_name + " is being swapped to!")
+	print(owner.name + " is swapping to "+ state_name + "!")
 	(animation_tree["parameters/playback"] as AnimationNodeStateMachinePlayback).start(state_name)
 
 func _ready() -> void:
