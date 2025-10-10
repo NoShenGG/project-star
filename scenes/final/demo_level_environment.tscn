@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bfkrvdwb04r0u"]
+[gd_scene load_steps=35 format=3 uid="uid://bfkrvdwb04r0u"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_kaa7a"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="2_0tv2d"]
@@ -24,15 +24,28 @@
 [ext_resource type="Script" uid="uid://0dst74xe1xdr" path="res://scenes/dev/diemmy_d/restart.gd" id="22_aynb2"]
 [ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="23_m6d5a"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m6d5a"]
+sky_top_color = Color(0.7868003, 0.8044158, 0.90088457, 1)
+sky_horizon_color = Color(0.59996814, 0.48462427, 0.7608906, 1)
+ground_bottom_color = Color(0.17863777, 0.14902645, 0.28510144, 1)
+ground_horizon_color = Color(0.6767592, 0.58873963, 0.93670535, 1)
+
+[sub_resource type="Sky" id="Sky_wel6h"]
+sky_material = SubResource("ProceduralSkyMaterial_m6d5a")
+
 [sub_resource type="Environment" id="Environment_bly0l"]
-background_mode = 1
+background_mode = 2
 background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_wel6h")
 tonemap_mode = 2
 tonemap_exposure = 0.5
+ssao_enabled = true
+ssil_enabled = true
 volumetric_fog_density = 0.02
 volumetric_fog_detail_spread = 0.5
 adjustment_enabled = true
-adjustment_contrast = 1.1
+adjustment_brightness = 1.17
+adjustment_contrast = 1.24
 adjustment_saturation = 0.9
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_v2ad8"]
@@ -71,7 +84,8 @@ albedo_texture = ExtResource("18_wel6h")
 bank_paths = ["res://sounds/banks/Enemys.bank", "res://sounds/banks/Ambiance.bank", "res://sounds/banks/Music.bank"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)
+transform = Transform3D(-0.99663174, -1.1826915e-08, 0.082008064, 0.07476185, 0.41098928, 0.90856963, -0.033704445, 0.91164017, -0.40960485, 0, 22.456, 0)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
 environment = SubResource("Environment_bly0l")

@@ -26,22 +26,22 @@ gradient = SubResource("Gradient_wmnvy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pqpky"]
 shader = ExtResource("10_pqpky")
-shader_parameter/glow_color = Color(0, 0, 1, 1)
-shader_parameter/glow_power = 2.0
+shader_parameter/glow_color = Color(0.6901961, 0.3882353, 0.61960787, 1)
+shader_parameter/glow_power = 1.0000000475
 shader_parameter/glow_shift = 1.0
 shader_parameter/glow_radius = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qn2jx"]
 shader = ExtResource("10_pqpky")
-shader_parameter/glow_color = Color(0, 0, 1, 1)
-shader_parameter/glow_power = 2.0
+shader_parameter/glow_color = Color(0.6901961, 0.3882353, 0.61960787, 1)
+shader_parameter/glow_power = 1.0000000475
 shader_parameter/glow_shift = 1.0
 shader_parameter/glow_radius = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_upuxa"]
 shader = ExtResource("10_pqpky")
-shader_parameter/glow_color = Color(0, 0, 1, 1)
-shader_parameter/glow_power = 2.0
+shader_parameter/glow_color = Color(0.69, 0.3864, 0.61915994, 1)
+shader_parameter/glow_power = 1.0000000475
 shader_parameter/glow_shift = 1.0
 shader_parameter/glow_radius = 1.0
 
