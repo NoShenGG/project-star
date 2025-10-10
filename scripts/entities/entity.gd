@@ -6,11 +6,24 @@ enum Faction {PLAYER, NEUTRAL, HOSTILE}
 signal killed
 signal hurt(damage : float)
 signal health_update(percent: float)
+signal broken
+signal break_update(percent: float)
 
 @export var _movement_speed: float = 1.0
 @export var faction: Faction = Faction.NEUTRAL
-@export var _hp: float = 10.0
+@export var _hp: float = 10.0:
+	set(value):
+		_hp = value
+		health_update.emit(value / _max_hp)
 @export var _max_hp: float = 10.0
+@export var _breakable: bool = true
+@export var _break_percent: float = 0.0:
+	set(value):
+		_break_percent = value
+		break_update.emit(value)
+@export var _break_gain_rate: float = 2.0
+@export var _break_drain_rate: float = 0.05
+@export var _break_cooldown: float = 5.0
 
 @onready var state_machine: StateMachine = $StateMachine
 
@@ -29,6 +42,8 @@ func _process(delta: float) -> void:
 	for id: EntityEffect.EffectID in _stopped_effects:
 		_status_effects.erase(id)
 	_stopped_effects.clear()
+	if _breakable:
+		_break_percent = clamp(_break_percent - delta * _break_drain_rate, 0.0, 1.0)
 
 func apply_effect(effect: EntityEffect):
 	_status_effects.set(effect.id, effect)
@@ -43,13 +58,16 @@ func try_damage(damage_amount: float) -> bool:
 		print("Damage blocked by invincibility!")
 		return true
 	var new_hp: float = _hp - damage_amount
-	if new_hp > 0.0:
-		_hp = new_hp
-		hurt.emit(damage_amount)
-	else:
-		_hp = 0.0
+	_hp = max(new_hp, 0.0)
+	if _hp == 0.0:
 		trigger_death()
-	health_update.emit(_hp / _max_hp)
+		return true
+	hurt.emit(damage_amount)
+	if _breakable:
+		_break_percent = clamp(_break_percent + _break_gain_rate * (damage_amount / _max_hp), 0.0, 1.0)
+		if _break_percent == 1.0:
+			apply_effect(Broken.new(EntityEffect.EffectID.BROKEN, _break_cooldown))
+			broken.emit()
 	return true
 
 func try_heal(heal_amount: float) -> bool:
@@ -61,7 +79,6 @@ func try_heal(heal_amount: float) -> bool:
 		_hp = _max_hp
 	else:
 		_hp = new_hp
-	health_update.emit(_hp / _max_hp)
 	return true
 
 func trigger_death():
