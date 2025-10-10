@@ -1,14 +1,14 @@
 [gd_scene load_steps=17 format=3 uid="uid://dikwtund4a5xs"]
 
-[ext_resource type="Script" path="res://scenes/dev/ZXue/DynaMite/DynaMiteEnemy.gd" id="1_gnlae"]
+[ext_resource type="Script" uid="uid://cetk67agmcktg" path="res://scenes/dev/ZXue/DynaMite/DynaMiteEnemy.gd" id="1_gnlae"]
 [ext_resource type="PackedScene" uid="uid://b0liiu5ijolin" path="res://art_assets/enemies/dyna_mite/dynamite_rig.gltf" id="2_i3822"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_ybb5r"]
-[ext_resource type="Script" path="res://scenes/dev/ZXue/DynaMite/idle.gd" id="3_5e5g7"]
+[ext_resource type="Script" uid="uid://dr7vgnbn0sbub" path="res://scenes/dev/ZXue/DynaMite/idle.gd" id="3_5e5g7"]
 [ext_resource type="Script" uid="uid://86kddc0ka3gc" path="res://scenes/dev/ZXue/DynaMite/approach.gd" id="4_ljwvm"]
 [ext_resource type="Script" uid="uid://phpe8yffty68" path="res://scenes/dev/ZXue/DynaMite/countdown.gd" id="5_htoe2"]
 [ext_resource type="Script" uid="uid://3uvdfqh6srtl" path="res://scenes/dev/ZXue/DynaMite/dead.gd" id="6_g2vom"]
 [ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="7_g2vom"]
-[ext_resource type="Script" path="res://scenes/dev/ZXue/DynaMite/break.gd" id="7_ybb5r"]
+[ext_resource type="Script" uid="uid://la2fd47cp2em" path="res://scenes/dev/ZXue/DynaMite/break.gd" id="7_ybb5r"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="10_bnow6"]
 [ext_resource type="PackedScene" uid="uid://cent63gp0an85" path="res://vfx/DynaMiteExplodeVFX.tscn" id="11_0gklw"]
 
