@@ -23,7 +23,6 @@ func update_health(percent: float):
 
 
 func _process(delta: float) -> void:
-	print(healthbar.value)
 	if hp_step < 1:
 		hp_step += delta/ANIM_TIME
 	healthbar.value = old_hp + \
