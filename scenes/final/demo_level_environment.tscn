@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bfkrvdwb04r0u"]
+[gd_scene load_steps=33 format=3 uid="uid://bfkrvdwb04r0u"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_kaa7a"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="2_0tv2d"]
@@ -13,16 +13,16 @@
 [ext_resource type="MeshLibrary" uid="uid://c5vd83b5on38d" path="res://art_assets/environment/demo/demo ground MeshLibrary.tres" id="8_80vh4"]
 [ext_resource type="MeshLibrary" uid="uid://cpj676w5wpmoy" path="res://art_assets/environment/invisible_box.tres" id="9_c4lms"]
 [ext_resource type="PackedScene" uid="uid://dnfgpacphxpuf" path="res://scenes/dev/chrizz/corruption_base.tscn" id="9_wpi1y"]
-[ext_resource type="Script" path="res://scripts/utility/wave_manager.gd" id="14_vslm2"]
-[ext_resource type="PackedScene" path="res://scenes/tool/spawn_area.tscn" id="15_0xxlr"]
-[ext_resource type="Script" path="res://scripts/utility/wave.gd" id="16_aynb2"]
+[ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="14_vslm2"]
+[ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="15_0xxlr"]
+[ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="16_aynb2"]
 [ext_resource type="PackedScene" uid="uid://bo8i2glbe0u23" path="res://scenes/sub/fortifier.tscn" id="17_0xxlr"]
 [ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="17_ek652"]
 [ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="18_vslm2"]
 [ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://vfx/Kenny Particle Pack/circle_01.png" id="18_wel6h"]
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="20_0xxlr"]
 [ext_resource type="Script" uid="uid://0dst74xe1xdr" path="res://scenes/dev/diemmy_d/restart.gd" id="22_aynb2"]
-[ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="22_aynb2"]
+[ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="23_m6d5a"]
 
 [sub_resource type="Environment" id="Environment_bly0l"]
 background_mode = 1
@@ -234,9 +234,10 @@ script = ExtResource("22_aynb2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RestartCylinder/Area3D"]
 shape = SubResource("CylinderShape3D_wel6h")
+
 [node name="Skeleton Decor" type="Node3D" parent="."]
 
-[node name="DragoSkele" parent="Skeleton Decor" instance=ExtResource("22_aynb2")]
+[node name="DragoSkele" parent="Skeleton Decor" instance=ExtResource("23_m6d5a")]
 transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -11.246961, 0, -82.24695)
 
 [node name="Skeleton3D" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton" index="0"]
@@ -331,7 +332,7 @@ visible = false
 [node name="Plane_004" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="29"]
 visible = false
 
-[node name="DragoSkele2" parent="Skeleton Decor" instance=ExtResource("22_aynb2")]
+[node name="DragoSkele2" parent="Skeleton Decor" instance=ExtResource("23_m6d5a")]
 transform = Transform3D(-0.93028414, 0.35961756, 0.072434835, 0.34984764, 0.9291251, -0.11972239, -0.11035537, -0.086034626, -0.9901615, 1.634966, -15.970484, -39.50522)
 
 [node name="Skeleton3D" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton" index="0"]
@@ -426,7 +427,7 @@ visible = false
 [node name="Plane_004" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="29"]
 visible = false
 
-[node name="DragoSkele3" parent="Skeleton Decor" instance=ExtResource("22_aynb2")]
+[node name="DragoSkele3" parent="Skeleton Decor" instance=ExtResource("23_m6d5a")]
 transform = Transform3D(-0.6882074, 0.7074442, 0.16091609, 0.45411724, 0.5930118, -0.6649171, -0.56581706, -0.3845259, -0.72937727, -17.927618, -15.970484, -46.021694)
 
 [node name="Skeleton3D" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton" index="0"]

@@ -13,7 +13,7 @@ script = ExtResource("1_lyudl")
 [node name="Nova" parent="." instance=ExtResource("2_dvwxt")]
 process_mode = 3
 top_level = true
-_movement_speed = 5.0
+_movement_speed = 7.0
 _hp = 30.0
 _max_hp = 30.0
 _breakable = false
@@ -219,11 +219,6 @@ bank_paths = ["res://sounds/banks/Player.bank"]
 
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[connection signal="special_dash" from="Nova2/StateMachine/AttackingSpecial" to="Nova2/DummyAnimation" method="special_dash"]
-[connection signal="special_dash" from="Nova2/StateMachine/AttackingChargedSpecial" to="Nova2/DummyAnimation" method="special_dash"]
-[connection signal="special_dash" from="Nova3/StateMachine/AttackingSpecial" to="Nova3/DummyAnimation" method="special_dash"]
-[connection signal="special_dash" from="Nova3/StateMachine/AttackingChargedSpecial" to="Nova3/DummyAnimation" method="special_dash"]
 
 [editable path="Nova2"]
 [editable path="Nova2/nova_animations_kobold"]
