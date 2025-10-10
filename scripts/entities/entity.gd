@@ -24,6 +24,7 @@ signal break_update(percent: float)
 @export var _break_gain_rate: float = 2.0
 @export var _break_drain_rate: float = 0.05
 @export var _break_cooldown: float = 5.0
+@export var passive_death_time : float = 2.5
 
 @onready var state_machine: StateMachine = $StateMachine
 
@@ -34,6 +35,8 @@ func _ready() -> void:
 	health_update.emit(1)
 
 func _process(delta: float) -> void:
+	if (death): return
+	
 	for id: EntityEffect.EffectID in _status_effects:
 		var effect = _status_effects.get(id)
 		if not effect.process(delta):
@@ -50,6 +53,9 @@ func apply_effect(effect: EntityEffect):
 	effect.try_apply(self)
 
 func try_damage(damage_amount: float) -> bool:
+	if (death):
+		return false
+	
 	if damage_amount <= 0:
 		assert(false, "Damage amount cannot be <= 0")
 		return false
@@ -70,6 +76,8 @@ func try_damage(damage_amount: float) -> bool:
 			broken.emit()
 	return true
 
+var death: bool =false
+
 func try_heal(heal_amount: float) -> bool:
 	if heal_amount <= 0:
 		assert(false, "Heal amount cannot be <= 0")
@@ -81,6 +89,10 @@ func try_heal(heal_amount: float) -> bool:
 		_hp = new_hp
 	return true
 
+
 func trigger_death():
 	killed.emit()
+	death = true
+	collision_layer = 0
+	await get_tree().create_timer(passive_death_time).timeout
 	self.call_deferred("queue_free")
