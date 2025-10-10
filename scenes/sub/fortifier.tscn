@@ -1,14 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bo8i2glbe0u23"]
+[gd_scene load_steps=8 format=3 uid="uid://bo8i2glbe0u23"]
 
 [ext_resource type="Script" uid="uid://bfq0pt6ajyow1" path="res://scripts/entities/enemies/fortifier/fortifier.gd" id="1_3ex7s"]
+[ext_resource type="PackedScene" uid="uid://b3u2ccl0ibwdw" path="res://art_assets/enemies/fortifier/fort2glb.glb" id="2_njpvg"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_oocy5"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ex7s"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_oocy5"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l26uf"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_lnb36"]
+size = Vector3(1.34, 2.33, 1.56)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g0rg0"]
 height = 1.0
@@ -28,12 +25,11 @@ script = ExtResource("1_3ex7s")
 vision_radius = 10.0
 attack_radius = 10.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_overlay = SubResource("StandardMaterial3D_3ex7s")
-mesh = SubResource("CapsuleMesh_oocy5")
+[node name="fort2glb" parent="." instance=ExtResource("2_njpvg")]
+transform = Transform3D(0.705, 0, 0, 0, 0.705, 0, 0, 0, 0.705, -1.155, -1.52, 0.285)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_l26uf")
+shape = SubResource("BoxShape3D_lnb36")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 7.0
