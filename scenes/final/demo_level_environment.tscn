@@ -13,15 +13,16 @@
 [ext_resource type="MeshLibrary" uid="uid://c5vd83b5on38d" path="res://art_assets/environment/demo/demo ground MeshLibrary.tres" id="8_80vh4"]
 [ext_resource type="MeshLibrary" uid="uid://cpj676w5wpmoy" path="res://art_assets/environment/invisible_box.tres" id="9_c4lms"]
 [ext_resource type="PackedScene" uid="uid://dnfgpacphxpuf" path="res://scenes/dev/chrizz/corruption_base.tscn" id="9_wpi1y"]
-[ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="14_vslm2"]
-[ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="15_0xxlr"]
-[ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="16_aynb2"]
+[ext_resource type="Script" path="res://scripts/utility/wave_manager.gd" id="14_vslm2"]
+[ext_resource type="PackedScene" path="res://scenes/tool/spawn_area.tscn" id="15_0xxlr"]
+[ext_resource type="Script" path="res://scripts/utility/wave.gd" id="16_aynb2"]
 [ext_resource type="PackedScene" uid="uid://bo8i2glbe0u23" path="res://scenes/sub/fortifier.tscn" id="17_0xxlr"]
 [ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="17_ek652"]
 [ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="18_vslm2"]
 [ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://vfx/Kenny Particle Pack/circle_01.png" id="18_wel6h"]
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="20_0xxlr"]
 [ext_resource type="Script" uid="uid://0dst74xe1xdr" path="res://scenes/dev/diemmy_d/restart.gd" id="22_aynb2"]
+[ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="22_aynb2"]
 
 [sub_resource type="Environment" id="Environment_bly0l"]
 background_mode = 1
@@ -233,6 +234,292 @@ script = ExtResource("22_aynb2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RestartCylinder/Area3D"]
 shape = SubResource("CylinderShape3D_wel6h")
+[node name="Skeleton Decor" type="Node3D" parent="."]
+
+[node name="DragoSkele" parent="Skeleton Decor" instance=ExtResource("22_aynb2")]
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -11.246961, 0, -82.24695)
+
+[node name="Skeleton3D" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton" index="0"]
+bones/0/position = Vector3(-0.10932353, 1.5005627, 3.2791145)
+bones/0/rotation = Quaternion(-0.42010704, 9.980329e-08, -6.5193206e-08, 0.9074747)
+bones/1/rotation = Quaternion(-0.12411662, 3.857256e-10, -2.6088243e-08, 0.9922677)
+bones/2/rotation = Quaternion(-0.12753142, -2.6433872e-10, -2.5824363e-08, 0.9918346)
+bones/3/rotation = Quaternion(-0.08713283, -1.0063973e-09, -1.7396177e-08, 0.99619675)
+bones/4/rotation = Quaternion(-0.32081264, -0.09208056, 0.09590876, 0.9377644)
+bones/5/rotation = Quaternion(-0.104685456, -0.07540004, 0.11531515, 0.9849154)
+bones/6/rotation = Quaternion(0.29007488, -0.06818935, -0.0042057573, 0.95456225)
+bones/7/rotation = Quaternion(0.275, 0.363, -0.17, 0.943)
+bones/8/rotation = Quaternion(0.07208003, -0.08293263, -0.2872092, 0.9515448)
+bones/9/rotation = Quaternion(-0.13049723, -0.049891267, -0.23235816, 0.962544)
+bones/10/rotation = Quaternion(-0.2628232, -0.006932723, -0.025347814, 0.96448606)
+bones/11/rotation = Quaternion(-0.10830791, 0.020864358, 0.1790638, 0.977635)
+bones/12/rotation = Quaternion(-0.3516351, 0.3254009, -0.43177804, 0.7642217)
+bones/12/scale = Vector3(0.8740523, 0.4322626, 0.46682435)
+bones/13/position = Vector3(0.70336854, 0.97396386, -0.035288185)
+bones/13/rotation = Quaternion(0.041493364, -0.022063956, -0.5987087, 0.7995871)
+bones/13/scale = Vector3(1, 0.99999994, 0.063180804)
+bones/14/position = Vector3(-0.7034201, 0.9738024, -0.03533921)
+bones/14/rotation = Quaternion(-0.0032677627, 0.08162716, 0.6001359, 0.7957156)
+bones/14/scale = Vector3(1, 1.0000001, 0.063180804)
+bones/15/rotation = Quaternion(0.048360683, 0.26570076, -0.8067209, 0.52560997)
+bones/16/rotation = Quaternion(-0.32998717, -0.5733908, 0.56124616, 0.49732724)
+bones/17/rotation = Quaternion(0.33379948, -0.096178375, 0.48883793, 0.8002283)
+bones/18/rotation = Quaternion(-0.1704832, -0.13730127, -0.25597662, 0.941573)
+bones/19/rotation = Quaternion(0.048360452, -0.26570088, 0.80672085, 0.5256099)
+bones/20/rotation = Quaternion(-0.29085597, 0.6575304, -0.47223005, 0.5099563)
+bones/21/rotation = Quaternion(0.43387467, 0.0890793, -0.47902134, 0.757863)
+bones/22/rotation = Quaternion(0.012754439, 0.13211748, 0.16484576, 0.9773476)
+bones/23/rotation = Quaternion(-0.19400662, -0.06410871, -0.25637296, 0.9447351)
+bones/24/rotation = Quaternion(-0.7151956, 0.03755238, -0.020650428, 0.6976092)
+bones/25/rotation = Quaternion(0.6571477, -0.01472894, 0.023471061, 0.7532524)
+bones/26/rotation = Quaternion(-0.08006195, -0.085549094, 0.012746113, 0.99303025)
+bones/27/rotation = Quaternion(-0.18563648, 0.044422988, 0.2537937, 0.94823766)
+bones/28/rotation = Quaternion(-0.74025476, -0.053958748, 0.015300426, 0.66998297)
+bones/29/rotation = Quaternion(0.67762727, 0.025507761, -0.019976443, 0.7346916)
+bones/30/rotation = Quaternion(-0.07418675, 0.10952444, -0.0021241985, 0.9912095)
+bones/31/rotation = Quaternion(0.121007554, 0.15721029, 0.97988486, -0.021629453)
+bones/31/scale = Vector3(0.9999991, 0.9999997, 0.9999472)
+bones/32/rotation = Quaternion(0.18202636, -0.0908389, 0.31271455, 0.92780626)
+bones/33/rotation = Quaternion(0.16219121, -0.038811203, 0.43413353, 0.8852772)
+bones/34/rotation = Quaternion(0.0730166, 0.08227106, 0.4050259, 0.9076642)
+bones/35/position = Vector3(4.0194883, 0.44731927, 5.6212373)
+bones/35/rotation = Quaternion(0.6707828, 0.21244241, 0.15726326, -0.6929553)
+bones/36/position = Vector3(0.9043396, 2.4483957, -7.3296766)
+bones/36/rotation = Quaternion(-0.7642228, -0.13126142, -0.23799443, 0.5848868)
+bones/37/position = Vector3(-0.004124284, 0.10000001, -6.382971)
+bones/37/rotation = Quaternion(-0.69229525, -0.14397001, -0.14397003, 0.6922952)
+bones/38/position = Vector3(-4.344636, 0.2649141, -3.0229976)
+bones/38/rotation = Quaternion(-0.7024843, 0.17356768, 0.18759434, 0.6642277)
+bones/39/position = Vector3(-0.9737061, 0.035921022, -6.5517874)
+bones/39/rotation = Quaternion(-0.8038892, 0.11621763, 0.16717722, 0.5588448)
+bones/40/position = Vector3(4.344636, 0.2649141, -3.0229976)
+bones/40/rotation = Quaternion(-0.7024843, -0.17356768, -0.18759434, 0.6642277)
+
+[node name="Neck_003" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="0"]
+transform = Transform3D(0.8523686, -0.11979011, 0.50903636, -0.48683703, 0.17364246, 0.8560593, -0.1909379, -0.9774958, 0.08968932, -0.75269616, 1.9754815, -3.5233443)
+visible = false
+
+[node name="Neck_001" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="1"]
+transform = Transform3D(0.8695408, -0.26645434, -0.41581345, 0.06518214, -0.77267843, 0.63144183, -0.48954055, -0.5761683, -0.6545072, -0.1882892, 2.7808886, -2.4624383)
+visible = false
+
+[node name="Neck" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="2"]
+transform = Transform3D(0.9646454, -0.12079856, -0.234237, 0.11699404, -0.6001273, 0.79130214, -0.23616017, -0.7907305, -0.56477714, -0.10932342, 3.1731904, -1.9455396)
+visible = false
+
+[node name="Spine_002" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="3"]
+transform = Transform3D(1, 6.884818e-09, 2.4925666e-07, -2.4935062e-07, 0.024546027, 0.99969846, 7.644484e-10, -0.9996985, 0.024546206, -0.109323435, 3.1299787, -0.18561566)
+visible = false
+
+[node name="Spine_001" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="4"]
+transform = Transform3D(1, 1.556731e-08, 2.493134e-07, -2.4746944e-07, 0.19772385, 0.9802577, -3.4035263e-08, -0.98025763, 0.19772404, -0.10932345, 2.9028802, 0.9402735)
+visible = false
+
+[node name="Spine" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="5"]
+transform = Transform3D(1, 2.6972703e-08, 2.443766e-07, -2.3138452e-07, 0.4392779, 0.8983512, -8.31183e-08, -0.898351, 0.43927804, -0.1093235, 2.1109605, 2.559799)
+visible = false
+
+[node name="Plane_001" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="26"]
+visible = false
+
+[node name="Plane_002" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="27"]
+visible = false
+
+[node name="Plane_003" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="28"]
+visible = false
+
+[node name="Plane_004" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="29"]
+visible = false
+
+[node name="DragoSkele2" parent="Skeleton Decor" instance=ExtResource("22_aynb2")]
+transform = Transform3D(-0.93028414, 0.35961756, 0.072434835, 0.34984764, 0.9291251, -0.11972239, -0.11035537, -0.086034626, -0.9901615, 1.634966, -15.970484, -39.50522)
+
+[node name="Skeleton3D" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton" index="0"]
+bones/0/position = Vector3(-0.10932353, 1.5005627, 3.2791145)
+bones/0/rotation = Quaternion(-0.42010704, 9.980329e-08, -6.5193206e-08, 0.9074747)
+bones/1/rotation = Quaternion(-0.12411662, 3.857256e-10, -2.6088243e-08, 0.9922677)
+bones/2/rotation = Quaternion(-0.12753142, -2.6433872e-10, -2.5824363e-08, 0.9918346)
+bones/3/rotation = Quaternion(-0.08713283, -1.0063973e-09, -1.7396177e-08, 0.99619675)
+bones/4/rotation = Quaternion(-0.32081264, -0.09208056, 0.09590876, 0.9377644)
+bones/5/rotation = Quaternion(-0.104685456, -0.07540004, 0.11531515, 0.9849154)
+bones/6/rotation = Quaternion(0.29007488, -0.06818935, -0.0042057573, 0.95456225)
+bones/7/rotation = Quaternion(0.275, 0.363, -0.17, 0.943)
+bones/8/rotation = Quaternion(0.07208003, -0.08293263, -0.2872092, 0.9515448)
+bones/9/rotation = Quaternion(-0.13049723, -0.049891267, -0.23235816, 0.962544)
+bones/10/rotation = Quaternion(-0.2628232, -0.006932723, -0.025347814, 0.96448606)
+bones/11/rotation = Quaternion(-0.10830791, 0.020864358, 0.1790638, 0.977635)
+bones/12/rotation = Quaternion(-0.3516351, 0.3254009, -0.43177804, 0.7642217)
+bones/12/scale = Vector3(0.8740523, 0.4322626, 0.46682435)
+bones/13/position = Vector3(0.70336854, 0.97396386, -0.035288185)
+bones/13/rotation = Quaternion(0.041493364, -0.022063956, -0.5987087, 0.7995871)
+bones/13/scale = Vector3(1, 0.99999994, 0.063180804)
+bones/14/position = Vector3(-0.7034201, 0.9738024, -0.03533921)
+bones/14/rotation = Quaternion(-0.0032677627, 0.08162716, 0.6001359, 0.7957156)
+bones/14/scale = Vector3(1, 1.0000001, 0.063180804)
+bones/15/rotation = Quaternion(0.048360683, 0.26570076, -0.8067209, 0.52560997)
+bones/16/rotation = Quaternion(-0.32998717, -0.5733908, 0.56124616, 0.49732724)
+bones/17/rotation = Quaternion(0.33379948, -0.096178375, 0.48883793, 0.8002283)
+bones/18/rotation = Quaternion(-0.1704832, -0.13730127, -0.25597662, 0.941573)
+bones/19/rotation = Quaternion(0.048360452, -0.26570088, 0.80672085, 0.5256099)
+bones/20/rotation = Quaternion(-0.29085597, 0.6575304, -0.47223005, 0.5099563)
+bones/21/rotation = Quaternion(0.43387467, 0.0890793, -0.47902134, 0.757863)
+bones/22/rotation = Quaternion(0.012754439, 0.13211748, 0.16484576, 0.9773476)
+bones/23/rotation = Quaternion(-0.19400662, -0.06410871, -0.25637296, 0.9447351)
+bones/24/rotation = Quaternion(-0.7151956, 0.03755238, -0.020650428, 0.6976092)
+bones/25/rotation = Quaternion(0.6571477, -0.01472894, 0.023471061, 0.7532524)
+bones/26/rotation = Quaternion(-0.08006195, -0.085549094, 0.012746113, 0.99303025)
+bones/27/rotation = Quaternion(-0.18563648, 0.044422988, 0.2537937, 0.94823766)
+bones/28/rotation = Quaternion(-0.74025476, -0.053958748, 0.015300426, 0.66998297)
+bones/29/rotation = Quaternion(0.67762727, 0.025507761, -0.019976443, 0.7346916)
+bones/30/rotation = Quaternion(-0.07418675, 0.10952444, -0.0021241985, 0.9912095)
+bones/31/rotation = Quaternion(0.121007554, 0.15721029, 0.97988486, -0.021629453)
+bones/31/scale = Vector3(0.9999991, 0.9999997, 0.9999472)
+bones/32/rotation = Quaternion(0.18202636, -0.0908389, 0.31271455, 0.92780626)
+bones/33/rotation = Quaternion(0.16219121, -0.038811203, 0.43413353, 0.8852772)
+bones/34/rotation = Quaternion(0.0730166, 0.08227106, 0.4050259, 0.9076642)
+bones/35/position = Vector3(4.0194883, 0.44731927, 5.6212373)
+bones/35/rotation = Quaternion(0.6707828, 0.21244241, 0.15726326, -0.6929553)
+bones/36/position = Vector3(0.9043396, 2.4483957, -7.3296766)
+bones/36/rotation = Quaternion(-0.7642228, -0.13126142, -0.23799443, 0.5848868)
+bones/37/position = Vector3(-0.004124284, 0.10000001, -6.382971)
+bones/37/rotation = Quaternion(-0.69229525, -0.14397001, -0.14397003, 0.6922952)
+bones/38/position = Vector3(-4.344636, 0.2649141, -3.0229976)
+bones/38/rotation = Quaternion(-0.7024843, 0.17356768, 0.18759434, 0.6642277)
+bones/39/position = Vector3(-0.9737061, 0.035921022, -6.5517874)
+bones/39/rotation = Quaternion(-0.8038892, 0.11621763, 0.16717722, 0.5588448)
+bones/40/position = Vector3(4.344636, 0.2649141, -3.0229976)
+bones/40/rotation = Quaternion(-0.7024843, -0.17356768, -0.18759434, 0.6642277)
+
+[node name="Neck_003" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="0"]
+transform = Transform3D(0.8523686, -0.11979011, 0.50903636, -0.48683703, 0.17364246, 0.8560593, -0.1909379, -0.9774958, 0.08968932, -0.75269616, 1.9754815, -3.5233443)
+visible = false
+
+[node name="Neck_001" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="1"]
+transform = Transform3D(0.8695408, -0.26645434, -0.41581345, 0.06518214, -0.77267843, 0.63144183, -0.48954055, -0.5761683, -0.6545072, -0.1882892, 2.7808886, -2.4624383)
+visible = false
+
+[node name="Neck" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="2"]
+transform = Transform3D(0.9646454, -0.12079856, -0.234237, 0.11699404, -0.6001273, 0.79130214, -0.23616017, -0.7907305, -0.56477714, -0.10932342, 3.1731904, -1.9455396)
+visible = false
+
+[node name="Spine_002" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="3"]
+transform = Transform3D(1, 6.884818e-09, 2.4925666e-07, -2.4935062e-07, 0.024546027, 0.99969846, 7.644484e-10, -0.9996985, 0.024546206, -0.109323435, 3.1299787, -0.18561566)
+visible = false
+
+[node name="Spine_001" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="4"]
+transform = Transform3D(1, 1.556731e-08, 2.493134e-07, -2.4746944e-07, 0.19772385, 0.9802577, -3.4035263e-08, -0.98025763, 0.19772404, -0.10932345, 2.9028802, 0.9402735)
+visible = false
+
+[node name="Spine" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="5"]
+transform = Transform3D(1, 2.6972703e-08, 2.443766e-07, -2.3138452e-07, 0.4392779, 0.8983512, -8.31183e-08, -0.898351, 0.43927804, -0.1093235, 2.1109605, 2.559799)
+visible = false
+
+[node name="Plane_001" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="26"]
+visible = false
+
+[node name="Plane_002" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="27"]
+visible = false
+
+[node name="Plane_003" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="28"]
+visible = false
+
+[node name="Plane_004" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="29"]
+visible = false
+
+[node name="DragoSkele3" parent="Skeleton Decor" instance=ExtResource("22_aynb2")]
+transform = Transform3D(-0.6882074, 0.7074442, 0.16091609, 0.45411724, 0.5930118, -0.6649171, -0.56581706, -0.3845259, -0.72937727, -17.927618, -15.970484, -46.021694)
+
+[node name="Skeleton3D" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton" index="0"]
+bones/0/position = Vector3(-0.10932353, 1.5005627, 3.2791145)
+bones/0/rotation = Quaternion(-0.42010704, 9.980329e-08, -6.5193206e-08, 0.9074747)
+bones/1/rotation = Quaternion(-0.12411662, 3.857256e-10, -2.6088243e-08, 0.9922677)
+bones/2/rotation = Quaternion(-0.12753142, -2.6433872e-10, -2.5824363e-08, 0.9918346)
+bones/3/rotation = Quaternion(-0.08713283, -1.0063973e-09, -1.7396177e-08, 0.99619675)
+bones/4/rotation = Quaternion(-0.32081264, -0.09208056, 0.09590876, 0.9377644)
+bones/5/rotation = Quaternion(-0.104685456, -0.07540004, 0.11531515, 0.9849154)
+bones/6/rotation = Quaternion(0.29007488, -0.06818935, -0.0042057573, 0.95456225)
+bones/7/rotation = Quaternion(0.275, 0.363, -0.17, 0.943)
+bones/8/rotation = Quaternion(0.07208003, -0.08293263, -0.2872092, 0.9515448)
+bones/9/rotation = Quaternion(-0.13049723, -0.049891267, -0.23235816, 0.962544)
+bones/10/rotation = Quaternion(-0.2628232, -0.006932723, -0.025347814, 0.96448606)
+bones/11/rotation = Quaternion(-0.10830791, 0.020864358, 0.1790638, 0.977635)
+bones/12/rotation = Quaternion(-0.3516351, 0.3254009, -0.43177804, 0.7642217)
+bones/12/scale = Vector3(0.8740523, 0.4322626, 0.46682435)
+bones/13/position = Vector3(0.70336854, 0.97396386, -0.035288185)
+bones/13/rotation = Quaternion(0.041493364, -0.022063956, -0.5987087, 0.7995871)
+bones/13/scale = Vector3(1, 0.99999994, 0.063180804)
+bones/14/position = Vector3(-0.7034201, 0.9738024, -0.03533921)
+bones/14/rotation = Quaternion(-0.0032677627, 0.08162716, 0.6001359, 0.7957156)
+bones/14/scale = Vector3(1, 1.0000001, 0.063180804)
+bones/15/rotation = Quaternion(0.048360683, 0.26570076, -0.8067209, 0.52560997)
+bones/16/rotation = Quaternion(-0.32998717, -0.5733908, 0.56124616, 0.49732724)
+bones/17/rotation = Quaternion(0.33379948, -0.096178375, 0.48883793, 0.8002283)
+bones/18/rotation = Quaternion(-0.1704832, -0.13730127, -0.25597662, 0.941573)
+bones/19/rotation = Quaternion(0.048360452, -0.26570088, 0.80672085, 0.5256099)
+bones/20/rotation = Quaternion(-0.29085597, 0.6575304, -0.47223005, 0.5099563)
+bones/21/rotation = Quaternion(0.43387467, 0.0890793, -0.47902134, 0.757863)
+bones/22/rotation = Quaternion(0.012754439, 0.13211748, 0.16484576, 0.9773476)
+bones/23/rotation = Quaternion(-0.19400662, -0.06410871, -0.25637296, 0.9447351)
+bones/24/rotation = Quaternion(-0.7151956, 0.03755238, -0.020650428, 0.6976092)
+bones/25/rotation = Quaternion(0.6571477, -0.01472894, 0.023471061, 0.7532524)
+bones/26/rotation = Quaternion(-0.08006195, -0.085549094, 0.012746113, 0.99303025)
+bones/27/rotation = Quaternion(-0.18563648, 0.044422988, 0.2537937, 0.94823766)
+bones/28/rotation = Quaternion(-0.74025476, -0.053958748, 0.015300426, 0.66998297)
+bones/29/rotation = Quaternion(0.67762727, 0.025507761, -0.019976443, 0.7346916)
+bones/30/rotation = Quaternion(-0.07418675, 0.10952444, -0.0021241985, 0.9912095)
+bones/31/rotation = Quaternion(0.121007554, 0.15721029, 0.97988486, -0.021629453)
+bones/31/scale = Vector3(0.9999991, 0.9999997, 0.9999472)
+bones/32/rotation = Quaternion(0.18202636, -0.0908389, 0.31271455, 0.92780626)
+bones/33/rotation = Quaternion(0.16219121, -0.038811203, 0.43413353, 0.8852772)
+bones/34/rotation = Quaternion(0.0730166, 0.08227106, 0.4050259, 0.9076642)
+bones/35/position = Vector3(4.0194883, 0.44731927, 5.6212373)
+bones/35/rotation = Quaternion(0.6707828, 0.21244241, 0.15726326, -0.6929553)
+bones/36/position = Vector3(0.9043396, 2.4483957, -7.3296766)
+bones/36/rotation = Quaternion(-0.7642228, -0.13126142, -0.23799443, 0.5848868)
+bones/37/position = Vector3(-0.004124284, 0.10000001, -6.382971)
+bones/37/rotation = Quaternion(-0.69229525, -0.14397001, -0.14397003, 0.6922952)
+bones/38/position = Vector3(-4.344636, 0.2649141, -3.0229976)
+bones/38/rotation = Quaternion(-0.7024843, 0.17356768, 0.18759434, 0.6642277)
+bones/39/position = Vector3(-0.9737061, 0.035921022, -6.5517874)
+bones/39/rotation = Quaternion(-0.8038892, 0.11621763, 0.16717722, 0.5588448)
+bones/40/position = Vector3(4.344636, 0.2649141, -3.0229976)
+bones/40/rotation = Quaternion(-0.7024843, -0.17356768, -0.18759434, 0.6642277)
+
+[node name="Neck_003" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="0"]
+transform = Transform3D(0.8523686, -0.11979011, 0.50903636, -0.48683703, 0.17364246, 0.8560593, -0.1909379, -0.9774958, 0.08968932, -0.75269616, 1.9754815, -3.5233443)
+visible = false
+
+[node name="Neck_001" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="1"]
+transform = Transform3D(0.8695408, -0.26645434, -0.41581345, 0.06518214, -0.77267843, 0.63144183, -0.48954055, -0.5761683, -0.6545072, -0.1882892, 2.7808886, -2.4624383)
+visible = false
+
+[node name="Neck" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="2"]
+transform = Transform3D(0.9646454, -0.12079856, -0.234237, 0.11699404, -0.6001273, 0.79130214, -0.23616017, -0.7907305, -0.56477714, -0.10932342, 3.1731904, -1.9455396)
+visible = false
+
+[node name="Spine_002" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="3"]
+transform = Transform3D(1, 6.884818e-09, 2.4925666e-07, -2.4935062e-07, 0.024546027, 0.99969846, 7.644484e-10, -0.9996985, 0.024546206, -0.109323435, 3.1299787, -0.18561566)
+visible = false
+
+[node name="Spine_001" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="4"]
+transform = Transform3D(1, 1.556731e-08, 2.493134e-07, -2.4746944e-07, 0.19772385, 0.9802577, -3.4035263e-08, -0.98025763, 0.19772404, -0.10932345, 2.9028802, 0.9402735)
+visible = false
+
+[node name="Spine" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="5"]
+transform = Transform3D(1, 2.6972703e-08, 2.443766e-07, -2.3138452e-07, 0.4392779, 0.8983512, -8.31183e-08, -0.898351, 0.43927804, -0.1093235, 2.1109605, 2.559799)
+visible = false
+
+[node name="Plane_001" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="26"]
+visible = false
+
+[node name="Plane_002" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="27"]
+visible = false
+
+[node name="Plane_003" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="28"]
+visible = false
+
+[node name="Plane_004" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="29"]
+visible = false
 
 [connection signal="player_hp_update" from="PlayerManager" to="GameUi" method="update_health"]
 [connection signal="fight_ended" from="WaveManager" to="WaveManager/End" method="play_one_shot"]
@@ -240,3 +527,7 @@ shape = SubResource("CylinderShape3D_wel6h")
 [connection signal="fight_started" from="WaveManager" to="WaveManager/Start" method="play_one_shot"]
 [connection signal="body_entered" from="WaveManager/Wave Start Enter" to="WaveManager" method="_on_start" unbinds=1]
 [connection signal="body_entered" from="RestartCylinder/Area3D" to="RestartCylinder/Area3D" method="_on_body_entered"]
+
+[editable path="Skeleton Decor/DragoSkele"]
+[editable path="Skeleton Decor/DragoSkele2"]
+[editable path="Skeleton Decor/DragoSkele3"]
