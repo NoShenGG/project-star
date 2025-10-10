@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://us285mtsues1"
-path="res://.godot/imported/icon_stars(w_o transparency).png-68012ee607a1f0f4ff8ba12b13175929.ctex"
+uid="uid://cr8rhlqiv5vu3"
+path="res://.godot/imported/health_bar.png-35828f9d8cf9f039d20fd3a55646e0da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/dev/christian_d/assets/icon_stars(w_o transparency).png"
-dest_files=["res://.godot/imported/icon_stars(w_o transparency).png-68012ee607a1f0f4ff8ba12b13175929.ctex"]
+source_file="res://art_assets/Ui/health_bar.png"
+dest_files=["res://.godot/imported/health_bar.png-35828f9d8cf9f039d20fd3a55646e0da.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://jd6ie1ov3gt3"]
 
 [ext_resource type="Script" uid="uid://dt6gotxl8mucy" path="res://scripts/utility/main_menu.gd" id="1_i0wvf"]
-[ext_resource type="Texture2D" uid="uid://xbdggdj3pecd" path="res://scenes/dev/rachael_s/JTAS Title Banner.png" id="2_sfiom"]
+[ext_resource type="Texture2D" uid="uid://xbdggdj3pecd" path="res://scenes/dev/rachael_s/JTAS Title Banner.png" id="2_qkpeh"]
 [ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_p0ndc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_638d5"]
@@ -30,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_sfiom")
+texture = ExtResource("2_qkpeh")
 expand_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
