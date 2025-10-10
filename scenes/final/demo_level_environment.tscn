@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bfkrvdwb04r0u"]
+[gd_scene load_steps=32 format=3 uid="uid://bfkrvdwb04r0u"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_kaa7a"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="2_0tv2d"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="18_vslm2"]
 [ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://vfx/Kenny Particle Pack/circle_01.png" id="18_wel6h"]
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="20_0xxlr"]
+[ext_resource type="Script" uid="uid://0dst74xe1xdr" path="res://scenes/dev/diemmy_d/restart.gd" id="22_aynb2"]
 
 [sub_resource type="Environment" id="Environment_bly0l"]
 background_mode = 1
@@ -58,6 +59,10 @@ albedo_color = Color(1, 0, 0, 1)
 albedo_texture = ExtResource("18_wel6h")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gwpen"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m6d5a"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wel6h"]
 
 [node name="Prototype" type="Node3D"]
 
@@ -215,7 +220,23 @@ transform = Transform3D(4.0714345, 0, 0, 0, 1, 0, 0, 0, 4.0714345, 0, 0.14234209
 material_override = SubResource("StandardMaterial3D_j3k2j")
 mesh = SubResource("PlaneMesh_gwpen")
 
+[node name="RestartCylinder" type="Node3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 8.566677, 1, -77.64229)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RestartCylinder"]
+mesh = SubResource("CylinderMesh_m6d5a")
+
+[node name="Area3D" type="Area3D" parent="RestartCylinder"]
+collision_mask = 4
+monitoring = false
+script = ExtResource("22_aynb2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RestartCylinder/Area3D"]
+shape = SubResource("CylinderShape3D_wel6h")
+
 [connection signal="player_hp_update" from="PlayerManager" to="GameUi" method="update_health"]
 [connection signal="fight_ended" from="WaveManager" to="WaveManager/End" method="play_one_shot"]
+[connection signal="fight_ended" from="WaveManager" to="RestartCylinder/Area3D" method="_enable_end"]
 [connection signal="fight_started" from="WaveManager" to="WaveManager/Start" method="play_one_shot"]
 [connection signal="body_entered" from="WaveManager/Wave Start Enter" to="WaveManager" method="_on_start" unbinds=1]
+[connection signal="body_entered" from="RestartCylinder/Area3D" to="RestartCylinder/Area3D" method="_on_body_entered"]
