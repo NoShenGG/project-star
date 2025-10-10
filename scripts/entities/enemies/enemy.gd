@@ -27,10 +27,8 @@ func _ready() -> void:
 
 func set_movement_target(movement_target: Vector3):
 	var move_distance : float = global_position.slide(Vector3.UP).distance_to(movement_target.slide(Vector3.UP))
-	print(move_distance)
 	if (!moving and move_distance > 1):
 		moving = true
-		print("moving")
 	navigation_agent.target_position = movement_target
 
 func attack() -> void:
