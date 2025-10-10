@@ -1,4 +1,4 @@
-class_name Fortifier extends Enemy
+class_name Fortifier2 extends Enemy
 
 var shield_radius = 5.0
 var attack_speed: Timer

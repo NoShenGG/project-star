@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://74x7buriwxa7"]
-
-[ext_resource type="Script" uid="uid://bf66cbsamutqi" path="res://scenes/dev/ZXue/LaserShroom/States/state_idle.gd" id="1_qeek8"]
-
-[node name="StateIdle" type="Node"]
-script = ExtResource("1_qeek8")
-metadata/_custom_type_script = "uid://b0p55o8jcc628"

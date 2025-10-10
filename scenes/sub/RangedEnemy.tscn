@@ -1,4 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw87q52v3jxf0"]
+[gd_scene load_steps=9 format=3 uid="uid://cw87q52v3jxf0"]
+
+[ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="1_oxdyg"]
+[ext_resource type="Script" uid="uid://r8oki41bfmky" path="res://scripts/entities/enemies/ranged_enemy.gd" id="1_v2glr"]
+[ext_resource type="Script" uid="uid://b4bqtacthfo7m" path="res://scripts/entities/enemies/states/ranged_enemy/ranged_enemy_idle.gd" id="3_em2bo"]
+[ext_resource type="Script" uid="uid://bc7rckga0dsb2" path="res://scripts/entities/enemies/states/ranged_enemy/ranged_enemy_attack.gd" id="4_bb0s1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utbal"]
 albedo_color = Color(1, 0, 0, 1)
@@ -9,9 +14,10 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vl86s"]
 
-[node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
+[node name="RangedEnemy" type="CharacterBody3D" groups=["Enemies"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
+script = ExtResource("1_v2glr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
@@ -28,14 +34,11 @@ path_max_distance = 100.01
 debug_enabled = true
 debug_path_custom_color = Color(0, 1, 0, 1)
 
-[node name="RecalculateTimer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
 [node name="AggroArea" type="Node3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="AggroArea"]
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea/Area3D"]
 shape = SubResource("CylinderShape3D_vl86s")
@@ -44,7 +47,12 @@ debug_color = Color(1, 0, 0, 1)
 [node name="Cooldown" type="Timer" parent="."]
 wait_time = 0.5
 
-[connection signal="timeout" from="RecalculateTimer" to="." method="_on_recalculate_timer_timeout"]
-[connection signal="body_entered" from="AggroArea/Area3D" to="." method="_on_aggro_area_body_entered"]
-[connection signal="body_exited" from="AggroArea/Area3D" to="." method="_on_aggro_area_body_exited"]
-[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("1_oxdyg")
+metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_em2bo")
+
+[node name="attacking" type="Node" parent="StateMachine"]
+script = ExtResource("4_bb0s1")

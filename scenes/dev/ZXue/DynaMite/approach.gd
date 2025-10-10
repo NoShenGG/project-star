@@ -25,7 +25,6 @@ func physics_update(_delta: float) -> void:
 
 func enter(_prev_state: String, _data := {}) -> void:
 	dynamite = owner as Dynamite
-	print("===STATE ENTRY [approach]===")
 	entered.emit()
 
 func end() -> void:

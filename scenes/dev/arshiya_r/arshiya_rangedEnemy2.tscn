@@ -56,7 +56,6 @@ transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, 
 script = ExtResource("1_sxgx1")
 
 [node name="Player" type="CharacterBody3D" parent="PlayerManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 script = ExtResource("2_w1o6i")
 _movement_speed = 14.0
 
@@ -69,7 +68,6 @@ mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("ShaderMaterial_05f11")
 
 [node name="Player2" type="CharacterBody3D" parent="PlayerManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 script = ExtResource("2_w1o6i")
 _movement_speed = 14.0
 
@@ -82,7 +80,6 @@ mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_8jnod")
 
 [node name="Player3" type="CharacterBody3D" parent="PlayerManager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 script = ExtResource("2_w1o6i")
 _movement_speed = 14.0
 
@@ -94,11 +91,5 @@ debug_fill = false
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_s3r3p")
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("4_2esio")]
+[node name="Enemy" parent="." instance=ExtResource("4_2esio")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.567377, 2.321, 0)
-speed = 13
-target_node = NodePath("../PlayerManager")
-vision_radius = 2.0
-attack_radius = 10.0
-_movement_speed = 13.0
-faction = 2

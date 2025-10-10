@@ -30,7 +30,6 @@ func physics_update(_delta: float) -> void:
 ## Called on state enter. Make sure to emit entered.
 func enter(_prev_state: String, _data := {}) -> void:
 	dynamite = owner as Dynamite
-	print("===STATE ENTRY [countdown]===")
 	#basically, start countdown.
 	dynamite.set_movement_target(dynamite.global_position)
 	dynamite.get_node("CountdownTimer").start(dynamite.COUNTDOWN)
