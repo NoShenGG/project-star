@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpgvc8tlj8842"]
+
+[ext_resource type="Texture2D" uid="uid://cr8rhlqiv5vu3" path="res://scenes/dev/christian_d/assets/health_bar.png" id="1_cfcyo"]
+[ext_resource type="Texture2D" uid="uid://dvhfyc8kwrl53" path="res://scenes/dev/christian_d/assets/health_bars(w_o intersecting lines).png" id="1_u6bi6"]
+[ext_resource type="Script" uid="uid://crx5gqy6h5l2h" path="res://scripts/utility/game_ui.gd" id="1_wmnvy"]
+[ext_resource type="Texture2D" uid="uid://d3ovge2fxk34g" path="res://scenes/dev/christian_d/assets/health_bar_stars.png" id="4_oky4b"]
+[ext_resource type="Texture2D" uid="uid://krduqh4ha2fs" path="res://scenes/dev/christian_d/assets/icon_stars(w_ transparency).png" id="5_1bvid"]
+
+[sub_resource type="Curve" id="Curve_wmnvy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50545454, 0.5084282), 2.0432801, 2.0432801, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_wmnvy"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_oky4b"]
+gradient = SubResource("Gradient_wmnvy")
+
+[node name="GameUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
+script = ExtResource("1_wmnvy")
+BAR_ANIMATION_EASE_CURVE = SubResource("Curve_wmnvy")
+COLOR_GRADIENT = SubResource("GradientTexture1D_oky4b")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 6500.0
+offset_right = 5100.0
+offset_bottom = 9800.0
+grow_vertical = 0
+
+[node name="HealthOutline" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_u6bi6")
+
+[node name="Health" type="TextureProgressBar" parent="MarginContainer/HealthOutline"]
+layout_mode = 0
+offset_right = 5100.0
+offset_bottom = 3300.0
+value = 50.0
+texture_under = ExtResource("1_cfcyo")
+texture_progress = ExtResource("1_cfcyo")
+tint_under = Color(0.4, 0.4, 0.4, 0.23921569)
+tint_progress = Color(0.9999997, 0.28350654, 0.99421185, 1)
+
+[node name="Stars" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_oky4b")
+
+[node name="PlayerIcon" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("5_1bvid")
