@@ -1,16 +1,27 @@
-[gd_scene load_steps=11 format=3 uid="uid://gxpbf728l4vu"]
+[gd_scene load_steps=13 format=3 uid="uid://gxpbf728l4vu"]
 
 [ext_resource type="PackedScene" uid="uid://dgwbbjy6un8a6" path="res://art_assets/environment/level_1/tiles/full.glb" id="1_7anfe"]
-[ext_resource type="Material" uid="uid://bjywo5ra6p13l" path="res://art_assets/environment/level_1/tiles/mountain_grass.tres" id="2_q1yq0"]
 [ext_resource type="PackedScene" uid="uid://bd8xqb1kflt26" path="res://art_assets/environment/level_1/tiles/side corner.glb" id="3_3j1b0"]
-[ext_resource type="Material" uid="uid://et88inwch673" path="res://art_assets/environment/level_1/tiles/mountain_wall.tres" id="4_3j1b0"]
 [ext_resource type="PackedScene" uid="uid://oo5l56fs0g5t" path="res://art_assets/environment/level_1/tiles/top left.glb" id="5_7anfe"]
 [ext_resource type="PackedScene" uid="uid://btb4n6w1xgmyh" path="res://art_assets/environment/level_1/tiles/side.glb" id="5_jpvpx"]
 [ext_resource type="PackedScene" uid="uid://cg0e61cfd5d7k" path="res://art_assets/environment/level_1/tiles/top corner.glb" id="6_6ruv6"]
 [ext_resource type="PackedScene" uid="uid://cgdjnwcbo48o7" path="res://art_assets/environment/level_1/tiles/top right.glb" id="6_q1yq0"]
 [ext_resource type="PackedScene" uid="uid://g6lin5gy8i4v" path="res://art_assets/environment/level_1/tiles/top.glb" id="7_wi5un"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6ruv6"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j3s47"]
+points = PackedVector3Array(1, -0.00039158572, 1, -1, -1.9996084, -1, -1, -1.9996084, 1, -1, -0.00039158572, -1, 1, -1.9996084, -1, -1, -0.00039158572, 1, 1, -1.9996084, 1, 1, -0.00039158572, -1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0kesv"]
+points = PackedVector3Array(1, -1.9998041, 1, -1.0158731, -0.016134143, -1.0158731, 0.9840524, -2.015674, -1.0158731, 0.9840524, 0.015680373, -1.0158731, -1, -0.00038537613, 1, -1.0158731, -2.015674, 0.9840524, 0.96867657, -0.00018964194, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8daqd"]
+points = PackedVector3Array(1, -0.00039158572, 1, -1.0158731, -0.016140223, -1.0158731, 1.0158731, -0.016140223, -1.0158731, -1.0158731, -2.0154753, 0.9840524, -1.0158731, 0.015475273, 1.0158731, 1.0158731, -2.0154753, 0.9840524)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0o5uc"]
+points = PackedVector3Array(1.0158731, 0.015475273, 1.0158731, -1.0158731, -0.016140223, -1.0158731, 0.9840524, -2.0154753, -1.0158731, -1.0158731, -0.016140223, 1.0158731, 0.9840524, -2.0154753, 1.0158731, 1, -0.00039158572, -1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8v2bp"]
+points = PackedVector3Array(1.0158731, 0.015873017, 1.0158731, -1.0158731, -0.015873017, -1.0158731, -1.0158731, 0.015873017, -1.0158731, 1.0158731, -0.015873017, -1.0158731, -1.0158731, -0.015873017, 1.0158731, -1.0158731, 0.015873017, 1.0158731, 1.0158731, 0.015873017, -1.0158731, 1.0158731, -0.015873017, 1.0158731)
 
 [node name="Level1MeshLibrary" type="Node3D"]
 
@@ -19,82 +30,52 @@
 [node name="full2" parent="level1tiles" instance=ExtResource("1_7anfe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="level1tiles/full2"]
-material_override = ExtResource("2_q1yq0")
+[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/full2/full" index="0"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/full2/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/full2/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
-shape = SubResource("BoxShape3D_6ruv6")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/full2/full/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_j3s47")
 
 [node name="side corner2" parent="level1tiles" instance=ExtResource("3_3j1b0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="level1tiles/side corner2"]
-material_override = ExtResource("4_3j1b0")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/side corner2/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/side corner2/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
-shape = SubResource("BoxShape3D_6ruv6")
-
 [node name="side2" parent="level1tiles" instance=ExtResource("5_jpvpx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="level1tiles/side2"]
-material_override = ExtResource("4_3j1b0")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/side2/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/side2/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
-shape = SubResource("BoxShape3D_6ruv6")
-
 [node name="top corner2" parent="level1tiles" instance=ExtResource("6_6ruv6")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="level1tiles/top corner2"]
-material_override = ExtResource("2_q1yq0")
+[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/top corner2/top corner" index="0"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/top corner2/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/top corner2/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
-shape = SubResource("BoxShape3D_6ruv6")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/top corner2/top corner/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0kesv")
 
 [node name="top left2" parent="level1tiles" instance=ExtResource("5_7anfe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="level1tiles/top left2"]
-material_override = ExtResource("2_q1yq0")
+[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/top left2/top left" index="0"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/top left2/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/top left2/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
-shape = SubResource("BoxShape3D_6ruv6")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/top left2/top left/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_8daqd")
 
 [node name="top right2" parent="level1tiles" instance=ExtResource("6_q1yq0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="level1tiles/top right2"]
-material_override = ExtResource("2_q1yq0")
+[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/top right2/top right" index="0"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/top right2/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/top right2/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
-shape = SubResource("BoxShape3D_6ruv6")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/top right2/top right/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0o5uc")
 
 [node name="top2" parent="level1tiles" instance=ExtResource("7_wi5un")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="level1tiles/top2"]
-material_override = ExtResource("2_q1yq0")
+[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/top2/top" index="0"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="level1tiles/top2/MeshInstance3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/top2/top/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_8v2bp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="level1tiles/top2/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1, 0)
-shape = SubResource("BoxShape3D_6ruv6")
+[editable path="level1tiles/full2"]
+[editable path="level1tiles/side corner2"]
+[editable path="level1tiles/side2"]
+[editable path="level1tiles/top corner2"]
+[editable path="level1tiles/top left2"]
+[editable path="level1tiles/top right2"]
+[editable path="level1tiles/top2"]

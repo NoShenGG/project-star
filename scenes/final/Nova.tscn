@@ -2596,8 +2596,8 @@ states/Special/position = Vector2(973, 157)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_k2lop")]
 graph_offset = Vector2(151, 46)
 
-[sub_resource type="BoxMesh" id="BoxMesh_x427t"]
-size = Vector3(0.1, 0.1, 5)
+[sub_resource type="SphereShape3D" id="SphereShape3D_ato7d"]
+radius = 0.98
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xdlwu"]
 radius = 3.0
@@ -2687,8 +2687,33 @@ shape = SubResource("CapsuleShape3D_21ndv")
 [node name="nova_animations_kobold" parent="." instance=ExtResource("14_ato7d")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
+[node name="GeneralSkeleton" parent="nova_animations_kobold/Armature" index="0"]
+bones/0/position = Vector3(-7.7406126e-10, 0.70892143, -0.012175955)
+bones/0/rotation = Quaternion(-1.758329e-08, 0.9987862, -0.049255535, 7.544374e-08)
+bones/1/rotation = Quaternion(-0.07888122, 0.0034431526, 0.00026197243, 0.996878)
+bones/2/rotation = Quaternion(-0.07594789, -0.0037335178, 0.00029902114, 0.9971048)
+bones/3/rotation = Quaternion(-0.09307451, 0.17165968, -0.6830346, 0.7037996)
+bones/4/rotation = Quaternion(0.25345835, 0.05763935, -0.4993493, 0.8264907)
+bones/5/rotation = Quaternion(0.06775768, -0.007922393, 0.041981015, 0.9967868)
+bones/6/rotation = Quaternion(-0.03427809, 0.4016894, 0.050499283, 0.91373986)
+bones/7/rotation = Quaternion(0.10557235, -0.00023116151, 0.00053681136, 0.99441147)
+bones/8/rotation = Quaternion(-0.07587828, -0.0001772005, 0.00075123884, 0.9971168)
+bones/9/rotation = Quaternion(-0.09260434, -0.17117503, 0.6830986, 0.7039175)
+bones/10/rotation = Quaternion(0.25200838, -0.002607245, 0.25230303, 0.93425274)
+bones/11/rotation = Quaternion(0.11821641, -0.10871436, 0.045757484, 0.9859576)
+bones/12/rotation = Quaternion(-3.405826e-08, -0.7512639, 5.6168922e-08, 0.6600019)
+bones/13/rotation = Quaternion(0.000668855, 0.081051014, 0.9967098, 8.2738086e-05)
+bones/14/rotation = Quaternion(0.09910382, 2.3751623e-05, 9.557757e-05, 0.9950771)
+bones/15/rotation = Quaternion(0.07011518, -2.8387125e-05, 0.000114766306, 0.997539)
+bones/16/rotation = Quaternion(0.11122221, 0.04546599, 0.99271756, 0.008627303)
+bones/17/rotation = Quaternion(-0.030224103, -0.0017236, 0.03523732, 0.9989204)
+bones/18/rotation = Quaternion(0.5967693, -0.0027287507, -0.012932459, 0.802304)
+bones/19/rotation = Quaternion(-0.11327313, 0.039723895, 0.9927611, 0.0040876633)
+bones/20/rotation = Quaternion(-0.02876218, 0.0013813251, -0.021923115, 0.9993449)
+bones/21/rotation = Quaternion(0.5967691, 0.002726533, 0.012935525, 0.8023041)
+
 [node name="Hand_L" parent="nova_animations_kobold/Armature/GeneralSkeleton" index="0"]
-transform = Transform3D(-0.3185169, -0.61992717, 0.71710354, -0.15898205, -0.7108524, -0.68513805, 0.93448997, -0.3322347, 0.12786122, 0.48736513, 0.91873586, -0.050785374)
+transform = Transform3D(0.38343018, -0.63699216, 0.668747, -0.69726795, -0.67448336, -0.24267283, 0.6056391, -0.37324804, -0.7027712, 0.53104615, 0.9799881, -0.046816554)
 
 [node name="nova_sword" parent="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_wsli6")
@@ -2790,14 +2815,10 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [node name="DummyAnimation" type="Node" parent="."]
 script = ExtResource("3_h31i5")
 
-[node name="ForwardRay" type="RayCast3D" parent="."]
+[node name="ForwardRay" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-enabled = false
+shape = SubResource("SphereShape3D_ato7d")
 target_position = Vector3(0, 0, -10)
-
-[node name="VisualRay" type="MeshInstance3D" parent="ForwardRay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
-mesh = SubResource("BoxMesh_x427t")
 
 [node name="Hitboxes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
