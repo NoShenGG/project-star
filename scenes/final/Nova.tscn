@@ -2606,7 +2606,7 @@ radius = 3.0
 size = Vector3(1.5, 2, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ch2h"]
-size = Vector3(3, 2, 10)
+size = Vector3(4, 2, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x427t"]
 size = Vector3(4, 2, 3)
@@ -2909,11 +2909,11 @@ Charged Left Click = Charged Slash
 [connection signal="entered" from="StateMachine/AttackingCharged" to="nova_animations_kobold/ChargedSlash" method="enter"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="DummyAnimation" method="attack_charged"]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="nova_animations_kobold/Charging Special" method="enter"]
-[connection signal="special_dash" from="StateMachine/AttackingSpecial" to="DummyAnimation" method="special_dash"]
 [connection signal="special_dash" from="StateMachine/AttackingSpecial" to="StateMachine/AttackingSpecial/Dash SFX" method="play_one_shot"]
+[connection signal="special_dash" from="StateMachine/AttackingSpecial" to="DummyAnimation" method="special_dash"]
 [connection signal="special_dash" from="StateMachine/AttackingSpecial" to="nova_animations_kobold/Special" method="enter" unbinds=1]
-[connection signal="special_dash" from="StateMachine/AttackingChargedSpecial" to="DummyAnimation" method="special_dash"]
 [connection signal="special_dash" from="StateMachine/AttackingChargedSpecial" to="StateMachine/AttackingChargedSpecial/Dash SFX" method="play_one_shot"]
+[connection signal="special_dash" from="StateMachine/AttackingChargedSpecial" to="DummyAnimation" method="special_dash"]
 [connection signal="special_dash" from="StateMachine/AttackingChargedSpecial" to="nova_animations_kobold/Special" method="enter" unbinds=1]
 [connection signal="attack_charged_done" from="DummyAnimation" to="StateMachine/AttackingCharged" method="end"]
 [connection signal="attack_charged_hit" from="DummyAnimation" to="StateMachine/AttackingCharged" method="do_damage"]

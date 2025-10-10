@@ -13,7 +13,7 @@ script = ExtResource("1_lyudl")
 [node name="Nova" parent="." instance=ExtResource("2_dvwxt")]
 process_mode = 3
 top_level = true
-_movement_speed = 7.0
+_movement_speed = 10.0
 _hp = 30.0
 _max_hp = 30.0
 _breakable = false
