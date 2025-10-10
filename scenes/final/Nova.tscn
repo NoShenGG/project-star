@@ -2606,7 +2606,7 @@ radius = 3.0
 size = Vector3(1.5, 2, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ch2h"]
-size = Vector3(3, 2, 10)
+size = Vector3(4, 2, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x427t"]
 size = Vector3(4, 2, 3)
@@ -2687,33 +2687,8 @@ shape = SubResource("CapsuleShape3D_21ndv")
 [node name="nova_animations_kobold" parent="." instance=ExtResource("14_ato7d")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="nova_animations_kobold/Armature" index="0"]
-bones/0/position = Vector3(-7.7406126e-10, 0.70892143, -0.012175955)
-bones/0/rotation = Quaternion(-2.171202e-08, 0.99805033, -0.062414736, 7.5396635e-08)
-bones/1/rotation = Quaternion(-0.06573602, 0.0034394024, 0.00030732361, 0.9978311)
-bones/2/rotation = Quaternion(-0.0628, -0.0037579942, 0.0003385966, 0.99801904)
-bones/3/rotation = Quaternion(-0.09307451, 0.17165968, -0.6830346, 0.7037996)
-bones/4/rotation = Quaternion(0.25513655, 0.052053966, -0.44927245, 0.85460514)
-bones/5/rotation = Quaternion(0.06775768, -0.007922393, 0.041981015, 0.9967868)
-bones/6/rotation = Quaternion(-0.03427809, 0.4016894, 0.050499283, 0.91373986)
-bones/7/rotation = Quaternion(0.088404804, -0.00024634524, 0.0005329431, 0.99608445)
-bones/8/rotation = Quaternion(-0.09266268, -0.00017403347, 0.0007555922, 0.99569726)
-bones/9/rotation = Quaternion(-0.09260434, -0.17117503, 0.6830986, 0.7039175)
-bones/10/rotation = Quaternion(0.24350415, 0.029737866, 0.2562471, 0.93496466)
-bones/11/rotation = Quaternion(0.11821641, -0.10871436, 0.045757484, 0.9859576)
-bones/12/rotation = Quaternion(-3.405826e-08, -0.7512639, 5.6168922e-08, 0.6600019)
-bones/13/rotation = Quaternion(0.0006686974, 0.079164214, 0.99686146, 8.400402e-05)
-bones/14/rotation = Quaternion(-0.1355465, 8.213469e-07, 9.8481236e-05, 0.990771)
-bones/15/rotation = Quaternion(-0.1643106, -8.569678e-07, 0.00011822205, 0.9864087)
-bones/16/rotation = Quaternion(0.11122221, 0.04546599, 0.99271756, 0.008627303)
-bones/17/rotation = Quaternion(-0.030224103, -0.0017236, 0.03523732, 0.9989204)
-bones/18/rotation = Quaternion(0.5967693, -0.0027287507, -0.012932459, 0.802304)
-bones/19/rotation = Quaternion(-0.11327313, 0.039723895, 0.9927611, 0.0040876633)
-bones/20/rotation = Quaternion(-0.02876218, 0.0013813251, -0.021923115, 0.9993449)
-bones/21/rotation = Quaternion(0.5967691, 0.002726533, 0.012935525, 0.8023041)
-
 [node name="Hand_L" parent="nova_animations_kobold/Armature/GeneralSkeleton" index="0"]
-transform = Transform3D(0.3157191, -0.7173294, 0.6210958, -0.6855096, -0.6250204, -0.37339914, 0.6560472, -0.30787808, -0.6890665, 0.5038766, 0.93853545, -0.05787981)
+transform = Transform3D(-0.3185169, -0.61992717, 0.71710354, -0.15898205, -0.7108524, -0.68513805, 0.93448997, -0.3322347, 0.12786122, 0.48736513, 0.91873586, -0.050785374)
 
 [node name="nova_sword" parent="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_wsli6")
@@ -2913,11 +2888,11 @@ Charged Left Click = Charged Slash
 [connection signal="entered" from="StateMachine/AttackingCharged" to="nova_animations_kobold/ChargedSlash" method="enter"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="DummyAnimation" method="attack_charged"]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="nova_animations_kobold/Charging Special" method="enter"]
-[connection signal="special_dash" from="StateMachine/AttackingSpecial" to="DummyAnimation" method="special_dash"]
 [connection signal="special_dash" from="StateMachine/AttackingSpecial" to="StateMachine/AttackingSpecial/Dash SFX" method="play_one_shot"]
+[connection signal="special_dash" from="StateMachine/AttackingSpecial" to="DummyAnimation" method="special_dash"]
 [connection signal="special_dash" from="StateMachine/AttackingSpecial" to="nova_animations_kobold/Special" method="enter" unbinds=1]
-[connection signal="special_dash" from="StateMachine/AttackingChargedSpecial" to="DummyAnimation" method="special_dash"]
 [connection signal="special_dash" from="StateMachine/AttackingChargedSpecial" to="StateMachine/AttackingChargedSpecial/Dash SFX" method="play_one_shot"]
+[connection signal="special_dash" from="StateMachine/AttackingChargedSpecial" to="DummyAnimation" method="special_dash"]
 [connection signal="special_dash" from="StateMachine/AttackingChargedSpecial" to="nova_animations_kobold/Special" method="enter" unbinds=1]
 [connection signal="attack_charged_done" from="DummyAnimation" to="StateMachine/AttackingCharged" method="end"]
 [connection signal="attack_charged_hit" from="DummyAnimation" to="StateMachine/AttackingCharged" method="do_damage"]
