@@ -17,6 +17,8 @@ height = 1.15
 viewport_path = NodePath("SubViewport")
 
 [node name="RangedEnemy" type="CharacterBody3D" groups=["Enemies"]]
+collision_layer = 10
+collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_v2glr")

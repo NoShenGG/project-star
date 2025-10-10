@@ -4,7 +4,6 @@ var parent_enemy : RangedEnemy
 
 func update(_delta: float) -> void:
 	if (parent_enemy.target_node):
-		print(parent_enemy.target_node.global_position)
 		parent_enemy.set_movement_target(parent_enemy.target_node.global_position)
 
 func physics_update(_delta: float) -> void:
