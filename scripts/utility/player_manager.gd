@@ -9,7 +9,8 @@ signal player_hp_update(percent: float)
 
 
 func _init() -> void:
-	GameManager.player_manager = self
+	if (not Engine.is_editor_hint()):
+		GameManager.player_manager = self
 
 func _ready() -> void:
 	if (Engine.is_editor_hint()): return
