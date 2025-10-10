@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p0krpjc7iysr"
-path="res://.godot/imported/stamina_bars(w_o intersecting lines).png-ac85434cd68f4a044252d9b4b4312942.ctex"
+uid="uid://dvhfyc8kwrl53"
+path="res://.godot/imported/health_bars(w_o intersecting lines).png-7df18a3b73964464b6531108cabc9e85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/dev/christian_d/assets/stamina_bars(w_o intersecting lines).png"
-dest_files=["res://.godot/imported/stamina_bars(w_o intersecting lines).png-ac85434cd68f4a044252d9b4b4312942.ctex"]
+source_file="res://art_assets/Ui/health_bars(w_o intersecting lines).png"
+dest_files=["res://.godot/imported/health_bars(w_o intersecting lines).png-7df18a3b73964464b6531108cabc9e85.ctex"]
 
 [params]
 
