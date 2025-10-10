@@ -11,10 +11,10 @@
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="9_8b4uh"]
 [ext_resource type="Script" uid="uid://jah7iax60wqa" path="res://scripts/entities/player/nova/states/nova_attack_charged.gd" id="9_h31i5"]
 [ext_resource type="Script" uid="uid://8e04epciukwh" path="res://scripts/entities/player/nova/states/nova_attack_special.gd" id="10_h31i5"]
-[ext_resource type="Script" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
-[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
+[ext_resource type="Script" uid="uid://cw3b5sywe4lom" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
+[ext_resource type="Script" uid="uid://dssk02ahlboui" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
 [ext_resource type="Script" uid="uid://cauiecxurft0c" path="res://scripts/entities/player/nova/states/nove_attack_special_charged.gd" id="12_k5vrc"]
-[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
+[ext_resource type="Script" uid="uid://cty8d5lvonei1" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
 [ext_resource type="PackedScene" uid="uid://ctl307caw43ed" path="res://art_assets/characters/Nova/nova_animations_kobold.glb" id="14_ato7d"]
 [ext_resource type="AnimationLibrary" uid="uid://b6s3l0l606343" path="res://art_assets/characters/Nova/NovaAnimationLibrary.tres" id="15_e701o"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="15_ranno"]
@@ -2675,8 +2675,33 @@ shape = SubResource("CapsuleShape3D_21ndv")
 [node name="nova_animations_kobold" parent="." instance=ExtResource("14_ato7d")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
+[node name="GeneralSkeleton" parent="nova_animations_kobold/Armature" index="0"]
+bones/0/position = Vector3(-3.1759795e-10, 0.39131817, -0.012175956)
+bones/0/rotation = Quaternion(-1.9828443e-08, 0.99840766, -0.056411188, 7.541976e-08)
+bones/1/rotation = Quaternion(0.30759338, 0.0032758191, -0.0009787777, 0.9515118)
+bones/2/rotation = Quaternion(0.31039104, -0.003662031, -0.0010750999, 0.9506013)
+bones/3/rotation = Quaternion(0.008264172, 0.05645561, -0.6680955, 0.74188477)
+bones/4/rotation = Quaternion(0.54770225, 0.49454862, -0.630518, 0.24060524)
+bones/5/rotation = Quaternion(0.08115824, 0.2642531, -0.019557111, 0.96083355)
+bones/6/rotation = Quaternion(0.2168796, 0.3993901, 0.6141856, 0.6451564)
+bones/7/rotation = Quaternion(-0.16437568, -0.00033896713, -0.00015922471, 0.9863978)
+bones/8/rotation = Quaternion(-0.33955306, -0.00029045972, 0.00019118305, 0.94058686)
+bones/9/rotation = Quaternion(0.0526017, -0.00553167, 0.6563512, 0.7525991)
+bones/10/rotation = Quaternion(0.66778874, -0.48510164, 0.41534913, 0.3823867)
+bones/11/rotation = Quaternion(0.11684989, -0.0761519, 0.03689277, 0.9895383)
+bones/12/rotation = Quaternion(-3.405826e-08, -0.7512639, 5.6168922e-08, 0.6600019)
+bones/13/rotation = Quaternion(0.00045689367, 0.8573333, 0.5147614, -0.00049544015)
+bones/14/rotation = Quaternion(0.4040237, 5.233162e-05, 8.342987e-05, 0.9147485)
+bones/15/rotation = Quaternion(0.37724292, -6.271287e-05, 0.00010022048, 0.9261144)
+bones/16/rotation = Quaternion(0.2711406, -0.26808998, 0.91551, 0.12826541)
+bones/17/rotation = Quaternion(0.74451274, -0.07067014, 0.02521703, 0.66337824)
+bones/18/rotation = Quaternion(0.20518208, 0.06508653, -0.052103482, 0.9751663)
+bones/19/rotation = Quaternion(-0.25749326, -0.2800963, 0.91746145, -0.116223216)
+bones/20/rotation = Quaternion(0.7444887, 0.08062491, -0.0162694, 0.6625492)
+bones/21/rotation = Quaternion(0.20518172, -0.06508962, 0.052104127, 0.97516614)
+
 [node name="Hand_L" parent="nova_animations_kobold/Armature/GeneralSkeleton" index="0"]
-transform = Transform3D(-0.3185169, -0.61992717, 0.71710354, -0.15898205, -0.7108524, -0.68513805, 0.93448997, -0.3322347, 0.12786122, 0.48736513, 0.91873586, -0.050785374)
+transform = Transform3D(0.31963336, 0.9474582, 0.012550384, 0.12571357, -0.055531263, 0.9905111, 0.93916506, -0.31502262, -0.1368578, 0.038823783, 1.1131693, -0.31222546)
 
 [node name="AnimationPlayer" parent="nova_animations_kobold" index="1"]
 libraries = {
