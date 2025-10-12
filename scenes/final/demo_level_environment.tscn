@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bfkrvdwb04r0u"]
+[gd_scene load_steps=37 format=3 uid="uid://bfkrvdwb04r0u"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_kaa7a"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="2_0tv2d"]
@@ -23,6 +23,17 @@
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="20_0xxlr"]
 [ext_resource type="Script" uid="uid://0dst74xe1xdr" path="res://scenes/dev/diemmy_d/restart.gd" id="22_aynb2"]
 [ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="23_m6d5a"]
+[ext_resource type="Shader" uid="uid://cylk6ffp5hsy4" path="res://shaders/screen_space.gdshader" id="24_wel6h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jci3v"]
+shader = ExtResource("24_wel6h")
+shader_parameter/grain_amount = 0.0150000007125
+shader_parameter/grain_size = 0.77200003341012
+shader_parameter/animate = false
+shader_parameter/blur_radius = 0.2050000097375
+shader_parameter/blur_amount = 1.134000053865
+shader_parameter/blur_inner = 0.4630000219925
+shader_parameter/blur_outer = 0.9250000439375
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m6d5a"]
 sky_top_color = Color(0.7868003, 0.8044158, 0.90088457, 1)
@@ -36,7 +47,11 @@ sky_material = SubResource("ProceduralSkyMaterial_m6d5a")
 [sub_resource type="Environment" id="Environment_bly0l"]
 background_mode = 2
 background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 1.17
 sky = SubResource("Sky_wel6h")
+ambient_light_source = 2
+ambient_light_color = Color(0.69779664, 0.45408309, 0.652757, 1)
+ambient_light_energy = 1.13
 tonemap_mode = 2
 tonemap_exposure = 0.5
 ssao_enabled = true
@@ -59,7 +74,7 @@ shader_parameter/water_color = Color(0.12156863, 0.29803923, 0.4509804, 1)
 shader_parameter/submerged_obj_color = Color(0.08044538, 0.18608825, 0.27852577, 1)
 shader_parameter/murkiness = 0.5
 shader_parameter/foam_intensity = 15.0
-shader_parameter/ripple_length = 0.25
+shader_parameter/ripple_length = 0.630000029925
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0lut4"]
 
@@ -80,15 +95,37 @@ albedo_texture = ExtResource("18_wel6h")
 
 [node name="Prototype" type="Node3D"]
 
+[node name="screen_modification" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="screen_modification"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="screen_modification/CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_jci3v")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="screen_modification"]
+transform = Transform3D(-0.5219336, -0.61917514, 0.58669204, 0.061710697, 0.65859747, 0.74996084, -0.850751, 0.42763487, -0.3055344, 0, 22.456, 0)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="screen_modification/DirectionalLight3D"]
+environment = SubResource("Environment_bly0l")
+
+[node name="GameUi" parent="screen_modification" instance=ExtResource("7_wg1h0")]
+offset_left = -38.0
+offset_top = -415.0
+offset_right = -1190.0
+offset_bottom = -1063.0
+scale = Vector2(0.12, 0.12)
+
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://sounds/banks/Enemys.bank", "res://sounds/banks/Ambiance.bank", "res://sounds/banks/Music.bank"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.99663174, -1.1826915e-08, 0.082008064, 0.07476185, 0.41098928, 0.90856963, -0.033704445, 0.91164017, -0.40960485, 0, 22.456, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
-environment = SubResource("Environment_bly0l")
 
 [node name="PlayerManager" parent="." instance=ExtResource("1_kaa7a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6510315, 0, 9.251869)
@@ -172,13 +209,6 @@ event_name = "event:/Music/Game Music"
 event_guid = "{5b2682d3-d1f8-41c2-89c6-d1d077472eb1}"
 autoplay = true
 volume = 0.3
-
-[node name="GameUi" parent="." instance=ExtResource("7_wg1h0")]
-offset_left = -37.999996
-offset_top = -415.0
-offset_right = -1190.0
-offset_bottom = -1063.0
-scale = Vector2(0.12, 0.12)
 
 [node name="Corruption_Base" parent="." instance=ExtResource("9_wpi1y")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -13.942497, 0.20783043, -83.29157)
@@ -536,7 +566,7 @@ visible = false
 [node name="Plane_004" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="29"]
 visible = false
 
-[connection signal="player_hp_update" from="PlayerManager" to="GameUi" method="update_health"]
+[connection signal="player_hp_update" from="PlayerManager" to="screen_modification/GameUi" method="update_health"]
 [connection signal="fight_ended" from="WaveManager" to="WaveManager/End" method="play_one_shot"]
 [connection signal="fight_ended" from="WaveManager" to="RestartCylinder/Area3D" method="_enable_end"]
 [connection signal="fight_started" from="WaveManager" to="WaveManager/Start" method="play_one_shot"]

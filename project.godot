@@ -26,6 +26,10 @@ GameManager="*res://scripts/utility/GameManager.gd"
 FmodManager="*res://addons/fmod/FmodManager.gd"
 MasterBankLoader="*res://sounds/MasterBankLoader.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Project Star"
