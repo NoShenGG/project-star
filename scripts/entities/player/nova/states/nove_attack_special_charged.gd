@@ -27,7 +27,7 @@ func run_special_dash(first: bool):
 		lock_rotation = true
 	special_dash.emit(charges > 1)
 	nova.can_dash = true
-	player.dash(nova.special_dash_dist)
+	player.dash(nova.special_dash_dist, false)
 	do_damage()
 	charges -= 1
 	run_special_dash(false)
@@ -51,6 +51,7 @@ func physics_update(delta: float) -> void:
 
 		
 func do_damage() -> void:
+	await get_tree().physics_frame
 	await get_tree().physics_frame
 	for node in nova.dash_box.get_overlapping_bodies():
 		if not node is Enemy:

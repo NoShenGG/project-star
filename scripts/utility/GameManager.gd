@@ -1,11 +1,11 @@
 extends Node
 
-const LEVEL_PATH := "res://austin_newby/levels/%s.tscn"
+const LEVEL_PATH := "res://scenes/final/%s.tscn"
 const LOADING_SCREEN = preload("uid://c41j5ds1pfvyx")
 
-var player_manager : Node3D
-var player_pos : Vector3:
-	get: return player_manager.position
+var player_manager : PlayerManager
+var curr_player : Player:
+	get: return player_manager.current_char
 var current_level
 var main_scene : MainScene
 

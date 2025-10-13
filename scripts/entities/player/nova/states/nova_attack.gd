@@ -27,6 +27,7 @@ func physics_update(_delta: float) -> void:
 		
 func do_damage() -> void:
 	for node in box.get_overlapping_bodies():
+		print(node)
 		if not node is Enemy:
 			continue
 		(node as Enemy).try_damage(nova.attack_dmg[combo_counter])

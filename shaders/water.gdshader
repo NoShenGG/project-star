@@ -5,7 +5,7 @@ uniform vec3 water_color : source_color = vec3(0.167, 0.406, 0.618);
 uniform vec3 submerged_obj_color : source_color = vec3(0.084, 0.203, 0.309);
 uniform float murkiness : hint_range(0.0, 1.0) = 0.5;
 uniform float foam_intensity : hint_range(1.0, 30.0) = 15.0;
-uniform float ripple_length : hint_range(0.0, 1.0) = 0.25;
+uniform float ripple_length : hint_range(0.0, 10) = 0.25;
 
 void fragment()
 {

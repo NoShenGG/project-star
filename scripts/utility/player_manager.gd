@@ -5,10 +5,12 @@ extends Node3D
 @onready var current_char: Player
 
 signal new_player(value : Player)
+signal player_hp_update(percent: float)
 
 
 func _init() -> void:
-	GameManager.player_manager = self
+	if (not Engine.is_editor_hint()):
+		GameManager.player_manager = self
 
 func _ready() -> void:
 	if (Engine.is_editor_hint()): return
@@ -24,10 +26,14 @@ func _ready() -> void:
 			c.visible = false
 			(c as Player).state_machine.state = c.get_node("StateMachine/Sleeping")
 			(c as Player).get_node("CollisionShape3D").disabled = true
+		else:
+			(c as Player).health_update.connect(player_health_update)
+			player_health_update((c as Player)._hp / (c as Player)._max_hp)
 		
 		c.top_level = true
 		c.global_position = global_position
 		c.global_rotation = global_rotation
+		
 	
 
 func _process(_delta: float) -> void:
@@ -50,6 +56,9 @@ func _process(_delta: float) -> void:
 	## allowing external code to be able to see the player still in edgecases
 	global_position = current_char.global_position
 
+func player_health_update(percent: float):
+	player_hp_update.emit(percent)
+
 
 '''
 	Uses node hierarchy for character switching, assuming characters are the only direct children 
@@ -71,4 +80,9 @@ func swap_char(idx: int):
 		
 		(current_char.state_machine as PlayerStateMachine).swap_out()
 		(new_char.state_machine as PlayerStateMachine).swap_in()
+		
+		
+		current_char.health_update.disconnect(player_health_update)
+		new_char.health_update.connect(player_health_update)
+		player_health_update(new_char._hp / new_char._max_hp)
 		current_char = new_char

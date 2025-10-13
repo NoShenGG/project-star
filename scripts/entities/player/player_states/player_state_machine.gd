@@ -10,8 +10,11 @@ Others that can be applied to any player like movement should be named:
 	"player_[state].gd"
 '''
 
+var player: Player
 
 func _ready() -> void:
+	player = owner as Player
+	
 	for state_node in get_children():
 		assert(state_node is PlayerState)
 		assert(state_node.name in PlayerState.VALID_STATES)
@@ -24,3 +27,10 @@ func swap_out() -> void:
 func swap_in() -> void:
 	assert(state.name in [PlayerState.SLEEPING], "Bad Call to Swap In")
 	state.trigger_finished.emit(PlayerState.SWAP_IN)
+
+func _physics_process(delta: float) -> void:
+	super(delta)
+	
+	if (!player.is_on_floor()):
+		player.velocity += Vector3.DOWN * (9.81 * 10)* delta
+	

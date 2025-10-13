@@ -2,7 +2,7 @@
 class_name MergerTestEnemy extends Enemy
 
 func _process(delta: float) -> void:
-	var pos = $"/root/Prototype/PlayerManager/Nova".global_position
+	var pos = GameManager.curr_player.global_position
 	set_movement_target(Vector3(pos.x, position.y, pos.z))
 	super(delta)
 	
