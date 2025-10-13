@@ -1,4 +1,4 @@
-@icon("res://addons/fmod/icons/bank_icon.svg")
+@icon("uid://btkf3nim3pnsa")
 @tool
 extends Node3D
 

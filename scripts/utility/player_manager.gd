@@ -1,4 +1,5 @@
 @tool
+@icon("uid://biyv27by8gy3r")
 class_name PlayerManager
 extends Node3D
 
