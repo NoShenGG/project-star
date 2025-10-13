@@ -46,6 +46,7 @@ script = ExtResource("1_srenp")
 
 [node name="Player" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+top_level = true
 script = ExtResource("2_ls5hk")
 _movement_speed = 14.0
 
@@ -58,6 +59,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_05f11")
 
 [node name="Player2" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+top_level = true
 script = ExtResource("2_ls5hk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2"]
@@ -69,6 +71,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_8jnod")
 
 [node name="Player3" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+top_level = true
 script = ExtResource("2_ls5hk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3"]

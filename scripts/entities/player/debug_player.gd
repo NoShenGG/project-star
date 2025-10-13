@@ -1,37 +1,21 @@
 ## Debug Player Implementation
 class_name DebugPlayer extends Player
 
+
 func _physics_process(delta):
 	super(delta)
+	var direction := Input.get_vector("move_up", "move_down", "move_right", "move_left")
 	
-## These are called when a valid input is recieved. It is up to the specific impl to handle attack sequences.
-func _basic_attack() -> void:
-	print("Attack")
-	await get_tree().create_timer(0.4).timeout
-	current_state = PlayerState.IDLE
-
-func _charged_attack() -> void:
-	print("Charged for "+str(charge_counter))
-	current_state = PlayerState.IDLE
+	direction = direction.rotated(deg_to_rad(45))
+	direction = direction * _movement_speed
 	
-func _special_attack() -> void:
-	print("Special!!!")
-	current_state = PlayerState.IDLE
-
-func _charged_special_attack() -> void:
-	print("Special!!! Charged for "+str(charge_counter))
-	current_state = PlayerState.IDLE
-
-
-## For these make sure to call super first to set player state	
-func synergy_burst() -> void:
-	super()
-	print("BURST!!!!!")
+	target_velocity.x = direction.x
+	target_velocity.z = direction.y
 	
-func swap_out() -> void:
-	super()
-	print("Bye!")
+	velocity = target_velocity.lerp(velocity, clamp(pow(0.1, input_smoothing_speed * delta), 0, 1))
+	if velocity:
+		look_at(global_position + velocity)
+	move_and_slide()
 	
-func swap_in() -> void:
-	super()
-	print("Hi!")
+	if Input.is_action_just_pressed("dodge"):
+		dash()

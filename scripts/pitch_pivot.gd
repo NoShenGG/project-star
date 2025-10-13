@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 class_name CameraPivot
 
 @export var shake_reduction_rate := 1.0
@@ -8,11 +8,24 @@ const noise_speed := 50.0
 
 var intensity := 0.0
 var time := 0.0
-@onready var camera := $Camera3D
+
+@onready var camera : Camera3D = (func get_camera() -> Camera3D:
+	if (get_parent() is Camera3D): return get_parent() as Camera3D
+	if ($Camera3D): return $Camera3D
+	for i in get_parent().get_children():
+		if (i is Camera3D):
+			return i
+	var searchedCamera : Camera3D = get_node("../Camera3D") as Camera3D
+	if (searchedCamera): return searchedCamera
+	assert("CameraShake could not find camera, please keep in a one layer vacinity + \n" + get_tree_string_pretty())
+	return null
+	).call()
+
 @onready var initial_rotation := camera.rotation_degrees as Vector3
 @export var max_rotation := Vector3(10.0, 10.0, 5.0)
 
 func _process(delta):
+	
 	intensity = max(intensity - delta * shake_reduction_rate, 0.0)
 	time += delta
 	

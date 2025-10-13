@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://pv4ghgiiejhk"]
+
+[ext_resource type="Script" uid="uid://wjmuurwxsrpw" path="res://scripts/entities/statusbars.gd" id="1_wpcfj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y83ja"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Curve" id="Curve_3ijnh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.49845198, 0.5051389), 2.7972004, 2.7972004, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Theme" id="Theme_wpcfj"]
+
+[sub_resource type="Gradient" id="Gradient_chdrm"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.6666667)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tuo4h"]
+gradient = SubResource("Gradient_chdrm")
+width = 512
+height = 48
+
+[sub_resource type="Gradient" id="Gradient_q78nk"]
+colors = PackedColorArray(1, 0.44313726, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y83ja"]
+gradient = SubResource("Gradient_q78nk")
+width = 512
+height = 48
+
+[sub_resource type="Gradient" id="Gradient_cox6q"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.6666667)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nveos"]
+gradient = SubResource("Gradient_cox6q")
+width = 384
+height = 16
+
+[sub_resource type="Gradient" id="Gradient_ipcke"]
+colors = PackedColorArray(1, 0.8235294, 0, 1, 1, 1, 0.5176471, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gatcl"]
+gradient = SubResource("Gradient_ipcke")
+width = 384
+height = 16
+
+[node name="StatusBars" type="Sprite3D"]
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 0, 0)
+billboard = 2
+texture = SubResource("ViewportTexture_y83ja")
+script = ExtResource("1_wpcfj")
+BAR_ANIMATION_EASE_CURVE = SubResource("Curve_3ijnh")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(512, 80)
+
+[node name="HealthCont" type="PanelContainer" parent="SubViewport"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_right = 256.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme = SubResource("Theme_wpcfj")
+
+[node name="Health" type="TextureProgressBar" parent="SubViewport/HealthCont"]
+layout_mode = 2
+value = 50.0
+texture_under = SubResource("GradientTexture2D_tuo4h")
+texture_progress = SubResource("GradientTexture2D_y83ja")
+
+[node name="BreakCont" type="PanelContainer" parent="SubViewport"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -16.0
+offset_right = 192.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Break" type="TextureProgressBar" parent="SubViewport/BreakCont"]
+layout_mode = 2
+value = 50.0
+texture_under = SubResource("GradientTexture2D_nveos")
+texture_progress = SubResource("GradientTexture2D_gatcl")
