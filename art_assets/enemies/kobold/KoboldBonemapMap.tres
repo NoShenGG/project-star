@@ -1,0 +1,29 @@
+[gd_resource type="BoneMap" load_steps=2 format=3 uid="uid://dm4nn4gi7noub"]
+
+[ext_resource type="SkeletonProfile" uid="uid://c73ee2wittajb" path="res://art_assets/enemies/kobold/KoboldSkeletonProfile.tres" id="1_5ofmp"]
+
+[resource]
+profile = ExtResource("1_5ofmp")
+bonemap = null
+bone_map/Waist = &""
+bone_map/Stomach = &""
+bone_map/Chest = &""
+bone_map/Shoulder.L = &""
+bone_map/Upperarm.L = &""
+bone_map/Lowerarm.L = &""
+bone_map/Hand.L = &""
+bone_map/Neck = &""
+bone_map/Head = &""
+bone_map/Shoulder.R = &""
+bone_map/Upperarm.R = &""
+bone_map/Lowerarm.R = &""
+bone_map/Hand.R = &""
+bone_map/UpperLeg.L = &""
+bone_map/LowerLeg.L = &""
+bone_map/Foot.L = &""
+bone_map/UpperLeg.R = &""
+bone_map/LowerLeg.R = &""
+bone_map/Foot.R = &""
+bone_map/Tail = &""
+bone_map/Tail.001 = &""
+bone_map/Tail.002 = &""

@@ -18,6 +18,7 @@ func _on_timer_timeout() -> void:
 	queue_free()
 
 func _on_hitbox_body_entered(body: Node3D) -> void:
-	if (body.name.substr(0, 7) == "Player"):
+	if (is_same(body, GameManager.curr_player)):
 		#do damage here
+		# GameManager.curr_player.try_damage(2)
 		queue_free()

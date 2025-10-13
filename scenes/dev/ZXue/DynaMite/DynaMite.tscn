@@ -1,0 +1,98 @@
+[gd_scene load_steps=17 format=3 uid="uid://dikwtund4a5xs"]
+
+[ext_resource type="Script" uid="uid://cetk67agmcktg" path="res://scenes/dev/ZXue/DynaMite/DynaMiteEnemy.gd" id="1_gnlae"]
+[ext_resource type="PackedScene" uid="uid://b0liiu5ijolin" path="res://art_assets/enemies/dyna_mite/dynamite_rig.gltf" id="2_i3822"]
+[ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_ybb5r"]
+[ext_resource type="Script" uid="uid://dr7vgnbn0sbub" path="res://scenes/dev/ZXue/DynaMite/idle.gd" id="3_5e5g7"]
+[ext_resource type="Script" uid="uid://86kddc0ka3gc" path="res://scenes/dev/ZXue/DynaMite/approach.gd" id="4_ljwvm"]
+[ext_resource type="Script" uid="uid://phpe8yffty68" path="res://scenes/dev/ZXue/DynaMite/countdown.gd" id="5_htoe2"]
+[ext_resource type="Script" uid="uid://3uvdfqh6srtl" path="res://scenes/dev/ZXue/DynaMite/dead.gd" id="6_g2vom"]
+[ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="7_g2vom"]
+[ext_resource type="Script" uid="uid://la2fd47cp2em" path="res://scenes/dev/ZXue/DynaMite/break.gd" id="7_ybb5r"]
+[ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="10_bnow6"]
+[ext_resource type="PackedScene" uid="uid://cent63gp0an85" path="res://vfx/DynaMiteExplodeVFX.tscn" id="11_0gklw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i3822"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g2vom"]
+radius = 3.463
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0gklw"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gklw"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="Curve" id="Curve_y7q5s"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+
+[node name="DynaMite" type="CharacterBody3D" groups=["Enemies"]]
+collision_layer = 10
+collision_mask = 3
+script = ExtResource("1_gnlae")
+COUNTDOWN_RANGE = 3.0
+DAMAGE = 7.0
+attack_radius = 5.0
+passive_death_time = 0.5
+
+[node name="dynamite_rig" parent="." instance=ExtResource("2_i3822")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_i3822")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_ybb5r")
+metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_5e5g7")
+
+[node name="approach" type="Node" parent="StateMachine"]
+script = ExtResource("4_ljwvm")
+
+[node name="countdown" type="Node" parent="StateMachine"]
+script = ExtResource("5_htoe2")
+
+[node name="dead" type="Node" parent="StateMachine"]
+script = ExtResource("6_g2vom")
+
+[node name="break" type="Node" parent="StateMachine"]
+script = ExtResource("7_ybb5r")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="CountdownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Hitbox" type="Area3D" parent="."]
+script = ExtResource("7_g2vom")
+metadata/_custom_type_script = "uid://c1iptw5vqre6f"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+visible = false
+shape = SubResource("SphereShape3D_g2vom")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="StatusBars" parent="." instance=ExtResource("10_bnow6")]
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 1.5, 0)
+texture = SubResource("ViewportTexture_0gklw")
+
+[node name="DynaMiteExplode" parent="." instance=ExtResource("11_0gklw")]
+explosion_color = Color(1, 0, 0, 1)
+fuse_delay = 2.0
+pulse_count = 10
+pulse_color = Color(1, 0.227451, 0, 1)
+pulse_material = SubResource("StandardMaterial3D_0gklw")
+pulse_timing = SubResource("Curve_y7q5s")
+play_on_start = false
+
+[connection signal="break_update" from="." to="StatusBars" method="update_break"]
+[connection signal="health_update" from="." to="StatusBars" method="update_health"]
+[connection signal="entered" from="StateMachine/countdown" to="DynaMiteExplode" method="start_fuse"]
+[connection signal="timeout" from="CountdownTimer" to="StateMachine/countdown" method="_on_countdown_timer_timeout"]

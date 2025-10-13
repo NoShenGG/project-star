@@ -8,7 +8,7 @@ var lock_rotation := true
 
 
 func enter(_previous_state_path: String, data := {}) -> void:
-	entered.emit(name, _previous_state_path)
+	entered.emit()
 	charges = data.get("charges", 1)
 	nova.dash_box.monitoring = true
 	lock_rotation = true
@@ -19,7 +19,7 @@ func run_special_dash(first: bool):
 	if charges == 0:
 		# Fake Animation Wait to end attack state
 		get_tree().create_timer(0.1).timeout.connect(
-			finished.emit.bind(MOVING if player.velocity else IDLE))
+			trigger_finished.emit.bind(MOVING if player.velocity else IDLE))
 		return
 	elif not first:
 		lock_rotation = false
@@ -27,7 +27,7 @@ func run_special_dash(first: bool):
 		lock_rotation = true
 	special_dash.emit(charges > 1)
 	nova.can_dash = true
-	player.dash(nova.special_dash_dist)
+	player.dash(nova.special_dash_dist, false)
 	do_damage()
 	charges -= 1
 	run_special_dash(false)
@@ -51,6 +51,7 @@ func physics_update(delta: float) -> void:
 
 		
 func do_damage() -> void:
+	await get_tree().physics_frame
 	await get_tree().physics_frame
 	for node in nova.dash_box.get_overlapping_bodies():
 		if not node is Enemy:

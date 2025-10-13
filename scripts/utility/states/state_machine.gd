@@ -12,7 +12,7 @@ signal state_exited(state: String)
 
 func _ready() -> void:
 	for state_node: State in find_children("*", "State"):
-		state_node.finished.connect(_transition_to_next_state)
+		state_node.trigger_finished.connect(_transition_to_next_state)
 
 	await owner.ready
 	state.enter("")
@@ -33,6 +33,7 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 		return
 	var previous_state_path := state.name
 	state_exited.emit(state.name)
+	state.finished.emit()
 	state.exit()
 	state = get_node(target_state_path)
 	state_entered.emit(state.name)

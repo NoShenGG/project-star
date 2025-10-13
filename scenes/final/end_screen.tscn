@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://djrb1fij35qoj"]
+
+[ext_resource type="Script" uid="uid://dt6gotxl8mucy" path="res://scripts/utility/main_menu.gd" id="1_t28d1"]
+[ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_8pdee"]
+[ext_resource type="Texture2D" uid="uid://b20vb7m5bkcy4" path="res://art_assets/Ui/JTASM2Logo.png" id="3_t28d1"]
+
+[sub_resource type="Gradient" id="Gradient_notvo"]
+colors = PackedColorArray(0.05490196, 0.05490196, 0.05490196, 1, 0.05490196, 0.05490196, 0.05490196, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_shv7k"]
+gradient = SubResource("Gradient_notvo")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t28d1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_shv7k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8pdee"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40gj3"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t28d1")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 236.02
+offset_right = 236.02002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.585, 0.585)
+texture = ExtResource("3_t28d1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_shv7k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.645
+anchor_right = 0.5
+anchor_bottom = 0.79
+offset_left = -75.0
+offset_top = -51.0
+offset_right = 75.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../QuitButton")
+theme_override_colors/font_focus_color = Color(0.6509804, 0.43137255, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.84, 0.55439997, 0.7733599, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_8pdee")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t28d1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_shv7k")
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+theme_override_colors/font_focus_color = Color(0.6509804, 0.43137255, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.8392157, 0.5529412, 0.77254903, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
+theme_override_fonts/font = ExtResource("3_8pdee")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8pdee")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_40gj3")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

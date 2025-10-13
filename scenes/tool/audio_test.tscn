@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cb3ptgr3hju7" path="res://scripts/audio/volume_slider.gd" id="2_ctuwv"]
 
 [node name="audio_test" type="Node2D"]
-script = ExtResource("1_su1yd")
+script = ExtResource("1_xug34")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
@@ -70,7 +70,7 @@ text = "     Music"
 layout_mode = 2
 max_value = 1.0
 step = 0.05
-script = ExtResource("2_ctuwv")
+script = ExtResource("2_yfy1f")
 bus_name = "music"
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/HBoxContainer/VBoxContainer/Panel2/VBoxContainer"]
@@ -85,7 +85,7 @@ text = "    SFX"
 layout_mode = 2
 max_value = 1.0
 step = 0.05
-script = ExtResource("2_ctuwv")
+script = ExtResource("2_yfy1f")
 bus_name = "sfx"
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/HBoxContainer"]

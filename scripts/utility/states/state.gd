@@ -1,8 +1,9 @@
 @abstract
 class_name State extends Node
 
-signal entered(state: String, prev_state: String, data: Dictionary)
-signal finished(state: String, next_state: String, data: Dictionary)
+signal entered
+signal trigger_finished(state: String, next_state: String, data: Dictionary)
+signal finished # Emitted by state manager after trigger_finished but before exit()
 
 ## Called on state machine process
 @abstract
@@ -16,7 +17,7 @@ func physics_update(_delta: float) -> void
 @abstract
 func enter(_prev_state: String, _data := {}) -> void
 
-## Call for another script to end this state. Should pick the next state and emit finished.
+## Call for another script to end this state. Should pick the next state and emit trigger_finished.
 @abstract
 func end() -> void
 	

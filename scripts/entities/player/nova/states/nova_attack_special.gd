@@ -3,11 +3,11 @@ extends NovaState
 signal special_dash(chain: bool)
 
 func enter(_previous_state_path: String, _data := {}) -> void:
-	entered.emit(name, _previous_state_path)
+	entered.emit()
 	nova.dash_box.monitoring = true
 	nova.can_dash = true
 	get_tree().physics_frame.connect(do_damage)
-	player.dash(nova.special_dash_dist)
+	player.dash(nova.special_dash_dist, false)
 	
 
 func update(_delta: float) -> void:
@@ -27,7 +27,7 @@ func do_damage() -> void:
 	
 		
 func end() -> void:
-	finished.emit(MOVING if player.velocity else IDLE)
+	trigger_finished.emit(MOVING if player.velocity else IDLE)
 		
 func exit() -> void:
 	nova.dash_box.monitoring = false

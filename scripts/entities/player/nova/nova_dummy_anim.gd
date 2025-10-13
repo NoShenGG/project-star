@@ -8,7 +8,7 @@ signal attack_charged_done
 func attack() -> void:
 	await get_tree().create_timer(0.2).timeout
 	attack_hit.emit()
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(0.2).timeout
 	attack_done.emit()
 	
 func attack_charged() -> void:

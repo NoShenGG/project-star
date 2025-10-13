@@ -1,7 +1,7 @@
 extends NovaState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
-	entered.emit(name, _previous_state_path)
+	entered.emit()
 	nova.sweep_box.monitoring = true
 	
 
@@ -18,7 +18,7 @@ func do_damage() -> void:
 		(node as Enemy).try_damage(nova.charged_attack_dmg)
 		
 func end() -> void:
-	finished.emit(MOVING if player.velocity else IDLE)
+	trigger_finished.emit(MOVING if player.velocity else IDLE)
 
 func exit() -> void:
 	nova.sweep_box.monitoring = false

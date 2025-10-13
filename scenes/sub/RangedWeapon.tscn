@@ -10,7 +10,7 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pcnfp"]
 
-[node name="RangedWeapon" type="Node3D"]
+[node name="RangedWeapon" type="Node3D" groups=["Enemies"]]
 script = ExtResource("1_duflq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -19,6 +19,7 @@ mesh = SubResource("SphereMesh_kfiv0")
 
 [node name="Hitbox" type="Area3D" parent="."]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+collision_mask = 3
 script = ExtResource("1_6v43l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]

@@ -3,7 +3,7 @@ class_name Player extends Entity
 
 signal player_dashed
 
-@onready var ray: RayCast3D = $ForwardRay
+@onready var ray: ShapeCast3D = $ForwardRay
 
 @export_category("Input Thresholds")
 @export var max_click_time: float = 0.25
@@ -51,13 +51,16 @@ func move(delta: float, speed_scale := 1.0) -> void:
 	move_and_slide()
 
 ## Dash function, uses raycast to prevent clipping world but ignores entities
-func dash(dist := dash_distance) -> void:
+func dash(dist := dash_distance, emit_signal : bool = true) -> void:
 	if not can_dash:
 		return
-	player_dashed.emit()
+	if (emit_signal): player_dashed.emit()
 	can_dash = false
-	ray.force_raycast_update()
-	var dash_target_dist = min(position.distance_to(ray.get_collision_point())-0.5, dash_distance) \
+	ray.force_shapecast_update()
+	var dash_target_dist = min(position.distance_to(ray.get_collision_point(0))-0.5, dash_distance) \
 			if ray.is_colliding() else dist
 	position += Vector3.FORWARD.rotated(Vector3.UP, rotation.y) * dash_target_dist
 	get_tree().create_timer(dash_cd).timeout.connect(func(): can_dash = true)
+	
+func trigger_death() -> void:
+	push_error("Player has Died")

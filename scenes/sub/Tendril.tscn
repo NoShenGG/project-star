@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2c748wm51fs2"]
+
+[ext_resource type="Script" uid="uid://gywwwjadi67l" path="res://scripts/entities/enemies/tendril_enemy.gd" id="1_pjj4p"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pjj4p"]
+radius = 7.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gbt7d"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_i3wst"]
+
+[node name="Tendril" type="CharacterBody3D"]
+script = ExtResource("1_pjj4p")
+attack_radius = 0.3
+_movement_speed = 3.0
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.2
+target_desired_distance = 0.2
+
+[node name="AggroArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea"]
+shape = SubResource("SphereShape3D_pjj4p")
+
+[node name="GrabCooldown" type="Timer" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_gbt7d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_i3wst")

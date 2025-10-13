@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnfgpacphxpuf"]
+
+[ext_resource type="Shader" uid="uid://c0b41bba5feld" path="res://scenes/dev/chrizz/decal.gdshader" id="1_pv4y6"]
+[ext_resource type="Texture2D" uid="uid://cubil75wqx67v" path="res://art_assets/textures/foam.png" id="2_24wro"]
+[ext_resource type="Texture2D" uid="uid://i00mvlk0hme5" path="res://scenes/dev/chrizz/GlitchGrid.png" id="3_biwxi"]
+[ext_resource type="Texture2D" uid="uid://guoiodpujktu" path="res://scenes/dev/chrizz/StarDecal.png" id="4_l7b6y"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tko7d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_um112"]
+render_priority = 0
+shader = ExtResource("1_pv4y6")
+shader_parameter/albedo = Color(0.674488, 0.388788, 0.390443, 1)
+shader_parameter/cube_half_size = 13.325
+shader_parameter/radius = 0.651
+shader_parameter/outerRadius = 3.044
+shader_parameter/innerColor = Color(0.986167, 0.243512, 0.169577, 1)
+shader_parameter/outerColor = Color(0.239379, 0.204616, 0.568653, 1)
+shader_parameter/starColorLow = Color(0.991558, 0.666234, 0.725368, 1)
+shader_parameter/starColorHigh = Color(0.586272, 0.0927561, 0.262792, 1)
+shader_parameter/stepSize = 0.505
+shader_parameter/pixelation = 128.0
+shader_parameter/posterizeLevels = 7.715
+shader_parameter/glitch_tex = ExtResource("2_24wro")
+shader_parameter/starScrollSpeed = 2.235
+shader_parameter/star_tex = ExtResource("4_l7b6y")
+shader_parameter/grid_tex = ExtResource("3_biwxi")
+shader_parameter/PORTAL_RADIUS = 0.5
+shader_parameter/PORTAL_NORMAL = Vector3(0, 0, 1)
+shader_parameter/PORTAL_CENTER = Vector3(0, 0, 0)
+shader_parameter/PORTAL_SEAM = Vector3(0, 1, 0)
+
+[node name="Corruption_Base" type="MeshInstance3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_tko7d")
+surface_material_override/0 = SubResource("ShaderMaterial_um112")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(19.999966, 0, 0, 0, 19.999966, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("PlaneMesh_tko7d")
+surface_material_override/0 = SubResource("ShaderMaterial_um112")
