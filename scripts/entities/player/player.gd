@@ -1,4 +1,5 @@
 @abstract
+@icon("uid://br5yk4evttuoq")
 class_name Player extends Entity
 
 signal player_dashed

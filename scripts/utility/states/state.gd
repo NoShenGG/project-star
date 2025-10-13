@@ -1,4 +1,5 @@
 @abstract
+@icon("uid://cwpe5paiqd48f")
 class_name State extends Node
 
 signal entered

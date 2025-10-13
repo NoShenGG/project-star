@@ -1,3 +1,4 @@
+@icon("uid://megolcw1kt24")
 extends Node3D
 
 class_name WaveManager

@@ -1,4 +1,5 @@
 @abstract
+@icon("uid://cgy1hfljlnsj3")
 class_name Enemy extends Entity
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D

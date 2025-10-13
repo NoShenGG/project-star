@@ -1,4 +1,5 @@
 @tool
+@icon("uid://01u2lvy5ancr")
 extends Node3D
 
 class_name SpawnArea

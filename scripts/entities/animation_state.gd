@@ -1,5 +1,5 @@
 @tool
-@icon("res://addons/fmod/icons/c_parameter_icon.svg")
+@icon("uid://du6lxj4j1rvpm")
 extends Node
 class_name AnimationState
 
