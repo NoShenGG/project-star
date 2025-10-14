@@ -7,11 +7,6 @@ class_name Nova extends Player
 
 @onready var anim = $DummyAnimation
 
-@export_category("Damage Values")
-@export var attack_dmg: Array[int] = [2, 2, 3, 7, 5]
-@export var combo_reset_time: float = 1
-@export var charged_attack_dmg: int = 10
-@export var special_dmg: int = 25
 @export_category("Nova Special")
 @export var release_pause: float = 0.5
 @export var special_dash_dist: float = 10

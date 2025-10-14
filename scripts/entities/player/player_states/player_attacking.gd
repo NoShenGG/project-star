@@ -8,18 +8,19 @@ var combo_timer: SceneTreeTimer = null
 var combo_counter: int = 0
 
 func _ready() -> void:
+	super()
 	for child in get_children():
 		if not child is ComboState:
 			continue
 		child = child as ComboState
 		_states.append(child)
-		child._attacking_state = self
 	_states.sort_custom(func(a: ComboState, b: ComboState): return a.combo_num < b.combo_num)
 	for state in _states:
 		if _states[state.combo_num] != state:
 			assert(false, "Cannot Have duplicate Combo States")
 		if state.combo_num >= _states.size():
 			assert(false, "Combo Number cannot exceed the number of ComboStates")
+		state._attacking_state = self
 		
 	
 func enter(_previous_state_path: String, _data := {}) -> void:
@@ -45,7 +46,7 @@ func end() -> void:
 		
 func exit() -> void:
 	current_state.exit()
-	combo_counter = (combo_counter + 1) % len(_states.size())
+	combo_counter = (combo_counter + 1) % _states.size()
 	update_combo.emit(combo_counter)
 	combo_timer = get_tree().create_timer(player.combo_reset_time)
 	combo_timer.timeout.connect(reset_combo)

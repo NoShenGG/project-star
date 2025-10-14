@@ -9,5 +9,5 @@ func enter(_prev_state: String, _data := {}) -> void:
 	entered.emit()
 
 func end() -> void:
-	_attacking_state.end()
 	finished.emit()
+	_attacking_state.end()

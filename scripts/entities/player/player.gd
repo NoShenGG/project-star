@@ -9,9 +9,14 @@ signal player_dashed
 @export_category("Input Thresholds")
 @export var max_click_time: float = 0.25
 @export_category("Attack")
+@export var attack_dmg: Array[int] = [2, 2, 3, 7, 5]
+@export var charged_attack_dmg: int = 10
 @export var attack_charge_time: float = 0.5
 @export var max_attack_charges: int = 1
+@export var combo_reset_time: float = 0.6
 @export_category("Special")
+@export var special_dmg: int = 25
+@export var charged_special_dmg: int = 25
 @export var special_charge_time: float = 0.5
 @export var max_special_charges: int = 3
 @export var special_cd: float = 5
@@ -52,10 +57,10 @@ func move(delta: float, speed_scale := 1.0) -> void:
 	move_and_slide()
 
 ## Dash function, uses raycast to prevent clipping world but ignores entities
-func dash(dist := dash_distance, emit_signal : bool = true) -> void:
+func dash(dist := dash_distance, emit : bool = true) -> void:
 	if not can_dash:
 		return
-	if (emit_signal): player_dashed.emit()
+	if (emit): player_dashed.emit()
 	can_dash = false
 	ray.force_shapecast_update()
 	var dash_target_dist = min(position.distance_to(ray.get_collision_point(0))-0.5, dash_distance) \
