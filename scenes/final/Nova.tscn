@@ -2761,33 +2761,8 @@ shape = SubResource("CapsuleShape3D_21ndv")
 [node name="nova_animations_kobold" parent="." instance=ExtResource("14_ato7d")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="nova_animations_kobold/Armature" index="0"]
-bones/0/position = Vector3(1.5665023e-08, 0.49271357, 0.054277174)
-bones/0/rotation = Quaternion(0.0037474707, 0.99846, 0.03467759, -0.043141097)
-bones/1/rotation = Quaternion(-0.024943544, -0.16107535, 0.04127954, 0.9857629)
-bones/2/rotation = Quaternion(-0.022354132, -0.16960752, -0.03581731, 0.9846069)
-bones/3/rotation = Quaternion(0.1987658, -0.13679335, -0.65449494, 0.71653074)
-bones/4/rotation = Quaternion(0.32136416, 0.08614632, -0.65085036, 0.68242043)
-bones/5/rotation = Quaternion(0.084079854, 0.8363029, -0.16378239, 0.51643354)
-bones/6/rotation = Quaternion(0.025089825, 0.40890807, -0.0156844, 0.91209584)
-bones/7/rotation = Quaternion(0.0956639, 0.00010354703, -0.00016344845, 0.99541366)
-bones/8/rotation = Quaternion(-0.08539929, 0.00021308882, 0.00039380454, 0.9963468)
-bones/9/rotation = Quaternion(0.019335872, 0.039645284, 0.63432384, 0.7718081)
-bones/10/rotation = Quaternion(0.3473127, -0.3559069, 0.56341213, 0.65975076)
-bones/11/rotation = Quaternion(0.11562087, -0.04921643, 0.029545732, 0.99163336)
-bones/12/rotation = Quaternion(-0.12728192, -0.74608713, 0.1221932, 0.6420453)
-bones/13/rotation = Quaternion(0.0006739442, 0.2028698, 0.97920555, -4.655536e-08)
-bones/14/rotation = Quaternion(-0.037828103, -3.0080726e-06, 9.193913e-05, 0.9992843)
-bones/15/rotation = Quaternion(-0.07777086, -3.2192736e-05, 0.00011827958, 0.9969713)
-bones/16/rotation = Quaternion(0.0026635083, -0.6078898, 0.79394, -0.011062292)
-bones/17/rotation = Quaternion(0.7092382, -0.06763065, 0.02646866, 0.70121807)
-bones/18/rotation = Quaternion(0.46222463, 0.022869425, -0.028049577, 0.88602406)
-bones/19/rotation = Quaternion(0.017888688, -0.1557163, 0.9867718, -0.041397363)
-bones/20/rotation = Quaternion(0.52399355, 0.05842725, -0.019881485, 0.84948325)
-bones/21/rotation = Quaternion(0.14874369, -0.07339515, 0.056691542, 0.98451746)
-
 [node name="Hand_L" parent="nova_animations_kobold/Armature/GeneralSkeleton" index="0"]
-transform = Transform3D(-0.15700561, -0.09279993, -0.9832276, -0.027812364, -0.9947656, 0.09832993, -0.9872061, 0.042784296, 0.1536026, -0.061313078, 0.90646696, 0.36635858)
+transform = Transform3D(-0.3185169, -0.61992717, 0.71710354, -0.15898205, -0.7108524, -0.68513805, 0.93448997, -0.3322347, 0.12786122, 0.48736513, 0.91873586, -0.050785374)
 
 [node name="nova_sword" parent="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_wsli6")
