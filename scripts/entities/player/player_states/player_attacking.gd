@@ -7,10 +7,12 @@ var _states: Array[ComboState] = []
 var current_state: ComboState = null
 var combo_timer: SceneTreeTimer = null
 var combo_counter: int = 0
-var combo_queued: bool = false
+var combo_queue: int = 0
 
+## when clicking attack mid combo, it will set the amount of clicks to be a queue of attacks. if false you have to spam click to continue combo
 @export var queue_combo : bool = true
-
+## if false, the combo will be exited before it loops
+@export var loop_combo : bool = true
 
 func _ready() -> void:
 	super()
@@ -37,21 +39,20 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 func start_attack(_prev_state: String, _data := {}) -> void:
 	current_state = _states[combo_counter]
 	attack_started.emit(combo_counter)
-	combo_queued = false
 	current_state.finished.connect(attack_done)
 	current_state.enter(_prev_state, _data)
 	
 func attack_done():
-	if not combo_queued:
+	if combo_queue <= 0 or (loop_combo and (_states.size() - 1) - combo_counter == 0):
 		end()
 		return
 	current_state.finished.disconnect(attack_done)
 	current_state.exit()
 	
 	increase_combo_count()
-	
-	await get_tree().process_frame
-	start_attack(ATTACKING)
+	## doing deferred instead of waiting a frame so we arent skipping a frame, theres a difference between deferred and a skipped frame
+	start_attack.call_deferred(ATTACKING)
+	combo_queue -= 1 if combo_queue > 0 else 0
 
 func reset_combo() -> void:
 	combo_counter = 0
@@ -66,10 +67,9 @@ func increase_combo_count():
 	combo_timer = get_tree().create_timer(player.combo_reset_time)
 	combo_timer.timeout.connect(reset_combo)
 
-## when clicking attack mid combo, it will set the amount of clicks to be a queue of attacks. if false you have to spam click to continue combo
 func update(_delta: float) -> void:
-	if not combo_queued and queue_combo and Input.is_action_just_pressed("basic_attack"):
-		combo_queued = true
+	if Input.is_action_just_pressed("basic_attack"):
+		combo_queue = min(combo_queue + 1, (_states.size()) - (combo_counter + 1)) if queue_combo else 1
 	current_state.update(_delta)
 
 func physics_update(_delta: float) -> void:
@@ -77,9 +77,10 @@ func physics_update(_delta: float) -> void:
 
 func end() -> void:
 	trigger_finished.emit(MOVING if player.velocity else IDLE)
+	combo_queue = 0
 
 func exit() -> void:
 	current_state.finished.disconnect(attack_done)
 	current_state.exit()
 	increase_combo_count()
-	combo_queued = false
+	combo_queue = 0
