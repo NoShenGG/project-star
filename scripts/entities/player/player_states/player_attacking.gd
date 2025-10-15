@@ -3,8 +3,8 @@ extends PlayerState
 signal update_combo(count: int)
 signal attack_started(count :int)
 
-var _states: Array[ComboState] = []
-var current_state: ComboState = null
+var _states: Array[State] = []
+var current_state: State = null
 var combo_timer: SceneTreeTimer = null
 var combo_counter: int = 0
 var combo_queue: int = 0
@@ -17,17 +17,10 @@ var combo_queue: int = 0
 func _ready() -> void:
 	super()
 	for child in get_children():
-		if not child is ComboState:
+		if not child is State:
 			continue
-		child = child as ComboState
+		child = child as State
 		_states.append(child)
-	_states.sort_custom(func(a: ComboState, b: ComboState): return a.combo_num < b.combo_num)
-	for state in _states:
-		if _states[state.combo_num] != state:
-			assert(false, "Cannot Have duplicate Combo States")
-		if state.combo_num >= _states.size():
-			assert(false, "Combo Number cannot exceed the number of ComboStates")
-		
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	if combo_timer != null and combo_timer.time_left > 0:

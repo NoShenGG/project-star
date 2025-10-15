@@ -10,7 +10,6 @@ signal player_dashed
 @export_category("Input Thresholds")
 @export var max_click_time: float = 0.25
 @export_category("Attack")
-@export var attack_dmg: Array[int] = [2, 2, 3, 7, 5]
 @export var charged_attack_dmg: int = 10
 @export var attack_charge_time: float = 0.5
 @export var max_attack_charges: int = 1
