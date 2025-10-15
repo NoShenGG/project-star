@@ -35,7 +35,6 @@ func sword_update():
 func stop():
 	emitting = false
 	slashing = false
-	print(owner)
 	#reparent(owner)
 	if (survival_time > 0):
 		await get_tree().create_timer(survival_time).timeout

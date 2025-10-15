@@ -19,3 +19,7 @@ func do_damage() -> void:
 	
 func exit() -> void:
 	nova.slash_box.monitoring = false
+
+func end() -> void:
+	super()
+	nova.slash_box.monitoring = false

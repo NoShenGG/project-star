@@ -13,11 +13,11 @@
 [ext_resource type="Script" uid="uid://jah7iax60wqa" path="res://scripts/entities/player/nova/states/nova_attack_charged.gd" id="9_h31i5"]
 [ext_resource type="Script" uid="uid://dw3jxl30nrrk3" path="res://scripts/entities/player/nova/states/nova_combo_23_slam.gd" id="9_mwi3y"]
 [ext_resource type="Script" uid="uid://8e04epciukwh" path="res://scripts/entities/player/nova/states/nova_attack_special.gd" id="10_h31i5"]
-[ext_resource type="Script" uid="uid://cw3b5sywe4lom" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
+[ext_resource type="Script" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
 [ext_resource type="Script" uid="uid://bjx51op7y667i" path="res://scripts/entities/player/nova/states/nova_combo_4_sweep.gd" id="11_vrbf8"]
-[ext_resource type="Script" uid="uid://dssk02ahlboui" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
+[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
 [ext_resource type="Script" uid="uid://cauiecxurft0c" path="res://scripts/entities/player/nova/states/nove_attack_special_charged.gd" id="12_k5vrc"]
-[ext_resource type="Script" uid="uid://cty8d5lvonei1" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
+[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
 [ext_resource type="PackedScene" uid="uid://ctl307caw43ed" path="res://art_assets/characters/Nova/nova_animations_kobold.glb" id="14_ato7d"]
 [ext_resource type="Texture2D" uid="uid://b2nts737xcuhj" path="res://art_assets/characters/Nova/nova_animations_mixamo_nova_sword_col.png" id="15_ato7d"]
 [ext_resource type="AnimationLibrary" uid="uid://b6s3l0l606343" path="res://art_assets/characters/Nova/NovaAnimationLibrary.tres" id="15_e701o"]
@@ -2783,8 +2783,33 @@ shape = SubResource("CapsuleShape3D_21ndv")
 [node name="nova_animations_kobold" parent="." instance=ExtResource("14_ato7d")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
+[node name="GeneralSkeleton" parent="nova_animations_kobold/Armature" index="0"]
+bones/0/position = Vector3(1.0385509e-08, 0.6500831, 0.16336358)
+bones/0/rotation = Quaternion(6.7331707e-10, 0.99996024, 0.008918357, 7.549494e-08)
+bones/1/rotation = Quaternion(0.012091779, 0.2124167, -0.0002550028, 0.9771043)
+bones/2/rotation = Quaternion(0.014986374, 0.20525303, -0.0060338792, 0.9785756)
+bones/3/rotation = Quaternion(-0.093074486, 0.1716597, -0.6830346, 0.7037996)
+bones/4/rotation = Quaternion(0.2535847, 0.02030489, -0.61202484, 0.7488045)
+bones/5/rotation = Quaternion(0.06766003, -0.009571002, 0.042344026, 0.9967635)
+bones/6/rotation = Quaternion(0.054868575, 0.7494812, 0.015322927, 0.65957004)
+bones/7/rotation = Quaternion(-0.017862445, -0.1620863, 0.010552764, 0.9865585)
+bones/8/rotation = Quaternion(-0.1954623, -0.15495573, 0.04870017, 0.9671668)
+bones/9/rotation = Quaternion(-0.09260433, -0.17117503, 0.6830986, 0.7039175)
+bones/10/rotation = Quaternion(0.52045435, 0.13184613, 0.32651094, 0.777904)
+bones/11/rotation = Quaternion(0.1201163, -0.6089207, 0.17921942, 0.76332694)
+bones/12/rotation = Quaternion(-2.802273e-09, -0.751264, 1.1090083e-07, 0.6600019)
+bones/13/rotation = Quaternion(0.0006739531, 0.20286982, 0.97920555, -4.8496105e-08)
+bones/14/rotation = Quaternion(-0.14315549, 6.462194e-08, 9.848458e-05, 0.9897002)
+bones/15/rotation = Quaternion(-0.17188519, 5.1505946e-08, 0.000118225056, 0.985117)
+bones/16/rotation = Quaternion(0.005457733, -0.013989859, 0.9801876, 0.19750166)
+bones/17/rotation = Quaternion(-0.030224103, -0.0017236096, 0.03523734, 0.9989204)
+bones/18/rotation = Quaternion(0.5967693, -0.00272877, -0.012932463, 0.802304)
+bones/19/rotation = Quaternion(-0.005602359, -0.016339479, 0.9931989, -0.11514185)
+bones/20/rotation = Quaternion(-0.028762184, 0.0013813246, -0.0219231, 0.9993449)
+bones/21/rotation = Quaternion(0.5967692, 0.0027265488, 0.012935509, 0.802304)
+
 [node name="Hand_L" parent="nova_animations_kobold/Armature/GeneralSkeleton" index="0"]
-transform = Transform3D(-0.3185169, -0.61992717, 0.71710354, -0.15898205, -0.7108524, -0.68513805, 0.93448997, -0.3322347, 0.12786122, 0.48736513, 0.91873586, -0.050785374)
+transform = Transform3D(0.5385718, -0.4378702, 0.71986806, -0.3102545, -0.89739275, -0.31373388, 0.7833789, -0.054374006, -0.61916184, 0.35468954, 1.0239373, -0.29231173)
 
 [node name="nova_sword" parent="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_wsli6")
@@ -2804,7 +2829,6 @@ length_seconds = 0.3
 color_ramp = SubResource("GradientTexture1D_ob225")
 curve = SubResource("CurveTexture_uws5v")
 _defaults_have_been_set = true
-metadata/_custom_type_script = "uid://drugjbbmd0wed"
 
 [node name="Slash SFX" type="FmodEventEmitter3D" parent="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L/nova_sword/SlashVFX"]
 event_name = "event:/Enemys/Sword Slash"
@@ -2995,8 +3019,8 @@ Charged Left Click = Charged Slash
 [connection signal="charge_count_increase" from="StateMachine/Charging" to="StateMachine/Charging/Charging Ready SFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Charging" to="StateMachine/Charging/Charging SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Charging" to="nova_animations_kobold/ChargingSlash" method="enter"]
-[connection signal="entered" from="StateMachine/Attacking" to="StateMachine/Attacking/Attack SFX" method="play_one_shot"]
-[connection signal="entered" from="StateMachine/Attacking" to="DummyAnimation" method="attack"]
+[connection signal="attack_started" from="StateMachine/Attacking" to="StateMachine/Attacking/Attack SFX" method="play_one_shot" unbinds=1]
+[connection signal="attack_started" from="StateMachine/Attacking" to="DummyAnimation" method="attack" unbinds=1]
 [connection signal="entered" from="StateMachine/Attacking/Slash0" to="nova_animations_kobold/Slash" method="enter"]
 [connection signal="entered" from="StateMachine/Attacking/Slash1" to="nova_animations_kobold/Slash2" method="enter"]
 [connection signal="entered" from="StateMachine/Attacking/Slam2" to="nova_animations_kobold/Slash3" method="enter"]
@@ -3025,6 +3049,6 @@ Charged Left Click = Charged Slash
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slash1" method="do_damage"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slam2" method="do_damage"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Poke3" method="do_damage"]
-[connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Sweep4" method="_on_dummy_animation_attack_hit"]
+[connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Sweep4" method="do_damage"]
 
 [editable path="nova_animations_kobold"]
