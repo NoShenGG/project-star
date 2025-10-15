@@ -7,15 +7,15 @@
 [ext_resource type="Script" uid="uid://dq5qwb33mlr2l" path="res://scripts/entities/player/player_states/player_moving.gd" id="5_lfcoe"]
 [ext_resource type="Script" uid="uid://bpndinylqyege" path="res://scripts/entities/player/player_states/player_idle.gd" id="5_xhleb"]
 [ext_resource type="Script" uid="uid://clwu1a1we224o" path="res://scripts/entities/player/player_states/player_attacking.gd" id="6_ob225"]
-[ext_resource type="Script" uid="uid://becnk6gd1e51o" path="res://scripts/entities/player/nova/states/nova_combo_state.gd" id="7_ob225"]
+[ext_resource type="Script" uid="uid://becnk6gd1e51o" path="res://scripts/entities/player/melee_attack.gd" id="7_ob225"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_w7jsq"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="9_8b4uh"]
 [ext_resource type="Script" uid="uid://jah7iax60wqa" path="res://scripts/entities/player/nova/states/nova_attack_charged.gd" id="9_h31i5"]
 [ext_resource type="Script" uid="uid://8e04epciukwh" path="res://scripts/entities/player/nova/states/nova_attack_special.gd" id="10_h31i5"]
-[ext_resource type="Script" uid="uid://cw3b5sywe4lom" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
-[ext_resource type="Script" uid="uid://dssk02ahlboui" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
+[ext_resource type="Script" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
+[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
 [ext_resource type="Script" uid="uid://cauiecxurft0c" path="res://scripts/entities/player/nova/states/nove_attack_special_charged.gd" id="12_k5vrc"]
-[ext_resource type="Script" uid="uid://cty8d5lvonei1" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
+[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
 [ext_resource type="PackedScene" uid="uid://ctl307caw43ed" path="res://art_assets/characters/Nova/nova_animations_kobold.glb" id="14_ato7d"]
 [ext_resource type="Texture2D" uid="uid://b2nts737xcuhj" path="res://art_assets/characters/Nova/nova_animations_mixamo_nova_sword_col.png" id="15_ato7d"]
 [ext_resource type="AnimationLibrary" uid="uid://b6s3l0l606343" path="res://art_assets/characters/Nova/NovaAnimationLibrary.tres" id="15_e701o"]
@@ -2686,6 +2686,7 @@ size = Vector3(4, 2, 3)
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_p5oh7")
+faction = 0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_lfcoe")
@@ -2714,29 +2715,33 @@ event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 [node name="Attacking" type="Node" parent="StateMachine"]
 script = ExtResource("6_ob225")
 
-[node name="Slash0" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox")]
+[node name="Slash0" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 hitbox = NodePath("../../../Hitboxes/Slash")
+animation = NodePath("../../../nova_animations_kobold/Slash")
 
-[node name="Slash1" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox")]
+[node name="Slash1" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 hitbox = NodePath("../../../Hitboxes/Slash")
-combo_num = 1
+animation = NodePath("../../../nova_animations_kobold/Slash2")
 
-[node name="Slam2" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox")]
+[node name="Slam2" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 hitbox = NodePath("../../../Hitboxes/Poke")
-combo_num = 2
+damage = 3.0
+animation = NodePath("../../../nova_animations_kobold/Slash3")
 
-[node name="Poke3" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox")]
+[node name="Poke3" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 hitbox = NodePath("../../../Hitboxes/Poke")
-combo_num = 3
+damage = 7.0
+animation = NodePath("../../../nova_animations_kobold/Slash4")
 
-[node name="Sweep4" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox")]
+[node name="Sweep4" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 hitbox = NodePath("../../../Hitboxes/Sweep")
-combo_num = 4
+damage = 5.0
+animation = NodePath("../../../nova_animations_kobold/Slash5")
 
 [node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking"]
 event_name = "event:/Player/Uniques/Grunt/Nova Grunt"
@@ -3009,11 +3014,6 @@ Charged Left Click = Charged Slash
 [connection signal="entered" from="StateMachine/Charging" to="nova_animations_kobold/ChargingSlash" method="enter"]
 [connection signal="attack_started" from="StateMachine/Attacking" to="StateMachine/Attacking/Attack SFX" method="play_one_shot" unbinds=1]
 [connection signal="attack_started" from="StateMachine/Attacking" to="DummyAnimation" method="attack" unbinds=1]
-[connection signal="entered" from="StateMachine/Attacking/Slash0" to="nova_animations_kobold/Slash" method="enter"]
-[connection signal="entered" from="StateMachine/Attacking/Slash1" to="nova_animations_kobold/Slash2" method="enter"]
-[connection signal="entered" from="StateMachine/Attacking/Slam2" to="nova_animations_kobold/Slash3" method="enter"]
-[connection signal="entered" from="StateMachine/Attacking/Poke3" to="nova_animations_kobold/Slash4" method="enter"]
-[connection signal="entered" from="StateMachine/Attacking/Sweep4" to="nova_animations_kobold/Slash5" method="enter"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="StateMachine/AttackingCharged/AttackCharged SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="nova_animations_kobold/ChargedSlash" method="enter"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="DummyAnimation" method="attack_charged"]
@@ -3028,11 +3028,6 @@ Charged Left Click = Charged Slash
 [connection signal="slash_start" from="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L/nova_sword/SlashVFX" to="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L/nova_sword/SlashVFX/Slash SFX" method="play_one_shot"]
 [connection signal="attack_charged_done" from="DummyAnimation" to="StateMachine/AttackingCharged" method="end"]
 [connection signal="attack_charged_hit" from="DummyAnimation" to="StateMachine/AttackingCharged" method="do_damage"]
-[connection signal="attack_done" from="DummyAnimation" to="StateMachine/Attacking/Slash0" method="end"]
-[connection signal="attack_done" from="DummyAnimation" to="StateMachine/Attacking/Slash1" method="end"]
-[connection signal="attack_done" from="DummyAnimation" to="StateMachine/Attacking/Slam2" method="end"]
-[connection signal="attack_done" from="DummyAnimation" to="StateMachine/Attacking/Poke3" method="end"]
-[connection signal="attack_done" from="DummyAnimation" to="StateMachine/Attacking/Sweep4" method="end"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slash0" method="do_damage"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slash1" method="do_damage"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slam2" method="do_damage"]
