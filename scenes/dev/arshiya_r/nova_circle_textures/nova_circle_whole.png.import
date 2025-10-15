@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cne34sq04otv2"
-path.s3tc="res://.godot/imported/nova_ring.png-e174d2792a533e7d81c40605fd0fe6f7.s3tc.ctex"
+uid="uid://cybl1wtn6pvvs"
+path="res://.godot/imported/nova_circle_whole.png-31d44f9526f8f103f49fd2769da1a5dc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/dev/arshiya_r/nova_ring.png"
-dest_files=["res://.godot/imported/nova_ring.png-e174d2792a533e7d81c40605fd0fe6f7.s3tc.ctex"]
+source_file="res://scenes/dev/arshiya_r/nova_circle_textures/nova_circle_whole.png"
+dest_files=["res://.godot/imported/nova_circle_whole.png-31d44f9526f8f103f49fd2769da1a5dc.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

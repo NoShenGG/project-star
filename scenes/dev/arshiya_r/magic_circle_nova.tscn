@@ -1,12 +1,12 @@
 [gd_scene load_steps=19 format=3 uid="uid://bi2pwq60ilskr"]
 
 [ext_resource type="Shader" uid="uid://cwxym6x8q6dfq" path="res://scenes/dev/arshiya_r/spinning_ring.tres" id="1_8f5l2"]
-[ext_resource type="Texture2D" uid="uid://cne34sq04otv2" path="res://scenes/dev/arshiya_r/nova_ring.png" id="2_g7mh2"]
+[ext_resource type="Texture2D" uid="uid://cne34sq04otv2" path="res://scenes/dev/arshiya_r/nova_circle_textures/nova_ring.png" id="2_g7mh2"]
 [ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/circle_particles.tres" id="3_8f5l2"]
-[ext_resource type="Texture2D" uid="uid://d4lyinrwaq1jv" path="res://scenes/dev/arshiya_r/nova_inner_ring.png" id="3_g7mh2"]
+[ext_resource type="Texture2D" uid="uid://d4lyinrwaq1jv" path="res://scenes/dev/arshiya_r/nova_circle_textures/nova_inner_ring.png" id="3_g7mh2"]
 [ext_resource type="Shader" uid="uid://cjyovschd3cas" path="res://scenes/dev/arshiya_r/magic_circle_center.tres" id="3_pnu6d"]
 [ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://vfx/Kenny Particle Pack/star_04.png" id="4_g7mh2"]
-[ext_resource type="Texture2D" uid="uid://bugefgtvt5a83" path="res://scenes/dev/arshiya_r/nova_star.png" id="4_raqfb"]
+[ext_resource type="Texture2D" uid="uid://bugefgtvt5a83" path="res://scenes/dev/arshiya_r/nova_circle_textures/nova_star.png" id="4_raqfb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfcmf"]
 render_priority = 0
