@@ -6,6 +6,7 @@ signal player_dashed
 
 @onready var ray: ShapeCast3D = $ForwardRay
 
+@export var targetting_box: Area3D
 @export_category("Input Thresholds")
 @export var max_click_time: float = 0.25
 @export_category("Attack")
@@ -27,6 +28,7 @@ signal player_dashed
 
 var can_dash := true
 var has_special := true
+var closest_enemy: Enemy = null
 
 var target_velocity := Vector3.ZERO
 
@@ -55,6 +57,19 @@ func move(delta: float, speed_scale := 1.0) -> void:
 	if velocity:
 		look_at(global_position + velocity)
 	move_and_slide()
+	
+func move_to(target: Vector3, delta: float, speed_scale := 1.0):
+	var direction = global_position.direction_to(target)
+	
+	direction = direction * _movement_speed * speed_scale
+	
+	target_velocity.x = direction.x
+	target_velocity.z = direction.y
+	
+	look_at(global_position + target_velocity)
+	velocity = target_velocity.lerp(velocity, clamp(pow(0.1, input_smoothing_speed * delta), 0, 1))
+	move_and_slide()
+	
 
 ## Dash function, uses raycast to prevent clipping world but ignores entities
 func dash(dist := dash_distance, emit : bool = true) -> void:
@@ -67,6 +82,17 @@ func dash(dist := dash_distance, emit : bool = true) -> void:
 			if ray.is_colliding() else dist
 	position += Vector3.FORWARD.rotated(Vector3.UP, rotation.y) * dash_target_dist
 	get_tree().create_timer(dash_cd).timeout.connect(func(): can_dash = true)
+	
+func _entered_vision(body: Node3D) -> void:
+	if body is Enemy:
+		if closest_enemy == null:
+			closest_enemy = body as Enemy
+		elif body.global_position.distance_to(self.global_position) < closest_enemy.global_position.distance_to(self.global_position):
+			closest_enemy = body as Enemy 
+	
+func _exited_vision(body: Node3D) -> void:
+	if body as Enemy == closest_enemy:
+		closest_enemy = null
 	
 func trigger_death() -> void:
 	push_error("Player has Died")

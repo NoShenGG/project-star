@@ -7,11 +7,9 @@ var _states: Array[ComboState] = []
 var current_state: ComboState = null
 var combo_timer: SceneTreeTimer = null
 var combo_counter: int = 0
+var combo_queued: bool = false
 
-var combo_queue : int = 0
-
-const ATTACK_INPUTS : Array[String]= ["basic_attack", "special_attack", "synergy_burst"]
-@export_enum(ATTACK_INPUTS[0],ATTACK_INPUTS[1],ATTACK_INPUTS[2]) var Combo_Attack_input : int
+@export var queue_combo : bool = true
 
 
 func _ready() -> void:
@@ -34,61 +32,54 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 		combo_timer.timeout.disconnect(reset_combo)
 		combo_timer = null
 	entered.emit()
-	current_state = _states[combo_counter]
-	current_state.finished.connect(attack_done)
-	current_state.enter(_previous_state_path, _data)
-	attack_started.emit(combo_counter)
-	combo_queue = 0
+	start_attack(_previous_state_path, _data)
 
+func start_attack(_prev_state: String, _data := {}) -> void:
+	current_state = _states[combo_counter]
+	attack_started.emit(combo_counter)
+	combo_queued = false
+	current_state.finished.connect(attack_done)
+	current_state.enter(_prev_state, _data)
+	
 func attack_done():
-	
-	if (combo_queue <= 0):
+	if not combo_queued:
 		end()
-		print("returning")
 		return
-	
-	print("continuing")
-	
-	
 	current_state.finished.disconnect(attack_done)
+	current_state.exit()
+	
 	increase_combo_count()
 	
-	current_state = _states[combo_counter]
-	current_state.finished.connect(attack_done)
-	current_state.enter(ATTACKING, {})
-	
-	attack_started.emit(combo_counter)
-	
-	combo_queue -= 1 if combo_queue > 0 else 0
+	await get_tree().process_frame
+	start_attack(ATTACKING)
 
 func reset_combo() -> void:
 	combo_counter = 0
 	update_combo.emit(0)
+	
+func increase_combo_count():
+	if combo_timer != null and combo_timer.time_left > 0:
+		combo_timer.timeout.disconnect(reset_combo)
+		combo_timer = null
+	combo_counter = (combo_counter + 1) % _states.size()
+	update_combo.emit(combo_counter)
+	combo_timer = get_tree().create_timer(player.combo_reset_time)
+	combo_timer.timeout.connect(reset_combo)
 
 ## when clicking attack mid combo, it will set the amount of clicks to be a queue of attacks. if false you have to spam click to continue combo
-@export var queue_combo : bool = true
 func update(_delta: float) -> void:
-	if Input.is_action_just_pressed(ATTACK_INPUTS[Combo_Attack_input]):
-		combo_queue = combo_queue + 1 if queue_combo else 1
+	if not combo_queued and queue_combo and Input.is_action_just_pressed("basic_attack"):
+		combo_queued = true
 	current_state.update(_delta)
-	
 
 func physics_update(_delta: float) -> void:
 	current_state.physics_update(_delta)
 
 func end() -> void:
-	current_state.finished.disconnect(attack_done)
-	print("ending end")
 	trigger_finished.emit(MOVING if player.velocity else IDLE)
-	combo_queue = 0
+
 func exit() -> void:
 	current_state.finished.disconnect(attack_done)
 	current_state.exit()
 	increase_combo_count()
-	combo_queue = 0
-
-func increase_combo_count():
-	combo_counter = (combo_counter + 1) % _states.size()
-	update_combo.emit(combo_counter)
-	combo_timer = get_tree().create_timer(player.combo_reset_time)
-	combo_timer.timeout.connect(reset_combo)
+	combo_queued = false
