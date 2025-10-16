@@ -6,8 +6,10 @@ signal attack_started(count :int)
 var _states: Array[State] = []
 var current_state: State = null
 var combo_timer: SceneTreeTimer = null
+var charge_timer: SceneTreeTimer = null
 var combo_counter: int = 0
 var combo_queue: int = 0
+var charge_queued: bool = false
 
 ## when clicking attack mid combo, it will set the amount of clicks to be a queue of attacks. if false you have to spam click to continue combo
 @export var queue_combo : bool = true
@@ -36,6 +38,10 @@ func start_attack(_prev_state: String, _data := {}) -> void:
 	current_state.enter(_prev_state, _data)
 	
 func attack_done():
+	if charge_queued:
+		combo_queue = 0
+		trigger_finished.emit(CHARGING, {"time": player.max_click_time})
+		return
 	if combo_queue <= 0 or (loop_combo and (_states.size() - 1) - combo_counter == 0):
 		end()
 		return
@@ -59,9 +65,21 @@ func increase_combo_count():
 	update_combo.emit(combo_counter)
 	combo_timer = get_tree().create_timer(player.combo_reset_time)
 	combo_timer.timeout.connect(reset_combo)
+	
+func start_charge_timer():
+	if charge_timer != null and not charge_queued:
+		charge_timer.timeout.disconnect(attack_held)
+	charge_timer = get_tree().create_timer(player.max_click_time)
+	charge_timer.timeout.connect(attack_held)
+	
+func attack_held():
+	charge_queued = true
+	charge_timer = null
+	
 
 func update(_delta: float) -> void:
 	if Input.is_action_just_pressed("basic_attack"):
+		start_charge_timer()
 		combo_queue = min(combo_queue + 1, (_states.size()) - (combo_counter + 1)) if queue_combo else 1
 	current_state.update(_delta)
 
@@ -75,5 +93,6 @@ func end() -> void:
 func exit() -> void:
 	current_state.finished.disconnect(attack_done)
 	current_state.exit()
+	charge_queued = false
 	increase_combo_count()
 	combo_queue = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://brw0p1eirto83"]
+[gd_scene load_steps=71 format=3 uid="uid://brw0p1eirto83"]
 
 [ext_resource type="Script" uid="uid://om4qdtr1cye0" path="res://scripts/entities/player/nova/nova.gd" id="1_p5oh7"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="3_6m1nx"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://8l57dsfm2da5" path="res://scripts/entities/player/nova/states/nova_attack.gd" id="7_ob225"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_w7jsq"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="9_8b4uh"]
-[ext_resource type="Script" uid="uid://jah7iax60wqa" path="res://scripts/entities/player/nova/states/nova_attack_charged.gd" id="9_h31i5"]
 [ext_resource type="Script" uid="uid://8e04epciukwh" path="res://scripts/entities/player/nova/states/nova_attack_special.gd" id="10_h31i5"]
 [ext_resource type="Script" uid="uid://cw3b5sywe4lom" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
 [ext_resource type="Script" uid="uid://dssk02ahlboui" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
@@ -2751,8 +2750,12 @@ animation = NodePath("../../../nova_animations_kobold/Slash5")
 event_name = "event:/Player/Uniques/Grunt/Nova Grunt"
 event_guid = "{8eed88f7-964e-435b-957d-c6705371ee3b}"
 
-[node name="AttackingCharged" type="Node" parent="StateMachine"]
-script = ExtResource("9_h31i5")
+[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
+script = ExtResource("7_ob225")
+hitbox = NodePath("../../Hitboxes/Sweep")
+damage = 5.0
+finished_state = NodePath("../Moving")
+animation = NodePath("../../nova_animations_kobold/ChargedSlash")
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
 event_name = "event:/Player/Uniques/Charged Attack/Nova Charged Attack"

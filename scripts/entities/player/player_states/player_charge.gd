@@ -1,6 +1,5 @@
 extends PlayerState
 
-
 signal charge_count_increase(count: int)
 signal max_charge_count
 
@@ -34,7 +33,7 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("dodge"):
 		player.dash()
 		trigger_finished.emit(MOVING if player.velocity else IDLE)
-	elif  Input.is_action_just_released("basic_attack"):
+	elif not Input.is_action_pressed("basic_attack"):
 		if time_active > player.attack_charge_time:
 			trigger_finished.emit(ATTACKING_CHARGED, {"charges": charges, "charge_time": time_active})
 		else:
