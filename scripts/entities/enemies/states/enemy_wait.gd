@@ -13,15 +13,24 @@ extends EnemyState
 @export var max_player_distance : float = 1
 ## when the player gets too far from the enemy, interrupts wait
 @export var player_far_state : State
+var timer : SceneTreeTimer
 
 func enter(_prev_state: String, _data := {}) -> void:
 	entered.emit()
+	wait()
+
+func wait():
+	timer = get_tree().create_timer(wait_time)
+	await timer.timeout
+	if (enemy.death): return
+	trigger_finished.emit(post_wait_state.get_path())
 
 func end() -> void:
+	timer = null
 	finished.emit()
 
 func exit() -> void:
-	pass
+	timer = null
 
 func update(_delta: float) -> void:
 	if (enemy.global_position.distance_to(GameManager.curr_player.global_position) > max_player_distance):

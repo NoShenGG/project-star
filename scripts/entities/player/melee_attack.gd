@@ -27,6 +27,7 @@ func enter(_prev_state: String, _data := {}) -> void:
 func await_end():
 	await animation_finished
 	
+	if (entity.death): return
 	if (finished_state): trigger_finished.emit(finished_state.get_path())
 	else: exit()
 
@@ -37,7 +38,7 @@ func physics_update(_delta : float):
 	pass
 
 func do_damage() -> void:
-	if not hitbox.monitoring or not active:
+	if not hitbox.monitoring or not active or entity.death:
 		return
 	
 	for node in hitbox.get_overlapping_bodies():
