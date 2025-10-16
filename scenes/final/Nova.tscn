@@ -2689,8 +2689,9 @@ collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_p5oh7")
 targetting_box = NodePath("Hitboxes/Vision")
-special_dmg = 15
-charged_special_dmg = 15
+charged_attack_dmg = 3
+special_dmg = 5
+charged_special_dmg = 9
 faction = 0
 
 [node name="StateMachine" type="Node" parent="."]
@@ -2720,7 +2721,7 @@ event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 [node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
 script = ExtResource("7_ob225")
 hitbox = NodePath("../../Hitboxes/Sweep")
-damage = 5.0
+damage = 3.0
 finished_state = NodePath("../Moving")
 animation = NodePath("../../nova_animations_kobold/ChargedSlash")
 duration = 1.0
