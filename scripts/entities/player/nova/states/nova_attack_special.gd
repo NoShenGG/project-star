@@ -1,3 +1,4 @@
+@icon("uid://cqoaj0qflq6xg")
 extends NovaState
 
 signal special_dash(chain: bool)

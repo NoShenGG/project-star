@@ -1,4 +1,5 @@
 @tool
+@icon("uid://cqoaj0qflq6xg")
 class_name MeleeAttackState extends AnimatedOneshotState
 
 var active: bool

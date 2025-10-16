@@ -1,4 +1,5 @@
 @tool
+@icon("uid://c1grvuobd0tqx")
 @abstract
 class_name AnimatedOneshotState extends State
 

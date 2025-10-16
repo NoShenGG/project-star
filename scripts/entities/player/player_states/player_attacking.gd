@@ -1,3 +1,4 @@
+@icon("uid://btv30atgumepn")
 extends PlayerState
 
 signal update_combo(count: int)

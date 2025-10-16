@@ -2689,6 +2689,8 @@ collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_p5oh7")
 targetting_box = NodePath("Hitboxes/Vision")
+special_dmg = 15
+charged_special_dmg = 15
 faction = 0
 
 [node name="StateMachine" type="Node" parent="."]
