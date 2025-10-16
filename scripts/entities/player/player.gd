@@ -34,6 +34,19 @@ var target_velocity := Vector3.ZERO
 func _ready() -> void:
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
 
+func _process(_delta: float) -> void:
+	if closest_enemy != null:
+		if closest_enemy.death or targetting_box.get_overlapping_bodies().size() == 0:
+			closest_enemy = null
+	for body in targetting_box.get_overlapping_bodies():
+		if body is Enemy:
+			if body.death:
+				continue
+			if closest_enemy == null:
+				closest_enemy = body as Enemy
+			elif body.global_position.distance_to(global_position) < closest_enemy.global_position.distance_to(global_position):
+				closest_enemy = body as Enemy 
+
 func _physics_process(_delta):
 	# TODO Track player location via GameManager instead
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
@@ -57,16 +70,16 @@ func move(delta: float, speed_scale := 1.0) -> void:
 		look_at(global_position + velocity)
 	move_and_slide()
 	
-func move_to(target: Vector3, delta: float, speed_scale := 1.0):
-	var direction = global_position.direction_to(target)
-	
-	direction = direction * _movement_speed * speed_scale
-	
-	target_velocity.x = direction.x
-	target_velocity.z = direction.y
-	
-	look_at(global_position + target_velocity)
-	velocity = target_velocity.lerp(velocity, clamp(pow(0.1, input_smoothing_speed * delta), 0, 1))
+func move_to(target: Vector3, delta: float, speed_scale := 0.5):
+	look_at(Vector3(target.x, global_position.y, target.z))
+	var pos_delta = target - global_position
+	if pos_delta.length() > 1.0:
+		pos_delta = pos_delta.normalized() * _movement_speed * speed_scale
+		target_velocity.x = pos_delta.x
+		target_velocity.z = pos_delta.z
+		velocity = target_velocity.lerp(velocity, clamp(pow(0.1, input_smoothing_speed * delta), 0, 1))
+	else:
+		velocity = Vector3.ZERO
 	move_and_slide()
 	
 
@@ -81,17 +94,6 @@ func dash(dist := dash_distance, emit : bool = true) -> void:
 			if ray.is_colliding() else dist
 	position += Vector3.FORWARD.rotated(Vector3.UP, rotation.y) * dash_target_dist
 	get_tree().create_timer(dash_cd).timeout.connect(func(): can_dash = true)
-	
-func _entered_vision(body: Node3D) -> void:
-	if body is Enemy:
-		if closest_enemy == null:
-			closest_enemy = body as Enemy
-		elif body.global_position.distance_to(self.global_position) < closest_enemy.global_position.distance_to(self.global_position):
-			closest_enemy = body as Enemy 
-	
-func _exited_vision(body: Node3D) -> void:
-	if body as Enemy == closest_enemy:
-		closest_enemy = null
 	
 func trigger_death() -> void:
 	push_error("Player has Died")

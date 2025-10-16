@@ -17,7 +17,6 @@ var active: bool
 func enter(_prev_state: String, _data := {}) -> void:
 	super(_prev_state, _data)
 	hitbox.monitoring = true
-	
 	active = true
 	entered.emit()
 	if (damage_on_enter):
@@ -30,6 +29,7 @@ func await_end():
 	
 	if (finished_state): trigger_finished.emit(finished_state.get_path())
 	else: exit()
+
 func update(_delta: float) -> void:
 	pass
 
@@ -37,15 +37,12 @@ func physics_update(_delta : float):
 	pass
 
 func do_damage() -> void:
-	print (owner.name +" doing da damage")
 	if not hitbox.monitoring or not active:
 		return
 	
-	print (owner.name +" doing da damage 2")
 	for node in hitbox.get_overlapping_bodies():
 		if node is Entity and (node as Entity).faction != entity.faction:
 			(node as Entity).try_damage(damage)
-			print (owner.name +" doing da damage 3")
 
 func end() -> void:
 	super()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://brw0p1eirto83"]
+[gd_scene load_steps=72 format=3 uid="uid://brw0p1eirto83"]
 
 [ext_resource type="Script" uid="uid://om4qdtr1cye0" path="res://scripts/entities/player/nova/nova.gd" id="1_p5oh7"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="3_6m1nx"]
@@ -7,15 +7,15 @@
 [ext_resource type="Script" uid="uid://dq5qwb33mlr2l" path="res://scripts/entities/player/player_states/player_moving.gd" id="5_lfcoe"]
 [ext_resource type="Script" uid="uid://bpndinylqyege" path="res://scripts/entities/player/player_states/player_idle.gd" id="5_xhleb"]
 [ext_resource type="Script" uid="uid://clwu1a1we224o" path="res://scripts/entities/player/player_states/player_attacking.gd" id="6_ob225"]
-[ext_resource type="Script" uid="uid://becnk6gd1e51o" path="res://scripts/entities/player/melee_attack.gd" id="7_ob225"]
+[ext_resource type="Script" uid="uid://8l57dsfm2da5" path="res://scripts/entities/player/nova/states/nova_attack.gd" id="7_ob225"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_w7jsq"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="9_8b4uh"]
 [ext_resource type="Script" uid="uid://jah7iax60wqa" path="res://scripts/entities/player/nova/states/nova_attack_charged.gd" id="9_h31i5"]
 [ext_resource type="Script" uid="uid://8e04epciukwh" path="res://scripts/entities/player/nova/states/nova_attack_special.gd" id="10_h31i5"]
-[ext_resource type="Script" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
-[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
+[ext_resource type="Script" uid="uid://cw3b5sywe4lom" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
+[ext_resource type="Script" uid="uid://dssk02ahlboui" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
 [ext_resource type="Script" uid="uid://cauiecxurft0c" path="res://scripts/entities/player/nova/states/nove_attack_special_charged.gd" id="12_k5vrc"]
-[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
+[ext_resource type="Script" uid="uid://cty8d5lvonei1" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
 [ext_resource type="PackedScene" uid="uid://ctl307caw43ed" path="res://art_assets/characters/Nova/nova_animations_kobold.glb" id="14_ato7d"]
 [ext_resource type="Texture2D" uid="uid://b2nts737xcuhj" path="res://art_assets/characters/Nova/nova_animations_mixamo_nova_sword_col.png" id="15_ato7d"]
 [ext_resource type="AnimationLibrary" uid="uid://b6s3l0l606343" path="res://art_assets/characters/Nova/NovaAnimationLibrary.tres" id="15_e701o"]
@@ -2671,21 +2671,25 @@ graph_offset = Vector2(151, 46)
 radius = 0.98
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xdlwu"]
-radius = 3.0
+radius = 2.25
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_21ndv"]
-size = Vector3(1.5, 2, 3)
+size = Vector3(1.5, 2, 2.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ch2h"]
 size = Vector3(4, 2, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x427t"]
-size = Vector3(4, 2, 3)
+size = Vector3(2.5, 2, 3)
 
-[node name="Nova" type="CharacterBody3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ob225"]
+radius = 3.0
+
+[node name="Nova" type="CharacterBody3D" node_paths=PackedStringArray("targetting_box")]
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_p5oh7")
+targetting_box = NodePath("Hitboxes/Vision")
 faction = 0
 
 [node name="StateMachine" type="Node" parent="."]
@@ -2933,7 +2937,7 @@ monitorable = false
 shape = SubResource("CylinderShape3D_xdlwu")
 
 [node name="Poke" type="Area3D" parent="Hitboxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.25)
 collision_layer = 0
 collision_mask = 8
 monitoring = false
@@ -2953,7 +2957,7 @@ monitorable = false
 shape = SubResource("BoxShape3D_7ch2h")
 
 [node name="Slash" type="Area3D" parent="Hitboxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 collision_layer = 0
 collision_mask = 8
 monitoring = false
@@ -2967,10 +2971,8 @@ collision_layer = 0
 collision_mask = 8
 monitorable = false
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Hitboxes/Vision"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-depth = 2.0
-polygon = PackedVector2Array(-1.5, 2.598, 0, 3, 1.5, 2.598, 1, 0, -1, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Vision"]
+shape = SubResource("CylinderShape3D_ob225")
 
 [node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Player/Uniques/Hurt/Nova Hurt"
@@ -3033,7 +3035,5 @@ Charged Left Click = Charged Slash
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slam2" method="do_damage"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Poke3" method="do_damage"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Sweep4" method="do_damage"]
-[connection signal="body_entered" from="Hitboxes/Vision" to="." method="_entered_vision"]
-[connection signal="body_exited" from="Hitboxes/Vision" to="." method="_exited_vision"]
 
 [editable path="nova_animations_kobold"]
