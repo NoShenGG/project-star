@@ -842,6 +842,20 @@ tracks/23/keys = {
 "method": &"hide"
 }]
 }
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("%Attack")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.76666665),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_damage"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_u6t3w"]
 resource_name = "Walk Forward"

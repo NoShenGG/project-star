@@ -1,18 +1,24 @@
-[gd_scene load_steps=46 format=3 uid="uid://jxmplun4khxm"]
+[gd_scene load_steps=53 format=3 uid="uid://jxmplun4khxm"]
 
-[ext_resource type="Script" uid="uid://ep4kvytqtqxh" path="res://scripts/entities/enemies/melee_enemy.gd" id="1_q0bkr"]
+[ext_resource type="Script" uid="uid://meavewo15aog" path="res://scripts/entities/enemies/enemy.gd" id="1_bfl6e"]
 [ext_resource type="PackedScene" uid="uid://cj1dreixyrara" path="res://art_assets/enemies/kobold/Kobold.glb" id="2_10dep"]
 [ext_resource type="AnimationLibrary" uid="uid://daeew048ovs6e" path="res://art_assets/enemies/kobold/KoboldAttackLibrary.tres" id="3_awt5f"]
 [ext_resource type="PackedScene" uid="uid://di4qml3bmbcmh" path="res://art_assets/enemies/Weapons/SwordBase.glb" id="3_nnkb1"]
 [ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="4_lq1ky"]
 [ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="5_uisve"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrails/defaults/texture.tres" id="6_xgdxt"]
-[ext_resource type="Script" uid="uid://bx10tuy8s55pq" path="res://addons/GPUTrails/GPUTrail3D.gd" id="7_sqo6n"]
+[ext_resource type="Script" uid="uid://drugjbbmd0wed" path="res://scripts/entities/SlashVFX.gd" id="7_1ibp7"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="10_lq1ky"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="10_xgdxt"]
+[ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="11_uisve"]
+[ext_resource type="Script" uid="uid://b2t1awuy1mis7" path="res://scripts/entities/enemies/states/move_to_player.gd" id="12_bwcbt"]
+[ext_resource type="Script" uid="uid://becnk6gd1e51o" path="res://scripts/entities/player/melee_attack.gd" id="12_sqo6n"]
+[ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="12_xgdxt"]
+[ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="13_bfl6e"]
+[ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="15_1ibp7"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4wg20"]
-size = Vector3(1, 2, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1ibp7"]
+radius = 0.765
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bwcbt"]
 shader = ExtResource("4_lq1ky")
@@ -1101,6 +1107,7 @@ xfade_time = 0.2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hskl7"]
+allow_transition_to_self = true
 states/Death/node = SubResource("AnimationNodeAnimation_nnkb1")
 states/Death/position = Vector2(349, 275)
 states/Hurt/node = SubResource("AnimationNodeAnimation_lq1ky")
@@ -1113,51 +1120,58 @@ states/Start/position = Vector2(73, 166)
 "states/Walk Forward/node" = SubResource("AnimationNodeAnimation_xgdxt")
 "states/Walk Forward/position" = Vector2(549, 53)
 transitions = ["Walk Forward", "Hurt", SubResource("AnimationNodeStateMachineTransition_sqo6n"), "Hurt", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_bwcbt"), "Walk Forward", "Slash", SubResource("AnimationNodeStateMachineTransition_bfl6e"), "Slash", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_1ibp7"), "Slash", "Death", SubResource("AnimationNodeStateMachineTransition_6vm5w"), "Walk Forward", "Death", SubResource("AnimationNodeStateMachineTransition_pa7ii"), "Slash", "Idle", SubResource("AnimationNodeStateMachineTransition_hskl7"), "Walk Forward", "Idle", SubResource("AnimationNodeStateMachineTransition_0fawd"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_cqf5t"), "Idle", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_ydysj"), "Idle", "Slash", SubResource("AnimationNodeStateMachineTransition_5xf2e"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_jbtjh"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_nnkb1")]
-graph_offset = Vector2(39, 90)
+graph_offset = Vector2(-59, 35)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_uisve"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_sqo6n"]
+size = Vector3(4, 2, 4)
+
 [node name="TestEnemy" type="CharacterBody3D"]
 collision_layer = 10
 collision_mask = 3
-script = ExtResource("1_q0bkr")
-attack_radius = 0.0
+script = ExtResource("1_bfl6e")
 _movement_speed = 5.0
+faction = 2
+metadata/_custom_type_script = "uid://meavewo15aog"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_4wg20")
+shape = SubResource("CapsuleShape3D_1ibp7")
 debug_fill = false
 
 [node name="Kobold" parent="." instance=ExtResource("2_10dep")]
 
+[node name="Armature" parent="Kobold" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
 [node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-4.4757678e-09, 0.99702513, 0.07707856, 7.53651e-08)
-bones/1/rotation = Quaternion(0.09351231, 0.0034392728, -0.00021151727, 0.9956122)
-bones/2/rotation = Quaternion(0.096449785, -0.0037744674, -0.00023530246, 0.9953307)
-bones/4/rotation = Quaternion(0.30885935, -0.0034177485, -0.5637606, 0.766008)
-bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.04319699, 0.98099875)
-bones/6/rotation = Quaternion(0.054868493, 0.749481, 0.015322981, 0.6595702)
-bones/7/rotation = Quaternion(0.098917775, -0.00029512795, -0.0007212815, 0.9950953)
-bones/8/rotation = Quaternion(-0.08214439, -0.0003537958, -0.00049205637, 0.99662024)
-bones/9/rotation = Quaternion(-0.09260436, -0.17117503, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.21653467, -0.056936022, 0.5400404, 0.8113122)
-bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.012348074, 0.97225493)
-bones/12/rotation = Quaternion(-5.8199284e-08, -0.751264, -5.181668e-08, 0.6600019)
-bones/13/rotation = Quaternion(0.10849719, -0.08205278, 0.9894506, -0.049833346)
-bones/14/rotation = Quaternion(-0.030224102, -0.001723607, 0.035237335, 0.9989204)
-bones/15/rotation = Quaternion(0.5967693, -0.0027287544, -0.012932465, 0.802304)
-bones/16/rotation = Quaternion(-0.10912149, -0.082282394, 0.98859936, 0.06319494)
-bones/17/rotation = Quaternion(-0.028762186, 0.0013813315, -0.021923115, 0.9993449)
-bones/18/rotation = Quaternion(0.59676915, 0.00272655, 0.0129355155, 0.80230415)
-bones/19/rotation = Quaternion(-0.85390365, 0.0017932556, -0.0029422422, 0.52041966)
-bones/20/rotation = Quaternion(0.13317142, 8.6246704e-11, 0.0009177519, 0.9910927)
-bones/21/rotation = Quaternion(0.13793416, -4.257629e-10, 0.0009505738, 0.99044096)
+bones/0/rotation = Quaternion(6.733169e-10, 0.9999603, 0.008918354, 7.5494896e-08)
+bones/1/rotation = Quaternion(0.11107199, 0.0034328646, -0.0002979421, 0.99380636)
+bones/2/rotation = Quaternion(0.11399526, -0.0037756395, -0.00032707283, 0.9934741)
+bones/3/rotation = Quaternion(-0.09307449, 0.17165972, -0.68303466, 0.70379955)
+bones/4/rotation = Quaternion(0.250784, 0.0264931, -0.51905954, 0.81669015)
+bones/5/rotation = Quaternion(0.3838239, 0.004517767, 0.043176565, 0.92238533)
+bones/6/rotation = Quaternion(-0.08765036, 0.7463578, -0.109505504, 0.6505966)
+bones/7/rotation = Quaternion(0.09566354, 0.0039545144, 0.0003141903, 0.99540585)
+bones/8/rotation = Quaternion(-0.08540059, 0.003999296, 0.0004917311, 0.99633855)
+bones/9/rotation = Quaternion(-0.09260435, -0.17117505, 0.68309855, 0.70391756)
+bones/10/rotation = Quaternion(0.36014885, 0.038927935, 0.6183732, 0.6974182)
+bones/11/rotation = Quaternion(0.11265135, 0.009182389, 0.013573397, 0.99349946)
+bones/12/rotation = Quaternion(-1.0961756e-08, -0.751264, -1.5276173e-08, 0.6600019)
+bones/13/rotation = Quaternion(0.008411123, -0.016341234, 0.99961877, -0.02060938)
+bones/14/rotation = Quaternion(-0.030224102, -0.0017236103, 0.035237323, 0.9989204)
+bones/15/rotation = Quaternion(0.5967693, -0.0027287607, -0.012932461, 0.802304)
+bones/16/rotation = Quaternion(-0.00821746, -0.0179353, 0.9992301, 0.033912465)
+bones/17/rotation = Quaternion(-0.028762184, 0.0013813279, -0.021923115, 0.9993449)
+bones/18/rotation = Quaternion(0.59676915, 0.002726545, 0.012935524, 0.80230415)
+bones/20/rotation = Quaternion(0.13317136, 7.9744444e-10, 0.0009177516, 0.9910927)
+bones/21/rotation = Quaternion(0.13793416, -4.519099e-10, 0.0009505736, 0.99044096)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(-0.40877774, -0.2607456, 0.8745927, -0.39413777, -0.8139037, -0.4268689, 0.823138, -0.5192045, 0.22993594, -0.55294245, 0.8461869, -0.18277973)
+transform = Transform3D(-0.42900646, -0.42064458, 0.7993823, -0.05838129, -0.8701946, -0.4892381, 0.90141296, -0.25655523, 0.34876126, -0.5861627, 0.870203, -0.22249645)
 bone_name = "Hand.L"
 bone_idx = 6
 
@@ -1174,7 +1188,7 @@ explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ShaderMaterial_bwcbt")
 draw_pass_1 = SubResource("QuadMesh_0fawd")
-script = ExtResource("7_sqo6n")
+script = ExtResource("7_1ibp7")
 length = 22
 length_seconds = 0.36666666666666664
 color_ramp = SubResource("GradientTexture1D_1ibp7")
@@ -1239,17 +1253,61 @@ event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
 event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 
 [node name="StatusBars" parent="." instance=ExtResource("10_lq1ky")]
-transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.997466, 0)
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 4.336514, 0)
 texture = SubResource("ViewportTexture_uisve")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("11_uisve")
+initial_state = NodePath("Walk")
+metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("reached_enemy_state")]
+script = ExtResource("12_bwcbt")
+attack_distance = 1.5
+reached_enemy_state = NodePath("../Attack")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_far_state")]
+script = ExtResource("13_bfl6e")
+post_wait_state = NodePath("../Attack")
+max_player_distance = 5.0
+player_far_state = NodePath("../Walk")
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
+unique_name_in_owner = true
+script = ExtResource("12_sqo6n")
+hitbox = NodePath("../../Hitbox")
+damage_on_enter = true
+finished_state = NodePath("../Idle")
+animation = NodePath("../../Kobold/Slash")
+duration = 1.0
+
+[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/Attack"]
+event_name = "event:/Enemys/Kobold/Kobold Attack"
+event_guid = "{dfbdbb2a-8d75-45fc-b546-cbbe19d39792}"
+
+[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
+script = ExtResource("15_1ibp7")
+snap_turn_to_player = true
+animation = NodePath("../../Kobold/Die")
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_mask = 2
+monitorable = false
+script = ExtResource("12_xgdxt")
+metadata/_custom_type_script = "uid://c1iptw5vqre6f"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.3)
+shape = SubResource("BoxShape3D_sqo6n")
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
 [connection signal="hurt" from="." to="Kobold/Hurt" method="enter" unbinds=1]
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
-[connection signal="idle" from="." to="Kobold/Idle" method="enter"]
 [connection signal="killed" from="." to="Kobold/Die" method="enter"]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
-[connection signal="killed" from="." to="StatusBars" method="hide"]
-[connection signal="move" from="." to="Kobold/Move" method="enter"]
+[connection signal="entered" from="StateMachine/Walk" to="Kobold/Move" method="enter"]
+[connection signal="entered" from="StateMachine/Idle" to="Kobold/Idle" method="enter"]
+[connection signal="entered" from="StateMachine/Attack" to="StateMachine/Attack/AttackSFX" method="play_one_shot"]
 
 [editable path="Kobold"]

@@ -6,12 +6,17 @@ signal player_dashed
 
 @onready var ray: ShapeCast3D = $ForwardRay
 
+@export var targetting_box: Area3D
 @export_category("Input Thresholds")
 @export var max_click_time: float = 0.25
 @export_category("Attack")
+@export var charged_attack_dmg: int = 10
 @export var attack_charge_time: float = 0.5
 @export var max_attack_charges: int = 1
+@export var combo_reset_time: float = 0.6
 @export_category("Special")
+@export var special_dmg: int = 25
+@export var charged_special_dmg: int = 25
 @export var special_charge_time: float = 0.5
 @export var max_special_charges: int = 3
 @export var special_cd: float = 5
@@ -22,11 +27,25 @@ signal player_dashed
 
 var can_dash := true
 var has_special := true
+var closest_enemy: Enemy = null
 
 var target_velocity := Vector3.ZERO
 
 func _ready() -> void:
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
+
+func _process(_delta: float) -> void:
+	if closest_enemy != null:
+		if closest_enemy.death or targetting_box.get_overlapping_bodies().size() == 0:
+			closest_enemy = null
+	for body in targetting_box.get_overlapping_bodies():
+		if body is Enemy:
+			if body.death:
+				continue
+			if closest_enemy == null:
+				closest_enemy = body as Enemy
+			elif body.global_position.distance_to(global_position) < closest_enemy.global_position.distance_to(global_position):
+				closest_enemy = body as Enemy 
 
 func _physics_process(_delta):
 	# TODO Track player location via GameManager instead
@@ -50,12 +69,25 @@ func move(delta: float, speed_scale := 1.0) -> void:
 	if velocity:
 		look_at(global_position + velocity)
 	move_and_slide()
+	
+func move_to(target: Vector3, delta: float, speed_scale := 0.5):
+	look_at(Vector3(target.x, global_position.y, target.z))
+	var pos_delta = target - global_position
+	if pos_delta.length() > 1.0:
+		pos_delta = pos_delta.normalized() * _movement_speed * speed_scale
+		target_velocity.x = pos_delta.x
+		target_velocity.z = pos_delta.z
+		velocity = target_velocity.lerp(velocity, clamp(pow(0.1, input_smoothing_speed * delta), 0, 1))
+	else:
+		velocity = Vector3.ZERO
+	move_and_slide()
+	
 
 ## Dash function, uses raycast to prevent clipping world but ignores entities
-func dash(dist := dash_distance, emit_signal : bool = true) -> void:
+func dash(dist := dash_distance, emit : bool = true) -> void:
 	if not can_dash:
 		return
-	if (emit_signal): player_dashed.emit()
+	if (emit): player_dashed.emit()
 	can_dash = false
 	ray.force_shapecast_update()
 	var dash_target_dist = min(position.distance_to(ray.get_collision_point(0))-0.5, dash_distance) \

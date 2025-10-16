@@ -6,6 +6,9 @@ class_name AnimationState
 @export var return_to_reciever : bool = true
 @export var play_on_start : bool = false
 
+signal start
+signal stop
+
 ## what the name of the AnimationNodeAnimation we want to move to. may call errors during changing, error is only concerning if full name produced error
 @export var state_name : String = "Set":
 	set(value):
@@ -39,11 +42,30 @@ func _enter_tree() -> void:
 			return
 	assert(animation_tree != null, "Could not find AnimationTree!")
 
-
+@onready var playback : AnimationNodeStateMachinePlayback = (animation_tree["parameters/playback"])
 func enter():
 	print(owner.name + " is swapping to "+ state_name + "!")
-	(animation_tree["parameters/playback"] as AnimationNodeStateMachinePlayback).start(state_name)
+	start.emit()
+	
+	
+	assert(playback != null, "Could not find AnimationRoot as AnimationNodeStateMachinePlayback")
+	if (playback.state_finished.is_connected(state_finished)):
+		playback.state_finished.disconnect(state_finished)
+	playback.state_finished.connect(state_finished)
+	demo_state_finished()
+	
+	playback.start(state_name)
 
+func demo_state_finished():
+	await get_tree().create_timer(0.4).timeout
+	stop.emit()
+
+func state_finished(name : String):
+	print(owner.name + "  state finished called as " + name)
+	if (name == state_name):
+		stop.emit()
+		print("stopping   " + state_name)
+		playback.state_finished.disconnect(state_finished)
 func _ready() -> void:
 	if (play_on_start):
 		enter()

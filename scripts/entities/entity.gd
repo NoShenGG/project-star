@@ -21,7 +21,7 @@ signal break_update(percent: float)
 	set(value):
 		_break_percent = value
 		break_update.emit(value)
-@export var _break_gain_rate: float = 2.0
+@export var _break_hits: int = 3
 @export var _break_drain_rate: float = 0.05
 @export var _break_cooldown: float = 5.0
 @export var passive_death_time : float = 2.5
@@ -70,7 +70,7 @@ func try_damage(damage_amount: float) -> bool:
 		return true
 	hurt.emit(damage_amount)
 	if _breakable:
-		_break_percent = clamp(_break_percent + _break_gain_rate * (damage_amount / _max_hp), 0.0, 1.0)
+		_break_percent = clamp(_break_percent + 1.0 / _break_hits, 0.0, 1.0)
 		if _break_percent == 1.0:
 			apply_effect(Broken.new(EntityEffect.EffectID.BROKEN, _break_cooldown))
 			broken.emit()

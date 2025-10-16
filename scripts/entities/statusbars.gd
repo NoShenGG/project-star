@@ -17,7 +17,14 @@ func _ready() -> void:
 	hp = 100
 	old_hp = 100
 	hp_step = 1
-
+	await owner.owner
+	var e = owner as Entity
+	if not e.health_update.is_connected(update_health):
+		e.killed.connect(death)
+	if not e.break_update.is_connected(update_break):
+		e.killed.connect(death)
+	if not e.killed.is_connected(death):
+		e.killed.connect(death)
 
 func update_health(percent: float):
 	old_hp = hp
@@ -30,6 +37,8 @@ func update_break(percent: float):
 	bk = percent * 100
 	bk_step = 0
 
+func death():
+	self.hide()
 	
 func _process(delta: float) -> void:
 	if hp_step < 1:
@@ -40,3 +49,4 @@ func _process(delta: float) -> void:
 		bk_step += delta/ANIM_TIME
 	breakbar.value = old_bk + \
 			BAR_ANIMATION_EASE_CURVE.sample(clamp(bk_step, 0, 1)) * (bk - old_bk)
+	breakbar.get_parent().visible = breakbar.value != 0
