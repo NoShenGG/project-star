@@ -17,8 +17,8 @@
 [ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="13_bfl6e"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="15_1ibp7"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4wg20"]
-size = Vector3(1, 2, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1ibp7"]
+radius = 0.765
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bwcbt"]
 shader = ExtResource("4_lq1ky")
@@ -1138,23 +1138,26 @@ metadata/_custom_type_script = "uid://meavewo15aog"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_4wg20")
+shape = SubResource("CapsuleShape3D_1ibp7")
 debug_fill = false
 
 [node name="Kobold" parent="." instance=ExtResource("2_10dep")]
 
+[node name="Armature" parent="Kobold" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
 [node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-3.711352e-09, 0.9977554, 0.06696498, 7.540662e-08)
-bones/1/rotation = Quaternion(0.10370416, 0.0034412583, -0.00017628231, 0.9946022)
-bones/2/rotation = Quaternion(0.10652847, -0.0037545043, -0.00020591108, 0.9943026)
-bones/4/rotation = Quaternion(0.24442738, 0.043234844, -0.5621107, 0.78893447)
+bones/0/rotation = Quaternion(-3.9696753e-09, 0.9975201, 0.07038294, 7.539347e-08)
+bones/1/rotation = Quaternion(0.10017562, 0.0034406122, -0.00018848757, 0.9949638)
+bones/2/rotation = Quaternion(0.10312134, -0.003761299, -0.00021585313, 0.99466175)
+bones/4/rotation = Quaternion(0.2107861, 0.06700893, -0.5597745, 0.79858094)
 bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.04319699, 0.98099875)
 bones/6/rotation = Quaternion(0.054868493, 0.749481, 0.015322981, 0.6595702)
-bones/7/rotation = Quaternion(0.08588793, -0.0002856642, -0.0007250819, 0.9963045)
-bones/8/rotation = Quaternion(-0.09517867, -0.00036020434, -0.00048738485, 0.9954601)
+bones/7/rotation = Quaternion(0.09038418, -0.00028893436, -0.00072378514, 0.9959068)
+bones/8/rotation = Quaternion(-0.090684354, -0.00035800066, -0.0004890054, 0.9958795)
 bones/9/rotation = Quaternion(-0.09260436, -0.17117503, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.27687618, -0.01620211, 0.54279166, 0.7927512)
+bones/10/rotation = Quaternion(0.31020078, 0.006799652, 0.54299086, 0.78031415)
 bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.012348074, 0.97225493)
 bones/12/rotation = Quaternion(-5.8199284e-08, -0.751264, -5.181668e-08, 0.6600019)
 bones/13/rotation = Quaternion(0.10849719, -0.08205278, 0.9894506, -0.049833346)
@@ -1168,7 +1171,7 @@ bones/20/rotation = Quaternion(0.13317142, 8.6246704e-11, 0.0009177519, 0.991092
 bones/21/rotation = Quaternion(0.13793416, -4.257629e-10, 0.0009505738, 0.99044096)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(-0.36575967, -0.30399662, 0.8796624, -0.19849949, -0.89792705, -0.39284343, 0.9092951, -0.3182987, 0.2680823, -0.5726045, 0.8267518, -0.06649253)
+transform = Transform3D(-0.34117442, -0.32320184, 0.88268936, -0.14096037, -0.9108225, -0.38798624, 0.92937076, -0.25679505, 0.26519066, -0.580292, 0.83042765, -0.013061665)
 bone_name = "Hand.L"
 bone_idx = 6
 
@@ -1250,7 +1253,7 @@ event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
 event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 
 [node name="StatusBars" parent="." instance=ExtResource("10_lq1ky")]
-transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.997466, 0)
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 4.336514, 0)
 texture = SubResource("ViewportTexture_uisve")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
