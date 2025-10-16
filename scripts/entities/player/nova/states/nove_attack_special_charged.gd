@@ -3,6 +3,8 @@ extends NovaState
 
 signal special_dash(chain: bool)
 
+@export var hitbox : Area3D
+
 var charges: int = 0
 var lock_rotation := true
 
@@ -10,7 +12,7 @@ var lock_rotation := true
 func enter(_previous_state_path: String, data := {}) -> void:
 	entered.emit()
 	charges = data.get("charges", 1)
-	nova.dash_box.monitoring = true
+	hitbox.monitoring = true
 	lock_rotation = true
 	run_special_dash(true)
 
@@ -53,7 +55,7 @@ func physics_update(delta: float) -> void:
 func do_damage() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	for node in nova.dash_box.get_overlapping_bodies():
+	for node in hitbox.get_overlapping_bodies():
 		if not node is Enemy:
 			continue
 		(node as Enemy).try_damage(nova.special_dmg)
@@ -62,5 +64,5 @@ func end() -> void:
 	pass
 		
 func exit() -> void:
-	nova.dash_box.monitoring = false
+	hitbox.monitoring = false
 	get_tree().create_timer(player.special_cd).timeout.connect(func(): player.has_special = true)
