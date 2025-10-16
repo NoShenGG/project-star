@@ -25,7 +25,7 @@ void fragment()
 		discard;
 	}
 	
-	float ambient_occlusion = shell_height * (float(shell_count) - 1.0) / float(shell_count) * (1.0 - min_ambient_occlusion) + min_ambient_occlusion;
+	float ambient_occlusion = shell_height * float(shell_count) / (float(shell_count) - 1.0) * (1.0 - min_ambient_occlusion) + min_ambient_occlusion;
 	ALBEDO = texture(albedo, UV).rgb * tint * ambient_occlusion;
 	
 	float alpha = 1.0;
