@@ -1,5 +1,6 @@
 class_name MoveToPlayerState extends EnemyState
 
+@export var rotate_speed : float = 10
 
 ## distance from player before stopping
 @export var attack_distance : float = 1
@@ -29,7 +30,7 @@ func physics_update(_delta: float) -> void:
 		pos = GameManager.curr_player.global_position + dir
 		
 		enemy.set_movement_target(pos)
-		enemy.rotate_y(enemy.global_basis.z.signed_angle_to(dir, Vector3.UP) * _delta * 10)
+		enemy.rotate_y(enemy.global_basis.z.signed_angle_to(dir, Vector3.UP) * _delta * rotate_speed)
 		
 		return
 	

@@ -1,5 +1,9 @@
 extends EnemyState
 
+## when idling, should we rotate towards player
+@export var rotate_to_player : bool = true
+@export var rotate_speed : float = 5
+
 
 @export_category("Wait")
 @export var wait_time : float = 1
@@ -35,6 +39,9 @@ func exit() -> void:
 func update(_delta: float) -> void:
 	if (enemy.global_position.distance_to(GameManager.curr_player.global_position) > max_player_distance):
 		trigger_finished.emit(player_far_state.get_path())
+	
+	var dir : Vector3 = (enemy.global_position - GameManager.curr_player.global_position).normalized().slide(Vector3.UP)
+	enemy.rotate_y(enemy.global_basis.z.signed_angle_to(dir, Vector3.UP) * _delta * rotate_speed)
 
 func physics_update(_delta: float) -> void:
 	pass
