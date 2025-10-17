@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://df2acff0x2cqk"]
+
+[ext_resource type="Script" uid="uid://cwi1wowj1oa8t" path="res://austin_newby/dialogue/scripts/dialogue.gd" id="1_b4u21"]
+[ext_resource type="Texture2D" uid="uid://b23jk7qpglhje" path="res://icon.png" id="2_uh380"]
+
+[node name="dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b4u21")
+
+[node name="next_char" type="Timer" parent="."]
+
+[node name="next_message" type="Timer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextLabel" type="RichTextLabel" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "This is default text that goes in the text box and is long enough for you to be able to see multiple lines bleh"
+fit_content = true
+
+[node name="SmallTextSpeakerSeperator" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="SmallTextLabel" type="RichTextLabel" parent="VBoxContainer/SmallTextSpeakerSeperator"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[pulse]press z to advance >"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SmallSpeakerImage" type="TextureRect" parent="VBoxContainer/SmallTextSpeakerSeperator"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_uh380")
+expand_mode = 2
