@@ -108,10 +108,6 @@ sky_mode = 1
 environment = SubResource("Environment_tgj7d")
 
 [node name="GameUi" parent="screen_modification" instance=ExtResource("4_25i1c")]
-offset_left = -38.0
-offset_top = -415.0
-offset_right = -1190.0
-offset_bottom = -1063.0
 scale = Vector2(0.12, 0.12)
 
 [node name="FrameLimiter" parent="." instance=ExtResource("5_6khfp")]
@@ -133,3 +129,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.384129, 0.42649126, 0)
 
 [node name="TestEnemy4" parent="." instance=ExtResource("6_a4h3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.066097, 0.42649126, 0)
+
+[connection signal="player_hp_update" from="PlayerManager" to="screen_modification/GameUi" method="update_health"]
+[connection signal="player_sp_update" from="PlayerManager" to="screen_modification/GameUi" method="update_special"]

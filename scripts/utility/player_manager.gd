@@ -7,6 +7,7 @@ extends Node3D
 
 signal new_player(value : Player)
 signal player_hp_update(percent: float)
+signal player_sp_update(percent: float)
 
 
 func _init() -> void:
@@ -29,7 +30,9 @@ func _ready() -> void:
 			(c as Player).get_node("CollisionShape3D").disabled = true
 		else:
 			(c as Player).health_update.connect(player_health_update)
+			(c as Player).special_cooldown_update.connect(player_special_update)
 			player_health_update((c as Player)._hp / (c as Player)._max_hp)
+			player_special_update(1)
 		
 		c.top_level = true
 		c.global_position = global_position
@@ -59,6 +62,9 @@ func _process(_delta: float) -> void:
 
 func player_health_update(percent: float):
 	player_hp_update.emit(percent)
+	
+func player_special_update(percent: float):
+	player_sp_update.emit(percent)
 
 
 '''
@@ -84,6 +90,8 @@ func swap_char(idx: int):
 		
 		
 		current_char.health_update.disconnect(player_health_update)
+		current_char.special_cooldown_update.disconnect(player_special_update)
 		new_char.health_update.connect(player_health_update)
+		new_char.special_cooldown_update.connect(player_special_update)
 		player_health_update(new_char._hp / new_char._max_hp)
 		current_char = new_char

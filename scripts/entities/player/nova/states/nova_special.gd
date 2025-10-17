@@ -10,7 +10,7 @@ var _state_queue: Array = []
 func enter(_previous_state_path: String, _data := {}) -> void:
 	entered.emit()
 	_state_queue.clear()
-	player.has_special = false
+	player.use_special()
 	for i in range(2 * _data.get("charges", 1) - 1):
 		_state_queue.push_back(special_state if i % 2 == 0 else wait_state)
 	print(_state_queue)
@@ -41,6 +41,6 @@ func end() -> void:
 	trigger_finished.emit(MOVING if player.velocity else IDLE)
 
 func exit() -> void:
+	player.set_special_cd()
 	current_state.finished.disconnect(state_done)
 	current_state.exit()
-	get_tree().create_timer(player.special_cd).timeout.connect(func(): player.has_special = true)

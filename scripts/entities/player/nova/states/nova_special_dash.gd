@@ -13,7 +13,7 @@ func _ready() -> void:
 func enter(_prev_state: String, data := {}) -> void:
 	damage_on_enter = false
 	super(_prev_state, data)
-	nova.can_dash = true
+	nova.give_dash()
 	nova.dash(nova.special_dash_dist, false)
 	
 	await_frame()

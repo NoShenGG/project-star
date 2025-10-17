@@ -29,7 +29,7 @@ func physics_update(delta: float) -> void:
 		trigger_finished.emit(BURSTING)
 	elif not Input.get_vector("move_down", "move_up", "move_left", "move_right"):
 		trigger_finished.emit(IDLE)
-	elif Input.is_action_just_pressed("special_attack") and attack_type != 2 and player.has_special:
+	elif Input.is_action_just_pressed("special_attack") and attack_type != 2 and player._has_special:
 		attack_type = 1
 	elif Input.is_action_just_released("special_attack") and attack_type == 1:
 		attack_type = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dpgvc8tlj8842"]
+[gd_scene load_steps=21 format=3 uid="uid://dpgvc8tlj8842"]
 
 [ext_resource type="Texture2D" uid="uid://cr8rhlqiv5vu3" path="res://art_assets/Ui/health_bar.png" id="1_cfcyo"]
 [ext_resource type="Texture2D" uid="uid://dvhfyc8kwrl53" path="res://art_assets/Ui/health_bars(w_o intersecting lines).png" id="1_u6bi6"]
@@ -10,6 +10,8 @@
 [ext_resource type="Shader" uid="uid://cvwb82iy6mfub" path="res://shaders/greyscale_ui.gdshader" id="8_girfy"]
 [ext_resource type="Texture2D" uid="uid://b18dlvux7xx6l" path="res://art_assets/Ui/dawn_portrait.png" id="9_qn2jx"]
 [ext_resource type="Shader" uid="uid://hu5ql00vh1ni" path="res://shaders/game_ui_glow_shader.gdshader" id="10_pqpky"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="11_qn2jx"]
+[ext_resource type="Texture2D" uid="uid://i3vdoktpg2tv" path="res://vfx/Kenny Particle Pack/circle_03.png" id="12_upuxa"]
 
 [sub_resource type="Curve" id="Curve_wmnvy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50545454, 0.5084282), 2.0432801, 2.0432801, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -53,13 +55,10 @@ shader = ExtResource("8_girfy")
 
 [node name="GameUi" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-offset_right = -1152.0
-offset_bottom = -648.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 scale = Vector2(0.07, 0.07)
 script = ExtResource("1_wmnvy")
 BAR_ANIMATION_EASE_CURVE = SubResource("Curve_wmnvy")
@@ -70,17 +69,21 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 6500.0
-offset_right = 5100.0
-offset_bottom = 9800.0
+offset_top = -2700.0
+offset_bottom = -2700.0
 grow_vertical = 0
 
-[node name="HealthOutline" type="TextureRect" parent="MarginContainer"]
-material = SubResource("ShaderMaterial_pqpky")
+[node name="Offset" type="Control" parent="MarginContainer"]
 layout_mode = 2
+
+[node name="HealthOutline" type="TextureRect" parent="MarginContainer/Offset"]
+material = SubResource("ShaderMaterial_pqpky")
+layout_mode = 0
+offset_right = 5100.0
+offset_bottom = 3300.0
 texture = ExtResource("1_u6bi6")
 
-[node name="Health" type="TextureProgressBar" parent="MarginContainer/HealthOutline"]
+[node name="Health" type="TextureProgressBar" parent="MarginContainer/Offset/HealthOutline"]
 layout_mode = 0
 offset_right = 5100.0
 offset_bottom = 3300.0
@@ -93,20 +96,26 @@ texture_progress = ExtResource("1_cfcyo")
 tint_under = Color(0.4, 0.4, 0.4, 0.23921569)
 tint_progress = Color(0.9999997, 0.28350654, 0.99421185, 1)
 
-[node name="Stars" type="TextureRect" parent="MarginContainer"]
+[node name="Stars" type="TextureRect" parent="MarginContainer/Offset"]
 material = SubResource("ShaderMaterial_qn2jx")
-layout_mode = 2
+layout_mode = 0
+offset_right = 5100.0
+offset_bottom = 3300.0
 texture = ExtResource("4_oky4b")
 
-[node name="PlayerIcon" type="TextureRect" parent="MarginContainer"]
+[node name="PlayerIcon" type="TextureRect" parent="MarginContainer/Offset"]
 material = SubResource("ShaderMaterial_upuxa")
-layout_mode = 2
+layout_mode = 0
+offset_right = 5100.0
+offset_bottom = 3300.0
 texture = ExtResource("5_1bvid")
 
-[node name="Control" type="Control" parent="MarginContainer"]
-layout_mode = 2
+[node name="Control" type="Control" parent="MarginContainer/Offset"]
+anchors_preset = 0
+offset_right = 5100.0
+offset_bottom = 3300.0
 
-[node name="nova_icon" type="TextureRect" parent="MarginContainer/Control"]
+[node name="nova_icon" type="TextureRect" parent="MarginContainer/Offset/Control"]
 layout_mode = 0
 offset_left = 1271.4285
 offset_top = 971.4285
@@ -116,7 +125,7 @@ scale = Vector2(1.325, 1.325)
 texture = ExtResource("6_r3o8s")
 stretch_mode = 2
 
-[node name="rene_icon" type="TextureRect" parent="MarginContainer/Control"]
+[node name="rene_icon" type="TextureRect" parent="MarginContainer/Offset/Control"]
 material = SubResource("ShaderMaterial_r3o8s")
 layout_mode = 0
 offset_left = 557.1429
@@ -126,7 +135,7 @@ offset_bottom = 2097.1428
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("7_pqpky")
 
-[node name="dawn_icon" type="TextureRect" parent="MarginContainer/Control"]
+[node name="dawn_icon" type="TextureRect" parent="MarginContainer/Offset/Control"]
 material = SubResource("ShaderMaterial_iuvlr")
 layout_mode = 0
 offset_left = 814.28577
@@ -135,3 +144,16 @@ offset_right = 1831.2858
 offset_bottom = 2555.7144
 scale = Vector2(0.54, 0.54)
 texture = ExtResource("9_qn2jx")
+
+[node name="Special" type="TextureProgressBar" parent="MarginContainer/Offset"]
+layout_mode = 0
+offset_left = 2000.0002
+offset_top = 1942.857
+offset_right = 2512.0002
+offset_bottom = 2454.857
+scale = Vector2(1.2, 1.2)
+value = 80.0
+fill_mode = 4
+texture_under = ExtResource("11_qn2jx")
+texture_progress = ExtResource("12_upuxa")
+tint_progress = Color(1, 1, 0, 1)
