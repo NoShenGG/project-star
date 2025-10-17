@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c52y536gfxq2s"
-path.s3tc="res://.godot/imported/spark_06_rotated.png-d60e91d5831a8ca98b207d126a37e4ba.s3tc.ctex"
+path.s3tc="res://.godot/imported/spark_06_rotated.png-c257c361b33426be1b377bc884428d2f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/Kenny Particle Pack/Rotated/spark_06_rotated.png"
-dest_files=["res://.godot/imported/spark_06_rotated.png-d60e91d5831a8ca98b207d126a37e4ba.s3tc.ctex"]
+source_file="res://VFX/Kenny Particle Pack/Rotated/spark_06_rotated.png"
+dest_files=["res://.godot/imported/spark_06_rotated.png-c257c361b33426be1b377bc884428d2f.s3tc.ctex"]
 
 [params]
 
