@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bx6y3af7ybavb"]
+[gd_scene load_steps=20 format=3 uid="uid://bx6y3af7ybavb"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_7ji1e"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="2_5klj7"]
@@ -9,10 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="4_m3a5u"]
 [ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://vfx/Kenny Particle Pack/circle_01.png" id="9_pc856"]
 [ext_resource type="Script" path="res://scripts/utility/spawn_area.gd" id="10_ahgbm"]
-[ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="11_5klj7"]
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="12_rh4qa"]
 [ext_resource type="PackedScene" uid="uid://bo8i2glbe0u23" path="res://scenes/sub/fortifier.tscn" id="13_g0vyw"]
-[ext_resource type="PackedScene" uid="uid://saueh5mdj6qv" path="res://scenes/sub/DifficultKoboldEnemy.tscn" id="13_pc856"]
+[ext_resource type="PackedScene" uid="uid://cv7a8503lutop" path="res://scenes/sub/DifficultKoboldEnemy.tscn" id="13_pc856"]
 
 [sub_resource type="Environment" id="Environment_1p1tq"]
 background_mode = 1
@@ -153,15 +152,12 @@ script = ExtResource("10_ahgbm")
 [node name="TestEnemy" parent="WaveManager" instance=ExtResource("12_rh4qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.37511, 0, -2.5749774)
 
-[node name="GameUi" parent="." instance=ExtResource("11_5klj7")]
-
 [node name="Fortifier" parent="." instance=ExtResource("13_g0vyw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.379154, 1.1728301, 0)
 
 [node name="KoboldEnemy" parent="." instance=ExtResource("13_pc856")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.679375, 0.015872955, 8.510664)
 
-[connection signal="player_hp_update" from="PlayerManager" to="GameUi" method="update_health"]
 [connection signal="fight_ended" from="WaveManager" to="WaveManager/End" method="play_one_shot"]
 [connection signal="fight_started" from="WaveManager" to="WaveManager/Start" method="play_one_shot"]
 [connection signal="body_entered" from="WaveManager/Wave Start Enter" to="WaveManager" method="_on_start" unbinds=1]
