@@ -1,3 +1,4 @@
+@icon("uid://fui6kut2l6b1")
 class_name StateMachine extends Node
 
 signal state_entered(state: String)

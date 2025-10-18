@@ -1,4 +1,3 @@
-@icon("uid://fui6kut2l6b1")
 class_name PlayerStateMachine extends StateMachine
 
 

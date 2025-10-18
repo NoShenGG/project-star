@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://brmdsiu0kp6ca"]
+[gd_scene load_steps=7 format=3 uid="uid://brmdsiu0kp6ca"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_lyudl"]
 [ext_resource type="PackedScene" uid="uid://brw0p1eirto83" path="res://scenes/final/Nova.tscn" id="2_dvwxt"]
 [ext_resource type="Script" uid="uid://br0axf7abuchp" path="res://scripts/camera_target.gd" id="3_3c5ji"]
 [ext_resource type="Script" uid="uid://djfekv55fum3x" path="res://scripts/pitch_pivot.gd" id="4_mbt4c"]
+[ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="5_chdrm"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2lxpy"]
 
@@ -13,7 +14,6 @@ script = ExtResource("1_lyudl")
 [node name="Nova" parent="." instance=ExtResource("2_dvwxt")]
 process_mode = 3
 top_level = true
-charged_attack_dmg = 3
 _movement_speed = 10.0
 _hp = 30.0
 _max_hp = 30.0
@@ -165,12 +165,14 @@ bank_paths = ["res://sounds/banks/Player.bank"]
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[connection signal="special_dash" from="Nova2/StateMachine/AttackingSpecial" to="Nova2/DummyAnimation" method="special_dash"]
-[connection signal="special_dash" from="Nova2/StateMachine/AttackingChargedSpecial" to="Nova2/DummyAnimation" method="special_dash"]
-[connection signal="special_dash" from="Nova3/StateMachine/AttackingSpecial" to="Nova3/DummyAnimation" method="special_dash"]
-[connection signal="special_dash" from="Nova3/StateMachine/AttackingChargedSpecial" to="Nova3/DummyAnimation" method="special_dash"]
+[node name="GameUi" parent="." instance=ExtResource("5_chdrm")]
+
+[connection signal="player_hp_update" from="." to="GameUi" method="update_health"]
+[connection signal="player_sp_update" from="." to="GameUi" method="update_special"]
+[connection signal="player_special_ready" from="." to="GameUi/MarginContainer/Offset/Special" method="bounce"]
 
 [editable path="Nova2"]
 [editable path="Nova2/nova_animations_kobold"]
 [editable path="Nova3"]
 [editable path="Nova3/nova_animations_kobold"]
+[editable path="GameUi"]
