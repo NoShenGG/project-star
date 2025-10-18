@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b56s3jvwgpp1u"]
+[gd_scene load_steps=13 format=3 uid="uid://b56s3jvwgpp1u"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_s5nng"]
-[ext_resource type="Shader" uid="uid://cylk6ffp5hsy4" path="res://shaders/screen_space.gdshader" id="3_cmqig"]
+[ext_resource type="Shader" path="res://shaders/screen_space.gdshader" id="3_cmqig"]
 [ext_resource type="MeshLibrary" uid="uid://b88u34a3ref8h" path="res://art_assets/environment/level_1/level1tiles.tres" id="4_8d5j7"]
-[ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="4_25i1c"]
 [ext_resource type="PackedScene" uid="uid://cwo7k5blghvxp" path="res://scripts/dev/Throttle/FrameLimiter.tscn" id="5_6khfp"]
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="6_a4h3p"]
 
@@ -106,13 +105,6 @@ sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="screen_modification/DirectionalLight3D"]
 environment = SubResource("Environment_tgj7d")
-
-[node name="GameUi" parent="screen_modification" instance=ExtResource("4_25i1c")]
-offset_left = -38.0
-offset_top = -415.0
-offset_right = -1190.0
-offset_bottom = -1063.0
-scale = Vector2(0.12, 0.12)
 
 [node name="FrameLimiter" parent="." instance=ExtResource("5_6khfp")]
 visible = false

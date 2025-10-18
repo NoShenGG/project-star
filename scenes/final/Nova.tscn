@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://brw0p1eirto83"]
+[gd_scene load_steps=72 format=3 uid="uid://brw0p1eirto83"]
 
 [ext_resource type="Script" uid="uid://om4qdtr1cye0" path="res://scripts/entities/player/nova/nova.gd" id="1_p5oh7"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="3_6m1nx"]
@@ -9,11 +9,12 @@
 [ext_resource type="Script" uid="uid://clwu1a1we224o" path="res://scripts/entities/player/player_states/player_attacking.gd" id="6_ob225"]
 [ext_resource type="Script" uid="uid://8l57dsfm2da5" path="res://scripts/entities/player/nova/states/nova_attack.gd" id="7_ob225"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_w7jsq"]
+[ext_resource type="Script" uid="uid://divq6voanp8gg" path="res://scripts/entities/player/nova/states/nova_special.gd" id="8_uws5v"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="9_8b4uh"]
-[ext_resource type="Script" uid="uid://8e04epciukwh" path="res://scripts/entities/player/nova/states/nova_attack_special.gd" id="10_h31i5"]
+[ext_resource type="Script" path="res://scripts/entities/player/nova/states/nova_special_wait.gd" id="10_8qhfg"]
+[ext_resource type="Script" path="res://scripts/entities/player/nova/states/nova_special_dash.gd" id="10_ob225"]
 [ext_resource type="Script" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
 [ext_resource type="Script" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
-[ext_resource type="Script" uid="uid://cauiecxurft0c" path="res://scripts/entities/player/nova/states/nove_attack_special_charged.gd" id="12_k5vrc"]
 [ext_resource type="Script" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
 [ext_resource type="PackedScene" uid="uid://ctl307caw43ed" path="res://art_assets/characters/Nova/nova_animations_kobold.glb" id="14_ato7d"]
 [ext_resource type="Texture2D" uid="uid://b2nts737xcuhj" path="res://art_assets/characters/Nova/nova_animations_mixamo_nova_sword_col.png" id="15_ato7d"]
@@ -2630,6 +2631,11 @@ loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ob225"]
 animation = &"NovaAnimationLibrary/Charged Special"
+use_custom_timeline = true
+timeline_length = 0.3
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k2lop"]
 
@@ -2664,7 +2670,7 @@ states/Slash5/position = Vector2(812, 264)
 states/Special/node = SubResource("AnimationNodeAnimation_ob225")
 states/Special/position = Vector2(973, 157)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_k2lop")]
-graph_offset = Vector2(151, 46)
+graph_offset = Vector2(374, 33)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ato7d"]
 radius = 0.98
@@ -2707,29 +2713,6 @@ script = ExtResource("5_lfcoe")
 event_name = "event:/Player/Footsteps/Cave Footstep"
 event_guid = "{1786b3c0-0467-4017-8d6d-95457d0666de}"
 
-[node name="Charging" type="Node" parent="StateMachine"]
-script = ExtResource("7_w7jsq")
-
-[node name="Charging Ready SFX" type="FmodEventEmitter3D" parent="StateMachine/Charging"]
-event_name = "event:/Player/Uniques/Charging/Nova Charging Ready"
-event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
-
-[node name="Charging SFX" type="FmodEventEmitter3D" parent="StateMachine/Charging"]
-event_name = "event:/Player/Uniques/Charging/Nova Charging"
-event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
-
-[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
-script = ExtResource("7_ob225")
-hitbox = NodePath("../../Hitboxes/Sweep")
-damage = 3.0
-finished_state = NodePath("../Moving")
-animation = NodePath("../../nova_animations_kobold/ChargedSlash")
-duration = 1.0
-
-[node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
-event_name = "event:/Player/Uniques/Charged Attack/Nova Charged Attack"
-event_guid = "{c37be128-c419-442f-9d08-d6e0895a5e23}"
-
 [node name="Attacking" type="Node" parent="StateMachine"]
 script = ExtResource("6_ob225")
 
@@ -2765,6 +2748,29 @@ animation = NodePath("../../../nova_animations_kobold/Slash5")
 event_name = "event:/Player/Uniques/Grunt/Nova Grunt"
 event_guid = "{8eed88f7-964e-435b-957d-c6705371ee3b}"
 
+[node name="Charging" type="Node" parent="StateMachine"]
+script = ExtResource("7_w7jsq")
+
+[node name="Charging Ready SFX" type="FmodEventEmitter3D" parent="StateMachine/Charging"]
+event_name = "event:/Player/Uniques/Charging/Nova Charging Ready"
+event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
+
+[node name="Charging SFX" type="FmodEventEmitter3D" parent="StateMachine/Charging"]
+event_name = "event:/Player/Uniques/Charging/Nova Charging"
+event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
+
+[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
+script = ExtResource("7_ob225")
+hitbox = NodePath("../../Hitboxes/Sweep")
+damage = 3.0
+finished_state = NodePath("../Moving")
+animation = NodePath("../../nova_animations_kobold/ChargedSlash")
+duration = 1.0
+
+[node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
+event_name = "event:/Player/Uniques/Charged Attack/Nova Charged Attack"
+event_guid = "{c37be128-c419-442f-9d08-d6e0895a5e23}"
+
 [node name="ChargingSpecial" type="Node" parent="StateMachine"]
 script = ExtResource("9_8b4uh")
 
@@ -2772,21 +2778,25 @@ script = ExtResource("9_8b4uh")
 event_name = "event:/Player/Uniques/Charging/Nova Charging"
 event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 
-[node name="AttackingSpecial" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox")]
-script = ExtResource("10_h31i5")
-hitbox = NodePath("../../Hitboxes/Dash")
+[node name="Special" type="Node" parent="StateMachine" node_paths=PackedStringArray("special_state", "wait_state")]
+script = ExtResource("8_uws5v")
+special_state = NodePath("SpecialDash")
+wait_state = NodePath("SpecialWait")
 
-[node name="Dash SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingSpecial"]
+[node name="SpecialDash" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("hitbox", "animation")]
+script = ExtResource("10_ob225")
+hitbox = NodePath("../../../Hitboxes/Dash")
+damage = 10.0
+animation = NodePath("../../../nova_animations_kobold/Special")
+
+[node name="Dash SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialDash"]
 event_name = "event:/Player/Dash/Base Dash"
 event_guid = "{c01c64a7-fee5-463c-adda-e0bf3a57057b}"
 
-[node name="AttackingChargedSpecial" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox")]
-script = ExtResource("12_k5vrc")
-hitbox = NodePath("../../Hitboxes/Dash")
-
-[node name="Dash SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingChargedSpecial"]
-event_name = "event:/Player/Dash/Base Dash"
-event_guid = "{c01c64a7-fee5-463c-adda-e0bf3a57057b}"
+[node name="SpecialWait" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("animation")]
+script = ExtResource("10_8qhfg")
+animation = NodePath("../../../nova_animations_kobold/Charging Special")
+duration = 0.2
 
 [node name="SwapIn" type="Node" parent="StateMachine"]
 script = ExtResource("11_1o1ys")
@@ -3012,30 +3022,30 @@ Charged Left Click = Charged Slash
 
 "
 
+[node name="Special Ready" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Player/Uniques/Charging/Nova Charging Ready"
+event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
+
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
 [connection signal="player_dashed" from="." to="nova_animations_kobold/Dash" method="enter"]
 [connection signal="player_dashed" from="." to="Dash SFX" method="play_one_shot"]
+[connection signal="special_available" from="." to="Special Ready" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Idle" to="nova_animations_kobold/Idle" method="enter"]
 [connection signal="entered" from="StateMachine/Moving" to="StateMachine/Moving/Footstep SFX" method="play"]
 [connection signal="entered" from="StateMachine/Moving" to="nova_animations_kobold/Move" method="enter"]
 [connection signal="finished" from="StateMachine/Moving" to="StateMachine/Moving/Footstep SFX" method="stop"]
+[connection signal="attack_started" from="StateMachine/Attacking" to="StateMachine/Attacking/Attack SFX" method="play_one_shot" unbinds=1]
+[connection signal="attack_started" from="StateMachine/Attacking" to="DummyAnimation" method="attack" unbinds=1]
 [connection signal="charge_count_increase" from="StateMachine/Charging" to="StateMachine/Charging/Charging Ready SFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Charging" to="StateMachine/Charging/Charging SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Charging" to="nova_animations_kobold/ChargingSlash" method="enter"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="StateMachine/AttackingCharged/AttackCharged SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="nova_animations_kobold/ChargedSlash" method="enter"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="DummyAnimation" method="attack_charged"]
-[connection signal="attack_started" from="StateMachine/Attacking" to="StateMachine/Attacking/Attack SFX" method="play_one_shot" unbinds=1]
-[connection signal="attack_started" from="StateMachine/Attacking" to="DummyAnimation" method="attack" unbinds=1]
-[connection signal="entered" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="nova_animations_kobold/Charging Special" method="enter"]
-[connection signal="special_dash" from="StateMachine/AttackingSpecial" to="DummyAnimation" method="special_dash"]
-[connection signal="special_dash" from="StateMachine/AttackingSpecial" to="StateMachine/AttackingSpecial/Dash SFX" method="play_one_shot" unbinds=1]
-[connection signal="special_dash" from="StateMachine/AttackingSpecial" to="nova_animations_kobold/Special" method="enter" unbinds=1]
-[connection signal="special_dash" from="StateMachine/AttackingChargedSpecial" to="DummyAnimation" method="special_dash"]
-[connection signal="special_dash" from="StateMachine/AttackingChargedSpecial" to="StateMachine/AttackingChargedSpecial/Dash SFX" method="play_one_shot" unbinds=1]
-[connection signal="special_dash" from="StateMachine/AttackingChargedSpecial" to="nova_animations_kobold/Special" method="enter" unbinds=1]
+[connection signal="max_charge_count" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/Special/SpecialDash" to="StateMachine/Special/SpecialDash/Dash SFX" method="play_one_shot"]
 [connection signal="slash_start" from="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L/nova_sword/SlashVFX" to="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L/nova_sword/SlashVFX/Slash SFX" method="play_one_shot"]
 [connection signal="attack_charged_done" from="DummyAnimation" to="StateMachine/AttackingCharged" method="end"]
 [connection signal="attack_charged_hit" from="DummyAnimation" to="StateMachine/AttackingCharged" method="do_damage"]
