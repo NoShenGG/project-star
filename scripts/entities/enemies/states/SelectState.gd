@@ -20,9 +20,11 @@ class_name SelectState extends EnemyState
 @export var damage_state : State
 @export_subgroup("Distance")
 ## If the player gets too far, well stop going through substates, and automatically exit to player_far_state
-@export var distance_interrupt : bool = true
+@export var player_lost_interrupt : bool = true
 @export var max_player_distance : float = 1
-@export var player_far_state : State
+## the euler angle before we exit through player lost. 
+@export var sight_angle : float = 180
+@export var player_lost_state : State
 
 
 var _states_played : int = 0
@@ -47,7 +49,7 @@ func _ready() -> void:
 	enemy.hurt.connect(hurt)
 
 func hurt(damage : float):
-	if (damage_interrupt and damage_state):
+	if (player_lost_interrupt and damage_state):
 		trigger_finished.connect(damage_state.get_path)
 
 func enter(_prev_state: String, _data := {}) -> void:
@@ -77,8 +79,12 @@ func substate_ended():
 		end()
 		return
 	
-	if ((distance_interrupt and player_far_state) and enemy.global_position.distance_to(GameManager.curr_player.global_position) > max_player_distance):
-		trigger_finished.emit(player_far_state.get_path())
+	var player_distance : float = enemy.global_position.distance_to(GameManager.curr_player.global_position)
+	## yeah i can use angle_to(), but thats in radians and i dont wanna do five operations to get a result with floating-point error
+	var player_angle : float = (1 - enemy.global_basis.z.normalized().dot((enemy.global_position - GameManager.curr_player.global_position).normalized())) * 90
+	var player_lost : bool = player_distance > max_player_distance or player_angle > sight_angle
+	if (player_lost_interrupt and player_lost_state and player_lost):
+		trigger_finished.emit(player_lost_state.get_path())
 		return
 	
 	print("next state 3")
