@@ -22,6 +22,7 @@ func physics_update(_delta: float) -> void:
 func enter(_prev_state: String, _data := {}) -> void:
 	print("[LaserShroom]Entering state: APPROACH")
 	lasershroom = owner as LaserShroom
+	lasershroom.switchMesh(0)
 	lasershroom._movement_speed = lasershroom.SPEEDS["approach"]
 	entered.emit()
 

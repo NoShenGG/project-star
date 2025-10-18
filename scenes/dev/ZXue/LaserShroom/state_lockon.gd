@@ -18,7 +18,8 @@ func physics_update(_delta: float) -> void:
 	
 	#update
 	var distanceToPlayer:float = lasershroom.global_position.distance_to(lasershroom.playerRef.global_position)
-	if(distanceToPlayer > lasershroom.COUNTDOWN_RANGE):
+	if(distanceToPlayer > lasershroom.DETECTION_RANGE):
+		$LockTimer.stop()
 		trigger_finished.emit("approach")
 	elif(lasershroom._hp <= 0):
 		trigger_finished.emit("dead")
@@ -43,6 +44,6 @@ func end() -> void:
 func exit() -> void:
 	pass
 
-#when timer goes out, then LaserShroom will fire.
+#when timer goes out, LaserShroom will fire.
 func _on_lock_timer_timeout() -> void:
 	trigger_finished.emit("fire")
