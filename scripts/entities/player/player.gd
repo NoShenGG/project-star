@@ -4,6 +4,7 @@ class_name Player extends Entity
 
 signal player_dashed
 signal special_cooldown_update(percent: float)
+signal special_available
 
 @onready var ray: ShapeCast3D = $ForwardRay
 
@@ -95,7 +96,9 @@ func use_special():
 		
 func set_special_cd():
 	special_cd_timer = get_tree().create_timer(special_cd)
-	special_cd_timer.timeout.connect(func(): _has_special = true)
+	special_cd_timer.timeout.connect(func special_cd_timeout(): 
+		special_available.emit()
+		_has_special = true)
 
 ## Dash function, uses raycast to prevent clipping world but ignores entities
 func dash(dist := dash_distance, emit : bool = true) -> void:

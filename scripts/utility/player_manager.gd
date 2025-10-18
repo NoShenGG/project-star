@@ -9,6 +9,8 @@ signal new_player(value : Player)
 signal player_hp_update(percent: float)
 signal player_sp_update(percent: float)
 
+signal player_special_ready
+
 
 func _init() -> void:
 	if (not Engine.is_editor_hint()):
@@ -31,6 +33,7 @@ func _ready() -> void:
 		else:
 			(c as Player).health_update.connect(player_health_update)
 			(c as Player).special_cooldown_update.connect(player_special_update)
+			(c as Player).special_available.connect(await_special)
 			player_health_update((c as Player)._hp / (c as Player)._max_hp)
 			player_special_update(1)
 		
@@ -88,10 +91,15 @@ func swap_char(idx: int):
 		(current_char.state_machine as PlayerStateMachine).swap_out()
 		(new_char.state_machine as PlayerStateMachine).swap_in()
 		
-		
+		current_char.special_available.disconnect(await_special)
 		current_char.health_update.disconnect(player_health_update)
 		current_char.special_cooldown_update.disconnect(player_special_update)
 		new_char.health_update.connect(player_health_update)
 		new_char.special_cooldown_update.connect(player_special_update)
+		new_char.special_available.connect(await_special)
 		player_health_update(new_char._hp / new_char._max_hp)
 		current_char = new_char
+
+func await_special():
+	print("special ready bounce")
+	player_special_ready.emit()
