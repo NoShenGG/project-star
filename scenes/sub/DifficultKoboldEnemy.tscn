@@ -1,21 +1,21 @@
-[gd_scene load_steps=64 format=3 uid="uid://saueh5mdj6qv"]
+[gd_scene load_steps=64 format=3 uid="uid://cv7a8503lutop"]
 
 [ext_resource type="Script" uid="uid://meavewo15aog" path="res://scripts/entities/enemies/enemy.gd" id="1_gavg2"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_wawl6"]
 [ext_resource type="Script" uid="uid://b2t1awuy1mis7" path="res://scripts/entities/enemies/states/move_to_player.gd" id="3_6ppla"]
 [ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="4_o3trl"]
 [ext_resource type="Script" uid="uid://becnk6gd1e51o" path="res://scripts/entities/player/melee_attack.gd" id="5_0qgj4"]
-[ext_resource type="Script" uid="uid://dmfs43bw4srvs" path="res://scripts/entities/enemies/states/SelectState.gd" id="6_0qgj4"]
+[ext_resource type="Script" path="res://scripts/entities/enemies/states/SelectState.gd" id="6_0qgj4"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="6_n5mpu"]
 [ext_resource type="PackedScene" uid="uid://cj1dreixyrara" path="res://art_assets/enemies/kobold/Kobold.glb" id="7_hmh7o"]
 [ext_resource type="PackedScene" uid="uid://di4qml3bmbcmh" path="res://art_assets/enemies/Weapons/SwordBase.glb" id="8_hyoos"]
-[ext_resource type="Texture2D" uid="uid://2r15bxw7nkju" path="res://art_assets/enemies/kobold/Heavy_Body_BaseColor.png" id="8_o3trl"]
+[ext_resource type="Texture2D" uid="uid://umb363uqrtl4" path="res://art_assets/enemies/kobold/Heavy_Body_BaseColor.png" id="8_o3trl"]
 [ext_resource type="Texture2D" uid="uid://d3dafksd7mvsj" path="res://art_assets/enemies/kobold/textures/Body_Normal.png" id="9_0qgj4"]
 [ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="9_k5lyv"]
 [ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="10_qncd1"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrails/defaults/texture.tres" id="11_x32kg"]
 [ext_resource type="Script" uid="uid://drugjbbmd0wed" path="res://scripts/entities/SlashVFX.gd" id="12_7nahu"]
-[ext_resource type="AnimationLibrary" uid="uid://5yblx87crlgj" path="res://art_assets/enemies/kobold/KoboldAdvancedAttackLibrary.tres" id="13_6ppla"]
+[ext_resource type="AnimationLibrary" uid="uid://b7bvpoe1yqi4o" path="res://art_assets/enemies/kobold/KoboldAdvancedAttackLibrary.tres" id="13_6ppla"]
 [ext_resource type="AnimationLibrary" uid="uid://daeew048ovs6e" path="res://art_assets/enemies/kobold/KoboldAttackLibrary.tres" id="13_6rlsh"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="14_jaab8"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="15_2hkfm"]
@@ -1209,7 +1209,6 @@ damage_interrupt = false
 max_player_distance = 5.0
 sight_angle = 90.0
 player_lost_state = NodePath("../Walk")
-metadata/_custom_type_script = "uid://dmfs43bw4srvs"
 
 [node name="Attack" type="Node" parent="StateMachine/ComboAttack" node_paths=PackedStringArray("hitbox", "animation")]
 unique_name_in_owner = true
@@ -1278,35 +1277,33 @@ transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
-bones/0/position = Vector3(5.323061e-08, 0.6500831, -0.16336358)
-bones/0/rotation = Quaternion(3.1732925e-10, 0.99996024, 0.008918337, 7.5533514e-08)
-bones/1/rotation = Quaternion(0.012081851, 0.21240096, 0.0026263273, 0.9771044)
-bones/2/rotation = Quaternion(0.022268249, 0.20528789, -0.0046881535, 0.97843707)
-bones/3/rotation = Quaternion(-0.09831716, 0.16656475, -0.6842915, 0.7030897)
-bones/4/rotation = Quaternion(0.15818107, -0.032288734, -0.17053068, 0.97203684)
-bones/5/rotation = Quaternion(0.05460119, -0.009582078, 0.034171175, 0.9978774)
-bones/6/rotation = Quaternion(0.030129867, 0.7504259, 0.022887038, 0.6598708)
-bones/7/rotation = Quaternion(0.10930318, -0.16130425, 0.018943746, 0.98065025)
-bones/8/rotation = Quaternion(0.11787615, -0.16142233, -0.01753618, 0.9796635)
-bones/9/rotation = Quaternion(-0.097846106, -0.16608065, 0.684359, 0.7032043)
-bones/10/rotation = Quaternion(0.28145197, -0.2902946, 0.33711913, 0.85021436)
-bones/11/rotation = Quaternion(0.680181, -0.014488284, -0.032398354, 0.7321846)
-bones/12/rotation = Quaternion(0.030129768, -0.75042593, -0.022887088, 0.65987074)
-bones/13/rotation = Quaternion(0.0046502105, -0.017780088, 0.9711592, -0.2377224)
-bones/14/rotation = Quaternion(-0.030103397, -0.0032018172, -0.013728781, 0.99944746)
-bones/15/rotation = Quaternion(0.59733826, 0.026554555, 0.026319675, 0.80111754)
-bones/16/rotation = Quaternion(-0.0054501826, -0.01895778, 0.9830613, 0.18221226)
-bones/17/rotation = Quaternion(-0.028659754, 0.00278837, 0.027047848, 0.9992194)
-bones/18/rotation = Quaternion(0.59736717, -0.026554827, -0.026319757, 0.80109596)
-bones/19/rotation = Quaternion(-0.85390365, 0.0017932556, -0.0029422427, 0.52041966)
-bones/20/rotation = Quaternion(0.13317147, 4.906839e-10, 0.000917752, 0.9910927)
+bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
+bones/0/rotation = Quaternion(-4.536648e-09, 0.9969624, 0.07788396, 7.536146e-08)
+bones/1/rotation = Quaternion(0.092708014, 0.0034391014, -0.00021429552, 0.9956874)
+bones/2/rotation = Quaternion(0.09581257, -0.0037757165, -0.0002371591, 0.99539226)
+bones/4/rotation = Quaternion(0.23185396, 0.052165866, -0.5613523, 0.7927206)
+bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.043196995, 0.98099875)
+bones/6/rotation = Quaternion(0.054868486, 0.74948096, 0.015322978, 0.6595702)
+bones/7/rotation = Quaternion(0.099886015, -0.00029582978, -0.000720994, 0.99499863)
+bones/8/rotation = Quaternion(-0.08117453, -0.00035331695, -0.0004924005, 0.99669975)
+bones/9/rotation = Quaternion(-0.09260436, -0.17117505, 0.68309855, 0.70391756)
+bones/10/rotation = Quaternion(0.2971539, -0.0022501342, 0.5430288, 0.78537524)
+bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.0123480745, 0.97225493)
+bones/12/rotation = Quaternion(-5.8199273e-08, -0.751264, -5.181667e-08, 0.66000193)
+bones/13/rotation = Quaternion(0.10849718, -0.08205278, 0.9894506, -0.04983335)
+bones/14/rotation = Quaternion(-0.030224102, -0.0017236071, 0.035237335, 0.9989204)
+bones/15/rotation = Quaternion(0.5967693, -0.0027287544, -0.012932465, 0.802304)
+bones/16/rotation = Quaternion(-0.10912148, -0.082282394, 0.98859936, 0.06319494)
+bones/17/rotation = Quaternion(-0.028762186, 0.0013813315, -0.021923115, 0.9993449)
+bones/18/rotation = Quaternion(0.59676915, 0.0027265504, 0.0129355155, 0.80230415)
+bones/20/rotation = Quaternion(0.13317142, 7.493918e-11, 0.0009177519, 0.9910927)
 bones/21/rotation = Quaternion(0.13793416, -4.2176818e-10, 0.0009505738, 0.99044096)
 
 [node name="Cube" parent="Kobold/Armature/GeneralSkeleton" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_n5mpu")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(0.64994854, -0.71920514, 0.24558276, 0.089933425, -0.24808758, -0.9645541, 0.7546379, 0.6489971, -0.096563555, -0.63339424, 1.2143373, 0.57931143)
+transform = Transform3D(-0.35672462, -0.31144732, 0.8807657, -0.22962458, -0.8846383, -0.40581828, 0.9055494, -0.34701067, 0.2440562, -0.5756827, 0.832075, -0.053973857)
 bone_name = "Hand.L"
 bone_idx = 6
 
