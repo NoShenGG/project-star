@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b18dlvux7xx6l" path="res://art_assets/Ui/dawn_portrait.png" id="9_qn2jx"]
 [ext_resource type="Shader" uid="uid://hu5ql00vh1ni" path="res://shaders/game_ui_glow_shader.gdshader" id="10_pqpky"]
 [ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="11_qn2jx"]
-[ext_resource type="Texture2D" uid="uid://i3vdoktpg2tv" path="res://vfx/Kenny Particle Pack/circle_03.png" id="12_upuxa"]
+[ext_resource type="Texture2D" uid="uid://d1n3eyi7jjcya" path="res://vfx/Kenny Particle Pack/circle_02.png" id="12_qn2jx"]
 
 [sub_resource type="Curve" id="Curve_wmnvy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50545454, 0.5084282), 2.0432801, 2.0432801, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -155,5 +155,5 @@ scale = Vector2(1.2, 1.2)
 value = 80.0
 fill_mode = 4
 texture_under = ExtResource("11_qn2jx")
-texture_progress = ExtResource("12_upuxa")
+texture_progress = ExtResource("12_qn2jx")
 tint_progress = Color(1, 1, 0, 1)
