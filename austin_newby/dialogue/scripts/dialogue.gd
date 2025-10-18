@@ -7,7 +7,10 @@ class_name Dialogue
 @onready var small_label = %SmallTextLabel
 @onready var small_speaker_image: TextureRect = %SmallSpeakerImage
 
-var messages
+var messages =[
+	"default1",
+	"default2"
+]
 
 var typing_speed := 0.033
 var time_btwn_message := 2 # used for auto advance

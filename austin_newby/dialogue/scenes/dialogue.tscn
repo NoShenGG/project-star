@@ -54,3 +54,6 @@ unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_uh380")
 expand_mode = 2
+
+[connection signal="timeout" from="next_char" to="." method="_on_next_char_timeout"]
+[connection signal="timeout" from="next_message" to="." method="_on_next_message_timeout"]

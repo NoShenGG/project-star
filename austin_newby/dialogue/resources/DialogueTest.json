@@ -1,0 +1,10 @@
+{
+	"initial_scene": {
+		"text": [
+			"[color=red]You are currently reading 1.",
+			"Similar sequences are stored as a group in a JSON file.",
+			"A group can be an area, a level, a shop, or something similar.",
+			"Here are multiple lines.\nHello I am 2nd line."
+		]
+	}
+}
