@@ -1,0 +1,107 @@
+[gd_scene load_steps=18 format=3 uid="uid://cuq57gnl0xn2m"]
+
+[ext_resource type="Script" uid="uid://b0ikb4va3mlaf" path="res://scenes/dev/ZXue/LaserShroom/LaserShroomEnemy.gd" id="1_6e0eo"]
+[ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_pxf1l"]
+[ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="3_dkojg"]
+[ext_resource type="Script" uid="uid://c80uvgo53moay" path="res://scenes/dev/ZXue/LaserShroom/state_idle.gd" id="3_sql7t"]
+[ext_resource type="Script" uid="uid://dby4q6icnne2f" path="res://scenes/dev/ZXue/LaserShroom/state_approach.gd" id="4_sql7t"]
+[ext_resource type="Script" uid="uid://bopvog2l4xqc" path="res://scenes/dev/ZXue/LaserShroom/state_lockon.gd" id="5_s1jrn"]
+[ext_resource type="Script" uid="uid://dfduxqv1wui16" path="res://scenes/dev/ZXue/LaserShroom/state_fire.gd" id="6_sbhox"]
+[ext_resource type="Script" uid="uid://dtitauqx0skm" path="res://scenes/dev/ZXue/LaserShroom/state_hide.gd" id="7_eqsdo"]
+[ext_resource type="Material" uid="uid://eaw3fdki5ha1" path="res://art_assets/environment/demo/Models/goldDemo.tres" id="7_iil6r"]
+[ext_resource type="Material" uid="uid://dpp3p3xiu4weh" path="res://art_assets/environment/demo/Models/glowDemo.tres" id="8_27v6w"]
+[ext_resource type="Script" uid="uid://bkgp46pi8byeg" path="res://scenes/dev/ZXue/LaserShroom/state_broken.gd" id="8_arhvd"]
+[ext_resource type="Script" uid="uid://b2hq5lc6ed0ck" path="res://scenes/dev/ZXue/LaserShroom/state_dead.gd" id="8_wt6pu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pxf1l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxf1l"]
+size = Vector3(15, 1, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s1jrn"]
+material = ExtResource("7_iil6r")
+size = Vector3(15, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iil6r"]
+material = ExtResource("8_27v6w")
+size = Vector3(15, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pxf1l"]
+
+[node name="LaserShroom" type="CharacterBody3D"]
+script = ExtResource("1_6e0eo")
+metadata/_custom_type_script = "uid://b0ikb4va3mlaf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.075, 0, 0, 0, 1.075, 0, 0, 0, 1.075, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_pxf1l")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_pxf1l")
+metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_sql7t")
+
+[node name="approach" type="Node" parent="StateMachine"]
+script = ExtResource("4_sql7t")
+
+[node name="lockon" type="Node" parent="StateMachine"]
+script = ExtResource("5_s1jrn")
+
+[node name="LockTimer" type="Timer" parent="StateMachine/lockon"]
+one_shot = true
+
+[node name="fire" type="Node" parent="StateMachine"]
+script = ExtResource("6_sbhox")
+
+[node name="FireTimer" type="Timer" parent="StateMachine/fire"]
+one_shot = true
+
+[node name="FireEffectTimer" type="Timer" parent="StateMachine/fire"]
+one_shot = true
+
+[node name="DamageCooldownTimer" type="Timer" parent="StateMachine/fire"]
+one_shot = true
+
+[node name="hide" type="Node" parent="StateMachine"]
+script = ExtResource("7_eqsdo")
+
+[node name="HideTimer" type="Timer" parent="StateMachine/hide"]
+
+[node name="broken" type="Node" parent="StateMachine"]
+script = ExtResource("8_arhvd")
+
+[node name="dead" type="Node" parent="StateMachine"]
+script = ExtResource("8_wt6pu")
+
+[node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+collision_mask = 2
+script = ExtResource("3_dkojg")
+metadata/_custom_type_script = "uid://c1iptw5vqre6f"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.739915, 0, 0)
+shape = SubResource("BoxShape3D_pxf1l")
+
+[node name="AimMesh" type="MeshInstance3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7461843, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_s1jrn")
+
+[node name="FireMesh" type="MeshInstance3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.732189, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_iil6r")
+
+[node name="LaserShroomMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_pxf1l")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[connection signal="timeout" from="StateMachine/lockon/LockTimer" to="StateMachine/lockon" method="_on_lock_timer_timeout"]
+[connection signal="timeout" from="StateMachine/fire/FireTimer" to="StateMachine/fire" method="_on_fire_timer_timeout"]
+[connection signal="timeout" from="StateMachine/fire/FireEffectTimer" to="StateMachine/fire" method="_on_fire_effect_timer_timeout"]
+[connection signal="timeout" from="StateMachine/fire/DamageCooldownTimer" to="StateMachine/fire" method="_on_damage_cooldown_timer_timeout"]
+[connection signal="timeout" from="StateMachine/hide/HideTimer" to="StateMachine/hide" method="_on_hide_timer_timeout"]
