@@ -1171,6 +1171,20 @@ tracks/23/keys = {
 "method": &"stop"
 }]
 }
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("%Attack")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.23333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_damage"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_rn12y"]
 resource_name = "NovaSlash2"
@@ -1351,6 +1365,20 @@ tracks/23/keys = {
 }, {
 "args": [],
 "method": &"stop"
+}]
+}
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("%Attack2")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.26666668),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_damage"
 }]
 }
 
@@ -1535,6 +1563,20 @@ tracks/23/keys = {
 "method": &"stop"
 }]
 }
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("%Attack3")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_damage"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ud834"]
 resource_name = "NovaSlash4"
@@ -1717,6 +1759,20 @@ tracks/23/keys = {
 "method": &"stop"
 }]
 }
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("%Attack4")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_damage"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_r3fti"]
 resource_name = "NovaSlash5"
@@ -1897,6 +1953,23 @@ tracks/23/keys = {
 }, {
 "args": [],
 "method": &"stop"
+}]
+}
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("%Attack5")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.23333333, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"do_damage"
+}, {
+"args": [],
+"method": &"do_damage"
 }]
 }
 

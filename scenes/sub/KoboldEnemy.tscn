@@ -215,6 +215,23 @@ tracks/22/path = NodePath("%GeneralSkeleton:Tail.002")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = PackedFloat32Array(0, 1, 0.1379342, -4.266226e-10, 0.00095057406, 0.9904412)
+tracks/23/type = "method"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("%SlashVFX")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0.73333335, 1.7333333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_d2n7q"]
 resource_name = "Death"
@@ -1161,7 +1178,6 @@ player_far_state = NodePath("../Walk")
 unique_name_in_owner = true
 script = ExtResource("12_sqo6n")
 hitbox = NodePath("../../Hitbox")
-damage_on_enter = true
 finished_state = NodePath("../Idle")
 animation = NodePath("../../Kobold/Slash")
 duration = 1.0
@@ -1182,37 +1198,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-4.7320974e-09, 0.9967571, 0.08046951, 7.534945e-08)
-bones/1/rotation = Quaternion(0.090125196, 0.0034385328, -0.00022321488, 0.9959245)
-bones/2/rotation = Quaternion(0.09290515, -0.003781392, -0.00024562675, 0.9956678)
-bones/4/rotation = Quaternion(0.29223323, 0.008766358, -0.56370276, 0.77250385)
-bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.04319699, 0.98099875)
-bones/6/rotation = Quaternion(0.054868493, 0.749481, 0.015322981, 0.6595702)
-bones/7/rotation = Quaternion(0.103347026, -0.00029833638, -0.0007199607, 0.9946451)
-bones/8/rotation = Quaternion(-0.07770651, -0.00035160166, -0.00049362663, 0.9969762)
-bones/9/rotation = Quaternion(-0.09260436, -0.17117503, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.2502966, -0.034286674, 0.5419501, 0.80153984)
-bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.012348074, 0.97225493)
-bones/12/rotation = Quaternion(-5.8199284e-08, -0.751264, -5.181668e-08, 0.6600019)
-bones/13/rotation = Quaternion(0.10849719, -0.08205278, 0.9894506, -0.049833346)
-bones/14/rotation = Quaternion(-0.030224102, -0.001723607, 0.035237335, 0.9989204)
+bones/0/rotation = Quaternion(-3.828593e-09, 0.9976501, 0.06851625, 7.540076e-08)
+bones/1/rotation = Quaternion(0.10203175, 0.0034409577, -0.000182068, 0.99477524)
+bones/2/rotation = Quaternion(0.104957886, -0.0037576419, -0.00021049469, 0.9944696)
+bones/4/rotation = Quaternion(0.29548073, 0.0063945977, -0.56373477, 0.77126735)
+bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.043196995, 0.98099875)
+bones/6/rotation = Quaternion(0.054868486, 0.74948096, 0.015322978, 0.6595702)
+bones/7/rotation = Quaternion(0.088004924, -0.00028720454, -0.0007244731, 0.9961198)
+bones/8/rotation = Quaternion(-0.09306306, -0.00035916787, -0.0004881494, 0.9956601)
+bones/9/rotation = Quaternion(-0.09260436, -0.17117505, 0.68309855, 0.70391756)
+bones/10/rotation = Quaternion(0.22443403, -0.051668365, 0.54056984, 0.80916256)
+bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.0123480745, 0.97225493)
+bones/12/rotation = Quaternion(-5.8199273e-08, -0.751264, -5.181667e-08, 0.66000193)
+bones/13/rotation = Quaternion(0.10849718, -0.08205278, 0.9894506, -0.04983335)
+bones/14/rotation = Quaternion(-0.030224102, -0.0017236071, 0.035237335, 0.9989204)
 bones/15/rotation = Quaternion(0.5967693, -0.0027287544, -0.012932465, 0.802304)
-bones/16/rotation = Quaternion(-0.10912149, -0.082282394, 0.98859936, 0.06319494)
+bones/16/rotation = Quaternion(-0.10912148, -0.082282394, 0.98859936, 0.06319494)
 bones/17/rotation = Quaternion(-0.028762186, 0.0013813315, -0.021923115, 0.9993449)
-bones/18/rotation = Quaternion(0.59676915, 0.00272655, 0.0129355155, 0.80230415)
-bones/19/rotation = Quaternion(-0.85390365, 0.0017932556, -0.0029422422, 0.52041966)
-bones/20/rotation = Quaternion(0.13317142, 8.6246704e-11, 0.0009177519, 0.9910927)
-bones/21/rotation = Quaternion(0.13793416, -4.257629e-10, 0.0009505738, 0.99044096)
+bones/18/rotation = Quaternion(0.59676915, 0.0027265504, 0.0129355155, 0.80230415)
+bones/20/rotation = Quaternion(0.13317142, 7.493918e-11, 0.0009177519, 0.9910927)
+bones/21/rotation = Quaternion(0.13793416, -4.2176818e-10, 0.0009505738, 0.99044096)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(-0.39824417, -0.27271423, 0.8758018, -0.37590337, -0.8224069, -0.4270181, 0.83671874, -0.4992744, 0.22500455, -0.55864424, 0.8447357, -0.15740018)
+transform = Transform3D(-0.40033424, -0.27042013, 0.8755599, -0.3218322, -0.85311216, -0.410639, 0.85799533, -0.4461761, 0.25450015, -0.55756485, 0.8326409, -0.1539637)
 bone_name = "Hand.L"
 bone_idx = 6
 
 [node name="SwordBase" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D" instance=ExtResource("3_nnkb1")]
-transform = Transform3D(0, -0.25881907, -0.96592593, -1, -4.371139e-08, -2.9802322e-08, -2.9802322e-08, 0.9659259, -0.25881907, -0.006293071, 0.09777588, 0.023486042)
+transform = Transform3D(5.021584e-09, -0.33646473, -1.2557036, -1.3, -5.6824803e-08, 1.0027433e-08, -5.7483835e-08, 1.2557036, -0.33646473, -0.006293071, 0.09777588, 0.023486042)
 
-[node name="SwordTrail" type="GPUParticles3D" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase"]
+[node name="SlashVFX" type="GPUParticles3D" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -1.3429347e-08, 1, 0, -0.30722767, -4.371139e-08, 3.7252903e-09, 2.0188354e-08, 0.4618557)
 visible = false
