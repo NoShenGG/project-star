@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cuq57gnl0xn2m"]
+[gd_scene load_steps=20 format=3 uid="uid://cuq57gnl0xn2m"]
 
 [ext_resource type="Script" uid="uid://b0ikb4va3mlaf" path="res://scenes/dev/ZXue/LaserShroom/LaserShroomEnemy.gd" id="1_6e0eo"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_pxf1l"]
@@ -12,6 +12,7 @@
 [ext_resource type="Material" uid="uid://dpp3p3xiu4weh" path="res://art_assets/environment/demo/Models/glowDemo.tres" id="8_27v6w"]
 [ext_resource type="Script" uid="uid://bkgp46pi8byeg" path="res://scenes/dev/ZXue/LaserShroom/state_broken.gd" id="8_arhvd"]
 [ext_resource type="Script" uid="uid://b2hq5lc6ed0ck" path="res://scenes/dev/ZXue/LaserShroom/state_dead.gd" id="8_wt6pu"]
+[ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="13_g51g3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pxf1l"]
 
@@ -28,7 +29,12 @@ size = Vector3(15, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pxf1l"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_g51g3"]
+viewport_path = NodePath("SubViewport")
+
 [node name="LaserShroom" type="CharacterBody3D"]
+collision_layer = 10
+collision_mask = 3
 script = ExtResource("1_6e0eo")
 metadata/_custom_type_script = "uid://b0ikb4va3mlaf"
 
@@ -100,6 +106,12 @@ mesh = SubResource("CapsuleMesh_pxf1l")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
+[node name="StatusBars" parent="." instance=ExtResource("13_g51g3")]
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.9818716, 0)
+texture = SubResource("ViewportTexture_g51g3")
+
+[connection signal="break_update" from="." to="StatusBars" method="update_break"]
+[connection signal="health_update" from="." to="StatusBars" method="update_health"]
 [connection signal="timeout" from="StateMachine/lockon/LockTimer" to="StateMachine/lockon" method="_on_lock_timer_timeout"]
 [connection signal="timeout" from="StateMachine/fire/FireTimer" to="StateMachine/fire" method="_on_fire_timer_timeout"]
 [connection signal="timeout" from="StateMachine/fire/FireEffectTimer" to="StateMachine/fire" method="_on_fire_effect_timer_timeout"]
