@@ -11,6 +11,7 @@ var _canMakeDamage : bool = false
 @export_category("Next States")
 @export var post_fire_state : State
 
+var _running : bool
 
 ## Called on state machine process
 func update(_delta: float) -> void:
@@ -37,17 +38,24 @@ func enter(_prev_state: String, _data := {}) -> void:
 	enemy.set_movement_target(enemy.global_position)#not to move
 	get_node("FireTimer").start(prefire)
 	entered.emit()
+	_running = true
 
 ## Call for another script to end this state. Should pick the next state and emit trigger_finished.
 func end() -> void:
 	trigger_finished.emit(post_fire_state.get_path())
-	
+	_canMakeDamage = false
+	enemy.switchMesh(0)
+	_running = false
 ## Called on state exit
 func exit() -> void:
 	pass
+	_canMakeDamage = false
+	enemy.switchMesh(0)
+	_running = false
 
 #when timer is out, LaserShroom goes back to hiding.
 func _on_fire_timer_timeout() -> void:
+	if (!_running): return
 	enemy.switchMesh(2)
 	_canMakeDamage = true
 	#lasershroom.setHitboxStatus(true)
@@ -63,7 +71,9 @@ func _on_laser_shroom_player_out() -> void:
 	
 '''
 func _on_damage_cooldown_timer_timeout() -> void:
+	if (!_running): return
 	_canMakeDamage = true
 
 func _on_fire_effect_timer_timeout() -> void:
+	if (!_running): return
 	trigger_finished.emit(post_fire_state.get_path())

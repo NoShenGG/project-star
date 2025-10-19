@@ -7,6 +7,8 @@ extends EnemyState
 @export_category("Next States")
 @export var post_hide_state : State
 
+var _running : bool
+
 ## Called on state machine process
 func update(_delta: float) -> void:
 	pass
@@ -29,15 +31,18 @@ func enter(_prev_state: String, _data := {}) -> void:
 	enemy.switchMesh(0)
 	$HideTimer.start(hidetime)
 	entered.emit()
+	_running = true
 
 ## Call for another script to end this state. Should pick the next state and emit trigger_finished.
 func end() -> void:
 	trigger_finished.emit(post_hide_state.get_path())
+	_running = false
 	
 ## Called on state exit
 func exit() -> void:
-	pass
+	_running = false
 
 #when timer is out lasershroom should recover to approach state.
 func _on_hide_timer_timeout() -> void:
+	if (!_running): return
 	trigger_finished.emit(post_hide_state.get_path())
