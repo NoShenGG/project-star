@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://0ipgrw8k8cc8" path="res://austin_newby/dialogue/resources/NinePatch.png" id="1_2nsek"]
 [ext_resource type="Script" uid="uid://o8ttcfmyxgvm" path="res://austin_newby/dialogue/scripts/dialogue_container.gd" id="1_j3aq7"]
-[ext_resource type="Texture2D" uid="uid://bmxfrv5mbs655" path="res://austin_newby/dialogue/resources/nova_face_temp_1.png" id="3_82rja"]
+[ext_resource type="Texture2D" uid="uid://dtvv4kt3w76n4" path="res://austin_newby/dialogue/resources/nova_face_temp_1.png" id="3_82rja"]
 
 [node name="DialogueContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -41,6 +41,7 @@ patch_margin_right = 16
 patch_margin_bottom = 16
 
 [node name="NameLabel" type="RichTextLabel" parent="TextImageHSeperator/VTextContainer/NameMargin/NameRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,6 +87,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 
 [node name="SpeakerImage" type="TextureRect" parent="TextImageHSeperator/ImageMarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8

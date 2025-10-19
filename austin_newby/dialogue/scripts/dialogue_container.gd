@@ -1,4 +1,5 @@
 extends MarginContainer
+class_name DialogueContainer
 
 const dialogue_scene = preload("uid://df2acff0x2cqk")
 var active_json : Dictionary # prevents repeatedly loading a json
@@ -9,23 +10,26 @@ func read(filePath:String, scene_key:String):
 	kill_dialogue()
 	current_scene_key = scene_key
 	await get_tree().create_timer(0.01).timeout # allows time for dialogues to be freed
-	get_tree().create_tween().tween_property(self, "modulate", Color.WHITE, 0.1)
+	#get_tree().create_tween().tween_property(self, "modulate", Color.WHITE, 0.1)
 	if filePath == previous_file_path:
-		instantiate_dialogue(active_json[scene_key]["text"])
+		instantiate_dialogue(active_json[scene_key]["lines"])
 	else:
 		active_json = load_json(filePath)
-		instantiate_dialogue(active_json[scene_key]["text"])
+		instantiate_dialogue(active_json[scene_key]["lines"])
 	previous_file_path = filePath
 
 # Instantiates new dialogue scene with message_array
-func instantiate_dialogue(message_array : PackedStringArray):
+func instantiate_dialogue(message_array: Array):
 	var d = dialogue_scene.instantiate()
+	d.speaker_image = %SpeakerImage
+	d.name_label = %NameLabel
 	d.messages = message_array
 	d.dialogue_container = self
 	%UIDialogueBox.add_child(d)
 
 # Destroys any children of DialogueBox
 func kill_dialogue():
+	print("KILING")
 	if %UIDialogueBox.get_child_count() > 0:
 		for n in %UIDialogueBox.get_children():
 			n.queue_free()

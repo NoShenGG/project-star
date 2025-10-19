@@ -1,51 +1,58 @@
 extends Control
 class_name Dialogue
 
-@onready var next_char = $next_char
+const IMG_PATH = "res://austin_newby/dialogue/resources/"
+
+@onready var next_char = $next_char #timer for typewriter effect
 @onready var next_message = $next_message
-@onready var label = %TextLabel
-@onready var small_label = %SmallTextLabel
+@onready var label = %TextLabel #main dialogue label
+@onready var small_label = %SmallTextLabel #teeny tiny label
 @onready var small_speaker_image: TextureRect = %SmallSpeakerImage
 
-var messages =[
-	"default1",
-	"default2"
-]
+#These are assigned by the container during initialization
+var speaker_image : TextureRect
+var name_label : RichTextLabel
+var dialogue_container : DialogueContainer
+var messages ={} #dictionary, look at json
 
-var typing_speed := 0.033
-var time_btwn_message := 2 # used for auto advance
-
-var current_char = 0 #index of character within a message
 var current_message = 0 #index of message
-var display = "" #what to display in a label
+var current_char = 0 #index of char
+var typing_speed := 0.033 #speed of typewriter
+var display = ""
 
-var skip_held : bool
-var super_skip_held : bool
-
-var dialogue_container
+#Input things
+var skip_held : bool #SHIFT, skips typewriter effect
+var super_skip_held : bool #C, skips text nearly instantly
 
 signal text_interact()
 
 func _ready():
-	label.visible_characters_behavior = TextServer.VC_CHARS_AFTER_SHAPING # This prevents the typing messing up line-wrapping
-	start_dialogue()
-	display += messages[current_message]
-	display += ' ' # adds a space at the end for proper punctuation detection
+	dialogue_container.modulate = Color.TRANSPARENT
+	get_tree().create_tween().tween_property(dialogue_container, "modulate", Color.WHITE, 1)
+	label.visible_characters_behavior = TextServer.VC_CHARS_AFTER_SHAPING # prevents typewriter messing up line-wrapping
+	display += messages[current_message]["line"]
+	display += ' ' # +space = proper punctuation detection
 	label.text = display
 	label.set_visible_characters(0)
+	%SmallTextLabel.text = ""
+	if messages[current_message]["small_img"] == "": %SmallSpeakerImage.texture = null
+	else: %SmallSpeakerImage.texture = load(IMG_PATH + "/" + messages[current_message]["small_img"])
+	name_label.text = "~ %s ~" % messages[current_message]["char"]
+	speaker_image.texture = load(IMG_PATH + "/" + messages[current_message]["img"])
 	
 	# Check if skip is held down prior to dialogue opening
 	if Input.is_action_pressed("text_skip"):
 		skip_held = true
 	if Input.is_action_pressed("text_super_skip"):
 		super_skip_held = true
+	start_dialogue()
 
 func start_dialogue():
 	next_char.start(typing_speed)
 
 func stop_dialogue():
 	print_rich("[color=turquoise]Dialogue complete.")
-	#get_tree().create_tween().tween_property(dialogue_container, "modulate", Color(0,0,0,0), 0.1)
+	get_tree().create_tween().tween_property(dialogue_container, "modulate", Color.TRANSPARENT, 0.2)
 	queue_free()
 
 # Connect this to the project's Input Map
@@ -88,6 +95,12 @@ func _on_next_char_timeout():
 			current_char += 1
 	else:
 		next_char.stop()
+		%SmallTextLabel.text = messages[current_message]["small_line"]
+		%SmallTextSpeakerSeperator.modulate = Color.TRANSPARENT
+		var tween = get_tree().create_tween()
+		tween.tween_property(%SmallTextSpeakerSeperator, "modulate", Color.WHITE, 0.3)
+		if messages[current_message]["small_img"] == "": %SmallSpeakerImage.texture = null
+		else: %SmallSpeakerImage.texture = load(IMG_PATH + "/" + messages[current_message]["small_img"])
 		await text_interact
 		next_message.one_shot = true
 		next_message.start(0.01)
@@ -100,9 +113,13 @@ func _on_next_message_timeout():
 		#Reset everything
 		current_message += 1
 		display = ""
-		display += messages[current_message]
+		display += messages[current_message]["line"]
+		%SmallTextLabel.text = ""
+		name_label.text = "~ %s ~" % messages[current_message]["char"]
 		display += ' '
 		label.text = display
 		label.visible_characters = 0
+		speaker_image.texture = load(IMG_PATH + "/" + messages[current_message]["img"])
 		current_char = 0
+		%SmallTextSpeakerSeperator.modulate = Color.TRANSPARENT
 		next_char.start()

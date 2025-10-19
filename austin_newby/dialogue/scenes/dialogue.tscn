@@ -34,6 +34,7 @@ text = "This is default text that goes in the text box and is long enough for yo
 fit_content = true
 
 [node name="SmallTextSpeakerSeperator" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 2
 

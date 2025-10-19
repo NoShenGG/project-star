@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtvv4kt3w76n4"
-path="res://.godot/imported/nova_face_temp_1.png-b3cfd84b95864aa6620d057107f3d09e.ctex"
+uid="uid://dt3iymuxdrv5t"
+path="res://.godot/imported/rene_face_temp_0.png-f50f651f3630021264838f1f9ea5829b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://austin_newby/dialogue/resources/nova_face_temp_1.png"
-dest_files=["res://.godot/imported/nova_face_temp_1.png-b3cfd84b95864aa6620d057107f3d09e.ctex"]
+source_file="res://austin_newby/dialogue/resources/rene_face_temp_0.png"
+dest_files=["res://.godot/imported/rene_face_temp_0.png-f50f651f3630021264838f1f9ea5829b.ctex"]
 
 [params]
 

@@ -1,10 +1,38 @@
 {
 	"initial_scene": {
-		"text": [
-			"[color=red]You are currently reading 1.",
-			"Similar sequences are stored as a group in a JSON file.",
-			"A group can be an area, a level, a shop, or something similar.",
-			"Here are multiple lines.\nHello I am 2nd line."
+		"lines": [
+			{
+				"char": "Nova",
+				"img": "nova_face_temp_0.png",
+				"small_img": "",
+				"line": "[wave]Hello I am Nova from the Hit Game Journey To Arduous Star.",
+				"small_line": "[pulse]press z to advance > ",
+				"audio": ""
+			},
+			{
+				"char": "Rene",
+				"img": "rene_face_temp_0.png",
+				"small_img": "nova_wtf_0.png",
+				"line": "And I am the resident twink.",
+				"small_line": "wtf",
+				"audio": ""
+			},
+			{
+				"char": "Dawn",
+				"img": "dawn_face_temp_0.png",
+				"small_img": "",
+				"line": "Charm!",
+				"small_line": "",
+				"audio": ""
+			},
+			{
+				"char": "Nova",
+				"img": "nova_face_temp_1.png",
+				"small_img": "",
+				"line": "[shake]I hope this system is good...",
+				"small_line": "",
+				"audio": ""
+			},
 		]
 	}
 }
