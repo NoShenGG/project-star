@@ -20,9 +20,9 @@ func _ready() -> void:
 	await owner.owner
 	var e = owner as Entity
 	if not e.health_update.is_connected(update_health):
-		e.killed.connect(death)
+		e.health_update.connect(update_health)
 	if not e.break_update.is_connected(update_break):
-		e.killed.connect(death)
+		e.break_update.connect(update_break)
 	if not e.killed.is_connected(death):
 		e.killed.connect(death)
 
