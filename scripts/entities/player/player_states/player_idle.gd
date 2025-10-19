@@ -23,9 +23,7 @@ func physics_update(delta: float) -> void:
 			else:
 				trigger_finished.emit(CHARGING, {"time": time_active})
 
-	if Input.is_action_just_pressed("synergy_burst"):
-		trigger_finished.emit(BURSTING)
-	elif Input.get_vector("move_down", "move_up", "move_left", "move_right"):
+	if Input.get_vector("move_down", "move_up", "move_left", "move_right"):
 		trigger_finished.emit(MOVING)
 	elif Input.is_action_just_pressed("special_attack") and attack_type != 2 and player._has_special:
 		attack_type = 1

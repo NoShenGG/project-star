@@ -8,8 +8,11 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2lxpy"]
 
-[node name="PlayerManager" type="Node3D"]
+[node name="PlayerManager" type="Node3D" node_paths=PackedStringArray("nova", "rene", "dawn")]
 script = ExtResource("1_lyudl")
+nova = NodePath("Nova")
+rene = NodePath("Nova2")
+dawn = NodePath("Nova3")
 
 [node name="Nova" parent="." instance=ExtResource("2_dvwxt")]
 process_mode = 3
