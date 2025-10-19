@@ -1,6 +1,11 @@
-extends State
+extends EnemyState
 
-var lasershroom : LaserShroom
+@export_category("Properties")
+@export var hide_range : float = 25.0
+@export var hidetime : float = 5.0
+@export var speed : float = 7.0
+@export_category("Next States")
+@export var post_hide_state : State
 
 ## Called on state machine process
 func update(_delta: float) -> void:
@@ -10,29 +15,24 @@ func update(_delta: float) -> void:
 func physics_update(_delta: float) -> void:
 	
 	
-	var distanceToPlayer:float = lasershroom.global_position.distance_to(lasershroom.playerRef.global_position)
-	if(distanceToPlayer < lasershroom.HIDE_RANGE):
+	var distanceToPlayer:float = enemy.global_position.distance_to(enemy.player_ref.global_position)
+	if(distanceToPlayer < hide_range):
 		#calculate the imaginary safe position
-		var safePos : Vector3  = -lasershroom.global_position.direction_to(lasershroom.playerRef.global_position) * distanceToPlayer * 2
-		lasershroom.set_movement_target(safePos)
-	#update
-	if(lasershroom._hp <= 0):
-		trigger_finished.emit("dead")
+		var safePos : Vector3  = -enemy.global_position.direction_to(enemy.player_ref.global_position) * distanceToPlayer * 2
+		enemy.set_movement_target(safePos)
+
 
 ## Called on state enter. Make sure to emit entered.
 func enter(_prev_state: String, _data := {}) -> void:
 	print("[LaserShroom]Entering state: HIDE")
-	lasershroom = owner as LaserShroom
-	lasershroom.resetBasis()
-	lasershroom._movement_speed = lasershroom.SPEEDS["hide"]#make the velocity negative so it moves away instead of towards player
-	lasershroom.switchMesh(0)
-	#lasershroom.setHitboxStatus(false)
-	$HideTimer.start(lasershroom.HIDETIME)
+	enemy._movement_speed = speed
+	enemy.switchMesh(0)
+	$HideTimer.start(hidetime)
 	entered.emit()
 
 ## Call for another script to end this state. Should pick the next state and emit trigger_finished.
 func end() -> void:
-	trigger_finished.emit("approach")
+	trigger_finished.emit(post_hide_state.get_path())
 	
 ## Called on state exit
 func exit() -> void:
@@ -40,4 +40,4 @@ func exit() -> void:
 
 #when timer is out lasershroom should recover to approach state.
 func _on_hide_timer_timeout() -> void:
-	trigger_finished.emit("approach")
+	trigger_finished.emit(post_hide_state.get_path())

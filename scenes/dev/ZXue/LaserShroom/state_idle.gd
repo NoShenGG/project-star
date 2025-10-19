@@ -9,8 +9,8 @@ func update(_delta: float) -> void:
 ## Called on state machine physics process
 func physics_update(_delta: float) -> void:
 	#check if player is within detection range or not.
-	var distanceToPlayer : float = lasershroom.global_position.distance_to(lasershroom.playerRef.global_position)
-	if (distanceToPlayer < lasershroom.DETECTION_RANGE):
+	var distanceToPlayer : float = lasershroom.global_position.distance_to(lasershroom.player_ref.global_position)
+	if (distanceToPlayer < lasershroom.detection_range):
 		trigger_finished.emit("approach")
 	elif(lasershroom._hp <= 0):
 		trigger_finished.emit("dead")

@@ -1,9 +1,8 @@
-extends State
+extends EnemyState
 '''
 once again, this part and the related stuff can't be done yet.
 update on break meter and stuff and I'll get onto it.
 '''
-var lasershroom : LaserShroom
 
 ## Called on state machine process
 func update(_delta: float) -> void:
@@ -15,7 +14,6 @@ func physics_update(_delta: float) -> void:
 
 ## Called on state enter. Make sure to emit entered.
 func enter(_prev_state: String, _data := {}) -> void:
-	lasershroom = owner as LaserShroom
 	entered.emit()
 
 ## Call for another script to end this state. Should pick the next state and emit trigger_finished.
