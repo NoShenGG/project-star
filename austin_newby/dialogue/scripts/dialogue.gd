@@ -48,6 +48,7 @@ func _ready():
 	start_dialogue()
 
 func start_dialogue():
+	print_rich("[color=turquoise]Starting Dialogue")
 	next_char.start(typing_speed)
 
 func stop_dialogue():
@@ -106,6 +107,7 @@ func _on_next_char_timeout():
 		next_message.start(0.01)
 
 
+	
 func _on_next_message_timeout():
 	if current_message == len(messages) - 1: #length starts at 1, index starts at 0
 		stop_dialogue()

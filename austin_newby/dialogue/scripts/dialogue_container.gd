@@ -12,10 +12,10 @@ func read(filePath:String, scene_key:String):
 	await get_tree().create_timer(0.01).timeout # allows time for dialogues to be freed
 	#get_tree().create_tween().tween_property(self, "modulate", Color.WHITE, 0.1)
 	if filePath == previous_file_path:
-		instantiate_dialogue(active_json[scene_key]["lines"])
+		instantiate_dialogue(active_json[scene_key])
 	else:
 		active_json = load_json(filePath)
-		instantiate_dialogue(active_json[scene_key]["lines"])
+		instantiate_dialogue(active_json[scene_key])
 	previous_file_path = filePath
 
 # Instantiates new dialogue scene with message_array
@@ -52,5 +52,4 @@ func update_talk_sprite(image : Texture2D):
 	%SpeakerImage.texture = image
 
 func _ready():
-	modulate = Color(0,0,0,0)
-	read("res://austin_newby/dialogue/resources/DialogueTest.json", "initial_scene")
+	modulate = Color.TRANSPARENT
