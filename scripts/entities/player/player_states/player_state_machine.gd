@@ -1,5 +1,6 @@
 class_name PlayerStateMachine extends StateMachine
 
+@export var burst_state: BurstState
 
 var player: Player
 
