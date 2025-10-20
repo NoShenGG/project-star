@@ -2818,12 +2818,12 @@ burst_2 = NodePath("Dawn")
 [node name="Rene" type="Node" parent="StateMachine/Bursting" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("10_ob225")
 hitbox = NodePath("../../../Hitboxes/Sweep")
-animation = NodePath("../../../nova_animations_kobold/ChargedSlash")
+animation = NodePath("../../../nova_animations_kobold/Slash3")
 
 [node name="Dawn" type="Node" parent="StateMachine/Bursting" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("10_ob225")
 hitbox = NodePath("../../../Hitboxes/Sweep")
-animation = NodePath("../../../nova_animations_kobold/ChargedSlash")
+animation = NodePath("../../../nova_animations_kobold/Slash5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

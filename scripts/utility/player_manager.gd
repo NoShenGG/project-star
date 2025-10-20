@@ -121,14 +121,14 @@ func trigger_burst(other: Players) -> void:
 	var other_char = player_map[other] as Player
 	other_char.visible = true
 	other_char.state_machine.state.trigger_finished.emit(
-				PlayerState.BURSTING, {"player": current_char_name})
+				PlayerState.BURSTING, {"player": current_char_name, "sleep": true})
 	other_char.set_global_transform(current_char.get_global_transform())
 	# For Debugging to see both chars
 	other_char.position += Vector3.RIGHT.rotated(Vector3.UP, other_char.rotation.y) * 3
 				
 	await bursting_done
 	current_char.state_machine.state.end()
-	other_char.state_machine.state.end_sleep()
+	other_char.state_machine.state.end()
 	other_char.visible = false
 	
 
