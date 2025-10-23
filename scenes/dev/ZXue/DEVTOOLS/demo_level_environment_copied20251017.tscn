@@ -1,6 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://bxb07rawtvbwe"]
+[gd_scene load_steps=39 format=3 uid="uid://bxb07rawtvbwe"]
 
-[ext_resource type="Shader" path="res://shaders/screen_space.gdshader" id="1_frfbt"]
+[ext_resource type="Shader" uid="uid://cylk6ffp5hsy4" path="res://shaders/screen_space.gdshader" id="1_frfbt"]
 [ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="2_npfil"]
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="3_ujlm8"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="4_jaatr"]
@@ -9,11 +9,11 @@
 [ext_resource type="MeshLibrary" uid="uid://bul5hm42nen1c" path="res://art_assets/environment/demo/demo ornament MeshLibrary.tres" id="7_uwhrt"]
 [ext_resource type="MeshLibrary" uid="uid://byfowytgtyfva" path="res://art_assets/environment/demo/demo background MeshLibrary.tres" id="8_1uory"]
 [ext_resource type="MeshLibrary" uid="uid://b88u34a3ref8h" path="res://art_assets/environment/level_1/level1tiles.tres" id="9_hwcpg"]
-[ext_resource type="Shader" path="res://shaders/water.gdshader" id="10_e8855"]
+[ext_resource type="Shader" uid="uid://014ry7cx8mxw" path="res://shaders/water.gdshader" id="10_e8855"]
 [ext_resource type="MeshLibrary" uid="uid://c5vd83b5on38d" path="res://art_assets/environment/demo/demo ground MeshLibrary.tres" id="11_qiodj"]
 [ext_resource type="PackedScene" uid="uid://cwo7k5blghvxp" path="res://scripts/dev/Throttle/FrameLimiter.tscn" id="12_1axf8"]
 [ext_resource type="PackedScene" uid="uid://dnfgpacphxpuf" path="res://scenes/dev/chrizz/corruption_base.tscn" id="13_2h7ky"]
-[ext_resource type="Script" path="res://scripts/utility/wave_manager.gd" id="14_lbkjc"]
+[ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="14_lbkjc"]
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="15_rcbc3"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="16_ofaxd"]
 [ext_resource type="PackedScene" uid="uid://dikwtund4a5xs" path="res://scenes/dev/ZXue/DynaMite/DynaMite.tscn" id="17_ia780"]
@@ -21,10 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="19_7v3wa"]
 [ext_resource type="PackedScene" uid="uid://bo8i2glbe0u23" path="res://scenes/sub/fortifier.tscn" id="20_q16nu"]
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="21_awwcq"]
-[ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://vfx/Kenny Particle Pack/circle_01.png" id="22_nlks4"]
+[ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://VFX/Kenny Particle Pack/circle_01.png" id="22_nlks4"]
 [ext_resource type="Script" uid="uid://0dst74xe1xdr" path="res://scenes/dev/diemmy_d/restart.gd" id="23_1pse5"]
 [ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="24_euqi7"]
 [ext_resource type="PackedScene" uid="uid://cuq57gnl0xn2m" path="res://scenes/dev/ZXue/LaserShroom/LaserShroom.tscn" id="25_w1i3w"]
+[ext_resource type="PackedScene" uid="uid://cm1uor113ewb6" path="res://scenes/dev/ZXue/RangedEnemyRefactor/RangedEnemy.tscn" id="26_0hr4f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jci3v"]
 shader = ExtResource("1_frfbt")
@@ -569,6 +570,9 @@ visible = false
 
 [node name="LaserShroom" parent="." instance=ExtResource("25_w1i3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.62, 0, 6.701)
+
+[node name="RangedEnemy" parent="." instance=ExtResource("26_0hr4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4874306, 0.565872, -3.1860847)
 
 [connection signal="player_hp_update" from="PlayerManager" to="screen_modification/GameUi" method="update_health"]
 [connection signal="fight_ended" from="WaveManager" to="WaveManager/End" method="play_one_shot"]
