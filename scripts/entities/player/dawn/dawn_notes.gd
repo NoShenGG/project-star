@@ -1,10 +1,10 @@
 @icon("uid://cs4evvn2khwf0")
-class_name DawnNotes extends Node3D
+class_name DawnNotes extends Node
 
-@export var ui_note1: TextureRect
-@export var ui_note2: TextureRect
-@export var ui_note3: TextureRect
-var ui_notes: Array[TextureRect]
+@export var ui_note1: UIConsumable
+@export var ui_note2: UIConsumable
+@export var ui_note3: UIConsumable
+var ui_notes: Array[UIConsumable]
 
 signal white
 signal blue
@@ -67,4 +67,6 @@ func use_notes() -> Patterns:
 	var id: int = notes.reduce(func(accum, x): return accum + x, 0)
 	notes.clear()
 	notes_used.emit()
+	for ui in ui_notes:
+		ui.disappear()
 	return id as Patterns
