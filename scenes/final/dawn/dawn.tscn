@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://c2akhsyinel8t"]
+[gd_scene load_steps=88 format=3 uid="uid://c2akhsyinel8t"]
 
 [ext_resource type="Script" uid="uid://ccrew8qivqlpt" path="res://scripts/entities/player/dawn/dawn.gd" id="1_m3k46"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_n7ie5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://clwu1a1we224o" path="res://scripts/entities/player/player_states/player_attacking.gd" id="5_548oj"]
 [ext_resource type="Script" uid="uid://276qi6fix2cm" path="res://scripts/entities/player/dawn/states/dawn_fire_tone.gd" id="6_n7ie5"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="6_qnimx"]
+[ext_resource type="Script" uid="uid://cdyk5mdxf2wsl" path="res://scripts/entities/player/dawn/states/dawn_charged_attack.gd" id="8_548oj"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="8_bbdqe"]
 [ext_resource type="Script" uid="uid://cw3b5sywe4lom" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="9_qntpm"]
 [ext_resource type="Script" uid="uid://dssk02ahlboui" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="10_wex2d"]
@@ -2681,6 +2682,42 @@ states/Special/position = Vector2(973, 157)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_k2lop")]
 graph_offset = Vector2(374, -66.382706)
 
+[sub_resource type="Curve" id="Curve_bxptc"]
+_data = [Vector2(0, 0.4264151), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6x7f2"]
+curve = SubResource("Curve_bxptc")
+
+[sub_resource type="Curve" id="Curve_n6vc4"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 2.1622639), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fgi08"]
+curve = SubResource("Curve_n6vc4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e60w5"]
+particle_flag_align_y = true
+direction = Vector3(0, 0, -1)
+spread = 0.0
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_6x7f2")
+scale_over_velocity_curve = SubResource("CurveTexture_fgi08")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pk6rl"]
+transparency = 1
+albedo_color = Color(0, 0.89411765, 1, 0.5058824)
+
+[sub_resource type="TorusMesh" id="TorusMesh_owh2v"]
+material = SubResource("StandardMaterial3D_pk6rl")
+inner_radius = 0.6
+outer_radius = 0.5
+rings = 36
+ring_segments = 16
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_fstbi"]
 radius = 0.98
 
@@ -2688,7 +2725,7 @@ radius = 0.98
 radius = 2.25
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_brwhy"]
-size = Vector3(2.5, 2, 3)
+size = Vector3(2.5, 2, 9)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n7ie5"]
 radius = 12.0
@@ -2780,7 +2817,10 @@ event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 event_name = "event:/Player/Uniques/Charging/Nova Charging"
 event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 
-[node name="AttackingCharged" type="Node" parent="StateMachine"]
+[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "animation")]
+script = ExtResource("8_548oj")
+hitbox = NodePath("../../Hitboxes/Sing")
+animation = NodePath("../../nova_animations_kobold/Special")
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
 event_name = "event:/Player/Uniques/Charged Attack/Nova Charged Attack"
@@ -2940,16 +2980,28 @@ state_name = "Death"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="SingWave" type="GPUParticles3D" parent="Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2849052, 0)
+emitting = false
+amount = 6
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_e60w5")
+draw_pass_1 = SubResource("TorusMesh_owh2v")
+
 [node name="ForwardRay" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_fstbi")
 target_position = Vector3(0, 0, -10)
 
-[node name="Notes" type="Node3D" parent="." node_paths=PackedStringArray("ui_note1", "ui_note2", "ui_note3")]
+[node name="Notes" type="Node" parent="." node_paths=PackedStringArray("ui_note1", "ui_note2", "ui_note3")]
 script = ExtResource("21_h3uuf")
 ui_note1 = NodePath("../DawnUI/HBoxContainer/Center/Note1")
 ui_note2 = NodePath("../DawnUI/HBoxContainer/Center2/Note2")
 ui_note3 = NodePath("../DawnUI/HBoxContainer/Center3/Note3")
+metadata/_custom_type_script = "uid://dphi1qwayotd2"
 
 [node name="ToneEmitter" type="Node" parent="."]
 script = ExtResource("22_xiq0h")
@@ -2970,7 +3022,7 @@ monitorable = false
 shape = SubResource("CylinderShape3D_shlot")
 
 [node name="Sing" type="Area3D" parent="Hitboxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
 collision_layer = 0
 collision_mask = 8
 monitoring = false
@@ -3029,6 +3081,7 @@ pivot_offset = Vector2(32, 32)
 layout_mode = 2
 
 [node name="Note1" type="TextureRect" parent="DawnUI/HBoxContainer/Center"]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("25_xphuo")
@@ -3042,6 +3095,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
 [node name="Note2" type="TextureRect" parent="DawnUI/HBoxContainer/Center2"]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("25_xphuo")
@@ -3080,6 +3134,7 @@ fade_out = SubResource("Curve_wex2d")
 [connection signal="charge_count_increase" from="StateMachine/Charging" to="StateMachine/Charging/Charging Ready SFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Charging" to="StateMachine/Charging/Charging SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Charging" to="nova_animations_kobold/ChargingSlash" method="enter"]
+[connection signal="entered" from="StateMachine/AttackingCharged" to="Effects/SingWave" method="set_emitting" binds= [true]]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="nova_animations_kobold/Charging Special" method="enter"]
 [connection signal="max_charge_count" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/HitStun" to="nova_animations_kobold/Hurt" method="enter"]

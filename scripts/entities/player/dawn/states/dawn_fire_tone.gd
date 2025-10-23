@@ -36,7 +36,8 @@ func update(_delta: float) -> void:
 
 func physics_update(delta: float) -> void:
 	if dawn.closest_enemy != null:
-		dawn.look_at(dawn.closest_enemy.global_position)
+		var target = dawn.closest_enemy.global_position
+		dawn.look_at(Vector3(target.x, dawn.global_position.y, target.z))
 		dawn.move_translate(delta, _move_speed_factor)
 	else:
 		dawn.move(delta, _move_speed_factor)
