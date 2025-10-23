@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://km5dpokk1mk0"]
 
-[ext_resource type="Script" uid="uid://bbtwt6pnpr1so" path="res://scripts/entities/player/dawn/notes/note_melody.gd" id="1_67sx5"]
+[ext_resource type="Script" uid="uid://bbtwt6pnpr1so" path="res://scripts/entities/player/dawn/notes/tone_melody.gd" id="1_67sx5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bq5eg"]
 
@@ -12,18 +12,21 @@ height = 0.25
 [sub_resource type="BoxShape3D" id="BoxShape3D_bq5eg"]
 size = Vector3(0.5, 2, 0.5)
 
-[node name="NoteMelody" type="Node3D" node_paths=PackedStringArray("hitbox")]
+[node name="ToneMelody" type="Node3D" node_paths=PackedStringArray("hitbox")]
 top_level = true
 script = ExtResource("1_67sx5")
 hitbox = NodePath("Area3D")
-max_duration = 2.0
-speed = 5.0
-damage = 1.0
+speed = 15.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("SphereMesh_67sx5")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_bq5eg")
