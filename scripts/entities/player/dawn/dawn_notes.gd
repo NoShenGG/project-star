@@ -1,5 +1,10 @@
+@icon("uid://cs4evvn2khwf0")
 class_name DawnNotes extends Node3D
 
+@export var ui_note1: TextureRect
+@export var ui_note2: TextureRect
+@export var ui_note3: TextureRect
+var ui_notes: Array[TextureRect]
 
 signal white
 signal blue
@@ -18,18 +23,29 @@ const RED = Note.RED
 
 var notes: Array[Note] = []
 
+func _ready() -> void:
+	ui_notes = [ui_note1, ui_note2, ui_note3]
+	print(ui_notes)
+
 
 func add_note(note: Note) -> bool:
+	print("HERE")
 	if notes.size() >= 3:
 		return false
 	notes.push_back(note)
 	new_note.emit(note)
 	match note:
 		Note.WHITE:
+			ui_notes[notes.size() - 1].modulate = Color("ffffff")
+			ui_notes[notes.size() - 1].appear()
 			white.emit()
 		Note.BLUE:
+			ui_notes[notes.size() - 1].modulate = Color("0000ff")
+			ui_notes[notes.size() - 1].appear()
 			blue.emit()
 		Note.RED:
+			ui_notes[notes.size() - 1].modulate = Color("ff0000")
+			ui_notes[notes.size() - 1].appear()
 			red.emit()
 	if notes.size() >= 3:
 		valid_pattern.emit(notes.reduce(func(accum, x): return accum + x, 0))

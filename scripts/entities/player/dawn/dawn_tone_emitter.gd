@@ -1,18 +1,20 @@
-class_name NoteEmitter extends Node
+@icon("uid://megolcw1kt24")
+class_name ToneEmitter extends Node
 
 @export var melody: PackedScene
-@export var slow_wave: NoteProjectile
-@export var fish: NoteProjectile
-@export var wave: NoteProjectile
-@export var stun_wave: NoteProjectile
-@export var vortex_note: NoteProjectile
-@export var ice_zone: NoteProjectile
+@export var slow_wave: Tone
+@export var fish: Tone
+@export var wave: Tone
+@export var stun_wave: Tone
+@export var vortex_note: Tone
+@export var ice_zone: Tone
 
 var dawn: Dawn
 
 func _ready() -> void:
 	await owner.ready
 	dawn = owner as Dawn
+	assert(dawn != null)
 	assert(melody != null)
 	#assert(slow_wave != null)
 	#assert(fish != null)
@@ -22,7 +24,7 @@ func _ready() -> void:
 	#assert(ice_zone != null)
 
 func spawn_melody() -> void:
-	var temp: NoteProjectile = melody.instantiate()
+	var temp: Tone = melody.instantiate()
 	add_child(temp)
 	temp.setup(dawn)
 	temp.start()
