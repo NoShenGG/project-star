@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_lyudl"]
 [ext_resource type="PackedScene" uid="uid://brw0p1eirto83" path="res://scenes/final/Nova.tscn" id="2_dvwxt"]
 [ext_resource type="Script" uid="uid://br0axf7abuchp" path="res://scripts/camera_target.gd" id="3_3c5ji"]
-[ext_resource type="PackedScene" uid="uid://bq7t53o2llxr4" path="res://scenes/final/Rene.tscn" id="3_kpy7t"]
+[ext_resource type="PackedScene" uid="uid://c2akhsyinel8t" path="res://scenes/final/dawn/dawn.tscn" id="3_kpy7t"]
+[ext_resource type="PackedScene" uid="uid://bq7t53o2llxr4" path="res://scenes/final/Rene.tscn" id="3_q78nk"]
 [ext_resource type="Script" uid="uid://djfekv55fum3x" path="res://scripts/pitch_pivot.gd" id="4_mbt4c"]
 [ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="5_chdrm"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_2lxpy"]
 
 [node name="PlayerManager" type="Node3D"]
 script = ExtResource("1_lyudl")
@@ -15,110 +14,13 @@ script = ExtResource("1_lyudl")
 [node name="Nova" parent="." instance=ExtResource("2_dvwxt")]
 process_mode = 3
 top_level = true
-_movement_speed = 10.0
 _hp = 30.0
 _max_hp = 30.0
 _breakable = false
 
-[node name="Nova2" parent="." node_paths=PackedStringArray("targetting_box") instance=ExtResource("3_kpy7t")]
-process_mode = 3
-top_level = true
-targetting_box = NodePath("../Nova/Hitboxes/Vision")
-_movement_speed = 10.0
-_hp = 30.0
-_max_hp = 30.0
-_breakable = false
+[node name="Rene" parent="." instance=ExtResource("3_q78nk")]
 
-[node name="Nova3" parent="." instance=ExtResource("2_dvwxt")]
-top_level = true
-_movement_speed = 5.0
-_hp = 30.0
-_max_hp = 30.0
-_breakable = false
-
-[node name="GeneralSkeleton" parent="Nova3/nova_animations_kobold/Armature" index="0"]
-bones/0/position = Vector3(-7.7406215e-10, 0.7089215, -0.012175957)
-bones/0/rotation = Quaternion(6.7331674e-10, 0.99996024, 0.008918356, 7.549492e-08)
-bones/1/rotation = Quaternion(0.012363942, 0.003445507, 4.2601838e-05, 0.9999176)
-bones/2/rotation = Quaternion(0.015305695, -0.0037894824, 4.7471447e-05, 0.99987566)
-bones/3/rotation = Quaternion(-0.09307449, 0.1716597, -0.68303466, 0.70379955)
-bones/4/rotation = Quaternion(0.25217852, -0.0006890984, -0.42801884, 0.8678741)
-bones/5/rotation = Quaternion(0.06766002, -0.009570991, 0.042344086, 0.9967635)
-bones/6/rotation = Quaternion(0.05486849, 0.74948114, 0.0153229665, 0.6595701)
-bones/7/rotation = Quaternion(0.09566399, -0.00028348804, -9.310243e-05, 0.99541366)
-bones/8/rotation = Quaternion(-0.08540188, -0.00024268035, 0.0001281322, 0.99634653)
-bones/9/rotation = Quaternion(-0.09260436, -0.17117506, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.2543553, 0.008223483, 0.4058106, 0.8778118)
-bones/11/rotation = Quaternion(0.11265132, 0.00918238, 0.013573429, 0.99349946)
-bones/12/rotation = Quaternion(-1.2191103e-08, -0.751264, -1.3876836e-08, 0.6600018)
-bones/13/rotation = Quaternion(0.0006739531, 0.20286976, 0.97920555, -4.849868e-08)
-bones/14/rotation = Quaternion(-0.14315549, 6.462998e-08, 9.8484525e-05, 0.9897002)
-bones/15/rotation = Quaternion(-0.17188516, 5.146021e-08, 0.000118225114, 0.98511696)
-bones/16/rotation = Quaternion(0.0084111225, -0.016341234, 0.99961865, -0.020609377)
-bones/17/rotation = Quaternion(-0.030224098, -0.0017236096, 0.035237323, 0.9989204)
-bones/18/rotation = Quaternion(0.5967693, -0.00272876, -0.012932461, 0.802304)
-bones/19/rotation = Quaternion(-0.008217459, -0.017935295, 0.9992301, 0.033912465)
-bones/20/rotation = Quaternion(-0.028762184, 0.0013813268, -0.021923115, 0.9993449)
-bones/21/rotation = Quaternion(0.5967692, 0.002726545, 0.012935521, 0.802304)
-
-[node name="Hand_L" parent="Nova3/nova_animations_kobold/Armature/GeneralSkeleton" index="0"]
-transform = Transform3D(-0.3185169, -0.61992717, 0.71710354, -0.15898205, -0.7108524, -0.68513805, 0.93448997, -0.3322347, 0.12786122, 0.48736513, 0.91873586, -0.050785374)
-
-[node name="Idle" parent="Nova3/nova_animations_kobold" index="3"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Move" parent="Nova3/nova_animations_kobold" index="4"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Slash" parent="Nova3/nova_animations_kobold" index="5"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Slash2" parent="Nova3/nova_animations_kobold" index="6"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Slash3" parent="Nova3/nova_animations_kobold" index="7"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Slash4" parent="Nova3/nova_animations_kobold" index="8"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Slash5" parent="Nova3/nova_animations_kobold" index="9"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="ChargedSlash" parent="Nova3/nova_animations_kobold" index="10"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="ChargingSlash" parent="Nova3/nova_animations_kobold" index="11"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Charging Special" parent="Nova3/nova_animations_kobold" index="12"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Special" parent="Nova3/nova_animations_kobold" index="13"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Dash" parent="Nova3/nova_animations_kobold" index="14"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Hurt" parent="Nova3/nova_animations_kobold" index="15"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Die" parent="Nova3/nova_animations_kobold" index="16"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
+[node name="Dawn" parent="." instance=ExtResource("3_kpy7t")]
 
 [node name="CameraTarget" type="Node3D" parent="."]
 top_level = true
@@ -132,7 +34,6 @@ size = 25.0
 
 [node name="Shake" type="Node" parent="CameraTarget/Camera3D"]
 script = ExtResource("4_mbt4c")
-noise = SubResource("FastNoiseLite_2lxpy")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://sounds/banks/Player.bank"]
@@ -146,6 +47,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [connection signal="player_sp_update" from="." to="GameUi" method="update_special"]
 [connection signal="player_special_ready" from="." to="GameUi/MarginContainer/Offset/Special" method="bounce"]
 
-[editable path="Nova3"]
-[editable path="Nova3/nova_animations_kobold"]
 [editable path="GameUi"]

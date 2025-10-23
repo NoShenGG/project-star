@@ -1,38 +1,37 @@
-[gd_scene load_steps=72 format=3 uid="uid://c2akhsyinel8t"]
+[gd_scene load_steps=71 format=3 uid="uid://c2akhsyinel8t"]
 
-[ext_resource type="Script" uid="uid://om4qdtr1cye0" path="res://scripts/entities/player/nova/nova.gd" id="1_shlot"]
-[ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_brwhy"]
-[ext_resource type="Script" uid="uid://bpndinylqyege" path="res://scripts/entities/player/player_states/player_idle.gd" id="3_c7ok3"]
-[ext_resource type="Script" uid="uid://dq5qwb33mlr2l" path="res://scripts/entities/player/player_states/player_moving.gd" id="4_xp1ag"]
-[ext_resource type="Script" uid="uid://clwu1a1we224o" path="res://scripts/entities/player/player_states/player_attacking.gd" id="5_eh5f0"]
-[ext_resource type="Script" uid="uid://8l57dsfm2da5" path="res://scripts/entities/player/nova/states/nova_attack.gd" id="6_rgnwp"]
-[ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_j3hhc"]
-[ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="8_er7aw"]
-[ext_resource type="Script" uid="uid://divq6voanp8gg" path="res://scripts/entities/player/nova/states/nova_special.gd" id="9_6nr85"]
-[ext_resource type="Script" uid="uid://gui8m2w4ihx1" path="res://scripts/entities/player/nova/states/nova_special_dash.gd" id="10_1hwws"]
-[ext_resource type="Script" uid="uid://dc7b5xuh33cje" path="res://scripts/entities/player/nova/states/nova_special_wait.gd" id="11_3cglf"]
-[ext_resource type="Script" uid="uid://cw3b5sywe4lom" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="12_8chgk"]
-[ext_resource type="Script" uid="uid://dssk02ahlboui" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="13_1xxxa"]
-[ext_resource type="Script" uid="uid://cty8d5lvonei1" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="14_a7suj"]
-[ext_resource type="Script" uid="uid://d3pkbl7ownr11" path="res://scripts/entities/player/player_states/player_hit_stun.gd" id="15_ehgla"]
-[ext_resource type="PackedScene" uid="uid://ctl307caw43ed" path="res://art_assets/characters/Nova/nova_animations_kobold.glb" id="16_ce6ft"]
-[ext_resource type="Texture2D" uid="uid://b2nts737xcuhj" path="res://art_assets/characters/Nova/nova_animations_mixamo_nova_sword_col.png" id="17_0or54"]
-[ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="18_4f44c"]
-[ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="19_bj7rg"]
-[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrails/defaults/texture.tres" id="20_14t12"]
-[ext_resource type="Script" uid="uid://drugjbbmd0wed" path="res://scripts/entities/SlashVFX.gd" id="21_x23ws"]
-[ext_resource type="AnimationLibrary" uid="uid://b6s3l0l606343" path="res://art_assets/characters/Nova/NovaAnimationLibrary.tres" id="22_4x7m1"]
-[ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="23_4lco7"]
-[ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="25_hyhf8"]
+[ext_resource type="Script" uid="uid://ccrew8qivqlpt" path="res://scripts/entities/player/dawn/dawn.gd" id="1_m3k46"]
+[ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_n7ie5"]
+[ext_resource type="Script" uid="uid://bpndinylqyege" path="res://scripts/entities/player/player_states/player_idle.gd" id="3_xphuo"]
+[ext_resource type="Script" uid="uid://dq5qwb33mlr2l" path="res://scripts/entities/player/player_states/player_moving.gd" id="4_af2rh"]
+[ext_resource type="Script" uid="uid://clwu1a1we224o" path="res://scripts/entities/player/player_states/player_attacking.gd" id="5_548oj"]
+[ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="6_qnimx"]
+[ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="8_bbdqe"]
+[ext_resource type="Script" uid="uid://cw3b5sywe4lom" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="9_qntpm"]
+[ext_resource type="Script" uid="uid://dssk02ahlboui" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="10_wex2d"]
+[ext_resource type="Script" uid="uid://cty8d5lvonei1" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="11_bxptc"]
+[ext_resource type="Script" uid="uid://d3pkbl7ownr11" path="res://scripts/entities/player/player_states/player_hit_stun.gd" id="12_6x7f2"]
+[ext_resource type="PackedScene" uid="uid://ctl307caw43ed" path="res://art_assets/characters/Nova/nova_animations_kobold.glb" id="13_n6vc4"]
+[ext_resource type="Texture2D" uid="uid://b2nts737xcuhj" path="res://art_assets/characters/Nova/nova_animations_mixamo_nova_sword_col.png" id="14_fgi08"]
+[ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="15_e60w5"]
+[ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="16_pk6rl"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrails/defaults/texture.tres" id="17_owh2v"]
+[ext_resource type="Script" uid="uid://drugjbbmd0wed" path="res://scripts/entities/SlashVFX.gd" id="18_pgicr"]
+[ext_resource type="AnimationLibrary" uid="uid://b6s3l0l606343" path="res://art_assets/characters/Nova/NovaAnimationLibrary.tres" id="19_cih63"]
+[ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="20_1i8fv"]
+[ext_resource type="Script" uid="uid://dphi1qwayotd2" path="res://scripts/entities/player/dawn/dawn_notes.gd" id="21_h3uuf"]
+[ext_resource type="Script" uid="uid://cfs2f64dnml45" path="res://scripts/entities/player/dawn/dawn_note_emitter.gd" id="22_xiq0h"]
+[ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="23_h166w"]
+[ext_resource type="PackedScene" uid="uid://km5dpokk1mk0" path="res://scenes/final/dawn/note_melody.tscn" id="23_n7ie5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wsli6"]
 albedo_color = Color(0, 1, 1, 1)
-albedo_texture = ExtResource("17_0or54")
+albedo_texture = ExtResource("14_fgi08")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u6tct"]
-shader = ExtResource("18_4f44c")
+shader = ExtResource("15_e60w5")
 
 [sub_resource type="Gradient" id="Gradient_k2lop"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
@@ -51,8 +50,8 @@ curve = SubResource("Curve_h46t7")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ygt4u"]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("19_bj7rg")
-shader_parameter/tex = ExtResource("20_14t12")
+shader = ExtResource("16_pk6rl")
+shader_parameter/tex = ExtResource("17_owh2v")
 shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/color_ramp = SubResource("GradientTexture1D_ob225")
 shader_parameter/curve = SubResource("CurveTexture_uws5v")
@@ -2691,10 +2690,12 @@ size = Vector3(2.5, 2, 3)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c7ok3"]
 radius = 3.0
 
-[node name="Nova" type="CharacterBody3D" node_paths=PackedStringArray("targetting_box")]
+[node name="Dawn" type="CharacterBody3D" node_paths=PackedStringArray("note_manager", "note_emitter", "targetting_box")]
 collision_layer = 6
 collision_mask = 3
-script = ExtResource("1_shlot")
+script = ExtResource("1_m3k46")
+note_manager = NodePath("Notes")
+note_emitter = NodePath("AttackEmitter")
 targetting_box = NodePath("Hitboxes/Vision")
 charged_attack_dmg = 3
 special_dmg = 5
@@ -2702,55 +2703,33 @@ charged_special_dmg = 9
 faction = 0
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("2_brwhy")
+script = ExtResource("2_n7ie5")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("3_c7ok3")
+script = ExtResource("3_xphuo")
 
 [node name="Moving" type="Node" parent="StateMachine"]
-script = ExtResource("4_xp1ag")
+script = ExtResource("4_af2rh")
 
 [node name="Footstep SFX" type="FmodEventEmitter3D" parent="StateMachine/Moving"]
 event_name = "event:/Player/Footsteps/Cave Footstep"
 event_guid = "{1786b3c0-0467-4017-8d6d-95457d0666de}"
 
 [node name="Attacking" type="Node" parent="StateMachine"]
-script = ExtResource("5_eh5f0")
+script = ExtResource("5_548oj")
 
-[node name="Slash0" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
-script = ExtResource("6_rgnwp")
-hitbox = NodePath("../../../Hitboxes/Sing")
-animation = NodePath("../../../nova_animations_kobold/Slash")
+[node name="Note1" type="Node" parent="StateMachine/Attacking"]
 
-[node name="Slash1" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
-script = ExtResource("6_rgnwp")
-hitbox = NodePath("../../../Hitboxes/Sing")
-animation = NodePath("../../../nova_animations_kobold/Slash2")
+[node name="Note2" type="Node" parent="StateMachine/Attacking"]
 
-[node name="Slam2" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
-script = ExtResource("6_rgnwp")
-hitbox = NodePath("")
-damage = 3.0
-animation = NodePath("../../../nova_animations_kobold/Slash3")
-
-[node name="Poke3" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
-script = ExtResource("6_rgnwp")
-hitbox = NodePath("")
-damage = 7.0
-animation = NodePath("../../../nova_animations_kobold/Slash4")
-
-[node name="Sweep4" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
-script = ExtResource("6_rgnwp")
-hitbox = NodePath("../../../Hitboxes/FishShield")
-damage = 5.0
-animation = NodePath("../../../nova_animations_kobold/Slash5")
+[node name="Note3" type="Node" parent="StateMachine/Attacking"]
 
 [node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking"]
 event_name = "event:/Player/Uniques/Grunt/Nova Grunt"
 event_guid = "{8eed88f7-964e-435b-957d-c6705371ee3b}"
 
 [node name="Charging" type="Node" parent="StateMachine"]
-script = ExtResource("7_j3hhc")
+script = ExtResource("6_qnimx")
 
 [node name="Charging Ready SFX" type="FmodEventEmitter3D" parent="StateMachine/Charging"]
 event_name = "event:/Player/Uniques/Charging/Nova Charging Ready"
@@ -2760,62 +2739,38 @@ event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 event_name = "event:/Player/Uniques/Charging/Nova Charging"
 event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 
-[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
-script = ExtResource("6_rgnwp")
-hitbox = NodePath("../../Hitboxes/FishShield")
-damage = 3.0
-finished_state = NodePath("../Moving")
-animation = NodePath("../../nova_animations_kobold/ChargedSlash")
-duration = 1.0
+[node name="AttackingCharged" type="Node" parent="StateMachine"]
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
 event_name = "event:/Player/Uniques/Charged Attack/Nova Charged Attack"
 event_guid = "{c37be128-c419-442f-9d08-d6e0895a5e23}"
 
 [node name="ChargingSpecial" type="Node" parent="StateMachine"]
-script = ExtResource("8_er7aw")
+script = ExtResource("8_bbdqe")
 
 [node name="Dash SFX" type="FmodEventEmitter3D" parent="StateMachine/ChargingSpecial"]
 event_name = "event:/Player/Uniques/Charging/Nova Charging"
 event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 
-[node name="Special" type="Node" parent="StateMachine" node_paths=PackedStringArray("special_state", "wait_state")]
-script = ExtResource("9_6nr85")
-special_state = NodePath("SpecialDash")
-wait_state = NodePath("SpecialWait")
-
-[node name="SpecialDash" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("hitbox", "animation")]
-script = ExtResource("10_1hwws")
-hitbox = NodePath("")
-damage = 10.0
-animation = NodePath("../../../nova_animations_kobold/Special")
-
-[node name="Dash SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialDash"]
-event_name = "event:/Player/Dash/Base Dash"
-event_guid = "{c01c64a7-fee5-463c-adda-e0bf3a57057b}"
-
-[node name="SpecialWait" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("animation")]
-script = ExtResource("11_3cglf")
-animation = NodePath("../../../nova_animations_kobold/Charging Special")
-duration = 0.2
+[node name="Special" type="Node" parent="StateMachine"]
 
 [node name="SwapIn" type="Node" parent="StateMachine"]
-script = ExtResource("12_8chgk")
+script = ExtResource("9_qntpm")
 
 [node name="SwapOut" type="Node" parent="StateMachine"]
-script = ExtResource("13_1xxxa")
+script = ExtResource("10_wex2d")
 
 [node name="Sleeping" type="Node" parent="StateMachine"]
-script = ExtResource("14_a7suj")
+script = ExtResource("11_bxptc")
 
 [node name="HitStun" type="Node" parent="StateMachine"]
-script = ExtResource("15_ehgla")
+script = ExtResource("12_6x7f2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_21ndv")
 
-[node name="nova_animations_kobold" parent="." instance=ExtResource("16_ce6ft")]
+[node name="nova_animations_kobold" parent="." instance=ExtResource("13_n6vc4")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Hand_L" parent="nova_animations_kobold/Armature/GeneralSkeleton" index="0"]
@@ -2833,7 +2788,7 @@ explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ShaderMaterial_u6tct")
 draw_pass_1 = SubResource("QuadMesh_8qhfg")
-script = ExtResource("21_x23ws")
+script = ExtResource("18_pgicr")
 length = 18
 length_seconds = 0.3
 color_ramp = SubResource("GradientTexture1D_ob225")
@@ -2853,7 +2808,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_brwhy")
 [node name="AnimationPlayer" parent="nova_animations_kobold" index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_7kaov"),
-&"NovaAnimationLibrary": ExtResource("22_4x7m1")
+&"NovaAnimationLibrary": ExtResource("19_cih63")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="nova_animations_kobold"]
@@ -2861,85 +2816,85 @@ tree_root = SubResource("AnimationNodeStateMachine_wsli6")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Idle" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Idle"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Move" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Run"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Slash" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Slash1"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Slash2" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Slash2"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Slash3" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Slash3"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Slash4" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Slash4"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Slash5" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Slash5"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="ChargedSlash" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Charged Slash"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="ChargingSlash" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Charging Slash"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Charging Special" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Charging Special"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Special" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Special"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Dash" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Dash"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Hurt" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Hurt"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Die" type="Node" parent="nova_animations_kobold"]
-script = ExtResource("23_4lco7")
+script = ExtResource("20_1i8fv")
 state_name = "Death"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wsli6"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
@@ -2949,11 +2904,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_fstbi")
 target_position = Vector3(0, 0, -10)
 
+[node name="Notes" type="Node3D" parent="."]
+script = ExtResource("21_h3uuf")
+
 [node name="AttackEmitter" type="Node3D" parent="."]
+script = ExtResource("22_xiq0h")
+melody = ExtResource("23_n7ie5")
 
 [node name="Hitboxes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("25_hyhf8")
+script = ExtResource("23_h166w")
 
 [node name="FishShield" type="Area3D" parent="Hitboxes"]
 collision_layer = 0
@@ -3028,11 +2988,8 @@ event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 [connection signal="charge_count_increase" from="StateMachine/Charging" to="StateMachine/Charging/Charging Ready SFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Charging" to="StateMachine/Charging/Charging SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Charging" to="nova_animations_kobold/ChargingSlash" method="enter"]
-[connection signal="entered" from="StateMachine/AttackingCharged" to="StateMachine/AttackingCharged/AttackCharged SFX" method="play_one_shot"]
-[connection signal="entered" from="StateMachine/AttackingCharged" to="nova_animations_kobold/ChargedSlash" method="enter"]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="nova_animations_kobold/Charging Special" method="enter"]
 [connection signal="max_charge_count" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play_one_shot"]
-[connection signal="entered" from="StateMachine/Special/SpecialDash" to="StateMachine/Special/SpecialDash/Dash SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/HitStun" to="nova_animations_kobold/Hurt" method="enter"]
 [connection signal="slash_start" from="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L/nova_sword/SlashVFX" to="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L/nova_sword/SlashVFX/Slash SFX" method="play_one_shot"]
 
