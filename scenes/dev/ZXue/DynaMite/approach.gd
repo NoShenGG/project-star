@@ -9,7 +9,6 @@ func update(_delta: float) -> void:
 ## Called on state machine physics process
 func physics_update(_delta: float) -> void:
 	# move closer to player
-	# set movement target to player reference and connect signal
 	dynamite.set_movement_target(dynamite.playerRef.global_position)
 	
 	#$"../..".velocity = $"../.."._movement_speed * ($"../..".playerRef.global_transform.origin - $"../..".global_transform.origin).normalized()

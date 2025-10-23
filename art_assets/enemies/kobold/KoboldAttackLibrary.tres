@@ -828,7 +828,7 @@ tracks/22/keys = PackedFloat32Array(0, 1, 0.1379342, -4.5873788e-10, 0.000950573
 tracks/23/type = "method"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("%SwordTrail")
+tracks/23/path = NodePath("%SlashVFX")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
@@ -840,6 +840,20 @@ tracks/23/keys = {
 }, {
 "args": [],
 "method": &"hide"
+}]
+}
+tracks/24/type = "method"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("%Attack")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.76666665),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"do_damage"
 }]
 }
 

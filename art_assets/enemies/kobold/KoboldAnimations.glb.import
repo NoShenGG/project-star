@@ -2098,7 +2098,8 @@ _subresources={
 },
 "nodes": {
 "PATH:Armature/Skeleton3D": {
-"retarget/bone_map": Resource("uid://dm4nn4gi7noub", "res://art_assets/enemies/kobold/KoboldBonemapMap.tres")
+"retarget/bone_map": Resource("uid://dm4nn4gi7noub", "res://art_assets/enemies/kobold/KoboldBonemapMap.tres"),
+"retarget/rest_fixer/retarget_method": 0
 }
 }
 }
