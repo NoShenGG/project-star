@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byhsbr64tgbkf"
-path.s3tc="res://.godot/imported/magic_03.png-4c8678a7a22851e02325f547ad3d93a8.s3tc.ctex"
+path.s3tc="res://.godot/imported/magic_03.png-4d2aaca5f6b692ccab2713bae835623f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/Kenny Particle Pack/magic_03.png"
-dest_files=["res://.godot/imported/magic_03.png-4c8678a7a22851e02325f547ad3d93a8.s3tc.ctex"]
+source_file="res://VFX/Kenny Particle Pack/magic_03.png"
+dest_files=["res://.godot/imported/magic_03.png-4d2aaca5f6b692ccab2713bae835623f.s3tc.ctex"]
 
 [params]
 

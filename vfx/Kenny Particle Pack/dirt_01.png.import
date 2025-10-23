@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://du7q1ven4us4s"
-path.s3tc="res://.godot/imported/dirt_01.png-786f13829f9a15bac39282a99fa0ac6f.s3tc.ctex"
+path.s3tc="res://.godot/imported/dirt_01.png-8e3be104e949f36fbf2d1d3a4e50123f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/Kenny Particle Pack/dirt_01.png"
-dest_files=["res://.godot/imported/dirt_01.png-786f13829f9a15bac39282a99fa0ac6f.s3tc.ctex"]
+source_file="res://VFX/Kenny Particle Pack/dirt_01.png"
+dest_files=["res://.godot/imported/dirt_01.png-8e3be104e949f36fbf2d1d3a4e50123f.s3tc.ctex"]
 
 [params]
 

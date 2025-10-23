@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbsg1gp2cfkht"
-path.s3tc="res://.godot/imported/trace_03.png-9c3220c879806e0f57032ebf15d4b4be.s3tc.ctex"
+path.s3tc="res://.godot/imported/trace_03.png-bc8d2d4944a6000fe94cf66aa22fef0b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/Kenny Particle Pack/trace_03.png"
-dest_files=["res://.godot/imported/trace_03.png-9c3220c879806e0f57032ebf15d4b4be.s3tc.ctex"]
+source_file="res://VFX/Kenny Particle Pack/trace_03.png"
+dest_files=["res://.godot/imported/trace_03.png-bc8d2d4944a6000fe94cf66aa22fef0b.s3tc.ctex"]
 
 [params]
 

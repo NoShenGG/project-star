@@ -3,7 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dde4tvtkamxn0"
+<<<<<<< Updated upstream
 path.s3tc="res://.godot/imported/slash_01.png-5aab16580ff036e438ff14aead4c4920.s3tc.ctex"
+=======
+path="res://.godot/imported/slash_01.png-1ff9e392c5a3aca0a21853d42bbf1c68.ctex"
+>>>>>>> Stashed changes
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +15,13 @@ metadata={
 
 [deps]
 
+<<<<<<< Updated upstream
 source_file="res://vfx/Kenny Particle Pack/slash_01.png"
 dest_files=["res://.godot/imported/slash_01.png-5aab16580ff036e438ff14aead4c4920.s3tc.ctex"]
+=======
+source_file="res://VFX/Kenny Particle Pack/slash_01.png"
+dest_files=["res://.godot/imported/slash_01.png-1ff9e392c5a3aca0a21853d42bbf1c68.ctex"]
+>>>>>>> Stashed changes
 
 [params]
 

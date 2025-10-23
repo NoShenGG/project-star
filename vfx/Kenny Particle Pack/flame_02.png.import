@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvcqlans30bnf"
-path.s3tc="res://.godot/imported/flame_02.png-227f2a32c121df033f3dcaa99a809fcf.s3tc.ctex"
+path.s3tc="res://.godot/imported/flame_02.png-fa656d049326c703afbff7fd14fd37ec.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/Kenny Particle Pack/flame_02.png"
-dest_files=["res://.godot/imported/flame_02.png-227f2a32c121df033f3dcaa99a809fcf.s3tc.ctex"]
+source_file="res://VFX/Kenny Particle Pack/flame_02.png"
+dest_files=["res://.godot/imported/flame_02.png-fa656d049326c703afbff7fd14fd37ec.s3tc.ctex"]
 
 [params]
 
