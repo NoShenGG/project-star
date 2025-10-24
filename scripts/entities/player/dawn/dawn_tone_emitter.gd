@@ -2,12 +2,12 @@
 class_name ToneEmitter extends Node
 
 @export var melody: PackedScene
-@export var slow_wave: Tone
-@export var fish: Tone
-@export var wave: Tone
-@export var stun_wave: Tone
-@export var vortex_note: Tone
-@export var ice_zone: Tone
+@export var slow_wave: PackedScene
+@export var fish: PackedScene
+@export var wave: PackedScene
+@export var stun_wave: PackedScene
+@export var vortex_note: PackedScene
+@export var ice_zone: PackedScene
 
 var dawn: Dawn
 
@@ -16,9 +16,9 @@ func _ready() -> void:
 	dawn = owner as Dawn
 	assert(dawn != null)
 	assert(melody != null)
-	#assert(slow_wave != null)
+	assert(slow_wave != null)
 	#assert(fish != null)
-	#assert(wave != null)
+	assert(wave != null)
 	#assert(stun_wave != null)
 	#assert(vortex_note != null)
 	#assert(ice_zone != null)
@@ -30,16 +30,20 @@ func spawn_melody() -> void:
 	temp.start()
 
 func spawn_slow_wave() -> void:
-	var temp = slow_wave.new()
+	var temp: Tone = slow_wave.instantiate()
 	add_child(temp)
+	temp.setup(dawn)
+	temp.start()
 
 func spawn_fish() -> void:
 	var temp = fish.new()
 	add_child(temp)
 
 func spawn_wave() -> void:
-	var temp = wave.new()
+	var temp: Tone = wave.instantiate()
 	add_child(temp)
+	temp.setup(dawn)
+	temp.start()
 
 func spawn_stun_wave() -> void:
 	var temp = stun_wave.new()
