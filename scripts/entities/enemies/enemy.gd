@@ -1,4 +1,3 @@
-@abstract
 @icon("uid://cgy1hfljlnsj3")
 class_name Enemy extends Entity
 

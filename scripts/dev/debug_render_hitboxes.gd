@@ -2,19 +2,22 @@
 
 extends Node
 
-var meshes: Array[MeshInstance3D] = []
+var meshes := {}
 
 func _ready() -> void:
 	for i in range(len(get_children())):
-		var box = get_child(i).get_child(0) as CollisionShape3D
+		var area = get_child(i) as Area3D
 		var m = MeshInstance3D.new()
+		var box = area.get_child(0) as CollisionShape3D
+		if box == null:
+			return
 		m.mesh = box.shape.get_debug_mesh()
 		box.add_child(m)
-		meshes.append(m)
+		meshes[area] = m
 	
 func _process(_delta: float) -> void:
-	for i in range(len(get_children())):
-		if (get_child(i) as Area3D).monitoring:
-			meshes[i].show()
+	for area in meshes.keys():
+		if (area as Area3D).monitoring:
+			meshes[area].show()
 		else:
-			meshes[i].hide()
+			meshes[area].hide()
