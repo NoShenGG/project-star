@@ -21,8 +21,9 @@ var timer : SceneTreeTimer
 var _running : bool = false
 
 func enter(_prev_state: String, _data := {}) -> void:
-	entered.emit()
 	wait()
+	entered.emit()
+	
 	_running = true
 
 func wait():
@@ -32,12 +33,14 @@ func wait():
 	trigger_finished.emit(post_wait_state.get_path())
 
 func end() -> void:
-	timer = null
+	if (timer != null):
+		timer.stop()
 	finished.emit()
 	_running = false
 
 func exit() -> void:
-	timer = null
+	if (timer != null):
+		timer.stop()
 	_running = false
 
 func update(_delta: float) -> void:

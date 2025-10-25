@@ -572,7 +572,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.62, 0, 6.701)
 
 [node name="RangedEnemy" parent="." instance=ExtResource("26_0hr4f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4874306, 0.565872, -3.1860847)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.894129, 0.9372425, 0)
 
 [connection signal="player_hp_update" from="PlayerManager" to="screen_modification/GameUi" method="update_health"]
 [connection signal="fight_ended" from="WaveManager" to="WaveManager/End" method="play_one_shot"]

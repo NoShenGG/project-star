@@ -17,7 +17,7 @@ extends EnemyState
 ## the maximum distance the player can take before exit
 @export var max_player_distance : float = 1
 
-## when the player gets too far from the enemy, interrupts wait
+## when the player gets too close from the enemy, interrupts wait
 @export var player_close_state : State :
 	set(value):
 		if (value and player_far_state):
@@ -58,11 +58,11 @@ func exit() -> void:
 func update(_delta: float) -> void:
 	if (Engine.is_editor_hint()): return
 	
-	var player_far : bool = enemy.global_position.distance_to(GameManager.curr_player.global_position)
+	var player_far : bool = (enemy.global_position.distance_to(GameManager.curr_player.global_position) > max_player_distance)
 	if (player_far_state and player_far):
 		trigger_finished.emit(player_far_state.get_path())
 		return
-	if (player_close_state and not player_far):
+	if (player_close_state and (not player_far)):
 		trigger_finished.emit(player_close_state.get_path())
 		return
 	
