@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cm1uor113ewb6"]
+
+[ext_resource type="Script" uid="uid://r8oki41bfmky" path="res://scripts/entities/enemies/ranged_enemy.gd" id="1_jtekh"]
+[ext_resource type="PackedScene" uid="uid://dc6dwp86883k2" path="res://art_assets/enemies/shrooms/rocket_shroom.glb" id="2_kni4a"]
+[ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="3_2wk7v"]
+[ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="4_jtekh"]
+[ext_resource type="Script" uid="uid://c305mtehd4c71" path="res://scenes/dev/ZXue/RangedEnemyRefactor/ranged_enemy_attack.gd" id="5_2wk7v"]
+[ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="6_3xqfs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2l4st"]
+size = Vector3(1, 1.15, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_45tao"]
+viewport_path = NodePath("SubViewport")
+
+[node name="RangedEnemy" type="CharacterBody3D" groups=["Enemies"]]
+collision_layer = 10
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_jtekh")
+
+[node name="rocket_shroom" parent="." instance=ExtResource("2_kni4a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_2l4st")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 10.0
+target_desired_distance = 2.0
+path_max_distance = 100.01
+debug_enabled = true
+debug_path_custom_color = Color(0, 1, 0, 1)
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_2wk7v")
+metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
+
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_close_state")]
+script = ExtResource("4_jtekh")
+post_wait_state = NodePath(".")
+max_player_distance = 5.0
+player_close_state = NodePath("../attacking")
+
+[node name="attacking" type="Node" parent="StateMachine"]
+script = ExtResource("5_2wk7v")
+
+[node name="StatusBars" parent="." instance=ExtResource("6_3xqfs")]
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 1.5, 0)
+texture = SubResource("ViewportTexture_45tao")
+
+[connection signal="break_update" from="." to="StatusBars" method="update_break"]
+[connection signal="health_update" from="." to="StatusBars" method="update_health"]
