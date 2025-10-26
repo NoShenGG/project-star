@@ -25,6 +25,7 @@ func instantiate_dialogue(message_array: Array):
 	d.name_label = %NameLabel
 	d.messages = message_array
 	d.dialogue_container = self
+	d.nine_patch_text_rect = %TextRect
 	%UIDialogueBox.add_child(d)
 
 # Destroys any children of DialogueBox
