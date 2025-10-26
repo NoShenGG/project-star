@@ -1,12 +1,12 @@
 [gd_scene load_steps=33 format=3 uid="uid://dfidn58xx6ouo"]
 
 [ext_resource type="Texture2D" uid="uid://co8hksahut4ay" path="res://scenes/dev/arshiya_r/rene_circle_textures/clock_ring.png" id="2_skxqc"]
-[ext_resource type="Shader" uid="uid://dh7hpnxsyp1ra" path="res://scenes/dev/arshiya_r/gear.tres" id="3_pcs7c"]
+[ext_resource type="Shader" path="res://scenes/dev/arshiya_r/rene_circle_shaders/gear.tres" id="3_pcs7c"]
 [ext_resource type="Texture2D" uid="uid://tq5q4bna3rdf" path="res://scenes/dev/arshiya_r/rene_circle_textures/hour_hand.png" id="4_gacpw"]
 [ext_resource type="Texture2D" uid="uid://dcdt44ph5kp45" path="res://scenes/dev/arshiya_r/rene_circle_textures/gear.png" id="4_skxqc"]
 [ext_resource type="Texture2D" uid="uid://ce5wn24wxtexr" path="res://scenes/dev/arshiya_r/rene_circle_textures/minute_hand.png" id="5_x7sj1"]
 [ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/circle_particles.tres" id="6_8bnff"]
-[ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://vfx/Kenny Particle Pack/star_04.png" id="7_13oan"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="7_skxqc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfcmf"]
 render_priority = 0
@@ -93,7 +93,7 @@ shader_parameter/Extra_Opacity = 0.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53p8o"]
 render_priority = 0
 shader = ExtResource("3_pcs7c")
-shader_parameter/circle_color = Color(0.46605527, 0.45544904, 0.22016379, 1)
+shader_parameter/circle_color = Color(1, 0.97269243, 0.07016479, 1)
 shader_parameter/FloatParameter = 1.0
 shader_parameter/Circle_Texture = ExtResource("4_gacpw")
 shader_parameter/Extra_Opacity = 0.0
@@ -103,7 +103,7 @@ shader_parameter/Extra_Opacity = 0.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qhm8h"]
 render_priority = 0
 shader = ExtResource("3_pcs7c")
-shader_parameter/circle_color = Color(0.46605527, 0.45544904, 0.22016379, 1)
+shader_parameter/circle_color = Color(1, 0.972549, 0.07058824, 1)
 shader_parameter/FloatParameter = 6.0
 shader_parameter/Circle_Texture = ExtResource("5_x7sj1")
 shader_parameter/Extra_Opacity = 0.0
@@ -113,7 +113,7 @@ shader_parameter/Extra_Opacity = 0.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ippvo"]
 render_priority = 0
 shader = ExtResource("6_8bnff")
-shader_parameter/ParticleTexture = ExtResource("7_13oan")
+shader_parameter/ParticleTexture = ExtResource("7_skxqc")
 
 [sub_resource type="Curve" id="Curve_nst4l"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.49596772, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -137,6 +137,9 @@ spread = 0.0
 initial_velocity_min = 1.0
 initial_velocity_max = 2.0
 gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.25
+color = Color(0.76, 0.73986, 0.35720003, 1)
 alpha_curve = SubResource("CurveTexture_n0ury")
 
 [sub_resource type="QuadMesh" id="QuadMesh_gajvk"]
@@ -203,7 +206,7 @@ material_override = SubResource("ShaderMaterial_nrx7a")
 mesh = SubResource("PlaneMesh_pu525")
 
 [node name="hands" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 
 [node name="hour hand" type="MeshInstance3D" parent="hands"]
 material_override = SubResource("ShaderMaterial_53p8o")
@@ -219,5 +222,6 @@ material_override = SubResource("ShaderMaterial_ippvo")
 amount = 10
 speed_scale = 0.5
 randomness = 1.0
+visibility_aabb = AABB(-4, -4, -4, 1, 1, 1)
 process_material = SubResource("ParticleProcessMaterial_xscg6")
 draw_pass_1 = SubResource("QuadMesh_gajvk")
