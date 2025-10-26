@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=23 format=3 uid="uid://dh7hpnxsyp1ra"]
+[gd_resource type="VisualShader" load_steps=24 format=3 uid="uid://c1v1c0dkkcm60"]
 
 [sub_resource type="Gradient" id="Gradient_0kgq1"]
 offsets = PackedFloat32Array(0, 0.98333335, 1)
@@ -65,6 +65,11 @@ operator = 2
 [sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_fg28s"]
 parameter_name = "FloatParameter"
 
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_et5ul"]
+parameter_name = "Glow"
+default_value_enabled = true
+default_value = Color(0, 0, 0.012617188, 1)
+
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_18eph"]
 input_name = "time"
 
@@ -86,6 +91,7 @@ uniform float FloatParameter;
 uniform sampler2D Circle_Texture : repeat_disable;
 uniform float Extra_Opacity : hint_range(0.0, 1.0);
 uniform sampler2D tex_frg_10 : source_color;
+uniform vec4 Glow : source_color = vec4(0.000000, 0.000000, 0.012617, 1.000000);
 
 
 
@@ -171,16 +177,21 @@ void fragment() {
 	float n_out11p0 = n_out9p0 * n_out10p0.x;
 
 
+// ColorParameter:26
+	vec4 n_out26p0 = Glow;
+
+
 // Output:0
 	ALBEDO = vec3(n_out7p0.xyz);
 	ALPHA = n_out11p0;
+	EMISSION = vec3(n_out26p0.xyz);
 
 
 }
 "
 flags/unshaded = true
 nodes/vertex/0/position = Vector2(400, 160)
-nodes/fragment/0/position = Vector2(1560, -440)
+nodes/fragment/0/position = Vector2(2040, -440)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_pcgrq")
 nodes/fragment/2/position = Vector2(700, -360)
 nodes/fragment/4/node = SubResource("VisualShaderNodeInput_18eph")
@@ -221,4 +232,6 @@ nodes/fragment/24/node = SubResource("VisualShaderNodeFloatOp_et5ul")
 nodes/fragment/24/position = Vector2(-1160, -460)
 nodes/fragment/25/node = SubResource("VisualShaderNodeFloatParameter_fg28s")
 nodes/fragment/25/position = Vector2(-1540, -360)
-nodes/fragment/connections = PackedInt32Array(7, 0, 0, 0, 8, 0, 9, 1, 9, 0, 11, 0, 12, 0, 2, 2, 15, 0, 14, 0, 19, 0, 20, 0, 13, 0, 16, 0, 14, 0, 17, 0, 15, 0, 16, 1, 13, 0, 17, 1, 22, 0, 2, 0, 2, 0, 9, 0, 11, 0, 0, 1, 10, 0, 11, 1, 20, 0, 21, 1, 18, 0, 21, 0, 17, 0, 18, 0, 16, 0, 18, 1, 21, 0, 22, 0, 4, 0, 24, 0, 24, 0, 15, 0, 24, 0, 13, 0, 25, 0, 24, 1)
+nodes/fragment/26/node = SubResource("VisualShaderNodeColorParameter_et5ul")
+nodes/fragment/26/position = Vector2(1480, 80)
+nodes/fragment/connections = PackedInt32Array(7, 0, 0, 0, 8, 0, 9, 1, 9, 0, 11, 0, 12, 0, 2, 2, 15, 0, 14, 0, 19, 0, 20, 0, 13, 0, 16, 0, 14, 0, 17, 0, 15, 0, 16, 1, 13, 0, 17, 1, 22, 0, 2, 0, 2, 0, 9, 0, 11, 0, 0, 1, 10, 0, 11, 1, 20, 0, 21, 1, 18, 0, 21, 0, 17, 0, 18, 0, 16, 0, 18, 1, 21, 0, 22, 0, 4, 0, 24, 0, 24, 0, 15, 0, 24, 0, 13, 0, 25, 0, 24, 1, 26, 0, 0, 5)
