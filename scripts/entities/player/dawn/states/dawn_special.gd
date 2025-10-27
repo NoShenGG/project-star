@@ -10,9 +10,13 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	entered.emit()
 	if _data.get("charges", 1) > 1:
 		current_state = charged
-	else:
+	elif player._has_special:
 		current_state = regular
 		player.use_special()
+	else:
+		current_state = null
+		end()
+		return
 	current_state.finished.connect(state_done)
 	current_state.enter(_previous_state_path, _data)
 	
@@ -33,5 +37,6 @@ func end() -> void:
 func exit() -> void:
 	if current_state == regular:
 		player.set_special_cd()
-	current_state.finished.disconnect(state_done)
-	current_state.exit()
+	if current_state != null:
+		current_state.finished.disconnect(state_done)
+		current_state.exit()

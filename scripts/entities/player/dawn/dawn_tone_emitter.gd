@@ -36,8 +36,10 @@ func spawn_slow_wave() -> void:
 	temp.start()
 
 func spawn_fish() -> void:
-	var temp = fish.new()
+	var temp: Tone = fish.instantiate()
 	add_child(temp)
+	temp.setup(dawn)
+	temp.start()
 
 func spawn_wave() -> void:
 	var temp: Tone = wave.instantiate()

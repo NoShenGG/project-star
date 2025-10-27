@@ -6,9 +6,6 @@ class_name DawnNotes extends Node
 @export var ui_note3: UIConsumable
 var ui_notes: Array[UIConsumable]
 
-signal white
-signal blue
-signal red
 signal new_note(note: Note)
 signal valid_pattern(id: Patterns)
 signal notes_used
@@ -29,27 +26,29 @@ func _ready() -> void:
 
 
 func add_note(note: Note) -> bool:
-	print("HERE")
 	if notes.size() >= 3:
-		return false
-	notes.push_back(note)
+		notes.pop_back()
+	notes.push_front(note)
 	new_note.emit(note)
-	match note:
-		Note.WHITE:
-			ui_notes[notes.size() - 1].modulate = Color("ffffff")
-			ui_notes[notes.size() - 1].appear()
-			white.emit()
-		Note.BLUE:
-			ui_notes[notes.size() - 1].modulate = Color("0000ff")
-			ui_notes[notes.size() - 1].appear()
-			blue.emit()
-		Note.RED:
-			ui_notes[notes.size() - 1].modulate = Color("ff0000")
-			ui_notes[notes.size() - 1].appear()
-			red.emit()
+	update_ui_notes()
 	if notes.size() >= 3:
 		valid_pattern.emit(notes.reduce(func(accum, x): return accum + x, 0))
 	return true
+
+func update_ui_notes():
+	for i in range(3):
+		if i < notes.size():
+			match notes[i]:
+				Note.WHITE:
+					ui_notes[i].modulate = Color("ffffff")
+				Note.BLUE:
+					ui_notes[i].modulate = Color("0000ff")
+				Note.RED:
+					ui_notes[i].modulate = Color("ff0000")
+			ui_notes[i].appear()
+		else:
+			ui_notes[i].disappear()
+	
 
 func add_white() -> bool:
 	return add_note(Note.WHITE)

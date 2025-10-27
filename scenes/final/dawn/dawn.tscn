@@ -1,9 +1,9 @@
-[gd_scene load_steps=90 format=3 uid="uid://c2akhsyinel8t"]
+[gd_scene load_steps=91 format=3 uid="uid://c2akhsyinel8t"]
 
 [ext_resource type="Script" uid="uid://ccrew8qivqlpt" path="res://scripts/entities/player/dawn/dawn.gd" id="1_m3k46"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_n7ie5"]
-[ext_resource type="Script" uid="uid://bpndinylqyege" path="res://scripts/entities/player/player_states/player_idle.gd" id="3_xphuo"]
-[ext_resource type="Script" uid="uid://dq5qwb33mlr2l" path="res://scripts/entities/player/player_states/player_moving.gd" id="4_af2rh"]
+[ext_resource type="Script" uid="uid://2u0qr5shhbye" path="res://scripts/entities/player/dawn/states/dawn_idle.gd" id="3_qntpm"]
+[ext_resource type="Script" uid="uid://cg0mo72va2qqs" path="res://scripts/entities/player/dawn/states/dawn_moving.gd" id="4_wex2d"]
 [ext_resource type="Script" uid="uid://clwu1a1we224o" path="res://scripts/entities/player/player_states/player_attacking.gd" id="5_548oj"]
 [ext_resource type="Script" uid="uid://276qi6fix2cm" path="res://scripts/entities/player/dawn/states/dawn_fire_tone.gd" id="6_n7ie5"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="6_qnimx"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
 [ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
 [ext_resource type="PackedScene" uid="uid://bdh4cmnftg18b" path="res://scenes/final/dawn/tone_wave.tscn" id="28_qntpm"]
+[ext_resource type="PackedScene" uid="uid://cein11fhbr6sp" path="res://scenes/final/dawn/tone_fish.tscn" id="28_wex2d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
 
@@ -2709,7 +2710,7 @@ emission_enabled = true
 emission = Color(0, 0.89411765, 1, 1)
 
 [sub_resource type="TorusMesh" id="TorusMesh_owh2v"]
-lightmap_size_hint = Vector2i(20, 3)
+lightmap_size_hint = Vector2i(33, 9)
 material = SubResource("StandardMaterial3D_pk6rl")
 add_uv2 = true
 inner_radius = 1.0
@@ -2779,10 +2780,10 @@ _breakable = false
 script = ExtResource("2_n7ie5")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("3_xphuo")
+script = ExtResource("3_qntpm")
 
 [node name="Moving" type="Node" parent="StateMachine"]
-script = ExtResource("4_af2rh")
+script = ExtResource("4_wex2d")
 
 [node name="Footstep SFX" type="FmodEventEmitter3D" parent="StateMachine/Moving"]
 event_name = "event:/Player/Footsteps/Cave Footstep"
@@ -2806,6 +2807,12 @@ animation = NodePath("../../../nova_animations_kobold/Slash4")
 [node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking"]
 event_name = "event:/Player/Uniques/Grunt/Nova Grunt"
 event_guid = "{8eed88f7-964e-435b-957d-c6705371ee3b}"
+
+[node name="AltAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("finished_state", "animation")]
+script = ExtResource("6_n7ie5")
+auto_aim = false
+finished_state = NodePath("../Moving")
+animation = NodePath("../../nova_animations_kobold/Special")
 
 [node name="Charging" type="Node" parent="StateMachine"]
 script = ExtResource("6_qnimx")
@@ -3049,6 +3056,7 @@ metadata/_custom_type_script = "uid://dphi1qwayotd2"
 script = ExtResource("22_xiq0h")
 melody = ExtResource("23_n7ie5")
 slow_wave = ExtResource("25_qnimx")
+fish = ExtResource("28_wex2d")
 wave = ExtResource("28_qntpm")
 metadata/_custom_type_script = "uid://cfs2f64dnml45"
 
@@ -3125,7 +3133,6 @@ pivot_offset = Vector2(32, 32)
 layout_mode = 2
 
 [node name="Note1" type="TextureRect" parent="DawnUI/HBoxContainer/Center"]
-visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("25_xphuo")
@@ -3139,7 +3146,6 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
 [node name="Note2" type="TextureRect" parent="DawnUI/HBoxContainer/Center2"]
-visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("25_xphuo")
@@ -3175,6 +3181,7 @@ fade_out = SubResource("Curve_wex2d")
 [connection signal="fire" from="StateMachine/Attacking/Tone1" to="ToneEmitter" method="spawn_melody"]
 [connection signal="fire" from="StateMachine/Attacking/Tone2" to="ToneEmitter" method="spawn_melody"]
 [connection signal="fire" from="StateMachine/Attacking/Tone3" to="ToneEmitter" method="spawn_melody"]
+[connection signal="fire" from="StateMachine/AltAttack" to="ToneEmitter" method="spawn_fish"]
 [connection signal="charge_count_increase" from="StateMachine/Charging" to="StateMachine/Charging/Charging Ready SFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Charging" to="StateMachine/Charging/Charging SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Charging" to="nova_animations_kobold/ChargingSlash" method="enter"]

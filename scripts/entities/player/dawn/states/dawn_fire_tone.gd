@@ -6,6 +6,7 @@ signal fire
 
 @export var _move_speed_factor: float = 0.4
 @export var fire_delay: float = 0.2
+@export var auto_aim: bool = true
 ## when the player gets too far from the enemy, interrupts wait
 @export var finished_state : State
 
@@ -35,7 +36,7 @@ func update(_delta: float) -> void:
 	pass
 
 func physics_update(delta: float) -> void:
-	if dawn.closest_enemy != null:
+	if auto_aim and dawn.closest_enemy != null:
 		var target = dawn.closest_enemy.global_position
 		dawn.look_at(Vector3(target.x, dawn.global_position.y, target.z))
 		dawn.move_translate(delta, _move_speed_factor)
