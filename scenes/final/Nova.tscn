@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://brw0p1eirto83"]
+[gd_scene load_steps=73 format=3 uid="uid://brw0p1eirto83"]
 
 [ext_resource type="Script" uid="uid://om4qdtr1cye0" path="res://scripts/entities/player/nova/nova.gd" id="1_p5oh7"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="3_6m1nx"]
@@ -11,22 +11,15 @@
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_w7jsq"]
 [ext_resource type="Script" uid="uid://divq6voanp8gg" path="res://scripts/entities/player/nova/states/nova_special.gd" id="8_uws5v"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="9_8b4uh"]
-<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://dc7b5xuh33cje" path="res://scripts/entities/player/nova/states/nova_special_wait.gd" id="10_8qhfg"]
 [ext_resource type="Script" uid="uid://gui8m2w4ihx1" path="res://scripts/entities/player/nova/states/nova_special_dash.gd" id="10_ob225"]
-[ext_resource type="Script" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
-[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
-[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
-=======
-[ext_resource type="Script" uid="uid://8e04epciukwh" path="res://scripts/entities/player/nova/states/nova_attack_special.gd" id="10_h31i5"]
 [ext_resource type="Script" uid="uid://cw3b5sywe4lom" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
 [ext_resource type="Script" uid="uid://dssk02ahlboui" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="12_cfkss"]
-[ext_resource type="Script" uid="uid://cauiecxurft0c" path="res://scripts/entities/player/nova/states/nove_attack_special_charged.gd" id="12_k5vrc"]
 [ext_resource type="Script" uid="uid://cty8d5lvonei1" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="13_5otq2"]
->>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://ctl307caw43ed" path="res://art_assets/characters/Nova/nova_animations_kobold.glb" id="14_ato7d"]
 [ext_resource type="Texture2D" uid="uid://b2nts737xcuhj" path="res://art_assets/characters/Nova/nova_animations_mixamo_nova_sword_col.png" id="15_ato7d"]
 [ext_resource type="AnimationLibrary" uid="uid://b6s3l0l606343" path="res://art_assets/characters/Nova/NovaAnimationLibrary.tres" id="15_e701o"]
+[ext_resource type="Script" uid="uid://d3pkbl7ownr11" path="res://scripts/entities/player/player_states/player_hit_stun.gd" id="15_h46t7"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="15_ranno"]
 [ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="16_u6tct"]
 [ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="17_k2lop"]
@@ -2678,7 +2671,7 @@ states/Slash5/position = Vector2(812, 264)
 states/Special/node = SubResource("AnimationNodeAnimation_ob225")
 states/Special/position = Vector2(973, 157)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_k2lop")]
-graph_offset = Vector2(374, 33)
+graph_offset = Vector2(374, -66.382706)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ato7d"]
 radius = 0.98
@@ -2815,6 +2808,9 @@ script = ExtResource("12_cfkss")
 [node name="Sleeping" type="Node" parent="StateMachine"]
 script = ExtResource("13_5otq2")
 
+[node name="HitStun" type="Node" parent="StateMachine"]
+script = ExtResource("15_h46t7")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_21ndv")
@@ -2823,32 +2819,32 @@ shape = SubResource("CapsuleShape3D_21ndv")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="GeneralSkeleton" parent="nova_animations_kobold/Armature" index="0"]
-bones/0/position = Vector3(-4.9324814e-08, 0.5292784, -0.21616822)
-bones/0/rotation = Quaternion(-0.013428524, 0.9865195, 0.110113665, 0.1203079)
-bones/1/rotation = Quaternion(-0.100821465, -0.1328879, 0.016284015, 0.98585534)
-bones/2/rotation = Quaternion(-0.09804662, -0.14041749, -0.011212923, 0.98516196)
-bones/3/rotation = Quaternion(0.0684489, -0.012750219, -0.65122944, 0.75568014)
-bones/4/rotation = Quaternion(0.57513386, 0.4576488, -0.6516928, 0.18728389)
-bones/5/rotation = Quaternion(0.0619423, 0.59697014, -0.08373827, 0.7954732)
-bones/6/rotation = Quaternion(-0.037244912, 0.4580521, -0.08401267, 0.88416237)
-bones/7/rotation = Quaternion(0.090911865, 0.17812003, -0.01300436, 0.97971386)
-bones/8/rotation = Quaternion(-0.08725423, 0.17075825, -0.052341387, 0.98004526)
-bones/9/rotation = Quaternion(-0.092604324, -0.17117505, 0.6830986, 0.7039175)
-bones/10/rotation = Quaternion(0.11873256, -0.0061235637, 0.69615203, 0.7079812)
-bones/11/rotation = Quaternion(0.124244064, -0.40035188, 0.12426999, 0.8993547)
-bones/12/rotation = Quaternion(-2.802273e-09, -0.751264, 1.1090083e-07, 0.6600019)
-bones/13/rotation = Quaternion(0.0006739553, 0.20286977, 0.97920555, -4.0431267e-08)
-bones/14/rotation = Quaternion(-0.14315552, 4.6717947e-08, 9.849087e-05, 0.9897002)
-bones/15/rotation = Quaternion(-0.17188515, 4.5689685e-08, 0.00011821382, 0.985117)
-bones/16/rotation = Quaternion(0.061941084, -0.49000433, 0.86514455, 0.08708567)
-bones/17/rotation = Quaternion(0.60298747, -0.017950328, 0.09250015, 0.7921664)
-bones/18/rotation = Quaternion(0.25698206, 0.05717862, -0.047690015, 0.9635438)
-bones/19/rotation = Quaternion(0.19670513, -0.49551243, 0.8460339, -0.0011601355)
-bones/20/rotation = Quaternion(0.6038698, 0.026125442, -0.08190934, 0.7924328)
-bones/21/rotation = Quaternion(0.25698197, -0.057181638, 0.047690965, 0.9635436)
+bones/0/position = Vector3(-7.7406126e-10, 0.70892143, -0.012175955)
+bones/0/rotation = Quaternion(6.7331707e-10, 0.99996024, 0.008918357, 7.549494e-08)
+bones/1/rotation = Quaternion(-0.045223128, 0.0034428083, 0.00024094566, 0.9989709)
+bones/2/rotation = Quaternion(-0.042283658, -0.0037754183, 0.00021497245, 0.9990985)
+bones/3/rotation = Quaternion(-0.09307451, 0.17165968, -0.6830346, 0.7037996)
+bones/4/rotation = Quaternion(0.23968574, -0.00067812577, -0.27387527, 0.93141973)
+bones/5/rotation = Quaternion(0.067660026, -0.009571021, 0.04234403, 0.9967635)
+bones/6/rotation = Quaternion(0.05486861, 0.74948114, 0.015322962, 0.6595701)
+bones/7/rotation = Quaternion(0.09566397, -0.00028348787, -9.310254e-05, 0.99541366)
+bones/8/rotation = Quaternion(-0.08540186, -0.00024268041, 0.0001281322, 0.99634653)
+bones/9/rotation = Quaternion(-0.09260431, -0.17117502, 0.6830986, 0.7039175)
+bones/10/rotation = Quaternion(0.24203344, 0.0074908864, 0.25010166, 0.93745023)
+bones/11/rotation = Quaternion(0.11265131, 0.009182411, 0.013573544, 0.99349946)
+bones/12/rotation = Quaternion(-3.405826e-08, -0.7512639, 5.6168922e-08, 0.6600019)
+bones/13/rotation = Quaternion(0.00067395, 0.20286977, 0.97920555, -5.0333565e-08)
+bones/14/rotation = Quaternion(-0.14315552, 7.123586e-08, 9.84832e-05, 0.9897002)
+bones/15/rotation = Quaternion(-0.17188513, 4.869273e-08, 0.000118224554, 0.985117)
+bones/16/rotation = Quaternion(0.008411121, -0.016341232, 0.99961865, -0.020609383)
+bones/17/rotation = Quaternion(-0.0302241, -0.0017236087, 0.035237323, 0.9989204)
+bones/18/rotation = Quaternion(0.5967693, -0.0027287595, -0.012932452, 0.802304)
+bones/19/rotation = Quaternion(-0.00821746, -0.01793529, 0.9992301, 0.033912472)
+bones/20/rotation = Quaternion(-0.02876218, 0.0013813251, -0.021923115, 0.9993449)
+bones/21/rotation = Quaternion(0.5967691, 0.002726533, 0.012935525, 0.8023041)
 
 [node name="Hand_L" parent="nova_animations_kobold/Armature/GeneralSkeleton" index="0"]
-transform = Transform3D(0.23649189, -0.058705024, -0.96985817, 0.0033768266, -0.9981178, 0.061238796, -0.9716274, -0.017757557, -0.23584849, -0.25596735, 0.87552166, 0.04187663)
+transform = Transform3D(-0.34011257, -0.8218537, 0.45703477, -0.2105771, -0.4071062, -0.88877577, 0.91650474, -0.39852494, -0.034601673, 0.38089204, 0.839838, -0.06775675)
 
 [node name="nova_sword" parent="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_wsli6")
@@ -3079,6 +3075,7 @@ event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="nova_animations_kobold/Charging Special" method="enter"]
 [connection signal="max_charge_count" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Special/SpecialDash" to="StateMachine/Special/SpecialDash/Dash SFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/HitStun" to="nova_animations_kobold/Hurt" method="enter"]
 [connection signal="slash_start" from="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L/nova_sword/SlashVFX" to="nova_animations_kobold/Armature/GeneralSkeleton/Hand_L/nova_sword/SlashVFX/Slash SFX" method="play_one_shot"]
 [connection signal="attack_charged_done" from="DummyAnimation" to="StateMachine/AttackingCharged" method="end"]
 [connection signal="attack_charged_hit" from="DummyAnimation" to="StateMachine/AttackingCharged" method="do_damage"]
