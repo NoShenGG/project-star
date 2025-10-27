@@ -34,17 +34,14 @@ metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_cwf65")
-snap_turn_to_player = null
 metadata/_custom_type_script = "uid://cplhuefak4xe6"
 
 [node name="Aggro" type="Node" parent="StateMachine"]
 script = ExtResource("4_ev8td")
-snap_turn_to_player = null
 metadata/_custom_type_script = "uid://ccipy7c0880vt"
 
 [node name="Shielding" type="Node" parent="StateMachine"]
 script = ExtResource("5_gtlnc")
-snap_turn_to_player = null
 metadata/_custom_type_script = "uid://6mm7aq2ddphu"
 
 [node name="DeadState" type="Node" parent="StateMachine"]
