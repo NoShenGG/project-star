@@ -37,7 +37,8 @@ func physics_update(delta: float) -> void:
 		charge_special = true
 	elif Input.is_action_just_released("special_attack"):
 		charge_special = false
-		trigger_finished.emit(SPECIAL, {"charges": 1})
+		if player._has_special:
+			trigger_finished.emit(SPECIAL, {"charges": 1})
 	elif Input.is_action_pressed("basic_attack"):
 		if (charge_special):
 			trigger_finished.emit(ALT_ATTACK)

@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://cl4unmlmmfvgl"]
+
+[ext_resource type="Script" uid="uid://dxv5sbe5r57wh" path="res://scripts/entities/player/dawn/notes/tone_vortex.gd" id="1_4ldgq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4ldgq"]
+radius = 5.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ldgq"]
+emission_shape_scale = Vector3(1, 0, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 5.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, -1, 0)
+radial_accel_min = -5.000002
+radial_accel_max = -5.000002
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exp3l"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.5411765)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4ldgq"]
+material = SubResource("StandardMaterial3D_exp3l")
+radius = 0.15
+height = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jn1jo"]
+albedo_color = Color(1, 0.43137255, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_urrtf"]
+material = SubResource("StandardMaterial3D_jn1jo")
+inner_radius = 5.0
+outer_radius = 5.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ldgq"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_exp3l"]
+material = SubResource("StandardMaterial3D_4ldgq")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4ldgq"]
+
+[node name="ToneVortex" type="Node3D" node_paths=PackedStringArray("projectile_mesh", "effect_hitbox", "particles", "ring_mesh", "hitbox")]
+top_level = true
+script = ExtResource("1_4ldgq")
+projectile_mesh = NodePath("Projectile")
+effect_hitbox = NodePath("Zone")
+particles = NodePath("Particles")
+ring_mesh = NodePath("Ring")
+hitbox = NodePath("ProjectileArea")
+max_duration = 5.0
+speed = 5.0
+damage = 0.0
+
+[node name="Zone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zone"]
+shape = SubResource("CylinderShape3D_4ldgq")
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+amount = 200
+lifetime = 1.4000000000000001
+process_material = SubResource("ParticleProcessMaterial_4ldgq")
+draw_pass_1 = SubResource("SphereMesh_4ldgq")
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("TorusMesh_urrtf")
+
+[node name="Projectile" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("SphereMesh_exp3l")
+
+[node name="ProjectileArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 9
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ProjectileArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_4ldgq")

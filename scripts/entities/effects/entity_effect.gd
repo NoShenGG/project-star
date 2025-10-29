@@ -8,7 +8,8 @@ enum EffectID {
 	INVINCIBLE,
 	GRABBED,
 	SPEED,
-	FORTE
+	FORTE,
+	TEMPO
 }
 var id: EffectID
 var _entity: Entity
