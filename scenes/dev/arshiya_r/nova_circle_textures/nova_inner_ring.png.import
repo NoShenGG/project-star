@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bugefgtvt5a83"
-path.s3tc="res://.godot/imported/nova_star.png-10865783eb85bc70b19139c39352d566.s3tc.ctex"
+uid="uid://d4lyinrwaq1jv"
+path.s3tc="res://.godot/imported/nova_inner_ring.png-9cf944bce65d15dc416fd005cfe913b1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/dev/arshiya_r/nova_star.png"
-dest_files=["res://.godot/imported/nova_star.png-10865783eb85bc70b19139c39352d566.s3tc.ctex"]
+source_file="res://scenes/dev/arshiya_r/nova_circle_textures/nova_inner_ring.png"
+dest_files=["res://.godot/imported/nova_inner_ring.png-9cf944bce65d15dc416fd005cfe913b1.s3tc.ctex"]
 
 [params]
 
