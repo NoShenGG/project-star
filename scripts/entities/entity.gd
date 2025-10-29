@@ -30,6 +30,8 @@ signal break_update(percent: float)
 
 var _status_effects: Dictionary[EntityEffect.EffectID, EntityEffect] = {}
 var _stopped_effects: Array[EntityEffect.EffectID] = []
+var speed_mult: float = 1.0
+var damage_mult: float = 1.0
 
 func _ready() -> void:
 	health_update.emit(1)

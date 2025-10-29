@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://c2akhsyinel8t"]
+[gd_scene load_steps=92 format=3 uid="uid://c2akhsyinel8t"]
 
 [ext_resource type="Script" uid="uid://ccrew8qivqlpt" path="res://scripts/entities/player/dawn/dawn.gd" id="1_m3k46"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_n7ie5"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dwp2qr3aqomck" path="res://scripts/entities/player/dawn/states/dawn_special_ability.gd" id="11_bbdqe"]
 [ext_resource type="Script" uid="uid://cty8d5lvonei1" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="11_bxptc"]
 [ext_resource type="Script" uid="uid://d3pkbl7ownr11" path="res://scripts/entities/player/player_states/player_hit_stun.gd" id="12_6x7f2"]
+[ext_resource type="Script" uid="uid://cpj3ro4ajatrk" path="res://scripts/entities/player/dawn/states/dawn_tone_forte.gd" id="12_bxptc"]
 [ext_resource type="PackedScene" uid="uid://ctl307caw43ed" path="res://art_assets/characters/Nova/nova_animations_kobold.glb" id="13_n6vc4"]
 [ext_resource type="Texture2D" uid="uid://b2nts737xcuhj" path="res://art_assets/characters/Nova/nova_animations_mixamo_nova_sword_col.png" id="14_fgi08"]
 [ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="15_e60w5"]
@@ -2843,10 +2844,10 @@ event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 
 [node name="Special" type="Node" parent="StateMachine" node_paths=PackedStringArray("regular", "charged")]
 script = ExtResource("10_7cxsd")
-regular = NodePath("ToneSpecial")
+regular = NodePath("ToneSlowWave")
 charged = NodePath("SpecialAbility")
 
-[node name="ToneSpecial" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("animation")]
+[node name="ToneSlowWave" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_n7ie5")
 animation = NodePath("../../../nova_animations_kobold/Slash5")
 
@@ -2865,8 +2866,8 @@ script = ExtResource("6_n7ie5")
 animation = NodePath("../../../../nova_animations_kobold/Hurt")
 
 [node name="ToneForte" type="Node" parent="StateMachine/Special/SpecialAbility" node_paths=PackedStringArray("animation")]
-script = ExtResource("6_n7ie5")
-animation = NodePath("../../../../nova_animations_kobold/Hurt")
+script = ExtResource("12_bxptc")
+animation = NodePath("../../../../nova_animations_kobold/Die")
 
 [node name="ToneStunWave" type="Node" parent="StateMachine/Special/SpecialAbility" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_n7ie5")
@@ -3133,6 +3134,7 @@ pivot_offset = Vector2(32, 32)
 layout_mode = 2
 
 [node name="Note1" type="TextureRect" parent="DawnUI/HBoxContainer/Center"]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("25_xphuo")
@@ -3146,6 +3148,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
 [node name="Note2" type="TextureRect" parent="DawnUI/HBoxContainer/Center2"]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("25_xphuo")
@@ -3188,7 +3191,8 @@ fade_out = SubResource("Curve_wex2d")
 [connection signal="entered" from="StateMachine/AttackingCharged" to="Effects/SingWave" method="set_emitting" binds= [true]]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="nova_animations_kobold/Charging Special" method="enter"]
 [connection signal="max_charge_count" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play_one_shot"]
-[connection signal="fire" from="StateMachine/Special/ToneSpecial" to="ToneEmitter" method="spawn_slow_wave"]
+[connection signal="finished" from="StateMachine/Special/ToneSlowWave" to="." method="set_special_cd"]
+[connection signal="fire" from="StateMachine/Special/ToneSlowWave" to="ToneEmitter" method="spawn_slow_wave"]
 [connection signal="fire" from="StateMachine/Special/SpecialAbility/ToneWave" to="ToneEmitter" method="spawn_wave"]
 [connection signal="fire" from="StateMachine/Special/SpecialAbility/ToneStunWave" to="ToneEmitter" method="spawn_stun_wave"]
 [connection signal="fire" from="StateMachine/Special/SpecialAbility/ToneVortex" to="ToneEmitter" method="spawn_vortex_note"]

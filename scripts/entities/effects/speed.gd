@@ -8,9 +8,12 @@ func _init(_strength := 1.5) -> void:
 	id = EffectID.SPEED;
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	active = true
-	_entity._movement_speed *= strength
+func try_apply(entity: Entity) -> bool:
+	if super(entity):
+		active = true
+		entity._movement_speed *= strength
+		return true
+	return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(_delta: float) -> bool:
