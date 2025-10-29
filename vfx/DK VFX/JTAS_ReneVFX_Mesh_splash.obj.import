@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bsidxlfr53h48"
+path="res://.godot/imported/JTAS_ReneVFX_Mesh_splash.obj-5bf277d9ac7d03f0eaf7088abd89d565.mesh"
+
+[deps]
+
+files=["res://.godot/imported/JTAS_ReneVFX_Mesh_splash.obj-5bf277d9ac7d03f0eaf7088abd89d565.mesh"]
+
+source_file="res://vfx/DK VFX/JTAS_ReneVFX_Mesh_splash.obj"
+dest_files=["res://.godot/imported/JTAS_ReneVFX_Mesh_splash.obj-5bf277d9ac7d03f0eaf7088abd89d565.mesh", "res://.godot/imported/JTAS_ReneVFX_Mesh_splash.obj-5bf277d9ac7d03f0eaf7088abd89d565.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
