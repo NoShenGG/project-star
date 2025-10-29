@@ -10,6 +10,7 @@ enum EffectID {
 	SLOWED
 	SPEED
 	FORTE
+	TEMPO
 }
 var id: EffectID
 var _entity: Entity

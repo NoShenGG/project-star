@@ -3,7 +3,7 @@ class_name Forte extends TimedEntityEffect
 var speed: float
 var dmg: float
 
-func _init(duration: float, _speed := 1.25, _damage := 1.5) -> void:
+func _init(duration: float, _speed := 5, _damage := 5) -> void:
 	effect_duration = floor(duration * 1000)
 	effect_tick_interval = effect_duration + 1
 	speed = _speed
@@ -13,8 +13,8 @@ func _init(duration: float, _speed := 1.25, _damage := 1.5) -> void:
 # Called when the node enters the scene tree for the first time.
 func try_apply(entity: Entity) -> bool:
 	if super(entity):
-		entity._movement_speed *= speed
-		entity.damage_mult *= dmg
+		entity._movement_speed += speed
+		entity.damage_mult += dmg
 		return true
 	return false
 
@@ -26,5 +26,5 @@ func tick() -> void:
 	pass
 
 func stop() -> void:
-	_entity._movement_speed /= speed
-	_entity.damage_mult /= dmg
+	_entity._movement_speed += speed
+	_entity.damage_mult += dmg

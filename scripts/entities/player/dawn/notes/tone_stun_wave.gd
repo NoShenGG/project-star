@@ -8,11 +8,6 @@ func start() -> void:
 	hitbox.monitoring = true
 	spawn.emit()
 	dawn.note_manager.add_red()
-	
-func _process(delta: float) -> void:
-	var diff = delta * speed
-	scale.x += diff
-	scale.z += diff
 
 func hitbox_entered(body: Node3D) -> void:
 	if body is Enemy:

@@ -17,10 +17,10 @@ func _ready() -> void:
 	assert(dawn != null)
 	assert(melody != null)
 	assert(slow_wave != null)
-	#assert(fish != null)
+	assert(fish != null)
 	assert(wave != null)
-	#assert(stun_wave != null)
-	#assert(vortex_note != null)
+	assert(stun_wave != null)
+	assert(vortex_note != null)
 	#assert(ice_zone != null)
 
 func spawn_melody() -> void:
@@ -48,13 +48,19 @@ func spawn_wave() -> void:
 	temp.start()
 
 func spawn_stun_wave() -> void:
-	var temp = stun_wave.new()
+	var temp: Tone = stun_wave.instantiate()
 	add_child(temp)
+	temp.setup(dawn)
+	temp.start()
 
 func spawn_vortex_note() -> void:
-	var temp = vortex_note.new()
+	var temp: Tone = vortex_note.instantiate()
 	add_child(temp)
+	temp.setup(dawn)
+	temp.start()
 
 func spawn_ice_zone() -> void:
-	var temp = ice_zone.new()
+	var temp: Tone = ice_zone.instantiate()
 	add_child(temp)
+	temp.setup(dawn)
+	temp.start()

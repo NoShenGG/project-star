@@ -1,35 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://crtpdqb2ymr2p"]
+[gd_scene load_steps=7 format=3 uid="uid://crtpdqb2ymr2p"]
 
 [ext_resource type="Script" uid="uid://bams216er2qvq" path="res://scripts/entities/player/dawn/notes/tone_slow_wave.gd" id="1_qvqb4"]
+[ext_resource type="Shader" uid="uid://3b3kknb84rhv" path="res://scenes/dev/arshiya_r/spinning_magic_circle.tres" id="2_pdbj3"]
+[ext_resource type="Texture2D" uid="uid://cuwr2e2lkhej" path="res://vfx/Kenny Particle Pack/magic_02.png" id="3_8lfsq"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvqb4"]
-transparency = 1
-albedo_color = Color(0, 0.3764706, 1, 0.44313726)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qvqb4"]
+radius = 1.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_tc7to"]
-material = SubResource("StandardMaterial3D_qvqb4")
-size = Vector3(8, 4, 0.1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ub30g"]
+render_priority = 0
+shader = ExtResource("2_pdbj3")
+shader_parameter/circle_color = Color(0.5372549, 0.96862745, 0.6392157, 1)
+shader_parameter/Circle_Texture = ExtResource("3_8lfsq")
+shader_parameter/Extra_Opacity = 0.10000000475
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qvqb4"]
-size = Vector3(8, 4, 0.1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_m78g6"]
+size = Vector2(3, 3)
 
 [node name="ToneSlowWave" type="Node3D" node_paths=PackedStringArray("hitbox")]
 top_level = true
 script = ExtResource("1_qvqb4")
 hitbox = NodePath("Area3D")
 max_duration = 5.0
-speed = 5.0
+speed = 3.0
 damage = 0.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-mesh = SubResource("BoxMesh_tc7to")
-
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 0
 collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_qvqb4")
+shape = SubResource("CylinderShape3D_qvqb4")
+
+[node name="CircleMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_ub30g")
+mesh = SubResource("PlaneMesh_m78g6")

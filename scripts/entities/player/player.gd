@@ -37,6 +37,8 @@ func _ready() -> void:
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
 
 func _process(_delta: float) -> void:
+	if self is Dawn:
+		print(_movement_speed)
 	super(_delta)
 	if special_cd_timer != null:
 		special_cooldown_update.emit((special_cd - special_cd_timer.time_left)/special_cd)
