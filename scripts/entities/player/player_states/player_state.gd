@@ -19,9 +19,30 @@ const VALID_STATES := [IDLE, MOVING, CHARGING, ATTACKING, ATTACKING_CHARGED, CHA
 
 var player: Player
 
-
 ## Saves instance of player as variable for all states.
 func _ready() -> void:
 	await owner.ready
 	player = owner as Player
 	assert(player != null, "The PlayerState state node must only be used with Player.")
+
+func get_player_manager() -> PlayerManager:
+	return player.player_manager
+
+func team_hurt(damage: float):
+	var p_manager = get_player_manager()
+	for x in p_manager.get_children():
+		if x is Player:
+			# hurts all players
+			x.try_damage(damage)
+
+func team_effect(e: EntityEffect):
+	var p_manager = get_player_manager()
+	for x in p_manager.get_children():
+		if x is Player:
+			pass
+
+func team_heal(amount: float):
+	var p_manager = get_player_manager()
+	for x in p_manager.get_children():
+		if x is Player:
+			x.try_heal(amount)
