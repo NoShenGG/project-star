@@ -27,22 +27,22 @@ func _ready() -> void:
 
 func get_player_manager() -> PlayerManager:
 	return player.player_manager
+	
+func get_players() -> Array[Player]:
+	return player.player_manager.players
 
 func team_hurt(damage: float):
-	var p_manager = get_player_manager()
-	for x in p_manager.get_children():
+	for x in get_players():
 		if x is Player:
 			# hurts all players
 			x.try_damage(damage)
 
 func team_effect(e: EntityEffect):
-	var p_manager = get_player_manager()
-	for x in p_manager.get_children():
+	for x in get_players():
 		if x is Player:
-			pass
+			e.try_apply(x)
 
 func team_heal(amount: float):
-	var p_manager = get_player_manager()
-	for x in p_manager.get_children():
+	for x in get_players():
 		if x is Player:
 			x.try_heal(amount)
