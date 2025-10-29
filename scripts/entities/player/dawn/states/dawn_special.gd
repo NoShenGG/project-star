@@ -23,6 +23,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 func state_done() -> void:
 	current_state.finished.disconnect(state_done)
 	current_state.exit()
+	current_state = null
 	end()
 
 func update(_delta: float) -> void:

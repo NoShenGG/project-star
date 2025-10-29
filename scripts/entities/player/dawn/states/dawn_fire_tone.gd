@@ -30,7 +30,7 @@ func await_end():
 	
 	if (dawn.death): return
 	if (finished_state): trigger_finished.emit(finished_state.get_path())
-	else: exit()
+	else: end()
 
 func update(_delta: float) -> void:
 	pass
@@ -44,12 +44,5 @@ func physics_update(delta: float) -> void:
 		dawn.move(delta, _move_speed_factor)
 	dawn.move_and_slide()
 
-func end() -> void:
-	super()
-	if not active:
-		return
-	finished.emit()
-
 func exit() -> void:
 	active = false
-	finished.emit()

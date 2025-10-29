@@ -9,6 +9,7 @@ enum EffectID {
 	GRABBED,
 	SLOWED
 	SPEED
+	FORTE
 }
 var id: EffectID
 var _entity: Entity
