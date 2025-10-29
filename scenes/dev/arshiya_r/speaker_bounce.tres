@@ -7,7 +7,7 @@
 input_name = "uv"
 
 [sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_aha3v"]
-default_input_values = [1, 0.0, 2, 1.0, 3, 0.95, 4, 1.0]
+default_input_values = [1, 0.0, 2, 1.0, 3, 0.97, 4, 1.0]
 initialized = true
 script = ExtResource("1_0yyvp")
 
@@ -96,7 +96,7 @@ void fragment() {
 // Remap:12
 	float n_in12p1 = 0.00000;
 	float n_in12p2 = 1.00000;
-	float n_in12p3 = 0.95000;
+	float n_in12p3 = 0.97000;
 	float n_in12p4 = 1.00000;
 	{
 		n_out12p0 = _remapFunc(vec3(n_out7p0), vec2(n_in12p1, n_in12p2), vec2(n_in12p3, n_in12p4));

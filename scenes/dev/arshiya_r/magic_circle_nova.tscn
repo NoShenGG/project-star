@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bi2pwq60ilskr"]
+[gd_scene load_steps=20 format=3 uid="uid://bi2pwq60ilskr"]
 
 [ext_resource type="Shader" uid="uid://cwxym6x8q6dfq" path="res://scenes/dev/arshiya_r/spinning_ring.tres" id="1_8f5l2"]
 [ext_resource type="Texture2D" uid="uid://cne34sq04otv2" path="res://scenes/dev/arshiya_r/nova_circle_textures/nova_ring.png" id="2_g7mh2"]
@@ -8,10 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://vfx/Kenny Particle Pack/star_04.png" id="4_g7mh2"]
 [ext_resource type="Texture2D" uid="uid://bugefgtvt5a83" path="res://scenes/dev/arshiya_r/nova_circle_textures/nova_star.png" id="4_raqfb"]
 
+[sub_resource type="Environment" id="Environment_g7mh2"]
+glow_enabled = true
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfcmf"]
 render_priority = 0
 shader = ExtResource("1_8f5l2")
-shader_parameter/circle_color = Color(0.90817404, 0, 0.15822014, 1)
+shader_parameter/circle_color = Color(1.1638972, 0, 0.21243016, 1)
 shader_parameter/Circle_Texture = ExtResource("2_g7mh2")
 shader_parameter/Extra_Opacity = 0.10000000475
 
@@ -20,7 +23,7 @@ shader_parameter/Extra_Opacity = 0.10000000475
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pnu6d"]
 render_priority = 0
 shader = ExtResource("1_8f5l2")
-shader_parameter/circle_color = Color(0.8128322, 0.63761204, 0, 1)
+shader_parameter/circle_color = Color(1.0234425, 0.80596423, 0, 1)
 shader_parameter/Circle_Texture = ExtResource("3_g7mh2")
 shader_parameter/Extra_Opacity = 0.0
 
@@ -29,7 +32,7 @@ shader_parameter/Extra_Opacity = 0.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mnait"]
 render_priority = 0
 shader = ExtResource("3_pnu6d")
-shader_parameter/circle_color = Color(1, 0, 0, 1)
+shader_parameter/circle_color = Color(1.1638972, 0, 0, 1)
 shader_parameter/Circle_Texture = ExtResource("4_raqfb")
 shader_parameter/Extra_Opacity = 0.0
 
@@ -68,6 +71,9 @@ alpha_curve = SubResource("CurveTexture_n0ury")
 size = Vector2(0.25, 0.25)
 
 [node name="Nova\'s Circle" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g7mh2")
 
 [node name="outer ring" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -1,21 +1,27 @@
 [gd_scene load_steps=34 format=3 uid="uid://dfidn58xx6ouo"]
 
 [ext_resource type="Texture2D" uid="uid://co8hksahut4ay" path="res://scenes/dev/arshiya_r/rene_circle_textures/clock_ring.png" id="2_skxqc"]
-[ext_resource type="Shader" path="res://scenes/dev/arshiya_r/gear.tres" id="3_pcs7c"]
+[ext_resource type="Shader" uid="uid://c1v1c0dkkcm60" path="res://scenes/dev/arshiya_r/gear.tres" id="3_pcs7c"]
 [ext_resource type="Texture2D" uid="uid://tq5q4bna3rdf" path="res://scenes/dev/arshiya_r/rene_circle_textures/hour_hand.png" id="4_gacpw"]
 [ext_resource type="Texture2D" uid="uid://dcdt44ph5kp45" path="res://scenes/dev/arshiya_r/rene_circle_textures/gear.png" id="4_skxqc"]
 [ext_resource type="Texture2D" uid="uid://ce5wn24wxtexr" path="res://scenes/dev/arshiya_r/rene_circle_textures/minute_hand.png" id="5_x7sj1"]
 [ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/circle_particles.tres" id="6_8bnff"]
 [ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="7_skxqc"]
 
+[sub_resource type="Environment" id="Environment_skxqc"]
+glow_enabled = true
+glow_intensity = 0.56
+glow_strength = 1.54
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 2.83
+glow_hdr_luminance_cap = 256.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfcmf"]
 render_priority = 0
 shader = ExtResource("3_pcs7c")
-shader_parameter/circle_color = Color(0.24313726, 0.09411765, 0, 1)
+shader_parameter/circle_color = Color(1.0789914, 0.5099408, 0, 1)
 shader_parameter/FloatParameter = -0.5
 shader_parameter/Circle_Texture = ExtResource("2_skxqc")
-shader_parameter/Extra_Opacity = 0.0
-shader_parameter/Glow = Color(0, 0, 0.012617, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a0i5e"]
 
@@ -26,8 +32,6 @@ shader = ExtResource("3_pcs7c")
 shader_parameter/circle_color = Color(0.5330367, 0.5330367, 0.5330367, 1)
 shader_parameter/FloatParameter = 1.0
 shader_parameter/Circle_Texture = ExtResource("4_skxqc")
-shader_parameter/Extra_Opacity = 0.0
-shader_parameter/Glow = Color(0, 0, 0.012617, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pu525"]
 
@@ -37,8 +41,6 @@ shader = ExtResource("3_pcs7c")
 shader_parameter/circle_color = Color(0.5330367, 0.5330367, 0.5330367, 1)
 shader_parameter/FloatParameter = -1.0
 shader_parameter/Circle_Texture = ExtResource("4_skxqc")
-shader_parameter/Extra_Opacity = 0.0
-shader_parameter/Glow = Color(0, 0, 0.012617, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_13oan"]
 
@@ -48,8 +50,6 @@ shader = ExtResource("3_pcs7c")
 shader_parameter/circle_color = Color(0.5489626, 0.5489626, 0.54896253, 1)
 shader_parameter/FloatParameter = -1.0
 shader_parameter/Circle_Texture = ExtResource("4_skxqc")
-shader_parameter/Extra_Opacity = 0.0
-shader_parameter/Glow = Color(0, 0, 0.012617, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_l3il5"]
 
@@ -60,8 +60,6 @@ shader = ExtResource("3_pcs7c")
 shader_parameter/circle_color = Color(0.5489626, 0.5489626, 0.54896253, 1)
 shader_parameter/FloatParameter = 1.0
 shader_parameter/Circle_Texture = ExtResource("4_skxqc")
-shader_parameter/Extra_Opacity = 0.0
-shader_parameter/Glow = Color(0, 0, 0.012617, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ua6st"]
 
@@ -71,8 +69,6 @@ shader = ExtResource("3_pcs7c")
 shader_parameter/circle_color = Color(0.52906674, 0.5290667, 0.5290667, 1)
 shader_parameter/FloatParameter = -1.0
 shader_parameter/Circle_Texture = ExtResource("4_skxqc")
-shader_parameter/Extra_Opacity = 0.0
-shader_parameter/Glow = Color(0, 0, 0.012617, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_26ymb"]
 
@@ -82,8 +78,6 @@ shader = ExtResource("3_pcs7c")
 shader_parameter/circle_color = Color(0.556953, 0.556953, 0.556953, 1)
 shader_parameter/FloatParameter = -1.0
 shader_parameter/Circle_Texture = ExtResource("4_skxqc")
-shader_parameter/Extra_Opacity = 0.0
-shader_parameter/Glow = Color(0, 0, 0.012617, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ka5bj"]
 
@@ -93,30 +87,24 @@ shader = ExtResource("3_pcs7c")
 shader_parameter/circle_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
 shader_parameter/FloatParameter = 1.0
 shader_parameter/Circle_Texture = ExtResource("4_skxqc")
-shader_parameter/Extra_Opacity = 0.0
-shader_parameter/Glow = Color(0, 0, 0.012617, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_c3v7f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53p8o"]
 render_priority = 0
 shader = ExtResource("3_pcs7c")
-shader_parameter/circle_color = Color(1, 0.97269243, 0.07016479, 1)
+shader_parameter/circle_color = Color(1.825, 1.825, 0, 1)
 shader_parameter/FloatParameter = 1.0
 shader_parameter/Circle_Texture = ExtResource("4_gacpw")
-shader_parameter/Extra_Opacity = 0.0
-shader_parameter/Glow = Color(16.991, 16.709, 0, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_0vail"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_skxqc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qhm8h"]
 render_priority = 0
 shader = ExtResource("3_pcs7c")
-shader_parameter/circle_color = Color(1, 0.972549, 0.07058824, 1)
+shader_parameter/circle_color = Color(1.825, 1.825, 0, 1)
 shader_parameter/FloatParameter = 6.0
 shader_parameter/Circle_Texture = ExtResource("5_x7sj1")
-shader_parameter/Extra_Opacity = 0.0
-shader_parameter/Glow = Color(18.610441, 18.751299, 4.1724997, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vm21y"]
 
@@ -155,10 +143,10 @@ alpha_curve = SubResource("CurveTexture_n0ury")
 [sub_resource type="QuadMesh" id="QuadMesh_gajvk"]
 size = Vector2(0.25, 0.25)
 
-[sub_resource type="Environment" id="Environment_skxqc"]
-glow_enabled = true
-
 [node name="Rene\'s Circle" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_skxqc")
 
 [node name="outer ring" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -223,7 +211,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 
 [node name="hour hand" type="MeshInstance3D" parent="hands"]
 material_override = SubResource("ShaderMaterial_53p8o")
-mesh = SubResource("PlaneMesh_0vail")
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+mesh = SubResource("PlaneMesh_skxqc")
 
 [node name="minute hand" type="MeshInstance3D" parent="hands"]
 material_override = SubResource("ShaderMaterial_qhm8h")
@@ -238,7 +228,3 @@ randomness = 1.0
 visibility_aabb = AABB(-4, -4, -4, 1, 1, 1)
 process_material = SubResource("ParticleProcessMaterial_xscg6")
 draw_pass_1 = SubResource("QuadMesh_gajvk")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.23383047, -0.1588646, 0.9592108, -0.037625223, 0.98730046, 0.15434475, -0.97154915, -1.528927e-08, -0.2368382, 2.2831352, 1.934764, -0.3613428)
-environment = SubResource("Environment_skxqc")
