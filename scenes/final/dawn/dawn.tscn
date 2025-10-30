@@ -2897,8 +2897,6 @@ animation = NodePath("../../../../nova_animations_kobold/ChargingSlash")
 
 [node name="ToneFishShield" type="Node" parent="StateMachine/Special/SpecialAbility" node_paths=PackedStringArray("shield_mesh", "shield", "animation")]
 script = ExtResource("13_e60w5")
-force = null
-damage = null
 shield_mesh = NodePath("../../../../Effects/Shield")
 shield = NodePath("../../../../Hitboxes/FishShield")
 animation = NodePath("../../../../nova_animations_kobold/Dash")
@@ -3060,6 +3058,7 @@ process_material = SubResource("ParticleProcessMaterial_e60w5")
 draw_pass_1 = SubResource("TorusMesh_owh2v")
 
 [node name="Shield" type="MeshInstance3D" parent="Effects"]
+visible = false
 mesh = SubResource("SphereMesh_pk6rl")
 
 [node name="ForwardRay" type="ShapeCast3D" parent="."]
