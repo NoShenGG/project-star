@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Project Star"
 run/main_scene="uid://c7c5p3woxcwaj"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://6yho8q064sn0"
 
 [input]
