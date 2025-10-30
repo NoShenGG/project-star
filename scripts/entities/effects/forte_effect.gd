@@ -26,5 +26,5 @@ func tick() -> void:
 	pass
 
 func stop() -> void:
-	_entity._movement_speed += speed
-	_entity.damage_mult += dmg
+	_entity._movement_speed -= speed
+	_entity.damage_mult -= dmg

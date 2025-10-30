@@ -26,6 +26,8 @@ func _process(delta: float) -> void:
 	
 
 func hitbox_entered(body: Node3D) -> void:
+	if timer == null:
+		return
 	if body is Player:
 		body = body as Player
 		var effect := Speed.new()

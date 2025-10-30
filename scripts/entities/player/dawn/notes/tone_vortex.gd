@@ -6,7 +6,6 @@ extends Tone
 @export var projectile_mesh: MeshInstance3D
 @export var effect_hitbox: Area3D
 @export var particles: GPUParticles3D
-@export var ring_mesh: MeshInstance3D
 
 var timer
 var move: bool = true
@@ -41,7 +40,6 @@ func stop_moving() -> void:
 	projectile_mesh.visible = false
 	effect_hitbox.monitoring = true
 	particles.emitting = true
-	ring_mesh.visible = true
 	timer = get_tree().create_timer(persist_time)
 	timer.timeout.connect(destroy)
 

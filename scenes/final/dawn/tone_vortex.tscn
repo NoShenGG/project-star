@@ -1,40 +1,41 @@
-[gd_scene load_steps=11 format=3 uid="uid://cl4unmlmmfvgl"]
+[gd_scene load_steps=10 format=3 uid="uid://cl4unmlmmfvgl"]
 
 [ext_resource type="Script" uid="uid://dxv5sbe5r57wh" path="res://scripts/entities/player/dawn/notes/tone_vortex.gd" id="1_4ldgq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4ldgq"]
-radius = 5.0
+radius = 8.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4ldgq"]
 emission_shape_scale = Vector3(1, 0, 1)
 emission_shape = 6
 emission_ring_axis = Vector3(0, 1, 0)
 emission_ring_height = 0.0
-emission_ring_radius = 5.0
-emission_ring_inner_radius = 5.0
+emission_ring_radius = 8.0
+emission_ring_inner_radius = 8.0
 emission_ring_cone_angle = 90.0
-direction = Vector3(0, 1, 0)
+velocity_pivot = Vector3(0, 0, 1)
+direction = Vector3(0, 0, 0)
 spread = 0.0
 gravity = Vector3(0, -1, 0)
-radial_accel_min = -5.000002
-radial_accel_max = -5.000002
+radial_accel_min = -20.000002
+radial_accel_max = -20.000002
+
+[sub_resource type="Curve" id="Curve_4ldgq"]
+_data = [Vector2(0, 0.29050595), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exp3l"]
 transparency = 1
-albedo_color = Color(1, 0, 0, 0.5411765)
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 0.49411765, 0, 0.41960785)
+use_particle_trails = true
 
-[sub_resource type="SphereMesh" id="SphereMesh_4ldgq"]
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_jn1jo"]
 material = SubResource("StandardMaterial3D_exp3l")
-radius = 0.15
-height = 0.3
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jn1jo"]
-albedo_color = Color(1, 0.43137255, 0, 1)
-
-[sub_resource type="TorusMesh" id="TorusMesh_urrtf"]
-material = SubResource("StandardMaterial3D_jn1jo")
-inner_radius = 5.0
-outer_radius = 5.1
+size = 0.3
+section_segments = 8
+curve = SubResource("Curve_4ldgq")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ldgq"]
 albedo_color = Color(1, 0, 0, 1)
@@ -44,13 +45,12 @@ material = SubResource("StandardMaterial3D_4ldgq")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ldgq"]
 
-[node name="ToneVortex" type="Node3D" node_paths=PackedStringArray("projectile_mesh", "effect_hitbox", "particles", "ring_mesh", "hitbox")]
+[node name="ToneVortex" type="Node3D" node_paths=PackedStringArray("projectile_mesh", "effect_hitbox", "particles", "hitbox")]
 top_level = true
 script = ExtResource("1_4ldgq")
 projectile_mesh = NodePath("Projectile")
 effect_hitbox = NodePath("Zone")
 particles = NodePath("Particles")
-ring_mesh = NodePath("Ring")
 hitbox = NodePath("ProjectileArea")
 max_duration = 5.0
 speed = 5.0
@@ -67,15 +67,14 @@ shape = SubResource("CylinderShape3D_4ldgq")
 
 [node name="Particles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-amount = 200
-lifetime = 1.4000000000000001
+emitting = false
+amount = 100
+lifetime = 0.8
+speed_scale = 1.5
+trail_enabled = true
+trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_4ldgq")
-draw_pass_1 = SubResource("SphereMesh_4ldgq")
-
-[node name="Ring" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
-mesh = SubResource("TorusMesh_urrtf")
+draw_pass_1 = SubResource("RibbonTrailMesh_jn1jo")
 
 [node name="Projectile" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -32,12 +32,8 @@ func try_apply(entity: Entity) -> bool:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(delta: float) -> bool:
-	var spd_diff = spd * delta / dur
-	if spd_added < spd_diff:
-		spd_diff = spd_added
-	var dmg_diff = spd * delta / dur
-	if dmg_added < dmg_diff:
-		dmg_diff = dmg_added
+	var spd_diff = min(spd * delta / dur, spd_added)
+	var dmg_diff = min(dmg * delta / dur, dmg_added)
 	spd_added -= spd_diff
 	dmg_added -= dmg_diff 
 	_entity._movement_speed -= spd_diff
@@ -46,9 +42,9 @@ func process(delta: float) -> bool:
 		if body is Enemy:
 			body.global_position -= \
 				body.global_position.direction_to(_entity.global_position) \
-				* 0.1 \
+				* 1.0 \
 				* Vector3(1, 0, 1)
-			(body as Enemy).try_damage(1.0)
+			(body as Enemy).try_damage(0.1)
 	return super(delta)
 	
 func tick() -> void:
@@ -57,4 +53,8 @@ func tick() -> void:
 func stop() -> void:
 	mesh.visible = false
 	area.monitoring = false
+	_entity._movement_speed -= spd_added
+	_entity.damage_mult -= dmg_added
+	spd_added = 0
+	dmg_added = 0
 	
