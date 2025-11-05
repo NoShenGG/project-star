@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cofkapiydul1w"]
+
+[ext_resource type="Shader" uid="uid://bs0wrr0s6gmor" path="res://shaders/AxisBillboardShaded.gdshader" id="1_kchmd"]
+[ext_resource type="Texture2D" uid="uid://ltm5f8pc1b2f" path="res://vfx/Kenny Particle Pack/spark_06.png" id="2_1mlr6"]
+[ext_resource type="Script" uid="uid://dbkie7yx7lxiq" path="res://vfx/LaserMaterialScale.gd" id="3_xjwsw"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_uie6d"]
+center_offset = Vector3(0, -0.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_epov0"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_kchmd")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_1mlr6")
+shader_parameter/texture_emission = ExtResource("2_1mlr6")
+shader_parameter/emission = Color(1, 0.625, 0.25, 1)
+shader_parameter/emission_energy = 1.0
+shader_parameter/uv1_scale = Vector3(1, 0.055, 0)
+shader_parameter/uv1_offset = Vector3(0, 5549.21, 0)
+
+[node name="CSGMesh3D3" type="MeshInstance3D"]
+transform = Transform3D(3.024, 0, 0, 0, 1.984, 0, 0, 0, 1, -2.27772e-22, 2.18557e-08, -9.55343e-16)
+cast_shadow = 0
+extra_cull_margin = 6169.28
+gi_mode = 0
+mesh = SubResource("QuadMesh_uie6d")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_epov0")
+script = ExtResource("3_xjwsw")
+vfx_material = SubResource("ShaderMaterial_epov0")
+vfx_scale = 0.055
+vfx_move_speed = -5.0
+instanced = true

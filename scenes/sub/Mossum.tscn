@@ -1,0 +1,1752 @@
+[gd_scene load_steps=118 format=3 uid="uid://d30qvxvgmp1bf"]
+
+[ext_resource type="Script" uid="uid://b4yuuj85lxdw8" path="res://scripts/entities/enemies/mossum/Mossum.gd" id="1_ecso2"]
+[ext_resource type="PackedScene" uid="uid://ddx34kp4dcdqk" path="res://art_assets/enemies/mossum/mossum_rig.gltf" id="2_g0rg0"]
+[ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_l26uf"]
+[ext_resource type="PackedScene" uid="uid://djsyxx84m10x4" path="res://scenes/tool/wool_shell_texturing.tscn" id="4_2pn82"]
+[ext_resource type="ArrayMesh" uid="uid://bypccelfa5tm" path="res://art_assets/enemies/mossum/body.res" id="5_jimdk"]
+[ext_resource type="Shader" uid="uid://bvi3yis7lfg51" path="res://shaders/wool_shell_texturing.gdshader" id="6_jl60r"]
+[ext_resource type="Texture2D" uid="uid://c03u082aeesl3" path="res://art_assets/textures/wool_albedo.jpg" id="7_mdqfx"]
+[ext_resource type="Texture2D" uid="uid://d4cvc3dpy6lgc" path="res://art_assets/textures/wool_height.jpg" id="8_5ws1j"]
+[ext_resource type="PackedScene" uid="uid://di4qml3bmbcmh" path="res://art_assets/enemies/Weapons/SwordBase.glb" id="9_ye2ne"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3yrp7"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 0
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dd6ky"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 1
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pn82"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 2
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jimdk"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 3
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jl60r"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 4
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mdqfx"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 5
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ws1j"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 6
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ye2ne"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 7
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s7jtx"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 8
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hj6e"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 9
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qshis"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 10
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oxgda"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 11
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ryfo6"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 12
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sm1im"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 13
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8o5ev"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 14
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6lb2m"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 15
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jekpj"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 16
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fapi"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 17
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_18w0e"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 18
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axb4w"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 19
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ae5rv"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 20
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wgn6f"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 21
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ao0xf"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 22
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wyl3q"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 23
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dpclm"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 24
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmyt3"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 25
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7yyyg"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 26
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxyta"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 27
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2cks"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 28
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6c4oy"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 29
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k1hgo"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 30
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3bm0d"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 31
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3hwj6"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 32
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nik38"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 33
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_on2l1"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 34
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2t8m"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 35
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_snncs"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 36
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sd0vs"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 37
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1uwp"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 38
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hnqlv"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 39
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3rki"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 40
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tm7gd"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 41
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_brv18"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 42
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4s8s"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 43
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0iaan"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 44
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2eo0j"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 45
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hcbm"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 46
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0hir3"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 47
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hyayo"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 48
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hf8cy"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 49
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bf8nq"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 50
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v352l"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 51
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kvb0x"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 52
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dw78k"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 53
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c1t7o"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 54
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_758w4"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 55
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mlc02"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 56
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gr2c4"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 57
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xey3f"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 58
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hy43u"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 59
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4nn4"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 60
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fpg1"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 61
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ub65t"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 62
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uk11m"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 63
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c444"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 64
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2uedi"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 65
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t77sk"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 66
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_imrsg"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 67
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ur1yv"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 68
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bfis"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 69
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4e04"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 70
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tpewh"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 71
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjt4w"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 72
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwwx3"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 73
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04rpi"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 74
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4how4"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 75
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cra8"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 76
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kn1av"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 77
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86mcq"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 78
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_haevj"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 79
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjht7"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 80
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_up8t2"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 81
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_asw3s"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 82
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d4l3d"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 83
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jctmt"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 84
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eev4g"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 85
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6vf7g"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 86
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ww3mq"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 87
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glays"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 88
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4n273"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 89
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bj5c3"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 90
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_va3ut"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 91
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yunlk"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 92
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4xulr"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 93
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nrrf3"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 94
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1nkm4"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 95
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cf3gs"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 96
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpn8d"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 97
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3rbxa"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 98
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_evhp7"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 99
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wqn3s"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 100
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bgon8"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 101
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xg1kw"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 102
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2d333"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 103
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8pbd0"]
+render_priority = 0
+shader = ExtResource("6_jl60r")
+shader_parameter/albedo = ExtResource("7_mdqfx")
+shader_parameter/height_map = ExtResource("8_5ws1j")
+shader_parameter/texture_scale = 1.0
+shader_parameter/tint = Vector3(1, 1, 1)
+shader_parameter/shell_count = 105
+shader_parameter/shell_idx = 104
+shader_parameter/shell_displacement = 0.08
+shader_parameter/min_ambient_occlusion = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l26uf"]
+size = Vector3(0.805, 1.005, 1.61)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g0rg0"]
+height = 0.1
+radius = 10.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g0rg0"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Mossum" type="CharacterBody3D"]
+collision_layer = 10
+collision_mask = 3
+script = ExtResource("1_ecso2")
+attack_radius = 3.0
+
+[node name="mossum_rig" parent="." instance=ExtResource("2_g0rg0")]
+transform = Transform3D(-3.235, 0, -4.884714e-07, 0, 3.235, 0, 4.884714e-07, 0, -3.235, 0, -0.54, 0)
+
+[node name="WoolShellTexturing" parent="mossum_rig" instance=ExtResource("4_2pn82")]
+transform = Transform3D(0.891, 0, 0, 0, 0.891, 0, 0, 0, 0.891, 0, 0.042, 0.016)
+mesh = ExtResource("5_jimdk")
+tint = Color(0.55462426, 0.81734395, 0.49319303, 1)
+shell_count = 105
+shell_displacement = 0.08
+min_ambient_occlusion = 0.4
+
+[node name="@MeshInstance3D@57673" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_3yrp7")
+
+[node name="@MeshInstance3D@57674" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_dd6ky")
+
+[node name="@MeshInstance3D@57675" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_2pn82")
+
+[node name="@MeshInstance3D@57676" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_jimdk")
+
+[node name="@MeshInstance3D@57677" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_jl60r")
+
+[node name="@MeshInstance3D@57678" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_mdqfx")
+
+[node name="@MeshInstance3D@57679" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_5ws1j")
+
+[node name="@MeshInstance3D@57680" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_ye2ne")
+
+[node name="@MeshInstance3D@57681" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_s7jtx")
+
+[node name="@MeshInstance3D@57682" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_7hj6e")
+
+[node name="@MeshInstance3D@57683" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_qshis")
+
+[node name="@MeshInstance3D@57684" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_oxgda")
+
+[node name="@MeshInstance3D@57685" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_ryfo6")
+
+[node name="@MeshInstance3D@57686" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_sm1im")
+
+[node name="@MeshInstance3D@57687" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_8o5ev")
+
+[node name="@MeshInstance3D@57688" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_6lb2m")
+
+[node name="@MeshInstance3D@57689" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_jekpj")
+
+[node name="@MeshInstance3D@57690" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_0fapi")
+
+[node name="@MeshInstance3D@57691" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_18w0e")
+
+[node name="@MeshInstance3D@57692" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_axb4w")
+
+[node name="@MeshInstance3D@57693" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_ae5rv")
+
+[node name="@MeshInstance3D@57694" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_wgn6f")
+
+[node name="@MeshInstance3D@57695" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_ao0xf")
+
+[node name="@MeshInstance3D@57696" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_wyl3q")
+
+[node name="@MeshInstance3D@57697" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_dpclm")
+
+[node name="@MeshInstance3D@57698" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_wmyt3")
+
+[node name="@MeshInstance3D@57699" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_7yyyg")
+
+[node name="@MeshInstance3D@57700" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_kxyta")
+
+[node name="@MeshInstance3D@57701" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_n2cks")
+
+[node name="@MeshInstance3D@57702" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_6c4oy")
+
+[node name="@MeshInstance3D@57703" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_k1hgo")
+
+[node name="@MeshInstance3D@57704" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_3bm0d")
+
+[node name="@MeshInstance3D@57705" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_3hwj6")
+
+[node name="@MeshInstance3D@57706" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_nik38")
+
+[node name="@MeshInstance3D@57707" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_on2l1")
+
+[node name="@MeshInstance3D@57708" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_n2t8m")
+
+[node name="@MeshInstance3D@57709" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_snncs")
+
+[node name="@MeshInstance3D@57710" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_sd0vs")
+
+[node name="@MeshInstance3D@57711" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_n1uwp")
+
+[node name="@MeshInstance3D@57712" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_hnqlv")
+
+[node name="@MeshInstance3D@57713" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_h3rki")
+
+[node name="@MeshInstance3D@57714" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_tm7gd")
+
+[node name="@MeshInstance3D@57715" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_brv18")
+
+[node name="@MeshInstance3D@57716" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_y4s8s")
+
+[node name="@MeshInstance3D@57717" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_0iaan")
+
+[node name="@MeshInstance3D@57718" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_2eo0j")
+
+[node name="@MeshInstance3D@57719" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_1hcbm")
+
+[node name="@MeshInstance3D@57720" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_0hir3")
+
+[node name="@MeshInstance3D@57721" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_hyayo")
+
+[node name="@MeshInstance3D@57722" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_hf8cy")
+
+[node name="@MeshInstance3D@57723" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_bf8nq")
+
+[node name="@MeshInstance3D@57724" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_v352l")
+
+[node name="@MeshInstance3D@57725" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_kvb0x")
+
+[node name="@MeshInstance3D@57726" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_dw78k")
+
+[node name="@MeshInstance3D@57727" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_c1t7o")
+
+[node name="@MeshInstance3D@57728" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_758w4")
+
+[node name="@MeshInstance3D@57729" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_mlc02")
+
+[node name="@MeshInstance3D@57730" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_gr2c4")
+
+[node name="@MeshInstance3D@57731" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_xey3f")
+
+[node name="@MeshInstance3D@57732" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_hy43u")
+
+[node name="@MeshInstance3D@57733" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_e4nn4")
+
+[node name="@MeshInstance3D@57734" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_7fpg1")
+
+[node name="@MeshInstance3D@57735" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_ub65t")
+
+[node name="@MeshInstance3D@57736" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_uk11m")
+
+[node name="@MeshInstance3D@57737" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_8c444")
+
+[node name="@MeshInstance3D@57738" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_2uedi")
+
+[node name="@MeshInstance3D@57739" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_t77sk")
+
+[node name="@MeshInstance3D@57740" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_imrsg")
+
+[node name="@MeshInstance3D@57741" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_ur1yv")
+
+[node name="@MeshInstance3D@57742" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_6bfis")
+
+[node name="@MeshInstance3D@57743" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_j4e04")
+
+[node name="@MeshInstance3D@57744" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_tpewh")
+
+[node name="@MeshInstance3D@57745" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_hjt4w")
+
+[node name="@MeshInstance3D@57746" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_cwwx3")
+
+[node name="@MeshInstance3D@57747" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_04rpi")
+
+[node name="@MeshInstance3D@57748" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_4how4")
+
+[node name="@MeshInstance3D@57749" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_0cra8")
+
+[node name="@MeshInstance3D@57750" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_kn1av")
+
+[node name="@MeshInstance3D@57751" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_86mcq")
+
+[node name="@MeshInstance3D@57752" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_haevj")
+
+[node name="@MeshInstance3D@57753" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_cjht7")
+
+[node name="@MeshInstance3D@57754" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_up8t2")
+
+[node name="@MeshInstance3D@57755" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_asw3s")
+
+[node name="@MeshInstance3D@57756" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_d4l3d")
+
+[node name="@MeshInstance3D@57757" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_jctmt")
+
+[node name="@MeshInstance3D@57758" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_eev4g")
+
+[node name="@MeshInstance3D@57759" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_6vf7g")
+
+[node name="@MeshInstance3D@57760" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_ww3mq")
+
+[node name="@MeshInstance3D@57761" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_glays")
+
+[node name="@MeshInstance3D@57762" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_4n273")
+
+[node name="@MeshInstance3D@57763" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_bj5c3")
+
+[node name="@MeshInstance3D@57764" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_va3ut")
+
+[node name="@MeshInstance3D@57765" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_yunlk")
+
+[node name="@MeshInstance3D@57766" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_4xulr")
+
+[node name="@MeshInstance3D@57767" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_nrrf3")
+
+[node name="@MeshInstance3D@57768" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_1nkm4")
+
+[node name="@MeshInstance3D@57769" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_cf3gs")
+
+[node name="@MeshInstance3D@57770" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_qpn8d")
+
+[node name="@MeshInstance3D@57771" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_3rbxa")
+
+[node name="@MeshInstance3D@57772" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_evhp7")
+
+[node name="@MeshInstance3D@57773" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_wqn3s")
+
+[node name="@MeshInstance3D@57774" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_bgon8")
+
+[node name="@MeshInstance3D@57775" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_xg1kw")
+
+[node name="@MeshInstance3D@57776" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_2d333")
+
+[node name="@MeshInstance3D@57777" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_8pbd0")
+
+[node name="SwordBase" parent="mossum_rig" instance=ExtResource("9_ye2ne")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.205, 0.565)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_l26uf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 10.0
+target_desired_distance = 2.0
+path_max_distance = 100.01
+debug_enabled = true
+debug_path_custom_color = Color(0, 1, 0, 1)
+
+[node name="HitBoxes" type="Node3D" parent="."]
+
+[node name="Aggro" type="Area3D" parent="HitBoxes"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxes/Aggro"]
+shape = SubResource("CylinderShape3D_g0rg0")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="StatusBars" parent="." instance=ExtResource("2_l26uf")]
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.035, 0)
+texture = SubResource("ViewportTexture_g0rg0")
+
+[connection signal="break_update" from="." to="StatusBars" method="update_break"]
+[connection signal="health_update" from="." to="StatusBars" method="update_health"]
+[connection signal="body_entered" from="HitBoxes/Aggro" to="." method="_on_aggro_body_entered"]
+[connection signal="body_exited" from="HitBoxes/Aggro" to="." method="_on_aggro_body_exited"]
+
+[editable path="mossum_rig"]

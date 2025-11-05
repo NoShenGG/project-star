@@ -1,0 +1,121 @@
+[gd_scene load_steps=25 format=3 uid="uid://b6r4a47vanq2s"]
+
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_wr5no"]
+[ext_resource type="Shader" uid="uid://c1ejvl4y3cexw" path="res://shaders/UnshadedBloomBillboard.gdshader" id="2_4ebmc"]
+[ext_resource type="Shader" uid="uid://b07cyfbdytoe5" path="res://shaders/AxisBillboardUnshaded.gdshader" id="4_4ebmc"]
+[ext_resource type="Texture2D" uid="uid://bibdyfd6gy44q" path="res://vfx/Kenny Particle Pack/flame_06.png" id="5_rrsi3"]
+[ext_resource type="Shader" uid="uid://d2y5522fpybtj" path="res://shaders/UnshadedBloom.gdshader" id="6_doeoh"]
+[ext_resource type="PackedScene" uid="uid://cofkapiydul1w" path="res://vfx/Demo Lazer.tscn" id="9_ys30r"]
+[ext_resource type="Shader" uid="uid://bs0wrr0s6gmor" path="res://shaders/AxisBillboardShaded.gdshader" id="10_ntm4i"]
+[ext_resource type="Texture2D" uid="uid://ltm5f8pc1b2f" path="res://vfx/Kenny Particle Pack/spark_06.png" id="11_77x43"]
+
+[sub_resource type="Curve" id="Curve_feigo"]
+_data = [Vector2(0, 0.49396), 0.0, 0.0, 0, 0, Vector2(0.141379, 1), 0.0, 0.0, 0, 0, Vector2(0.710345, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_13a5t"]
+curve = SubResource("Curve_feigo")
+
+[sub_resource type="Curve" id="Curve_doeoh"]
+_data = [Vector2(0, 0.119887), 0.0, 1.18163, 0, 0, Vector2(1, 1), 0.997003, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_c1s4m"]
+curve = SubResource("Curve_doeoh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gvyfk"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_c1s4m")
+alpha_curve = SubResource("CurveTexture_13a5t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ys30r"]
+render_priority = 0
+shader = ExtResource("2_4ebmc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ntm4i"]
+material = SubResource("ShaderMaterial_ys30r")
+orientation = 2
+
+[sub_resource type="Curve" id="Curve_rrsi3"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.531034, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_feigo"]
+curve = SubResource("Curve_rrsi3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_13a5t"]
+emission_shape = 2
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+scale_max = 3.0
+alpha_curve = SubResource("CurveTexture_feigo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r5ysc"]
+render_priority = 0
+shader = ExtResource("4_4ebmc")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("5_rrsi3")
+shader_parameter/emission = Color(1, 0, 0, 1)
+shader_parameter/emission_energy = 8.05
+shader_parameter/uv1_scale = Vector3(1, -0.605, 1)
+shader_parameter/uv1_offset = Vector3(0, -0.25, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x3yuu"]
+material = SubResource("ShaderMaterial_r5ysc")
+size = Vector2(3.15, 2)
+center_offset = Vector3(0, -1, 0)
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13a5t"]
+render_priority = 0
+shader = ExtResource("6_doeoh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_doeoh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_r5ysc"]
+size = Vector2(10.805, 1)
+center_offset = Vector3(0, -0.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3yuu"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("10_ntm4i")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("11_77x43")
+shader_parameter/texture_emission = ExtResource("11_77x43")
+shader_parameter/emission = Color(1, 0.25, 0.25, 1)
+shader_parameter/emission_energy = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1.47895, 0)
+shader_parameter/uv1_offset = Vector3(0, 3972.83, 0)
+
+[node name="DemoVfx" type="Node3D" node_paths=PackedStringArray("flare", "particles")]
+script = ExtResource("1_wr5no")
+flare = NodePath("MeshInstance3D")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D/GPUParticles3D"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D/GPUParticles3D")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_gvyfk")
+draw_pass_1 = SubResource("PlaneMesh_ntm4i")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+lifetime = 0.4
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_13a5t")
+draw_pass_1 = SubResource("PlaneMesh_x3yuu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.61, 0, 0, 0, 3.61, 1.42109e-14, 0, 0, 3.61, 0, -7.45058e-09, -6.71646e-17)
+material_override = SubResource("ShaderMaterial_13a5t")
+mesh = SubResource("PlaneMesh_doeoh")
+
+[node name="CSGMesh3D3" parent="MeshInstance3D" instance=ExtResource("9_ys30r")]
+transform = Transform3D(1.36233, 0, 0, 0, -3.90739e-08, 7.44874, 0, -0.893906, -3.25595e-07, -6.30947e-23, 0.0307147, -2.46033e-16)
+mesh = SubResource("QuadMesh_r5ysc")
+surface_material_override/0 = SubResource("ShaderMaterial_x3yuu")
+vfx_material = SubResource("ShaderMaterial_x3yuu")
