@@ -20,7 +20,7 @@ func end() -> void:
 	timer = null
 
 func finished() -> bool:
-	if (timer.time_left == 0):
+	if (timer.time_left <= 0):
 		timer = null
 	return timer == null
 
