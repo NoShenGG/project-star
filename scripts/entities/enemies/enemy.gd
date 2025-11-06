@@ -21,6 +21,7 @@ func _init() -> void:
 	faction = Faction.HOSTILE
 
 func _ready() -> void:
+	super()
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
 func set_movement_target(movement_target: Vector3):
@@ -49,5 +50,5 @@ func _physics_process(_delta: float) -> void:
 		_on_velocity_computed(new_velocity)
 
 func _on_velocity_computed(safe_velocity: Vector3):
-	velocity = safe_velocity * _movement_speed
+	velocity = safe_velocity * speed
 	move_and_slide()
