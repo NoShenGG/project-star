@@ -18,7 +18,8 @@ func hitbox_entered(body: Node3D) -> void:
 	if body is Enemy:
 		body = body as Enemy
 		hit_enemy.emit()
-		body.apply_effect(Broken.new(EntityEffect.EffectID.BROKEN, 2))
+		body.apply_buff(StatMod.Debuff.new(
+			StatMod.Stat.SPD, 5, get_tree().create_timer(5)))
 	
 func destroy() -> void:
 	if timer.time_left > 0:

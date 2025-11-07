@@ -29,18 +29,23 @@ func hitbox_entered(body: Node3D) -> void:
 	if timer == null:
 		return
 	if body is Player:
-		body = body as Player
-		var effect := Speed.new()
-		in_zone[body] = effect
-		body.apply_effect(effect)
+		body = body as Entity
+		var buff := StatMod.Buff.new(StatMod.Stat.SPD, 1, get_tree().create_timer(10))
+		in_zone[body] = buff
+		body.apply_buff(buff)
+	if body is Enemy:
+		body = body as Entity
+		var buff := StatMod.Debuff.new(StatMod.Stat.SPD, 3, get_tree().create_timer(10))
+		in_zone[body] = buff
+		body.apply_buff(buff)
 		hit_enemy.emit()
 
 func hitbox_exited(body: Node3D) -> void:
 	if timer == null:
 		return
-	if body is Player:
-		body = body as Player
-		(in_zone[body] as Speed).end_effect()
+	if body is Player or body is Enemy:
+		body = body as Entity
+		(in_zone[body] as StatMod).timer = null
 		in_zone.erase(body)
 		
 	
@@ -52,7 +57,7 @@ func stop_moving() -> void:
 	
 func destroy() -> void:
 	timer = null
-	for effect in in_zone.values():
-		(effect as Speed).end_effect()
+	for buff in in_zone.values():
+		(buff as StatMod).timer = null
 	destroyed.emit()
 	queue_free()

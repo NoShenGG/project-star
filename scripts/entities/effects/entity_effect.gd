@@ -7,9 +7,9 @@ enum EffectID {
 	MERGED,
 	INVINCIBLE,
 	GRABBED,
-	SLOWED
-	SPEED
-	FORTE
+	SLOWED,
+	SPEED,
+	FORTE,
 	TEMPO
 }
 var id: EffectID
