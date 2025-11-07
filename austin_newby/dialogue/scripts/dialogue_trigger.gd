@@ -1,6 +1,6 @@
 extends Area3D
 
-@onready var dialogue_container: DialogueContainer = $"../../DialogueContainer"
+@onready var dialogue_container: DialogueContainer = %DialogueContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

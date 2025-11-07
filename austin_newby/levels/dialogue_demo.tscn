@@ -126,6 +126,9 @@ offset_right = -1190.0
 offset_bottom = -1063.0
 scale = Vector2(0.12, 0.12)
 
+[node name="DialogueContainer" parent="screen_modification" instance=ExtResource("25_im4fi")]
+unique_name_in_owner = true
+
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://sounds/banks/Enemys.bank", "res://sounds/banks/Ambiance.bank", "res://sounds/banks/Music.bank"]
 
@@ -567,8 +570,6 @@ visible = false
 
 [node name="Plane_004" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="29"]
 visible = false
-
-[node name="DialogueContainer" parent="." instance=ExtResource("25_im4fi")]
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.38316, 0, 8.582443)
