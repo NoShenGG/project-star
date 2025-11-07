@@ -64,7 +64,6 @@ script = ExtResource("1_hojqr")
 
 [node name="Player" type="CharacterBody3D" parent="PlayerManager"]
 script = ExtResource("2_yuggw")
-_movement_speed = 14.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player"]
 shape = SubResource("CapsuleShape3D_1m1m0")
