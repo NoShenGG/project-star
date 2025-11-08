@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cif5hc18f2xib"]
+[gd_scene load_steps=43 format=3 uid="uid://cif5hc18f2xib"]
 
 [ext_resource type="Shader" uid="uid://cylk6ffp5hsy4" path="res://shaders/screen_space.gdshader" id="1_khjej"]
 [ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="2_87gyu"]
@@ -24,8 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://VFX/Kenny Particle Pack/circle_01.png" id="22_ab61k"]
 [ext_resource type="Script" uid="uid://0dst74xe1xdr" path="res://scenes/dev/diemmy_d/restart.gd" id="23_skk7s"]
 [ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="24_iu2gj"]
-[ext_resource type="PackedScene" uid="uid://t5a5ri5gyyjj" path="res://austin_newby/dialogue/scenes/dialogue_container.tscn" id="25_im4fi"]
-[ext_resource type="Script" uid="uid://dc0ot6j126078" path="res://austin_newby/dialogue/scripts/dialogue_trigger.gd" id="26_n4v5f"]
+[ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="26_khjej"]
+[ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="27_87gyu"]
+[ext_resource type="Texture2D" uid="uid://b0skmkc8xw7gc" path="res://austin_newby/dialogue/resources/nova_face_temp_0.png" id="28_y5oaw"]
+[ext_resource type="Texture2D" uid="uid://dt3iymuxdrv5t" path="res://austin_newby/dialogue/resources/rene_face_temp_0.png" id="29_rorhh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jci3v"]
 shader = ExtResource("1_khjej")
@@ -95,6 +97,20 @@ albedo_texture = ExtResource("22_ab61k")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wel6h"]
 
+[sub_resource type="Resource" id="Resource_87gyu"]
+script = ExtResource("27_87gyu")
+name = "Nova"
+img = ExtResource("28_y5oaw")
+text = "I'm Nova from hit game JTAS and I just wanna say we do not use JSON here anymore."
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_gcxre"]
+script = ExtResource("27_87gyu")
+name = "Rene"
+img = ExtResource("29_rorhh")
+text = "[shake]BBcode still works yay!"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
 [node name="Prototype" type="Node3D"]
 
 [node name="screen_modification" type="Node" parent="."]
@@ -125,9 +141,6 @@ offset_top = -415.0
 offset_right = -1190.0
 offset_bottom = -1063.0
 scale = Vector2(0.12, 0.12)
-
-[node name="DialogueContainer" parent="screen_modification" instance=ExtResource("25_im4fi")]
-unique_name_in_owner = true
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://sounds/banks/Enemys.bank", "res://sounds/banks/Ambiance.bank", "res://sounds/banks/Music.bank"]
@@ -582,7 +595,8 @@ mesh = SubResource("CylinderMesh_m6d5a")
 
 [node name="dialogue_trigger" type="Area3D" parent="dialogue_cylinder"]
 collision_mask = 4
-script = ExtResource("26_n4v5f")
+script = ExtResource("26_khjej")
+dialogue = Array[ExtResource("27_87gyu")]([SubResource("Resource_87gyu"), SubResource("Resource_gcxre")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dialogue_cylinder/dialogue_trigger"]
 shape = SubResource("CylinderShape3D_wel6h")

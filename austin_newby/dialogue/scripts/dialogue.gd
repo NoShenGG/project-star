@@ -13,7 +13,7 @@ const IMG_PATH = "res://austin_newby/dialogue/resources/"
 var speaker_image : TextureRect
 var name_label : RichTextLabel
 var dialogue_container : DialogueContainer
-var messages ={} #dictionary from json
+var dialogue_array:Array[DialogueResource]
 
 var current_message = 0 #index of message
 var current_char = 0 #index of char
@@ -30,20 +30,20 @@ signal text_interact()
 
 func _ready():
 	dialogue_container.modulate = Color.TRANSPARENT
-	get_tree().create_tween().tween_property(dialogue_container, "modulate", Color.WHITE, 1)
+	get_tree().create_tween().tween_property(dialogue_container, "modulate", Color.WHITE, 0.5)
 	
 	label.visible_characters_behavior = TextServer.VC_CHARS_AFTER_SHAPING # prevents typewriter messing up line-wrapping
-	display += messages[current_message]["line"] #populates display with line of current message
+	display += dialogue_array[current_message].text
 	display += ' ' # +space = proper punctuation detection
 	label.text = display
 	label.set_visible_characters(0)
 	
-	name_label.text = "~ %s ~" % messages[current_message]["char"]
-	speaker_image.texture = load(IMG_PATH + "/" + messages[current_message]["img"])
+	name_label.text = "~ %s ~" % dialogue_array[current_message].name
+	speaker_image.texture = dialogue_array[current_message].img
 	
 	%SmallTextLabel.text = ""
-	if messages[current_message]["small_img"] == "": %SmallSpeakerImage.texture = null
-	else: %SmallSpeakerImage.texture = load(IMG_PATH + "/" + messages[current_message]["small_img"])
+	if dialogue_array[current_message].small_img == null: %SmallSpeakerImage.texture = null
+	else: %SmallSpeakerImage.texture = dialogue_array[current_message].small_img
 	
 	# Check if skip is held down prior to dialogue opening
 	if Input.is_action_pressed("text_skip"):
@@ -98,12 +98,12 @@ func _on_next_char_timeout():
 			current_char += 1
 	else:
 		next_char.stop()
-		%SmallTextLabel.text = messages[current_message]["small_line"]
+		%SmallTextLabel.text = dialogue_array[current_message].small_text
 		%SmallTextSpeakerSeperator.modulate = Color.TRANSPARENT
 		var tween = get_tree().create_tween()
-		tween.tween_property(%SmallTextSpeakerSeperator, "modulate", Color.WHITE, 0.3)
-		if messages[current_message]["small_img"] == "": %SmallSpeakerImage.texture = null
-		else: %SmallSpeakerImage.texture = load(IMG_PATH + "/" + messages[current_message]["small_img"])
+		tween.tween_property(%SmallTextSpeakerSeperator, "modulate", Color.WHITE, 0.2)
+		if dialogue_array[current_message].small_img == null: %SmallSpeakerImage.texture = null
+		else: %SmallSpeakerImage.texture = dialogue_array[current_message].small_img
 		await text_interact
 		next_message.one_shot = true
 		next_message.start(0.01)
@@ -111,19 +111,19 @@ func _on_next_char_timeout():
 
 	
 func _on_next_message_timeout():
-	if current_message == len(messages) - 1: #length starts at 1, index starts at 0
+	if current_message == len(dialogue_array) - 1: #length starts at 1, index starts at 0
 		stop_dialogue()
 	else:
 		#reset everything
 		current_message += 1
 		display = ""
-		display += messages[current_message]["line"]
+		display += dialogue_array[current_message].text
 		%SmallTextLabel.text = ""
-		name_label.text = "~ %s ~" % messages[current_message]["char"]
+		name_label.text = "~ %s ~" % dialogue_array[current_message].name
 		display += ' '
 		label.text = display
 		label.visible_characters = 0
-		speaker_image.texture = load(IMG_PATH + "/" + messages[current_message]["img"])
+		speaker_image.texture = dialogue_array[current_message].img
 		current_char = 0
 		%SmallTextSpeakerSeperator.modulate = Color.TRANSPARENT
 		next_char.start()

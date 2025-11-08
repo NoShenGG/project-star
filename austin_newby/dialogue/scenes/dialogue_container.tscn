@@ -88,8 +88,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 25
 
 [node name="SpeakerImage" type="TextureRect" parent="TextImageHSeperator/ImageMarginContainer"]
 unique_name_in_owner = true
