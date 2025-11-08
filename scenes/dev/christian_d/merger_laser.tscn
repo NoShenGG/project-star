@@ -7,21 +7,21 @@
 render_priority = 0
 shader = ExtResource("1_4rxh6")
 shader_parameter/beams = 1
-shader_parameter/energy = 300.0
-shader_parameter/roughness = 10
+shader_parameter/energy = 50.0
+shader_parameter/roughness = 2
 shader_parameter/frequency = 3
-shader_parameter/speed = 4.0
-shader_parameter/thickness = 0.2000000095
-shader_parameter/outline_thickness = 0.5290000251275
+shader_parameter/speed = 5.0
+shader_parameter/thickness = 0.1450000068875
+shader_parameter/outline_thickness = 0.26800001273
 shader_parameter/beam_difference = 0.0
-shader_parameter/glow = 3.0
+shader_parameter/glow = 1.0000000475
 shader_parameter/outline_glow = 0.0
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/outline_color = Color(1, 0, 0, 1)
 shader_parameter/progress = 1.0
 shader_parameter/y_offset = 0.0
 shader_parameter/fixed_edge_size = 0.05
-shader_parameter/noise_scale = Vector2(10, 0.4)
+shader_parameter/noise_scale = Vector2(1, 1)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_ieiv7"]
 
