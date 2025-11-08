@@ -7,15 +7,15 @@ const CHARGING = "Charging"
 const ATTACKING = "Attacking"
 const ATTACKING_CHARGED = "AttackingCharged"
 const CHARGING_SPECIAL = "ChargingSpecial"
-const ATTACKING_SPECIAL = "AttackingSpecial"
-const ATTACKING_CHARGED_SPECIAL = "AttackingChargedSpecial"
+const SPECIAL = "Special"
 const BURSTING = "Bursting"
 const SWAP_IN = "SwapIn"
 const SWAP_OUT = "SwapOut"
 const SLEEPING = "Sleeping"
+const HIT_STUN = "HitStun"
 
 const VALID_STATES := [IDLE, MOVING, CHARGING, ATTACKING, ATTACKING_CHARGED, CHARGING_SPECIAL, \
-		ATTACKING_SPECIAL, ATTACKING_CHARGED_SPECIAL, BURSTING, SWAP_IN, SWAP_OUT, SLEEPING]
+		SPECIAL, BURSTING, SWAP_IN, SWAP_OUT, SLEEPING, HIT_STUN]
 
 var player: Player
 
