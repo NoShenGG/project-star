@@ -11,6 +11,11 @@ func _ready() -> void:
 	box.add_child(mesh)
 	
 func _process(_delta: float) -> void:
+	if mesh == null:
+		var box = get_child(0) as CollisionShape3D
+		mesh = MeshInstance3D.new()
+		mesh.mesh = box.shape.get_debug_mesh()
+		box.add_child(mesh)
 	if monitoring:
 		mesh.show()
 	else:

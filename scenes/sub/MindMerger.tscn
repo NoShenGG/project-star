@@ -1,6 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://jr71mbkvd0y7"]
+[gd_scene load_steps=12 format=3 uid="uid://jr71mbkvd0y7"]
 
 [ext_resource type="Script" uid="uid://cqvnsb4oww5ln" path="res://scripts/entities/enemies/mind_merger.gd" id="1_wql7c"]
+[ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_w4rfv"]
+[ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="3_30ym2"]
+[ext_resource type="Script" uid="uid://b2t1awuy1mis7" path="res://scripts/entities/enemies/states/move_to_player.gd" id="4_0h12a"]
+[ext_resource type="Script" uid="uid://bs5dsgl2o6vvq" path="res://scripts/entities/enemies/mindmerger/merger_flee.gd" id="5_0h12a"]
 
 [sub_resource type="Curve" id="Curve_wql7c"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5163044, 0.49438208), 2.6009421, 2.6009421, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -16,11 +20,37 @@ albedo_color = Color(0.819608, 0.207843, 1, 1)
 material = SubResource("StandardMaterial3D_67oe1")
 height = 3.0
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r8l07"]
+radius = 15.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0h12a"]
+
 [node name="MindMerger" type="CharacterBody3D" groups=["Enemies"]]
 script = ExtResource("1_wql7c")
 EXPANSION_CURVE = SubResource("Curve_wql7c")
-_movement_speed = 3.0
 faction = 2
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_w4rfv")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_far_state")]
+script = ExtResource("3_30ym2")
+wait_time = 2.0
+post_wait_state = NodePath("../Moving")
+player_far_state = NodePath("../Moving")
+
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("reached_enemy_state")]
+script = ExtResource("4_0h12a")
+attack_distance = 3.0
+reached_enemy_state = NodePath("../Idle")
+
+[node name="Fleeing" type="Node" parent="StateMachine" node_paths=PackedStringArray("escaped_state")]
+script = ExtResource("5_0h12a")
+escaped_state = NodePath("../Idle")
+
+[node name="Control" type="Node" parent="StateMachine"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_kpfxc")
@@ -30,3 +60,20 @@ mesh = SubResource("CapsuleMesh_kpfxc")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = -1.0
+
+[node name="Vision" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vision"]
+shape = SubResource("CylinderShape3D_r8l07")
+
+[node name="Damage" type="Area3D" parent="."]
+top_level = true
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damage"]
+shape = SubResource("BoxShape3D_0h12a")

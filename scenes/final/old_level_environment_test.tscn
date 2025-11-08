@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b56s3jvwgpp1u"]
+[gd_scene load_steps=14 format=3 uid="uid://b56s3jvwgpp1u"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_s5nng"]
 [ext_resource type="Shader" uid="uid://cylk6ffp5hsy4" path="res://shaders/screen_space.gdshader" id="3_cmqig"]
 [ext_resource type="MeshLibrary" uid="uid://b88u34a3ref8h" path="res://art_assets/environment/level_1/level1tiles.tres" id="4_8d5j7"]
 [ext_resource type="PackedScene" uid="uid://cwo7k5blghvxp" path="res://scripts/dev/Throttle/FrameLimiter.tscn" id="5_6khfp"]
+[ext_resource type="PackedScene" uid="uid://jr71mbkvd0y7" path="res://scenes/sub/MindMerger.tscn" id="6_8d5j7"]
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="6_a4h3p"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2lb0l"]
@@ -124,4 +125,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6481366, 0.42649126, 11.648
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.384129, 0.42649126, 0)
 
 [node name="TestEnemy4" parent="." instance=ExtResource("6_a4h3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.066097, 0.42649126, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.486284, 0.42649126, 0)
+
+[node name="MindMerger" parent="." instance=ExtResource("6_8d5j7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.262973, 1.128252, 0)
