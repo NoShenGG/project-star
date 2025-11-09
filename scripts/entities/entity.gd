@@ -66,9 +66,9 @@ func _process(delta: float) -> void:
 			if buff.finished():
 				(stat as Array).erase.call_deferred(buff)
 
-func apply_effect(effect: EntityEffect):
+func apply_effect(effect: EntityEffect) -> bool:
 	_status_effects.set(effect.id, effect)
-	effect.try_apply(self)
+	return effect.try_apply(self)
 	
 func apply_buff(buff: StatMod):
 	_buffs[buff.type].append(buff)

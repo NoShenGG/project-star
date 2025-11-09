@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://cylk6ffp5hsy4" path="res://shaders/screen_space.gdshader" id="3_cmqig"]
 [ext_resource type="MeshLibrary" uid="uid://b88u34a3ref8h" path="res://art_assets/environment/level_1/level1tiles.tres" id="4_8d5j7"]
 [ext_resource type="PackedScene" uid="uid://cwo7k5blghvxp" path="res://scripts/dev/Throttle/FrameLimiter.tscn" id="5_6khfp"]
+[ext_resource type="PackedScene" uid="uid://jr71mbkvd0y7" path="res://scenes/sub/MindMerger.tscn" id="6_8d5j7"]
 [ext_resource type="Script" uid="uid://crqbw36qgdaeo" path="res://scenes/dev/christian_d/persistant_spawner.gd" id="5_a4h3p"]
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="6_a4h3p"]
 
@@ -115,6 +116,20 @@ offset_right = 180.0
 offset_bottom = 300.0
 scale = Vector2(0.52616984, 0.52616984)
 
+[node name="TestEnemy" parent="." instance=ExtResource("6_a4h3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6481366, 0.42649126, -5)
+
+[node name="TestEnemy2" parent="." instance=ExtResource("6_a4h3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6481366, 0.42649126, 11.648696)
+
+[node name="TestEnemy3" parent="." instance=ExtResource("6_a4h3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.384129, 0.42649126, 0)
+
+[node name="TestEnemy4" parent="." instance=ExtResource("6_a4h3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.486284, 0.42649126, 0)
+
+[node name="MindMerger" parent="." instance=ExtResource("6_8d5j7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.683276, 1.647749, 0)
 [node name="Node3D" type="Node3D" parent="."]
 script = ExtResource("5_a4h3p")
 enemy = ExtResource("6_a4h3p")
