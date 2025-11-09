@@ -5,6 +5,7 @@
 [ext_resource type="MeshLibrary" uid="uid://b88u34a3ref8h" path="res://art_assets/environment/level_1/level1tiles.tres" id="4_8d5j7"]
 [ext_resource type="PackedScene" uid="uid://cwo7k5blghvxp" path="res://scripts/dev/Throttle/FrameLimiter.tscn" id="5_6khfp"]
 [ext_resource type="PackedScene" uid="uid://jr71mbkvd0y7" path="res://scenes/sub/MindMerger.tscn" id="6_8d5j7"]
+[ext_resource type="Script" uid="uid://crqbw36qgdaeo" path="res://scenes/dev/christian_d/persistant_spawner.gd" id="5_a4h3p"]
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="6_a4h3p"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2lb0l"]
@@ -127,17 +128,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.384129, 0.42649126, 0)
 [node name="TestEnemy4" parent="." instance=ExtResource("6_a4h3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.486284, 0.42649126, 0)
 
-[node name="TestEnemy5" parent="." instance=ExtResource("6_a4h3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.972569, 0.8529825, 0)
-
-[node name="TestEnemy6" parent="." instance=ExtResource("6_a4h3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5338, 0.6748533, -4.080759)
-
-[node name="TestEnemy7" parent="." instance=ExtResource("6_a4h3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.64423, 0.044301987, 4.0846157)
-
-[node name="TestEnemy8" parent="." instance=ExtResource("6_a4h3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7234, 0.8972845, 0)
-
 [node name="MindMerger" parent="." instance=ExtResource("6_8d5j7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.683276, 1.647749, 0)
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("5_a4h3p")
+enemy = ExtResource("6_a4h3p")
