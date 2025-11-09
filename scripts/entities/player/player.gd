@@ -77,6 +77,18 @@ func move(delta: float, speed_scale := 1.0) -> void:
 		look_at(global_position + velocity)
 	move_and_slide()
 	
+func move_translate(delta: float, speed_scale := 1.0) -> void:
+	var direction := Input.get_vector("move_up", "move_down", "move_right", "move_left")
+	
+	direction = direction.rotated(deg_to_rad(45))
+	direction = direction * speed * speed_scale
+	
+	target_velocity.x = direction.x
+	target_velocity.z = direction.y
+	
+	velocity = target_velocity.lerp(velocity, clamp(pow(0.1, input_smoothing_speed * delta), 0, 1))
+	move_and_slide()	
+	
 func move_to(target: Vector3, delta: float, speed_scale := 0.5):
 	look_at(Vector3(target.x, global_position.y, target.z))
 	var pos_delta = target - global_position

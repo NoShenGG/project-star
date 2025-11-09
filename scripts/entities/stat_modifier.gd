@@ -20,9 +20,12 @@ func end() -> void:
 	timer = null
 
 func finished() -> bool:
-	if (timer.time_left <= 0):
+	if timer == null:
+		return true
+	elif (timer.time_left <= 0):
 		timer = null
-	return timer == null
+		return true
+	return false
 
 
 
@@ -53,10 +56,24 @@ class Debuff extends StatMod:
 		
 		
 class DecayBuff extends Buff:
+	var dur: float
+	func _init(_type: Stat, _value: int, _timer: SceneTreeTimer) -> void:
+		value = _value
+		type = _type
+		timer = _timer
+		dur = timer.time_left
+		
 	func poll() -> float:
-		return value * timer.time_left
+		return value * timer.time_left / dur
 		
 		
 class DecayDebuff extends Debuff:
+	var dur: float
+	func _init(_type: Stat, _value: int, _timer: SceneTreeTimer) -> void:
+		value = _value
+		type = _type
+		timer = _timer
+		dur = timer.time_left
+		
 	func poll() -> float:
-		return value * timer.time_left
+		return value * timer.time_left / dur
