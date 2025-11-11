@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdh4cmnftg18b"]
+
+[ext_resource type="Script" uid="uid://wby6amy1syqr" path="res://scripts/entities/player/dawn/notes/tone_wave.gd" id="1_jvo22"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jvo22"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.15686275)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_jvo22"]
+material = SubResource("StandardMaterial3D_jvo22")
+inner_radius = 1.5
+outer_radius = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jvo22"]
+size = Vector3(4, 2, 0.1)
+
+[node name="ToneWave" type="Node3D" node_paths=PackedStringArray("hitbox")]
+top_level = true
+script = ExtResource("1_jvo22")
+hitbox = NodePath("Area3D")
+max_duration = 4.0
+speed = 3.0
+damage = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.5, 0, 1, -2.1855694e-08, 0, 1, 0)
+mesh = SubResource("TorusMesh_jvo22")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_jvo22")

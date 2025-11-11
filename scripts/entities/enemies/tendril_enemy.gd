@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 		dir = (target_node.global_position - global_position).normalized()
 
 	if dir.length() > 0.001:
-		velocity = dir * _movement_speed
+		velocity = dir * speed
 		move_and_slide()
 
 func _try_grab(target: Node3D) -> void:
@@ -80,7 +80,7 @@ func _try_grab(target: Node3D) -> void:
 	cooldown.start()
 
 func _on_velocity_computed(safe_velocity: Vector3) -> void:
-	velocity = safe_velocity * _movement_speed
+	velocity = safe_velocity * speed
 	move_and_slide()
 
 func _on_aggro_area_body_entered(body: Node3D) -> void:

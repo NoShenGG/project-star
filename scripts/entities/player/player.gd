@@ -7,18 +7,16 @@ signal special_cooldown_update(percent: float)
 signal special_available
 
 @onready var ray: ShapeCast3D = $ForwardRay
+@onready var player_manager: PlayerManager = owner as PlayerManager
 
 @export var targetting_box: Area3D
 @export_category("Input Thresholds")
 @export var max_click_time: float = 0.25
 @export_category("Attack")
-@export var charged_attack_dmg: int = 10
 @export var attack_charge_time: float = 0.5
 @export var max_attack_charges: int = 1
 @export var combo_reset_time: float = 0.6
 @export_category("Special")
-@export var special_dmg: int = 25
-@export var charged_special_dmg: int = 25
 @export var special_charge_time: float = 0.5
 @export var max_special_charges: int = 3
 @export var special_cd: float = 5
@@ -35,9 +33,11 @@ var special_cd_timer: SceneTreeTimer
 var target_velocity := Vector3.ZERO
 
 func _ready() -> void:
+	super()
 	get_tree().call_group("Enemies", "PlayerPositionUpd", global_transform.origin)
 
 func _process(_delta: float) -> void:
+	super(_delta)
 	if special_cd_timer != null:
 		special_cooldown_update.emit((special_cd - special_cd_timer.time_left)/special_cd)
 		if special_cd_timer.time_left == 0:
@@ -67,7 +67,7 @@ func move(delta: float, speed_scale := 1.0) -> void:
 	var direction := Input.get_vector("move_up", "move_down", "move_right", "move_left")
 	
 	direction = direction.rotated(deg_to_rad(45))
-	direction = direction * _movement_speed * speed_scale
+	direction = direction * speed * speed_scale
 	
 	target_velocity.x = direction.x
 	target_velocity.z = direction.y
@@ -77,11 +77,23 @@ func move(delta: float, speed_scale := 1.0) -> void:
 		look_at(global_position + velocity)
 	move_and_slide()
 	
+func move_translate(delta: float, speed_scale := 1.0) -> void:
+	var direction := Input.get_vector("move_up", "move_down", "move_right", "move_left")
+	
+	direction = direction.rotated(deg_to_rad(45))
+	direction = direction * speed * speed_scale
+	
+	target_velocity.x = direction.x
+	target_velocity.z = direction.y
+	
+	velocity = target_velocity.lerp(velocity, clamp(pow(0.1, input_smoothing_speed * delta), 0, 1))
+	move_and_slide()	
+	
 func move_to(target: Vector3, delta: float, speed_scale := 0.5):
 	look_at(Vector3(target.x, global_position.y, target.z))
 	var pos_delta = target - global_position
 	if pos_delta.length() > 1.0:
-		pos_delta = pos_delta.normalized() * _movement_speed * speed_scale
+		pos_delta = pos_delta.normalized() * speed * speed_scale
 		target_velocity.x = pos_delta.x
 		target_velocity.z = pos_delta.z
 		velocity = target_velocity.lerp(velocity, clamp(pow(0.1, input_smoothing_speed * delta), 0, 1))
