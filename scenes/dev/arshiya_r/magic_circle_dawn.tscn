@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bt3ebb8eyl2c7"]
+[gd_scene load_steps=23 format=3 uid="uid://bt3ebb8eyl2c7"]
 
 [ext_resource type="Shader" uid="uid://cike1cfb0t5r1" path="res://scenes/dev/arshiya_r/speaker_led.tres" id="1_dp4kn"]
 [ext_resource type="Texture2D" uid="uid://de383pur6bgjv" path="res://scenes/dev/arshiya_r/dawn_circle_textures/ring.png" id="2_bsn1t"]
@@ -90,9 +90,6 @@ alpha_curve = SubResource("CurveTexture_n0ury")
 [sub_resource type="QuadMesh" id="QuadMesh_gajvk"]
 size = Vector2(0.25, 0.25)
 
-[sub_resource type="Environment" id="Environment_nwfwl"]
-glow_enabled = true
-
 [node name="Dawn\'s Circle" type="Node3D"]
 
 [node name="outer ring" type="MeshInstance3D" parent="."]
@@ -131,6 +128,3 @@ randomness = 1.0
 visibility_aabb = AABB(-4, -4, -4, 1, 1, 1)
 process_material = SubResource("ParticleProcessMaterial_xscg6")
 draw_pass_1 = SubResource("QuadMesh_gajvk")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_nwfwl")

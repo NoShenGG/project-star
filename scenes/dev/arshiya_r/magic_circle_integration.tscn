@@ -158,6 +158,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="geo" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003284961, 1.1920929e-07, 1.7881393e-07)
 navigation_mesh = SubResource("NavigationMesh_v2ad8")
 
 [node name="GridMap" type="GridMap" parent="geo"]
