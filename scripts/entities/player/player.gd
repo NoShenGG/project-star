@@ -111,18 +111,6 @@ func set_special_cd():
 	special_cd_timer.timeout.connect(func special_cd_timeout(): 
 		special_available.emit()
 		_has_special = true)
-
-## Dash function, uses raycast to prevent clipping world but ignores entities
-func dash(dist := dash_distance, emit : bool = true) -> void:
-	if not _can_dash:
-		return
-	if (emit): player_dashed.emit()
-	_can_dash = false
-	ray.force_shapecast_update()
-	var dash_target_dist = min(position.distance_to(ray.get_collision_point(0))-0.5, dash_distance) \
-			if ray.is_colliding() else dist
-	position += Vector3.FORWARD.rotated(Vector3.UP, rotation.y) * dash_target_dist
-	get_tree().create_timer(dash_cd).timeout.connect(give_dash)
 	
 func give_dash():
 	_can_dash = true
