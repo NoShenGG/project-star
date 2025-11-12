@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dad6st5tdymoc"
-path.s3tc="res://.godot/imported/window_03.png-ddd4e490943f58a50adda9db7c47ac1f.s3tc.ctex"
+path.s3tc="res://.godot/imported/window_03.png-1a615160546d653e9e5a52ac63e5a2d7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/Kenny Particle Pack/window_03.png"
-dest_files=["res://.godot/imported/window_03.png-ddd4e490943f58a50adda9db7c47ac1f.s3tc.ctex"]
+source_file="res://VFX/Kenny Particle Pack/window_03.png"
+dest_files=["res://.godot/imported/window_03.png-1a615160546d653e9e5a52ac63e5a2d7.s3tc.ctex"]
 
 [params]
 
