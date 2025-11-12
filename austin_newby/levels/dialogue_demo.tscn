@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cif5hc18f2xib"]
+[gd_scene load_steps=45 format=3 uid="uid://cif5hc18f2xib"]
 
 [ext_resource type="Shader" uid="uid://cylk6ffp5hsy4" path="res://shaders/screen_space.gdshader" id="1_khjej"]
 [ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="2_87gyu"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="26_khjej"]
 [ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="27_87gyu"]
 [ext_resource type="Texture2D" uid="uid://b0skmkc8xw7gc" path="res://austin_newby/dialogue/resources/nova_face_temp_0.png" id="28_y5oaw"]
+[ext_resource type="Texture2D" uid="uid://b18dlvux7xx6l" path="res://art_assets/Ui/dawn_portrait.png" id="29_gcxre"]
 [ext_resource type="Texture2D" uid="uid://dt3iymuxdrv5t" path="res://austin_newby/dialogue/resources/rene_face_temp_0.png" id="29_rorhh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jci3v"]
@@ -109,6 +110,14 @@ script = ExtResource("27_87gyu")
 name = "Rene"
 img = ExtResource("29_rorhh")
 text = "[shake]BBcode still works yay!"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_y5oaw"]
+script = ExtResource("27_87gyu")
+name = "LIGMA"
+text = "consider i did your mom"
+small_img = ExtResource("29_gcxre")
+small_text = "he really would"
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [node name="Prototype" type="Node3D"]
@@ -596,7 +605,7 @@ mesh = SubResource("CylinderMesh_m6d5a")
 [node name="dialogue_trigger" type="Area3D" parent="dialogue_cylinder"]
 collision_mask = 4
 script = ExtResource("26_khjej")
-dialogue = Array[ExtResource("27_87gyu")]([SubResource("Resource_87gyu"), SubResource("Resource_gcxre")])
+dialogue = Array[ExtResource("27_87gyu")]([SubResource("Resource_87gyu"), SubResource("Resource_gcxre"), SubResource("Resource_y5oaw")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dialogue_cylinder/dialogue_trigger"]
 shape = SubResource("CylinderShape3D_wel6h")
@@ -607,7 +616,7 @@ shape = SubResource("CylinderShape3D_wel6h")
 [connection signal="fight_started" from="WaveManager" to="WaveManager/Start" method="play_one_shot"]
 [connection signal="body_entered" from="WaveManager/Wave Start Enter" to="WaveManager" method="_on_start" unbinds=1]
 [connection signal="body_entered" from="RestartCylinder/Area3D" to="RestartCylinder/Area3D" method="_on_body_entered"]
-[connection signal="body_entered" from="dialogue_cylinder/dialogue_trigger" to="dialogue_cylinder/dialogue_trigger" method="_on_body_entered"]
+[connection signal="body_entered" from="dialogue_cylinder/dialogue_trigger" to="dialogue_cylinder/dialogue_trigger" method="activate_dialogue" unbinds=1]
 
 [editable path="Skeleton Decor/DragoSkele"]
 [editable path="Skeleton Decor/DragoSkele2"]
