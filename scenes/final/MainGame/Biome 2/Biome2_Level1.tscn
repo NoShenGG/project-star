@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bm70618q6syf3"]
+
+[node name="Level1" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
