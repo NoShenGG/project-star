@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bq7t53o2llxr4"]
+[gd_scene load_steps=71 format=3 uid="uid://bq7t53o2llxr4"]
 
 [ext_resource type="Script" uid="uid://ca3hlofv22ftb" path="res://scripts/entities/player/rene/rene.gd" id="1_njlal"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_yooho"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://drugjbbmd0wed" path="res://scripts/entities/SlashVFX.gd" id="21_1b0pk"]
 [ext_resource type="AnimationLibrary" uid="uid://b6s3l0l606343" path="res://art_assets/characters/Nova/NovaAnimationLibrary.tres" id="22_axxmg"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="23_1oi0f"]
+[ext_resource type="PackedScene" uid="uid://dfidn58xx6ouo" path="res://scenes/dev/arshiya_r/magic_circle_rene.tscn" id="23_um3o4"]
 [ext_resource type="Script" uid="uid://cvw6ajdumfkos" path="res://scripts/entities/player/nova/nova_dummy_anim.gd" id="24_svdc4"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="25_qvekr"]
 
@@ -2693,9 +2694,6 @@ collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_njlal")
 targetting_box = NodePath("Hitboxes/Vision")
-charged_attack_dmg = 3
-special_dmg = 5
-charged_special_dmg = 9
 faction = 0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -3000,6 +2998,8 @@ Charged Left Click = Charged Slash
 event_name = "event:/Player/Uniques/Charging/Nova Charging Ready"
 event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 
+[node name="Rene\'s Circle" parent="." instance=ExtResource("23_um3o4")]
+
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
 [connection signal="player_dashed" from="." to="nova_animations_kobold/Dash" method="enter"]
@@ -3014,6 +3014,8 @@ event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 [connection signal="charge_count_increase" from="StateMachine/Charging" to="StateMachine/Charging/Charging Ready SFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Charging" to="StateMachine/Charging/Charging SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Charging" to="nova_animations_kobold/ChargingSlash" method="enter"]
+[connection signal="entered" from="StateMachine/Charging" to="Rene\'s Circle" method="restart_particles"]
+[connection signal="finished" from="StateMachine/Charging" to="Rene\'s Circle" method="stop_particles"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="StateMachine/AttackingCharged/AttackCharged SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="nova_animations_kobold/Charging Special" method="enter"]
 [connection signal="max_charge_count" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play_one_shot"]
