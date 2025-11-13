@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://brpnsr644p7ds"]
+
+[ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="1_byr2u"]
+[ext_resource type="Script" uid="uid://7dbrj33rmoft" path="res://austin_newby/menu/menu_testing.gd" id="1_tefqs"]
+[ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="3_hxtqn"]
+
+[node name="testing" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tefqs")
+
+[node name="InitialMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_byr2u")
+open_on_start = true
+
+[node name="Button" type="Button" parent="InitialMenu"]
+layout_mode = 0
+offset_right = 482.0
+offset_bottom = 119.0
+text = "first menu"
+script = ExtResource("3_hxtqn")
+animation_delay = 0.3
+
+[node name="SecondMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_byr2u")
+
+[node name="Button" type="Button" parent="SecondMenu"]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 206.0
+offset_right = 777.0
+offset_bottom = 325.0
+text = "second menu"
+script = ExtResource("3_hxtqn")
+animation_delay = 0.3
+
+[node name="ThirdMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_byr2u")
+
+[node name="Button" type="Button" parent="ThirdMenu"]
+layout_mode = 0
+offset_left = 637.0
+offset_top = 486.0
+offset_right = 1119.0
+offset_bottom = 605.0
+text = "third menu"
+script = ExtResource("3_hxtqn")
+animation_delay = 0.3
+
+[connection signal="pressed" from="InitialMenu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="SecondMenu/Button" to="." method="_on_button_pressed2"]
+[connection signal="pressed" from="ThirdMenu/Button" to="." method="_on_button_pressed3"]
