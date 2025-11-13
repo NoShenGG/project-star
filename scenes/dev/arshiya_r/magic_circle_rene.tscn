@@ -138,27 +138,28 @@ size = Vector2(0.25, 0.25)
 
 [sub_resource type="Animation" id="Animation_x7sj1"]
 resource_name = "OpenRene"
+length = 0.5
 tracks/0/type = "scale_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("inner ring")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 1, 1, 1)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 1.5, 1.5, 1.5)
 tracks/1/type = "scale_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("outer ring parent")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 1, 1, 1)
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 1.5, 1.5, 1.5)
 tracks/2/type = "scale_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("sparks")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 1, 1, 1)
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 1.5, 1.5, 1.5)
 
 [sub_resource type="Animation" id="Animation_nrx7a"]
 length = 0.001

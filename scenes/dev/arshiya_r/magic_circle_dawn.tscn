@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://bt3ebb8eyl2c7"]
+[gd_scene load_steps=27 format=3 uid="uid://bt3ebb8eyl2c7"]
 
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_5l6fl"]
 [ext_resource type="Shader" uid="uid://cike1cfb0t5r1" path="res://scenes/dev/arshiya_r/speaker_led.tres" id="1_dp4kn"]
 [ext_resource type="Texture2D" uid="uid://de383pur6bgjv" path="res://scenes/dev/arshiya_r/dawn_circle_textures/ring.png" id="2_bsn1t"]
 [ext_resource type="Shader" uid="uid://txc0uyi3s4ag" path="res://scenes/dev/arshiya_r/speaker_bounce.tres" id="3_7tetl"]
@@ -90,20 +91,81 @@ alpha_curve = SubResource("CurveTexture_n0ury")
 [sub_resource type="QuadMesh" id="QuadMesh_gajvk"]
 size = Vector2(0.25, 0.25)
 
-[node name="Dawn\'s Circle" type="Node3D"]
+[sub_resource type="Animation" id="Animation_x63c4"]
+resource_name = "OpenDawn"
+length = 0.5
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("outer ring parent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 1.5, 1.5, 1.5)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("speaker rings")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 1.5, 1.5, 1.5)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sparks")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 1.5, 1.5, 1.5)
 
-[node name="outer ring" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[sub_resource type="Animation" id="Animation_2uemn"]
+length = 0.001
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("outer ring parent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("speaker rings")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sparks")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x33gg"]
+_data = {
+&"OpenDawn": SubResource("Animation_x63c4"),
+&"RESET": SubResource("Animation_2uemn")
+}
+
+[node name="Dawn\'s Circle" type="Node3D" node_paths=PackedStringArray("particles")]
+script = ExtResource("1_5l6fl")
+play_on_start = false
+particles = [NodePath("sparks"), NodePath("sparks")]
+
+[node name="outer ring parent" type="Node3D" parent="."]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="outer ring" type="MeshInstance3D" parent="outer ring parent"]
 material_override = SubResource("ShaderMaterial_gfcmf")
 mesh = SubResource("PlaneMesh_a0i5e")
+skeleton = NodePath("../..")
 
-[node name="speaker mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99, 0)
+[node name="speaker mesh" type="MeshInstance3D" parent="outer ring parent"]
 material_override = SubResource("ShaderMaterial_2uemn")
 mesh = SubResource("PlaneMesh_x33gg")
+skeleton = NodePath("../..")
 
 [node name="speaker rings" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="speaker rings"]
 material_override = SubResource("ShaderMaterial_x63c4")
@@ -120,11 +182,21 @@ material_override = SubResource("ShaderMaterial_5l6fl")
 mesh = SubResource("PlaneMesh_x63c4")
 
 [node name="sparks" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0)
 material_override = SubResource("ShaderMaterial_ippvo")
+emitting = false
 amount = 10
 speed_scale = 0.5
 randomness = 1.0
 visibility_aabb = AABB(-4, -4, -4, 1, 1, 1)
 process_material = SubResource("ParticleProcessMaterial_xscg6")
 draw_pass_1 = SubResource("QuadMesh_gajvk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_x33gg")
+}
+
+[connection signal="finished" from="." to="AnimationPlayer" method="play_backwards" binds= ["OpenDawn"]]
+[connection signal="start" from="." to="AnimationPlayer" method="play" binds= ["OpenDawn"]]

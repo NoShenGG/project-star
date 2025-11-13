@@ -3029,6 +3029,7 @@ event_name = "event:/Player/Uniques/Charging/Nova Charging Ready"
 event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 
 [node name="Nova\'s Circle" parent="." instance=ExtResource("26_uws5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
