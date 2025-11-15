@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca43ma5t6gmev"
-path.s3tc="res://.godot/imported/light_03.png-dbaffb4f6e69221f49a0ee6879ca7aeb.s3tc.ctex"
+path.s3tc="res://.godot/imported/light_03.png-27b3f36b1b7c3aa499dd626fa69312d4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/Kenny Particle Pack/light_03.png"
-dest_files=["res://.godot/imported/light_03.png-dbaffb4f6e69221f49a0ee6879ca7aeb.s3tc.ctex"]
+source_file="res://VFX/Kenny Particle Pack/light_03.png"
+dest_files=["res://.godot/imported/light_03.png-27b3f36b1b7c3aa499dd626fa69312d4.s3tc.ctex"]
 
 [params]
 
