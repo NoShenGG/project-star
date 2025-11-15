@@ -46,6 +46,6 @@ func hitbox_exited(body: Node3D) -> void:
 func destroy() -> void:
 	timer = null
 	for buff in in_zone.values():
-		(in_zone[buff] as StatMod).timer = null
+		(buff as StatMod).timer = null
 	destroyed.emit()
 	queue_free()

@@ -17,8 +17,9 @@ func hitbox_entered(body: Node3D) -> void:
 		destroy()
 	
 func destroy() -> void:
-	if timer.time_left > 0:
-		timer.timeout.disconnect(destroy)
+	if timer != null:
+		if timer.time_left > 0:
+			timer.timeout.disconnect(destroy)
 	timer = null
 	destroyed.emit()
 	queue_free()
