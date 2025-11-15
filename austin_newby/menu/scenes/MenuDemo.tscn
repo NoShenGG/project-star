@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://brpnsr644p7ds"]
 
-[ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="1_byr2u"]
-[ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="3_hxtqn"]
-[ext_resource type="Script" uid="uid://40k4ubokarsh" path="res://austin_newby/menu/menu_button.gd" id="4_baq5u"]
-[ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://VFX/Kenny Particle Pack/star_06.png" id="4_gyiln"]
+[ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="1_rn6vt"]
+[ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="2_wt6l6"]
+[ext_resource type="Script" uid="uid://40k4ubokarsh" path="res://austin_newby/menu/menu_button.gd" id="3_yrmn5"]
+[ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://VFX/Kenny Particle Pack/star_06.png" id="4_88nh2"]
 
 [node name="testing" type="Control"]
 layout_mode = 3
@@ -13,7 +13,7 @@ anchors_preset = 0
 layout_mode = 1
 offset_right = 299.0
 offset_bottom = 178.0
-script = ExtResource("1_byr2u")
+script = ExtResource("1_rn6vt")
 open_on_start = true
 focused_control = NodePath("VBoxContainer/Button")
 size_pivot_centered = true
@@ -31,7 +31,7 @@ theme_override_constants/separation = 24
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Button")
 text = "dont press"
-script = ExtResource("3_hxtqn")
+script = ExtResource("2_wt6l6")
 tween_transition = 1
 open_animation_flags = 1
 close_time = 0.5
@@ -41,14 +41,14 @@ close_animation_flags = 5
 layout_mode = 2
 focus_neighbor_top = NodePath("../Button2")
 text = "first menu"
-script = ExtResource("3_hxtqn")
+script = ExtResource("2_wt6l6")
 tween_transition = 1
 open_animation_flags = 3
 close_time = 0.5
 close_animation_flags = 5
 
 [node name="MenuSwapButton" type="Node" parent="InitialMenu/VBoxContainer/Button" node_paths=PackedStringArray("button", "next_menu")]
-script = ExtResource("4_baq5u")
+script = ExtResource("3_yrmn5")
 button = NodePath("..")
 next_menu = NodePath("../../../../SecondMenu")
 metadata/_custom_type_script = "uid://40k4ubokarsh"
@@ -59,7 +59,7 @@ offset_left = 368.0
 offset_top = 170.0
 offset_right = 632.0
 offset_bottom = 349.0
-script = ExtResource("1_byr2u")
+script = ExtResource("1_rn6vt")
 focused_control = NodePath("Button")
 open_animation_delay = 0.3
 open_animation_flags = 1
@@ -74,19 +74,19 @@ offset_right = 275.0
 offset_bottom = 56.0
 pivot_offset = Vector2(67, 32.5)
 text = "second menu"
-script = ExtResource("3_hxtqn")
+script = ExtResource("2_wt6l6")
 open_animation_flags = 136
 
 [node name="MenuSwapButton" type="Node" parent="SecondMenu/Button" node_paths=PackedStringArray("button", "next_menu")]
-script = ExtResource("4_baq5u")
+script = ExtResource("3_yrmn5")
 button = NodePath("..")
 next_menu = NodePath("../../../ThirdMenu")
 metadata/_custom_type_script = "uid://40k4ubokarsh"
 
 [node name="Sprite2D" type="Sprite2D" parent="SecondMenu"]
 scale = Vector2(0.36, 0.36)
-texture = ExtResource("4_gyiln")
-script = ExtResource("3_hxtqn")
+texture = ExtResource("4_88nh2")
+script = ExtResource("2_wt6l6")
 tween_transition = 11
 open_animation_flags = 9
 close_time = 0.6
@@ -97,8 +97,8 @@ self_modulate = Color(0.9921667, 1, 0.53, 1)
 position = Vector2(-9.999996, 80.00001)
 rotation = 0.58518136
 scale = Vector2(0.36, 0.36)
-texture = ExtResource("4_gyiln")
-script = ExtResource("3_hxtqn")
+texture = ExtResource("4_88nh2")
+script = ExtResource("2_wt6l6")
 tween_transition = 11
 open_animation_delay = 0.1
 open_time = 0.5
@@ -111,8 +111,8 @@ self_modulate = Color(0.98333335, 1, 0, 1)
 position = Vector2(-60, 148)
 rotation = -2.032656
 scale = Vector2(0.36, 0.36)
-texture = ExtResource("4_gyiln")
-script = ExtResource("3_hxtqn")
+texture = ExtResource("4_88nh2")
+script = ExtResource("2_wt6l6")
 tween_transition = 11
 open_animation_delay = 0.1
 open_animation_flags = 15
@@ -126,7 +126,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_byr2u")
+script = ExtResource("1_rn6vt")
 focused_control = NodePath("Button")
 
 [node name="Button" type="Button" parent="ThirdMenu"]
@@ -136,11 +136,11 @@ offset_top = 486.0
 offset_right = 1119.0
 offset_bottom = 605.0
 text = "third menu"
-script = ExtResource("3_hxtqn")
+script = ExtResource("2_wt6l6")
 open_animation_flags = 134
 
 [node name="MenuSwapButton" type="Node" parent="ThirdMenu/Button" node_paths=PackedStringArray("button", "next_menu")]
-script = ExtResource("4_baq5u")
+script = ExtResource("3_yrmn5")
 button = NodePath("..")
 next_menu = NodePath("../../../InitialMenu")
 metadata/_custom_type_script = "uid://40k4ubokarsh"
