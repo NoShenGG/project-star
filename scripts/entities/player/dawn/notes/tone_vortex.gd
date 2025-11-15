@@ -15,7 +15,6 @@ func start() -> void:
 	timer.timeout.connect(stop_moving)
 	hitbox.monitoring = true
 	spawn.emit()
-	dawn.note_manager.add_red()
 	
 func _process(delta: float) -> void:
 	if move:
