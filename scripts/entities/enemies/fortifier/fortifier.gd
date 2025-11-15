@@ -9,7 +9,7 @@ var friends: Array[Enemy] = []
 var can_attack: bool = true
 
 signal shield_enemy
-	
+
 
 func recalc_path():
 	if (target):

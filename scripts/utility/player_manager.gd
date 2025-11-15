@@ -4,6 +4,7 @@ class_name PlayerManager
 extends Node3D
 
 @onready var current_char: Player
+var players: Array[Player]
 
 signal new_player(value : Player)
 signal player_hp_update(percent: float)
@@ -40,8 +41,8 @@ func _ready() -> void:
 		c.top_level = true
 		c.global_position = global_position
 		c.global_rotation = global_rotation
-		
-	
+		players.append(c)
+
 
 func _process(_delta: float) -> void:
 	if (Engine.is_editor_hint()):

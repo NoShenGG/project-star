@@ -44,7 +44,7 @@ func do_damage() -> void:
 	
 	for node in hitbox.get_overlapping_bodies():
 		if node is Entity and (node as Entity).faction != entity.faction:
-			(node as Entity).try_damage(damage)
+			(node as Entity).try_damage(damage * entity.damage_mult)
 
 func end() -> void:
 	super()

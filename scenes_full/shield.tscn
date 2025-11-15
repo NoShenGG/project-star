@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://djybgt1k0ilcn"]
+
+[ext_resource type="Shader" uid="uid://8l3nttsqbjy1" path="res://sh.tres" id="1_lsuf4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lo12d"]
+render_priority = 0
+shader = ExtResource("1_lsuf4")
+shader_parameter/FloatParameter = 0.2
+shader_parameter/ColorParameter = Color(0.6901961, 0.43137255, 0.8901961, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_adavu"]
+material = SubResource("ShaderMaterial_lo12d")
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8chfj"]
+radius = 1.0
+
+[node name="Shield" type="Area3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_adavu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_8chfj")

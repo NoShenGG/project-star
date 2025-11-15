@@ -10,8 +10,8 @@ func _init(_effect: EntityEffect.EffectID, duration_sec: float) -> void:
 func try_apply(entity: Entity) -> bool:
 	if not super(entity):
 		return false
-	move_speed = entity._movement_speed
-	entity._movement_speed = 0.0;
+	move_speed = entity._base_speed
+	entity._base_speed = 0.0;
 	entity._breakable = false
 	return true
 
@@ -19,7 +19,7 @@ func tick() -> void:
 	pass
 	
 func stop() -> void:
-	_entity._movement_speed = move_speed
+	_entity._base_speed = move_speed
 	_entity._break_percent = 0.0
 	_entity.break_update.emit(0.0)
 	get_tree().create_timer(_entity._break_cooldown).timeout.connect(

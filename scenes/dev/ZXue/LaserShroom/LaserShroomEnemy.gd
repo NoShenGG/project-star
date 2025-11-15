@@ -7,7 +7,7 @@ var original_basis : Basis
 
 func _ready() -> void:
 	player_ref = GameManager.curr_player
-	_movement_speed = default_speed
+	speed = default_speed
 	$Hitbox.set_disabled(false)
 	super()
 	
