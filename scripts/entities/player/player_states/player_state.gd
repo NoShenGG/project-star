@@ -3,6 +3,7 @@ class_name PlayerState extends State
 
 const IDLE = "Idle"
 const MOVING = "Moving"
+const DASH = "Dash"
 const CHARGING = "Charging"
 const ATTACKING = "Attacking"
 const ATTACKING_CHARGED = "AttackingCharged"
@@ -15,7 +16,7 @@ const SLEEPING = "Sleeping"
 const HIT_STUN = "HitStun"
 const ALT_ATTACK = "AltAttack"
 
-const VALID_STATES := [IDLE, MOVING, CHARGING, ATTACKING, ATTACKING_CHARGED, CHARGING_SPECIAL, \
+const VALID_STATES := [IDLE, MOVING, DASH, CHARGING, ATTACKING, ATTACKING_CHARGED, CHARGING_SPECIAL, \
 		SPECIAL, BURSTING, SWAP_IN, SWAP_OUT, SLEEPING, HIT_STUN, ALT_ATTACK]
 
 var player: Player
