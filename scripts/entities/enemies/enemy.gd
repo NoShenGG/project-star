@@ -5,6 +5,10 @@ class_name Enemy extends Entity
 @export var vision_radius: float = 1
 @export var attack_radius: float = 1
 
+var ai_override: bool = false
+var ai_override_target
+var ai_override_speed: float = 1.0
+
 signal move
 signal idle
 
@@ -21,6 +25,7 @@ func _init() -> void:
 	faction = Faction.HOSTILE
 
 func _ready() -> void:
+	super()
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 
 func set_movement_target(movement_target: Vector3):
@@ -34,6 +39,9 @@ func _process(delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if (death): return
+	
+	if ai_override and ai_override_target != null:
+		navigation_agent.target_position = ai_override_target
 	
 	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
@@ -49,5 +57,13 @@ func _physics_process(_delta: float) -> void:
 		_on_velocity_computed(new_velocity)
 
 func _on_velocity_computed(safe_velocity: Vector3):
-	velocity = safe_velocity * _movement_speed
+	velocity = safe_velocity * (ai_override_speed if ai_override else speed)
 	move_and_slide()
+	
+func set_ai_override(enable: bool, target = null, target_speed := 10):
+	ai_override = enable
+	if enable:
+		ai_override_target = target
+		ai_override_speed = target_speed
+	else:
+		ai_override_target = null

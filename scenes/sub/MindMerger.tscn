@@ -1,6 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://jr71mbkvd0y7"]
+[gd_scene load_steps=15 format=3 uid="uid://jr71mbkvd0y7"]
 
 [ext_resource type="Script" uid="uid://cqvnsb4oww5ln" path="res://scripts/entities/enemies/mind_merger.gd" id="1_wql7c"]
+[ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_w4rfv"]
+[ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="3_30ym2"]
+[ext_resource type="Script" uid="uid://ml8qcaf7wfmu" path="res://scripts/entities/enemies/mindmerger/merger_move.gd" id="4_mxyim"]
+[ext_resource type="Script" uid="uid://bs5dsgl2o6vvq" path="res://scripts/entities/enemies/mindmerger/merger_flee.gd" id="5_0h12a"]
+[ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="6_paam0"]
+[ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="7_mxyim"]
 
 [sub_resource type="Curve" id="Curve_wql7c"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5163044, 0.49438208), 2.6009421, 2.6009421, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -16,11 +22,47 @@ albedo_color = Color(0.819608, 0.207843, 1, 1)
 material = SubResource("StandardMaterial3D_67oe1")
 height = 3.0
 
-[node name="MindMerger" type="CharacterBody3D" groups=["Enemies"]]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r8l07"]
+radius = 15.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0h12a"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3c6eo"]
+viewport_path = NodePath("SubViewport")
+
+[node name="MindMerger" type="CharacterBody3D" node_paths=PackedStringArray("flee_state") groups=["Enemies"]]
+collision_layer = 10
+collision_mask = 11
 script = ExtResource("1_wql7c")
+flee_state = NodePath("StateMachine/Fleeing")
 EXPANSION_CURVE = SubResource("Curve_wql7c")
-_movement_speed = 3.0
 faction = 2
+_hp = 30.0
+_max_hp = 30.0
+_break_hits = 5
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_w4rfv")
+initial_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_close_state")]
+script = ExtResource("3_30ym2")
+wait_time = 2.0
+post_wait_state = NodePath("../Moving")
+max_player_distance = 2.0
+player_close_state = NodePath("../Moving")
+
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("reached_enemy_state")]
+script = ExtResource("4_mxyim")
+reached_enemy_state = NodePath("../Idle")
+
+[node name="Fleeing" type="Node" parent="StateMachine"]
+script = ExtResource("5_0h12a")
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("6_paam0")
+snap_turn_to_player = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_kpfxc")
@@ -29,4 +71,30 @@ shape = SubResource("BoxShape3D_kpfxc")
 mesh = SubResource("CapsuleMesh_kpfxc")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.25
 path_height_offset = -1.0
+
+[node name="Vision" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vision"]
+shape = SubResource("CylinderShape3D_r8l07")
+
+[node name="Damage" type="Area3D" parent="."]
+top_level = true
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damage"]
+shape = SubResource("BoxShape3D_0h12a")
+
+[node name="StatusBars" parent="." instance=ExtResource("7_mxyim")]
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.69649, 0)
+texture = SubResource("ViewportTexture_3c6eo")
+
+[connection signal="break_update" from="." to="StatusBars" method="update_break"]
+[connection signal="health_update" from="." to="StatusBars" method="update_health"]
+[connection signal="killed" from="." to="StatusBars" method="death"]

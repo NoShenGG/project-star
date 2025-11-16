@@ -28,8 +28,7 @@ func physics_update(delta: float) -> void:
 	if Input.is_action_just_pressed("synergy_burst"):
 		trigger_finished.emit(BURSTING)
 	if Input.is_action_just_pressed("dodge"):
-		player.dash()
-		trigger_finished.emit(MOVING if player.velocity else IDLE)
+		trigger_finished.emit(DASH)
 	elif  Input.is_action_just_released("special_attack"):
 		trigger_finished.emit(SPECIAL, {"charges": charges})
 		
