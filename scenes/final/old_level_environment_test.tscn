@@ -117,12 +117,6 @@ offset_right = 180.0
 offset_bottom = 300.0
 scale = Vector2(0.52616984, 0.52616984)
 
-[node name="TestEnemy" parent="." instance=ExtResource("6_a4h3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6481366, 0.42649126, -5)
-
-[node name="TestEnemy2" parent="." instance=ExtResource("6_a4h3p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6481366, 0.42649126, 11.648696)
-
 [node name="TestEnemy3" parent="." instance=ExtResource("6_a4h3p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.384129, 0.42649126, 0)
 

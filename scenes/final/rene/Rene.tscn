@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bq7t53o2llxr4"]
+[gd_scene load_steps=66 format=3 uid="uid://bq7t53o2llxr4"]
 
 [ext_resource type="Script" uid="uid://ca3hlofv22ftb" path="res://scripts/entities/player/rene/rene.gd" id="1_njlal"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_yooho"]
@@ -2673,18 +2673,6 @@ graph_offset = Vector2(374, -66.382706)
 [sub_resource type="SphereShape3D" id="SphereShape3D_ato7d"]
 radius = 0.98
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_xdlwu"]
-radius = 2.25
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_21ndv"]
-size = Vector3(1.5, 2, 2.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7ch2h"]
-size = Vector3(4, 2, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_x427t"]
-size = Vector3(2.5, 2, 3)
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ob225"]
 radius = 3.0
 
@@ -2693,9 +2681,6 @@ collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_njlal")
 targetting_box = NodePath("Hitboxes/Vision")
-charged_attack_dmg = 3
-special_dmg = 5
-charged_special_dmg = 9
 faction = 0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -2715,24 +2700,20 @@ event_guid = "{1786b3c0-0467-4017-8d6d-95457d0666de}"
 [node name="Attacking" type="Node" parent="StateMachine"]
 script = ExtResource("5_t5f0y")
 
-[node name="Slash0" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Slash0" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
-hitbox = NodePath("../../../Hitboxes/Slash")
 animation = NodePath("../../../nova_animations_kobold/Slash")
 
-[node name="Slash1" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Slash1" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
-hitbox = NodePath("../../../Hitboxes/Slash")
 animation = NodePath("../../../nova_animations_kobold/Slash2")
 
-[node name="Slash2" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Slash2" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
-hitbox = NodePath("../../../Hitboxes/Slash")
 animation = NodePath("../../../nova_animations_kobold/Slash3")
 
-[node name="Slash3" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Slash3" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
-hitbox = NodePath("../../../Hitboxes/Slash")
 animation = NodePath("../../../nova_animations_kobold/Slash4")
 
 [node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking"]
@@ -2750,9 +2731,8 @@ event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 event_name = "event:/Player/Uniques/Charging/Nova Charging"
 event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 
-[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
+[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("finished_state", "animation")]
 script = ExtResource("6_u7juv")
-hitbox = NodePath("../../Hitboxes/Slash")
 damage = 3.0
 finished_state = NodePath("../Moving")
 animation = NodePath("../../nova_animations_kobold/ChargedSlash")
@@ -2919,45 +2899,6 @@ target_position = Vector3(0, 0, -10)
 [node name="Hitboxes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("25_qvekr")
-
-[node name="Sweep" type="Area3D" parent="Hitboxes"]
-collision_layer = 0
-collision_mask = 8
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Sweep"]
-shape = SubResource("CylinderShape3D_xdlwu")
-
-[node name="Poke" type="Area3D" parent="Hitboxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.25)
-collision_layer = 0
-collision_mask = 8
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Poke"]
-shape = SubResource("BoxShape3D_21ndv")
-
-[node name="Dash" type="Area3D" parent="Hitboxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
-collision_layer = 0
-collision_mask = 8
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Dash"]
-shape = SubResource("BoxShape3D_7ch2h")
-
-[node name="Slash" type="Area3D" parent="Hitboxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-collision_layer = 0
-collision_mask = 8
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Slash"]
-shape = SubResource("BoxShape3D_x427t")
 
 [node name="Vision" type="Area3D" parent="Hitboxes"]
 collision_layer = 0
