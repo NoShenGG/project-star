@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://btiyd8a5nuror"]
+
+[ext_resource type="Script" uid="uid://bstcbam5y5wyr" path="res://scripts/entities/player/dawn/notes/tone_stun_wave.gd" id="1_nhghl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvqb4"]
+transparency = 1
+albedo_color = Color(0, 0.3764706, 1, 0.44313726)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tc7to"]
+material = SubResource("StandardMaterial3D_qvqb4")
+size = Vector3(8, 4, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qvqb4"]
+size = Vector3(8, 4, 0.1)
+
+[node name="ToneSlowWave" type="Node3D" node_paths=PackedStringArray("hitbox")]
+top_level = true
+script = ExtResource("1_nhghl")
+hitbox = NodePath("Area3D")
+max_duration = 5.0
+speed = 5.0
+damage = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_tc7to")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_qvqb4")
