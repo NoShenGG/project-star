@@ -1,17 +1,20 @@
-[gd_scene load_steps=20 format=3 uid="uid://bx6y3af7ybavb"]
+[gd_scene load_steps=23 format=3 uid="uid://bx6y3af7ybavb"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_7ji1e"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="2_5klj7"]
-[ext_resource type="Script" path="res://scripts/utility/wave_manager.gd" id="2_qklsu"]
+[ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_qklsu"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="3_fs8cp"]
 [ext_resource type="MeshLibrary" uid="uid://b88u34a3ref8h" path="res://art_assets/environment/level_1/level1tiles.tres" id="3_rh4qa"]
 [ext_resource type="PackedScene" uid="uid://cwo7k5blghvxp" path="res://scripts/dev/Throttle/FrameLimiter.tscn" id="4_g0vyw"]
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="4_m3a5u"]
-[ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://vfx/Kenny Particle Pack/circle_01.png" id="9_pc856"]
-[ext_resource type="Script" path="res://scripts/utility/spawn_area.gd" id="10_ahgbm"]
+[ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://VFX/Kenny Particle Pack/circle_01.png" id="9_pc856"]
+[ext_resource type="Script" uid="uid://13uw6pe5u3b0" path="res://scripts/utility/spawn_area.gd" id="10_ahgbm"]
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="12_rh4qa"]
+[ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="13_ahgbm"]
 [ext_resource type="PackedScene" uid="uid://cv7a8503lutop" path="res://scenes/sub/DifficultKoboldEnemy.tscn" id="13_pc856"]
-[ext_resource type="PackedScene" uid="uid://bo8i2glbe0u23" path="res://scenes/sub/Fortifier.tscn" id="13_g0vyw"]
+[ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="14_pc856"]
+[ext_resource type="PackedScene" uid="uid://cuq57gnl0xn2m" path="res://scenes/sub/LaserShroom.tscn" id="16_1p1tq"]
+[ext_resource type="PackedScene" uid="uid://c2c748wm51fs2" path="res://scenes/sub/Tendril.tscn" id="16_ko4p6"]
 
 [sub_resource type="Environment" id="Environment_1p1tq"]
 background_mode = 1
@@ -149,14 +152,23 @@ mesh = SubResource("PlaneMesh_u2m4g")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0275345, 0, 18.775848)
 script = ExtResource("10_ahgbm")
 
-[node name="TestEnemy" parent="WaveManager" instance=ExtResource("12_rh4qa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.37511, 0, -2.5749774)
+[node name="RangedEnemy" parent="." instance=ExtResource("13_ahgbm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.030693, 0.56587297, 3.8698235)
 
-[node name="Fortifier" parent="." instance=ExtResource("13_g0vyw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.379154, 1.1728301, 0)
+[node name="Mossum" parent="." instance=ExtResource("14_pc856")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.165386, 1.8611944, 5.7786436)
 
-[node name="KoboldEnemy" parent="." instance=ExtResource("13_pc856")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.679375, 0.015872955, 8.510664)
+[node name="KoboldEnemy2" parent="." instance=ExtResource("13_pc856")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.57595, 0.015872955, -0.04016328)
+
+[node name="Tendril" parent="." instance=ExtResource("16_ko4p6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.262511, 1.015873, 3.4105573)
+
+[node name="LaserShroom" parent="." instance=ExtResource("16_1p1tq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.638603, 0.015871048, -3.9995136)
+
+[node name="KoboldEnemy3" parent="." instance=ExtResource("12_rh4qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.343646, 0.015871048, 8.94895)
 
 [connection signal="fight_ended" from="WaveManager" to="WaveManager/End" method="play_one_shot"]
 [connection signal="fight_started" from="WaveManager" to="WaveManager/Start" method="play_one_shot"]

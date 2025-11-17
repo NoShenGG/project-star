@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgdpkq36jujfn"]
+
+[ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_8jmja"]
+[ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_jhliq"]
+[ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="3_qeh4q"]
+[ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="4_t5tva"]
+[ext_resource type="Script" uid="uid://13uw6pe5u3b0" path="res://scripts/utility/spawn_area.gd" id="5_8o628"]
+[ext_resource type="Script" uid="uid://civ250opji4sw" path="res://scripts/utility/WaveCollisionStarter.gd" id="6_8mtqa"]
+[ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="7_10abd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gfadb"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8jmja"]
+sky_material = SubResource("ProceduralSkyMaterial_gfadb")
+
+[sub_resource type="Environment" id="Environment_3xt44"]
+background_mode = 2
+sky = SubResource("Sky_8jmja")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_240as"]
+size = Vector3(15, 3, 15)
+
+[node name="Level1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3xt44")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -5.05271)
+size = Vector3(76, 1, 76)
+
+[node name="PlayerManager" parent="." instance=ExtResource("1_8jmja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
+
+[node name="WaveManager" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -16)
+script = ExtResource("2_jhliq")
+metadata/_custom_type_script = "uid://cs72ukacrgd4g"
+
+[node name="Wave" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("3_qeh4q")
+enemies = Array[PackedScene]([ExtResource("4_t5tva"), ExtResource("4_t5tva")])
+spawn_areas = [NodePath("../SpawnArea"), NodePath("../SpawnArea2")]
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
+
+[node name="SpawnArea" type="Node3D" parent="WaveManager"]
+transform = Transform3D(0.70710677, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.70710677, -14.171573, 0, 13)
+script = ExtResource("5_8o628")
+metadata/_custom_type_script = "uid://13uw6pe5u3b0"
+
+[node name="SpawnArea2" type="Node3D" parent="WaveManager"]
+transform = Transform3D(0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710677, 17.648232, 0, 15.121322)
+script = ExtResource("5_8o628")
+metadata/_custom_type_script = "uid://13uw6pe5u3b0"
+
+[node name="SpawnArea3" type="Node3D" parent="WaveManager"]
+transform = Transform3D(0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710677, 17.648232, 0, 15.121322)
+script = ExtResource("5_8o628")
+metadata/_custom_type_script = "uid://13uw6pe5u3b0"
+
+[node name="SpawnArea4" type="Node3D" parent="WaveManager"]
+transform = Transform3D(-1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, -1, 9.870054, 0, -33.669044)
+script = ExtResource("5_8o628")
+metadata/_custom_type_script = "uid://13uw6pe5u3b0"
+
+[node name="Area3D" type="Area3D" parent="WaveManager" node_paths=PackedStringArray("wave")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_8mtqa")
+wave = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_240as")
+
+[node name="LevelEnder" parent="." instance=ExtResource("7_10abd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9348946, -9.536743e-07, -8.2116165)
+next_level = "MainGame/Biome 3/Biome3_Level2"
