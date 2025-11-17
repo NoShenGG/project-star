@@ -1,7 +1,328 @@
-[gd_scene format=3 uid="uid://p0pl57lpm4x4"]
+[gd_scene load_steps=23 format=3 uid="uid://p0pl57lpm4x4"]
+
+[ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_ajxti"]
+[ext_resource type="Texture2D" uid="uid://c03u082aeesl3" path="res://art_assets/textures/wool_albedo.jpg" id="1_e11sh"]
+[ext_resource type="Script" uid="uid://briioihkxilxm" path="res://addons/proto_shape/proto_ramp/proto_ramp.gd" id="2_m853x"]
+[ext_resource type="Shader" uid="uid://014ry7cx8mxw" path="res://shaders/water.gdshader" id="2_qn4bu"]
+[ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="4_47nrl"]
+[ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="5_armu7"]
+[ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="6_7oo5e"]
+[ext_resource type="Script" uid="uid://13uw6pe5u3b0" path="res://scripts/utility/spawn_area.gd" id="6_armu7"]
+[ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="9_76imp"]
+[ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="10_1fsox"]
+[ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://VFX/Kenny Particle Pack/star_06.png" id="10_fja3h"]
+[ext_resource type="Script" uid="uid://knd2e7gdbpfb" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
+[ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="11_1fsox"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ajxti"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_e11sh"]
+sky_material = SubResource("ProceduralSkyMaterial_ajxti")
+
+[sub_resource type="Environment" id="Environment_m853x"]
+background_mode = 2
+sky = SubResource("Sky_e11sh")
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 1.73
+ssao_intensity = 9.34
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m853x"]
+albedo_texture = ExtResource("1_e11sh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40h6n"]
+albedo_texture = ExtResource("1_e11sh")
+uv1_scale = Vector3(0.09, 0.09, 0.09)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qn4bu"]
+size = Vector2(96.885, 6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a886n"]
+render_priority = 0
+shader = ExtResource("2_qn4bu")
+shader_parameter/water_color = Color(0.12156863, 0.29803923, 0.4509804, 1)
+shader_parameter/submerged_obj_color = Color(0.08044538, 0.18608825, 0.27852577, 1)
+shader_parameter/murkiness = 0.5
+shader_parameter/foam_intensity = 15.0
+shader_parameter/ripple_length = 0.630000029925
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7oo5e"]
+size = Vector3(15, 3, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1fsox"]
+size = Vector3(6, 2, 6)
 
 [node name="Level1" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m853x")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -6)
+material_override = SubResource("StandardMaterial3D_m853x")
+size = Vector3(36, 10, 38)
+material = SubResource("StandardMaterial3D_40h6n")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.712158, -57.15869)
+material_override = SubResource("StandardMaterial3D_m853x")
+size = Vector3(96.805, 39.424316, 64.31738)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, 0, 18.287842, -118.106094)
+material_override = SubResource("StandardMaterial3D_m853x")
+size = Vector3(119.275, 80, 50)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -20.606445, -50)
+visible = false
+material_override = SubResource("StandardMaterial3D_m853x")
+operation = 2
+size = Vector3(15, 41.21289, 15)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9, 2.5, -65)
+material_override = SubResource("StandardMaterial3D_m853x")
+size = Vector3(15, 5, 50)
+material = SubResource("StandardMaterial3D_40h6n")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18.1, -2.5, -82.6)
+material_override = SubResource("StandardMaterial3D_m853x")
+size = Vector3(15, 5, 63)
+material = SubResource("StandardMaterial3D_40h6n")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 23.267319, 2.5, 1)
+size = Vector3(15, 5, 55)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.9659258, -0.258819, 0, 0.25881904, 0.9659257, 0, 0, 0, 0.99999994, -19.308, 0.707, 0)
+size = Vector3(10.775, 5, 50)
+
+[node name="CSGBox3D10" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1.3423195e-08, 1, 0, -0.3070869, -4.371139e-08, 0, 0, 0, 2.5186973, -5.0928982e-08, 0.122722626, -50)
+operation = 2
+radius = 2.846
+height = 108.01
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGCombiner3D/CSGBox3D10"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.753, 0, 0)
+mesh = SubResource("PlaneMesh_qn4bu")
+surface_material_override/0 = SubResource("ShaderMaterial_a886n")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.95125145, 0.25488704, -0.17364809, 0.2588191, 0.96592593, -4.0023003e-09, 0.16773117, -0.044943437, -0.9848077, 14.691999, 0.707, 0)
+size = Vector3(10.775, 5, 50)
+
+[node name="ProtoRamp" type="Node3D" parent="CSGCombiner3D"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -5.8988056, 0, -20)
+script = ExtResource("2_m853x")
+type = 0
+collisions_enabled = true
+width = 15.001
+height = 5.001
+depth = 20.001
+anchor = 0
+anchor_fixed = true
+fill = 1.0
+material = SubResource("StandardMaterial3D_40h6n")
+metadata/_custom_type_script = "uid://briioihkxilxm"
+
+[node name="ProtoRamp2" type="Node3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21.601194, 0, -82.5)
+script = ExtResource("2_m853x")
+type = 0
+collisions_enabled = true
+width = 15.001
+height = 5.001
+depth = 20.001
+anchor = 0
+anchor_fixed = true
+fill = 1.0
+material = SubResource("StandardMaterial3D_40h6n")
+metadata/_custom_type_script = "uid://briioihkxilxm"
+
+[node name="PlayerManager" parent="." instance=ExtResource("1_ajxti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
+
+[node name="WaveManager" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
+script = ExtResource("4_47nrl")
+metadata/_custom_type_script = "uid://cs72ukacrgd4g"
+
+[node name="Wave" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("5_armu7")
+enemies = Array[PackedScene]([ExtResource("6_7oo5e"), ExtResource("6_7oo5e")])
+spawn_areas = [NodePath("../SpawnArea"), NodePath("../SpawnArea2")]
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
+
+[node name="SpawnArea" type="Node3D" parent="WaveManager"]
+transform = Transform3D(0.70710677, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.70710677, -14.171573, 0, 13)
+script = ExtResource("6_armu7")
+metadata/_custom_type_script = "uid://13uw6pe5u3b0"
+
+[node name="SpawnArea2" type="Node3D" parent="WaveManager"]
+transform = Transform3D(0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710677, 17.648232, 0, 15.121322)
+script = ExtResource("6_armu7")
+metadata/_custom_type_script = "uid://13uw6pe5u3b0"
+
+[node name="SpawnArea3" type="Node3D" parent="WaveManager"]
+transform = Transform3D(0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710677, 17.648232, 0, 15.121322)
+script = ExtResource("6_armu7")
+metadata/_custom_type_script = "uid://13uw6pe5u3b0"
+
+[node name="SpawnArea4" type="Node3D" parent="WaveManager"]
+transform = Transform3D(-1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, -1, 9.870054, 0, -33.669044)
+script = ExtResource("6_armu7")
+metadata/_custom_type_script = "uid://13uw6pe5u3b0"
+
+[node name="Area3D" type="Area3D" parent="WaveManager"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_7oo5e")
+
+[node name="LevelEnder" parent="." instance=ExtResource("9_76imp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.934895, -9.536743e-07, -15.2116165)
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("menu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -15)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("10_opvqb")
+menu = NodePath("Menu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_1fsox")
+
+[node name="Menu" type="Panel" parent="Area3D" node_paths=PackedStringArray("focused_control")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -140.0
+offset_right = 171.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_1fsox")
+focused_control = NodePath("Label")
+open_time = 0.5
+open_animation_flags = 1
+close_time = 0.5
+close_animation_flags = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Area3D/Menu"]
+position = Vector2(393.57178, 132.16002)
+rotation = -0.5131922
+scale = Vector2(0.54859906, 0.54859906)
+texture = ExtResource("10_fja3h")
+script = ExtResource("11_1fsox")
+tween_transition = 11
+open_animation_flags = 9
+close_time = 0.6
+close_animation_flags = 9
+
+[node name="Sprite2D2" type="Sprite2D" parent="Area3D/Menu"]
+self_modulate = Color(0.9921667, 1, 0.53, 1)
+position = Vector2(383.5717, 212.16)
+rotation = 0.07198918
+scale = Vector2(0.5485993, 0.5485993)
+texture = ExtResource("10_fja3h")
+script = ExtResource("11_1fsox")
+tween_transition = 11
+open_animation_delay = 0.1
+open_time = 0.5
+open_animation_flags = 15
+close_time = 0.6
+close_animation_flags = 15
+
+[node name="Sprite2D3" type="Sprite2D" parent="Area3D/Menu"]
+self_modulate = Color(0.98333335, 1, 0, 1)
+position = Vector2(333.57172, 280.16)
+rotation = -2.5458481
+scale = Vector2(0.54859895, 0.54859895)
+texture = ExtResource("10_fja3h")
+script = ExtResource("11_1fsox")
+tween_transition = 11
+open_animation_delay = 0.1
+open_animation_flags = 15
+close_time = 0.6
+close_animation_flags = 15
+
+[node name="Sprite2D4" type="Sprite2D" parent="Area3D/Menu"]
+position = Vector2(-6.9472046, 125.30113)
+rotation = -0.5131922
+scale = Vector2(0.54859906, 0.54859906)
+texture = ExtResource("10_fja3h")
+script = ExtResource("11_1fsox")
+tween_transition = 11
+open_animation_flags = 9
+close_time = 0.6
+close_animation_flags = 9
+
+[node name="Sprite2D5" type="Sprite2D" parent="Area3D/Menu"]
+self_modulate = Color(0.9921667, 1, 0.53, 1)
+position = Vector2(26, 207)
+rotation = 0.07198918
+scale = Vector2(0.5485993, 0.5485993)
+texture = ExtResource("10_fja3h")
+script = ExtResource("11_1fsox")
+tween_transition = 11
+open_animation_delay = 0.1
+open_time = 0.5
+open_animation_flags = 15
+close_time = 0.6
+close_animation_flags = 15
+
+[node name="Sprite2D6" type="Sprite2D" parent="Area3D/Menu"]
+self_modulate = Color(0.98333335, 1, 0, 1)
+position = Vector2(83, 295.00003)
+rotation = -2.5458481
+scale = Vector2(0.54859895, 0.54859895)
+texture = ExtResource("10_fja3h")
+script = ExtResource("11_1fsox")
+tween_transition = 11
+open_animation_delay = 0.1
+open_animation_flags = 15
+close_time = 0.6
+close_animation_flags = 15
+
+[node name="Label" type="Label" parent="Area3D/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 18.0
+offset_right = -20.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRESS W TO MOVE YOU FUCKING IDIOT
+
+Like SERIOUSLY, just move"
+
+[connection signal="body_entered" from="WaveManager/Area3D" to="WaveManager" method="_on_start" unbinds=1]
