@@ -30,7 +30,7 @@ func physics_update(delta: float) -> void:
 
 	if Input.is_action_just_pressed("synergy_burst"):
 		trigger_finished.emit(BURSTING)
-	if Input.is_action_just_pressed("dodge"):
+	if Input.is_action_just_pressed("dodge") and player._can_dash:
 		trigger_finished.emit(DASH)
 	elif not Input.is_action_pressed("basic_attack"):
 		if time_active > player.attack_charge_time:

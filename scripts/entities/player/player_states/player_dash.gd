@@ -13,9 +13,6 @@ func _ready() -> void:
 	assert(player != null, "Must be used with a player")
 
 func enter(_prev_state: String, _data := {}):
-	if not player._can_dash:
-		trigger_finished.emit("Moving")
-		return
 	player._can_dash = false
 	super(_prev_state, _data)
 	var ray = player.ray

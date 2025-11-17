@@ -2699,6 +2699,7 @@ collision_mask = 3
 script = ExtResource("1_p5oh7")
 targetting_box = NodePath("Hitboxes/Vision")
 faction = 0
+_breakable = false
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_lfcoe")

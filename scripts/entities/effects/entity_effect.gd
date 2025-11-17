@@ -10,7 +10,8 @@ enum EffectID {
 	SLOWED,
 	SPEED,
 	FORTE,
-	TEMPO
+	TEMPO,
+	HEAL_OVER_TIME
 }
 var id: EffectID
 var _entity: Entity

@@ -43,6 +43,6 @@ func end() -> void:
 	pass
 		
 func exit() -> void:
+	do_damage()
 	super()
 	animation.stop.disconnect(anim_stop)
-	do_damage()

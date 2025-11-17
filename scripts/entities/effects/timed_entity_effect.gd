@@ -17,7 +17,7 @@ func try_apply(entity: Entity) -> bool:
 
 func process(delta: float) -> bool:
 	_current_time += floori(delta * 1000)
-	var valid_time: int = maxi(_current_time, effect_duration)
+	var valid_time: int = mini(_current_time, effect_duration)
 	var time_since_last_tick: int = valid_time - _last_tick
 	if time_since_last_tick >= effect_tick_interval:
 		var ticks: int = time_since_last_tick / effect_tick_interval

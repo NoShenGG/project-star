@@ -37,5 +37,7 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 	state.finished.emit()
 	state.exit()
 	state = get_node(target_state_path)
+	if (owner is Player):
+		print(owner.name + " Transitioning from " + previous_state_path + " to " + state.name)
 	state_entered.emit(state.name)
 	state.enter(previous_state_path, data)
