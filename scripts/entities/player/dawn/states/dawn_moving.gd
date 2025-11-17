@@ -16,7 +16,7 @@ func update(_delta: float) -> void:
 
 func physics_update(delta: float) -> void:
 	player.move(delta)
-	if Input.is_action_just_pressed("dodge"):
+	if Input.is_action_just_pressed("dodge") and player._can_dash:
 		trigger_finished.emit(DASH)
 		
 	if charge_attack or charge_special:
