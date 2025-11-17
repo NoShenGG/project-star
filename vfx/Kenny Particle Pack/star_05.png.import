@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://homsvr5n578"
-path.s3tc="res://.godot/imported/star_05.png-5ce9b93cc39c103132f0ffd58c00071c.s3tc.ctex"
+path.s3tc="res://.godot/imported/star_05.png-63ed83de5528975d7242b299d52bad18.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://VFX/Kenny Particle Pack/star_05.png"
-dest_files=["res://.godot/imported/star_05.png-5ce9b93cc39c103132f0ffd58c00071c.s3tc.ctex"]
+source_file="res://vfx/Kenny Particle Pack/star_05.png"
+dest_files=["res://.godot/imported/star_05.png-63ed83de5528975d7242b299d52bad18.s3tc.ctex"]
 
 [params]
 
