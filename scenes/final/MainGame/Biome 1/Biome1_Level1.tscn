@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://13uw6pe5u3b0" path="res://scripts/utility/spawn_area.gd" id="6_armu7"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="9_76imp"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="10_1fsox"]
-[ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://VFX/Kenny Particle Pack/star_06.png" id="10_fja3h"]
+[ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://vfx/Kenny Particle Pack/star_06.png" id="10_fja3h"]
 [ext_resource type="Script" uid="uid://knd2e7gdbpfb" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="11_1fsox"]
 
@@ -203,6 +203,7 @@ shape = SubResource("BoxShape3D_7oo5e")
 
 [node name="LevelEnder" parent="." instance=ExtResource("9_76imp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.934895, -9.536743e-07, -15.2116165)
+next_level = "MainGame/Biome 1/Biome1_Level2"
 
 [node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("menu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -15)
