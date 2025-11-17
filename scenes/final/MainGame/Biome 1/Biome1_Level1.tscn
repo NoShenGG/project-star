@@ -86,13 +86,13 @@ metadata/_custom_type_script = "uid://cs72ukacrgd4g"
 [node name="Wave1" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("5_armu7")
 enemies = Array[PackedScene]([ExtResource("7_opvqb")])
-spawn_areas = [NodePath("../SpawnArea5")]
+spawn_areas = [NodePath("../SpawnArea1")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
 [node name="Wave2" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("5_armu7")
 enemies = Array[PackedScene]([ExtResource("7_opvqb"), ExtResource("7_opvqb")])
-spawn_areas = [NodePath("../SpawnArea6")]
+spawn_areas = [NodePath("../SpawnArea2")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
 [node name="Area3D" type="Area3D" parent="WaveManager"]
@@ -100,33 +100,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.132118, 0, 36.407204)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Area3D"]
+[node name="Start Spawns" type="CollisionShape3D" parent="WaveManager/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_7oo5e")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
-[node name="SpawnArea5" parent="WaveManager" instance=ExtResource("7_pafkc")]
+[node name="SpawnArea1" parent="WaveManager" instance=ExtResource("7_pafkc")]
 transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -22.42935, -1.9073486e-06, 30.670176)
 
-[node name="SpawnArea6" parent="WaveManager" instance=ExtResource("7_pafkc")]
+[node name="SpawnArea2" parent="WaveManager" instance=ExtResource("7_pafkc")]
 transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -14.8418665, -1.9073486e-06, 12.845215)
 
 [node name="LevelEnder" parent="." instance=ExtResource("9_76imp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.934895, -9.536743e-07, -15.2116165)
 next_level = "MainGame/Biome 1/Biome1_Level2"
 
-[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("menu")]
+[node name="Tutorial" type="Area3D" parent="." node_paths=PackedStringArray("menu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -15)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("10_opvqb")
 menu = NodePath("Menu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="Tutorial Collision Box" type="CollisionShape3D" parent="Tutorial"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_1fsox")
+debug_color = Color(0, 11.618606, 13.50434, 0.8509804)
 
-[node name="Menu" type="Panel" parent="Area3D" node_paths=PackedStringArray("focused_control")]
+[node name="Menu" type="Panel" parent="Tutorial" node_paths=PackedStringArray("focused_control")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -145,7 +146,7 @@ open_animation_flags = 1
 close_time = 0.5
 close_animation_flags = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Area3D/Menu"]
+[node name="Sprite2D" type="Sprite2D" parent="Tutorial/Menu"]
 position = Vector2(393.57178, 132.16002)
 rotation = -0.5131922
 scale = Vector2(0.54859906, 0.54859906)
@@ -156,7 +157,7 @@ open_animation_flags = 9
 close_time = 0.6
 close_animation_flags = 9
 
-[node name="Sprite2D2" type="Sprite2D" parent="Area3D/Menu"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tutorial/Menu"]
 self_modulate = Color(0.9921667, 1, 0.53, 1)
 position = Vector2(383.5717, 212.16)
 rotation = 0.07198918
@@ -170,7 +171,7 @@ open_animation_flags = 15
 close_time = 0.6
 close_animation_flags = 15
 
-[node name="Sprite2D3" type="Sprite2D" parent="Area3D/Menu"]
+[node name="Sprite2D3" type="Sprite2D" parent="Tutorial/Menu"]
 self_modulate = Color(0.98333335, 1, 0, 1)
 position = Vector2(333.57172, 280.16)
 rotation = -2.5458481
@@ -183,7 +184,7 @@ open_animation_flags = 15
 close_time = 0.6
 close_animation_flags = 15
 
-[node name="Sprite2D4" type="Sprite2D" parent="Area3D/Menu"]
+[node name="Sprite2D4" type="Sprite2D" parent="Tutorial/Menu"]
 position = Vector2(-6.9472046, 125.30113)
 rotation = -0.5131922
 scale = Vector2(0.54859906, 0.54859906)
@@ -194,7 +195,7 @@ open_animation_flags = 9
 close_time = 0.6
 close_animation_flags = 9
 
-[node name="Sprite2D5" type="Sprite2D" parent="Area3D/Menu"]
+[node name="Sprite2D5" type="Sprite2D" parent="Tutorial/Menu"]
 self_modulate = Color(0.9921667, 1, 0.53, 1)
 position = Vector2(26, 207)
 rotation = 0.07198918
@@ -208,7 +209,7 @@ open_animation_flags = 15
 close_time = 0.6
 close_animation_flags = 15
 
-[node name="Sprite2D6" type="Sprite2D" parent="Area3D/Menu"]
+[node name="Sprite2D6" type="Sprite2D" parent="Tutorial/Menu"]
 self_modulate = Color(0.98333335, 1, 0, 1)
 position = Vector2(83, 295.00003)
 rotation = -2.5458481
@@ -221,7 +222,7 @@ open_animation_flags = 15
 close_time = 0.6
 close_animation_flags = 15
 
-[node name="Label" type="Label" parent="Area3D/Menu"]
+[node name="Label" type="Label" parent="Tutorial/Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

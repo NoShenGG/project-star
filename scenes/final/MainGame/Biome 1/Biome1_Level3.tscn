@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://rgcas24o45rb"]
+[gd_scene load_steps=14 format=3 uid="uid://rgcas24o45rb"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_k1xpg"]
 [ext_resource type="Script" uid="uid://briioihkxilxm" path="res://addons/proto_shape/proto_ramp/proto_ramp.gd" id="2_dieni"]
@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="4_dieni"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="5_mpi2d"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="6_eejem"]
-[ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="7_6vead"]
-[ext_resource type="Script" uid="uid://13uw6pe5u3b0" path="res://scripts/utility/spawn_area.gd" id="8_i30p7"]
-[ext_resource type="Script" uid="uid://civ250opji4sw" path="res://scripts/utility/WaveCollisionStarter.gd" id="9_t2cqq"]
+[ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="7_vlt4p"]
+[ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="8_mpi2d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k1xpg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,10 +28,10 @@ uv1_scale = Vector3(0.09, 0.09, 0.09)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5gf8r"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_eejem"]
 size = Vector3(15, 3, 15)
 
-[node name="Level1" type="Node3D"]
+[node name="Level3" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rnyc2")
@@ -114,42 +113,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.934895, -9.536743e-07, -2
 next_level = "MainGame/Biome 2/Biome2_Level1"
 
 [node name="WaveManager" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 6, -24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
 script = ExtResource("5_mpi2d")
 metadata/_custom_type_script = "uid://cs72ukacrgd4g"
 
-[node name="Wave" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave1" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("6_eejem")
-enemies = Array[PackedScene]([ExtResource("7_6vead"), ExtResource("7_6vead")])
-spawn_areas = [NodePath("../SpawnArea"), NodePath("../SpawnArea2")]
+enemies = Array[PackedScene]([ExtResource("7_vlt4p"), ExtResource("7_vlt4p"), ExtResource("7_vlt4p")])
+spawn_areas = [NodePath("../SpawnArea1")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="SpawnArea" type="Node3D" parent="WaveManager"]
-transform = Transform3D(0.70710677, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.70710677, -14.171573, 0, 13)
-script = ExtResource("8_i30p7")
-metadata/_custom_type_script = "uid://13uw6pe5u3b0"
-
-[node name="SpawnArea2" type="Node3D" parent="WaveManager"]
-transform = Transform3D(0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710677, 17.648232, 0, 15.121322)
-script = ExtResource("8_i30p7")
-metadata/_custom_type_script = "uid://13uw6pe5u3b0"
-
-[node name="SpawnArea3" type="Node3D" parent="WaveManager"]
-transform = Transform3D(0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710677, 17.648232, 0, 15.121322)
-script = ExtResource("8_i30p7")
-metadata/_custom_type_script = "uid://13uw6pe5u3b0"
-
-[node name="SpawnArea4" type="Node3D" parent="WaveManager"]
-transform = Transform3D(-1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, -1, 9.870054, 0, -33.669044)
-script = ExtResource("8_i30p7")
-metadata/_custom_type_script = "uid://13uw6pe5u3b0"
-
-[node name="Area3D" type="Area3D" parent="WaveManager" node_paths=PackedStringArray("wave")]
+[node name="Wave_Starter" type="Area3D" parent="WaveManager"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -17.792645, 0, 49.094025)
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("9_t2cqq")
-wave = NodePath("..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("BoxShape3D_5gf8r")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter"]
+shape = SubResource("BoxShape3D_eejem")
+debug_color = Color(0, 7.095753, 8.250874, 1)
+
+[node name="SpawnArea1" parent="WaveManager" instance=ExtResource("8_mpi2d")]
+transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -22.42935, -1.9073486e-06, 40.777794)
+
+[connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]

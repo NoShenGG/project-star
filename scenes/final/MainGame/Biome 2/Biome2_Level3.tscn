@@ -1,89 +1,110 @@
-[gd_scene load_steps=12 format=3 uid="uid://cllo2m2p8svjf"]
+[gd_scene load_steps=15 format=3 uid="uid://cllo2m2p8svjf"]
 
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="1_d2yy8"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="2_aha3a"]
-[ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="3_6kimk"]
-[ext_resource type="Script" uid="uid://13uw6pe5u3b0" path="res://scripts/utility/spawn_area.gd" id="4_31ltn"]
-[ext_resource type="Script" uid="uid://civ250opji4sw" path="res://scripts/utility/WaveCollisionStarter.gd" id="5_r2uke"]
+[ext_resource type="PackedScene" uid="uid://dikwtund4a5xs" path="res://scenes/sub/DynaMite.tscn" id="5_6kimk"]
+[ext_resource type="PackedScene" uid="uid://bo8i2glbe0u23" path="res://scenes/sub/fortifier.tscn" id="6_31ltn"]
+[ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="6_d2yy8"]
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="6_prq4x"]
+[ext_resource type="PackedScene" uid="uid://cuq57gnl0xn2m" path="res://scenes/sub/LaserShroom.tscn" id="7_r2uke"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="7_s0x1b"]
+[ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="8_prq4x"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hotib"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aha3a"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_d2yy8"]
-sky_material = SubResource("ProceduralSkyMaterial_hotib")
+[sub_resource type="Sky" id="Sky_e85ix"]
+sky_material = SubResource("ProceduralSkyMaterial_aha3a")
 
-[sub_resource type="Environment" id="Environment_tr382"]
+[sub_resource type="Environment" id="Environment_6kimk"]
 background_mode = 2
-sky = SubResource("Sky_d2yy8")
+sky = SubResource("Sky_e85ix")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yhtdv"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_31ltn"]
+vertices = PackedVector3Array(-37.5, 0.5, -42.55271, -37.5, 0.5, 32.44729, 37.5, 0.5, 32.44729, 37.5, 0.5, -42.55271)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r2uke"]
 size = Vector3(15, 3, 15)
 
-[node name="Level1" type="Node3D"]
+[node name="Level3" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tr382")
+environment = SubResource("Environment_6kimk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.34
 shadow_enabled = true
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -5)
-size = Vector3(55, 1, 55)
-
-[node name="WaveManager" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -17)
-script = ExtResource("1_d2yy8")
-metadata/_custom_type_script = "uid://cs72ukacrgd4g"
-
-[node name="Wave" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
-script = ExtResource("2_aha3a")
-enemies = Array[PackedScene]([ExtResource("3_6kimk"), ExtResource("3_6kimk")])
-spawn_areas = [NodePath("../SpawnArea"), NodePath("../SpawnArea2")]
-metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
-
-[node name="SpawnArea" type="Node3D" parent="WaveManager"]
-transform = Transform3D(0.70710677, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.70710677, -14.171573, 0, 13)
-script = ExtResource("4_31ltn")
-metadata/_custom_type_script = "uid://13uw6pe5u3b0"
-
-[node name="SpawnArea2" type="Node3D" parent="WaveManager"]
-transform = Transform3D(0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710677, 17.648232, 0, 15.121322)
-script = ExtResource("4_31ltn")
-metadata/_custom_type_script = "uid://13uw6pe5u3b0"
-
-[node name="SpawnArea3" type="Node3D" parent="WaveManager"]
-transform = Transform3D(0.70710677, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710677, 17.648232, 0, 15.121322)
-script = ExtResource("4_31ltn")
-metadata/_custom_type_script = "uid://13uw6pe5u3b0"
-
-[node name="SpawnArea4" type="Node3D" parent="WaveManager"]
-transform = Transform3D(-1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, -1, 9.870054, 0, -33.669044)
-script = ExtResource("4_31ltn")
-metadata/_custom_type_script = "uid://13uw6pe5u3b0"
-
-[node name="Area3D" type="Area3D" parent="WaveManager" node_paths=PackedStringArray("wave")]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("5_r2uke")
-wave = NodePath("..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("BoxShape3D_yhtdv")
 
 [node name="PlayerManager" parent="." instance=ExtResource("6_prq4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
 
 [node name="LevelEnder" parent="." instance=ExtResource("7_s0x1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.934895, -9.536743e-07, -2.2116165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9348946, -9.536743e-07, -8.2116165)
 next_level = "MainGame/Biome 3/Biome3_Level1"
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_31ltn")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -5.05271)
+size = Vector3(76, 1, 76)
+
+[node name="WaveManager" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
+script = ExtResource("1_d2yy8")
+metadata/_custom_type_script = "uid://cs72ukacrgd4g"
+
+[node name="Wave1" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("2_aha3a")
+enemies = Array[PackedScene]([ExtResource("5_6kimk")])
+spawn_areas = [NodePath("../SpawnArea1")]
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
+
+[node name="Wave2" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("2_aha3a")
+enemies = Array[PackedScene]([ExtResource("6_31ltn")])
+spawn_areas = [NodePath("../SpawnArea1")]
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
+
+[node name="Wave3" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("2_aha3a")
+enemies = Array[PackedScene]([ExtResource("7_r2uke")])
+spawn_areas = [NodePath("../SpawnArea1")]
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
+
+[node name="Wave4" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("2_aha3a")
+enemies = Array[PackedScene]([ExtResource("8_prq4x")])
+spawn_areas = [NodePath("../SpawnArea1")]
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
+
+[node name="Wave_Starter" type="Area3D" parent="WaveManager"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -14.77544, 0, 44.378326)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter"]
+shape = SubResource("BoxShape3D_r2uke")
+debug_color = Color(0, 7.095753, 8.250874, 1)
+
+[node name="SpawnArea1" parent="WaveManager" instance=ExtResource("6_d2yy8")]
+transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -22.42935, -1.9073486e-06, 30.670176)
+
+[node name="SpawnArea2" parent="WaveManager" instance=ExtResource("6_d2yy8")]
+transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -10.011975, -1.9073486e-06, 24.923973)
+
+[node name="SpawnArea3" parent="WaveManager" instance=ExtResource("6_d2yy8")]
+transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -10.045789, -1.9073486e-06, 34.944)
+
+[node name="SpawnArea4" parent="WaveManager" instance=ExtResource("6_d2yy8")]
+transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, 1.3044357, -1.9073486e-06, 33.75924)
+
+[connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]

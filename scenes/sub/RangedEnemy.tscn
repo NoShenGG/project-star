@@ -22,7 +22,6 @@ collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_v2glr")
-_movement_speed = 2.0
 
 [node name="rocket_shroom" parent="." instance=ExtResource("2_bb0s1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, 0)
