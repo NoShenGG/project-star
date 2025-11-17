@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cein11fhbr6sp"]
+
+[ext_resource type="Script" uid="uid://di5fs5gi65tyd" path="res://scripts/entities/player/dawn/notes/tone_fish.gd" id="1_a11d3"]
+[ext_resource type="Script" uid="uid://bid5stp2cqwva" path="res://scripts/dev/debug_render_hitbox.gd" id="2_8f7p3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_stsof"]
+transparency = 1
+albedo_color = Color(0, 0, 1, 0.63529414)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a11d3"]
+material = SubResource("StandardMaterial3D_stsof")
+height = 1.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8f7p3"]
+size = Vector3(6, 1, 1.6)
+
+[node name="ToneMelody" type="Node3D" node_paths=PackedStringArray("hitbox")]
+top_level = true
+script = ExtResource("1_a11d3")
+hitbox = NodePath("Area3D")
+speed = 17.0
+damage = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_a11d3")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 0
+collision_mask = 14
+monitorable = false
+script = ExtResource("2_8f7p3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_8f7p3")

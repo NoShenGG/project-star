@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bfkrvdwb04r0u"]
+[gd_scene load_steps=33 format=3 uid="uid://bfkrvdwb04r0u"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_kaa7a"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="2_0tv2d"]
@@ -15,11 +15,8 @@
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="14_vslm2"]
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="15_0xxlr"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="16_aynb2"]
-[ext_resource type="PackedScene" uid="uid://bo8i2glbe0u23" path="res://scenes/sub/fortifier.tscn" id="17_0xxlr"]
 [ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="17_ek652"]
-[ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="18_vslm2"]
 [ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://VFX/Kenny Particle Pack/circle_01.png" id="18_wel6h"]
-[ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="20_0xxlr"]
 [ext_resource type="Script" uid="uid://0dst74xe1xdr" path="res://scenes/dev/diemmy_d/restart.gd" id="22_aynb2"]
 [ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="23_m6d5a"]
 [ext_resource type="Shader" uid="uid://cylk6ffp5hsy4" path="res://shaders/screen_space.gdshader" id="24_wel6h"]
@@ -224,16 +221,6 @@ transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 5, 4.47313, 0, -81.64082)
 script = ExtResource("16_aynb2")
 enemies = Array[PackedScene]([ExtResource("4_0tv2d"), ExtResource("17_ek652"), ExtResource("4_0tv2d"), ExtResource("17_ek652"), ExtResource("17_ek652")])
 spawn_areas = [NodePath("../SpawnArea")]
-
-[node name="Wave2" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
-script = ExtResource("16_aynb2")
-enemies = Array[PackedScene]([ExtResource("18_vslm2"), ExtResource("18_vslm2"), ExtResource("18_vslm2"), ExtResource("17_0xxlr")])
-spawn_areas = [NodePath("../SpawnArea2")]
-
-[node name="Wave3" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
-script = ExtResource("16_aynb2")
-enemies = Array[PackedScene]([ExtResource("20_0xxlr"), ExtResource("20_0xxlr")])
-spawn_areas = [NodePath("../SpawnArea3")]
 
 [node name="Start" type="FmodEventEmitter3D" parent="WaveManager"]
 event_name = "event:/UI/Back"

@@ -6,7 +6,11 @@ enum EffectID {
 	BROKEN,
 	MERGED,
 	INVINCIBLE,
-	GRABBED
+	GRABBED,
+	SLOWED,
+	SPEED,
+	FORTE,
+	TEMPO
 }
 var id: EffectID
 var _entity: Entity

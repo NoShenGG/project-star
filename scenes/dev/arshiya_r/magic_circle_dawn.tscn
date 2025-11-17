@@ -1,0 +1,136 @@
+[gd_scene load_steps=24 format=3 uid="uid://bt3ebb8eyl2c7"]
+
+[ext_resource type="Shader" uid="uid://cike1cfb0t5r1" path="res://scenes/dev/arshiya_r/speaker_led.tres" id="1_dp4kn"]
+[ext_resource type="Texture2D" uid="uid://de383pur6bgjv" path="res://scenes/dev/arshiya_r/dawn_circle_textures/ring.png" id="2_bsn1t"]
+[ext_resource type="Shader" uid="uid://txc0uyi3s4ag" path="res://scenes/dev/arshiya_r/speaker_bounce.tres" id="3_7tetl"]
+[ext_resource type="Texture2D" uid="uid://ch4vkifsulu2h" path="res://scenes/dev/arshiya_r/dawn_circle_textures/mesh.png" id="4_5l6fl"]
+[ext_resource type="Texture2D" uid="uid://uepa3ilo23vh" path="res://scenes/dev/arshiya_r/dawn_circle_textures/bass.png" id="4_nwfwl"]
+[ext_resource type="Texture2D" uid="uid://c6rrqwdldqagx" path="res://scenes/dev/arshiya_r/dawn_circle_textures/music_note.png" id="6_5l6fl"]
+[ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/circle_particles.tres" id="6_nfu81"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfcmf"]
+render_priority = 0
+shader = ExtResource("1_dp4kn")
+shader_parameter/color_one = Color(0, 1.6431228, 1.7479345, 1)
+shader_parameter/color_two = Color(1.6710725, 0.119860694, 1.664085, 1)
+shader_parameter/FloatParameter = 2.0
+shader_parameter/Circle_Texture = ExtResource("2_bsn1t")
+shader_parameter/Extra_Opacity = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a0i5e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2uemn"]
+render_priority = 0
+shader = ExtResource("3_7tetl")
+shader_parameter/Color = Color(0, 0, 0, 1)
+shader_parameter/Speed = 9.0
+shader_parameter/Speaker_Texture = ExtResource("4_5l6fl")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x33gg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x63c4"]
+render_priority = 0
+shader = ExtResource("3_7tetl")
+shader_parameter/Color = Color(0, 0, 0, 1)
+shader_parameter/Speed = 9.0
+shader_parameter/Speaker_Texture = ExtResource("4_nwfwl")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2uemn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7tetl"]
+render_priority = 0
+shader = ExtResource("3_7tetl")
+shader_parameter/Color = Color(0.103743605, 0.1037435, 0.103743546, 1)
+shader_parameter/Speed = 9.0
+shader_parameter/Speaker_Texture = ExtResource("4_nwfwl")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nwfwl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5l6fl"]
+render_priority = 0
+shader = ExtResource("3_7tetl")
+shader_parameter/Color = Color(0.19076231, 0.19076234, 0.19076225, 1)
+shader_parameter/Speed = 9.0
+shader_parameter/Speaker_Texture = ExtResource("4_nwfwl")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x63c4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ippvo"]
+render_priority = 0
+shader = ExtResource("6_nfu81")
+shader_parameter/ParticleTexture = ExtResource("6_5l6fl")
+
+[sub_resource type="Curve" id="Curve_nst4l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.49596772, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n0ury"]
+texture_mode = 1
+curve = SubResource("Curve_nst4l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xscg6"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 1.5
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.25
+color = Color(1.1176962, 1.0862881, 0.53664815, 1)
+alpha_curve = SubResource("CurveTexture_n0ury")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gajvk"]
+size = Vector2(0.25, 0.25)
+
+[sub_resource type="Environment" id="Environment_nwfwl"]
+glow_enabled = true
+
+[node name="Dawn\'s Circle" type="Node3D"]
+
+[node name="outer ring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ShaderMaterial_gfcmf")
+mesh = SubResource("PlaneMesh_a0i5e")
+
+[node name="speaker mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99, 0)
+material_override = SubResource("ShaderMaterial_2uemn")
+mesh = SubResource("PlaneMesh_x33gg")
+
+[node name="speaker rings" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="speaker rings"]
+material_override = SubResource("ShaderMaterial_x63c4")
+mesh = SubResource("PlaneMesh_2uemn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="speaker rings"]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 0.75, 0, 0.01, 0)
+material_override = SubResource("ShaderMaterial_7tetl")
+mesh = SubResource("PlaneMesh_nwfwl")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="speaker rings"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0.02, 0)
+material_override = SubResource("ShaderMaterial_5l6fl")
+mesh = SubResource("PlaneMesh_x63c4")
+
+[node name="sparks" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("ShaderMaterial_ippvo")
+amount = 10
+speed_scale = 0.5
+randomness = 1.0
+visibility_aabb = AABB(-4, -4, -4, 1, 1, 1)
+process_material = SubResource("ParticleProcessMaterial_xscg6")
+draw_pass_1 = SubResource("QuadMesh_gajvk")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nwfwl")

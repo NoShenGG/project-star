@@ -7,7 +7,7 @@ func _physics_process(delta):
 	var direction := Input.get_vector("move_up", "move_down", "move_right", "move_left")
 	
 	direction = direction.rotated(deg_to_rad(45))
-	direction = direction * _movement_speed
+	direction = direction * speed
 	
 	target_velocity.x = direction.x
 	target_velocity.z = direction.y
