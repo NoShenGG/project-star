@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://be30yeg54t5bx"
+path="res://.godot/imported/JTAS_ReneVFX_Mesh_beam.obj-6674e2a51190b692367e3372813b0598.mesh"
+
+[deps]
+
+files=["res://.godot/imported/JTAS_ReneVFX_Mesh_beam.obj-6674e2a51190b692367e3372813b0598.mesh"]
+
+source_file="res://vfx/DK VFX/JTAS_ReneVFX_Mesh_beam.obj"
+dest_files=["res://.godot/imported/JTAS_ReneVFX_Mesh_beam.obj-6674e2a51190b692367e3372813b0598.mesh", "res://.godot/imported/JTAS_ReneVFX_Mesh_beam.obj-6674e2a51190b692367e3372813b0598.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
