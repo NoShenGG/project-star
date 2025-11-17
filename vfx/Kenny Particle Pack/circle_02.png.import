@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1n3eyi7jjcya"
-path.s3tc="res://.godot/imported/circle_02.png-90fa5cad5870a90d597df3fd35d0f0cd.s3tc.ctex"
+path.s3tc="res://.godot/imported/circle_02.png-b571dceee24293cb21bdeab3e1a39a22.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://VFX/Kenny Particle Pack/circle_02.png"
-dest_files=["res://.godot/imported/circle_02.png-90fa5cad5870a90d597df3fd35d0f0cd.s3tc.ctex"]
+source_file="res://vfx/Kenny Particle Pack/circle_02.png"
+dest_files=["res://.godot/imported/circle_02.png-b571dceee24293cb21bdeab3e1a39a22.s3tc.ctex"]
 
 [params]
 
