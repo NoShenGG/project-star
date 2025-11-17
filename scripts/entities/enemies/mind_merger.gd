@@ -25,6 +25,7 @@ var rotation_flip_wait: float = 0
 var rotation_flip_mult: int = 1
 var expansion_time: float = 0
 var expansion_mult: int = 1
+var hit_cooldown: Array[Node3D] = []
 
 var col_shape_frames: int = 0:
 	get():
@@ -91,7 +92,9 @@ func _process(delta: float) -> void:
 			.rotated(Vector3.UP, deg_to_rad(i * 360.0 / minions.size() + rotation_offset)))
 	if damage.monitoring:
 		for body in damage.get_overlapping_bodies():
-			if body is Player:
+			if body is Player and not hit_cooldown.has(body):
+				hit_cooldown.append(body)
+				get_tree().create_timer(1.0).timeout.connect(func(): hit_cooldown.erase(body))
 				body = body as Player
 				body.try_damage(0.1)
 

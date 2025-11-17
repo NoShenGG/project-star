@@ -98,6 +98,8 @@ func swap_char(idx: int):
 		new_char.health_update.connect(player_health_update)
 		new_char.special_cooldown_update.connect(player_special_update)
 		new_char.special_available.connect(await_special)
+		player_special_update(1.0 if new_char._has_special else \
+			(new_char.special_cd - new_char.special_cd_timer.time_left)/new_char.special_cd)
 		player_health_update(new_char._hp / new_char._max_hp)
 		current_char = new_char
 

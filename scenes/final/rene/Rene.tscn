@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://bq7t53o2llxr4"]
+[gd_scene load_steps=87 format=3 uid="uid://bq7t53o2llxr4"]
 
 [ext_resource type="Script" uid="uid://ca3hlofv22ftb" path="res://scripts/entities/player/rene/rene.gd" id="1_njlal"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_yooho"]
@@ -11,7 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://ca5osqv2xr25p" path="res://scenes/final/rene/rene_shot.tscn" id="7_qbxrk"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="8_iytmq"]
 [ext_resource type="Script" uid="uid://c0i7rw4wvkhn1" path="res://scripts/entities/player/rene/states/rene_swap_in.gd" id="9_u7juv"]
+[ext_resource type="Script" uid="uid://b1ljrrgus5wq" path="res://scripts/entities/player/rene/states/rene_charged_attack.gd" id="10_nhxyw"]
+[ext_resource type="Script" uid="uid://q073bab4o85" path="res://scripts/entities/player/rene/states/rene_special.gd" id="12_27ayv"]
+[ext_resource type="Script" uid="uid://dvwuipskdrbm6" path="res://scripts/entities/player/rene/states/rene_special_selector.gd" id="12_ovtx8"]
 [ext_resource type="Script" uid="uid://dssk02ahlboui" path="res://scripts/entities/player/player_states/player_swap_out.gd.gd" id="13_gjn2v"]
+[ext_resource type="Script" uid="uid://c4m1lu2acmcbh" path="res://scripts/entities/player/rene/states/rene_charged_special.gd" id="13_ohtv4"]
 [ext_resource type="Script" uid="uid://cty8d5lvonei1" path="res://scripts/entities/player/player_states/player_sleeping.gd" id="14_durvm"]
 [ext_resource type="Script" uid="uid://d3pkbl7ownr11" path="res://scripts/entities/player/player_states/player_hit_stun.gd" id="15_wck6d"]
 [ext_resource type="PackedScene" uid="uid://ctl307caw43ed" path="res://art_assets/characters/Nova/nova_animations_kobold.glb" id="16_wskvg"]
@@ -26,6 +30,7 @@
 [ext_resource type="Script" uid="uid://cvw6ajdumfkos" path="res://scripts/entities/player/nova/nova_dummy_anim.gd" id="24_svdc4"]
 [ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="25_66khj"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="25_qvekr"]
+[ext_resource type="Script" uid="uid://frt2deamdebe" path="res://scripts/entities/player/rene/rene_construct.gd" id="27_6n52q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
 
@@ -2680,6 +2685,43 @@ radius = 0.98
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qbxrk"]
 radius = 15.0
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_27ayv"]
+radius = 7.0
+
+[sub_resource type="Curve" id="Curve_tfmht"]
+_data = [Vector2(0, 0), 0.0, 0.56883967, 0, 0, Vector2(0.07727273, 0.24402165), 0.062174093, 0.062174093, 0, 0, Vector2(0.18636362, 0.1380434), 0.0, 0.0, 0, 0, Vector2(0.9704545, 0.14864123), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_tg6fe"]
+radial_steps = 36
+section_length = 0.4
+curve = SubResource("Curve_tfmht")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6n52q"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 7.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 4.7999997
+initial_velocity_max = 5.2
+gravity = Vector3(0, -5, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6n52q"]
+transparency = 1
+albedo_color = Color(0, 1, 0.50980395, 0.5176471)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_6n52q"]
+material = SubResource("StandardMaterial3D_6n52q")
+radius = 0.1
+height = 0.2
+
 [sub_resource type="Curve" id="Curve_nhxyw"]
 _limits = [0.0, 1.5, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1.3), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -2710,13 +2752,32 @@ _limits = [0.0, 1.5, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7, 1.3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="Rene" type="CharacterBody3D" node_paths=PackedStringArray("ui_counters", "targetting_box")]
+[node name="Rene" type="CharacterBody3D" node_paths=PackedStringArray("ui_counters", "construct", "targetting_box")]
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_njlal")
 ui_counters = [NodePath("ReneUI/HBoxContainer/Center/Charge1"), NodePath("ReneUI/HBoxContainer/Center2/Charge2"), NodePath("ReneUI/HBoxContainer/Center3/Charge3"), NodePath("ReneUI/HBoxContainer/Center4/Charge4")]
+construct = NodePath("Hitboxes/Construct")
 targetting_box = NodePath("Hitboxes/Vision")
+max_click_time = null
+attack_charge_time = null
+max_attack_charges = null
+combo_reset_time = null
+max_special_charges = 2
+special_cd = 10.0
+input_smoothing_speed = null
+dash_cd = null
+dash_distance = null
+_base_speed = null
 faction = 0
+_hp = null
+_max_hp = null
+_breakable = false
+_break_percent = null
+_break_hits = null
+_break_drain_rate = null
+_break_cooldown = null
+passive_death_time = null
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_yooho")
@@ -2743,28 +2804,24 @@ script = ExtResource("5_t5f0y")
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
 speed_scale_factor = 0.2
-damage = null
 animation = NodePath("../../../nova_animations_kobold/Slash")
 
 [node name="Slash1" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
 speed_scale_factor = 0.2
-damage = null
 animation = NodePath("../../../nova_animations_kobold/Slash2")
 
 [node name="Slash2" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
 speed_scale_factor = 0.2
-damage = null
 animation = NodePath("../../../nova_animations_kobold/Slash3")
 
 [node name="Slash3" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
 speed_scale_factor = 0.2
-damage = null
 animation = NodePath("../../../nova_animations_kobold/Slash4")
 
 [node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking"]
@@ -2783,11 +2840,9 @@ event_name = "event:/Player/Uniques/Charging/Nova Charging"
 event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 
 [node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
-script = ExtResource("6_u7juv")
-speed_scale_factor = 0.2
-damage = null
+script = ExtResource("10_nhxyw")
 animation = NodePath("../../nova_animations_kobold/ChargedSlash")
-duration = 1.0
+speed_scale_factor = 0.2
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
 event_name = "event:/Player/Uniques/Charged Attack/Nova Charged Attack"
@@ -2799,6 +2854,19 @@ script = ExtResource("8_iytmq")
 [node name="Dash SFX" type="FmodEventEmitter3D" parent="StateMachine/ChargingSpecial"]
 event_name = "event:/Player/Uniques/Charging/Nova Charging"
 event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
+
+[node name="Special" type="Node" parent="StateMachine" node_paths=PackedStringArray("regular", "charged")]
+script = ExtResource("12_ovtx8")
+regular = NodePath("RegularSpecial")
+charged = NodePath("ChargedSpecial")
+
+[node name="RegularSpecial" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("animation")]
+script = ExtResource("12_27ayv")
+animation = NodePath("../../../nova_animations_kobold/Special")
+
+[node name="ChargedSpecial" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("animation")]
+script = ExtResource("13_ohtv4")
+animation = NodePath("../../../nova_animations_kobold/ChargedSlash")
 
 [node name="SwapIn" type="Node" parent="StateMachine"]
 script = ExtResource("9_u7juv")
@@ -2959,6 +3027,31 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Vision"]
 shape = SubResource("CylinderShape3D_qbxrk")
 
+[node name="Construct" type="Area3D" parent="Hitboxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8994203, 1, 0)
+top_level = true
+visible = false
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+monitorable = false
+script = ExtResource("27_6n52q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Construct"]
+shape = SubResource("CylinderShape3D_27ayv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hitboxes/Construct"]
+mesh = SubResource("TubeTrailMesh_tg6fe")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Hitboxes/Construct"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+emitting = false
+amount = 300
+lifetime = 0.3
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_6n52q")
+draw_pass_1 = SubResource("SphereMesh_6n52q")
+
 [node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Player/Uniques/Hurt/Nova Hurt"
 event_guid = "{220c3cb7-af5f-4662-90c5-1a103656ae58}"
@@ -3017,6 +3110,7 @@ pivot_offset = Vector2(32, 32)
 layout_mode = 2
 
 [node name="Charge1" type="TextureRect" parent="ReneUI/HBoxContainer/Center"]
+visible = false
 modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -3030,6 +3124,7 @@ fade_out = SubResource("Curve_27ayv")
 layout_mode = 2
 
 [node name="Charge2" type="TextureRect" parent="ReneUI/HBoxContainer/Center2"]
+visible = false
 modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -3043,6 +3138,7 @@ fade_out = SubResource("Curve_ohtv4")
 layout_mode = 2
 
 [node name="Charge3" type="TextureRect" parent="ReneUI/HBoxContainer/Center3"]
+visible = false
 modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -3056,6 +3152,7 @@ fade_out = SubResource("Curve_r8iwf")
 layout_mode = 2
 
 [node name="Charge4" type="TextureRect" parent="ReneUI/HBoxContainer/Center4"]
+visible = false
 modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2

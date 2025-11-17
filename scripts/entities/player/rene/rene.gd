@@ -3,6 +3,7 @@ class_name Rene extends Player
 signal update_counters(num: int)
 
 @export var ui_counters: Array[UIConsumable]
+@export var construct: ReneConstruct
 
 
 var counters: int:
@@ -22,11 +23,4 @@ It may eventually hold some signal binding or wtv.
 
 func _ready() -> void:
 	super()
-	_has_special = false
-
-# Override these functions to prevent special attack functionality
-func use_special() -> void:
-	pass
-
-func set_special_cd() -> void:
-	pass
+	_has_special = true
