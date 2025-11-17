@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7454l1fj086x"
-path.s3tc="res://.godot/imported/twirl_01.png-e12eeed5ff846646850d10ea5aba258e.s3tc.ctex"
+path.s3tc="res://.godot/imported/twirl_01.png-817b1de707056b420855f43b8b4ee1c0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://VFX/Kenny Particle Pack/twirl_01.png"
-dest_files=["res://.godot/imported/twirl_01.png-e12eeed5ff846646850d10ea5aba258e.s3tc.ctex"]
+source_file="res://vfx/Kenny Particle Pack/twirl_01.png"
+dest_files=["res://.godot/imported/twirl_01.png-817b1de707056b420855f43b8b4ee1c0.s3tc.ctex"]
 
 [params]
 

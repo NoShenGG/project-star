@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://676tyndrppy6"
-path.s3tc="res://.godot/imported/trace_01_rotated.png-8342d5d70907e5ad584783c582df6662.s3tc.ctex"
+path.s3tc="res://.godot/imported/trace_01_rotated.png-637da047bf6bf3618bbe107b6ed71f99.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://VFX/Kenny Particle Pack/Rotated/trace_01_rotated.png"
-dest_files=["res://.godot/imported/trace_01_rotated.png-8342d5d70907e5ad584783c582df6662.s3tc.ctex"]
+source_file="res://vfx/Kenny Particle Pack/Rotated/trace_01_rotated.png"
+dest_files=["res://.godot/imported/trace_01_rotated.png-637da047bf6bf3618bbe107b6ed71f99.s3tc.ctex"]
 
 [params]
 
