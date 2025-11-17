@@ -31,7 +31,7 @@ func physics_update(_delta: float) -> void:
 ## Called on state enter. Make sure to emit entered.
 func enter(_prev_state: String, _data := {}) -> void:
 	print("[LaserShroom]Entering state: LOCKON")
-	enemy._movement_speed = speed
+	enemy._base_speed = speed
 	enemy.switchMesh(1)
 	get_node("LockTimer").start(countdown)
 	entered.emit()

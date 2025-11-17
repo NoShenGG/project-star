@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://cipc0pee6kke6"]
+
+[ext_resource type="Script" uid="uid://b7yyj3bvtur37" path="res://scripts/entities/enemies/mossum/Slime.gd" id="1_g7w1c"]
+[ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_g7w1c"]
+[ext_resource type="PackedScene" uid="uid://bnqdowsheydcs" path="res://art_assets/enemies/Just Your Average Slime Enemy/slime.glb" id="3_jgdep"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l26uf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g0rg0"]
+height = 0.1
+radius = 10.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g0rg0"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g7w1c"]
+animation = &"Action"
+
+[node name="Slime" type="CharacterBody3D"]
+collision_layer = 10
+collision_mask = 3
+script = ExtResource("1_g7w1c")
+attack_radius = 2.0
+_base_speed = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_l26uf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 10.0
+target_desired_distance = 2.0
+path_max_distance = 100.01
+debug_enabled = true
+debug_path_custom_color = Color(0, 1, 0, 1)
+
+[node name="HitBoxes" type="Node3D" parent="."]
+
+[node name="Aggro" type="Area3D" parent="HitBoxes"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxes/Aggro"]
+shape = SubResource("CylinderShape3D_g0rg0")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="StatusBars" parent="." instance=ExtResource("2_g7w1c")]
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.035, 0)
+texture = SubResource("ViewportTexture_g0rg0")
+
+[node name="slime" parent="." instance=ExtResource("3_jgdep")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.42604154, 0)
+
+[node name="Armature" parent="slime" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4499619, 0)
+
+[node name="Skeleton3D" parent="slime/Armature" index="0"]
+bones/0/scale = Vector3(1.0247017, 0.960363, 1.013968)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../slime")
+tree_root = SubResource("AnimationNodeAnimation_g7w1c")
+anim_player = NodePath("../slime/AnimationPlayer")
+
+[connection signal="break_update" from="." to="StatusBars" method="update_break"]
+[connection signal="health_update" from="." to="StatusBars" method="update_health"]
+[connection signal="body_entered" from="HitBoxes/Aggro" to="." method="_on_aggro_body_entered"]
+[connection signal="body_exited" from="HitBoxes/Aggro" to="." method="_on_aggro_body_exited"]
+
+[editable path="slime"]
