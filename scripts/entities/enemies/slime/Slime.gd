@@ -20,7 +20,8 @@ func recalc_path():
 func _process(_delta: float) -> void:
 	super(_delta)
 	if target and can_attack and \
-			global_position.distance_to(target.global_position) < attack_radius:
+			global_position.distance_to(target.global_position) < attack_radius \
+			and not death:
 		Slime_attack.emit()
 		target.try_damage(hit_dmg)
 		can_attack = false

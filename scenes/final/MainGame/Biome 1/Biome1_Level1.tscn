@@ -85,14 +85,10 @@ metadata/_custom_type_script = "uid://cs72ukacrgd4g"
 
 [node name="Wave1" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("5_armu7")
-enemies = Array[PackedScene]([ExtResource("7_opvqb")])
-spawn_areas = [NodePath("../SpawnArea1")]
-metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
-
-[node name="Wave2" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
-script = ExtResource("5_armu7")
 enemies = Array[PackedScene]([ExtResource("7_opvqb"), ExtResource("7_opvqb")])
-spawn_areas = [NodePath("../SpawnArea2")]
+spawn_areas = [NodePath("../SpawnArea1"), NodePath("../SpawnArea2")]
+setSpawnAreas = true
+spawnAreaIndices = Array[int]([0, 1])
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
 [node name="Area3D" type="Area3D" parent="WaveManager"]

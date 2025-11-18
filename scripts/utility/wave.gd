@@ -23,22 +23,21 @@ signal ended
 
 
 @export_category("If you said yes, type the spawn area index for each enemy.")
-@export var spawnAreaIndices : Array[int] : 
-	set(value):
-		var safe : bool = setSpawnAreas
-		for i in value:
-			if (i >= spawn_areas.size() and i >= 0):
-				safe = false
-				break
-		if (safe):
-			spawnAreaIndices = value
+@export var spawnAreaIndices : Array[int]
+	#set(value):
+		#var safe : bool = setSpawnAreas
+		#for i in value:
+			#if (i >= spawn_areas.size() and i >= 0):
+				#safe = false
+				#break
+		#if (safe):
+			#spawnAreaIndices = value
 
 @onready var active = false
 
 func _ready():
 	if (Engine.is_editor_hint()):
 		return
-	
 	ended.connect(get_parent()._on_wave_end)
 
 func start():

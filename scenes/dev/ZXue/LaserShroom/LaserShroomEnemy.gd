@@ -9,6 +9,7 @@ func _ready() -> void:
 	player_ref = GameManager.curr_player
 	speed = default_speed
 	$Hitbox.set_disabled(false)
+	killed.connect(func(): state_machine.state.trigger_finished.emit("dead"))
 	super()
 	
 func _physics_process(_delta: float) -> void:

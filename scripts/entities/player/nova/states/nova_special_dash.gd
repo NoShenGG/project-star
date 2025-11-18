@@ -31,7 +31,7 @@ func anim_stop() -> void:
 
 func update(_delta: float) -> void:
 	if time <= 0: #and anim_done <- Current anim too long lol:
-		trigger_finished.emit("Moving")
+		end()
 
 func physics_update(delta: float) -> void:
 	delta = min(delta, time)
@@ -40,7 +40,7 @@ func physics_update(delta: float) -> void:
 		* dash_target_dist * delta / anim_dur
 			
 func end() -> void:
-	pass
+	finished.emit()
 		
 func exit() -> void:
 	do_damage()

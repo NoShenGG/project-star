@@ -23,6 +23,7 @@ script = ExtResource("1_g7w1c")
 recalc_cd = 0.5
 attack_radius = 2.0
 _base_speed = 2.0
+passive_death_time = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_l26uf")
@@ -51,8 +52,11 @@ texture = SubResource("ViewportTexture_g0rg0")
 [node name="slime" parent="." instance=ExtResource("3_jgdep")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.42604154, 0)
 
+[node name="Armature" parent="slime" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7572002, 0)
+
 [node name="Skeleton3D" parent="slime/Armature" index="0"]
-bones/0/scale = Vector3(0.9952463, 0.9952463, 0.9952463)
+bones/0/scale = Vector3(0.98465055, 0.95711905, 0.990118)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../slime")
