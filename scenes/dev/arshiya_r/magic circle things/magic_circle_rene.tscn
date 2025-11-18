@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_gacpw"]
 [ext_resource type="Shader" uid="uid://c1v1c0dkkcm60" path="res://scenes/dev/arshiya_r/magic circle things/gear.tres" id="2_ngxdi"]
-[ext_resource type="Texture2D" uid="uid://co8hksahut4ay" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/clock_ring.png" id="2_skxqc"]
-[ext_resource type="Texture2D" uid="uid://tq5q4bna3rdf" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/hour_hand.png" id="4_gacpw"]
-[ext_resource type="Texture2D" uid="uid://dcdt44ph5kp45" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/gear.png" id="4_skxqc"]
-[ext_resource type="Texture2D" uid="uid://ce5wn24wxtexr" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/minute_hand.png" id="5_x7sj1"]
+[ext_resource type="Texture2D" uid="uid://cdy5v0ta7xgjd" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/clock_ring.png" id="2_skxqc"]
+[ext_resource type="Texture2D" uid="uid://b35nfo1co7vyb" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/hour_hand.png" id="4_gacpw"]
+[ext_resource type="Texture2D" uid="uid://d312hvdi25o6b" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/gear.png" id="4_skxqc"]
+[ext_resource type="Texture2D" uid="uid://b6wy6n6i60so4" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/minute_hand.png" id="5_x7sj1"]
 [ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/magic circle things/circle_particles.tres" id="6_8bnff"]
 [ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="7_skxqc"]
 

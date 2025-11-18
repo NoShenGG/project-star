@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://rgcas24o45rb"]
+[gd_scene load_steps=15 format=3 uid="uid://rgcas24o45rb"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_k1xpg"]
 [ext_resource type="Script" uid="uid://briioihkxilxm" path="res://addons/proto_shape/proto_ramp/proto_ramp.gd" id="2_dieni"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="4_dieni"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="5_mpi2d"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="6_eejem"]
+[ext_resource type="PackedScene" uid="uid://celvhgttbuade" path="res://scenes/sub/Mossypede.tscn" id="7_mpi2d"]
 [ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="7_vlt4p"]
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="8_mpi2d"]
 
@@ -119,7 +120,7 @@ metadata/_custom_type_script = "uid://cs72ukacrgd4g"
 
 [node name="Wave1" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("6_eejem")
-enemies = Array[PackedScene]([ExtResource("7_vlt4p"), ExtResource("7_vlt4p"), ExtResource("7_vlt4p")])
+enemies = Array[PackedScene]([ExtResource("7_mpi2d"), ExtResource("7_vlt4p"), ExtResource("7_vlt4p")])
 spawn_areas = [NodePath("../SpawnArea1")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bsc42v81y6tc3"]
+[gd_scene load_steps=13 format=3 uid="uid://bsc42v81y6tc3"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_c3gbp"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_e85ix"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cipc0pee6kke6" path="res://scenes/sub/Slime.tscn" id="4_e85ix"]
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="5_igsq4"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="6_3wmx4"]
+[ext_resource type="PackedScene" uid="uid://celvhgttbuade" path="res://scenes/sub/Mossypede.tscn" id="6_e85ix"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e85ix"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -61,7 +62,7 @@ metadata/_custom_type_script = "uid://cs72ukacrgd4g"
 
 [node name="Wave1" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("3_igsq4")
-enemies = Array[PackedScene]([ExtResource("4_e85ix")])
+enemies = Array[PackedScene]([ExtResource("4_e85ix"), ExtResource("6_e85ix")])
 spawn_areas = [NodePath("../SpawnArea1")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 

@@ -145,7 +145,7 @@ alpha_curve = SubResource("CurveTexture_0i6t6")
 
 [node name="AutoStartVFX" type="Node3D" parent="." node_paths=PackedStringArray("particles")]
 script = ExtResource("9_bw7jq")
-particles = [NodePath("OuterBeam"), NodePath("Splash"), NodePath("InnerBeam"), NodePath("smallParticles")]
+particles = [NodePath("OuterBeam"), NodePath("Splash"), NodePath("InnerBeam"), NodePath("smallParticles"), NodePath("OuterBeam"), NodePath("Splash"), NodePath("InnerBeam"), NodePath("smallParticles")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
 [node name="OuterBeam" type="GPUParticles3D" parent="AutoStartVFX"]

@@ -1,4 +1,4 @@
-class_name Slime extends Enemy
+class_name Mossypede extends Enemy
 
 
 @export var recalc_cd: float = 2.0
@@ -8,7 +8,7 @@ class_name Slime extends Enemy
 var target: Player = null
 var can_attack: bool = true
 
-signal Slime_attack
+signal Mossypede_attack
 	
 
 func recalc_path():
@@ -21,10 +21,12 @@ func _process(_delta: float) -> void:
 	super(_delta)
 	if target and can_attack and \
 			global_position.distance_to(target.global_position) < attack_radius:
-		Slime_attack.emit()
+		Mossypede_attack.emit()
 		target.try_damage(hit_dmg)
 		can_attack = false
 		get_tree().create_timer(attack_cd).timeout.connect(func(): can_attack = true)
+	var dir : Vector3 = (global_position - GameManager.curr_player.global_position).normalized().slide(Vector3.UP)
+	rotate_y(global_basis.z.signed_angle_to(dir, Vector3.UP) * _delta * 10)
 
 
 func _on_aggro_body_entered(body: Node3D) -> void:
