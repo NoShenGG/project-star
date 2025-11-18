@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=20 format=3 uid="uid://b0gvaer6ql2ab"]
 
-[ext_resource type="Texture2D" uid="uid://c2y5cil38y6n" path="res://vfx/DK VFX/Super Perlin 11 - 256x256.png" id="1_qc00r"]
+[ext_resource type="Texture2D" uid="uid://c2y5cil38y6n" path="res://scenes/dani_k/Super Perlin 11 - 256x256.png" id="1_qc00r"]
 [ext_resource type="Script" uid="uid://cnne3rbu0jpid" path="res://addons/shaderV/uv/rotate.gd" id="2_i3efi"]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_n1qvg"]
