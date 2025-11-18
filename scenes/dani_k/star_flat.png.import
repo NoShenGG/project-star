@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxsil2d1usgth"
-path.s3tc="res://.godot/imported/Turbulence 3 - 256x256.png-3debe2ebda85c5d65c4a5bdc01fbd41e.s3tc.ctex"
+uid="uid://68hw44h7aeiu"
+path.s3tc="res://.godot/imported/star_flat.png-378ab50fab93b2b96bd65a649b49e1ad.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/DK VFX/Turbulence 3 - 256x256.png"
-dest_files=["res://.godot/imported/Turbulence 3 - 256x256.png-3debe2ebda85c5d65c4a5bdc01fbd41e.s3tc.ctex"]
+source_file="res://scenes/dani_k/star_flat.png"
+dest_files=["res://.godot/imported/star_flat.png-378ab50fab93b2b96bd65a649b49e1ad.s3tc.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=17 format=3 uid="uid://b3a852m5lpmku"]
 
-[ext_resource type="Texture2D" uid="uid://ct24ktnceutlp" path="res://vfx/DK VFX/Perlin 9 - 256x256.png" id="1_6atr2"]
+[ext_resource type="Texture2D" uid="uid://ct24ktnceutlp" path="res://scenes/dani_k/Perlin 9 - 256x256.png" id="1_6atr2"]
 [ext_resource type="Script" uid="uid://c5htaqrg6esp3" path="res://addons/shaderV/uv/scaleUV.gd" id="2_bjqhi"]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_y2f6q"]

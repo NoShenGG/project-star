@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ct24ktnceutlp"
-path.s3tc="res://.godot/imported/Perlin 9 - 256x256.png-a22d4966639bf57b8d9ee3459b17fe90.s3tc.ctex"
+path.s3tc="res://.godot/imported/Perlin 9 - 256x256.png-95e8e6cfb0671be3abe176b44d4f9113.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/DK VFX/Perlin 9 - 256x256.png"
-dest_files=["res://.godot/imported/Perlin 9 - 256x256.png-a22d4966639bf57b8d9ee3459b17fe90.s3tc.ctex"]
+source_file="res://scenes/dani_k/Perlin 9 - 256x256.png"
+dest_files=["res://.godot/imported/Perlin 9 - 256x256.png-95e8e6cfb0671be3abe176b44d4f9113.s3tc.ctex"]
 
 [params]
 

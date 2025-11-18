@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bialh3putg3ft"
-path.s3tc="res://.godot/imported/Vein 3 - 256x256.png-48b82ca8462353ae65891e7af7ab6635.s3tc.ctex"
+uid="uid://cpxqgwc2jbeqt"
+path.s3tc="res://.godot/imported/Streak 7 - 256x256.png-e7386f88532124057c39c121c3a74362.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/DK VFX/Vein 3 - 256x256.png"
-dest_files=["res://.godot/imported/Vein 3 - 256x256.png-48b82ca8462353ae65891e7af7ab6635.s3tc.ctex"]
+source_file="res://scenes/dani_k/Streak 7 - 256x256.png"
+dest_files=["res://.godot/imported/Streak 7 - 256x256.png-e7386f88532124057c39c121c3a74362.s3tc.ctex"]
 
 [params]
 

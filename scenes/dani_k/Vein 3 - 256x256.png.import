@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2y5cil38y6n"
-path.s3tc="res://.godot/imported/Super Perlin 11 - 256x256.png-634893227cd36b883f75524890b580f5.s3tc.ctex"
+uid="uid://bialh3putg3ft"
+path.s3tc="res://.godot/imported/Vein 3 - 256x256.png-04d5ed5e41488d0f85ad016588ec1ba5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://vfx/DK VFX/Super Perlin 11 - 256x256.png"
-dest_files=["res://.godot/imported/Super Perlin 11 - 256x256.png-634893227cd36b883f75524890b580f5.s3tc.ctex"]
+source_file="res://scenes/dani_k/Vein 3 - 256x256.png"
+dest_files=["res://.godot/imported/Vein 3 - 256x256.png-04d5ed5e41488d0f85ad016588ec1ba5.s3tc.ctex"]
 
 [params]
 
