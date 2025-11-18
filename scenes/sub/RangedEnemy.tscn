@@ -37,7 +37,6 @@ shape = SubResource("BoxShape3D_2l4st")
 path_desired_distance = 10.0
 target_desired_distance = 2.0
 path_max_distance = 100.01
-debug_enabled = true
 debug_path_custom_color = Color(0, 1, 0, 1)
 
 [node name="AggroArea" type="Node3D" parent="."]

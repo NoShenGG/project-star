@@ -2814,6 +2814,8 @@ script = ExtResource("13_5otq2")
 
 [node name="HitStun" type="Node" parent="StateMachine"]
 script = ExtResource("15_h46t7")
+stun_duration = 0.05
+stun_cooldown = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -3050,12 +3052,12 @@ event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 [connection signal="charge_count_increase" from="StateMachine/Charging" to="StateMachine/Charging/Charging Ready SFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Charging" to="StateMachine/Charging/Charging SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Charging" to="nova_animations_kobold/ChargingSlash" method="enter"]
-[connection signal="entered" from="StateMachine/Charging" to="Nova\'s Circle" method="restart_particles"]
-[connection signal="finished" from="StateMachine/Charging" to="Nova\'s Circle" method="stop_particles"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="StateMachine/AttackingCharged/AttackCharged SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="nova_animations_kobold/ChargedSlash" method="enter"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="DummyAnimation" method="attack_charged"]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="nova_animations_kobold/Charging Special" method="enter"]
+[connection signal="entered" from="StateMachine/ChargingSpecial" to="Nova\'s Circle" method="restart_particles"]
+[connection signal="finished" from="StateMachine/ChargingSpecial" to="Nova\'s Circle" method="stop_particles"]
 [connection signal="max_charge_count" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Special/SpecialDash" to="StateMachine/Special/SpecialDash/Dash SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/HitStun" to="nova_animations_kobold/Hurt" method="enter"]

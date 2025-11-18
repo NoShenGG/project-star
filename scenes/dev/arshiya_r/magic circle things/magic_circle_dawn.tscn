@@ -1,13 +1,13 @@
 [gd_scene load_steps=27 format=3 uid="uid://bt3ebb8eyl2c7"]
 
 [ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_5l6fl"]
-[ext_resource type="Shader" uid="uid://cike1cfb0t5r1" path="res://scenes/dev/arshiya_r/speaker_led.tres" id="1_dp4kn"]
-[ext_resource type="Texture2D" uid="uid://de383pur6bgjv" path="res://scenes/dev/arshiya_r/dawn_circle_textures/ring.png" id="2_bsn1t"]
-[ext_resource type="Shader" uid="uid://txc0uyi3s4ag" path="res://scenes/dev/arshiya_r/speaker_bounce.tres" id="3_7tetl"]
-[ext_resource type="Texture2D" uid="uid://ch4vkifsulu2h" path="res://scenes/dev/arshiya_r/dawn_circle_textures/mesh.png" id="4_5l6fl"]
-[ext_resource type="Texture2D" uid="uid://uepa3ilo23vh" path="res://scenes/dev/arshiya_r/dawn_circle_textures/bass.png" id="4_nwfwl"]
-[ext_resource type="Texture2D" uid="uid://c6rrqwdldqagx" path="res://scenes/dev/arshiya_r/dawn_circle_textures/music_note.png" id="6_5l6fl"]
-[ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/circle_particles.tres" id="6_nfu81"]
+[ext_resource type="Shader" uid="uid://cike1cfb0t5r1" path="res://scenes/dev/arshiya_r/magic circle things/speaker_led.tres" id="1_dp4kn"]
+[ext_resource type="Texture2D" uid="uid://caldrk56dm20v" path="res://scenes/dev/arshiya_r/magic circle things/dawn_circle_textures/ring.png" id="2_bsn1t"]
+[ext_resource type="Shader" uid="uid://txc0uyi3s4ag" path="res://scenes/dev/arshiya_r/magic circle things/speaker_bounce.tres" id="3_7tetl"]
+[ext_resource type="Texture2D" uid="uid://bu0usoyufd55x" path="res://scenes/dev/arshiya_r/magic circle things/dawn_circle_textures/mesh.png" id="4_5l6fl"]
+[ext_resource type="Texture2D" uid="uid://dh6xct62cheyd" path="res://scenes/dev/arshiya_r/magic circle things/dawn_circle_textures/bass.png" id="4_nwfwl"]
+[ext_resource type="Texture2D" uid="uid://d0cuclsppu8wk" path="res://scenes/dev/arshiya_r/magic circle things/dawn_circle_textures/music_note.png" id="6_5l6fl"]
+[ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/magic circle things/circle_particles.tres" id="6_nfu81"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfcmf"]
 render_priority = 0

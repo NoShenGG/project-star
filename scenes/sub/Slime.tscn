@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cipc0pee6kke6"]
 
-[ext_resource type="Script" uid="uid://b7yyj3bvtur37" path="res://scripts/entities/enemies/mossum/Slime.gd" id="1_g7w1c"]
+[ext_resource type="Script" uid="uid://b7yyj3bvtur37" path="res://scripts/entities/enemies/slime/Slime.gd" id="1_g7w1c"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_g7w1c"]
 [ext_resource type="PackedScene" uid="uid://bnqdowsheydcs" path="res://art_assets/enemies/Just Your Average Slime Enemy/slime.glb" id="3_jgdep"]
 
@@ -20,6 +20,7 @@ animation = &"Action"
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_g7w1c")
+recalc_cd = 0.5
 attack_radius = 2.0
 _base_speed = 2.0
 
@@ -30,7 +31,6 @@ shape = SubResource("BoxShape3D_l26uf")
 path_desired_distance = 10.0
 target_desired_distance = 2.0
 path_max_distance = 100.01
-debug_enabled = true
 debug_path_custom_color = Color(0, 1, 0, 1)
 
 [node name="HitBoxes" type="Node3D" parent="."]
@@ -51,11 +51,8 @@ texture = SubResource("ViewportTexture_g0rg0")
 [node name="slime" parent="." instance=ExtResource("3_jgdep")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.42604154, 0)
 
-[node name="Armature" parent="slime" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4499619, 0)
-
 [node name="Skeleton3D" parent="slime/Armature" index="0"]
-bones/0/scale = Vector3(1.0247017, 0.960363, 1.013968)
+bones/0/scale = Vector3(0.9952463, 0.9952463, 0.9952463)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../slime")

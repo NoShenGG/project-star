@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b4yuuj85lxdw8" path="res://scripts/entities/enemies/mossum/Mossum.gd" id="1_ecso2"]
 [ext_resource type="PackedScene" uid="uid://ddx34kp4dcdqk" path="res://art_assets/enemies/mossum/mossum_rig.gltf" id="2_g0rg0"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_l26uf"]
-[ext_resource type="PackedScene" uid="uid://djsyxx84m10x4" path="res://scenes/tool/wool_shell_texturing.tscn" id="4_2pn82"]
+[ext_resource type="PackedScene" uid="uid://djsyxx84m10x4" path="res://scenes/tool/wool_shell_texturing_manager.tscn" id="4_2pn82"]
 [ext_resource type="ArrayMesh" uid="uid://bypccelfa5tm" path="res://art_assets/enemies/mossum/body.res" id="5_jimdk"]
 [ext_resource type="Shader" uid="uid://bvi3yis7lfg51" path="res://shaders/wool_shell_texturing.gdshader" id="6_jl60r"]
 [ext_resource type="Texture2D" uid="uid://c03u082aeesl3" path="res://art_assets/textures/wool_albedo.jpg" id="7_mdqfx"]
@@ -1727,7 +1727,6 @@ shape = SubResource("BoxShape3D_l26uf")
 path_desired_distance = 10.0
 target_desired_distance = 2.0
 path_max_distance = 100.01
-debug_enabled = true
 debug_path_custom_color = Color(0, 1, 0, 1)
 
 [node name="HitBoxes" type="Node3D" parent="."]

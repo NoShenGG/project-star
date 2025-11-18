@@ -1,4 +1,4 @@
-class_name Mossum extends Enemy
+class_name Mossypede extends Enemy
 
 
 @export var recalc_cd: float = 2.0
@@ -8,7 +8,7 @@ class_name Mossum extends Enemy
 var target: Player = null
 var can_attack: bool = true
 
-signal mossum_attack
+signal Mossypede_attack
 	
 
 func recalc_path():
@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	super(_delta)
 	if target and can_attack and \
 			global_position.distance_to(target.global_position) < attack_radius:
-		mossum_attack.emit()
+		Mossypede_attack.emit()
 		target.try_damage(hit_dmg)
 		can_attack = false
 		get_tree().create_timer(attack_cd).timeout.connect(func(): can_attack = true)
