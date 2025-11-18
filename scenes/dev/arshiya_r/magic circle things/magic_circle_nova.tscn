@@ -1,0 +1,169 @@
+[gd_scene load_steps=23 format=3 uid="uid://bi2pwq60ilskr"]
+
+[ext_resource type="Shader" uid="uid://cwxym6x8q6dfq" path="res://scenes/dev/arshiya_r/magic circle things/spinning_ring.tres" id="1_8f5l2"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_pnu6d"]
+[ext_resource type="Texture2D" uid="uid://b7umibsft0hc3" path="res://scenes/dev/arshiya_r/magic circle things/nova_circle_textures/nova_ring.png" id="2_g7mh2"]
+[ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/magic circle things/circle_particles.tres" id="3_8f5l2"]
+[ext_resource type="Texture2D" uid="uid://c4ugedgddtpnt" path="res://scenes/dev/arshiya_r/magic circle things/nova_circle_textures/nova_inner_ring.png" id="3_g7mh2"]
+[ext_resource type="Shader" uid="uid://cjyovschd3cas" path="res://scenes/dev/arshiya_r/magic circle things/magic_circle_center.tres" id="3_pnu6d"]
+[ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://vfx/Kenny Particle Pack/star_04.png" id="4_g7mh2"]
+[ext_resource type="Texture2D" uid="uid://befo0hpwh4khf" path="res://scenes/dev/arshiya_r/magic circle things/nova_circle_textures/nova_star.png" id="4_raqfb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfcmf"]
+render_priority = 0
+shader = ExtResource("1_8f5l2")
+shader_parameter/circle_color = Color(1.1638972, 0, 0.21243016, 1)
+shader_parameter/Circle_Texture = ExtResource("2_g7mh2")
+shader_parameter/Extra_Opacity = 0.10000000475
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a0i5e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pnu6d"]
+render_priority = 0
+shader = ExtResource("1_8f5l2")
+shader_parameter/circle_color = Color(1.0234425, 0.80596423, 0, 1)
+shader_parameter/Circle_Texture = ExtResource("3_g7mh2")
+shader_parameter/Extra_Opacity = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_raqfb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mnait"]
+render_priority = 0
+shader = ExtResource("3_pnu6d")
+shader_parameter/circle_color = Color(1.1638972, 0, 0, 1)
+shader_parameter/Circle_Texture = ExtResource("4_raqfb")
+shader_parameter/Extra_Opacity = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_apg51"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ippvo"]
+render_priority = 0
+shader = ExtResource("3_8f5l2")
+shader_parameter/ParticleTexture = ExtResource("4_g7mh2")
+
+[sub_resource type="Curve" id="Curve_nst4l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.49596772, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n0ury"]
+texture_mode = 1
+curve = SubResource("Curve_nst4l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xscg6"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 1.5
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_n0ury")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gajvk"]
+size = Vector2(0.25, 0.25)
+
+[sub_resource type="Animation" id="Animation_pnu6d"]
+resource_name = "Open"
+length = 0.5
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("outer ring parent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 1.5, 1.5, 1.5)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("center")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.3, 1, 1.5, 1.5, 1.5)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sparks")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 1.5, 1.5, 1.5)
+
+[sub_resource type="Animation" id="Animation_raqfb"]
+length = 0.001
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("outer ring parent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("center")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sparks")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gfcmf"]
+_data = {
+&"Open": SubResource("Animation_pnu6d"),
+&"RESET": SubResource("Animation_raqfb")
+}
+
+[node name="Nova\'s Circle" type="Node3D" node_paths=PackedStringArray("particles")]
+script = ExtResource("1_pnu6d")
+play_on_start = false
+particles = [NodePath("sparks"), NodePath("sparks")]
+
+[node name="outer ring parent" type="Node3D" parent="."]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="outer ring" type="MeshInstance3D" parent="outer ring parent"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_gfcmf")
+mesh = SubResource("PlaneMesh_a0i5e")
+skeleton = NodePath("../..")
+
+[node name="center" type="Node3D" parent="."]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="inner ring" type="MeshInstance3D" parent="center"]
+material_override = SubResource("ShaderMaterial_pnu6d")
+mesh = SubResource("PlaneMesh_raqfb")
+
+[node name="star" type="MeshInstance3D" parent="center"]
+material_override = SubResource("ShaderMaterial_mnait")
+mesh = SubResource("PlaneMesh_apg51")
+skeleton = NodePath("../..")
+
+[node name="sparks" type="GPUParticles3D" parent="."]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_ippvo")
+emitting = false
+amount = 10
+speed_scale = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xscg6")
+draw_pass_1 = SubResource("QuadMesh_gajvk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_gfcmf")
+}
+
+[connection signal="finished" from="." to="AnimationPlayer" method="play_backwards" binds= ["Open"]]
+[connection signal="start" from="." to="AnimationPlayer" method="play" binds= ["Open"]]

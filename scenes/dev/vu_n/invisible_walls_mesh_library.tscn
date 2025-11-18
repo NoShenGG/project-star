@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dij44lik5ni5v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3jf72"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5fdic"]
+
+[node name="InvisibleWallsMeshLibrary" type="Node3D"]
+
+[node name="box" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transparency = 1.0
+mesh = SubResource("BoxMesh_3jf72")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="box"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="box/StaticBody3D"]
+shape = SubResource("BoxShape3D_5fdic")

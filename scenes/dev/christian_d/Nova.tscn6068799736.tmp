@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=3 uid="uid://cncupvhm31475"]
+
+[ext_resource type="Script" uid="uid://om4qdtr1cye0" path="res://scripts/entities/player/nova/nova.gd" id="1_p5oh7"]
+[ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="2_xdlwu"]
+[ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_collision_polygon.gd" id="3_6m1nx"]
+[ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="4_lfcoe"]
+[ext_resource type="Script" uid="uid://dq5qwb33mlr2l" path="res://scripts/entities/player/player_states/player_moving.gd" id="5_lfcoe"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7ch2h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lnm4i"]
+render_priority = 0
+shader = ExtResource("2_xdlwu")
+
+[sub_resource type="BoxMesh" id="BoxMesh_x427t"]
+size = Vector3(0.1, 0.1, 5)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xdlwu"]
+height = 0.1
+radius = 3.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_21ndv"]
+size = Vector3(1.5, 0.1, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ch2h"]
+size = Vector3(3, 0.1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x427t"]
+size = Vector3(4, 0.1, 3)
+
+[node name="Nova" type="CharacterBody3D"]
+collision_layer = 6
+collision_mask = 3
+script = ExtResource("1_p5oh7")
+attack_dmg = null
+charged_attack_dmg = null
+special_dmg = null
+attack_end_cd = null
+special_end_cd = null
+max_combo_time = null
+max_charges = null
+release_pause = null
+max_click_time = null
+attack_charge_time = null
+special_charge_time = null
+input_smoothing_time = null
+dash_distance = null
+special_cd = null
+dash_cd = null
+_movement_speed = null
+faction = null
+_hp = null
+_max_hp = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_21ndv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_7ch2h")
+surface_material_override/0 = SubResource("ShaderMaterial_lnm4i")
+
+[node name="ForwardRay" type="RayCast3D" parent="."]
+enabled = false
+target_position = Vector3(0, 0, -5)
+
+[node name="VisualRay" type="MeshInstance3D" parent="ForwardRay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+mesh = SubResource("BoxMesh_x427t")
+
+[node name="Hitboxes" type="Node3D" parent="."]
+
+[node name="Sweep" type="Area3D" parent="Hitboxes"]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Sweep"]
+shape = SubResource("CylinderShape3D_xdlwu")
+script = ExtResource("3_6m1nx")
+
+[node name="Poke" type="Area3D" parent="Hitboxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+collision_layer = 0
+collision_mask = 8
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Poke"]
+shape = SubResource("BoxShape3D_21ndv")
+script = ExtResource("3_6m1nx")
+
+[node name="Dash" type="Area3D" parent="Hitboxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+collision_layer = 0
+collision_mask = 8
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Dash"]
+shape = SubResource("BoxShape3D_7ch2h")
+script = ExtResource("3_6m1nx")
+
+[node name="Slash" type="Area3D" parent="Hitboxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Slash"]
+shape = SubResource("BoxShape3D_x427t")
+script = ExtResource("3_6m1nx")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_lfcoe")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+
+[node name="Moving" type="Node" parent="StateMachine"]
+script = ExtResource("5_lfcoe")
+
+[node name="Charging" type="Node" parent="StateMachine"]
+
+[node name="Attacking" type="Node" parent="StateMachine"]
+
+[node name="ChargingSpecial" type="Node" parent="StateMachine"]
+
+[node name="AttackingSpecial" type="Node" parent="StateMachine"]
+
+[node name="Bursting" type="Node" parent="StateMachine"]
+
+[node name="SwapIn" type="Node" parent="StateMachine"]
+
+[node name="SwapOut" type="Node" parent="StateMachine"]

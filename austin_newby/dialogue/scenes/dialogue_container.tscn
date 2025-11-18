@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://t5a5ri5gyyjj"]
+
+[ext_resource type="Texture2D" uid="uid://0ipgrw8k8cc8" path="res://austin_newby/dialogue/resources/NinePatch.png" id="1_2nsek"]
+[ext_resource type="Script" uid="uid://o8ttcfmyxgvm" path="res://austin_newby/dialogue/scripts/dialogue_container.gd" id="1_j3aq7"]
+[ext_resource type="Texture2D" uid="uid://dtvv4kt3w76n4" path="res://austin_newby/dialogue/resources/nova_face_temp_1.png" id="3_82rja"]
+[ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_j3aq7"]
+
+[node name="DialogueContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 25
+script = ExtResource("1_j3aq7")
+
+[node name="TextImageHSeperator" type="HSplitContainer" parent="."]
+layout_mode = 2
+split_offset = 125
+dragging_enabled = false
+
+[node name="VTextContainer" type="VBoxContainer" parent="TextImageHSeperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="NameMargin" type="MarginContainer" parent="TextImageHSeperator/VTextContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 250
+
+[node name="NameRect" type="NinePatchRect" parent="TextImageHSeperator/VTextContainer/NameMargin"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+texture = ExtResource("1_2nsek")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="NameLabel" type="RichTextLabel" parent="TextImageHSeperator/VTextContainer/NameMargin/NameRect"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_j3aq7")
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "~ Nova ~"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextRect" type="NinePatchRect" parent="TextImageHSeperator/VTextContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_2nsek")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="TextMargin" type="MarginContainer" parent="TextImageHSeperator/VTextContainer/TextRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="UIDialogueBox" type="Control" parent="TextImageHSeperator/VTextContainer/TextRect/TextMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ImageMarginContainer" type="MarginContainer" parent="TextImageHSeperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 25
+
+[node name="SpeakerImage" type="TextureRect" parent="TextImageHSeperator/ImageMarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+texture = ExtResource("3_82rja")
+expand_mode = 4
