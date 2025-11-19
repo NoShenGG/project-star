@@ -19,7 +19,7 @@ func enter(_prev_state: String, _data := {}):
 	ray.force_shapecast_update()
 	dash_target_dist = min(player.global_position.distance_to(ray.get_collision_point(0))-0.5, player.dash_distance) \
 			if ray.is_colliding() else player.dash_distance
-	anim_dur = 0.2 #animation.playback.get_current_length() <- Current anim too long lol
+	anim_dur = animation.playback.get_current_length()
 	time = anim_dur
 	anim_done = false
 	animation.stop.connect(anim_stop)
