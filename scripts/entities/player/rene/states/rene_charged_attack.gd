@@ -16,8 +16,11 @@ func _ready() -> void:
 	
 func enter(_prev_state: String, _data := {}) -> void:
 	entered.emit()
-	animation.enter()
-	await animation.stop
+	if animation != null:
+		animation.enter()
+		await animation.stop
+	else:
+		await get_tree().create_timer(0.5).timeout
 	end()
 	
 func update(_delta: float) -> void:

@@ -14,7 +14,6 @@ signal state_exited(state: String)
 func _ready() -> void:
 	for state_node: State in find_children("*", "State"):
 		state_node.trigger_finished.connect(_transition_to_next_state)
-
 	await owner.ready
 	state.enter("")
 

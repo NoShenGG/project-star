@@ -61,10 +61,10 @@ func demo_state_finished():
 	stop.emit()
 
 func state_finished(name : String):
-	print(owner.name + "  state finished called as " + name)
+	#print(owner.name + "  state finished called as " + name)
 	if (name == state_name):
 		stop.emit()
-		print("stopping   " + state_name)
+		#print("stopping   " + state_name)
 		playback.state_finished.disconnect(state_finished)
 func _ready() -> void:
 	if (play_on_start):

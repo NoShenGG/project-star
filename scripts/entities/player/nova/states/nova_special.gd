@@ -8,6 +8,7 @@ var current_state: State = null
 var _state_queue: Array = []
 
 func enter(_previous_state_path: String, _data := {}) -> void:
+	player.invincible = true
 	entered.emit()
 	_state_queue.clear()
 	player.use_special()
@@ -41,6 +42,7 @@ func end() -> void:
 	trigger_finished.emit(MOVING if player.velocity else IDLE)
 
 func exit() -> void:
+	player.invincible = false
 	player.set_special_cd()
 	current_state.finished.disconnect(state_done)
 	current_state.exit()

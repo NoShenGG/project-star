@@ -21,7 +21,7 @@ func enter(_prev_state: String, data := {}) -> void:
 	ray.force_shapecast_update()
 	dash_target_dist = min(nova.global_position.distance_to(ray.get_collision_point(0))-0.5, nova.dash_distance) \
 			if ray.is_colliding() else nova.special_dash_dist
-	anim_dur = 0.2 #animation.playback.get_current_length() <- Current anim too long lol
+	anim_dur = animation.playback.get_current_length()
 	time = anim_dur
 	anim_done = false
 	animation.stop.connect(anim_stop)
@@ -30,7 +30,7 @@ func anim_stop() -> void:
 	anim_done = true
 
 func update(_delta: float) -> void:
-	if time <= 0: #and anim_done <- Current anim too long lol:
+	if time <= 0 and anim_done:
 		end()
 
 func physics_update(delta: float) -> void:
@@ -44,5 +44,6 @@ func end() -> void:
 		
 func exit() -> void:
 	do_damage()
-	super()
+	active = false
+	hitbox.monitoring = false
 	animation.stop.disconnect(anim_stop)

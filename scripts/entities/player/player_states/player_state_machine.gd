@@ -4,8 +4,8 @@ class_name PlayerStateMachine extends StateMachine
 var player: Player
 
 func _ready() -> void:
-	player = owner as Player
 	super()
+	player = owner as Player
 	
 func swap_out() -> void:
 	assert(state.name in [PlayerState.IDLE, PlayerState.MOVING], "Bad Call to Swap Out")
