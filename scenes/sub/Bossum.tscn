@@ -1,6 +1,6 @@
 [gd_scene load_steps=118 format=3 uid="uid://cy7iiaeu4pq2q"]
 
-[ext_resource type="Script" uid="uid://b4yuuj85lxdw8" path="res://scripts/entities/enemies/mossum/Mossum.gd" id="1_h20vo"]
+[ext_resource type="Script" uid="uid://bc8feqpqot7h2" path="res://scripts/entities/enemies/mossum/Bossum.gd" id="1_h20vo"]
 [ext_resource type="PackedScene" uid="uid://ddx34kp4dcdqk" path="res://art_assets/enemies/mossum/mossum_rig.gltf" id="2_ytl0o"]
 [ext_resource type="PackedScene" uid="uid://djsyxx84m10x4" path="res://scenes/tool/wool_shell_texturing_manager.tscn" id="3_5rjha"]
 [ext_resource type="ArrayMesh" uid="uid://bypccelfa5tm" path="res://art_assets/enemies/mossum/body.res" id="4_y61xg"]
@@ -1280,15 +1280,16 @@ radius = 20.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_g0rg0"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Mossum" type="CharacterBody3D"]
+[node name="Bossum" type="CharacterBody3D"]
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_h20vo")
 attack_cd = 4.0
 hit_dmg = 4.0
 attack_radius = 6.0
-_hp = 50.0
-_max_hp = 50.0
+_base_speed = 2.0
+_hp = 30.0
+_max_hp = 30.0
 
 [node name="mossum_rig" parent="." instance=ExtResource("2_ytl0o")]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, -0.54, 0)
@@ -1301,423 +1302,423 @@ shell_count = 105
 shell_displacement = 0.08
 min_ambient_occlusion = 0.4
 
-[node name="Shell_0" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_10" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_kjike")
 
-[node name="Shell_1" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_11" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_dpghu")
 
-[node name="Shell_2" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_12" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_d07m0")
 
-[node name="Shell_3" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_13" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_g86gl")
 
-[node name="Shell_4" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_14" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_6kxs8")
 
-[node name="Shell_5" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_15" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_52f7m")
 
-[node name="Shell_6" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_16" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_1fhy7")
 
-[node name="Shell_7" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_17" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_e8thl")
 
-[node name="Shell_8" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_18" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_jgvsp")
 
-[node name="Shell_9" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_19" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_dfsxr")
 
-[node name="Shell_10" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_20" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_6dwe3")
 
-[node name="Shell_11" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_21" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_vavwe")
 
-[node name="Shell_12" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_22" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_v3rnk")
 
-[node name="Shell_13" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_23" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_qv2qb")
 
-[node name="Shell_14" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_24" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_pgade")
 
-[node name="Shell_15" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_25" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_lgbmx")
 
-[node name="Shell_16" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_26" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_m55j0")
 
-[node name="Shell_17" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_27" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_df02g")
 
-[node name="Shell_18" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_28" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_n8luf")
 
-[node name="Shell_19" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_29" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_w8iyj")
 
-[node name="Shell_20" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_30" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_ya6yc")
 
-[node name="Shell_21" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_31" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_qrswa")
 
-[node name="Shell_22" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_32" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_7srh4")
 
-[node name="Shell_23" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_33" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_18rma")
 
-[node name="Shell_24" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_34" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_vv1mj")
 
-[node name="Shell_25" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_35" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_uh2xk")
 
-[node name="Shell_26" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_36" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_4llc8")
 
-[node name="Shell_27" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_37" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_ln0sr")
 
-[node name="Shell_28" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_38" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_uap0d")
 
-[node name="Shell_29" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_39" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_dagrd")
 
-[node name="Shell_30" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_40" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_h7qo3")
 
-[node name="Shell_31" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_41" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_fmwu3")
 
-[node name="Shell_32" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_42" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_oyq14")
 
-[node name="Shell_33" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_43" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_spvf6")
 
-[node name="Shell_34" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_44" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_d6wxu")
 
-[node name="Shell_35" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_45" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_r7hbg")
 
-[node name="Shell_36" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_46" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_76cb0")
 
-[node name="Shell_37" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_47" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_8idn3")
 
-[node name="Shell_38" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_48" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_ag5o5")
 
-[node name="Shell_39" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_49" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_hwqdu")
 
-[node name="Shell_40" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_50" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_720ph")
 
-[node name="Shell_41" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_51" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_c31fr")
 
-[node name="Shell_42" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_52" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_q2cjy")
 
-[node name="Shell_43" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_53" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_h6dws")
 
-[node name="Shell_44" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_54" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_yv6pe")
 
-[node name="Shell_45" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_55" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_47274")
 
-[node name="Shell_46" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_56" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_soulh")
 
-[node name="Shell_47" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_57" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_pyoa8")
 
-[node name="Shell_48" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_58" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_1gxu1")
 
-[node name="Shell_49" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_59" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_7m45t")
 
-[node name="Shell_50" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_60" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_i0b5w")
 
-[node name="Shell_51" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_61" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_8ijff")
 
-[node name="Shell_52" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_62" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_rrsyr")
 
-[node name="Shell_53" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_63" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_gypfj")
 
-[node name="Shell_54" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_64" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_6k8hd")
 
-[node name="Shell_55" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_65" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_avwnd")
 
-[node name="Shell_56" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_66" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_wgf7d")
 
-[node name="Shell_57" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_67" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_61dw2")
 
-[node name="Shell_58" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_68" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_aiwea")
 
-[node name="Shell_59" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_69" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_ed8bs")
 
-[node name="Shell_60" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_70" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_mmqgw")
 
-[node name="Shell_61" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_71" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_5xysm")
 
-[node name="Shell_62" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_72" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_0mws5")
 
-[node name="Shell_63" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_73" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_u453j")
 
-[node name="Shell_64" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_74" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_340bq")
 
-[node name="Shell_65" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_75" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_nhsb4")
 
-[node name="Shell_66" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_76" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_6ls8x")
 
-[node name="Shell_67" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_77" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_m50jq")
 
-[node name="Shell_68" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_78" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_ylvm1")
 
-[node name="Shell_69" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_79" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_rvgsn")
 
-[node name="Shell_70" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_80" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_n6xio")
 
-[node name="Shell_71" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_81" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_6hy3n")
 
-[node name="Shell_72" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_82" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_5coqx")
 
-[node name="Shell_73" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_83" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_2p04k")
 
-[node name="Shell_74" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_84" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_v5hjk")
 
-[node name="Shell_75" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_85" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_oeeyo")
 
-[node name="Shell_76" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_86" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_gtwqb")
 
-[node name="Shell_77" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_87" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_yeybo")
 
-[node name="Shell_78" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_88" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_nwqkn")
 
-[node name="Shell_79" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_89" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_1kx6g")
 
-[node name="Shell_80" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_90" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_541hg")
 
-[node name="Shell_81" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_91" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_ofhmr")
 
-[node name="Shell_82" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_92" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_h1hx1")
 
-[node name="Shell_83" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_93" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_o16ul")
 
-[node name="Shell_84" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_94" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_63nrg")
 
-[node name="Shell_85" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_95" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_7dntt")
 
-[node name="Shell_86" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_96" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_4bqu5")
 
-[node name="Shell_87" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_97" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_5vkan")
 
-[node name="Shell_88" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_98" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_c613w")
 
-[node name="Shell_89" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_99" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_cp5e7")
 
-[node name="Shell_90" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_100" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_xu4xa")
 
-[node name="Shell_91" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_101" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_dyej7")
 
-[node name="Shell_92" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_102" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_dr4q7")
 
-[node name="Shell_93" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_103" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_g3ra1")
 
-[node name="Shell_94" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_104" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_m6psd")
 
-[node name="Shell_95" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_105" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_wrome")
 
-[node name="Shell_96" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_106" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_3q5uy")
 
-[node name="Shell_97" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_107" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_8m2k6")
 
-[node name="Shell_98" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_108" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_fifuy")
 
-[node name="Shell_99" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_109" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_2dqf4")
 
-[node name="Shell_100" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_110" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_w2h41")
 
-[node name="Shell_101" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_111" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_w1i50")
 
-[node name="Shell_102" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_112" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_ka8tq")
 
-[node name="Shell_103" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_113" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_c64r0")
 
-[node name="Shell_104" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
+[node name="Shell_114" type="MeshInstance3D" parent="mossum_rig/WoolShellTexturing"]
 mesh = ExtResource("4_y61xg")
 surface_material_override/0 = SubResource("ShaderMaterial_cmb3h")
 

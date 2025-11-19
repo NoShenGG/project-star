@@ -1284,6 +1284,7 @@ viewport_path = NodePath("SubViewport")
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_ecso2")
+attack_cd = 3.0
 attack_radius = 3.0
 
 [node name="mossum_rig" parent="." instance=ExtResource("2_g0rg0")]

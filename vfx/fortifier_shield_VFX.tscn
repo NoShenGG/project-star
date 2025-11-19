@@ -13,5 +13,6 @@ shader_parameter/ColorParameter = Color(0.831373, 0.431373, 0.890196, 1)
 [node name="FortifierShieldVfx" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("SphereMesh_eul7n")
 surface_material_override/0 = SubResource("ShaderMaterial_01170")

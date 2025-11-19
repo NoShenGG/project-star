@@ -1150,6 +1150,7 @@ collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_bfl6e")
 faction = 2
+_hp = 15.0
 metadata/_custom_type_script = "uid://meavewo15aog"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -1197,16 +1198,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-4.466007e-09, 0.997035, 0.07694943, 7.5365676e-08)
-bones/1/rotation = Quaternion(0.093641244, 0.0034393, -0.00021107189, 0.9956001)
-bones/2/rotation = Quaternion(0.09670425, -0.0037739694, -0.0002345612, 0.9953061)
-bones/4/rotation = Quaternion(0.21920861, 0.06109306, -0.5604511, 0.7963101)
+bones/0/rotation = Quaternion(-4.074117e-09, 0.99742156, 0.071764745, 7.538789e-08)
+bones/1/rotation = Quaternion(0.098809734, 0.0034403503, -0.00019321042, 0.9951004)
+bones/2/rotation = Quaternion(0.101743326, -0.0037640329, -0.00021987234, 0.99480355)
+bones/4/rotation = Quaternion(0.20516932, 0.07094076, -0.5592899, 0.80004245)
 bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.04319699, 0.98099875)
 bones/6/rotation = Quaternion(0.054868493, 0.749481, 0.015322981, 0.6595702)
-bones/7/rotation = Quaternion(0.09873892, -0.00029499838, -0.0007213347, 0.99511313)
-bones/8/rotation = Quaternion(-0.082323514, -0.0003538843, -0.0004919927, 0.9966055)
+bones/7/rotation = Quaternion(0.092143945, -0.0002902129, -0.0007232732, 0.9957455)
+bones/8/rotation = Quaternion(-0.08892439, -0.00035713616, -0.0004896374, 0.9960382)
 bones/9/rotation = Quaternion(-0.09260436, -0.17117503, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.3064466, 0.004189633, 0.5430172, 0.78179616)
+bones/10/rotation = Quaternion(0.31567407, 0.01061343, 0.5429297, 0.77811617)
 bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.012348074, 0.97225493)
 bones/12/rotation = Quaternion(-5.8199284e-08, -0.751264, -5.181668e-08, 0.6600019)
 bones/13/rotation = Quaternion(0.10849719, -0.08205278, 0.9894506, -0.049833346)
@@ -1220,7 +1221,7 @@ bones/20/rotation = Quaternion(0.13317142, 8.6246704e-11, 0.0009177519, 0.991092
 bones/21/rotation = Quaternion(0.13793416, -4.257629e-10, 0.0009505738, 0.99044096)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(-0.34745085, -0.31861252, 0.88190943, -0.19623628, -0.89497286, -0.4006441, 0.9169348, -0.31226662, 0.24843574, -0.57853144, 0.83160937, -0.032140195)
+transform = Transform3D(-0.33694622, -0.3261808, 0.8832178, -0.13586913, -0.9114087, -0.38842568, 0.9316687, -0.2508804, 0.26277775, -0.58140564, 0.83138263, -0.004818544)
 bone_name = "Hand.L"
 bone_idx = 6
 

@@ -60,6 +60,8 @@ graph_offset = Vector2(-24.286057, 26.961536)
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_wqp5f")
+attack_cd = 4.0
+hit_dmg = 0.5
 attack_radius = 2.0
 _base_speed = 10.0
 
@@ -95,30 +97,6 @@ collide_with_areas = true
 
 [node name="mossypede" parent="." instance=ExtResource("2_sxa4w")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -0.65710473, 0)
-
-[node name="Skeleton3D" parent="mossypede" index="0"]
-bones/2/position = Vector3(0, 0.013334108, -0.0025032056)
-bones/2/rotation = Quaternion(-0.35096437, 0.61385995, -0.35096434, 0.61386)
-bones/3/position = Vector3(-0.0013908278, -0.00041667788, 0)
-bones/3/rotation = Quaternion(0, 0, -0.31892762, 0.9477791)
-bones/4/position = Vector3(0.0039445297, 0, 0)
-bones/4/rotation = Quaternion(0, 0, -0.23623204, 0.9716967)
-bones/5/position = Vector3(0.0039001813, 0, 0)
-bones/5/rotation = Quaternion(0, 0, -0.46189082, 0.8869368)
-bones/6/position = Vector3(0.0036199747, 0, 0)
-bones/6/rotation = Quaternion(0, 0, -0.42416143, 0.9055866)
-bones/9/position = Vector3(-0.0024088132, 0.0038809674, -2.0364932e-06)
-bones/9/rotation = Quaternion(-0.00010758165, -7.373863e-05, 0.6226802, 0.7824764)
-bones/10/position = Vector3(0.0038216638, 0.004777275, 0)
-bones/10/rotation = Quaternion(0, 0, 0.7366732, 0.676249)
-bones/12/position = Vector3(-0.003318063, -0.00018778043, 0)
-bones/12/rotation = Quaternion(-0.4257422, 0.9048446, -6.617446e-24, -2.357465e-23)
-bones/13/position = Vector3(0.005339815, 0, 0)
-bones/13/rotation = Quaternion(0, 0, -0.50109565, 0.86539185)
-bones/14/position = Vector3(0.0046522375, 0, 0)
-bones/14/rotation = Quaternion(0, 0, -0.50354505, 0.86396897)
-bones/15/position = Vector3(0.0039887396, 0, 0)
-bones/15/rotation = Quaternion(-0.023926899, 0.04820008, -0.47414458, 0.87880105)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_l26uf")

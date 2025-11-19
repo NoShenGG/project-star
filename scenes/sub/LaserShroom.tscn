@@ -17,7 +17,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pxf1l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pxf1l"]
-size = Vector3(15, 1, 2)
+size = Vector3(15, 1.355, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_s1jrn"]
 material = ExtResource("7_iil6r")
@@ -33,6 +33,7 @@ size = Vector3(15, 1, 1)
 viewport_path = NodePath("SubViewport")
 
 [node name="LaserShroom" type="CharacterBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 collision_layer = 10
 script = ExtResource("1_6e0eo")
 metadata/_custom_type_script = "uid://b0ikb4va3mlaf"
@@ -66,6 +67,7 @@ one_shot = true
 
 [node name="fire" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_fire_state")]
 script = ExtResource("6_sbhox")
+damage = 4.0
 post_fire_state = NodePath("../hide")
 
 [node name="FireTimer" type="Timer" parent="StateMachine/fire"]
@@ -96,16 +98,16 @@ script = ExtResource("3_dkojg")
 metadata/_custom_type_script = "uid://c1iptw5vqre6f"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.739915, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7399154, 0, 0)
 shape = SubResource("BoxShape3D_pxf1l")
 
 [node name="AimMesh" type="MeshInstance3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7461843, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1.6175327, 0, 0, 0, 1, 7.7461843, 0, -2.842171e-14)
 visible = false
 mesh = SubResource("BoxMesh_s1jrn")
 
 [node name="FireMesh" type="MeshInstance3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.732189, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1.5771985, 0, 0, 0, 1, 7.732189, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_iil6r")
 
