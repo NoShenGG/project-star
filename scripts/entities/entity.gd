@@ -42,6 +42,8 @@ var speed:
 			func(acc: float, stat: StatMod): return acc * pow(1.2, stat.poll()), 1.0)
 var invincible: bool = false
 
+@onready var death: bool = false
+
 
 func _ready() -> void:
 	health_update.emit(1)
@@ -101,8 +103,6 @@ func try_damage(damage_amount: float) -> bool:
 			apply_effect(Broken.new(EntityEffect.EffectID.BROKEN, _break_cooldown))
 			broken.emit()
 	return true
-
-var death: bool =false
 
 func try_heal(heal_amount: float) -> bool:
 	if heal_amount <= 0:
