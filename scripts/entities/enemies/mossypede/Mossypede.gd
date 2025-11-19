@@ -4,12 +4,14 @@ class_name Mossypede extends Enemy
 @export var hit_dmg: float = 1.0
 @export var knockback: float = 1.0
 
+@onready var cast = $Cast
+
 var can_damage: bool = true
 
 func _process(delta: float) -> void:
 	super(delta)
 	if can_damage and \
-			global_position.distance_to(GameManager.curr_player.global_position) \
+			global_position.distance_to(GameManager.curr_player.position) \
 			< attack_radius:
 		can_damage = false
 		var player = GameManager.curr_player

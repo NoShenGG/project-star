@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://celvhgttbuade"]
+[gd_scene load_steps=14 format=3 uid="uid://celvhgttbuade"]
 
 [ext_resource type="Script" uid="uid://b3r7iadvf8jmk" path="res://scripts/entities/enemies/mossypede/Mossypede.gd" id="1_wqp5f"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_kejld"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="3_vv04i"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="4_35qt8"]
 [ext_resource type="Script" uid="uid://wjug80utd1ei" path="res://scripts/entities/enemies/mossypede/mossypede_attack.gd" id="4_vv04i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vv04i"]
+radius = 0.25
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l26uf"]
 size = Vector3(1.435, 1, 1.72)
@@ -59,31 +62,36 @@ reached_state = NodePath("../Cooldown")
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("4_35qt8")
 
+[node name="Cast" type="ShapeCast3D" parent="."]
+shape = SubResource("SphereShape3D_vv04i")
+target_position = Vector3(0, 0, -10)
+collide_with_areas = true
+
 [node name="mossypede" parent="." instance=ExtResource("2_sxa4w")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -0.33761993, 0)
 
 [node name="Skeleton3D" parent="mossypede" index="0"]
 bones/2/rotation = Quaternion(-0.008669642, 0.70705366, -0.008669642, 0.7070536)
 bones/3/position = Vector3(0.004338014, 0, 0)
-bones/3/rotation = Quaternion(-0.00072980934, -0.03398448, -0.02145743, 0.99919176)
+bones/3/rotation = Quaternion(0.00079318875, 0.03693582, -0.021455176, 0.99908704)
 bones/4/position = Vector3(0.0039445297, 0, 0)
-bones/4/rotation = Quaternion(0.0009414587, 0.066924505, -0.014034542, 0.99765897)
+bones/4/rotation = Quaternion(-0.0009263523, -0.065850645, -0.014035548, 0.99773043)
 bones/5/position = Vector3(0.0039001813, 0, 0)
-bones/5/rotation = Quaternion(-0.003978881, -0.09743489, -0.040607836, 0.9944052)
+bones/5/rotation = Quaternion(0.0011431957, 0.027994584, -0.040786285, 0.998775)
 bones/6/position = Vector3(0.0036199747, 0, 0)
-bones/6/rotation = Quaternion(-0.00011393439, 0.089248754, 0.0012714982, 0.9960086)
+bones/6/rotation = Quaternion(7.6150376e-05, -0.059651226, 0.0012743194, 0.99821854)
 bones/9/position = Vector3(0.0046078106, 2.1878208e-05, 3.3017855e-05)
-bones/9/rotation = Quaternion(-0.06019097, 0.005801005, -0.20628291, 0.97662216)
+bones/9/rotation = Quaternion(-0.042047072, 0.065535724, -0.24845263, 0.9655095)
 bones/10/position = Vector3(0.0032920872, 1.2404124e-05, 2.2668677e-05)
-bones/10/rotation = Quaternion(-0.015850585, 0.04775306, -0.10065704, 0.9936481)
+bones/10/rotation = Quaternion(-0.02207312, 0.1538831, 0.12488203, 0.97991705)
 bones/12/position = Vector3(-0.003318063, -0.00018778043, 0)
-bones/12/rotation = Quaternion(-0.05701585, 0.9967391, -0.0032608972, -0.057006314)
+bones/12/rotation = Quaternion(-0.0571006, 0.99822074, 0.0009806958, 0.017144317)
 bones/13/position = Vector3(0.005339815, 0, 0)
-bones/13/rotation = Quaternion(-0.00400895, -0.08506609, -0.04690422, 0.9952627)
+bones/13/rotation = Quaternion(0.0028702437, 0.060903817, -0.046987653, 0.99703294)
 bones/14/position = Vector3(0.0046522375, 0, 0)
-bones/14/rotation = Quaternion(-0.0057043503, 0.114162676, -0.049577497, 0.9922078)
+bones/14/rotation = Quaternion(0.0048445608, -0.0969555, -0.049668886, 0.9940368)
 bones/15/position = Vector3(0.0039887396, 0, 0)
-bones/15/rotation = Quaternion(-0.0031535458, -0.18546355, -0.016706092, 0.98250407)
+bones/15/rotation = Quaternion(0.0021393935, 0.12582015, -0.016865987, 0.9919075)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_l26uf")
