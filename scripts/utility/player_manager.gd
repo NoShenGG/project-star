@@ -36,6 +36,7 @@ func _ready() -> void:
 			(c as Player).health_update.connect(player_health_update)
 			(c as Player).special_cooldown_update.connect(player_special_update)
 			(c as Player).special_available.connect(await_special)
+			(c as Player).killed.connect(on_player_killed)
 			player_health_update((c as Player)._hp / (c as Player)._max_hp)
 			player_special_update(1)
 		
@@ -116,11 +117,13 @@ func await_special():
 	
 func on_player_killed():
 	for c in get_children():
-		if not c is Player:
+		if not (c is Player):
 			break
-		if c.name != current_char.name && not c.dead:
+			
+		var p : Player = c as Player
+		if p.name != current_char.name and not p.is_dead():
 			# found a living player to switch
-			swap_char_to(c)
+			swap_char_to(p)
 			return
 	# didn't find a living player, so game over
 	game_over.emit()
