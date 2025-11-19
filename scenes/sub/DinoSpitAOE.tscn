@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://co7hni4fhm5tu"]
+
+[ext_resource type="Script" uid="uid://dwqn2hhfnf8ad" path="res://scripts/entities/enemies/attacks/dinoskeleton_aoe.gd" id="1_pif6q"]
+[ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="2_nm83e"]
+[ext_resource type="PackedScene" uid="uid://dnfgpacphxpuf" path="res://scenes/dev/chrizz/corruption_base.tscn" id="3_d67cd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pcnfp"]
+
+[node name="DinoSpitAOE" type="Node3D" groups=["Enemies"]]
+script = ExtResource("1_pif6q")
+
+[node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+collision_mask = 3
+script = ExtResource("2_nm83e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+shape = SubResource("SphereShape3D_pcnfp")
+
+[node name="Corruption_Base" parent="." instance=ExtResource("3_d67cd")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

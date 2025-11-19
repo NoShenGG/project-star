@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://i3dj6mon7uts"]
+
+[ext_resource type="Script" uid="uid://elvr1fyx74gw" path="res://scripts/entities/enemies/attacks/dinoskeleton_aoe_anticipation.gd" id="1_801qb"]
+[ext_resource type="PackedScene" uid="uid://cwtic6pdgjkn7" path="res://scenes/dev/arshiya_r/magic circle things/magic_circle_template.tscn" id="2_801qb"]
+
+[node name="DinoFireAOEAnticipation" type="Node3D" groups=["Enemies"]]
+script = ExtResource("1_801qb")
+
+[node name="MagicCircleTemplate" parent="." instance=ExtResource("2_801qb")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -5.413886, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
