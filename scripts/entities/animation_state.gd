@@ -54,7 +54,7 @@ func enter():
 	playback.state_finished.connect(state_finished)
 	demo_state_finished()
 	
-	playback.start(state_name)
+	playback.travel(state_name)
 
 func demo_state_finished():
 	await get_tree().create_timer(0.4).timeout
