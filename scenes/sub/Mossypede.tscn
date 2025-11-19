@@ -1,15 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://celvhgttbuade"]
+[gd_scene load_steps=13 format=3 uid="uid://celvhgttbuade"]
 
 [ext_resource type="Script" uid="uid://b3r7iadvf8jmk" path="res://scripts/entities/enemies/mossypede/Mossypede.gd" id="1_wqp5f"]
+[ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_kejld"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_qufj0"]
 [ext_resource type="PackedScene" uid="uid://bbhdok14mvale" path="res://art_assets/enemies/mossypede/mossypede.glb" id="2_sxa4w"]
+[ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="3_vv04i"]
+[ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="4_35qt8"]
+[ext_resource type="Script" uid="uid://wjug80utd1ei" path="res://scripts/entities/enemies/mossypede/mossypede_attack.gd" id="4_vv04i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l26uf"]
 size = Vector3(1.435, 1, 1.72)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_g0rg0"]
-height = 0.1
-radius = 10.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_g0rg0"]
 viewport_path = NodePath("SubViewport")
@@ -25,12 +25,39 @@ states/Start/position = Vector2(183, 115)
 states/walk/node = SubResource("AnimationNodeAnimation_qufj0")
 states/walk/position = Vector2(372, 110)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_yevcs")]
-graph_offset = Vector2(-6, 10)
+graph_offset = Vector2(-166.28606, 47.961536)
 
 [node name="Mossypede" type="CharacterBody3D"]
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_wqp5f")
+attack_radius = 2.0
+_base_speed = 10.0
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_kejld")
+initial_state = NodePath("Cooldown")
+metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
+
+[node name="Cooldown" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_far_state")]
+script = ExtResource("3_vv04i")
+wait_time = 2.0
+post_wait_state = NodePath("../Attacking")
+max_player_distance = 16.0
+player_far_state = NodePath("../WaitForPlayer")
+
+[node name="WaitForPlayer" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_close_state")]
+script = ExtResource("3_vv04i")
+rotate_to_player = false
+max_player_distance = 15.0
+player_close_state = NodePath("../Cooldown")
+
+[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("reached_state")]
+script = ExtResource("4_vv04i")
+reached_state = NodePath("../Cooldown")
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("4_35qt8")
 
 [node name="mossypede" parent="." instance=ExtResource("2_sxa4w")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -0.33761993, 0)
@@ -38,43 +65,31 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -0.33761993, 0)
 [node name="Skeleton3D" parent="mossypede" index="0"]
 bones/2/rotation = Quaternion(-0.008669642, 0.70705366, -0.008669642, 0.7070536)
 bones/3/position = Vector3(0.004338014, 0, 0)
-bones/3/rotation = Quaternion(-0.0006808379, -0.031704064, -0.021459034, 0.9992667)
+bones/3/rotation = Quaternion(-0.00072980934, -0.03398448, -0.02145743, 0.99919176)
 bones/4/position = Vector3(0.0039445297, 0, 0)
-bones/4/rotation = Quaternion(0.0008814626, 0.06265962, -0.014038438, 0.99793583)
+bones/4/rotation = Quaternion(0.0009414587, 0.066924505, -0.014034542, 0.99765897)
 bones/5/position = Vector3(0.0039001813, 0, 0)
-bones/5/rotation = Quaternion(-0.0038146747, -0.0934138, -0.04062359, 0.994791)
+bones/5/rotation = Quaternion(-0.003978881, -0.09743489, -0.040607836, 0.9944052)
 bones/6/position = Vector3(0.0036199747, 0, 0)
-bones/6/rotation = Quaternion(-0.0001078371, 0.08447254, 0.0012720301, 0.9964251)
+bones/6/rotation = Quaternion(-0.00011393439, 0.089248754, 0.0012714982, 0.9960086)
 bones/9/position = Vector3(0.0046078106, 2.1878208e-05, 3.3017855e-05)
-bones/9/rotation = Quaternion(-0.053654626, 0.009834134, -0.20149742, 0.977969)
+bones/9/rotation = Quaternion(-0.06019097, 0.005801005, -0.20628291, 0.97662216)
 bones/10/position = Vector3(0.0032920872, 1.2404124e-05, 2.2668677e-05)
-bones/10/rotation = Quaternion(-0.025619503, -0.016469894, -0.049422517, 0.99831355)
+bones/10/rotation = Quaternion(-0.015850585, 0.04775306, -0.10065704, 0.9936481)
 bones/12/position = Vector3(-0.003318063, -0.00018778043, 0)
-bones/12/rotation = Quaternion(-0.057023477, 0.9968725, -0.0031246203, -0.05462395)
+bones/12/rotation = Quaternion(-0.05701585, 0.9967391, -0.0032608972, -0.057006314)
 bones/13/position = Vector3(0.005339815, 0, 0)
-bones/13/rotation = Quaternion(-0.0037882286, -0.08038257, -0.04692257, 0.99565184)
+bones/13/rotation = Quaternion(-0.00400895, -0.08506609, -0.04690422, 0.9952627)
 bones/14/position = Vector3(0.0046522375, 0, 0)
-bones/14/rotation = Quaternion(-0.0053664944, 0.107401095, -0.04961522, 0.99296254)
+bones/14/rotation = Quaternion(-0.0057043503, 0.114162676, -0.049577497, 0.9922078)
 bones/15/position = Vector3(0.0039887396, 0, 0)
-bones/15/rotation = Quaternion(-0.0029853357, -0.17557092, -0.016736971, 0.98432004)
+bones/15/rotation = Quaternion(-0.0031535458, -0.18546355, -0.016706092, 0.98250407)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_l26uf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_desired_distance = 10.0
 debug_path_custom_color = Color(0, 1, 0, 1)
-
-[node name="HitBoxes" type="Node3D" parent="."]
-
-[node name="Aggro" type="Area3D" parent="HitBoxes"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxes/Aggro"]
-shape = SubResource("CylinderShape3D_g0rg0")
-debug_color = Color(1, 0, 0, 1)
 
 [node name="StatusBars" parent="." instance=ExtResource("2_qufj0")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.035, 0)
@@ -87,7 +102,5 @@ anim_player = NodePath("../mossypede/AnimationPlayer")
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
-[connection signal="body_entered" from="HitBoxes/Aggro" to="." method="_on_aggro_body_entered"]
-[connection signal="body_exited" from="HitBoxes/Aggro" to="." method="_on_aggro_body_exited"]
 
 [editable path="mossypede"]
