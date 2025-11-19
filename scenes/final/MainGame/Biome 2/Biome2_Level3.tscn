@@ -10,19 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="7_s0x1b"]
 [ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="8_prq4x"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aha3a"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_e85ix"]
-sky_material = SubResource("ProceduralSkyMaterial_aha3a")
-
-[sub_resource type="Environment" id="Environment_6kimk"]
-background_mode = 2
-sky = SubResource("Sky_e85ix")
-tonemap_mode = 2
-glow_enabled = true
-
 [sub_resource type="NavigationMesh" id="NavigationMesh_31ltn"]
 vertices = PackedVector3Array(-37.5, 0.5, -42.55271, -37.5, 0.5, 32.44729, 37.5, 0.5, 32.44729, 37.5, 0.5, -42.55271)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
@@ -30,15 +17,35 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [sub_resource type="BoxShape3D" id="BoxShape3D_r2uke"]
 size = Vector3(15, 3, 15)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6kimk"]
+sky_top_color = Color(0.7868003, 0.8044158, 0.90088457, 1)
+sky_horizon_color = Color(0.59996814, 0.48462427, 0.7608906, 1)
+ground_bottom_color = Color(0.17863777, 0.14902645, 0.28510144, 1)
+ground_horizon_color = Color(0.6767592, 0.58873963, 0.93670535, 1)
+
+[sub_resource type="Sky" id="Sky_wel6h"]
+sky_material = SubResource("ProceduralSkyMaterial_6kimk")
+
+[sub_resource type="Environment" id="Environment_31ltn"]
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 1.17
+sky = SubResource("Sky_wel6h")
+ambient_light_source = 2
+ambient_light_color = Color(0.69779664, 0.45408309, 0.652757, 1)
+ambient_light_energy = 1.13
+tonemap_mode = 2
+tonemap_exposure = 0.5
+ssao_enabled = true
+ssil_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_detail_spread = 0.5
+adjustment_enabled = true
+adjustment_brightness = 1.17
+adjustment_contrast = 1.24
+adjustment_saturation = 0.9
+
 [node name="Level3" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6kimk")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_energy = 0.34
-shadow_enabled = true
 
 [node name="PlayerManager" parent="." instance=ExtResource("6_prq4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
@@ -106,5 +113,13 @@ transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -10.045789, -1.907348
 
 [node name="SpawnArea4" parent="WaveManager" instance=ExtResource("6_d2yy8")]
 transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, 1.3044357, -1.9073486e-06, 33.75924)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.5219336, -0.61917514, 0.58669204, 0.061710697, 0.65859747, 0.74996084, -0.850751, 0.42763487, -0.3055344, 0, 22.456, 0)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D2"]
+environment = SubResource("Environment_31ltn")
 
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]

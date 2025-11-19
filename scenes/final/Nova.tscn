@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://cod3je274l3of" path="res://art_assets/characters/Nova/nova.glb" id="28_8qhfg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
+radius = 0.235
+height = 1.54
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ato7d"]
 radius = 0.98
@@ -3487,6 +3489,11 @@ animation = &"charged_attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gedrv"]
 animation = &"charged_special"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n6rgu"]
 animation = &"charging_attack"
@@ -3542,13 +3549,7 @@ xfade_time = 0.3
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ygt4u"]
 xfade_time = 0.3
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qhfg"]
-xfade_time = 0.3
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mwi3y"]
-xfade_time = 0.3
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5up7p"]
 xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vrbf8"]
@@ -3562,6 +3563,10 @@ xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mm718"]
 xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gedrv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n6rgu"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_eqnmt"]
 states/Start/position = Vector2(103, 98)
@@ -3584,15 +3589,15 @@ states/combo4/position = Vector2(678, 272)
 states/combo5/node = SubResource("AnimationNodeAnimation_0ksem")
 states/combo5/position = Vector2(173, 200)
 states/dash/node = SubResource("AnimationNodeAnimation_btucx")
-states/dash/position = Vector2(543, 42)
+states/dash/position = Vector2(357, -4)
 states/hurt/node = SubResource("AnimationNodeAnimation_l0sqy")
 states/hurt/position = Vector2(647, 42)
 states/idle/node = SubResource("AnimationNodeAnimation_iql2l")
 states/idle/position = Vector2(236, 98)
 states/run/node = SubResource("AnimationNodeAnimation_lxyrl")
 states/run/position = Vector2(325, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_60tca"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_u6tct"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_k2lop"), "run", "combo1", SubResource("AnimationNodeStateMachineTransition_ob225"), "run", "charging_attack", SubResource("AnimationNodeStateMachineTransition_h46t7"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_uws5v"), "dash", "run", SubResource("AnimationNodeStateMachineTransition_ygt4u"), "charging_attack", "charged_attack", SubResource("AnimationNodeStateMachineTransition_8qhfg"), "run", "charging_special", SubResource("AnimationNodeStateMachineTransition_mwi3y"), "charging_special", "charged_special", SubResource("AnimationNodeStateMachineTransition_5up7p"), "charged_attack", "run", SubResource("AnimationNodeStateMachineTransition_vrbf8"), "charged_special", "run", SubResource("AnimationNodeStateMachineTransition_6qoku"), "combo5", "idle", SubResource("AnimationNodeStateMachineTransition_ajeah"), "combo5", "run", SubResource("AnimationNodeStateMachineTransition_mm718")]
-graph_offset = Vector2(-98, 83)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_60tca"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_u6tct"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_k2lop"), "run", "combo1", SubResource("AnimationNodeStateMachineTransition_ob225"), "run", "charging_attack", SubResource("AnimationNodeStateMachineTransition_h46t7"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_uws5v"), "dash", "run", SubResource("AnimationNodeStateMachineTransition_ygt4u"), "run", "charging_special", SubResource("AnimationNodeStateMachineTransition_mwi3y"), "charged_attack", "run", SubResource("AnimationNodeStateMachineTransition_vrbf8"), "charged_special", "run", SubResource("AnimationNodeStateMachineTransition_6qoku"), "combo5", "idle", SubResource("AnimationNodeStateMachineTransition_ajeah"), "combo5", "run", SubResource("AnimationNodeStateMachineTransition_mm718"), "idle", "dash", SubResource("AnimationNodeStateMachineTransition_gedrv"), "dash", "idle", SubResource("AnimationNodeStateMachineTransition_n6rgu")]
+graph_offset = Vector2(-106, -15)
 
 [node name="Nova" type="CharacterBody3D" node_paths=PackedStringArray("targetting_box")]
 collision_layer = 6
@@ -3600,7 +3605,7 @@ collision_mask = 3
 script = ExtResource("1_p5oh7")
 targetting_box = NodePath("Hitboxes/Vision")
 dash_cd = 2.0
-dash_distance = 9.0
+dash_distance = 6.0
 _base_speed = 6.0
 faction = 0
 _hp = 20.0
@@ -3732,7 +3737,7 @@ stun_duration = 0.5
 stun_cooldown = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77, 0)
 shape = SubResource("CapsuleShape3D_21ndv")
 
 [node name="DummyAnimation" type="Node" parent="."]
@@ -3740,6 +3745,7 @@ script = ExtResource("3_h31i5")
 
 [node name="ForwardRay" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 shape = SubResource("SphereShape3D_ato7d")
 target_position = Vector3(0, 0, -10)
 
@@ -3830,6 +3836,7 @@ event_name = "event:/Player/Uniques/Charging/Nova Charging Ready"
 event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 
 [node name="Nova\'s Circle" parent="." instance=ExtResource("27_ygt4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.155, 0)
 
 [node name="nova" parent="." instance=ExtResource("28_8qhfg")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
@@ -3844,15 +3851,19 @@ bones/6/rotation = Quaternion(-0.61815953, -0.19284236, -0.44837752, 0.61615604)
 bones/7/rotation = Quaternion(0.7087308, 0.705479, -3.3087225e-24, 7.33913e-25)
 bones/9/position = Vector3(-0.00053762295, -0.0008666625, -0.0024917354)
 bones/10/position = Vector3(0.007249624, 0, 0)
-bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
+bones/10/rotation = Quaternion(-0.061993614, 0.02275512, -0.12672368, 0.98973745)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.06632303, 0.52284753, -0.50632167, 0.68254673)
-bones/15/rotation = Quaternion(-0.16355032, 0.55757844, 0.23243417, 0.7799564)
-bones/16/rotation = Quaternion(-0.50824326, -0.46853173, -0.2519996, 0.67724663)
-bones/21/rotation = Quaternion(-0.14973128, 0.38713735, -0.4567265, 0.7868331)
-bones/22/rotation = Quaternion(-0.06913924, 0.3631066, 0.18119298, 0.911341)
-bones/23/rotation = Quaternion(0.14524063, 0.10985496, -0.07473093, 0.9804348)
+bones/14/rotation = Quaternion(-0.06702086, 0.5232657, -0.5062286, 0.68222713)
+bones/15/rotation = Quaternion(-0.1619712, 0.5550848, 0.23197062, 0.7821993)
+bones/16/rotation = Quaternion(-0.50939864, -0.46691427, -0.24934615, 0.67847675)
+bones/17/position = Vector3(0.0018554534, 0.00021904969, -2.3318698e-05)
+bones/19/position = Vector3(0.0013310565, -0.00023085566, -0.0009310027)
+bones/21/rotation = Quaternion(-0.13164899, 0.45345786, -0.45138532, 0.75716305)
+bones/22/rotation = Quaternion(-0.099093236, 0.43729037, 0.20366175, 0.870333)
+bones/23/rotation = Quaternion(0.18277945, -0.052060038, -0.0806291, 0.9784582)
+bones/24/position = Vector3(-0.0018531249, -0.0002358484, -3.841993e-05)
+bones/26/position = Vector3(-0.001368337, 0.00026111768, 0.00086672825)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
@@ -3860,7 +3871,6 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.3486316, 0.70710605, 0.06283848, 0.611971)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 

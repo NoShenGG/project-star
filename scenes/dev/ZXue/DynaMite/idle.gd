@@ -11,7 +11,6 @@ func physics_update(_delta: float) -> void:
 	#TODO: make DynaMite walk around when idle.
 	#check if player is within detection range or not.
 	var distanceToPlayer : float = dynamite.global_position.distance_to(dynamite.playerRef.global_position)
-	print(distanceToPlayer)
 	if (distanceToPlayer < dynamite.DETECTION_RANGE):
 		trigger_finished.emit("approach")
 	elif($"../.."._hp <= 0):
