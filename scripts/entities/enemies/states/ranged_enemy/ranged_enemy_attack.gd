@@ -16,12 +16,13 @@ func enter(_prev_state: String, _data := {}) -> void:
 	entered.emit()
 
 func shoot(projectile: PackedScene) -> void:
-	var projectile_instance = projectile.instantiate()
-	var dir : Vector3 = parent_enemy.global_position.direction_to(parent_enemy.target_node.global_position)
-	dir.y = 0
-	projectile_instance.direction = dir
-	parent_enemy.add_child(projectile_instance)
-	parent_enemy.cooldown.start()
+	if not parent_enemy.death:
+		var projectile_instance = projectile.instantiate()
+		var dir : Vector3 = parent_enemy.global_position.direction_to(parent_enemy.target_node.global_position)
+		dir.y = 0
+		projectile_instance.direction = dir
+		parent_enemy.add_child(projectile_instance)
+		parent_enemy.cooldown.start()
 
 func _on_cooldown_timeout() -> void:
 	shoot(parent_enemy.Projectile)

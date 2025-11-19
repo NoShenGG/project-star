@@ -40,7 +40,7 @@ func update(_delta: float) -> void:
 func physics_update(delta: float) -> void:
 	delta = min(delta, time)
 	time -= delta
-	player.global_position += Vector3.FORWARD.rotated(Vector3.UP, player.rotation.y) \
+	player.global_position += Vector3.FORWARD.rotated(Vector3.UP, player.rotation.y) * 1.5 \
 		* dash_target_dist * delta / anim_dur
 			
 func end() -> void:
