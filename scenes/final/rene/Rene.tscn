@@ -283,6 +283,7 @@ event_name = "event:/Player/Dash/Base Dash"
 event_guid = "{c01c64a7-fee5-463c-adda-e0bf3a57057b}"
 
 [node name="Label" type="Label" parent="."]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

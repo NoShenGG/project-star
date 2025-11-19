@@ -12,6 +12,7 @@ albedo_color = Color(1, 0, 0, 1)
 
 [node name="RangedWeapon" type="Node3D" groups=["Enemies"]]
 script = ExtResource("1_duflq")
+damage = 1.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_overlay = SubResource("StandardMaterial3D_duflq")

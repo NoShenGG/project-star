@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://gge1dhpajvvw"]
+[gd_scene load_steps=7 format=3 uid="uid://se0u4isnnr7i"]
 
-[ext_resource type="PackedScene" uid="uid://cent63gp0an85" path="res://VFX/DynaMiteExplodeVFX.tscn" id="1_hmecu"]
+[ext_resource type="PackedScene" path="res://VFX/DynaMiteExplodeVFX.tscn" id="1_hmecu"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_m3my2"]
 
@@ -12,6 +12,11 @@ emission_energy_multiplier = 0.0
 [sub_resource type="BoxMesh" id="BoxMesh_m3my2"]
 material = SubResource("StandardMaterial3D_3dl3i")
 size = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahdm8"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0, 0, 1)
+emission_energy_multiplier = 0.0
 
 [sub_resource type="Curve" id="Curve_3dl3i"]
 _data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
@@ -42,14 +47,15 @@ transform = Transform3D(-6.338152e-08, -0.5, 0, 1.4499648, -2.1855161e-08, 0.003
 mesh = SubResource("BoxMesh_m3my2")
 skeleton = NodePath("../..")
 
-[node name="DynaMiteExplode" parent="." instance=ExtResource("1_hmecu")]
+[node name="DynaMiteExplode" parent="." node_paths=PackedStringArray("particles") instance=ExtResource("1_hmecu")]
 explosion_color = Color(1, 0, 0, 1)
 fuse_delay = 2.0
 pulse_count = 10
 pulse_color = Color(1, 0.227451, 0, 1)
-pulse_material = SubResource("StandardMaterial3D_3dl3i")
+pulse_material = SubResource("StandardMaterial3D_ahdm8")
 pulse_timing = SubResource("Curve_3dl3i")
 play_on_start = false
+particles = [NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D4")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.674406, -0.25205, 0.694009, 0, 0.939931, 0.341364, -0.738361, -0.230218, 0.633895, 1.32719, 0.848417, 1.3699)

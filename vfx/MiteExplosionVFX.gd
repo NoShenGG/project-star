@@ -13,14 +13,14 @@ var light_fuse:
 @export var fuse_delay : float = 1
 
 @export_category("Pulse Controls")
+@export var pulse_mesh = MeshInstance3D
 @export var pulse_count : int = 3
 @export var pulse_color : Color
 @export var pulse_length_delay_ratio : float = 1
-@export var pulse_material : Material
+@export var pulse_material_base : Material
 @export var pulse_timing : Curve
 @export var pulse_energy : Curve
 
-var pulse_material_original_albedo_color : Color
 var pulse_material_original_emission_color : Color
 var pulse_material_original_emission_energy : float
 var pulse_timer : Timer
@@ -29,6 +29,7 @@ var current_pulse : int
 var pulse_left : float
 var pulse_length : float
 var pulsing : bool
+var pulse_material : Material
 
 var fuse_lit : bool
 var fuse_timer : Timer
@@ -40,6 +41,8 @@ signal pulsed
 func _ready():
 	fuse_timer = $FuseTimer
 	pulse_timer = $PulseTimer
+	pulse_material = pulse_material_base.duplicate(true)
+	pulse_mesh.material_override = pulse_material
 	pulse_timer.timeout.connect(pulse)
 	fuse_timer.timeout.connect(explode)
 
@@ -50,7 +53,6 @@ func _process(delta):
 		if pulse_left < 0:
 			pulsing = false
 			pulse_material.emission = pulse_material_original_emission_color
-			pulse_material.albedo_color = pulse_material_original_albedo_color
 			pulse_material.emission_enabled = false
 			pulse_material.emission_energy_multiplier = pulse_material_original_emission_energy			
 		else:
@@ -63,7 +65,6 @@ func _process(delta):
 				pulse_material.emission_energy_multiplier = x * 3
 			
 			pulse_material.emission = pulse_material_original_emission_color.lerp(pulse_color, x)
-			pulse_material.albedo_color = pulse_material_original_albedo_color.lerp(pulse_material_original_albedo_color * pulse_color, x)
 
 func start_fuse():
 	fuse_lit = true
@@ -80,7 +81,6 @@ func pulse():
 	pulse_left = pulse_length
 	pulse_material.emission_enabled = true
 	if not pulsing:
-		pulse_material_original_albedo_color = pulse_material.albedo_color
 		pulse_material_original_emission_color = pulse_material.emission
 		pulse_material_original_emission_energy = pulse_material.emission_energy_multiplier
 	pulsing = true

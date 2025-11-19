@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://p0pl57lpm4x4"]
+[gd_scene load_steps=18 format=3 uid="uid://p0pl57lpm4x4"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_ajxti"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="4_47nrl"]
@@ -18,8 +18,9 @@ size = Vector3(15, 3, 15)
 size = Vector3(6, 2, 6)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_opvqb"]
-vertices = PackedVector3Array(51.08624, 1.6920109, -81.7892, 56.08624, 1.6920109, -81.7892, 56.08624, 3.1920109, -104.5392, 51.08624, 3.1920109, -104.5392, 51.08624, 3.1920109, -94.586075, 51.08624, 1.6920109, -88.898575, 56.08624, 1.6920109, -88.898575, 56.08624, 3.1920109, -94.586075, 54.32647, 1.6920109, -90.05544, 51.08624, 1.6920109, -55.7892, 51.08624, 1.6920109, -53.7892, 56.08624, 1.6920109, -53.7892, 56.08624, 1.6920109, -55.7892, 49.58624, 1.6920109, -79.5392, 49.58624, 1.6920109, -56.0392, 57.58624, 1.6920109, -56.0392, 57.58624, 1.6920109, -79.5392, 51.08624, 1.6920109, -79.7892, 56.08624, 1.6920109, -79.7892, 51.08624, 1.6920109, -39.0392, 56.08624, 1.6920109, -39.0392, 56.33624, 1.6920109, -36.7892, 50.83624, 1.6920109, -36.7892, 38.83624, 1.6920109, -19.5392, 38.83624, 1.6920109, -12.5392, 36.58624, 1.6920109, -19.2892, 36.58624, 1.6920109, -12.7892, 38.83624, 1.6920109, -3.7891998, 68.08624, 1.6920109, -3.7891998, 68.08624, 1.6920109, -36.7892, 38.83624, 1.6920109, -36.7892, -2.1637611, 0.44201088, -12.5392, -2.1637611, 0.44201088, -10.7892, 2.0862389, 0.44201088, -10.7892, 2.3362389, 0.44201088, -12.7892, 4.336239, 0.44201088, -12.7892, 4.336239, 0.44201088, -19.2892, -3.6637611, 0.44201088, -12.7892, -3.6637611, 0.44201088, -19.2892, -0.16376114, -2.5579891, -19.2892, -0.16376114, -2.5579891, -12.7892, 0.58623886, -2.3079891, -12.7892, 0.58623886, -2.3079891, -19.2892, 5.802148, 0.44201088, -12.7892, 8.733967, 1.6920109, -12.7892, 8.733967, 1.6920109, -19.2892, 5.802148, 0.44201088, -19.2892, -2.1637611, 0.44201088, 7.9608, 2.0862389, 0.44201088, 7.9608)
-polygons = [PackedInt32Array(2, 7, 3), PackedInt32Array(3, 7, 4), PackedInt32Array(4, 8, 5), PackedInt32Array(5, 6, 0), PackedInt32Array(0, 6, 1), PackedInt32Array(6, 8, 7), PackedInt32Array(7, 8, 4), PackedInt32Array(8, 6, 5), PackedInt32Array(12, 11, 9), PackedInt32Array(9, 11, 10), PackedInt32Array(17, 16, 13), PackedInt32Array(13, 16, 15), PackedInt32Array(13, 15, 12), PackedInt32Array(13, 12, 14), PackedInt32Array(17, 0, 18), PackedInt32Array(18, 0, 1), PackedInt32Array(16, 17, 18), PackedInt32Array(14, 12, 9), PackedInt32Array(10, 11, 19), PackedInt32Array(19, 11, 20), PackedInt32Array(20, 21, 19), PackedInt32Array(19, 21, 22), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 24), PackedInt32Array(25, 23, 26), PackedInt32Array(26, 23, 24), PackedInt32Array(27, 24, 28), PackedInt32Array(28, 24, 21), PackedInt32Array(28, 21, 29), PackedInt32Array(23, 30, 22), PackedInt32Array(32, 31, 33), PackedInt32Array(33, 31, 34), PackedInt32Array(36, 35, 34), PackedInt32Array(31, 37, 34), PackedInt32Array(34, 37, 38), PackedInt32Array(34, 38, 36), PackedInt32Array(42, 41, 39), PackedInt32Array(39, 41, 40), PackedInt32Array(36, 46, 35), PackedInt32Array(35, 46, 43), PackedInt32Array(43, 46, 45), PackedInt32Array(43, 45, 44), PackedInt32Array(44, 45, 25), PackedInt32Array(44, 25, 26), PackedInt32Array(48, 47, 33), PackedInt32Array(33, 47, 32)]
+vertices = PackedVector3Array(51.08624, 1.3920107, -81.7892, 56.08624, 1.3920107, -81.7892, 56.08624, 2.8920107, -104.5392, 51.08624, 2.8920107, -104.5392, 51.08624, 2.8920107, -94.586075, 51.08624, 1.592011, -90.32045, 51.08624, 1.3920107, -88.898575, 56.08624, 1.3920107, -88.898575, 56.08624, 1.592011, -90.32045, 56.08624, 2.8920107, -94.586075, 52.81148, 1.3920107, -88.54446, 51.08624, 1.3920107, -55.7892, 51.08624, 1.3920107, -53.7892, 56.08624, 1.3920107, -53.7892, 56.08624, 1.3920107, -55.7892, 49.58624, 1.3920107, -79.5392, 49.58624, 1.3920107, -56.0392, 57.58624, 1.3920107, -56.0392, 57.58624, 1.3920107, -79.5392, 51.08624, 1.3920107, -79.7892, 56.08624, 1.3920107, -79.7892, 51.08624, 1.3920107, -32.2892, 56.08624, 1.3920107, -32.2892, 56.33624, 1.3920107, -30.0392, 50.83624, 1.3920107, -30.0392, 42.83624, 1.3920107, -30.0392, 42.83624, 1.3920107, -19.5392, 40.58624, 1.3920107, -19.2892, 40.58624, 1.3920107, -12.7892, 42.58624, 1.3920107, -12.7892, 42.83624, 1.3920107, -10.5392, 64.08624, 1.3920107, -10.5392, 64.08624, 1.3920107, -30.0392, -2.1637611, 0.092010975, -10.5392, 2.3362389, 0.092010975, -10.5392, 2.3362389, 0.092010975, -12.5392, -2.1637611, 0.092010975, -12.5392, -3.6637611, 0.092010975, -12.7892, 4.586239, 0.092010975, -12.7892, 4.586239, 0.092010975, -19.2892, -3.6637611, 0.092010975, -19.2892, -0.16376114, -2.907989, -19.2892, -0.16376114, -2.907989, -12.7892, 0.33623886, -2.7079892, -12.7892, 0.33623886, -2.7079892, -19.2892, 6.0262384, 0.092010975, -12.7892, 8.906239, 1.3920107, -12.7892, 8.906239, 1.3920107, -19.2892, 6.0262384, 0.092010975, -19.2892, -2.1637611, 0.092010975, 17.9608, 2.3362389, 0.092010975, 17.9608)
+polygons = [PackedInt32Array(2, 9, 3), PackedInt32Array(3, 9, 4), PackedInt32Array(4, 9, 5), PackedInt32Array(5, 10, 6), PackedInt32Array(6, 10, 0), PackedInt32Array(0, 10, 1), PackedInt32Array(1, 10, 7), PackedInt32Array(7, 10, 8), PackedInt32Array(8, 5, 9), PackedInt32Array(5, 8, 10), PackedInt32Array(14, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(19, 18, 15), PackedInt32Array(15, 18, 17), PackedInt32Array(15, 17, 14), PackedInt32Array(15, 14, 16), PackedInt32Array(19, 0, 20), PackedInt32Array(20, 0, 1), PackedInt32Array(18, 19, 20), PackedInt32Array(16, 14, 11), PackedInt32Array(12, 13, 21), PackedInt32Array(21, 13, 22), PackedInt32Array(22, 23, 21), PackedInt32Array(21, 23, 24), PackedInt32Array(26, 25, 24), PackedInt32Array(28, 27, 29), PackedInt32Array(29, 27, 26), PackedInt32Array(26, 24, 23), PackedInt32Array(29, 26, 30), PackedInt32Array(30, 26, 23), PackedInt32Array(30, 23, 32), PackedInt32Array(30, 32, 31), PackedInt32Array(36, 35, 33), PackedInt32Array(33, 35, 34), PackedInt32Array(36, 37, 35), PackedInt32Array(35, 37, 38), PackedInt32Array(38, 37, 40), PackedInt32Array(38, 40, 39), PackedInt32Array(44, 43, 41), PackedInt32Array(41, 43, 42), PackedInt32Array(39, 48, 38), PackedInt32Array(38, 48, 45), PackedInt32Array(45, 48, 47), PackedInt32Array(45, 47, 46), PackedInt32Array(46, 47, 27), PackedInt32Array(46, 27, 28), PackedInt32Array(50, 49, 34), PackedInt32Array(34, 49, 33)]
+cell_height = 0.1
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yvkck"]
 sky_top_color = Color(0.7868003, 0.8044158, 0.90088457, 1)
@@ -48,6 +49,8 @@ adjustment_enabled = true
 adjustment_brightness = 1.17
 adjustment_contrast = 1.24
 adjustment_saturation = 0.9
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7a44i"]
 
 [node name="Level1" type="Node3D"]
 
@@ -657,6 +660,100 @@ sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
 environment = SubResource("Environment_ck0to")
+
+[node name="walls" type="Node" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="walls"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 5.457839, 0, 0, 0, 30.729744, -3.0866308, 0.33717656, 3.0553856)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(-1.019568e-07, 0, -46.01083, 0, 14.486825, 0, 2.3324997, 0, -2.011197e-06, 19.280426, 0.8949719, -20.861813)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 14.486825, 0, 0, 0, 22.899426, 64.89585, 0.8949719, -20.185104)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 19.742233, 0, 14.486825, 0, -1, 0, -8.629604e-07, 66.724525, 0.89497, -30.913727)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 13.151545, 0, 14.486825, 0, -1, 0, -5.748723e-07, 44.142292, 0.89497, -30.913727)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(-1.8, 0, -1.1497447e-06, 0, 14.486827, 0, 1.57361e-07, 0, -13.1515465, 41.85147, 0.89497, -26.178589)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(1.5265595, 0, 0, 0, 14.486825, 0, 0, 0, 25.48452, 57.308407, 0.8949719, -42.91974)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(2.222766, 0, 0, 0, 14.486825, 0, 0, 0, 25.306557, 49.534424, 0.8949719, -42.91974)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(2.222766, 0, 0, 0, 14.486825, 0, 0, 0, 25.306557, 48.260277, 0.8949719, -67.12044)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(2.222766, 0, 0, 0, 14.486825, 0, 0, 0, 25.306557, 58.906506, 0.8949719, -67.12044)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(2.222766, 0, 0, 0, 14.486825, 0, 0, 0, 25.306557, 57.514286, 0.8949719, -92.651886)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(2.222766, 0, 0, 0, 14.486825, 0, 0, 0, 25.306557, 49.631584, 0.8949719, -92.651886)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 22.899426, 0, 14.486825, 0, -1, 0, -1.0009657e-06, 53.388485, 0.8949719, -9.90786)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 5.457839, 0, 0, 0, 8.836647, -4.4243574, 0.33717656, -15.843088)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(-1.2543552e-07, 0, 39.39513, 0, 14.486824, 0, -2.8696303, 0, -1.7220158e-06, 22.747461, 0.89497185, -10.878094)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 5.457839, 0, 0, 0, 0.8714374, -3.6700175, 0.33717656, -11.844288)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 7.913548, 0, 5.457839, 0, -1, 0, -3.4591216e-07, -0.5007689, 0.33717656, 18.72057)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="walls/StaticBody3D"]
+transform = Transform3D(-1, 0, -2.6864795e-06, 0, 5.457839, 0, 8.742278e-08, 0, -30.729744, 2.9600766, 0.33717656, 3.3103054)
+shape = SubResource("BoxShape3D_7a44i")
+debug_color = Color(0, 11.578043, 13.506168, 1)
 
 [connection signal="body_entered" from="WaveManager/Area3D" to="WaveManager" method="_on_start" unbinds=1]
 

@@ -10,6 +10,8 @@ func update(_delta: float) -> void:
 func physics_update(_delta: float) -> void:
 	# move closer to player
 	dynamite.set_movement_target(dynamite.playerRef.global_position)
+	var dir : Vector3 = (dynamite.global_position - GameManager.curr_player.global_position).normalized().slide(Vector3.UP)
+	dynamite.rotate_y(dynamite.global_basis.z.signed_angle_to(dir, Vector3.UP) * _delta * 10)
 	
 	#$"../..".velocity = $"../.."._movement_speed * ($"../..".playerRef.global_transform.origin - $"../..".global_transform.origin).normalized()
 	#$"../..".move_and_slide()
