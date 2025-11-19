@@ -12,7 +12,6 @@ func enter(_prev_state: String, _data := {}) -> void:
 			.normalized().slide(Vector3.UP)
 	var cast =  enemy.cast as ShapeCast3D
 	cast.force_shapecast_update()
-	print(cast.is_colliding())
 	target_dist = enemy.global_position.distance_to(cast.get_collision_point(0)) - 1.5 if cast.is_colliding() else cast.target_position.length()
 	orig = enemy.global_position
 	enemy.velocity = dir * enemy.speed
