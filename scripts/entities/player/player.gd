@@ -116,4 +116,6 @@ func give_dash():
 	_can_dash = true
 	
 func trigger_death() -> void:
+	death = true
+	killed.emit()
 	push_error("Player has Died")
