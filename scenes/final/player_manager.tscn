@@ -16,6 +16,21 @@ process_mode = 3
 top_level = true
 
 [node name="Rene" parent="." instance=ExtResource("3_q78nk")]
+max_click_time = 0.25
+attack_charge_time = 0.5
+max_attack_charges = 1
+combo_reset_time = 0.6
+input_smoothing_speed = 8.0
+dash_cd = 1.0
+dash_distance = 5.0
+_base_speed = 5.0
+_hp = 10.0
+_max_hp = 10.0
+_break_percent = 0.0
+_break_hits = 3
+_break_drain_rate = 0.05
+_break_cooldown = 5.0
+passive_death_time = 2.5
 
 [node name="Dawn" parent="." instance=ExtResource("3_kpy7t")]
 
