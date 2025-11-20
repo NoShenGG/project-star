@@ -12,6 +12,9 @@ signal player_sp_update(percent: float)
 
 signal player_special_ready
 
+## forces a character swap when the character dies, requires all characters to go to 0
+@export var saving_grace : bool = true 
+
 signal game_over
 
 func _init() -> void:
@@ -116,6 +119,10 @@ func await_special():
 	player_special_ready.emit()
 	
 func on_player_killed():
+	if (!saving_grace):
+		game_over.emit()
+		return
+	
 	for c in get_children():
 		if not (c is Player):
 			break
