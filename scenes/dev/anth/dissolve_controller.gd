@@ -10,6 +10,7 @@ extends Node3D
 @export var cellSize : float = 20.0
 @export var noiseScale : float = 5.0
 @export var dissolveBegin : float = 0.8
+@export var dissolveDuration : float = 2
 
 @export_category("Animation")
 @export var animCurve : Curve
@@ -22,7 +23,6 @@ var mat : Material
 var mats : Array[Material] = []
 
 func _ready():
-	setup_materials()
 	set_default_params()
 
 func setup_materials():
@@ -52,8 +52,9 @@ func set_default_params():
 		#beginDissolve(2.0)
 
 # Main function
-func beginDissolve(duration: float = 2.0) -> void:
-	play_curve(duration)
+func beginDissolve() -> void:
+	setup_materials()
+	play_curve(dissolveDuration)
 
 func play_curve(duration: float) -> void:
 	if animCurve == null:

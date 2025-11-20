@@ -71,13 +71,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 dash_distance = 5.0
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.06610707, 0.5227184, -0.50635076, 0.6826451)
-bones/15/rotation = Quaternion(-0.16443789, 0.55897105, 0.23268972, 0.77869564)
-bones/16/rotation = Quaternion(-0.50759405, -0.4694657, -0.25347063, 0.67653745)
-bones/21/rotation = Quaternion(-0.14903075, 0.38498855, -0.45758906, 0.78751886)
-bones/22/rotation = Quaternion(-0.069987826, 0.3654407, 0.18193926, 0.9101939)
-bones/23/rotation = Quaternion(0.14494382, 0.10945582, -0.07590026, 0.9804335)
-bones/38/rotation = Quaternion(-0.34889084, 0.70697874, 0.06261376, 0.6119933)
+bones/14/rotation = Quaternion(-0.06639911, 0.52227825, -0.50678533, 0.6826311)
+bones/15/rotation = Quaternion(-0.17000039, 0.56758237, 0.2342259, 0.7707712)
+bones/16/rotation = Quaternion(-0.5036733, -0.4783316, -0.26028445, 0.6706445)
+bones/21/rotation = Quaternion(-0.1357218, 0.36858606, -0.47230422, 0.7890835)
+bones/22/rotation = Quaternion(-0.073769234, 0.37566742, 0.1851834, 0.90506315)
+bones/23/rotation = Quaternion(0.12937587, 0.112819955, -0.08816018, 0.9812041)
+bones/38/rotation = Quaternion(-0.35104313, 0.70591736, 0.06074672, 0.6121758)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
