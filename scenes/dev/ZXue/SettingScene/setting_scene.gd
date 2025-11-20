@@ -51,6 +51,7 @@ func save_setting():
 	
 func load_setting() -> Dictionary:
 	if not FileAccess.file_exists("user://gamesetting.save"):
+		print("[SettingMenu]gamesetting.save not found. Creating new save")
 		save_setting()
 		
 	var save_file = FileAccess.open("user://gamesetting.save", FileAccess.READ)
