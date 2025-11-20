@@ -1,4 +1,7 @@
-class_name Invincible extends EntityEffect
+class_name FortifierInvincible extends EntityEffect
+
+
+const vfx = preload("res://vfx/fortifier_shield_VFX.tscn")
 
 var fortifier: Fortifier
 var active: bool
@@ -15,16 +18,22 @@ func _ready() -> void:
 func try_apply(entity: Entity) -> bool:
 	if super(entity):
 		entity.invincible = true
+		var vfx_instance = vfx.instantiate() as Node3D
+		vfx_instance.position = Vector3.UP * 1.3
+		add_child((vfx_instance))
 		return true
 	return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(_delta: float) -> bool:
-	if fortifier != null and abs(get_parent().global_position.distance_to(fortifier.global_position)) > fortifier.attack_radius:
+	if not active or fortifier == null:
 		return false
-	return active
+	if _entity.global_position.distance_to(fortifier.global_position) > fortifier.attack_radius:
+		return false
+	return true
 
 func stop() -> void:
 	if fortifier != null:
-		fortifier.reset_shield()
+		if not fortifier.death:
+			fortifier.reset_shield()
 	_entity.invincible = false

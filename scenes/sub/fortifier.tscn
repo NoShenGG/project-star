@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://b3u2ccl0ibwdw" path="res://art_assets/enemies/fortifier/fort2glb.glb" id="2_3safb"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_ko5h1"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="3_cs6dd"]
-[ext_resource type="Script" uid="uid://cplhuefak4xe6" path="res://scenes/dev/ian_r/fortifier_states/fortifier_idle.gd" id="3_cwf65"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="3_ko5h1"]
-[ext_resource type="Script" uid="uid://ccipy7c0880vt" path="res://scenes/dev/ian_r/fortifier_states/fortifier_aggro.gd" id="4_ev8td"]
-[ext_resource type="Script" uid="uid://6mm7aq2ddphu" path="res://scenes/dev/ian_r/fortifier_states/fortifier_shielding.gd" id="5_gtlnc"]
+[ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="3_r7rop"]
+[ext_resource type="Script" uid="uid://ddkywibmdxdxq" path="res://scripts/entities/enemies/fortifier/fortifier_move.gd" id="4_r7rop"]
+[ext_resource type="Script" uid="uid://6mm7aq2ddphu" path="res://scripts/entities/enemies/fortifier/fortifier_shielding.gd" id="5_gtlnc"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="8_r7rop"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="10_unhng"]
 
@@ -26,10 +26,6 @@ states/round/position = Vector2(337, 122)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lnb36"]
 size = Vector3(1.34, 2.33, 1.56)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_g0rg0"]
-height = 1.0
-radius = 15.0
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3ex7s"]
 height = 1.0
 radius = 10.0
@@ -37,26 +33,31 @@ radius = 10.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_g0rg0"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Fortifier" type="CharacterBody3D"]
+[node name="Fortifier" type="CharacterBody3D" node_paths=PackedStringArray("vision")]
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_q7o8q")
 recalc_cd = 1.0
+vision = NodePath("Hitboxes/Shield")
+attack_radius = 10.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_ko5h1")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("3_cwf65")
-metadata/_custom_type_script = "uid://cplhuefak4xe6"
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_close_state")]
+script = ExtResource("3_r7rop")
+post_wait_state = NodePath("../Move")
+max_player_distance = 4.0
+player_close_state = NodePath("../Move")
 
-[node name="Aggro" type="Node" parent="StateMachine"]
-script = ExtResource("4_ev8td")
-metadata/_custom_type_script = "uid://ccipy7c0880vt"
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("reached_enemy_state")]
+script = ExtResource("4_r7rop")
+reached_enemy_state = NodePath("../Idle")
 
-[node name="Shielding" type="Node" parent="StateMachine"]
+[node name="Shielding" type="Node" parent="StateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("5_gtlnc")
+next_state = NodePath("../Move")
 metadata/_custom_type_script = "uid://6mm7aq2ddphu"
 
 [node name="DeadState" type="Node" parent="StateMachine"]
@@ -65,6 +66,19 @@ metadata/_custom_type_script = "uid://irxuylaptnty"
 
 [node name="fort2glb" parent="." instance=ExtResource("2_3safb")]
 transform = Transform3D(0.705, 0, 0, 0, 0.705, 0, 0, 0, 0.705, -1.155, -1.52, 0.285)
+
+[node name="Skeleton3D" parent="fort2glb/Armature" index="0"]
+bones/0/position = Vector3(-0.0379932, 0.8364593, 0.093899064)
+bones/0/rotation = Quaternion(0.0025154962, 0.026649432, 0.035182063, 0.99902236)
+bones/1/position = Vector3(-6.371609e-09, 0.9999999, -3.4017926e-09)
+bones/2/position = Vector3(0.0028440764, 1.6837382, 0.056201976)
+bones/3/position = Vector3(-2.2377943e-05, 2.6275914, -0.05528889)
+bones/4/position = Vector3(0.01623868, 3.0647604, 0.08059542)
+bones/4/rotation = Quaternion(0.03508546, -0.004219509, -0.009264431, 0.99933255)
+bones/5/position = Vector3(0.00032147218, 3.75734, 0.1530106)
+bones/5/rotation = Quaternion(-0.08833359, -0.0030456358, -0.009714181, 0.996039)
+bones/6/position = Vector3(0.000254876, 4.5666504, 0.015196823)
+bones/6/rotation = Quaternion(-0.40510646, -0.0056703407, -0.00052200566, 0.91425186)
 
 [node name="AnimationTree" type="AnimationTree" parent="fort2glb"]
 tree_root = SubResource("AnimationNodeStateMachine_tcoa5")
@@ -93,14 +107,6 @@ path_max_distance = 100.01
 debug_path_custom_color = Color(0, 1, 0, 1)
 
 [node name="Hitboxes" type="Node3D" parent="."]
-
-[node name="Aggro" type="Area3D" parent="Hitboxes"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Aggro"]
-shape = SubResource("CylinderShape3D_g0rg0")
-debug_color = Color(1, 0, 0, 1)
 
 [node name="Shield" type="Area3D" parent="Hitboxes"]
 collision_layer = 0

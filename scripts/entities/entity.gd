@@ -52,13 +52,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if (death): return
-	
 	for id: EntityEffect.EffectID in _status_effects:
 		var effect = _status_effects.get(id)
 		if not effect.process(delta):
 			effect.stop()
 			_stopped_effects.append(id)
 	for id: EntityEffect.EffectID in _stopped_effects:
+		_status_effects.get(id).queue_free()
 		_status_effects.erase(id)
 	_stopped_effects.clear()
 	if _breakable:

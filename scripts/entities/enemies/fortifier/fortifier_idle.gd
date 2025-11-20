@@ -8,7 +8,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 func update(_delta: float) -> void:
 	pass
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	pass
 
 func end() -> void:
