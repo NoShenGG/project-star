@@ -12,6 +12,7 @@ signal player_sp_update(percent: float)
 
 signal player_special_ready
 
+signal game_over
 
 func _init() -> void:
 	if (not Engine.is_editor_hint()):
@@ -35,6 +36,7 @@ func _ready() -> void:
 			(c as Player).health_update.connect(player_health_update)
 			(c as Player).special_cooldown_update.connect(player_special_update)
 			(c as Player).special_available.connect(await_special)
+			(c as Player).killed.connect(on_player_killed)
 			player_health_update((c as Player)._hp / (c as Player)._max_hp)
 			player_special_update(1)
 		
@@ -82,27 +84,47 @@ func player_special_update(percent: float):
 		  ...
 '''
 func swap_char(idx: int):
-	if idx < get_child_count() and current_char.name != get_child(idx).name:
+	if idx < get_child_count() and current_char.name != get_child(idx).name and not get_child(idx).death:
 		var new_char := get_child(idx) as Player
-		new_player.emit(new_char)
-		new_char.set_global_transform(current_char.get_global_transform())
-		new_char.velocity = current_char.velocity
-		new_char.reset_physics_interpolation()
-		
-		(current_char.state_machine as PlayerStateMachine).swap_out()
-		(new_char.state_machine as PlayerStateMachine).swap_in()
-		
-		current_char.special_available.disconnect(await_special)
-		current_char.health_update.disconnect(player_health_update)
-		current_char.special_cooldown_update.disconnect(player_special_update)
-		new_char.health_update.connect(player_health_update)
-		new_char.special_cooldown_update.connect(player_special_update)
-		new_char.special_available.connect(await_special)
-		player_special_update(1.0 if new_char._has_special else \
-			(new_char.special_cd - new_char.special_cd_timer.time_left)/new_char.special_cd)
-		player_health_update(new_char._hp / new_char._max_hp)
-		current_char = new_char
+		swap_char_to(new_char)
+
+func swap_char_to(new_char: Player):
+	new_player.emit(new_char)
+	new_char.set_global_transform(current_char.get_global_transform())
+	new_char.velocity = current_char.velocity
+	new_char.reset_physics_interpolation()
+	
+	(current_char.state_machine as PlayerStateMachine).swap_out()
+	(new_char.state_machine as PlayerStateMachine).swap_in()
+	
+	current_char.special_available.disconnect(await_special)
+	current_char.health_update.disconnect(player_health_update)
+	current_char.special_cooldown_update.disconnect(player_special_update)
+	current_char.killed.disconnect(on_player_killed)
+	
+	new_char.health_update.connect(player_health_update)
+	new_char.special_cooldown_update.connect(player_special_update)
+	new_char.special_available.connect(await_special)
+	new_char.killed.connect(on_player_killed)
+	player_special_update(1.0 if new_char._has_special else \
+		(new_char.special_cd - new_char.special_cd_timer.time_left)/new_char.special_cd)
+	player_health_update(new_char._hp / new_char._max_hp)
+	current_char = new_char
 
 func await_special():
 	print("special ready bounce")
 	player_special_ready.emit()
+	
+func on_player_killed():
+	for c in get_children():
+		if not (c is Player):
+			break
+			
+		var p : Player = c as Player
+		if p.name != current_char.name and not p.is_dead():
+			# found a living player to switch
+			swap_char_to(p)
+			return
+	# didn't find a living player, so game over
+	game_over.emit()
+	
