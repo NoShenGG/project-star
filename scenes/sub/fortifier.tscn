@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bo8i2glbe0u23"]
+[gd_scene load_steps=18 format=3 uid="uid://bo8i2glbe0u23"]
 
 [ext_resource type="Script" uid="uid://bfq0pt6ajyow1" path="res://scripts/entities/enemies/fortifier/fortifier.gd" id="1_q7o8q"]
 [ext_resource type="PackedScene" uid="uid://b3u2ccl0ibwdw" path="res://art_assets/enemies/fortifier/fort2glb.glb" id="2_3safb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://ddkywibmdxdxq" path="res://scripts/entities/enemies/fortifier/fortifier_move.gd" id="4_r7rop"]
 [ext_resource type="Script" uid="uid://6mm7aq2ddphu" path="res://scripts/entities/enemies/fortifier/fortifier_shielding.gd" id="5_gtlnc"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="8_r7rop"]
+[ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="10_unhng"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_unhng"]
 animation = &"2nd"
@@ -119,9 +120,17 @@ debug_color = Color(1, 0, 0, 1)
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.997466, 0)
 texture = SubResource("ViewportTexture_g0rg0")
 
+[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("10_unhng")]
+meshes = [NodePath("../fort2glb/Armature/Skeleton3D/Cube")]
+
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
-[connection signal="entered" from="StateMachine/Shielding" to="fort2glb/shielding" method="enter"]
-[connection signal="finished" from="StateMachine/Shielding" to="fort2glb/Idle" method="enter"]
+[connection signal="entered" from="StateMachine/Idle" to="fort2glb/Idle" method="enter"]
+[connection signal="shield_enemy" from="StateMachine/Shielding" to="fort2glb/shielding" method="enter"]
+[connection signal="entered" from="StateMachine/DeadState" to="DissolveFX" method="beginDissolve"]
+[connection signal="body_entered" from="Hitboxes/Aggro" to="." method="_on_aggro_body_entered"]
+[connection signal="body_exited" from="Hitboxes/Aggro" to="." method="_on_aggro_body_exited"]
+[connection signal="body_entered" from="Hitboxes/Shield" to="." method="_on_shield_body_entered"]
+[connection signal="body_exited" from="Hitboxes/Shield" to="." method="_on_shield_body_exited"]
 
 [editable path="fort2glb"]

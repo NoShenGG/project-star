@@ -7,10 +7,15 @@ extends Node3D
 var players: Array[Player]
 
 signal new_player(value : Player)
-signal player_hp_update(percent: float)
-signal player_sp_update(percent: float)
+signal player_hp_update(player: Player, percent: float)
+signal player_sp_update(player: Player, percent: float)
 
 signal player_special_ready
+
+# FIXME: hardcoded player names
+const NOVA = "Nova"
+const RENE = "Rene"
+const DAWN = "Dawn"
 
 ## forces a character swap when the character dies, requires all characters to go to 0
 @export var saving_grace : bool = true 
@@ -30,18 +35,24 @@ func _ready() -> void:
 		if !(c is Player): 
 			## yes, i know this is a return, i know what it does. no continue
 			return
+			
+		# NOTE: we cannot use one handler for all player health and special emitters: this is 
+		# because players that are not the current player can be healed. 
+		if c.name in PLAYER_SIGNAL_HANDLERS:
+			c.health_update.connect(PLAYER_SIGNAL_HANDLERS[c.name].health)
+			c.special_cooldown_update.connect(PLAYER_SIGNAL_HANDLERS[c.name].special)
 		
 		if c.name != current_char.name:
 			c.visible = false
 			(c as Player).state_machine.state = c.get_node("StateMachine/Sleeping")
 			(c as Player).get_node("CollisionShape3D").disabled = true
 		else:
-			(c as Player).health_update.connect(player_health_update)
-			(c as Player).special_cooldown_update.connect(player_special_update)
 			(c as Player).special_available.connect(await_special)
 			(c as Player).killed.connect(on_player_killed)
-			player_health_update((c as Player)._hp / (c as Player)._max_hp)
-			player_special_update(1)
+			
+		# use signal directly instead of function because we should pass in the character to update
+		player_hp_update.emit(c, c._hp / c._max_hp)
+		player_sp_update.emit(c, 1)
 		
 		c.top_level = true
 		c.global_position = global_position
@@ -70,11 +81,37 @@ func _process(_delta: float) -> void:
 	## allowing external code to be able to see the player still in edgecases
 	global_position = current_char.global_position
 
-func player_health_update(percent: float):
-	player_hp_update.emit(percent)
+class PlayerSignalHandler:
+	var health: Callable
+	var special: Callable
 	
-func player_special_update(percent: float):
-	player_sp_update.emit(percent)
+	func _init(health: Callable, special: Callable):
+		self.health = health
+		self.special = special
+
+var PLAYER_SIGNAL_HANDLERS: Dictionary[String, PlayerSignalHandler] = {
+	NOVA: PlayerSignalHandler.new(nova_health_update, nova_special_update),
+	DAWN: PlayerSignalHandler.new(dawn_health_update, dawn_special_update),
+	RENE: PlayerSignalHandler.new(rene_health_update, rene_special_update),
+}
+
+func nova_health_update(percent: float):
+	player_hp_update.emit(get_player_by_name(NOVA), percent)
+	
+func rene_health_update(percent: float):
+	player_hp_update.emit(get_player_by_name(RENE), percent)
+	
+func dawn_health_update(percent: float):
+	player_hp_update.emit(get_player_by_name(DAWN), percent)
+	
+func nova_special_update(percent: float):
+	player_sp_update.emit(get_player_by_name(NOVA), percent)
+	
+func rene_special_update(percent: float):
+	player_sp_update.emit(get_player_by_name(RENE), percent)
+	
+func dawn_special_update(percent: float):
+	player_sp_update.emit(get_player_by_name(DAWN), percent)
 
 
 '''
@@ -102,18 +139,16 @@ func swap_char_to(new_char: Player):
 	(new_char.state_machine as PlayerStateMachine).swap_in()
 	
 	current_char.special_available.disconnect(await_special)
-	current_char.health_update.disconnect(player_health_update)
-	current_char.special_cooldown_update.disconnect(player_special_update)
 	current_char.killed.disconnect(on_player_killed)
-	
-	new_char.health_update.connect(player_health_update)
-	new_char.special_cooldown_update.connect(player_special_update)
+
 	new_char.special_available.connect(await_special)
 	new_char.killed.connect(on_player_killed)
-	player_special_update(1.0 if new_char._has_special else \
-		(new_char.special_cd - new_char.special_cd_timer.time_left)/new_char.special_cd)
-	player_health_update(new_char._hp / new_char._max_hp)
 	current_char = new_char
+	
+	# use signal directly instead of function because we should pass in the character to update
+	player_hp_update.emit(new_char, new_char._hp / new_char._max_hp)
+	player_sp_update.emit(new_char, 1.0 if new_char._has_special else \
+		(new_char.special_cd - new_char.special_cd_timer.time_left)/new_char.special_cd)
 
 func await_special():
 	print("special ready bounce")
@@ -136,3 +171,32 @@ func on_player_killed():
 	# didn't find a living player, so game over
 	game_over.emit()
 	
+func get_players() -> Array[Player]:
+	return players
+	
+func get_player_by_name(name: String) -> Player:
+	for p in get_players():
+		if p.name == name:
+			return p
+	return null
+
+func team_hurt(damage: float):
+	for x in get_players():
+		if x is Player:
+			# hurts all players
+			x.try_damage(damage)
+
+func team_effect(e: Array[EntityEffect]):
+	for x in get_players():
+		if x is Player:
+			x.apply_effect(e.pop_front())
+
+func team_heal(amount: float):
+	for x in get_players():
+		if x is Player:
+			x.try_heal(amount)
+
+func team_heal_percent(percent: float):
+	for x in get_players():
+		if x is Player and x._hp != x._max_hp:
+			x.try_heal((x._max_hp - x._hp) * percent)

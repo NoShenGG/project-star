@@ -1,0 +1,656 @@
+[gd_scene load_steps=23 format=3 uid="uid://hs6isup6bhpk"]
+
+[ext_resource type="Script" uid="uid://ci2p324tsrsjb" path="res://scenes/dev/ZXue/SettingScene/setting_scene.gd" id="1_uh3ej"]
+[ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="1_x5ukb"]
+[ext_resource type="Texture2D" uid="uid://c1q710xdlpnp0" path="res://scenes/dev/ZXue/SettingScene/Assets/General/GeneralSettingScene.png" id="2_84f4r"]
+[ext_resource type="Texture2D" uid="uid://dartot8vj286h" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/SettingTopic1.png" id="3_swqg3"]
+[ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="4_15orc"]
+[ext_resource type="Texture2D" uid="uid://dv0x6nvc7tr14" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/WindowSettingIcon.png" id="6_d1cul"]
+[ext_resource type="Texture2D" uid="uid://bu785lwf2x6cs" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/WindowSettingText.png" id="7_3fgnr"]
+[ext_resource type="Texture2D" uid="uid://dekhtnc6duqyb" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GraphicsSettingIcon.png" id="8_lg51d"]
+[ext_resource type="Script" uid="uid://40k4ubokarsh" path="res://austin_newby/menu/menu_button.gd" id="8_pq8it"]
+[ext_resource type="Texture2D" uid="uid://bvmtlclovt6wr" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GraphicsSettingText.png" id="9_uk6ft"]
+[ext_resource type="Texture2D" uid="uid://bs6ccq2ui2wt6" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GameplaySettingIcon.png" id="10_j5b4e"]
+[ext_resource type="Texture2D" uid="uid://dforvmpmi2fpp" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GameplaySettingText.png" id="11_nxmo5"]
+[ext_resource type="Texture2D" uid="uid://c487i41aku4lw" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/AudioSettingIcon.png" id="12_gf0jx"]
+[ext_resource type="Texture2D" uid="uid://dbwnhba4c02ea" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/AudioSettingText.png" id="13_0n513"]
+[ext_resource type="Texture2D" uid="uid://bvdkq7a5qtx0v" path="res://scenes/dev/ZXue/SettingScene/Assets/Level_Window/topic.png" id="17_4c65m"]
+[ext_resource type="Script" uid="uid://drscv27r6vt8a" path="res://scenes/dev/ZXue/refactor_SettingMenu/window_settings.gd" id="17_7h0sg"]
+[ext_resource type="Script" uid="uid://20lgqn18gl5g" path="res://scenes/dev/ZXue/refactor_SettingMenu/graphics_setting.gd" id="19_p5quy"]
+[ext_resource type="Texture2D" uid="uid://dt6wde017dub4" path="res://scenes/dev/ZXue/SettingScene/Assets/Level_Graphics/topic.png" id="19_ykq0l"]
+[ext_resource type="Script" uid="uid://pdebxmv4s1e7" path="res://scenes/dev/ZXue/refactor_SettingMenu/gameplay_settings.gd" id="21_a6kle"]
+[ext_resource type="Texture2D" uid="uid://cyx46jj0ui4vi" path="res://scenes/dev/ZXue/SettingScene/Assets/Level_Gameplay/topic.png" id="21_rbwf6"]
+[ext_resource type="Texture2D" uid="uid://djmb4u34fsbar" path="res://scenes/dev/ZXue/SettingScene/Assets/Level_Audio/topic.png" id="23_04rtr"]
+[ext_resource type="Script" uid="uid://dndn7rguc0gfu" path="res://scenes/dev/ZXue/refactor_SettingMenu/audio_settings.gd" id="23_ld8q1"]
+
+[node name="SettingScene" type="Node"]
+script = ExtResource("1_uh3ej")
+
+[node name="GeneralBacklay" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_84f4r")
+
+[node name="Level1Control" type="Control" parent="." node_paths=PackedStringArray("focused_control")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_x5ukb")
+open_on_start = true
+focused_control = NodePath("Topic")
+size_pivot_centered = true
+open_animation_flags = 1
+close_animation_flags = 1
+
+[node name="Topic" type="TextureRect" parent="Level1Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_swqg3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Level1Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -468.0
+offset_top = -150.5
+offset_right = 468.0
+offset_bottom = 150.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 39
+alignment = 1
+
+[node name="OP1Button" type="Button" parent="Level1Control/HBoxContainer"]
+layout_mode = 2
+text = "                                            "
+script = ExtResource("4_15orc")
+
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP1Button"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_d1cul")
+
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP1Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_3fgnr")
+
+[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP1Button" node_paths=PackedStringArray("button", "next_menu")]
+script = ExtResource("8_pq8it")
+button = NodePath("..")
+next_menu = NodePath("../../../../WindowSettings")
+
+[node name="OP2Button" type="Button" parent="Level1Control/HBoxContainer"]
+layout_mode = 2
+text = "                                            "
+script = ExtResource("4_15orc")
+
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP2Button"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_lg51d")
+
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP2Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_uk6ft")
+
+[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP2Button" node_paths=PackedStringArray("button", "next_menu")]
+script = ExtResource("8_pq8it")
+button = NodePath("..")
+next_menu = NodePath("../../../../GraphicsSettings")
+
+[node name="OP3Button" type="Button" parent="Level1Control/HBoxContainer"]
+layout_mode = 2
+text = "                                            "
+script = ExtResource("4_15orc")
+
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP3Button"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_j5b4e")
+
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP3Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_nxmo5")
+
+[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP3Button" node_paths=PackedStringArray("button", "next_menu")]
+script = ExtResource("8_pq8it")
+button = NodePath("..")
+next_menu = NodePath("../../../../GameplaySettings")
+
+[node name="OP4Button" type="Button" parent="Level1Control/HBoxContainer"]
+layout_mode = 2
+text = "                                            "
+script = ExtResource("4_15orc")
+
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP4Button"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_gf0jx")
+
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP4Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_0n513")
+
+[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP4Button" node_paths=PackedStringArray("button", "next_menu")]
+script = ExtResource("8_pq8it")
+button = NodePath("..")
+next_menu = NodePath("../../../../AudioSettings")
+
+[node name="ReturnButton" type="Button" parent="Level1Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85600007
+anchor_top = 0.84400004
+anchor_right = 0.85600007
+anchor_bottom = 0.84400004
+offset_left = -50.11206
+offset_top = -24.912048
+offset_right = 49.88794
+offset_bottom = 25.087952
+grow_horizontal = 0
+grow_vertical = 0
+text = "Return"
+script = ExtResource("4_15orc")
+open_animation_flags = 1
+close_animation_flags = 1
+
+[node name="MenuSwitchButton" type="Node" parent="Level1Control/ReturnButton"]
+
+[node name="WindowSettings" type="Control" parent="." node_paths=PackedStringArray("focused_control")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_7h0sg")
+focused_control = NodePath("Topic")
+size_pivot_centered = true
+open_animation_flags = 1
+close_animation_flags = 1
+
+[node name="TextureRect" type="TextureRect" parent="WindowSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23700002
+anchor_top = 0.791
+anchor_right = 0.23700002
+anchor_bottom = 0.791
+offset_left = -309.02402
+offset_top = -463.568
+offset_right = 308.97598
+offset_bottom = 463.432
+grow_horizontal = 0
+texture = ExtResource("6_d1cul")
+
+[node name="Topic" type="TextureRect" parent="WindowSettings"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("17_4c65m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74500006
+anchor_top = 0.5
+anchor_right = 0.74500006
+anchor_bottom = 0.5
+offset_left = -126.24005
+offset_top = -154.5
+offset_right = 127.25995
+offset_bottom = 154.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="WindowedOptionButton" type="OptionButton" parent="WindowSettings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+selected = 0
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+script = ExtResource("4_15orc")
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="WindowSettings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+selected = 0
+item_count = 2
+popup/item_0/text = "1980*1080"
+popup/item_0/id = 0
+popup/item_1/text = "1280*720"
+popup/item_1/id = 1
+script = ExtResource("4_15orc")
+
+[node name="BrightnessBar" type="HSlider" parent="WindowSettings/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+script = ExtResource("4_15orc")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="WindowSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74500006
+anchor_top = 0.5
+anchor_right = 0.74500006
+anchor_bottom = 0.5
+offset_left = -706.24005
+offset_top = -154.0
+offset_right = -452.74005
+offset_bottom = 155.0
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="WindowModeLabel" type="Label" parent="WindowSettings/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Window Mode"
+
+[node name="ResolutionLabel" type="Label" parent="WindowSettings/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Resolution"
+
+[node name="BrightnessLabel" type="Label" parent="WindowSettings/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Brightness"
+
+[node name="ReturnButton" type="Button" parent="WindowSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85600007
+anchor_top = 0.84400004
+anchor_right = 0.85600007
+anchor_bottom = 0.84400004
+offset_left = -50.11206
+offset_top = -24.912048
+offset_right = 49.88794
+offset_bottom = 25.087952
+grow_horizontal = 0
+grow_vertical = 0
+text = "Return
+"
+script = ExtResource("4_15orc")
+
+[node name="MenuSwitchButton" type="Node" parent="WindowSettings/ReturnButton" node_paths=PackedStringArray("button", "next_menu")]
+script = ExtResource("8_pq8it")
+button = NodePath("..")
+next_menu = NodePath("../../../Level1Control")
+
+[node name="GraphicsSettings" type="Control" parent="." node_paths=PackedStringArray("focused_control")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_p5quy")
+focused_control = NodePath("Topic")
+size_pivot_centered = true
+open_animation_flags = 1
+close_animation_flags = 1
+
+[node name="TextureRect" type="TextureRect" parent="GraphicsSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23700002
+anchor_top = 0.791
+anchor_right = 0.23700002
+anchor_bottom = 0.791
+offset_left = -309.02402
+offset_top = -463.568
+offset_right = 308.97598
+offset_bottom = 463.432
+grow_horizontal = 0
+texture = ExtResource("8_lg51d")
+
+[node name="Topic" type="TextureRect" parent="GraphicsSettings"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("19_ykq0l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphicsSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74500006
+anchor_top = 0.5
+anchor_right = 0.74500006
+anchor_bottom = 0.5
+offset_left = -126.24005
+offset_top = -154.5
+offset_right = 127.25995
+offset_bottom = 154.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="FPSLimitButton" type="OptionButton" parent="GraphicsSettings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+selected = 0
+item_count = 2
+popup/item_0/text = "No"
+popup/item_0/id = 0
+popup/item_1/text = "Yes"
+popup/item_1/id = 1
+script = ExtResource("4_15orc")
+
+[node name="FPSLimitSlider" type="HSlider" parent="GraphicsSettings/VBoxContainer" groups=["FPS Limit"]]
+visible = false
+layout_mode = 2
+min_value = 30.0
+max_value = 240.0
+value = 30.0
+script = ExtResource("4_15orc")
+
+[node name="FPSLimitManifest" type="Label" parent="GraphicsSettings/VBoxContainer" groups=["FPS Limit"]]
+visible = false
+layout_mode = 2
+script = ExtResource("4_15orc")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GraphicsSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74500006
+anchor_top = 0.5
+anchor_right = 0.74500006
+anchor_bottom = 0.5
+offset_left = -706.24005
+offset_top = -154.0
+offset_right = -452.74005
+offset_bottom = 155.0
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="FPSLockLabel" type="Label" parent="GraphicsSettings/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "FPS Lock"
+
+[node name="FPSSliderLabel" type="Label" parent="GraphicsSettings/VBoxContainer2" groups=["FPS Limit"]]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "FPS Limit"
+
+[node name="ReturnButton" type="Button" parent="GraphicsSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85600007
+anchor_top = 0.84400004
+anchor_right = 0.85600007
+anchor_bottom = 0.84400004
+offset_left = -50.11206
+offset_top = -24.912048
+offset_right = 49.88794
+offset_bottom = 25.087952
+grow_horizontal = 0
+grow_vertical = 0
+text = "Return"
+script = ExtResource("4_15orc")
+
+[node name="MenuSwitchButton" type="Node" parent="GraphicsSettings/ReturnButton" node_paths=PackedStringArray("button", "next_menu")]
+script = ExtResource("8_pq8it")
+button = NodePath("..")
+next_menu = NodePath("../../../Level1Control")
+
+[node name="GameplaySettings" type="Control" parent="." node_paths=PackedStringArray("focused_control")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("21_a6kle")
+focused_control = NodePath("Topic")
+size_pivot_centered = true
+open_animation_flags = 1
+close_animation_flags = 1
+
+[node name="TextureRect" type="TextureRect" parent="GameplaySettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23700002
+anchor_top = 0.791
+anchor_right = 0.23700002
+anchor_bottom = 0.791
+offset_left = -309.02402
+offset_top = -463.568
+offset_right = 308.97598
+offset_bottom = 463.432
+grow_horizontal = 0
+texture = ExtResource("10_j5b4e")
+
+[node name="Topic" type="TextureRect" parent="GameplaySettings"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("21_rbwf6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameplaySettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74500006
+anchor_top = 0.5
+anchor_right = 0.74500006
+anchor_bottom = 0.5
+offset_left = -127.24005
+offset_top = -142.0
+offset_right = 126.25995
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="ReverseControlButton" type="CheckBox" parent="GameplaySettings/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = " "
+script = ExtResource("4_15orc")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GameplaySettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74500006
+anchor_top = 0.5
+anchor_right = 0.74500006
+anchor_bottom = 0.5
+offset_left = -706.24005
+offset_top = -154.0
+offset_right = -452.74005
+offset_bottom = 155.0
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="ReverseControlLabel" type="Label" parent="GameplaySettings/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Reverse Control"
+script = ExtResource("4_15orc")
+
+[node name="ReturnButton" type="Button" parent="GameplaySettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85600007
+anchor_top = 0.84400004
+anchor_right = 0.85600007
+anchor_bottom = 0.84400004
+offset_left = -50.11206
+offset_top = -24.912048
+offset_right = 49.88794
+offset_bottom = 25.087952
+grow_horizontal = 0
+grow_vertical = 0
+text = "Return
+"
+script = ExtResource("4_15orc")
+
+[node name="MenuSwitchButton" type="Node" parent="GameplaySettings/ReturnButton" node_paths=PackedStringArray("button", "next_menu")]
+script = ExtResource("8_pq8it")
+button = NodePath("..")
+next_menu = NodePath("../../../Level1Control")
+
+[node name="AudioSettings" type="Control" parent="." node_paths=PackedStringArray("focused_control")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("23_ld8q1")
+focused_control = NodePath("Topic")
+size_pivot_centered = true
+open_animation_flags = 1
+close_animation_flags = 1
+
+[node name="TextureRect" type="TextureRect" parent="AudioSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23700002
+anchor_top = 0.791
+anchor_right = 0.23700002
+anchor_bottom = 0.791
+offset_left = -309.02402
+offset_top = -463.568
+offset_right = 308.97598
+offset_bottom = 463.432
+grow_horizontal = 0
+texture = ExtResource("12_gf0jx")
+
+[node name="Topic" type="TextureRect" parent="AudioSettings"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("23_04rtr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AudioSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74500006
+anchor_top = 0.5
+anchor_right = 0.74500006
+anchor_bottom = 0.5
+offset_left = -127.24005
+offset_top = -143.0
+offset_right = 126.25995
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 41
+
+[node name="MasterVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+script = ExtResource("4_15orc")
+
+[node name="MusicVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+script = ExtResource("4_15orc")
+
+[node name="SFXVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+script = ExtResource("4_15orc")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="AudioSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74500006
+anchor_top = 0.5
+anchor_right = 0.74500006
+anchor_bottom = 0.5
+offset_left = -706.24005
+offset_top = -154.0
+offset_right = -452.74005
+offset_bottom = 155.0
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="MasterVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Master Volume"
+
+[node name="MusicVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Music Volume"
+
+[node name="SFXVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "SFX Volume"
+
+[node name="ReturnButton" type="Button" parent="AudioSettings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85600007
+anchor_top = 0.84400004
+anchor_right = 0.85600007
+anchor_bottom = 0.84400004
+offset_left = -50.11206
+offset_top = -24.912048
+offset_right = 49.88794
+offset_bottom = 25.087952
+grow_horizontal = 0
+grow_vertical = 0
+text = "Return"
+script = ExtResource("4_15orc")
+
+[node name="MenuSwitchButton" type="Node" parent="AudioSettings/ReturnButton" node_paths=PackedStringArray("button", "next_menu")]
+script = ExtResource("8_pq8it")
+button = NodePath("..")
+next_menu = NodePath("../../../Level1Control")
+
+[connection signal="done_reading" from="." to="WindowSettings" method="_on_setting_scene_done_reading"]
+[connection signal="done_reading" from="." to="GraphicsSettings" method="_on_setting_scene_done_reading"]
+[connection signal="done_reading" from="." to="GameplaySettings" method="_on_setting_scene_done_reading"]
+[connection signal="done_reading" from="." to="AudioSettings" method="_on_setting_scene_done_reading"]
+[connection signal="pressed" from="Level1Control/HBoxContainer/OP1Button" to="." method="_on_op_1_button_pressed"]
+[connection signal="pressed" from="Level1Control/HBoxContainer/OP2Button" to="." method="_on_op_2_button_pressed"]
+[connection signal="pressed" from="Level1Control/HBoxContainer/OP3Button" to="." method="_on_op_3_button_pressed"]
+[connection signal="pressed" from="Level1Control/HBoxContainer/OP4Button" to="." method="_on_op_4_button_pressed"]
+[connection signal="pressed" from="Level1Control/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="item_selected" from="WindowSettings/VBoxContainer/WindowedOptionButton" to="." method="_on_windowed_option_button_item_selected"]
+[connection signal="item_selected" from="WindowSettings/VBoxContainer/ResolutionOptionButton" to="." method="_on_resolution_option_button_item_selected"]
+[connection signal="value_changed" from="WindowSettings/VBoxContainer/BrightnessBar" to="." method="_on_brightness_bar_value_changed"]
+[connection signal="pressed" from="WindowSettings/ReturnButton" to="." method="_window_setting_return"]
+[connection signal="item_selected" from="GraphicsSettings/VBoxContainer/FPSLimitButton" to="." method="_on_fps_limit_button_item_selected"]
+[connection signal="item_selected" from="GraphicsSettings/VBoxContainer/FPSLimitButton" to="GraphicsSettings" method="_on_fps_limit_button_item_selected"]
+[connection signal="value_changed" from="GraphicsSettings/VBoxContainer/FPSLimitSlider" to="." method="_on_fps_limit_slider_value_changed"]
+[connection signal="value_changed" from="GraphicsSettings/VBoxContainer/FPSLimitSlider" to="GraphicsSettings" method="_on_fps_limit_slider_value_changed"]
+[connection signal="pressed" from="GraphicsSettings/ReturnButton" to="." method="_graphics_setting_return"]
+[connection signal="pressed" from="GameplaySettings/VBoxContainer/ReverseControlButton" to="." method="_on_reverse_control_button_pressed"]
+[connection signal="pressed" from="GameplaySettings/ReturnButton" to="." method="_gameplay_setting_return"]
+[connection signal="value_changed" from="AudioSettings/VBoxContainer/MasterVolumeBar" to="." method="_on_master_volume_bar_value_changed"]
+[connection signal="value_changed" from="AudioSettings/VBoxContainer/MusicVolumeBar" to="." method="_on_music_volume_bar_value_changed"]
+[connection signal="value_changed" from="AudioSettings/VBoxContainer/SFXVolumeBar" to="." method="_on_sfx_volume_bar_value_changed"]
+[connection signal="pressed" from="AudioSettings/ReturnButton" to="." method="_audio_setting_return"]

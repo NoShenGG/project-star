@@ -11,6 +11,7 @@ class_name Wave
 # @export var isEliminationBased = true
 ## how many enemys that are still alive before we consider the wave ended (ie. Stragglers)
 @export var enemiesLeftUntilNextWave = 0
+@export var startDelay := 0
 
 signal started
 signal ended
@@ -21,8 +22,7 @@ signal ended
 @export_category("Set or Random Spawn Areas for enemy spawning?")
 @export var setSpawnAreas := false
 
-
-@export_category("If you said yes, type the spawn area index for each enemy.")
+@export_group("If yes, type the spawn area index for each enemy")
 @export var spawnAreaIndices : Array[int]
 	#set(value):
 		#var safe : bool = setSpawnAreas
@@ -33,6 +33,13 @@ signal ended
 		#if (safe):
 			#spawnAreaIndices = value
 
+# can expand to general conditions if necessary
+@export_category("Start Condition? (ignore for first wave)")
+@export_group("If yes, check and connect signal to validate_condition")
+@export var conditionalStart : bool = false
+@onready var conditionMet := false	
+signal condition
+
 @onready var active = false
 
 func _ready():
@@ -41,10 +48,18 @@ func _ready():
 	ended.connect(get_parent()._on_wave_end)
 
 func start():
+	if active:
+		return
+		
 	assert(not setSpawnAreas || enemies.size() == spawnAreaIndices.size(), "ERROR: Each enemy must have a set spawn area! The Enemies list and Spawn Area Indices list must have the same length.")
 	assert(not setSpawnAreas || spawnAreaIndices.all(valid_area_ind), "ERROR: Spawn Area Indices must be a valid index of the Spawn Areas list!")
 	
 	active = true
+	if conditionalStart and not conditionMet:
+		await condition # uses a signal and flag just in case condition is met before start is called
+	if startDelay != 0:
+		await get_tree().create_timer(startDelay).timeout
+		
 	for i in range(0, enemies.size()):
 		var n = enemies[i]
 		var area = spawn_areas[randi_range(0, spawn_areas.size() - 1)] if not setSpawnAreas else spawn_areas[spawnAreaIndices[i]]
@@ -77,3 +92,15 @@ func is_active():
 	
 func valid_area_ind(x: int):
 	return x >= 0 and x < spawn_areas.size()
+	
+func validate_condition(body: Node3D = null):
+	if body:
+		if body is Player:
+			# for area 3D condition
+			# connet Area3D.body_entered to this function
+			conditionMet = true
+			condition.emit()
+	else:
+		# assumes that condition has been met for all other types of signals
+		conditionMet = true
+		condition.emit()
