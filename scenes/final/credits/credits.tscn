@@ -1,0 +1,807 @@
+[gd_scene load_steps=21 format=3 uid="uid://oyqaht863a7r"]
+
+[ext_resource type="Script" uid="uid://cc1ywicqptqgf" path="res://scenes/final/credits/credits-stack.gd" id="1_5ugie"]
+[ext_resource type="Script" uid="uid://ck7000kwakxa5" path="res://scenes/final/credits/credits-page.gd" id="1_6hlpj"]
+[ext_resource type="Script" uid="uid://ueybnukhbfoh" path="res://scenes/final/credits/credits.gd" id="1_efyda"]
+[ext_resource type="Texture2D" uid="uid://b20vb7m5bkcy4" path="res://art_assets/Ui/JTASM2Logo.png" id="2_v7aig"]
+[ext_resource type="LabelSettings" uid="uid://cnxf4lu3op5dh" path="res://scenes/final/credits/names.tres" id="2_x6b1k"]
+[ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_efyda"]
+[ext_resource type="Script" uid="uid://djsv87v46ka0d" path="res://scenes/final/credits/names-list-fade.gd" id="4_5ugie"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2anlu"]
+font = ExtResource("3_efyda")
+font_size = 60
+shadow_size = 10
+shadow_color = Color(0.20392157, 0.59607846, 0.85882354, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_efyda"]
+font = ExtResource("3_efyda")
+font_size = 60
+shadow_size = 10
+shadow_color = Color(0.785395, 0.6363223, 0.021606471, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nknck"]
+font = ExtResource("3_efyda")
+font_size = 50
+shadow_size = 10
+shadow_color = Color(0.60784316, 0.34901962, 0.7137255, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1nhf"]
+font = ExtResource("3_efyda")
+font_size = 50
+shadow_size = 10
+shadow_color = Color(0.18039216, 0.8, 0.44313726, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a3toc"]
+font = ExtResource("3_efyda")
+font_size = 50
+shadow_size = 10
+shadow_color = Color(0.101960786, 0.7372549, 0.6117647, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6hlpj"]
+font = ExtResource("3_efyda")
+font_size = 60
+shadow_size = 10
+shadow_color = Color(0.9019608, 0.49019608, 0.13725491, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sew87"]
+font = ExtResource("3_efyda")
+font_size = 60
+shadow_size = 10
+shadow_color = Color(0.9137255, 0.11764706, 0.3882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_44655"]
+font = ExtResource("3_efyda")
+font_size = 50
+shadow_size = 10
+shadow_color = Color(0.9137255, 0, 0.3882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n8qwa"]
+font = ExtResource("3_efyda")
+font_size = 50
+shadow_size = 10
+shadow_color = Color(0.827451, 0.11764706, 0.8627451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5qdlc"]
+font = ExtResource("3_efyda")
+font_size = 50
+shadow_size = 10
+shadow_color = Color(0.9137255, 0.40784314, 0.3882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l5hb8"]
+font = ExtResource("3_efyda")
+font_size = 60
+shadow_size = 10
+shadow_color = Color(0.9019608, 0.49019608, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_notvo"]
+colors = PackedColorArray(0.05490196, 0.05490196, 0.05490196, 1, 0.05490196, 0.05490196, 0.05490196, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x6b1k"]
+gradient = SubResource("Gradient_notvo")
+
+[node name="Credits" type="Control" node_paths=PackedStringArray("pages")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_efyda")
+pages = [NodePath("Window/ProgrammingPage"), NodePath("Window/ArtPage"), NodePath("Window/DesignPage"), NodePath("Window/SoundPage"), NodePath("Window/QAPage")]
+
+[node name="Window" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgrammingPage" type="VBoxContainer" parent="Window" node_paths=PackedStringArray("items")]
+layout_mode = 2
+script = ExtResource("1_6hlpj")
+items = [NodePath("Programming")]
+
+[node name="Programming" type="VBoxContainer" parent="Window/ProgrammingPage" node_paths=PackedStringArray("label", "items")]
+layout_mode = 2
+script = ExtResource("1_5ugie")
+label = NodePath("Title")
+items = [NodePath("Names/Names1"), NodePath("Names/Names2")]
+
+[node name="Title" type="Label" parent="Window/ProgrammingPage/Programming"]
+layout_mode = 2
+text = "Programming"
+label_settings = SubResource("LabelSettings_2anlu")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/ProgrammingPage/Programming"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Names" type="HBoxContainer" parent="Window/ProgrammingPage/Programming"]
+layout_mode = 2
+
+[node name="Names1" type="VBoxContainer" parent="Window/ProgrammingPage/Programming/Names"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "P45T
+Arshiya Rahman
+Ian Rogers
+秋河潮殆
+Kj Kastning
+Elia Sandrini"
+
+[node name="P45T" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "P45T"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Arshiya Rahman" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Arshiya Rahman"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Ian Rogers" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Ian Rogers"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="秋河潮殆" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "秋河潮殆"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Kj Kastning" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Kj Kastning"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Elia Sandrini" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Elia Sandrini"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/ProgrammingPage/Programming/Names"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Names2" type="VBoxContainer" parent="Window/ProgrammingPage/Programming/Names"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Austin
+Elio Liang
+Franklin Smith
+Grace Shao
+Christian Dutton
+Rachael Setia"
+
+[node name="Austin" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Austin"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Elio Liang" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Elio Liang"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Franklin Smith" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Franklin Smith"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Grace Shao" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Grace Shao"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Christian Dutton" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Christian Dutton"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Rachael Setia" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Rachael Setia"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="ArtPage" type="VBoxContainer" parent="Window" node_paths=PackedStringArray("label", "items")]
+layout_mode = 2
+script = ExtResource("1_6hlpj")
+text_time = 0.6
+label = NodePath("Title")
+items = [NodePath("SubCategories/3D"), NodePath("SubCategories/2D"), NodePath("SubCategories/VFX")]
+
+[node name="Title" type="Label" parent="Window/ArtPage"]
+layout_mode = 2
+text = "Art"
+label_settings = SubResource("LabelSettings_efyda")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/ArtPage"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="SubCategories" type="HBoxContainer" parent="Window/ArtPage"]
+layout_mode = 2
+alignment = 1
+
+[node name="3D" type="VBoxContainer" parent="Window/ArtPage/SubCategories" node_paths=PackedStringArray("label", "items")]
+custom_minimum_size = Vector2(214, 0)
+layout_mode = 2
+script = ExtResource("1_5ugie")
+text_time = 0.3
+label = NodePath("SubTitle")
+items = [NodePath("Names")]
+
+[node name="SubTitle" type="Label" parent="Window/ArtPage/SubCategories/3D"]
+layout_mode = 2
+text = "3D"
+label_settings = SubResource("LabelSettings_nknck")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/ArtPage/SubCategories/3D"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Names" type="VBoxContainer" parent="Window/ArtPage/SubCategories/3D"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Daniyal Khan
+Wah Ah
+Kj Kastning
+Nancy Nguyen
+Zoe Xiao
+cynthia peng
+Stepan Shabalin
+Vivek Tare
+Melanie Xie"
+
+[node name="Daniyal Khan" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Daniyal Khan"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Wah Ah" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Wah Ah"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Kj Kastning" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Kj Kastning"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Nancy Nguyen" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Nancy Nguyen"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Zoe Xiao" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Zoe Xiao"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="cynthia peng" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "cynthia peng"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Stepan Shabalin" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Stepan Shabalin"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Vivek Tare" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Vivek Tare"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Melanie Xie" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Melanie Xie"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="2D" type="VBoxContainer" parent="Window/ArtPage/SubCategories" node_paths=PackedStringArray("label", "items")]
+custom_minimum_size = Vector2(214, 0)
+layout_mode = 2
+script = ExtResource("1_5ugie")
+text_time = 0.3
+label = NodePath("SubTitle")
+items = [NodePath("Names")]
+
+[node name="SubTitle" type="Label" parent="Window/ArtPage/SubCategories/2D"]
+layout_mode = 2
+text = "2D"
+label_settings = SubResource("LabelSettings_t1nhf")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/ArtPage/SubCategories/2D"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Names" type="VBoxContainer" parent="Window/ArtPage/SubCategories/2D"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Faaizah Nuha
+Wah Ah
+Kayla Dang
+Lyons Edge
+Elio Liang
+Nancy Nguyen
+Zoe Xiao
+cynthia peng
+Melanie Xie"
+
+[node name="Faaizah Nuha" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Faaizah Nuha"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Wah Ah" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Wah Ah"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Kayla Dang" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Kayla Dang"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Lyons Edge" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Lyons Edge"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Elio Liang" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Elio Liang"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Nancy Nguyen" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Nancy Nguyen"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Zoe Xiao" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Zoe Xiao"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="cynthia peng" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "cynthia peng"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Melanie Xie" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Melanie Xie"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="VFX" type="VBoxContainer" parent="Window/ArtPage/SubCategories" node_paths=PackedStringArray("label", "items")]
+custom_minimum_size = Vector2(214, 0)
+layout_mode = 2
+script = ExtResource("1_5ugie")
+text_time = 0.3
+label = NodePath("SubTitle")
+items = [NodePath("Names")]
+
+[node name="SubTitle" type="Label" parent="Window/ArtPage/SubCategories/VFX"]
+layout_mode = 2
+text = "VFX"
+label_settings = SubResource("LabelSettings_a3toc")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/ArtPage/SubCategories/VFX"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Names" type="VBoxContainer" parent="Window/ArtPage/SubCategories/VFX"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Arshiya Rahman
+Daniyal Khan
+Jackson Vanderheyden
+Vivek Tare"
+
+[node name="Arshiya Rahman" type="Label" parent="Window/ArtPage/SubCategories/VFX/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Arshiya Rahman"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Daniyal Khan" type="Label" parent="Window/ArtPage/SubCategories/VFX/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Daniyal Khan"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Jackson Vanderheyden" type="Label" parent="Window/ArtPage/SubCategories/VFX/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Jackson Vanderheyden"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Vivek Tare" type="Label" parent="Window/ArtPage/SubCategories/VFX/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Vivek Tare"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="DesignPage" type="VBoxContainer" parent="Window" node_paths=PackedStringArray("items")]
+layout_mode = 2
+script = ExtResource("1_6hlpj")
+text_time = 0.6
+items = [NodePath("Design")]
+
+[node name="Design" type="VBoxContainer" parent="Window/DesignPage" node_paths=PackedStringArray("label", "items")]
+layout_mode = 2
+script = ExtResource("1_5ugie")
+label = NodePath("Title")
+items = [NodePath("Names")]
+
+[node name="Title" type="Label" parent="Window/DesignPage/Design"]
+layout_mode = 2
+text = "Design"
+label_settings = SubResource("LabelSettings_6hlpj")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/DesignPage/Design"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Names" type="VBoxContainer" parent="Window/DesignPage/Design"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Arshiya Rahman
+Daniyal Khan
+Jackson Vanderheyden
+Vivek Tare"
+
+[node name="Arshiya Rahman" type="Label" parent="Window/DesignPage/Design/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Arshiya Rahman"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Daniyal Khan" type="Label" parent="Window/DesignPage/Design/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Daniyal Khan"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Jackson Vanderheyden" type="Label" parent="Window/DesignPage/Design/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Jackson Vanderheyden"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Vivek Tare" type="Label" parent="Window/DesignPage/Design/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Vivek Tare"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="SoundPage" type="VBoxContainer" parent="Window" node_paths=PackedStringArray("label", "items")]
+layout_mode = 2
+script = ExtResource("1_6hlpj")
+text_time = 0.6
+label = NodePath("Title")
+items = [NodePath("SubCategories/Music"), NodePath("SubCategories/SFX"), NodePath("SubCategories/Voice Acting")]
+
+[node name="Title" type="Label" parent="Window/SoundPage"]
+layout_mode = 2
+text = "Sound"
+label_settings = SubResource("LabelSettings_sew87")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/SoundPage"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="SubCategories" type="HBoxContainer" parent="Window/SoundPage"]
+layout_mode = 2
+alignment = 1
+
+[node name="Music" type="VBoxContainer" parent="Window/SoundPage/SubCategories" node_paths=PackedStringArray("label", "items")]
+custom_minimum_size = Vector2(214, 0)
+layout_mode = 2
+script = ExtResource("1_5ugie")
+text_time = 0.5
+label = NodePath("SubTitle")
+items = [NodePath("Names")]
+
+[node name="SubTitle" type="Label" parent="Window/SoundPage/SubCategories/Music"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_44655")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/SoundPage/SubCategories/Music"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Names" type="VBoxContainer" parent="Window/SoundPage/SubCategories/Music"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Ian Rogers
+Sophie Huang 
+Jack Hayley
+Austin"
+
+[node name="Ian Rogers" type="Label" parent="Window/SoundPage/SubCategories/Music/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Ian Rogers"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Sophie Huang " type="Label" parent="Window/SoundPage/SubCategories/Music/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Sophie Huang "
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Jack Hayley" type="Label" parent="Window/SoundPage/SubCategories/Music/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Jack Hayley"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Austin" type="Label" parent="Window/SoundPage/SubCategories/Music/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Austin"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="SFX" type="VBoxContainer" parent="Window/SoundPage/SubCategories" node_paths=PackedStringArray("label", "items")]
+custom_minimum_size = Vector2(214, 0)
+layout_mode = 2
+script = ExtResource("1_5ugie")
+text_time = 0.3
+label = NodePath("SubTitle")
+items = [NodePath("Names")]
+
+[node name="SubTitle" type="Label" parent="Window/SoundPage/SubCategories/SFX"]
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_n8qwa")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/SoundPage/SubCategories/SFX"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Names" type="VBoxContainer" parent="Window/SoundPage/SubCategories/SFX"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Thomas Vu
+Amelia Dale
+Vivek Tare"
+
+[node name="Thomas Vu" type="Label" parent="Window/SoundPage/SubCategories/SFX/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Thomas Vu"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Amelia Dale" type="Label" parent="Window/SoundPage/SubCategories/SFX/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Amelia Dale"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Vivek Tare" type="Label" parent="Window/SoundPage/SubCategories/SFX/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Vivek Tare"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Voice Acting" type="VBoxContainer" parent="Window/SoundPage/SubCategories" node_paths=PackedStringArray("label", "items")]
+custom_minimum_size = Vector2(214, 0)
+layout_mode = 2
+script = ExtResource("1_5ugie")
+label = NodePath("SubTitle")
+items = [NodePath("Names")]
+
+[node name="SubTitle" type="Label" parent="Window/SoundPage/SubCategories/Voice Acting"]
+layout_mode = 2
+text = "Voice Acting"
+label_settings = SubResource("LabelSettings_5qdlc")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/SoundPage/SubCategories/Voice Acting"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Names" type="VBoxContainer" parent="Window/SoundPage/SubCategories/Voice Acting"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Taylor Williams - ???
+Thomas Vu - Rene
+???? - ???"
+
+[node name="Taylor Williams - ???" type="Label" parent="Window/SoundPage/SubCategories/Voice Acting/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Taylor Williams - ???"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Thomas Vu - Rene" type="Label" parent="Window/SoundPage/SubCategories/Voice Acting/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Thomas Vu - Rene"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="???? - ???" type="Label" parent="Window/SoundPage/SubCategories/Voice Acting/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "???? - ???"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="QAPage" type="VBoxContainer" parent="Window" node_paths=PackedStringArray("items")]
+layout_mode = 2
+script = ExtResource("1_6hlpj")
+items = [NodePath("QA")]
+
+[node name="QA" type="VBoxContainer" parent="Window/QAPage" node_paths=PackedStringArray("label", "items")]
+layout_mode = 2
+script = ExtResource("1_5ugie")
+label = NodePath("Title")
+items = [NodePath("Names")]
+
+[node name="Title" type="Label" parent="Window/QAPage/QA"]
+layout_mode = 2
+text = "QA Testing"
+label_settings = SubResource("LabelSettings_l5hb8")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/QAPage/QA"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Names" type="VBoxContainer" parent="Window/QAPage/QA"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Charles Huang
+Surely More People..."
+
+[node name="Charles Huang" type="Label" parent="Window/QAPage/QA/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Charles Huang"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Surely More People___" type="Label" parent="Window/QAPage/QA/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Surely More People..."
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Black" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_x6b1k")
+
+[node name="JTAS Logo" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.047058824)
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.444458
+offset_top = 2.0
+offset_right = 820.90295
+offset_bottom = 466.82056
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.585, 0.585)
+texture = ExtResource("2_v7aig")
