@@ -1,8 +1,8 @@
 [gd_scene load_steps=69 format=3 uid="uid://cent63gp0an85"]
 
-[ext_resource type="Script" uid="uid://unoge85vmvrr" path="res://VFX/MiteExplosionVFX.gd" id="1_cqvfm"]
-[ext_resource type="Shader" uid="uid://cnufkqrd0wvae" path="res://VFX/MiteExplosionCloud.gdshader" id="2_h470l"]
-[ext_resource type="Texture2D" uid="uid://n8ioie3uso2u" path="res://VFX/Kenny Particle Pack/muzzle_01.png" id="3_kb7n7"]
+[ext_resource type="Script" path="res://VFX/MiteExplosion.gd" id="1_cqvfm"]
+[ext_resource type="Shader" path="res://VFX/MiteExplosionCloud.gdshader" id="2_h470l"]
+[ext_resource type="Texture2D" uid="uid://n8ioie3uso2u" path="res://vfx/Kenny Particle Pack/muzzle_01.png" id="3_kb7n7"]
 
 [sub_resource type="Gradient" id="Gradient_h470l"]
 
@@ -318,9 +318,10 @@ material = SubResource("StandardMaterial3D_qx0yb")
 size = Vector2(0.1, 0.5)
 orientation = 2
 
-[node name="DynaMiteExplode" type="Node3D" node_paths=PackedStringArray("particles")]
+[node name="DynaMiteExplode" type="Node3D" node_paths=PackedStringArray("fuse_timer", "particles")]
 script = ExtResource("1_cqvfm")
-particles = [NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D4"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D4")]
+fuse_timer = NodePath("FuseTimer")
+particles = [NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D4")]
 
 [node name="FuseTimer" type="Timer" parent="."]
 one_shot = true

@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://dwo71heopas5i" path="res://scenes/dev/anth/dissolveTest.tres" id="2_2wsou"]
 
 [sub_resource type="Curve" id="Curve_mnq68"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.9064482, 0.0, 0, 0]
+_data = [Vector2(0, 0.39325845), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.9064482, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkohf"]
@@ -41,10 +41,3 @@ visible = false
 mesh = SubResource("SphereMesh_ydmgi")
 surface_material_override/0 = SubResource("ShaderMaterial_mnq68")
 metadata/_edit_group_ = true
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.187164)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8048109, -0.2879943, -0.51897854, 0, -0.87439114, 0.48522174, -0.5935313, 0.39051175, 0.7037195, -0.75303125, 1.6905601, 1.5625513)
-light_energy = 1.787

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cipc0pee6kke6"]
+[gd_scene load_steps=9 format=3 uid="uid://cipc0pee6kke6"]
 
 [ext_resource type="Script" uid="uid://b7yyj3bvtur37" path="res://scripts/entities/enemies/slime/Slime.gd" id="1_g7w1c"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_g7w1c"]
 [ext_resource type="PackedScene" uid="uid://bnqdowsheydcs" path="res://art_assets/enemies/Just Your Average Slime Enemy/slime.glb" id="3_jgdep"]
+[ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="4_jgdep"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l26uf"]
 
@@ -21,10 +22,9 @@ collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_g7w1c")
 recalc_cd = 0.5
-attack_cd = 4.0
 attack_radius = 2.0
 _base_speed = 2.0
-passive_death_time = 2.0
+passive_death_time = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_l26uf")
@@ -54,18 +54,23 @@ texture = SubResource("ViewportTexture_g0rg0")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.42604154, 0)
 
 [node name="Armature" parent="slime" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.012600899, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32969588, 0)
 
 [node name="Skeleton3D" parent="slime/Armature" index="0"]
-bones/0/scale = Vector3(1.3274843, 0.55495393, 1.0048686)
+bones/0/scale = Vector3(1.0756422, 0.61377335, 0.99815667)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../slime")
 tree_root = SubResource("AnimationNodeAnimation_g7w1c")
 anim_player = NodePath("../slime/AnimationPlayer")
 
+[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("4_jgdep")]
+dissolveDuration = 1.0
+meshes = [NodePath("../slime/Armature/Skeleton3D/skin1"), NodePath("../slime/Armature/Skeleton3D/skin2")]
+
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
+[connection signal="killed" from="." to="DissolveFX" method="beginDissolve"]
 [connection signal="body_entered" from="HitBoxes/Aggro" to="." method="_on_aggro_body_entered"]
 [connection signal="body_exited" from="HitBoxes/Aggro" to="." method="_on_aggro_body_exited"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://celvhgttbuade"]
+[gd_scene load_steps=21 format=3 uid="uid://celvhgttbuade"]
 
 [ext_resource type="Script" uid="uid://b3r7iadvf8jmk" path="res://scripts/entities/enemies/mossypede/Mossypede.gd" id="1_wqp5f"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_kejld"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="3_vv04i"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="4_35qt8"]
 [ext_resource type="Script" uid="uid://wjug80utd1ei" path="res://scripts/entities/enemies/mossypede/mossypede_attack.gd" id="4_vv04i"]
+[ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="8_2xbfi"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="8_35qt8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vv04i"]
@@ -108,6 +109,10 @@ debug_path_custom_color = Color(0, 1, 0, 1)
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.035, 0)
 texture = SubResource("ViewportTexture_g0rg0")
 
+[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("8_2xbfi")]
+dissolveDuration = 1.0
+meshes = [NodePath("../mossypede/Skeleton3D/model_Back"), NodePath("../mossypede/Skeleton3D/model_Body")]
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../mossypede")
 tree_root = SubResource("AnimationNodeStateMachine_kejld")
@@ -148,5 +153,6 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [connection signal="entered" from="StateMachine/Cooldown" to="AnimationTree/idle" method="enter"]
 [connection signal="entered" from="StateMachine/Attacking" to="AnimationTree/start_roll" method="enter"]
 [connection signal="finished" from="StateMachine/Attacking" to="AnimationTree/end_roll" method="enter"]
+[connection signal="entered" from="StateMachine/Dead" to="DissolveFX" method="beginDissolve"]
 
 [editable path="mossypede"]
