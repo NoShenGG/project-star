@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3hpdu6n1fa6d"]
+
+[ext_resource type="Script" uid="uid://cmpxn2vqj7d5r" path="res://scenes/dev/anth/dissolve_controller.gd" id="1_1qgo0"]
+[ext_resource type="Shader" uid="uid://dwo71heopas5i" path="res://scenes/dev/anth/dissolveTest.tres" id="2_2wsou"]
+
+[sub_resource type="Curve" id="Curve_mnq68"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.9064482, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fkohf"]
+render_priority = 0
+shader = ExtResource("2_2wsou")
+shader_parameter/DissolveColor = Color(0.45698, 0.893157, 1, 1)
+shader_parameter/Dissolve = 0.0
+shader_parameter/UVScale = 0.2
+shader_parameter/Pixelate = 8.0
+shader_parameter/Speed = -1.0
+shader_parameter/NoiseScale = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_ydmgi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mnq68"]
+render_priority = 0
+shader = ExtResource("2_2wsou")
+shader_parameter/DissolveColor = Color(0.45698, 0.893157, 1, 1)
+shader_parameter/Dissolve = 0.402000019095
+shader_parameter/UVScale = 1.35
+shader_parameter/Pixelate = 8.0
+shader_parameter/Speed = -1.0
+shader_parameter/NoiseScale = 5.0
+
+[node name="DissolveFX" type="Node3D"]
+script = ExtResource("1_1qgo0")
+dissolveColor = Color(0.5924106, 1.1458224, 1.3431084, 1)
+animCurve = SubResource("Curve_mnq68")
+material = SubResource("ShaderMaterial_fkohf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025938928, 0, 0.07640791)
+visible = false
+mesh = SubResource("SphereMesh_ydmgi")
+surface_material_override/0 = SubResource("ShaderMaterial_mnq68")
+metadata/_edit_group_ = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.187164)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8048109, -0.2879943, -0.51897854, 0, -0.87439114, 0.48522174, -0.5935313, 0.39051175, 0.7037195, -0.75303125, 1.6905601, 1.5625513)
+light_energy = 1.787
