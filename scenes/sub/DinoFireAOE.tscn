@@ -21,10 +21,15 @@ shape = SubResource("SphereShape3D_pcnfp")
 [node name="Corruption_Base" parent="." instance=ExtResource("3_okw7j")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="GrowTimer" type="Timer" parent="."]
+wait_time = 0.3
 one_shot = true
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="EndTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GrowTimer" to="." method="_on_timer_timeout"]

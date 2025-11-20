@@ -13,8 +13,6 @@ func physics_update(_delta: float) -> void:
 func enter(_prev_state: String, _data := {}) -> void:
 	parent_enemy = owner as DinoSkeleton
 	
-	print("tried to spit")
-	
 	if not parent_enemy.target_node:
 		trigger_finished.emit("chase")
 		return
