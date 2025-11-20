@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://c2akhsyinel8t" path="res://scenes/final/dawn/dawn.tscn" id="3_kpy7t"]
 [ext_resource type="PackedScene" uid="uid://bq7t53o2llxr4" path="res://scenes/final/rene/Rene.tscn" id="3_q78nk"]
 [ext_resource type="Script" uid="uid://djfekv55fum3x" path="res://scripts/pitch_pivot.gd" id="4_mbt4c"]
-[ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="5_chdrm"]
-[ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="5_l7gm4"]
+[ext_resource type="PackedScene" uid="uid://b8wp31vm3qtbx" path="res://scenes/dev/raymond_b/game_ui.tscn" id="7_q78nk"]
+
+[sub_resource type="Curve" id="Curve_wmnvy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50545454, 0.5084282), 2.0432801, 2.0432801, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="PlayerManager" type="Node3D"]
 script = ExtResource("1_lyudl")
@@ -20,13 +23,13 @@ top_level = true
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.06685067, 0.5231628, -0.5062508, 0.68230635)
-bones/15/rotation = Quaternion(-0.16236153, 0.5557028, 0.23208608, 0.7816452)
-bones/16/rotation = Quaternion(-0.5091131, -0.46731004, -0.25000542, 0.67817587)
-bones/21/rotation = Quaternion(-0.15055047, 0.38998538, -0.45567814, 0.78587747)
-bones/22/rotation = Quaternion(-0.067987084, 0.35990658, 0.18016556, 0.91289943)
-bones/23/rotation = Quaternion(0.14548425, 0.11047102, -0.07322614, 0.980443)
-bones/38/rotation = Quaternion(-0.34832287, 0.7072575, 0.06310592, 0.6119442)
+bones/14/rotation = Quaternion(-0.065850526, 0.52255416, -0.5063988, 0.68276)
+bones/15/rotation = Quaternion(-0.16569784, 0.5609399, 0.23304805, 0.7769036)
+bones/16/rotation = Quaternion(-0.50667155, -0.47082344, -0.255533, 0.67550874)
+bones/21/rotation = Quaternion(-0.14791924, 0.38190278, -0.45892444, 0.7884533)
+bones/22/rotation = Quaternion(-0.07117556, 0.36868784, 0.18297449, 0.90858334)
+bones/23/rotation = Quaternion(0.14436135, 0.10896713, -0.077624194, 0.98043895)
+bones/38/rotation = Quaternion(-0.34924895, 0.7068029, 0.062303398, 0.61202395)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -109,21 +112,6 @@ interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpe
 [node name="HitStun" parent="Dawn/StateMachine" index="11"]
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
-[node name="DissolveFXNova" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("5_l7gm4")]
-dissolveColor = Color(0.7442503, 1.1210746, 1.170844, 1)
-dissolveDuration = 0.5
-meshes = [NodePath("../Nova/nova/Skeleton3D/nova_rig_jacket"), NodePath("../Nova/nova/Skeleton3D/nova_rig_body"), NodePath("../Nova/nova/Skeleton3D/nova_rig_pauldrons"), NodePath("../Nova/nova/Skeleton3D/nova_rig_sword")]
-
-[node name="DissolveFXRene" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("5_l7gm4")]
-dissolveColor = Color(0.7442503, 1.1210746, 1.170844, 1)
-dissolveDuration = 0.5
-meshes = [NodePath("../Rene/rene_rig/Skeleton3D/body"), NodePath("../Rene/rene_rig/Skeleton3D/coat"), NodePath("../Rene/rene_rig/Skeleton3D/hair"), NodePath("../Rene/rene_rig/Skeleton3D/staff")]
-
-[node name="DissolveFXDawn" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("5_l7gm4")]
-dissolveColor = Color(0.7442503, 1.1210746, 1.170844, 1)
-dissolveDuration = 0.5
-meshes = [NodePath("../Dawn/dawn_rig/Skeleton3D/body"), NodePath("../Dawn/dawn_rig/Skeleton3D/hair")]
-
 [node name="CameraTarget" type="Node3D" parent="."]
 top_level = true
 script = ExtResource("3_3c5ji")
@@ -137,9 +125,6 @@ size = 25.0
 [node name="Shake" type="Node" parent="CameraTarget/Camera3D"]
 script = ExtResource("4_mbt4c")
 
-[node name="strong_shake" type="Node" parent="CameraTarget/Camera3D"]
-script = ExtResource("4_mbt4c")
-
 [node name="weak_shake" type="Node" parent="CameraTarget/Camera3D"]
 script = ExtResource("4_mbt4c")
 
@@ -149,11 +134,12 @@ bank_paths = ["res://sounds/banks/Player.bank"]
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="GameUi" parent="." instance=ExtResource("5_chdrm")]
+[node name="GameUi" parent="." instance=ExtResource("7_q78nk")]
+SWITCH_ANIMATION_EASE_CURVE = SubResource("Curve_wmnvy")
 
-[connection signal="player_hp_update" from="." to="GameUi" method="update_health"]
-[connection signal="player_sp_update" from="." to="GameUi" method="update_special"]
-[connection signal="player_special_ready" from="." to="GameUi/MarginContainer/Offset/Special" method="bounce"]
+[connection signal="new_player" from="." to="GameUi" method="on_player_switch"]
+[connection signal="player_hp_update" from="." to="GameUi" method="on_player_health_update"]
+[connection signal="player_sp_update" from="." to="GameUi" method="on_player_sp_update"]
 [connection signal="entered" from="Nova/StateMachine/HitStun" to="CameraTarget/Camera3D/Shake" method="shake"]
 [connection signal="entered" from="Rene/StateMachine/HitStun" to="CameraTarget/Camera3D/Shake" method="shake"]
 [connection signal="entered" from="Dawn/StateMachine/HitStun" to="CameraTarget/Camera3D/Shake" method="shake"]
@@ -161,7 +147,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [editable path="Nova"]
 [editable path="Nova/nova"]
 [editable path="Rene"]
-[editable path="Rene/rene_rig"]
 [editable path="Dawn"]
 [editable path="Dawn/dawn_rig"]
 [editable path="GameUi"]
