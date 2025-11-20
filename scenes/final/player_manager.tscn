@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://brmdsiu0kp6ca"]
+[gd_scene load_steps=9 format=3 uid="uid://brmdsiu0kp6ca"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_lyudl"]
 [ext_resource type="PackedScene" uid="uid://brw0p1eirto83" path="res://scenes/final/Nova.tscn" id="2_dvwxt"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bq7t53o2llxr4" path="res://scenes/final/rene/Rene.tscn" id="3_q78nk"]
 [ext_resource type="Script" uid="uid://djfekv55fum3x" path="res://scripts/pitch_pivot.gd" id="4_mbt4c"]
 [ext_resource type="PackedScene" uid="uid://dpgvc8tlj8842" path="res://scenes/dev/christian_d/game_ui.tscn" id="5_chdrm"]
+[ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="5_l7gm4"]
 
 [node name="PlayerManager" type="Node3D"]
 script = ExtResource("1_lyudl")
@@ -19,18 +20,13 @@ top_level = true
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
-bones/14/rotation = Quaternion(-0.068368405, 0.523714, -0.50634855, 0.6816602)
-bones/15/rotation = Quaternion(-0.16088477, 0.55335486, 0.23164381, 0.78374463)
-bones/16/rotation = Quaternion(-0.51033247, -0.467195, -0.24636182, 0.6786719)
-bones/17/position = Vector3(0.0018554514, 0.00021904883, -2.3317207e-05)
-bones/19/position = Vector3(0.0013310545, -0.00023085652, -0.0009310012)
-bones/21/rotation = Quaternion(-0.14743917, 0.39225423, -0.45869806, 0.78357804)
-bones/22/rotation = Quaternion(-0.065827265, 0.35379958, 0.17819007, 0.915828)
-bones/23/rotation = Quaternion(0.13938831, 0.11400127, -0.07347813, 0.98090553)
-bones/24/position = Vector3(-0.001853143, -0.00023585279, -3.842577e-05)
-bones/26/position = Vector3(-0.001368355, 0.0002611133, 0.00086672243)
-bones/38/rotation = Quaternion(-0.34874126, 0.70705235, 0.06274337, 0.6119804)
+bones/14/rotation = Quaternion(-0.06530131, 0.52196634, -0.5067252, 0.6830202)
+bones/15/rotation = Quaternion(-0.1705947, 0.5684934, 0.23438492, 0.76991975)
+bones/16/rotation = Quaternion(-0.5031551, -0.47772205, -0.26225707, 0.6706995)
+bones/21/rotation = Quaternion(-0.13868795, 0.3683026, -0.46920598, 0.7905471)
+bones/22/rotation = Quaternion(-0.07496246, 0.3788593, 0.18619004, 0.9034265)
+bones/23/rotation = Quaternion(0.13463706, 0.11029993, -0.08706548, 0.98088044)
+bones/38/rotation = Quaternion(-0.35081464, 0.7060304, 0.06094508, 0.6121567)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -113,6 +109,21 @@ interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpe
 [node name="HitStun" parent="Dawn/StateMachine" index="11"]
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
+[node name="DissolveFXNova" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("5_l7gm4")]
+dissolveColor = Color(0.7442503, 1.1210746, 1.170844, 1)
+dissolveDuration = 0.5
+meshes = [NodePath("../Nova/nova/Skeleton3D/nova_rig_jacket"), NodePath("../Nova/nova/Skeleton3D/nova_rig_body"), NodePath("../Nova/nova/Skeleton3D/nova_rig_pauldrons"), NodePath("../Nova/nova/Skeleton3D/nova_rig_sword")]
+
+[node name="DissolveFXRene" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("5_l7gm4")]
+dissolveColor = Color(0.7442503, 1.1210746, 1.170844, 1)
+dissolveDuration = 0.5
+meshes = [NodePath("../Rene/rene_rig/Skeleton3D/body"), NodePath("../Rene/rene_rig/Skeleton3D/coat"), NodePath("../Rene/rene_rig/Skeleton3D/hair"), NodePath("../Rene/rene_rig/Skeleton3D/staff")]
+
+[node name="DissolveFXDawn" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("5_l7gm4")]
+dissolveColor = Color(0.7442503, 1.1210746, 1.170844, 1)
+dissolveDuration = 0.5
+meshes = [NodePath("../Dawn/dawn_rig/Skeleton3D/body"), NodePath("../Dawn/dawn_rig/Skeleton3D/hair")]
+
 [node name="CameraTarget" type="Node3D" parent="."]
 top_level = true
 script = ExtResource("3_3c5ji")
@@ -147,6 +158,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [editable path="Nova"]
 [editable path="Nova/nova"]
 [editable path="Rene"]
+[editable path="Rene/rene_rig"]
 [editable path="Dawn"]
 [editable path="Dawn/dawn_rig"]
 [editable path="GameUi"]

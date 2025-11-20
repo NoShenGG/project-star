@@ -68,7 +68,7 @@ op_type = 5
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_pycwk"]
 parameter_name = "DissolveColor"
 default_value_enabled = true
-default_value = Color(0.45697957, 0.89315736, 0.99999994, 1)
+default_value = Color(0.6976725, 0.91553414, 0.9343064, 1)
 
 [sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_62x6g"]
 default_input_values = [1, Vector3(0, 0, 0), 2, 5.0, 3, 1.0, 4, 0.0]
@@ -183,7 +183,7 @@ render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse
 // Varyings
 varying vec3 var_worldPos;
 
-uniform vec4 DissolveColor : source_color = vec4(0.456980, 0.893157, 1.000000, 1.000000);
+uniform vec4 DissolveColor : source_color = vec4(0.697672, 0.915534, 0.934306, 1.000000);
 uniform float Dissolve : hint_range(0.0, 1.0) = 0.0;
 uniform float UVScale = 0.20000000298023;
 uniform float Pixelate = 8.0;
