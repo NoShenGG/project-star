@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dssh8iaq3ldy5"]
+
+[ext_resource type="Script" uid="uid://bar5haf7dm68l" path="res://scenes/final/MainGame/Prefabs/gate.gd" id="1_m44iy"]
+[ext_resource type="Shader" uid="uid://cnv2tty5nd2lw" path="res://shaders/gate.gdshader" id="1_ryov1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ryov1"]
+radius = 1.0
+height = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bo4w0"]
+render_priority = 0
+shader = ExtResource("1_ryov1")
+shader_parameter/albedo = Color(1, 1, 1, 0)
+shader_parameter/emission_color = Color(0.50980395, 0, 1, 1)
+shader_parameter/emission_amount = 5.0
+shader_parameter/rim_steepness = 3.0
+shader_parameter/uv_scale = Vector3(0, 0, 0)
+shader_parameter/uv_offset = Vector3(0, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ryov1"]
+size = Vector3(5, 2, 2)
+
+[node name="Gate" type="StaticBody3D"]
+script = ExtResource("1_m44iy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_ryov1")
+surface_material_override/0 = SubResource("ShaderMaterial_bo4w0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ryov1")
