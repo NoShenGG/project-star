@@ -4,6 +4,9 @@ class_name NovaComboState extends MeleeAttackState
 var nova: Nova
 @export var speed_scale_factor: float = 0.2
 
+func enter(_prev_state: String, _data := {}) -> void:
+	super(_prev_state, _data)
+	nova.invincible = true
 
 ## Saves instance of Nova as variable
 func _ready() -> void:
@@ -17,3 +20,7 @@ func physics_update(delta: float) -> void:
 	else:
 		nova.move(delta, speed_scale_factor)
 	nova.move_and_slide()
+	
+func exit() -> void:
+	super()
+	nova.invincible = false

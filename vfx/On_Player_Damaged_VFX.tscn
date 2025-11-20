@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://e5kium0vpyfl"]
-
-[ext_resource type="Script" uid="uid://unoge85vmvrr" path="res://vfx/CharacterDamagedVFX.gd" id="1_sjwfy"]
-
-[node name="OnPlayerDamagedVfx" type="Node3D"]
-script = ExtResource("1_sjwfy")
-fuse_delay = 1.0
