@@ -1,0 +1,168 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8wp31vm3qtbx"]
+
+[ext_resource type="Texture2D" uid="uid://cr8rhlqiv5vu3" path="res://art_assets/Ui/health_bar.png" id="1_cfcyo"]
+[ext_resource type="Script" uid="uid://crx5gqy6h5l2h" path="res://scripts/utility/game_ui.gd" id="1_wmnvy"]
+[ext_resource type="Script" uid="uid://bpc86dhp8y12t" path="res://scripts/utility/game_ui_portrait.gd" id="2_5h6uv"]
+[ext_resource type="Texture2D" uid="uid://h4ghyo1tcviy" path="res://art_assets/Ui/large_icon_star(w_ transparency).png" id="6_5h6uv"]
+[ext_resource type="Texture2D" uid="uid://bjfyh4eqtc0tn" path="res://art_assets/Ui/nova_portrait.png" id="6_r3o8s"]
+[ext_resource type="Texture2D" uid="uid://dn1150v0lhj84" path="res://art_assets/Ui/rene_portrait.png" id="7_pqpky"]
+[ext_resource type="Texture2D" uid="uid://b18dlvux7xx6l" path="res://art_assets/Ui/dawn_portrait.png" id="9_qn2jx"]
+
+[sub_resource type="Curve" id="Curve_wmnvy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50545454, 0.5084282), 2.0432801, 2.0432801, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_wmnvy"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_oky4b"]
+gradient = SubResource("Gradient_wmnvy")
+
+[node name="GameUi" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+scale = Vector2(0.07, 0.07)
+script = ExtResource("1_wmnvy")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -2700.0
+offset_bottom = -2700.0
+grow_vertical = 0
+
+[node name="Offset" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Nova" type="Control" parent="MarginContainer/Offset"]
+anchors_preset = 0
+offset_left = 300.0
+offset_top = 330.0
+offset_right = 300.0
+offset_bottom = 330.0
+script = ExtResource("2_5h6uv")
+BAR_ANIMATION_EASE_CURVE = SubResource("Curve_wmnvy")
+COLOR_GRADIENT = SubResource("GradientTexture1D_oky4b")
+
+[node name="Health" type="TextureProgressBar" parent="MarginContainer/Offset/Nova"]
+layout_mode = 0
+offset_left = -950.0
+offset_right = 4150.0
+offset_bottom = 3300.0
+min_value = -62.0
+max_value = 116.0
+stretch_margin_left = 2000
+stretch_margin_right = 1000
+texture_under = ExtResource("1_cfcyo")
+texture_progress = ExtResource("1_cfcyo")
+tint_under = Color(0.4, 0.4, 0.4, 0.23921569)
+tint_progress = Color(0.9999997, 0.28350654, 0.99421185, 1)
+
+[node name="Star" type="TextureRect" parent="MarginContainer/Offset/Nova"]
+layout_mode = 0
+offset_left = -950.0
+offset_right = 4150.0
+offset_bottom = 3300.0
+texture = ExtResource("6_5h6uv")
+
+[node name="nova_icon" type="TextureRect" parent="MarginContainer/Offset/Nova"]
+layout_mode = 0
+offset_left = 500.00012
+offset_top = 1157.143
+offset_right = 1148.0001
+offset_bottom = 1797.143
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_r3o8s")
+stretch_mode = 2
+
+[node name="Rene" type="Control" parent="MarginContainer/Offset"]
+anchors_preset = 0
+offset_left = 300.00003
+offset_top = -199.99994
+offset_right = 300.00003
+offset_bottom = -199.99994
+scale = Vector2(0.6, 0.6)
+script = ExtResource("2_5h6uv")
+BAR_ANIMATION_EASE_CURVE = SubResource("Curve_wmnvy")
+COLOR_GRADIENT = SubResource("GradientTexture1D_oky4b")
+
+[node name="Health" type="TextureProgressBar" parent="MarginContainer/Offset/Rene"]
+layout_mode = 0
+offset_left = -950.0
+offset_right = 4150.0
+offset_bottom = 3300.0
+min_value = -62.0
+max_value = 116.0
+stretch_margin_left = 2000
+stretch_margin_right = 1000
+texture_under = ExtResource("1_cfcyo")
+texture_progress = ExtResource("1_cfcyo")
+tint_under = Color(0.4, 0.4, 0.4, 0.23921569)
+tint_progress = Color(0.9999997, 0.28350654, 0.99421185, 1)
+
+[node name="Star" type="TextureRect" parent="MarginContainer/Offset/Rene"]
+layout_mode = 0
+offset_left = -950.0
+offset_right = 4150.0
+offset_bottom = 3300.0
+texture = ExtResource("6_5h6uv")
+
+[node name="rene_icon" type="TextureRect" parent="MarginContainer/Offset/Rene"]
+layout_mode = 0
+offset_left = 523.80945
+offset_top = 1142.857
+offset_right = 1658.8094
+offset_bottom = 2282.857
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_pqpky")
+stretch_mode = 2
+
+[node name="Dawn" type="Control" parent="MarginContainer/Offset"]
+anchors_preset = 0
+offset_left = 300.00003
+offset_top = -1100.0
+offset_right = 300.00003
+offset_bottom = -1100.0
+scale = Vector2(0.6, 0.6)
+script = ExtResource("2_5h6uv")
+BAR_ANIMATION_EASE_CURVE = SubResource("Curve_wmnvy")
+COLOR_GRADIENT = SubResource("GradientTexture1D_oky4b")
+
+[node name="Health" type="TextureProgressBar" parent="MarginContainer/Offset/Dawn"]
+layout_mode = 0
+offset_left = -950.0
+offset_right = 4150.0
+offset_bottom = 3300.0
+min_value = -62.0
+max_value = 116.0
+stretch_margin_left = 2000
+stretch_margin_right = 1000
+texture_under = ExtResource("1_cfcyo")
+texture_progress = ExtResource("1_cfcyo")
+tint_under = Color(0.4, 0.4, 0.4, 0.23921569)
+tint_progress = Color(0.9999997, 0.28350654, 0.99421185, 1)
+
+[node name="Star" type="TextureRect" parent="MarginContainer/Offset/Dawn"]
+layout_mode = 0
+offset_left = -950.0
+offset_right = 4150.0
+offset_bottom = 3300.0
+texture = ExtResource("6_5h6uv")
+
+[node name="dawn_icon" type="TextureRect" parent="MarginContainer/Offset/Dawn"]
+layout_mode = 0
+offset_left = 428.57138
+offset_top = 1095.238
+offset_right = 1445.5714
+offset_bottom = 1965.238
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_qn2jx")
+stretch_mode = 2

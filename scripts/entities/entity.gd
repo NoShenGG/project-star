@@ -113,6 +113,7 @@ func try_heal(heal_amount: float) -> bool:
 		_hp = _max_hp
 	else:
 		_hp = new_hp
+	health_update.emit(_hp / _max_hp)
 	return true
 
 
