@@ -34,8 +34,8 @@ func end() -> void:
 	finished.emit()
 
 func exit() -> void:
-	team_heal_percent(heal_percent * rene.damage_mult)
-	team_effect([
+	get_player_manager().team_heal_percent(heal_percent * rene.damage_mult)
+	get_player_manager().team_effect([
 		HOT.new(3.0, 1.0 * rene.damage_mult, 3),
 		HOT.new(3.0, 1.0 * rene.damage_mult, 3),
 		HOT.new(3.0, 1.0 * rene.damage_mult, 3)])

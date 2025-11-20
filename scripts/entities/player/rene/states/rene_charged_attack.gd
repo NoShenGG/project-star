@@ -34,6 +34,6 @@ func end() -> void:
 	trigger_finished.emit("Moving")
 
 func exit() -> void:
-	team_heal(heal * rene.damage_mult * pow(1.2, rene.counters))
+	get_player_manager().team_heal(heal * rene.damage_mult * pow(1.2, rene.counters))
 	rene.counters = 0
 	finished.emit()
