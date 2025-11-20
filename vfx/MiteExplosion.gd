@@ -4,7 +4,7 @@ extends AutoStartVFX
 @export_category("Debugging")
 @export_tool_button("Light Fuse") 
 var start_hurt: 
-	get: return func(): return hurt()
+	get: return func(): return start_fuse()
 
 @export_category("Explosion Controls")
 @export var explosion_radius : float
@@ -66,7 +66,7 @@ func _process(delta):
 			
 			pulse_material.emission = pulse_material_original_emission_color.lerp(pulse_color, x)
 
-func hurt():
+func start_fuse():
 	fuse_lit = true
 	calculate_pulses()
 	current_pulse = 0
