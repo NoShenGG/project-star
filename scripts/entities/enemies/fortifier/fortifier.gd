@@ -26,8 +26,8 @@ func shield():
 	print(enemy)
 	enemy.apply_effect(Invincible.new(self))
 	var vfx_instance = vfx.instantiate()
-	vfx_instance.global_position = enemy.global_position
 	enemy.add_child((vfx_instance))
+	vfx_instance.global_position = enemy.global_position
 	if not enemy._status_effects.has(EntityEffect.EffectID.INVINCIBLE):
 		shield()
 	else:

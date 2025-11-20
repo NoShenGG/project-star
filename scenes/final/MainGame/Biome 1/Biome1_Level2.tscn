@@ -90,15 +90,12 @@ debug_color = Color(0, 7.095753, 8.250874, 1)
 
 [node name="SpawnArea1" parent="WaveManager" instance=ExtResource("5_igsq4")]
 transform = Transform3D(6.9954877, 0, 0, 0, 1, 0, 0, 0, 6.973015, -12.74322, -1.9073486e-06, 23.589195)
-visible = false
 
 [node name="SpawnArea2" parent="WaveManager" instance=ExtResource("5_igsq4")]
 transform = Transform3D(6.9954877, 0, 0, 0, 1, 0, 0, 0, 6.973015, -25.710854, -1.9073486e-06, 25.900215)
-visible = false
 
 [node name="SpawnArea3" parent="WaveManager" instance=ExtResource("5_igsq4")]
 transform = Transform3D(6.9954877, 0, 0, 0, 1, 0, 0, 0, 6.973015, -12.211233, -1.9073486e-06, 35.15052)
-visible = false
 
 [node name="Navmesh" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_e85ix")
@@ -201,16 +198,6 @@ debug_color = Color(0, 11.578043, 13.506168, 1)
 
 [node name="CollisionShape3D13" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(-3.4368246, 0, 8.284238e-07, 0, 14.486829, 0, -3.0045683e-07, 0, -9.476068, 16.816595, 0.8949719, -36.43228)
-shape = SubResource("BoxShape3D_e85ix")
-debug_color = Color(0, 11.578043, 13.506168, 1)
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="walls/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 5.457839, 0, 0, 0, 8.836647, -4.4243574, 0.33717656, -15.843088)
-shape = SubResource("BoxShape3D_e85ix")
-debug_color = Color(0, 11.578043, 13.506168, 1)
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="walls/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 5.457839, 0, 0, 0, 0.8714374, -3.6700175, 0.33717656, -11.844288)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 

@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdydypuhg67jk"]
+[gd_scene load_steps=17 format=3 uid="uid://bdydypuhg67jk"]
 
-[ext_resource type="Script" uid="uid://vvrq4bl2oey7" path="res://scripts/entities/enemies/dinoskeleton.gd" id="1_vw6fa"]
+[ext_resource type="Script" path="res://scripts/entities/enemies/dinoskeleton.gd" id="1_vw6fa"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_8j2wv"]
 [ext_resource type="PackedScene" uid="uid://54ykpkl5wkh3" path="res://scenes/sub/DinoSpitProjectile.tscn" id="2_vpanr"]
 [ext_resource type="Script" uid="uid://cj56h6cxt3f17" path="res://scripts/entities/enemies/states/dinoskeleton/dinoskeleton_idle.gd" id="3_8j2wv"]
@@ -12,17 +12,20 @@
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="6_vsguo"]
 [ext_resource type="Script" uid="uid://v72xfcwohkl2" path="res://scripts/entities/enemies/states/dinoskeleton/dinoskeleton_fire_attack_commit.gd" id="8_y1oru"]
 [ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="9_qoxk8"]
+[ext_resource type="Material" uid="uid://dw31m2n5avju1" path="res://art_assets/enemies/skele_dino/Hair.material" id="12_y1oru"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2l4st"]
 size = Vector3(1, 1.15, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vl86s"]
 height = 1.15
+radius = 3.357
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_45tao"]
 viewport_path = NodePath("SubViewport")
 
 [node name="DinoSkeleton" type="CharacterBody3D" node_paths=PackedStringArray("spit_source_node") groups=["Enemies"]]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 collision_layer = 10
 collision_mask = 3
 motion_mode = 1
@@ -34,9 +37,10 @@ spit_projectile_scene = ExtResource("2_vpanr")
 fire_distance = 6.0
 fire_anticipation_scene = ExtResource("3_vpanr")
 fire_effect_scene = ExtResource("4_y1oru")
-vision_radius = 20.0
+vision_radius = 25.0
 attack_radius = 10.0
 _base_speed = 1.0
+_hp = 25.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_8j2wv")
@@ -72,6 +76,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.65, -7.6)
 
 [node name="DragoSkele" parent="." instance=ExtResource("9_qoxk8")]
 
+[node name="Plane_016" parent="DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_003" index="0"]
+material_override = ExtResource("12_y1oru")
+surface_material_override/0 = ExtResource("12_y1oru")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_2l4st")
 
@@ -88,6 +96,7 @@ transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 11.895866, 0, 0, 0, 1, 0, -3.9819565, 0)
 shape = SubResource("CylinderShape3D_vl86s")
 debug_color = Color(1, 0, 0, 1)
 
@@ -105,3 +114,5 @@ texture = SubResource("ViewportTexture_45tao")
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
+
+[editable path="DragoSkele"]

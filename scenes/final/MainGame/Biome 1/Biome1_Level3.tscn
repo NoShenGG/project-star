@@ -75,7 +75,7 @@ metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
 [node name="Wave3" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("6_eejem")
-enemies = Array[PackedScene]([ExtResource("7_mpi2d"), ExtResource("7_mpi2d"), ExtResource("7_mpi2d"), ExtResource("5_eejem")])
+enemies = Array[PackedScene]([ExtResource("7_vlt4p"), ExtResource("7_vlt4p"), ExtResource("7_vlt4p"), ExtResource("5_eejem")])
 spawn_areas = [NodePath("../boss_spawner"), NodePath("../SpawnArea2"), NodePath("../SpawnArea3"), NodePath("../SpawnArea4")]
 setSpawnAreas = true
 spawnAreaIndices = Array[int]([1, 2, 3, 0])
