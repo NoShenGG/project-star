@@ -1,12 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8wp31vm3qtbx"]
+[gd_scene load_steps=17 format=3 uid="uid://b8wp31vm3qtbx"]
 
 [ext_resource type="Script" uid="uid://crx5gqy6h5l2h" path="res://scripts/utility/game_ui.gd" id="1_wmnvy"]
 [ext_resource type="Script" uid="uid://bpc86dhp8y12t" path="res://scripts/utility/game_ui_portrait.gd" id="2_5h6uv"]
-[ext_resource type="Texture2D" uid="uid://bkndni4ppya20" path="res://art_assets/Ui/(bar white)jtas_charaBorder_ui.png" id="3_1vlfb"]
-[ext_resource type="Texture2D" uid="uid://tk4l7pr2nlff" path="res://art_assets/Ui/jtas_charaBorder_ui1.png" id="5_5h6uv"]
-[ext_resource type="Texture2D" uid="uid://diq3esk3f0q8c" path="res://art_assets/Ui/(star white)jtas_charaBorder_ui.png" id="5_pyjd6"]
+[ext_resource type="Texture2D" uid="uid://diwmn33yv47r5" path="res://art_assets/Ui/(bar white)jtas_charaBorder_ui.png" id="3_1vlfb"]
+[ext_resource type="Texture2D" uid="uid://du2vmnltyq0fm" path="res://art_assets/Ui/(star&bar) jtas_charaBorder_ui.png" id="4_pyjd6"]
+[ext_resource type="Texture2D" uid="uid://bipa8mbuwvele" path="res://art_assets/Ui/(star white)jtas_charaBorder_ui.png" id="5_pyjd6"]
 [ext_resource type="Texture2D" uid="uid://bjfyh4eqtc0tn" path="res://art_assets/Ui/nova_portrait.png" id="6_r3o8s"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="7_d4woi"]
 [ext_resource type="Texture2D" uid="uid://dn1150v0lhj84" path="res://art_assets/Ui/rene_portrait.png" id="7_pqpky"]
+[ext_resource type="Texture2D" uid="uid://d1n3eyi7jjcya" path="res://vfx/Kenny Particle Pack/circle_02.png" id="8_w1p5o"]
+[ext_resource type="Script" uid="uid://baxdofgbk1vp0" path="res://scripts/utility/UIBounce.gd" id="9_inlbu"]
+[ext_resource type="Texture2D" uid="uid://rokbeg82egfo" path="res://art_assets/Ui/jtas_charaBorder_ui2.png" id="9_pyjd6"]
 [ext_resource type="Texture2D" uid="uid://b18dlvux7xx6l" path="res://art_assets/Ui/dawn_portrait.png" id="9_qn2jx"]
 
 [sub_resource type="Curve" id="Curve_wmnvy"]
@@ -22,13 +26,20 @@ metadata/_snap_count = 2
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_oky4b"]
 gradient = SubResource("Gradient_wmnvy")
 
+[sub_resource type="Curve" id="Curve_q54j5"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 2.5693238, 0, 0, Vector2(0.5, 1.6051033), 0.0, 0.0, 0, 0, Vector2(1, 1), -3.2879689, 0.0, 0, 0]
+point_count = 3
+
 [node name="GameUi" type="Control"]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_left = 17.0
+offset_right = 17.0
 grow_vertical = 0
-scale = Vector2(0.07, 0.07)
+scale = Vector2(0.08, 0.08)
 script = ExtResource("1_wmnvy")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -42,6 +53,13 @@ grow_vertical = 0
 
 [node name="Offset" type="Control" parent="MarginContainer"]
 layout_mode = 2
+
+[node name="SelectedDeco" type="TextureRect" parent="MarginContainer/Offset"]
+layout_mode = 0
+offset_left = -400.0
+offset_right = 4700.0
+offset_bottom = 3300.0
+texture = ExtResource("9_pyjd6")
 
 [node name="Nova" type="Control" parent="MarginContainer/Offset"]
 anchors_preset = 0
@@ -75,7 +93,7 @@ offset_left = -675.0
 offset_top = -300.0
 offset_right = 4425.0
 offset_bottom = 3000.0
-texture = ExtResource("5_5h6uv")
+texture = ExtResource("4_pyjd6")
 
 [node name="IconMask" type="TextureRect" parent="MarginContainer/Offset/Nova"]
 clip_children = 1
@@ -96,6 +114,23 @@ offset_bottom = 2371.5842
 scale = Vector2(0.20003735, 0.20003735)
 texture = ExtResource("6_r3o8s")
 stretch_mode = 2
+
+[node name="Special" type="TextureProgressBar" parent="MarginContainer/Offset/Nova"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 830.0
+offset_right = 610.0
+offset_bottom = 1342.0
+scale = Vector2(0.58, 0.58)
+pivot_offset = Vector2(256, 256)
+value = 80.0
+fill_mode = 4
+texture_under = ExtResource("7_d4woi")
+texture_progress = ExtResource("8_w1p5o")
+tint_progress = Color(1, 1, 0, 1)
+script = ExtResource("9_inlbu")
+bounce_size = SubResource("Curve_q54j5")
+lifetime = 0.3
 
 [node name="Rene" type="Control" parent="MarginContainer/Offset"]
 anchors_preset = 0
@@ -129,7 +164,7 @@ offset_left = -674.9999
 offset_top = -300.0
 offset_right = 4425.0
 offset_bottom = 3000.0
-texture = ExtResource("5_5h6uv")
+texture = ExtResource("4_pyjd6")
 
 [node name="IconMask" type="TextureRect" parent="MarginContainer/Offset/Rene"]
 clip_children = 1
@@ -150,6 +185,23 @@ offset_bottom = 2949.7832
 scale = Vector2(0.11229441, 0.11229441)
 texture = ExtResource("7_pqpky")
 stretch_mode = 2
+
+[node name="Special" type="TextureProgressBar" parent="MarginContainer/Offset/Rene"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 830.0
+offset_right = 610.0
+offset_bottom = 1342.0
+scale = Vector2(0.58, 0.58)
+pivot_offset = Vector2(256, 256)
+value = 80.0
+fill_mode = 4
+texture_under = ExtResource("7_d4woi")
+texture_progress = ExtResource("8_w1p5o")
+tint_progress = Color(1, 1, 0, 1)
+script = ExtResource("9_inlbu")
+bounce_size = SubResource("Curve_q54j5")
+lifetime = 0.3
 
 [node name="Dawn" type="Control" parent="MarginContainer/Offset"]
 anchors_preset = 0
@@ -183,7 +235,7 @@ offset_left = -674.99994
 offset_top = -300.00098
 offset_right = 4425.0
 offset_bottom = 2999.999
-texture = ExtResource("5_5h6uv")
+texture = ExtResource("4_pyjd6")
 
 [node name="IconMask" type="TextureRect" parent="MarginContainer/Offset/Dawn"]
 clip_children = 1
@@ -204,3 +256,20 @@ offset_bottom = 2671.125
 scale = Vector2(0.15985535, 0.15985535)
 texture = ExtResource("9_qn2jx")
 stretch_mode = 2
+
+[node name="Special" type="TextureProgressBar" parent="MarginContainer/Offset/Dawn"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 830.0
+offset_right = 610.0
+offset_bottom = 1342.0
+scale = Vector2(0.58, 0.58)
+pivot_offset = Vector2(256, 256)
+value = 80.0
+fill_mode = 4
+texture_under = ExtResource("7_d4woi")
+texture_progress = ExtResource("8_w1p5o")
+tint_progress = Color(1, 1, 0, 1)
+script = ExtResource("9_inlbu")
+bounce_size = SubResource("Curve_q54j5")
+lifetime = 0.3

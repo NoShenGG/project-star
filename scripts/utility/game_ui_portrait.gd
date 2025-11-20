@@ -2,6 +2,7 @@ class_name GameUiPortrait
 extends Control
 
 @onready var healthbar = $Health
+@onready var special = $Special
 
 @export var ANIM_TIME: float = 0.5
 @export var BAR_ANIMATION_EASE_CURVE: Curve # Should be a 0 to 1 easing curve.
@@ -25,16 +26,13 @@ func update_health(percent: float):
 	hp_step = 0
 	
 func update_special(percent: float):
-	return
-	#if special == null:
-		#return
-	#special.value = percent * 100
-	#if special.value == 100:
-		#special.tint_under = Color("ffff00")
-	#elif special.value == 0:
-		#special.tint_under = Color("444444")
-	#else:
-		#special.tint_under = Color("ffffff")
+	special.value = percent * 100
+	if special.value == 100:
+		special.tint_under = Color("ffff00")
+	elif special.value == 0:
+		special.tint_under = Color("444444")
+	else:
+		special.tint_under = Color("ffffff")
 
 
 func _process(delta: float) -> void:
