@@ -94,8 +94,13 @@ func valid_area_ind(x: int):
 	return x >= 0 and x < spawn_areas.size()
 	
 func validate_condition(body: Node3D = null):
-	if body and body is Player:
-		# for area 3D condition
-		# connet Area3D.body_entered to this function
+	if body:
+		if body is Player:
+			# for area 3D condition
+			# connet Area3D.body_entered to this function
+			conditionMet = true
+			condition.emit()
+	else:
+		# assumes that condition has been met for all other types of signals
 		conditionMet = true
 		condition.emit()
