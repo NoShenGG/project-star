@@ -19,18 +19,13 @@ top_level = true
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
-bones/14/rotation = Quaternion(-0.068368405, 0.523714, -0.50634855, 0.6816602)
-bones/15/rotation = Quaternion(-0.16088477, 0.55335486, 0.23164381, 0.78374463)
-bones/16/rotation = Quaternion(-0.51033247, -0.467195, -0.24636182, 0.6786719)
-bones/17/position = Vector3(0.0018554514, 0.00021904883, -2.3317207e-05)
-bones/19/position = Vector3(0.0013310545, -0.00023085652, -0.0009310012)
-bones/21/rotation = Quaternion(-0.14743917, 0.39225423, -0.45869806, 0.78357804)
-bones/22/rotation = Quaternion(-0.065827265, 0.35379958, 0.17819007, 0.915828)
-bones/23/rotation = Quaternion(0.13938831, 0.11400127, -0.07347813, 0.98090553)
-bones/24/position = Vector3(-0.001853143, -0.00023585279, -3.842577e-05)
-bones/26/position = Vector3(-0.001368355, 0.0002611133, 0.00086672243)
-bones/38/rotation = Quaternion(-0.34874126, 0.70705235, 0.06274337, 0.6119804)
+bones/14/rotation = Quaternion(-0.06524747, 0.52195305, -0.5067207, 0.6830387)
+bones/15/rotation = Quaternion(-0.17059961, 0.56850106, 0.2343862, 0.7699126)
+bones/16/rotation = Quaternion(-0.5031472, -0.477655, -0.2623229, 0.67072755)
+bones/21/rotation = Quaternion(-0.13888742, 0.36835954, -0.46899265, 0.79061204)
+bones/22/rotation = Quaternion(-0.07500386, 0.37896863, 0.18622436, 0.90337026)
+bones/23/rotation = Quaternion(0.13495727, 0.11016448, -0.08695855, 0.9808611)
+bones/38/rotation = Quaternion(-0.3507992, 0.70603806, 0.060958456, 0.6121554)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)

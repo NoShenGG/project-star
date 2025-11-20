@@ -58,6 +58,7 @@ func _process(_delta: float) -> void:
 		return
 	
 	if current_char.can_swap():
+		print("here")
 		if (Input.is_action_just_pressed("select_char1")):
 			swap_char(0)
 		elif (Input.is_action_just_pressed("select_char2")):
