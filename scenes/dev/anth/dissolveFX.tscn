@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://dwo71heopas5i" path="res://scenes/dev/anth/dissolveTest.tres" id="2_2wsou"]
 
 [sub_resource type="Curve" id="Curve_mnq68"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.9064482, 0.0, 0, 0]
+_data = [Vector2(0, 0.39325845), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.9064482, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fkohf"]

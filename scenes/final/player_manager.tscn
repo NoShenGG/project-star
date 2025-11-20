@@ -20,13 +20,13 @@ top_level = true
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.06530131, 0.52196634, -0.5067252, 0.6830202)
-bones/15/rotation = Quaternion(-0.1705947, 0.5684934, 0.23438492, 0.76991975)
-bones/16/rotation = Quaternion(-0.5031551, -0.47772205, -0.26225707, 0.6706995)
-bones/21/rotation = Quaternion(-0.13868795, 0.3683026, -0.46920598, 0.7905471)
-bones/22/rotation = Quaternion(-0.07496246, 0.3788593, 0.18619004, 0.9034265)
-bones/23/rotation = Quaternion(0.13463706, 0.11029993, -0.08706548, 0.98088044)
-bones/38/rotation = Quaternion(-0.35081464, 0.7060304, 0.06094508, 0.6121567)
+bones/14/rotation = Quaternion(-0.06685067, 0.5231628, -0.5062508, 0.68230635)
+bones/15/rotation = Quaternion(-0.16236153, 0.5557028, 0.23208608, 0.7816452)
+bones/16/rotation = Quaternion(-0.5091131, -0.46731004, -0.25000542, 0.67817587)
+bones/21/rotation = Quaternion(-0.15055047, 0.38998538, -0.45567814, 0.78587747)
+bones/22/rotation = Quaternion(-0.067987084, 0.35990658, 0.18016556, 0.91289943)
+bones/23/rotation = Quaternion(0.14548425, 0.11047102, -0.07322614, 0.980443)
+bones/38/rotation = Quaternion(-0.34832287, 0.7072575, 0.06310592, 0.6119442)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -135,6 +135,9 @@ projection = 1
 size = 25.0
 
 [node name="Shake" type="Node" parent="CameraTarget/Camera3D"]
+script = ExtResource("4_mbt4c")
+
+[node name="strong_shake" type="Node" parent="CameraTarget/Camera3D"]
 script = ExtResource("4_mbt4c")
 
 [node name="weak_shake" type="Node" parent="CameraTarget/Camera3D"]

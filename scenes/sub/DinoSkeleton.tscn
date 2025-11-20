@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdydypuhg67jk"]
+[gd_scene load_steps=18 format=3 uid="uid://bdydypuhg67jk"]
 
 [ext_resource type="Script" path="res://scripts/entities/enemies/dinoskeleton.gd" id="1_vw6fa"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_8j2wv"]
@@ -13,9 +13,10 @@
 [ext_resource type="Script" uid="uid://v72xfcwohkl2" path="res://scripts/entities/enemies/states/dinoskeleton/dinoskeleton_fire_attack_commit.gd" id="8_y1oru"]
 [ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="9_qoxk8"]
 [ext_resource type="Material" uid="uid://dw31m2n5avju1" path="res://art_assets/enemies/skele_dino/Hair.material" id="12_y1oru"]
+[ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="13_03yme"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2l4st"]
-size = Vector3(1, 1.15, 1)
+size = Vector3(6.165, 9.61, 9.4)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vl86s"]
 height = 1.15
@@ -81,6 +82,7 @@ material_override = ExtResource("12_y1oru")
 surface_material_override/0 = ExtResource("12_y1oru")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.269663, 0)
 shape = SubResource("BoxShape3D_2l4st")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -104,6 +106,9 @@ debug_color = Color(1, 0, 0, 1)
 wait_time = 2.0
 one_shot = true
 
+[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("13_03yme")]
+meshes = [NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_003/Plane_016"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_001/Plane_015"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck/Plane_014"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine_002/Plane_005"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine_020"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_008"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_007"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_006"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_012"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_011"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_010"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_009"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_008"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_007"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_006"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_005"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine/Plane_007")]
+
 [node name="FireCooldown" type="Timer" parent="."]
 wait_time = 6.0
 one_shot = true
@@ -114,5 +119,6 @@ texture = SubResource("ViewportTexture_45tao")
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
+[connection signal="killed" from="." to="DissolveFX" method="beginDissolve"]
 
 [editable path="DragoSkele"]
