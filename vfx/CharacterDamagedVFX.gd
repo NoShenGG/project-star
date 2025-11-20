@@ -3,14 +3,14 @@ extends AutoStartVFX
 
 @export_category("Debugging")
 @export_tool_button("Light Fuse") 
-var light_fuse: 
-	get: return func(): return start_fuse()
+var start_hurt: 
+	get: return func(): return hurt()
 
 @export_category("Explosion Controls")
 @export var explosion_radius : float
 @export var explosion_color : Color
 @export var smoke_color : Color
-@export var fuse_delay : float = 1
+@export var fuse_delay : float = 0
 
 @export_category("Pulse Controls")
 @export var pulse_mesh = MeshInstance3D
@@ -32,7 +32,7 @@ var pulsing : bool
 var pulse_material : Material
 
 var fuse_lit : bool
-var fuse_timer : Timer
+@export var fuse_timer : Timer
 
 signal exploded
 signal pulsed
@@ -66,7 +66,7 @@ func _process(delta):
 			
 			pulse_material.emission = pulse_material_original_emission_color.lerp(pulse_color, x)
 
-func start_fuse():
+func hurt():
 	fuse_lit = true
 	calculate_pulses()
 	current_pulse = 0
