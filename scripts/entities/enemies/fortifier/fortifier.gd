@@ -7,6 +7,7 @@ class_name Fortifier extends Enemy
 var target: Player = null
 var friends: Array[Enemy] = []
 var can_attack: bool = true
+const vfx = preload("res://vfx/fortifier_shield_VFX.tscn")
 
 signal shield_enemy
 
@@ -21,8 +22,12 @@ func shield():
 		reset_shield()
 		return
 	var enemy = friends.pick_random()
+	print("shielding enemy!")
 	print(enemy)
 	enemy.apply_effect(Invincible.new(self))
+	var vfx_instance = vfx.instantiate()
+	enemy.add_child((vfx_instance))
+	vfx_instance.global_position = enemy.global_position
 	if not enemy._status_effects.has(EntityEffect.EffectID.INVINCIBLE):
 		shield()
 	else:

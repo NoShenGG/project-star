@@ -16,10 +16,11 @@ var SPEEDS = {
 @export var BREAK_RECOVERY : float = 2.0
 @export_category("damage")
 @export var DAMAGE : float = 1.0
-var playerRef : Player
+var playerRef : Player:
+	get():
+		return GameManager.curr_player
 
 func _ready() -> void:
-	playerRef = GameManager.curr_player
 	$Hitbox.damangeAmount = DAMAGE
 	$Hitbox.set_disabled(true)#we want the hitbox to be not there at first.
 	super()

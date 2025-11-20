@@ -19,7 +19,7 @@ func physics_update(_delta: float) -> void:
 ## Called on state enter. Make sure to emit entered.
 func enter(_prev_state: String, _data := {}) -> void:
 	dynamite = owner as Dynamite
-	dynamite.set_movement_target(dynamite.global_position)
+	#dynamite.set_movement_target(dynamite.global_position)
 	entered.emit()
 
 ## Call for another script to end this state. Should pick the next state and emit finished.

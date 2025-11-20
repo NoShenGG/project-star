@@ -27,7 +27,7 @@ func physics_update(_delta: float) -> void:
 ## Called on state enter. Make sure to emit entered.
 func enter(_prev_state: String, _data := {}) -> void:
 	print("[LaserShroom]Entering state: HIDE")
-	enemy._movement_speed = speed
+	enemy._base_speed = speed
 	enemy.switchMesh(0)
 	$HideTimer.start(hidetime)
 	entered.emit()

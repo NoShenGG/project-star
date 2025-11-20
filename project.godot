@@ -15,7 +15,7 @@ General/banks_path="res://sounds/banks"
 [application]
 
 config/name="Project Star"
-run/main_scene="uid://bdoa8emasvts3"
+run/main_scene="uid://d30apqq5s28cn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://b23jk7qpglhje"
 

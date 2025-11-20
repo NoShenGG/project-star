@@ -20,7 +20,7 @@ func enter(_prev_state: String, _data := {}) -> void:
 
 func await_end():
 	await animation_finished
-	exit()
+	end()
 
 func update(_delta: float) -> void:
 	pass
@@ -46,4 +46,3 @@ func end() -> void:
 
 func exit() -> void:
 	active = false
-	finished.emit()

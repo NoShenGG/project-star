@@ -22,7 +22,20 @@ collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_v2glr")
-_movement_speed = 2.0
+projectile_range = 10
+vision_radius = 20.0
+attack_radius = 10.0
+_base_speed = 0.5
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("1_oxdyg")
+metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_em2bo")
+
+[node name="attacking" type="Node" parent="StateMachine"]
+script = ExtResource("4_bb0s1")
 
 [node name="rocket_shroom" parent="." instance=ExtResource("2_bb0s1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, 0)
@@ -34,11 +47,10 @@ shape = SubResource("BoxShape3D_2l4st")
 path_desired_distance = 10.0
 target_desired_distance = 2.0
 path_max_distance = 100.01
-debug_enabled = true
 debug_path_custom_color = Color(0, 1, 0, 1)
 
 [node name="AggroArea" type="Node3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="AggroArea"]
 collision_mask = 3
@@ -48,17 +60,7 @@ shape = SubResource("CylinderShape3D_vl86s")
 debug_color = Color(1, 0, 0, 1)
 
 [node name="Cooldown" type="Timer" parent="."]
-wait_time = 0.5
-
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("1_oxdyg")
-metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
-
-[node name="idle" type="Node" parent="StateMachine"]
-script = ExtResource("3_em2bo")
-
-[node name="attacking" type="Node" parent="StateMachine"]
-script = ExtResource("4_bb0s1")
+wait_time = 2.0
 
 [node name="StatusBars" parent="." instance=ExtResource("6_2l4st")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 1.5, 0)

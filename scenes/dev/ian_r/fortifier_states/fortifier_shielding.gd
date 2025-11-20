@@ -4,6 +4,7 @@ class_name Shielding extends FortifierState
 @export var rotate_speed : float = 10
 @export var attack_distance : float = 1
 var friends: Array[Enemy] = []
+const vfx = preload("res://vfx/fortifier_shield_VFX.tscn")
 signal shield_enemy
 
 
@@ -30,8 +31,6 @@ func shield():
 	if friends.is_empty():
 		return
 	var enemy = friends.pick_random()
-	print(enemy)
-	enemy.apply_effect(Invincible.new(fortifier))
 	if not enemy._status_effects.has(EntityEffect.EffectID.INVINCIBLE):
 		shield()
 	else:

@@ -14,7 +14,6 @@ signal state_exited(state: String)
 func _ready() -> void:
 	for state_node: State in find_children("*", "State"):
 		state_node.trigger_finished.connect(_transition_to_next_state)
-
 	await owner.ready
 	state.enter("")
 
@@ -37,5 +36,7 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 	state.finished.emit()
 	state.exit()
 	state = get_node(target_state_path)
+	if (owner is Player):
+		print(owner.name + " Transitioning from " + previous_state_path + " to " + state.name)
 	state_entered.emit(state.name)
 	state.enter(previous_state_path, data)

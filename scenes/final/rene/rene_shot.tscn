@@ -1,0 +1,91 @@
+[gd_scene load_steps=17 format=3 uid="uid://ca5osqv2xr25p"]
+
+[ext_resource type="Script" uid="uid://fxpa1rjy8dpj" path="res://scripts/entities/player/rene/rene_shot.gd" id="1_id3ua"]
+[ext_resource type="Shader" uid="uid://0ag3db3c3fdf" path="res://scenes/dani_k/Rene_NA_spark.tres" id="2_tkcim"]
+[ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="3_6ifex"]
+[ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="4_qtp8h"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrails/defaults/texture.tres" id="5_hg6qc"]
+[ext_resource type="Script" uid="uid://bx10tuy8s55pq" path="res://addons/GPUTrails/GPUTrail3D.gd" id="6_43pwc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_shbbm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6uas7"]
+render_priority = 0
+shader = ExtResource("2_tkcim")
+shader_parameter/ColorParameter = Color(2.2236032, 2.0540864, 1.1517719, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_mcnef"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_agtve"]
+shader = ExtResource("3_6ifex")
+
+[sub_resource type="Gradient" id="Gradient_03owx"]
+offsets = PackedFloat32Array(0.14245014, 0.42083332, 1)
+colors = PackedColorArray(2.0890486, 2.050272, 0.9366476, 1, 0.9309246, 0.8334029, 0.48899934, 1, 0.9309246, 0.8334029, 0.48899934, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_slchw"]
+gradient = SubResource("Gradient_03owx")
+
+[sub_resource type="Curve" id="Curve_20pc6"]
+bake_resolution = 16
+_data = [Vector2(0, 0.5204082), 0.0, 0.12337657, 0, 0, Vector2(0.6917293, 0.5204082), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qwwm4"]
+curve = SubResource("Curve_20pc6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6i3y"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_qtp8h")
+shader_parameter/tex = ExtResource("5_hg6qc")
+shader_parameter/uv_offset = Vector2(0.85569215, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_slchw")
+shader_parameter/curve = SubResource("CurveTexture_qwwm4")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 45
+
+[sub_resource type="QuadMesh" id="QuadMesh_142so"]
+material = SubResource("ShaderMaterial_c6i3y")
+
+[node name="ReneShot" type="RigidBody3D"]
+top_level = true
+collision_layer = 0
+collision_mask = 8
+gravity_scale = 0.0
+can_sleep = false
+custom_integrator = true
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_id3ua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_shbbm")
+
+[node name="Rene_NA" type="Node3D" parent="CollisionShape3D"]
+transform = Transform3D(-7.450581e-09, 0.2820153, 0.41287696, -0.42065758, 0.2231785, -0.15244193, -0.27027243, -0.34735966, 0.23726375, 0.05913949, 0.016975284, -0.026420712)
+
+[node name="spark" type="MeshInstance3D" parent="CollisionShape3D/Rene_NA"]
+transform = Transform3D(0.9999996, -0.12919985, 0.11494434, -9.126961e-08, 1.0222037, -0.20771831, 7.8231096e-08, 1.0430813e-07, 1.0273046, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_6uas7")
+transparency = 0.42
+mesh = SubResource("QuadMesh_mcnef")
+
+[node name="Trail" type="GPUParticles3D" parent="CollisionShape3D/Rene_NA/spark"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.010165632)
+ignore_occlusion_culling = true
+amount = 24
+lifetime = 24.0
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ShaderMaterial_agtve")
+draw_pass_1 = SubResource("QuadMesh_142so")
+script = ExtResource("6_43pwc")
+length = 24
+length_seconds = 0.4
+scroll = Vector2(2.835, 0)
+color_ramp = SubResource("GradientTexture1D_slchw")
+curve = SubResource("CurveTexture_qwwm4")
+vertical_texture = true
+billboard = true
+_defaults_have_been_set = true

@@ -11,7 +11,7 @@ var target_desired_distance = attack_radius
 func _ready():
 	target_node = null
 	navigation_agent.target_desired_distance = target_desired_distance
-	#super()
+	super()
 
 #func _physics_process(_delta: float) -> void:
 #	super(_delta)

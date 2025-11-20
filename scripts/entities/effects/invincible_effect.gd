@@ -11,6 +11,12 @@ func _init(_fortifier: Fortifier) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	active = true
+	
+func try_apply(entity: Entity) -> bool:
+	if super(entity):
+		entity.invincible = true
+		return true
+	return false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(_delta: float) -> bool:
@@ -21,3 +27,4 @@ func process(_delta: float) -> bool:
 func stop() -> void:
 	if fortifier != null:
 		fortifier.reset_shield()
+	_entity.invincible = false

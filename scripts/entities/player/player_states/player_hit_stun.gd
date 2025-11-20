@@ -1,6 +1,7 @@
 extends PlayerState
 
-@export var stun_duration: float = 0.5
+@export var stun_duration: float = 0.1
+@export var stun_cooldown: float = 1.0
 @export_category("Interruptible States")
 @export var interruptible_states: Array[String] = [PlayerState.IDLE, PlayerState.MOVING, PlayerState.CHARGING,
 	PlayerState.CHARGING_SPECIAL]
@@ -15,7 +16,7 @@ func _on_hurt_received(_damage: float) -> void:
 	# Check if current state can be interrupted for hit-stun
 	var current_state_name = player.state_machine.state.name
 
-	if current_state_name in interruptible_states:
+	if current_state_name in interruptible_states and stun_timer == null:
 		player.state_machine.state.trigger_finished.emit(get_path())
 
 func enter(_previous_state_path: String, _data := {}) -> void:
@@ -41,6 +42,5 @@ func end() -> void:
 func exit() -> void:
 	if stun_timer != null and stun_timer.timeout.is_connected(end):
 		stun_timer.timeout.disconnect(end)
-	stun_timer = null
-
-	player.velocity = Vector3.ZERO
+	stun_timer = get_tree().create_timer(stun_cooldown)
+	stun_timer.timeout.connect(func(): stun_timer = null)

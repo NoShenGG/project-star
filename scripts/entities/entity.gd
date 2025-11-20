@@ -40,6 +40,9 @@ var speed:
 	get():
 		return _base_speed * _buffs[StatMod.Stat.SPD].reduce(
 			func(acc: float, stat: StatMod): return acc * pow(1.2, stat.poll()), 1.0)
+var invincible: bool = false
+
+@onready var death: bool = false
 
 
 func _ready() -> void:
@@ -80,10 +83,9 @@ func try_damage(damage_amount: float) -> bool:
 	if damage_amount <= 0:
 		assert(false, "Damage amount cannot be <= 0")
 		return false
-	if _status_effects.has(EntityEffect.EffectID.INVINCIBLE):
-		# play invincibility animation perhaps?
+	if invincible:
 		print("Damage blocked by invincibility!")
-		return true
+		return false
 		
 	# Apply Def Buff
 	for mod in _buffs[StatMod.Stat.DEF]:
@@ -101,8 +103,6 @@ func try_damage(damage_amount: float) -> bool:
 			apply_effect(Broken.new(EntityEffect.EffectID.BROKEN, _break_cooldown))
 			broken.emit()
 	return true
-
-var death: bool =false
 
 func try_heal(heal_amount: float) -> bool:
 	if heal_amount <= 0:

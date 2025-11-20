@@ -115,5 +115,10 @@ func set_special_cd():
 func give_dash():
 	_can_dash = true
 	
+func is_dead():
+	return death
+	
 func trigger_death() -> void:
+	death = true
+	killed.emit()
 	push_error("Player has Died")
