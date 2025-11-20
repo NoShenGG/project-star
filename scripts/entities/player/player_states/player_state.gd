@@ -30,26 +30,3 @@ func _ready() -> void:
 func get_player_manager() -> PlayerManager:
 	return player.player_manager
 	
-func get_players() -> Array[Player]:
-	return player.player_manager.players
-
-func team_hurt(damage: float):
-	for x in get_players():
-		if x is Player:
-			# hurts all players
-			x.try_damage(damage)
-
-func team_effect(e: Array[EntityEffect]):
-	for x in get_players():
-		if x is Player:
-			x.apply_effect(e.pop_front())
-
-func team_heal(amount: float):
-	for x in get_players():
-		if x is Player:
-			x.try_heal(amount)
-
-func team_heal_percent(percent: float):
-	for x in get_players():
-		if x is Player and x._hp != x._max_hp:
-			x.try_heal((x._max_hp - x._hp) * percent)

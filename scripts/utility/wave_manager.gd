@@ -26,7 +26,7 @@ func wave_process():
 	fight_started.emit()
 	while (current_wave >= 0 and current_wave < waves.size()):
 		if not waves[current_wave].is_active():
-			waves[current_wave].start()
+			await waves[current_wave].start()
 		waves[current_wave].check()
 		await get_tree().process_frame
 	fight_ended.emit()
