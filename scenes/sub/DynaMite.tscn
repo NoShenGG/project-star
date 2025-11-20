@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dikwtund4a5xs"]
+[gd_scene load_steps=20 format=3 uid="uid://dikwtund4a5xs"]
 
 [ext_resource type="Script" uid="uid://cetk67agmcktg" path="res://scenes/dev/ZXue/DynaMite/DynaMiteEnemy.gd" id="1_gnlae"]
 [ext_resource type="PackedScene" uid="uid://b0liiu5ijolin" path="res://art_assets/enemies/dyna_mite/dynamite_rig.gltf" id="2_i3822"]
@@ -13,8 +13,9 @@
 [ext_resource type="Script" uid="uid://la2fd47cp2em" path="res://scenes/dev/ZXue/DynaMite/break.gd" id="7_ybb5r"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="10_bnow6"]
 [ext_resource type="PackedScene" path="res://VFX/DynaMiteExplodeVFX.tscn" id="11_0gklw"]
+[ext_resource type="Script" uid="uid://cyf1iyihnmbr6" path="res://vfx/MiteExplosion.gd" id="14_0cg5m"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cg5m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6d2w"]
 resource_name = "Dynamite_Texture"
 albedo_texture = ExtResource("3_v7lte")
 roughness = 0.45005363
@@ -47,7 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Dynamite" parent="dynamite_rig/Skeleton3D" index="1"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_0cg5m")
+material_override = SubResource("StandardMaterial3D_o6d2w")
 surface_material_override/0 = ExtResource("3_xrnix")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -92,7 +93,8 @@ shape = SubResource("SphereShape3D_g2vom")
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 1.5, 0)
 texture = SubResource("ViewportTexture_0gklw")
 
-[node name="DynaMiteExplode" parent="." node_paths=PackedStringArray("pulse_mesh") instance=ExtResource("11_0gklw")]
+[node name="DynaMiteExplode" parent="." node_paths=PackedStringArray("pulse_mesh", "fuse_timer") instance=ExtResource("11_0gklw")]
+script = ExtResource("14_0cg5m")
 explosion_color = Color(1, 0, 0, 1)
 fuse_delay = 2.0
 pulse_mesh = NodePath("../dynamite_rig/Skeleton3D/Dynamite")
@@ -100,6 +102,7 @@ pulse_count = 10
 pulse_color = Color(1, 0.227451, 0, 1)
 pulse_material_base = ExtResource("3_xrnix")
 pulse_timing = SubResource("Curve_y7q5s")
+fuse_timer = NodePath("FuseTimer")
 play_on_start = false
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]

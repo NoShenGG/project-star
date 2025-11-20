@@ -31,6 +31,8 @@ func _process(delta):
 
 func shake():
 	shake_strength = shakeStrength
+	Input.get_joy_vibration_strength(shake_strength)
+	Input.get_joy_vibration_duration(shake_duration)
 	shake_duration = 0.0
 
 func random_offset():	
