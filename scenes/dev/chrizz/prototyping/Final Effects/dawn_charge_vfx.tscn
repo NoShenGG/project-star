@@ -1,0 +1,196 @@
+[gd_scene load_steps=30 format=3 uid="uid://c4numrguhjb63"]
+
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_b3phu"]
+[ext_resource type="Texture2D" uid="uid://y58tcj1a2dha" path="res://scenes/dev/chrizz/prototyping/eightnote.png" id="2_hjypb"]
+[ext_resource type="Shader" uid="uid://mvtw1fwnpewq" path="res://scenes/dev/chrizz/prototyping/musicstaff.tres" id="3_mcc40"]
+[ext_resource type="ArrayMesh" uid="uid://c8m6cejgd3b32" path="res://scenes/dev/chrizz/prototyping/staff.obj" id="4_djf37"]
+[ext_resource type="Shader" uid="uid://bj0houc6tnfxa" path="res://scenes/dev/chrizz/prototyping/dawnstream.tres" id="5_4p8lc"]
+[ext_resource type="ArrayMesh" uid="uid://0gbym4tb21kp" path="res://scenes/dev/chrizz/prototyping/waves.obj" id="6_0kq2q"]
+[ext_resource type="Shader" uid="uid://q8q163jukosm" path="res://scenes/dev/chrizz/prototyping/dawn_caustics_aura_nonbillboard.tres" id="7_5sps6"]
+[ext_resource type="Shader" uid="uid://bii13ecvcx0vv" path="res://scenes/dev/chrizz/prototyping/dawn_caustics_aura.tres" id="8_6m2nc"]
+[ext_resource type="Shader" uid="uid://usej5ia4h82v" path="res://scenes/dev/chrizz/prototyping/dawn_chargeaura.tres" id="9_wmg55"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_45ydp"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_hjypb")
+emission_enabled = true
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_h84bc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.006165147), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3f055"]
+curve = SubResource("Curve_h84bc")
+
+[sub_resource type="Gradient" id="Gradient_cg3pb"]
+offsets = PackedFloat32Array(0.44630873, 1)
+colors = PackedColorArray(4.0059752, 2.1039853, 0.54918367, 1, 0.632373, 0.93025047, 0.95364636, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xmoco"]
+gradient = SubResource("Gradient_cg3pb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v7g43"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 1.8
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 17.542
+initial_velocity_max = 0.29999998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.099999994
+color = Color(1.2003537, 1.0196761, 0.78194207, 1)
+color_ramp = SubResource("GradientTexture1D_xmoco")
+alpha_curve = SubResource("CurveTexture_3f055")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dvq0k"]
+size = Vector2(4, 4)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7wd4a"]
+render_priority = 0
+shader = ExtResource("3_mcc40")
+
+[sub_resource type="Curve" id="Curve_3f055"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20679012, 1), 0.1714861, 0.1714861, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_cg3pb"]
+curve = SubResource("Curve_3f055")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mcc40"]
+gravity = Vector3(0, 0, 0)
+color = Color(2.6996513e-05, 1.2434195, 1.6023284, 1)
+alpha_curve = SubResource("CurveTexture_cg3pb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7g43"]
+render_priority = 0
+shader = ExtResource("5_4p8lc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b3phu"]
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+color = Color(2.6996513e-05, 1.2434195, 1.6023284, 1)
+alpha_curve = SubResource("CurveTexture_cg3pb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0mmn4"]
+render_priority = 0
+shader = ExtResource("7_5sps6")
+shader_parameter/ColorParameter = Color(8e-06, 0.667188, 0.8998, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hjypb"]
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+color = Color(2.6996513e-05, 1.2434195, 1.6023284, 1)
+alpha_curve = SubResource("CurveTexture_cg3pb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb3x3"]
+render_priority = 0
+shader = ExtResource("8_6m2nc")
+
+[sub_resource type="Curve" id="Curve_cg3pb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xmoco"]
+curve = SubResource("Curve_cg3pb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ag0r6"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_xmoco")
+color = Color(2.6996513e-05, 1.2434195, 1.6023284, 1)
+alpha_curve = SubResource("CurveTexture_cg3pb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehjd0"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("9_wmg55")
+
+[node name="DawnChargeVFX" type="Node3D" node_paths=PackedStringArray("light", "particles")]
+script = ExtResource("1_b3phu")
+lifetime = 2.0
+light = NodePath("OmniLight3D")
+particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
+
+[node name="MusicNotes" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6074677, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_45ydp")
+emitting = false
+amount = 16
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_v7g43")
+draw_pass_1 = SubResource("QuadMesh_dvq0k")
+
+[node name="StaffRing" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.66775, 0)
+visible = false
+material_override = SubResource("ShaderMaterial_7wd4a")
+emitting = false
+amount = 1
+lifetime = 0.8
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_mcc40")
+draw_pass_1 = ExtResource("4_djf37")
+
+[node name="StreamCaustics" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -0.10724807, -2.4388032, 1.6570206)
+material_override = SubResource("ShaderMaterial_v7g43")
+emitting = false
+amount = 1
+lifetime = 0.8
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_b3phu")
+draw_pass_1 = ExtResource("6_0kq2q")
+
+[node name="FloorCaustics" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.106943846, -2.9661467, -0.43862295)
+material_override = SubResource("ShaderMaterial_0mmn4")
+emitting = false
+amount = 1
+lifetime = 0.8
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_hjypb")
+draw_pass_1 = SubResource("QuadMesh_dvq0k")
+
+[node name="AuraCaustics" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106943846, -2.3257928, -0.43862295)
+material_override = SubResource("ShaderMaterial_eb3x3")
+emitting = false
+amount = 1
+lifetime = 0.8
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ag0r6")
+draw_pass_1 = SubResource("QuadMesh_dvq0k")
+
+[node name="ChargeVFX" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106943846, -2.3257928, -0.43862295)
+material_override = SubResource("ShaderMaterial_ehjd0")
+emitting = false
+amount = 1
+lifetime = 0.8
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ag0r6")
+draw_pass_1 = SubResource("QuadMesh_dvq0k")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.2429283, 0)
+visible = false
+light_color = Color(0.44584835, 0.7245143, 0.8957288, 1)
+light_energy = 0.0
+light_indirect_energy = 5.974
+light_volumetric_fog_energy = 4.731
+light_specular = 0.666
+omni_range = 14.686

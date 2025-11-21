@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://2sdva6jvo8eq"]
+
+[ext_resource type="PackedScene" uid="uid://emwydthbgot3" path="res://scenes/dev/chrizz/prototyping/dawn_stream.glb" id="1_nfc04"]
+[ext_resource type="Shader" uid="uid://bj0houc6tnfxa" path="res://scenes/dev/chrizz/prototyping/dawnstream.tres" id="2_wu66x"]
+[ext_resource type="Shader" uid="uid://q8q163jukosm" path="res://scenes/dev/chrizz/prototyping/dawn_caustics_aura_nonbillboard.tres" id="3_wu66x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5jny"]
+render_priority = 0
+shader = ExtResource("2_wu66x")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c1ldg"]
+render_priority = 0
+shader = ExtResource("3_wu66x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l11yt"]
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+
+[node name="dawn_stream" instance=ExtResource("1_nfc04")]
+
+[node name="BezierCurve_004" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_e5jny")
+
+[node name="FloorCaustics" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -4.350957, 3.5762787e-07)
+material_override = SubResource("ShaderMaterial_c1ldg")
+amount = 1
+lifetime = 1.56
+process_material = SubResource("ParticleProcessMaterial_l11yt")
