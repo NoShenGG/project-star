@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="14_6scqm"]
 [ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="15_f30ws"]
 [ext_resource type="Texture2D" uid="uid://d0np8pel0cm26" path="res://art_assets/Ui/FinalPortraits/dawnCLEAR.png" id="16_mq6a5"]
-[ext_resource type="Script" uid="uid://knd2e7gdbpfb" path="res://scripts/utility/menu_area.gd" id="17_6scqm"]
+[ext_resource type="Script" path="res://scripts/utility/menu_area.gd" id="17_6scqm"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="18_f30ws"]
 [ext_resource type="Texture2D" uid="uid://baw1g0c8nn8qt" path="res://art_assets/Ui/TextboxLarge.png" id="19_mq6a5"]
 
@@ -262,6 +262,16 @@ environment = SubResource("Environment_f30ws")
 transform = Transform3D(-0.89542913, 0.49204978, -1.6037996, -1.0622574, 5.251317, 0.8061593, 1.0065293, 5.9798083, -0.57598037, -2.5909271, -62.65957, -19.99566)
 size = Vector3(165.4, 9.7, 233.25)
 material = SubResource("FogMaterial_mq6a5")
+
+[node name="Ambiance SFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Levels/GrassLand/Cave Ambiance"
+event_guid = "{ae17bacc-f896-436e-8226-eec66b9e436a}"
+autoplay = true
+
+[node name="Music SFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Music/Biome3_Level1"
+event_guid = "{d6f9846d-2f42-46c3-8563-0139cad86dba}"
+autoplay = true
 
 [connection signal="ended" from="WaveManager/Wave4" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
