@@ -3,6 +3,8 @@
 [ext_resource type="Shader" uid="uid://8l3nttsqbjy1" path="res://sh.tres" id="1_ikopc"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_eul7n"]
+radius = 1.0
+height = 2.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01170"]
 render_priority = 0
