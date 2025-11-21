@@ -49,7 +49,7 @@ func _ready() -> void:
 			(c as Player).get_node("CollisionShape3D").disabled = true
 		else:
 			(c as Player).special_available.connect(await_special)
-			(c as Player).killed.connect(on_player_killed)
+			(c as Player).killed.connect(on_player_killed.call_deferred)
 			
 		# use signal directly instead of function because we should pass in the character to update
 		player_hp_update.emit(c, c._hp / c._max_hp)
@@ -70,7 +70,6 @@ func _process(_delta: float) -> void:
 		return
 	
 	if current_char.can_swap():
-		print("here")
 		if (Input.is_action_just_pressed("select_char1")):
 			swap_char(0)
 		elif (Input.is_action_just_pressed("select_char2")):
@@ -140,10 +139,10 @@ func swap_char_to(new_char: Player):
 	(new_char.state_machine as PlayerStateMachine).swap_in()
 	
 	current_char.special_available.disconnect(await_special)
-	current_char.killed.disconnect(on_player_killed)
+	current_char.killed.disconnect(on_player_killed.call_deferred)
 
 	new_char.special_available.connect(await_special)
-	new_char.killed.connect(on_player_killed)
+	new_char.killed.connect(on_player_killed.call_deferred)
 	current_char = new_char
 	
 	# use signal directly instead of function because we should pass in the character to update

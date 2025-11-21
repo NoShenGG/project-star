@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://djfekv55fum3x" path="res://scripts/pitch_pivot.gd" id="4_mbt4c"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="7_l7gm4"]
 [ext_resource type="PackedScene" uid="uid://b8wp31vm3qtbx" path="res://scenes/dev/raymond_b/game_ui.tscn" id="7_q78nk"]
-[ext_resource type="Script" path="res://austin_newby/menu/menu_element.gd" id="9_0dwuh"]
+[ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="9_0dwuh"]
 [ext_resource type="Script" uid="uid://43igx2jhor0s" path="res://scripts/utility/death_menu.gd" id="9_41j18"]
 
 [sub_resource type="Curve" id="Curve_wmnvy"]
@@ -27,16 +27,16 @@ top_level = true
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.065766536, 0.5220816, -0.5067631, 0.68285924)
-bones/15/rotation = Quaternion(-0.17055207, 0.5684285, 0.23437372, 0.76998055)
-bones/16/rotation = Quaternion(-0.5032243, -0.47830215, -0.26168808, 0.67045647)
-bones/21/rotation = Quaternion(-0.13696241, 0.36780965, -0.471049, 0.7899812)
-bones/22/rotation = Quaternion(-0.07460444, 0.37791348, 0.18589336, 0.9039134)
-bones/23/rotation = Quaternion(0.13186736, 0.11147063, -0.08798964, 0.98104185)
-bones/38/rotation = Quaternion(-0.35094795, 0.70596457, 0.06082936, 0.6121679)
+bones/14/rotation = Quaternion(-0.0758144, 0.52663004, -0.5068298, 0.6782599)
+bones/15/rotation = Quaternion(-0.15361209, 0.54155153, 0.22933255, 0.79406035)
+bones/16/rotation = Quaternion(-0.51611596, -0.46717617, -0.22798191, 0.68073124)
+bones/21/rotation = Quaternion(-0.12920623, 0.4029929, -0.47461703, 0.7717778)
+bones/22/rotation = Quaternion(-0.054947484, 0.32120514, 0.16740239, 0.9304754)
+bones/23/rotation = Quaternion(0.10663814, 0.13337533, -0.07511002, 0.9824449)
+bones/38/rotation = Quaternion(-0.35038817, 0.70624137, 0.061315294, 0.6121208)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0031206745, -0.5699957, 0.82164156, -0.4224138, 0.74549276, 0.51556474, -0.9063975, -0.3454638, -0.24310052, 0.0060525257, 0.0071786023, -0.013186689)
+transform = Transform3D(-0.0040211934, -0.56999016, 0.82164156, -0.42122945, 0.7461614, 0.51556647, -0.906945, -0.3440264, -0.24309719, 0.006038457, 0.007197128, -0.01319519)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -206,6 +206,7 @@ open_animation_flags = 5
 [editable path="Nova"]
 [editable path="Nova/nova"]
 [editable path="Rene"]
+[editable path="Rene/rene_rig"]
 [editable path="Dawn"]
 [editable path="Dawn/dawn_rig"]
 [editable path="Game Menu/GameUi"]
