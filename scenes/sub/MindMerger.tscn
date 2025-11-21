@@ -17,7 +17,8 @@ point_count = 3
 size = Vector3(0.5, 3, 0.5)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r8l07"]
-radius = 15.0
+height = 10.0
+radius = 100.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0h12a"]
 
