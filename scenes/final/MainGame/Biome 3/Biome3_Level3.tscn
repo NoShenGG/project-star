@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cdvkjgovnta44"]
+[gd_scene load_steps=52 format=3 uid="uid://cdvkjgovnta44"]
 
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="1_p3r0m"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="2_mvyfq"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="6_p3r0m"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="7_1123x"]
 [ext_resource type="PackedScene" uid="uid://jr71mbkvd0y7" path="res://scenes/sub/MindMerger.tscn" id="7_ggxbb"]
-[ext_resource type="PackedScene" uid="uid://c2c748wm51fs2" path="res://scenes/sub/Tendril.tscn" id="8_k5jyb"]
+[ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="11_ggxbb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mvyfq"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -23,6 +23,7 @@ background_mode = 2
 sky = SubResource("Sky_3dy8t")
 tonemap_mode = 2
 glow_enabled = true
+glow_intensity = 8.0
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_n0jqv"]
 vertices = PackedVector3Array(-26.036224, 0.4851489, -209.3521, -24.536224, 0.4851489, -203.6021, -23.786224, 0.4851489, -203.3521, -3.2862244, 0.4851489, -192.1021, -3.0362244, 0.4851489, -189.8521, 2.9637756, 0.4851489, -189.8521, 3.2137756, 0.4851489, -192.1021, 6.2137756, 0.4851489, -192.1021, 6.2137756, 0.4851489, -224.3521, -23.786224, 0.4851489, -211.1021, -23.786224, 0.4851489, -192.1021, -23.786224, 0.4851489, -224.3521, -52.036224, 0.4851489, -190.3521, -49.786224, 0.4851489, -184.8521, -71.536224, 0.4851489, -168.6021, -71.286224, 0.4851489, -167.8521, -65.036224, 0.4851489, -167.3521, -64.286224, 0.4851489, -168.6021, -76.286224, 0.4851489, -190.3521, -49.786224, 0.4851489, -168.6021, -76.286224, 0.4851489, -168.6021, -3.0362244, 0.4851489, -152.6021, 2.9637756, 0.4851489, -152.6021, 74.213776, 8.985149, -153.8521, 81.463776, 8.985149, -153.8521, 81.713776, 9.735149, -155.8521, 73.963776, 9.735149, -155.8521, 83.713776, 9.485149, -169.1021, 69.713776, 9.485149, -169.1021, 83.713776, 9.485149, -155.8521, 69.713776, 9.485149, -155.8521, -75.786224, 0.4851489, -142.6021, -82.036224, 0.4851489, -143.1021, 74.213776, 0.9851489, -132.3521, 81.463776, 0.9851489, -132.3521, 2.9637756, 0.4851489, -150.6021, -3.2862244, 0.4851489, -150.3521, -23.786224, 0.4851489, -150.3521, -23.786224, 0.4851489, -101.3521, 5.2137756, 0.4851489, -101.3521, 5.2137756, 0.4851489, -150.3521, 28.463776, 0.4851489, -121.8521, 30.463776, 0.4851489, -122.1021, 30.463776, 0.4851489, -130.3521, 28.463776, 0.4851489, -130.6021, 28.463776, 0.4851489, -150.3521, 28.463776, 0.4851489, -101.3521, -75.536224, 0.4851489, -141.6021, -82.786224, 0.4851489, -141.6021, -86.036224, 0.4851489, -115.3521, -67.786224, 0.4851489, -115.3521, -66.536224, 0.4851489, -113.6021, -58.786224, 0.4851489, -114.1021, -58.786224, 0.4851489, -115.3521, -55.286224, 0.4851489, -141.6021, -86.036224, 0.4851489, -141.6021, -55.286224, 0.4851489, -115.3521, 81.463776, 0.4851489, -130.6021, 74.213776, 0.4851489, -130.6021, 72.463776, 0.4851489, -130.3521, 72.713776, 0.4851489, -122.1021, 82.963776, 0.4851489, -122.1021, 83.213776, 0.4851489, -130.3521, 87.713776, 0.4851489, -122.1021, 87.713776, 0.4851489, -130.3521, -49.786224, 0.4851489, -88.3521, -44.536224, 0.4851489, -93.1021, -45.286224, 0.4851489, -93.6021, -49.286224, 0.4851489, -87.8521, -31.536224, 0.4851489, -65.6021, -29.036224, 0.4851489, -71.6021, -31.786224, 0.4851489, -74.6021, -49.286224, 0.4851489, -65.6021, -31.786224, 0.4851489, -93.1021, -11.036224, 0.4851489, -44.852097, -7.2862244, 0.4851489, -49.852097, -3.2862244, 0.4851489, -25.852097, -3.0362244, 0.4851489, -23.602097, 2.9637756, 0.4851489, -23.602097, 3.2137756, 0.4851489, -25.852097, -11.036224, 0.4851489, -25.852097, 10.963776, 0.4851489, -49.852097, 10.963776, 0.4851489, -25.852097, -3.0362244, 0.4851489, 7.3979034, 2.9637756, 0.4851489, 7.3979034)
@@ -133,10 +134,18 @@ size = Vector3(7.545, 6, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3hrir"]
 size = Vector3(7.545, 6, 1)
 
+[sub_resource type="SphereMesh" id="SphereMesh_ggxbb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5jyb"]
+transparency = 1
+albedo_color = Color(4.3633347, 1.0725267, 3.2683413, 0.58)
+emission_enabled = true
+emission = Color(1.4849422, 0.63221, 1.3570324, 1)
+
 [node name="Level3" type="Node3D"]
 
 [node name="LevelEnder" parent="." instance=ExtResource("7_1123x")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 79.913246, 7.9651995, -157.06155)
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 74.14805, 7.9651995, -161.61205)
 next_level = "credits/credits"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -260,7 +269,7 @@ metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
 [node name="Wave6" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("2_mvyfq")
-enemies = Array[PackedScene]([ExtResource("5_enm0d"), ExtResource("6_n0jqv"), ExtResource("7_ggxbb"), ExtResource("8_k5jyb")])
+enemies = Array[PackedScene]([ExtResource("5_enm0d"), ExtResource("6_n0jqv"), ExtResource("7_ggxbb"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("5_enm0d"), ExtResource("6_ggxbb"), ExtResource("6_n0jqv")])
 spawn_areas = [NodePath("../SpawnArea9"), NodePath("../SpawnArea12"), NodePath("../SpawnArea13")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
@@ -738,6 +747,15 @@ shape = SubResource("BoxShape3D_1123x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1689177, 2.0005443, -24.327349)
 shape = SubResource("BoxShape3D_3hrir")
 
+[node name="Gate" parent="." instance=ExtResource("11_ggxbb")]
+transform = Transform3D(-7.649493e-08, 0, 1.75, 0, 1.75, 0, -1.75, 0, -7.649493e-08, 30.088423, 1.0413802, -120.68304)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 76.4267, 17.540577, -216.60486)
+mesh = SubResource("SphereMesh_ggxbb")
+surface_material_override/0 = SubResource("StandardMaterial3D_k5jyb")
+
+[connection signal="ended" from="WaveManager/Wave6" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
 [connection signal="body_entered" from="WaveManager/Wave_Starter2" to="WaveManager/Wave2" method="validate_condition"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter3" to="WaveManager/Wave3" method="validate_condition"]

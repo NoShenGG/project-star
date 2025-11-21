@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgdpkq36jujfn"]
+[gd_scene load_steps=16 format=3 uid="uid://bgdpkq36jujfn"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_8jmja"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_jhliq"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="3_qeh4q"]
 [ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="5_8jmja"]
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="6_8jmja"]
-[ext_resource type="PackedScene" uid="uid://c2c748wm51fs2" path="res://scenes/sub/Tendril.tscn" id="6_jhliq"]
+[ext_resource type="PackedScene" uid="uid://cv7a8503lutop" path="res://scenes/sub/DifficultKoboldEnemy.tscn" id="6_qeh4q"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="7_10abd"]
+[ext_resource type="PackedScene" uid="uid://bo8i2glbe0u23" path="res://scenes/sub/fortifier.tscn" id="7_t5tva"]
+[ext_resource type="PackedScene" uid="uid://7e32g1yd24m8" path="res://art_assets/environment/Biome3/Level1/Level3-1-Chipped.glb" id="8_jhliq"]
+[ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="10_t5tva"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jhliq"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,8 +25,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8o628"]
-vertices = PackedVector3Array(-37.5, 0.5, -42.55271, -37.5, 0.5, 32.44729, 37.5, 0.5, 32.44729, 37.5, 0.5, -42.55271)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+vertices = PackedVector3Array(134.49998, 4.5, -199.99998, 147.74998, 4.5, -199.99998, 151.74998, 4.5, -200.24998, 151.74998, 4.5, -205.49998, 130.49998, 4.5, -205.49998, 130.49998, 4.5, -200.24998, 134.49998, -19.25, -167.74998, 147.74998, -19.25, -167.74998, 147.99998, -20.5, -165.74998, 134.24998, -20.5, -165.74998, 121.499985, -20.5, -99.999985, 161.49998, -20.5, -99.999985, 121.499985, -20.5, -165.74998, 161.49998, -20.5, -165.74998, 21.499987, -20.5, -71.249985, 47.749985, -20.5, -71.249985, 47.499985, -20.5, -81.499985, 47.999985, -20.25, -81.499985, 47.999985, -20.5, -114.749985, 21.499987, -20.5, -114.749985, 48.499985, -20.25, -81.499985, 48.499985, -19.25, -79.749985, 62.749985, -19.25, -79.749985, 62.749985, -20.25, -81.499985, 63.249985, -20.5, -114.749985, 63.249985, -20.25, -81.499985, 63.499985, -20.5, -81.499985, 93.749985, -20.5, -97.999985, 93.749985, -20.5, -114.749985, 94.249985, -20.5, -97.749985, 121.249985, -20.5, -97.749985, 119.249985, -20.5, -97.749985, 119.249985, -20.5, -82.249985, 121.499985, -20.5, -81.999985, 121.499985, -20.5, -66.999985, 161.49998, -20.5, -66.999985, 95.999985, -20.5, -82.249985, 95.999985, -20.5, -97.749985, 93.749985, -20.5, -81.999985, 63.499985, -20.5, -71.249985, 93.749985, -20.5, -71.249985, 48.499985, -0.25, -44.999985, 62.749985, -0.25, -44.749985, 22.249987, 0.5, -29.999985, 24.499987, 0.5, -30.249985, 24.499987, 0.5, -43.249985, 22.249987, 0.5, -43.499985, 11.999987, 0.5, -11.249985, 22.249987, 0.5, -11.249985, -11.500013, 0.5, -9.249985, 11.749987, 0.5, -9.249985, -11.750013, 0.5, -11.249985, -22.000013, 0.5, -48.749985, -22.000013, 0.5, -11.249985, 22.249987, 0.5, -48.749985, 37.249985, 0.5, -43.249985, 37.249985, 0.5, -30.249985, 39.249985, 0.5, -30.249985, 48.249985, 0.5, -43.249985, 39.499985, 0.5, -28.499985, 62.749985, 0.5, -28.749985, 62.749985, 0.5, -43.29544, 39.499985, 0.5, -12.249985, 62.749985, 0.5, -12.249985, -11.500013, 0.5, 12.250015, 11.749987, 0.5, 12.250015)
+polygons = [PackedInt32Array(5, 4, 0), PackedInt32Array(0, 4, 1), PackedInt32Array(1, 4, 2), PackedInt32Array(2, 4, 3), PackedInt32Array(0, 1, 6), PackedInt32Array(6, 1, 7), PackedInt32Array(7, 8, 6), PackedInt32Array(6, 8, 9), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(10, 12, 9), PackedInt32Array(8, 13, 11), PackedInt32Array(16, 15, 14), PackedInt32Array(18, 17, 16), PackedInt32Array(18, 16, 19), PackedInt32Array(19, 16, 14), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(20, 18, 23), PackedInt32Array(23, 18, 24), PackedInt32Array(24, 25, 23), PackedInt32Array(20, 17, 18), PackedInt32Array(25, 24, 26), PackedInt32Array(26, 24, 27), PackedInt32Array(27, 24, 28), PackedInt32Array(26, 27, 29), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 33), PackedInt32Array(35, 34, 33), PackedInt32Array(30, 10, 33), PackedInt32Array(33, 10, 11), PackedInt32Array(33, 11, 35), PackedInt32Array(37, 36, 29), PackedInt32Array(29, 36, 38), PackedInt32Array(29, 38, 26), PackedInt32Array(39, 26, 40), PackedInt32Array(40, 26, 38), PackedInt32Array(37, 31, 36), PackedInt32Array(36, 31, 32), PackedInt32Array(21, 22, 41), PackedInt32Array(41, 22, 42), PackedInt32Array(45, 44, 43), PackedInt32Array(45, 43, 46), PackedInt32Array(46, 43, 47), PackedInt32Array(43, 48, 47), PackedInt32Array(49, 51, 50), PackedInt32Array(50, 51, 47), PackedInt32Array(51, 53, 52), PackedInt32Array(46, 47, 54), PackedInt32Array(54, 47, 51), PackedInt32Array(54, 51, 52), PackedInt32Array(56, 55, 57), PackedInt32Array(57, 55, 58), PackedInt32Array(58, 41, 42), PackedInt32Array(42, 61, 58), PackedInt32Array(58, 61, 60), PackedInt32Array(58, 60, 57), PackedInt32Array(57, 60, 59), PackedInt32Array(45, 55, 44), PackedInt32Array(44, 55, 56), PackedInt32Array(62, 59, 63), PackedInt32Array(63, 59, 60), PackedInt32Array(65, 64, 50), PackedInt32Array(50, 64, 49)]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8mtqa"]
 size = Vector3(15, 3, 15)
@@ -43,18 +46,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
 stage = 2
 
 [node name="LevelEnder" parent="." instance=ExtResource("7_10abd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9348946, -9.536743e-07, -8.2116165)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 141.14204, 4.1178856, -202.57288)
 next_level = "MainGame/Biome 3/Biome3_Level3"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_8o628")
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -5.05271)
-size = Vector3(76, 1, 76)
 
 [node name="WaveManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
@@ -69,12 +65,24 @@ metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
 [node name="Wave2" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("3_qeh4q")
-enemies = Array[PackedScene]([ExtResource("6_jhliq")])
-spawn_areas = [NodePath("../SpawnArea1")]
+enemies = Array[PackedScene]([ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("5_8jmja")])
+spawn_areas = [NodePath("../SpawnArea2")]
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
+
+[node name="Wave3" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("3_qeh4q")
+enemies = Array[PackedScene]([ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("6_qeh4q")])
+spawn_areas = [NodePath("../SpawnArea3")]
+metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
+
+[node name="Wave4" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
+script = ExtResource("3_qeh4q")
+enemies = Array[PackedScene]([ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("6_qeh4q"), ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("5_8jmja"), ExtResource("6_qeh4q"), ExtResource("6_qeh4q"), ExtResource("5_8jmja"), ExtResource("7_t5tva"), ExtResource("7_t5tva")])
+spawn_areas = [NodePath("../SpawnArea4")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
 [node name="Wave_Starter" type="Area3D" parent="WaveManager"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -14.77544, 0, 44.378326)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -23.960766, 0, 45.815807)
 collision_layer = 0
 collision_mask = 2
 
@@ -83,9 +91,21 @@ shape = SubResource("BoxShape3D_8mtqa")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
 [node name="SpawnArea1" parent="WaveManager" instance=ExtResource("6_8jmja")]
-transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -22.42935, -1.9073486e-06, 30.670176)
+transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -11.738394, -1.9073486e-06, 19.086544)
 
 [node name="SpawnArea2" parent="WaveManager" instance=ExtResource("6_8jmja")]
-transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -8.623074, -1.9073486e-06, 31.788107)
+transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, 26.230919, -1.9073486e-06, 19.149937)
 
+[node name="SpawnArea3" parent="WaveManager" instance=ExtResource("6_8jmja")]
+transform = Transform3D(19.929756, 0, 0, 0, 1, 0, 0, 0, 18.712498, 40.554512, -19.614016, -53.76763)
+
+[node name="SpawnArea4" parent="WaveManager" instance=ExtResource("6_8jmja")]
+transform = Transform3D(19.929756, 0, 0, 0, 1, 0, 0, 0, 70.04599, 121.79181, -19.614016, -67.47702)
+
+[node name="Level3-1-Chipped" parent="." instance=ExtResource("8_jhliq")]
+
+[node name="Gate" parent="." instance=ExtResource("10_t5tva")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 141.32158, -19.366611, -167.0379)
+
+[connection signal="ended" from="WaveManager/Wave4" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]

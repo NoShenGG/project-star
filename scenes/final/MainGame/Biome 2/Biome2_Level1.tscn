@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bm70618q6syf3"]
+[gd_scene load_steps=19 format=3 uid="uid://bm70618q6syf3"]
 
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="1_8ylh7"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_poq37"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="9_ylyoc"]
 [ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://vfx/Kenny Particle Pack/star_06.png" id="10_ivk6n"]
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="11_o7dqi"]
+[ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="12_ylyoc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_smqis"]
 size = Vector3(15, 3, 15)
@@ -64,16 +65,16 @@ transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 
 particles = [NodePath("sparks"), NodePath("sparks")]
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.066487424, 0.52294576, -0.5062997, 0.6824719)
-bones/15/rotation = Quaternion(-0.16301206, 0.55673206, 0.23227814, 0.7807199)
-bones/16/rotation = Quaternion(-0.50863636, -0.46796912, -0.2511042, 0.677673)
-bones/21/rotation = Quaternion(-0.15013894, 0.38843507, -0.45621777, 0.78641075)
-bones/22/rotation = Quaternion(-0.06862248, 0.3616805, 0.18073629, 0.9120377)
-bones/23/rotation = Quaternion(0.14539887, 0.11010829, -0.07403064, 0.980436)
-bones/38/rotation = Quaternion(-0.34847975, 0.70718056, 0.06296999, 0.61195785)
+bones/14/rotation = Quaternion(-0.07403273, 0.52525747, -0.50690645, 0.67946273)
+bones/15/rotation = Quaternion(-0.15953125, 0.5511765, 0.23122391, 0.78567797)
+bones/16/rotation = Quaternion(-0.51174027, -0.47322524, -0.23808153, 0.6763852)
+bones/21/rotation = Quaternion(-0.12662745, 0.38865635, -0.47936034, 0.7766114)
+bones/22/rotation = Quaternion(-0.06075465, 0.33894724, 0.17331828, 0.92270494)
+bones/23/rotation = Quaternion(0.10643927, 0.12907477, -0.082634725, 0.9824367)
+bones/38/rotation = Quaternion(-0.3517166, 0.7055835, 0.060161762, 0.61223197)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.007087673, -0.56996006, 0.8216418, -0.41718748, 0.748425, 0.5155721, -0.90879273, -0.3391244, -0.24308491, 0.0059905523, 0.007260355, -0.013223881)
+transform = Transform3D(-0.0018836275, -0.5700012, 0.8216418, -0.4240391, 0.74457103, 0.5155626, -0.905642, -0.3474371, -0.24310529, 0.0060718516, 0.007153178, -0.013174955)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -662,6 +663,10 @@ text = "Rene can heal the party with his charged
 attack, special, or charged special. Press
 [ESC] to see more details"
 
+[node name="Gate" parent="." instance=ExtResource("12_ylyoc")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 32.879498, 0.98399746, -104.41482)
+
+[connection signal="ended" from="WaveManager/Wave3" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
 
 [editable path="PlayerManager"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jr71mbkvd0y7"]
+[gd_scene load_steps=14 format=3 uid="uid://jr71mbkvd0y7"]
 
 [ext_resource type="Script" uid="uid://cqvnsb4oww5ln" path="res://scripts/entities/enemies/mind_merger.gd" id="1_wql7c"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_w4rfv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bs5dsgl2o6vvq" path="res://scripts/entities/enemies/mindmerger/merger_flee.gd" id="5_0h12a"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="6_paam0"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="7_mxyim"]
+[ext_resource type="PackedScene" uid="uid://detgfxxw32jaf" path="res://art_assets/enemies/mind_merger/mind_merger.glb" id="8_3c6eo"]
 
 [sub_resource type="Curve" id="Curve_wql7c"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5163044, 0.49438208), 2.6009421, 2.6009421, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -14,13 +15,6 @@ point_count = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kpfxc"]
 size = Vector3(0.5, 3, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67oe1"]
-albedo_color = Color(0.819608, 0.207843, 1, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_kpfxc"]
-material = SubResource("StandardMaterial3D_67oe1")
-height = 3.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r8l07"]
 radius = 15.0
@@ -37,8 +31,8 @@ script = ExtResource("1_wql7c")
 flee_state = NodePath("StateMachine/Fleeing")
 EXPANSION_CURVE = SubResource("Curve_wql7c")
 faction = 2
-_hp = 30.0
-_max_hp = 30.0
+_hp = 50.0
+_max_hp = 50.0
 _break_hits = 5
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -71,10 +65,6 @@ event_guid = "{d292bdea-6d42-49b6-80a9-efead1ea1399}"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("BoxShape3D_kpfxc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-mesh = SubResource("CapsuleMesh_kpfxc")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 0.25
@@ -119,6 +109,9 @@ event_guid = "{25102f76-9e12-4e7e-acfe-2168f43df8fc}"
 event_name = "event:/Enemys/MindMerger/MindMerger Hum"
 event_guid = "{96181245-cf7e-464a-a532-158335115486}"
 autoplay = true
+
+[node name="mind_merger2" parent="." instance=ExtResource("8_3c6eo")]
+transform = Transform3D(-1.3113417e-05, 0, 300, 0, 300, 0, -300, 0, -1.3113417e-05, 0, 0, 0)
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
