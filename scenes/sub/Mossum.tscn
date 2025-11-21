@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b4yuuj85lxdw8" path="res://scripts/entities/enemies/mossum/Mossum.gd" id="1_ecso2"]
 [ext_resource type="PackedScene" uid="uid://ddx34kp4dcdqk" path="res://art_assets/enemies/mossum/mossum_rig.gltf" id="2_g0rg0"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_l26uf"]
-[ext_resource type="Script" uid="uid://by26cigx6ba0v" path="res://vfx/wool_shell_texturing_tool.gd" id="3_3yrp7"]
+[ext_resource type="Script" uid="uid://by26cigx6ba0v" path="res://VFX/wool_shell_texturing_tool.gd" id="3_3yrp7"]
 [ext_resource type="ArrayMesh" uid="uid://bypccelfa5tm" path="res://art_assets/enemies/mossum/body.res" id="5_jimdk"]
 [ext_resource type="Shader" uid="uid://bvi3yis7lfg51" path="res://shaders/wool_shell_texturing.gdshader" id="6_jl60r"]
 [ext_resource type="Texture2D" uid="uid://c03u082aeesl3" path="res://art_assets/textures/wool_albedo.jpg" id="7_mdqfx"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://di4qml3bmbcmh" path="res://art_assets/enemies/Weapons/SwordBase.glb" id="9_ye2ne"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="10_dd6ky"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pn82"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dd6ky"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -23,7 +23,7 @@ shader_parameter/shell_idx = 0
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jimdk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pn82"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -35,7 +35,7 @@ shader_parameter/shell_idx = 1
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jl60r"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jimdk"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -47,7 +47,7 @@ shader_parameter/shell_idx = 2
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mdqfx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jl60r"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -59,7 +59,7 @@ shader_parameter/shell_idx = 3
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ws1j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mdqfx"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -71,7 +71,7 @@ shader_parameter/shell_idx = 4
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ye2ne"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ws1j"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -83,7 +83,7 @@ shader_parameter/shell_idx = 5
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s7jtx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ye2ne"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -95,7 +95,7 @@ shader_parameter/shell_idx = 6
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hj6e"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s7jtx"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -107,7 +107,7 @@ shader_parameter/shell_idx = 7
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qshis"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hj6e"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -119,7 +119,7 @@ shader_parameter/shell_idx = 8
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oxgda"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qshis"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -150,7 +150,7 @@ attack_radius = 3.0
 passive_death_time = 1.0
 
 [node name="mossum_rig" parent="." instance=ExtResource("2_g0rg0")]
-transform = Transform3D(3.235, 0, 0, 0, 3.235, 0, 0, 0, 3.235, 0, -0.54, 0)
+transform = Transform3D(3.235, 0, 0, 0, 3.235, 0, 0, 0, 3.235, 0, 0.060000002, 0)
 
 [node name="wool_shell_texturing_tool" type="Node3D" parent="mossum_rig"]
 script = ExtResource("3_3yrp7")
@@ -164,48 +164,49 @@ min_ambient_occlusion = 0.4
 
 [node name="Shell_0" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_2pn82")
+surface_material_override/0 = SubResource("ShaderMaterial_dd6ky")
 
 [node name="Shell_1" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_2pn82")
 
 [node name="Shell_2" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_jl60r")
+surface_material_override/0 = SubResource("ShaderMaterial_jimdk")
 
 [node name="Shell_3" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_mdqfx")
+surface_material_override/0 = SubResource("ShaderMaterial_jl60r")
 
 [node name="Shell_4" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_5ws1j")
+surface_material_override/0 = SubResource("ShaderMaterial_mdqfx")
 
 [node name="Shell_5" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_ye2ne")
+surface_material_override/0 = SubResource("ShaderMaterial_5ws1j")
 
 [node name="Shell_6" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_s7jtx")
+surface_material_override/0 = SubResource("ShaderMaterial_ye2ne")
 
 [node name="Shell_7" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_7hj6e")
+surface_material_override/0 = SubResource("ShaderMaterial_s7jtx")
 
 [node name="Shell_8" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_qshis")
+surface_material_override/0 = SubResource("ShaderMaterial_7hj6e")
 
 [node name="Shell_9" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_oxgda")
+surface_material_override/0 = SubResource("ShaderMaterial_qshis")
 
 [node name="SwordBase" parent="mossum_rig" instance=ExtResource("9_ye2ne")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.205, 0.565)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("BoxShape3D_l26uf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -230,7 +231,7 @@ texture = SubResource("ViewportTexture_g0rg0")
 
 [node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("10_dd6ky")]
 dissolveDuration = 1.0
-meshes = [NodePath("../mossum_rig/Skeleton3D/body"), NodePath("../mossum_rig/Skeleton3D/everything_else"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_0"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_1"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_2"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_3"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_4"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_5"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_6"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_7"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_8"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_9"), NodePath("../mossum_rig/SwordBase/Cube_001")]
+meshes = [NodePath("../mossum_rig/Skeleton3D/body"), NodePath("../mossum_rig/Skeleton3D/everything_else"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_8"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_6"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_3"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_9"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_1"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_0"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_7"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_4"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_2"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_5"), NodePath("../mossum_rig/SwordBase/Cube_001")]
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
