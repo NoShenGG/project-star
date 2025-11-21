@@ -55,6 +55,7 @@ size = Vector3(6, 2, 6)
 
 [node name="PlayerManager" parent="." instance=ExtResource("7_ivk6n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 15.590168)
+stage = 1
 
 [node name="LevelEnder" parent="." instance=ExtResource("1_8ylh7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.065105, -9.536743e-07, -127.21162)

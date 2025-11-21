@@ -39,9 +39,9 @@ script = ExtResource("3_em2bo")
 script = ExtResource("4_bb0s1")
 
 [node name="rocket_shroom" parent="." instance=ExtResource("2_bb0s1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575, 0)
 shape = SubResource("BoxShape3D_2l4st")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -51,7 +51,7 @@ path_max_distance = 100.01
 debug_path_custom_color = Color(0, 1, 0, 1)
 
 [node name="AggroArea" type="Node3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0.575, 0)
 
 [node name="Area3D" type="Area3D" parent="AggroArea"]
 collision_mask = 3
@@ -68,6 +68,7 @@ transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357
 texture = SubResource("ViewportTexture_45tao")
 
 [node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("7_45tao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 meshes = [NodePath("../rocket_shroom/Skeleton3D/Cap"), NodePath("../rocket_shroom/Skeleton3D/Body")]
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]

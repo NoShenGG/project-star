@@ -42,6 +42,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if ai_override and ai_override_target != null:
 		navigation_agent.target_position = ai_override_target
+		look_at(GameManager.curr_player.global_position)
 	
 	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return

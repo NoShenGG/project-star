@@ -95,16 +95,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.06970519, 0.5242054, -0.50644267, 0.68107694)
-bones/15/rotation = Quaternion(-0.15958369, 0.5512716, 0.23124596, 0.7855941)
-bones/16/rotation = Quaternion(-0.51139927, -0.4671571, -0.24309956, 0.6790713)
-bones/21/rotation = Quaternion(-0.14443587, 0.39419857, -0.46152467, 0.78149915)
-bones/22/rotation = Quaternion(-0.06389364, 0.3482296, 0.17637455, 0.9184475)
-bones/23/rotation = Quaternion(0.13371134, 0.11728987, -0.073775016, 0.98128575)
-bones/38/rotation = Quaternion(-0.34893167, 0.70695865, 0.062578276, 0.61199677)
+bones/14/rotation = Quaternion(-0.06882059, 0.5238776, -0.5063817, 0.6814643)
+bones/15/rotation = Quaternion(-0.16045588, 0.55266917, 0.23151322, 0.7843548)
+bones/16/rotation = Quaternion(-0.5106868, -0.46719766, -0.24527398, 0.67879754)
+bones/21/rotation = Quaternion(-0.14641052, 0.39288193, -0.459678, 0.78288186)
+bones/22/rotation = Quaternion(-0.06518203, 0.35194778, 0.17758745, 0.9167043)
+bones/23/rotation = Quaternion(0.13745022, 0.11511129, -0.0735999, 0.9810403)
+bones/38/rotation = Quaternion(-0.34881422, 0.70701635, 0.06268012, 0.61198676)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.006361792, -0.56996864, 0.82164174, -0.4181454, 0.7478912, 0.51557064, -0.9083577, -0.34028575, -0.24308777, 0.0060018916, 0.007245371, -0.013217126)
+transform = Transform3D(-0.006550504, -0.56996655, 0.8216418, -0.41789645, 0.74803007, 0.5155711, -0.90847105, -0.33998394, -0.24308693, 0.005998944, 0.0072492654, -0.013218887)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -161,9 +161,6 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [node name="Die" parent="PlayerManager/Nova/nova" index="16"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
-
-[node name="AttackingCharged" parent="PlayerManager/Rene/StateMachine" index="5"]
-damage = 3.0
 
 [node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
