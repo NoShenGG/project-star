@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://brmdsiu0kp6ca"]
+[gd_scene load_steps=29 format=3 uid="uid://brmdsiu0kp6ca"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_lyudl"]
 [ext_resource type="PackedScene" uid="uid://brw0p1eirto83" path="res://scenes/final/Nova.tscn" id="2_dvwxt"]
@@ -16,7 +16,13 @@
 [ext_resource type="Script" uid="uid://b23m0ymm5td5r" path="res://scripts/utility/3d_2d_ui.gd" id="14_fop7g"]
 [ext_resource type="Script" uid="uid://bv28fxbtlv4es" path="res://scripts/utility/pause_menu.gd" id="15_rkpjn"]
 [ext_resource type="PackedScene" uid="uid://hs6isup6bhpk" path="res://scenes/dev/ZXue/refactor_SettingMenu/SettingMenu.tscn" id="16_d11v8"]
+[ext_resource type="Texture2D" uid="uid://pabqlrbnoq4a" path="res://art_assets/Ui/ControlPanels/Nova/Resume Button.png" id="16_w3iyl"]
+[ext_resource type="Texture2D" uid="uid://dsopj6d3okqda" path="res://art_assets/Ui/ControlPanels/Nova/Nova Corner Portrait.png" id="17_3wvx5"]
 [ext_resource type="Script" uid="uid://ri30deerqwg7" path="res://scripts/entities/player/swap_in_vocal_selector.gd" id="17_fop7g"]
+[ext_resource type="Texture2D" uid="uid://c4lk3o8cr5585" path="res://art_assets/Ui/ControlPanels/Nova/Reload Button.png" id="17_k852m"]
+[ext_resource type="Texture2D" uid="uid://oov1kn7x7w44" path="res://art_assets/Ui/ControlPanels/Nova/Main Menu Button.png" id="18_3wvx5"]
+[ext_resource type="Texture2D" uid="uid://bbvfl0w3ies1t" path="res://art_assets/Ui/ControlPanels/Nova/NOVA.png" id="18_elt32"]
+[ext_resource type="Texture2D" uid="uid://d308avrcwiclj" path="res://art_assets/Ui/ControlPanels/Nova/Nova Controls Panel.png" id="19_elt32"]
 
 [sub_resource type="Curve" id="Curve_q54j5"]
 _limits = [0.0, 2.0, 0.0, 1.0]
@@ -26,6 +32,15 @@ point_count = 3
 [sub_resource type="Curve" id="Curve_wmnvy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50545454, 0.5084282), 2.0432801, 2.0432801, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27jnq"]
+
+[sub_resource type="Gradient" id="Gradient_27jnq"]
+offsets = PackedFloat32Array(0, 0.66, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.7055968, 0.3133042, 0.17184411, 0.67, 0.48000664, 0.15170373, 0.07016479, 0.88000005)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ripws"]
+gradient = SubResource("Gradient_27jnq")
 
 [node name="PlayerManager" type="Node3D"]
 script = ExtResource("1_lyudl")
@@ -39,20 +54,23 @@ floor_snap_length = 5.0
 [node name="HitStun" parent="Nova/StateMachine" index="11"]
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
+[node name="Nova\'s Circle" parent="Nova" index="8" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks")]
+
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
 bones/2/position = Vector3(-0.000786345, 0.014272304, -0.001469775)
 bones/2/rotation = Quaternion(0.39593133, 0.24977413, 0.68152446, 0.56247294)
 bones/9/rotation = Quaternion(0.03079711, -0.53806853, 0.8415936, 0.035411507)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.06790091, 0.5235507, -0.5063117, 0.6818596)
-bones/15/rotation = Quaternion(-0.16130431, 0.5540239, 0.23177062, 0.78314805)
-bones/16/rotation = Quaternion(-0.509981, -0.4671597, -0.24745332, 0.6785634)
+bones/14/rotation = Quaternion(-0.06572289, 0.5224564, -0.5064427, 0.6828145)
+bones/15/rotation = Quaternion(-0.16662501, 0.56238025, 0.23330691, 0.7755853)
+bones/16/rotation = Quaternion(-0.50599384, -0.4718625, -0.2570191, 0.67472756)
 bones/17/position = Vector3(0.0018554514, 0.00021904883, -2.3317207e-05)
 bones/19/position = Vector3(0.0013310545, -0.00023085652, -0.0009310012)
-bones/21/rotation = Quaternion(-0.14853053, 0.39167088, -0.45763496, 0.784285)
-bones/22/rotation = Quaternion(-0.06647584, 0.35564712, 0.17878953, 0.91494834)
-bones/23/rotation = Quaternion(0.14143118, 0.112859294, -0.07330672, 0.980758)
+bones/21/rotation = Quaternion(-0.14695914, 0.37959155, -0.46004426, 0.78909606)
+bones/22/rotation = Quaternion(-0.072028935, 0.3709977, 0.18370757, 0.90742713)
+bones/23/rotation = Quaternion(0.14373596, 0.108703025, -0.07897052, 0.98045266)
 bones/24/position = Vector3(-0.001853143, -0.00023585279, -3.842577e-05)
 bones/26/position = Vector3(-0.001368355, 0.0002611133, 0.00086672243)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
@@ -62,10 +80,10 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.3486474, 0.70709836, 0.06282475, 0.6119723)
+bones/38/rotation = Quaternion(-0.34949997, 0.7066792, 0.0620857, 0.61204547)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.006818612, -0.5699634, 0.82164174, -0.41754285, 0.7482272, 0.5155716, -0.9086317, -0.3395551, -0.2430861, 0.0059947553, 0.007254797, -0.013221381)
+transform = Transform3D(-0.005448987, -0.56997824, 0.82164174, -0.41934916, 0.74721795, 0.5155691, -0.9078086, -0.3417455, -0.24309146, 0.006016152, 0.007226541, -0.013208601)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -144,6 +162,9 @@ passive_death_time = 2.5
 [node name="HitStun" parent="Rene/StateMachine" index="11"]
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
+[node name="Rene\'s Circle" parent="Rene" index="11" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks")]
+
 [node name="Idle" parent="Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
@@ -206,6 +227,15 @@ floor_snap_length = 5.0
 
 [node name="HitStun" parent="Dawn/StateMachine" index="11"]
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
+
+[node name="SingWave" parent="Dawn/Effects" index="0"]
+material_override = null
+
+[node name="DawnChargeVFX" parent="Dawn/Effects" index="2" node_paths=PackedStringArray("particles")]
+particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
+
+[node name="Dawn\'s Circle" parent="Dawn" index="12" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks")]
 
 [node name="CameraTarget" type="Node3D" parent="."]
 top_level = true
@@ -374,26 +404,74 @@ offset_right = -332.0
 offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_27jnq")
 script = ExtResource("15_rkpjn")
 focused_control = NodePath("VBoxContainer/Resume Button")
 close_animation_flags = 1
+
+[node name="nova_control" type="Control" parent="Pause Menu"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Pause Menu/nova_control"]
+layout_mode = 0
+offset_left = 819.0
+offset_top = -92.00001
+offset_right = 893.875
+offset_bottom = 39.009987
+rotation = 1.5707964
+scale = Vector2(8.76, 8.76)
+texture = SubResource("GradientTexture2D_ripws")
+
+[node name="Nova_Controls" type="TextureRect" parent="Pause Menu/nova_control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -67.0
+offset_right = 1386.0
+offset_bottom = 992.0
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("19_elt32")
+
+[node name="Nova_Portrait" type="TextureRect" parent="Pause Menu/nova_control"]
+layout_mode = 0
+offset_left = -289.00003
+offset_top = -80.0
+offset_right = 78.99997
+offset_bottom = 455.0
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("17_3wvx5")
+
+[node name="Nova_Name" type="TextureRect" parent="Pause Menu/nova_control"]
+layout_mode = 0
+offset_left = -253.00003
+offset_top = 252.0
+offset_right = 9.9999695
+offset_bottom = 319.0
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("18_elt32")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 42.0
-offset_top = 2.0
-offset_right = -42.0
-offset_bottom = -2.0
+offset_left = -279.0
+offset_top = 324.0
+offset_right = -275.0
+offset_bottom = 387.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = -1
 
 [node name="Resume Button" type="Button" parent="Pause Menu/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Settings Button")
-text = "Resume"
+theme_override_colors/icon_pressed_color = Color(0.044309556, 0.044309556, 0.044309556, 1)
+theme_override_colors/icon_hover_color = Color(0.5176471, 0.5176471, 0.5176471, 1)
+icon = ExtResource("16_w3iyl")
+flat = true
 
 [node name="Settings Button" type="Button" parent="Pause Menu/VBoxContainer"]
 visible = false
@@ -406,12 +484,18 @@ text = "Settings"
 layout_mode = 2
 focus_neighbor_top = NodePath("../Settings Button")
 focus_neighbor_bottom = NodePath("../Quit Button")
-text = "Reload"
+theme_override_colors/icon_pressed_color = Color(0.043137256, 0.043137256, 0.043137256, 1)
+theme_override_colors/icon_hover_color = Color(0.5165994, 0.5165994, 0.5165994, 1)
+icon = ExtResource("17_k852m")
+flat = true
 
 [node name="Quit Button" type="Button" parent="Pause Menu/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Reload Button")
-text = "Quit"
+theme_override_colors/icon_pressed_color = Color(0.043137256, 0.043137256, 0.043137256, 1)
+theme_override_colors/icon_hover_color = Color(0.5176471, 0.5176471, 0.5176471, 1)
+icon = ExtResource("18_3wvx5")
+flat = true
 
 [node name="SettingScene" parent="." node_paths=PackedStringArray("previous_page") instance=ExtResource("16_d11v8")]
 visible = false

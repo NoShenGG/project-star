@@ -60,17 +60,20 @@ stage = 1
 [node name="Nova" parent="PlayerManager" index="0"]
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 15.590168)
 
+[node name="Nova\'s Circle" parent="PlayerManager/Nova" index="8" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
+
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.07618674, 0.52652353, -0.5069055, 0.6782443)
-bones/15/rotation = Quaternion(-0.15448174, 0.5429836, 0.22962023, 0.79282963)
-bones/16/rotation = Quaternion(-0.5155035, -0.4691988, -0.22856265, 0.6796085)
-bones/21/rotation = Quaternion(-0.12555318, 0.39983508, -0.47848463, 0.7716352)
-bones/22/rotation = Quaternion(-0.055238537, 0.32212523, 0.16771272, 0.9300841)
-bones/23/rotation = Quaternion(0.10163813, 0.13488051, -0.077775896, 0.98256195)
-bones/38/rotation = Quaternion(-0.35108313, 0.7058975, 0.060711987, 0.6121792)
+bones/14/rotation = Quaternion(-0.066487424, 0.52294576, -0.5062997, 0.6824719)
+bones/15/rotation = Quaternion(-0.16301206, 0.55673206, 0.23227814, 0.7807199)
+bones/16/rotation = Quaternion(-0.50863636, -0.46796912, -0.2511042, 0.677673)
+bones/21/rotation = Quaternion(-0.15013894, 0.38843507, -0.45621777, 0.78641075)
+bones/22/rotation = Quaternion(-0.06862248, 0.3616805, 0.18073629, 0.9120377)
+bones/23/rotation = Quaternion(0.14539887, 0.11010829, -0.07403064, 0.980436)
+bones/38/rotation = Quaternion(-0.34847975, 0.70718056, 0.06296999, 0.61195785)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0029029956, -0.5699969, 0.8216417, -0.4226997, 0.7453309, 0.51556444, -0.906265, -0.34581098, -0.24310136, 0.0060559264, 0.007174129, -0.013184631)
+transform = Transform3D(-0.007087673, -0.56996006, 0.8216418, -0.41718748, 0.748425, 0.5155721, -0.90879273, -0.3391244, -0.24308491, 0.0059905523, 0.007260355, -0.013223881)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -128,6 +131,9 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
+[node name="Rene\'s Circle" parent="PlayerManager/Rene" index="11" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
+
 [node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
@@ -184,6 +190,12 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
+[node name="DawnChargeVFX" parent="PlayerManager/Dawn/Effects" index="2" node_paths=PackedStringArray("particles")]
+particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX"), NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
+
+[node name="Dawn\'s Circle" parent="PlayerManager/Dawn" index="12" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
+
 [node name="Dawn" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" index="3"]
 visible = false
 
@@ -236,13 +248,13 @@ transform = Transform3D(1.2092867, 0, 0, 0, 1, 0, 0, 0, 1.4858601, -32.1372, -1.
 transform = Transform3D(3.488697, 0, 0, 0, 1, 0, 0, 0, 3.6893106, -0.16873741, -3.8146973e-06, -6.3061295)
 
 [node name="SpawnArea4" parent="WaveManager" instance=ExtResource("6_8ylh7")]
-transform = Transform3D(5.35538, 0, 0, 0, 1.0000004, 0, 0, 0, 6.6370406, 19.424305, -3.8146973e-06, -35.039627)
+transform = Transform3D(5.35538, 0, 0, 0, 1.0000004, 0, 0, 0, 6.6370406, 16.713398, -3.8146973e-06, -32.847145)
 
 [node name="SpawnArea5" parent="WaveManager" instance=ExtResource("6_8ylh7")]
 transform = Transform3D(10.222678, 0, 0, 0, 1, 0, 0, 0, 6.5466504, 15.381874, -3.8146973e-06, -47.491684)
 
 [node name="SpawnArea6" parent="WaveManager" instance=ExtResource("6_8ylh7")]
-transform = Transform3D(2.5286245, 0, 0, 0, 1.0000004, 0, 0, 0, 6.6370406, 2.1410885, 1.9073486e-06, -36.606384)
+transform = Transform3D(2.5286245, 0, 0, 0, 1.0000004, 0, 0, 0, 6.6370406, 3.8562164, 1.9073486e-06, -32.54869)
 
 [node name="Navmesh" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_8ylh7")

@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="11_pafkc"]
 [ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="12_yvkck"]
 [ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="13_ck0to"]
-[ext_resource type="Texture2D" uid="uid://c58k7b0faqg2l" path="res://art_assets/Ui/FinalPortraits/Nova Corner Portrait.png" id="14_e4lx6"]
+[ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="14_e4lx6"]
 [ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="16_yvkck"]
 [ext_resource type="PackedScene" uid="uid://b4c3817gcfxs0" path="res://art_assets/environment/Biome1/Level1/Level1Working.glb" id="17_e4lx6"]
 [ext_resource type="Texture2D" uid="uid://byolbfx3m3u3r" path="res://art_assets/environment/Biome1/Level1/Level1Working_Mountain_Trees.png" id="18_nv2fo"]
@@ -109,17 +109,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 [node name="Nova" parent="PlayerManager" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 
+[node name="Nova\'s Circle" parent="PlayerManager/Nova" index="8" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
+
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.07320227, 0.5256036, -0.50665873, 0.6794699)
-bones/15/rotation = Quaternion(-0.15590408, 0.5453124, 0.23008354, 0.7908159)
-bones/16/rotation = Quaternion(-0.51432276, -0.46674508, -0.23412499, 0.68029904)
-bones/21/rotation = Quaternion(-0.13646632, 0.39999104, -0.46845865, 0.77584183)
-bones/22/rotation = Quaternion(-0.058591176, 0.3324664, 0.17117244, 0.9255988)
-bones/23/rotation = Quaternion(0.11894637, 0.12625852, -0.074060045, 0.9820518)
-bones/38/rotation = Quaternion(-0.34963027, 0.7066151, 0.06197271, 0.61205655)
+bones/14/rotation = Quaternion(-0.07354821, 0.52574706, -0.5066793, 0.67930615)
+bones/15/rotation = Quaternion(-0.15553586, 0.54471135, 0.22996466, 0.7913371)
+bones/16/rotation = Quaternion(-0.5146105, -0.46670425, -0.23322625, 0.6804181)
+bones/21/rotation = Quaternion(-0.13564275, 0.4005704, -0.46914488, 0.7752725)
+bones/22/rotation = Quaternion(-0.058060642, 0.3308559, 0.17063661, 0.926308)
+bones/23/rotation = Quaternion(0.117459536, 0.12717395, -0.07408269, 0.982111)
+bones/38/rotation = Quaternion(-0.3496987, 0.70658135, 0.061913367, 0.61206234)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0052396515, -0.56998026, 0.82164174, -0.41962513, 0.7470633, 0.5155687, -0.9076824, -0.34208015, -0.24309242, 0.0060194223, 0.0072222236, -0.01320664)
+transform = Transform3D(-0.0051296195, -0.5699812, 0.8216416, -0.41977003, 0.746982, 0.5155685, -0.9076159, -0.3422559, -0.24309278, 0.006021141, 0.007219958, -0.013205608)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -177,6 +180,9 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
+[node name="Rene\'s Circle" parent="PlayerManager/Rene" index="11" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
+
 [node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
@@ -232,6 +238,12 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [node name="Die" parent="PlayerManager/Rene/rene" index="16"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
+
+[node name="DawnChargeVFX" parent="PlayerManager/Dawn/Effects" index="2" node_paths=PackedStringArray("particles")]
+particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX"), NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
+
+[node name="Dawn\'s Circle" parent="PlayerManager/Dawn" index="12" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
 
 [node name="Rene" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" index="2"]
 visible = false

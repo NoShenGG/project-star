@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://rgcas24o45rb"]
+[gd_scene load_steps=24 format=3 uid="uid://rgcas24o45rb"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_k1xpg"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="4_dieni"]
@@ -8,6 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://celvhgttbuade" path="res://scenes/sub/Mossypede.tscn" id="7_mpi2d"]
 [ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="7_vlt4p"]
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="8_mpi2d"]
+[ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="9_i30p7"]
+[ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="10_t2cqq"]
+[ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="11_5gf8r"]
+[ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="12_pgc42"]
+[ext_resource type="PackedScene" uid="uid://81qoovusaho7" path="res://RainVFX.tscn" id="13_t2cqq"]
+[ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="14_5gf8r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eejem"]
 size = Vector3(9.78, 3, 3.895)
@@ -47,6 +53,23 @@ adjustment_saturation = 0.9
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vlt4p"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2hcgh"]
+size = Vector3(8, 3, 8)
+
+[sub_resource type="Resource" id="Resource_vhy31"]
+script = ExtResource("11_5gf8r")
+name = "Nova"
+img = ExtResource("12_pgc42")
+text = "Hmm, it's starting to rain..."
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_wso03"]
+script = ExtResource("11_5gf8r")
+name = "Nova"
+img = ExtResource("12_pgc42")
+text = "I'll take shelter here"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
 [node name="Level3" type="Node3D"]
 
 [node name="PlayerManager" parent="." instance=ExtResource("1_k1xpg")]
@@ -55,17 +78,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
 [node name="Nova" parent="PlayerManager" index="0"]
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 3.947483)
 
+[node name="Nova\'s Circle" parent="PlayerManager/Nova" index="8" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
+
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.076187626, 0.5265828, -0.5068936, 0.6782071)
-bones/15/rotation = Quaternion(-0.15397535, 0.54215, 0.22945294, 0.79354674)
-bones/16/rotation = Quaternion(-0.5158761, -0.46864185, -0.2277278, 0.67999023)
-bones/21/rotation = Quaternion(-0.12584822, 0.4011032, -0.47797957, 0.77124184)
-bones/22/rotation = Quaternion(-0.054759573, 0.32061642, 0.16720432, 0.93072516)
-bones/23/rotation = Quaternion(0.10180483, 0.13520697, -0.0770823, 0.9825545)
-bones/38/rotation = Quaternion(-0.35098192, 0.70594764, 0.060799845, 0.6121707)
+bones/14/rotation = Quaternion(-0.07618924, 0.5266872, -0.50687265, 0.6781416)
+bones/15/rotation = Quaternion(-0.15360312, 0.5415368, 0.2293296, 0.79407305)
+bones/16/rotation = Quaternion(-0.516142, -0.4678991, -0.22738054, 0.6804161)
+bones/21/rotation = Quaternion(-0.12704946, 0.4023412, -0.47667533, 0.7712073)
+bones/22/rotation = Quaternion(-0.05457331, 0.32003164, 0.1670074, 0.93097264)
+bones/23/rotation = Quaternion(0.10339879, 0.13480073, -0.076114975, 0.9825192)
+bones/38/rotation = Quaternion(-0.35073033, 0.7060723, 0.06101832, 0.6121496)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0030659563, -0.569996, 0.8216416, -0.42248568, 0.745452, 0.5155647, -0.9063643, -0.34555113, -0.24310076, 0.00605338, 0.0071774772, -0.013186173)
+transform = Transform3D(-0.003470915, -0.56999373, 0.82164156, -0.4219534, 0.74575293, 0.5155654, -0.90661067, -0.34490496, -0.24309933, 0.006047054, 0.007185804, -0.013189998)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -123,6 +149,9 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
+[node name="Rene\'s Circle" parent="PlayerManager/Rene" index="11" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
+
 [node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
@@ -178,6 +207,12 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [node name="Die" parent="PlayerManager/Rene/rene" index="16"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
+
+[node name="DawnChargeVFX" parent="PlayerManager/Dawn/Effects" index="2" node_paths=PackedStringArray("particles")]
+particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX"), NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
+
+[node name="Dawn\'s Circle" parent="PlayerManager/Dawn" index="12" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
 
 [node name="Rene" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" index="2"]
 visible = false
@@ -335,6 +370,45 @@ transform = Transform3D(-3.228739, 0, 1.7521551e-06, 0, 14.486825, 0, -2.8226535
 shape = SubResource("BoxShape3D_vlt4p")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
+[node name="DialogueCollisionCaller" type="Area3D" parent="." node_paths=PackedStringArray("dialogue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028913975, 0, 2.523007)
+script = ExtResource("9_i30p7")
+dialogue = NodePath("DialogueCaller")
+metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_2hcgh")
+
+[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
+script = ExtResource("10_t2cqq")
+dialogue = Array[ExtResource("11_5gf8r")]([SubResource("Resource_vhy31"), SubResource("Resource_wso03")])
+metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
+
+[node name="Rain" type="Node3D" parent="."]
+
+[node name="RainVFX" parent="Rain" instance=ExtResource("13_t2cqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.050883, 13.896767, 0)
+
+[node name="GPUParticlesCollisionHeightField3D" parent="Rain/RainVFX" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.999999, -4.208084, 24.353592)
+
+[node name="RainVFX5" parent="Rain" instance=ExtResource("13_t2cqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.791761, 13.8967705, 29.734442)
+
+[node name="GPUParticlesCollisionHeightField3D" parent="Rain/RainVFX5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -4.208084, -4.646408)
+
+[node name="RainVFX3" parent="Rain" instance=ExtResource("13_t2cqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.329294, 13.896765, -41.17146)
+
+[node name="GPUParticlesCollisionHeightField3D" parent="Rain/RainVFX3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -4.208084, 65.35359)
+
+[node name="Gate" parent="." instance=ExtResource("14_5gf8r")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0048036575, 0.98399746, -49.69436)
+
+[connection signal="ended" from="WaveManager/Wave3" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
 
 [editable path="PlayerManager"]
@@ -346,3 +420,6 @@ debug_color = Color(0, 11.578043, 13.506168, 1)
 [editable path="PlayerManager/Dawn/dawn_rig"]
 [editable path="PlayerManager/Game Menu/GameUi"]
 [editable path="PlayerManager/SettingScene"]
+[editable path="Rain/RainVFX"]
+[editable path="Rain/RainVFX5"]
+[editable path="Rain/RainVFX3"]
