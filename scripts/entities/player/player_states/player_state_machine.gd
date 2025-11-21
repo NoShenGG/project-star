@@ -8,11 +8,9 @@ func _ready() -> void:
 	player = owner as Player
 	
 func swap_out() -> void:
-	assert(state.name in [PlayerState.IDLE, PlayerState.MOVING], "Bad Call to Swap Out")
 	state.trigger_finished.emit(PlayerState.SWAP_OUT)
 	
 func swap_in() -> void:
-	assert(state.name in [PlayerState.SLEEPING], "Bad Call to Swap In")
 	state.trigger_finished.emit(PlayerState.SWAP_IN)
 
 func _physics_process(delta: float) -> void:
