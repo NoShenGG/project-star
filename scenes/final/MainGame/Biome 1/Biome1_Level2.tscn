@@ -201,4 +201,14 @@ transform = Transform3D(-3.4368246, 0, 8.284238e-07, 0, 14.486829, 0, -3.0045683
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
+[node name="Ambiance SFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Levels/GrassLand/Background Ambiance"
+event_guid = "{fbb12ac9-23d2-4ea8-a105-cdd7402e8bca}"
+autoplay = true
+
+[node name="Music SFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Music/Biome1_Level2"
+event_guid = "{ba64ba0b-3c9f-4aad-8d17-8e79c74d08a5}"
+autoplay = true
+
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]

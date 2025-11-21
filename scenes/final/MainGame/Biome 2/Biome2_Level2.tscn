@@ -235,4 +235,14 @@ transform = Transform3D(1.3205619, 0, 0.2953077, 0, 60.39153, 0, -1.4242314, 0, 
 use_collision = true
 size = Vector3(5, 1, 22.198734)
 
+[node name="Ambiance SFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Levels/GrassLand/Cave Ambiance"
+event_guid = "{ae17bacc-f896-436e-8226-eec66b9e436a}"
+autoplay = true
+
+[node name="Music SFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Music/Biome2_Level2"
+event_guid = "{1796148b-b2e6-4ff8-8b66-389969561393}"
+autoplay = true
+
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
