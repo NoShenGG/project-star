@@ -1,7 +1,7 @@
 @tool
 extends Area3D
 
-@export var wave : WaveManager
+@export var wave : Wave
 
 func _enter_tree() -> void:
 	collision_layer = 0
@@ -11,4 +11,6 @@ func _enter_tree() -> void:
 
 
 func start_wave(body : Node3D):
-	wave.start_wave()
+	
+	if (wave):
+		wave.validate_condition(body)
