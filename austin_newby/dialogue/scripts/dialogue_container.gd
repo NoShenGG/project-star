@@ -5,6 +5,11 @@ var active_json : Dictionary # prevents repeatedly loading a json
 var previous_file_path : String # determine if requested json has changed
 var current_scene_key : String
 
+signal main_dialogue_called
+signal main_dialogue_sfx(image : Texture2D)
+signal sub_dialogue_called
+signal sub_dialogue_sfx(image : Texture2D)
+
 func read(dialogue_array:Array[DialogueResource]):
 	kill_dialogue()
 	await get_tree().create_timer(0.01).timeout # allows time for dialogues to be freed
@@ -20,6 +25,20 @@ func instantiate_dialogue(dialogue_array:Array[DialogueResource]):
 	d.dialogue_container = self
 	d.nine_patch_text_rect = %TextRect
 	%UIDialogueBox.add_child(d)
+	
+	d.main_dialogue_called.connect(main_dialogue_recieved)
+	d.main_dialogue_sfx.connect(main_dialogue_image_recieved)
+	d.sub_dialogue_called.connect(sub_dialogue_recieved)
+	d.sub_dialogue_sfx.connect(sub_dialogue_image_recieved)
+
+func main_dialogue_recieved():
+	main_dialogue_called.emit()
+func main_dialogue_image_recieved(image : Texture2D):
+	main_dialogue_sfx.emit(image)
+func sub_dialogue_recieved():
+	sub_dialogue_called.emit()
+func sub_dialogue_image_recieved(image : Texture2D):
+	sub_dialogue_sfx.emit(image)
 
 # Destroys any children of DialogueBox
 func kill_dialogue():

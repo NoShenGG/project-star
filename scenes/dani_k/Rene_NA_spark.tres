@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=15 format=3 uid="uid://0ag3db3c3fdf"]
 
-[ext_resource type="Texture2D" uid="uid://djisigrhqs5fp" path="res://vfx/Kenny Particle Pack/star_02.png" id="1_8kxnq"]
+[ext_resource type="Texture2D" uid="uid://djisigrhqs5fp" path="res://VFX/Kenny Particle Pack/star_02.png" id="1_8kxnq"]
 [ext_resource type="Script" uid="uid://cogspmwb5kb3v" path="res://addons/shaderV/tools/sinTime.gd" id="2_wn1ei"]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_8a0nj"]

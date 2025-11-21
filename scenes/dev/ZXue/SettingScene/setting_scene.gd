@@ -83,50 +83,50 @@ func read_setting(this_data : Dictionary):
 MENU LEVEL 1 SIGNAL CONNECTIONS
 '''
 func _on_op_1_button_pressed() -> void:
-	$Level1Control.visible = false
-	$WindowSettings.visible = true
+	#$Level1Control.close()
+	$WindowSettings.open()
 
 
 func _on_op_2_button_pressed() -> void:
-	$Level1Control.visible = false
-	$GraphicsSettings.visible = true
+	#$Level1Control.close()
+	$GraphicsSettings.open()
 
 
 func _on_op_3_button_pressed() -> void:
-	$Level1Control.visible = false
-	$GameplaySettings.visible = true
+	#$Level1Control.close()
+	$GameplaySettings.open()
 
 
 func _on_op_4_button_pressed() -> void:
-	$Level1Control.visible = false
-	$AudioSettings.visible = true
+	#$Level1Control.close()
+	$AudioSettings.open()
 
 #To return to previous page by hiding self
 #also saves setting back to saved file
 func _on_return_button_pressed() -> void:
 	save_setting()
-	$Level1Control.visible = false
-	$GeneralBacklay.visible = false
+	#$Level1Control.close()
+	previous_page.open()
 
 
 func _window_setting_return() -> void:
-	$WindowSettings.visible = false
-	$Level1Control.visible = true
+	#$WindowSettings.close()
+	$Level1Control.open()
 
 
 func _graphics_setting_return() -> void:
-	$GraphicsSettings.visible = false
-	$Level1Control.visible = true
+	#$GraphicsSettings.close()
+	$Level1Control.open()
 
 
 func _gameplay_setting_return() -> void:
-	$GameplaySettings.visible = false
-	$Level1Control.visible = true
+	#$GameplaySettings.close()
+	$Level1Control.open()
 
 
 func _audio_setting_return() -> void:
-	$AudioSettings.visible = false
-	$Level1Control.visible = true
+	#$AudioSettings.close()
+	$Level1Control.open()
 	
 '''
 WINDOW SETTING SIGNAL CONNECTIONS
