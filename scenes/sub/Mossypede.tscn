@@ -55,7 +55,7 @@ states/start_roll/position = Vector2(518.7139, 110)
 states/walk/node = SubResource("AnimationNodeAnimation_qufj0")
 states/walk/position = Vector2(372, 110)
 transitions = ["end_roll", "walk", SubResource("AnimationNodeStateMachineTransition_8wr4x"), "start_roll", "rolling", SubResource("AnimationNodeStateMachineTransition_1e61x")]
-graph_offset = Vector2(-24.286057, 26.961536)
+graph_offset = Vector2(142.71394, -2.0384636)
 
 [node name="Mossypede" type="CharacterBody3D"]
 collision_layer = 10
@@ -104,6 +104,29 @@ collide_with_areas = true
 [node name="mossypede" parent="." instance=ExtResource("2_sxa4w")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 
+[node name="Skeleton3D" parent="mossypede" index="0"]
+bones/2/rotation = Quaternion(-0.008669642, 0.70705366, -0.008669642, 0.7070536)
+bones/3/position = Vector3(0.004338014, 0, 0)
+bones/3/rotation = Quaternion(0.00037973217, 0.017682701, -0.021466475, 0.99961317)
+bones/4/position = Vector3(0.0039445297, 0, 0)
+bones/4/rotation = Quaternion(-0.00041943238, -0.029815754, -0.0140598295, 0.9994565)
+bones/5/position = Vector3(0.0039001813, 0, 0)
+bones/5/rotation = Quaternion(-0.00024917937, -0.006101909, -0.040801547, 0.99914867)
+bones/6/position = Vector3(0.0036199747, 0, 0)
+bones/6/rotation = Quaternion(2.4528063e-05, -0.019213678, 0.0012763571, 0.99981457)
+bones/9/position = Vector3(0.0046078106, 2.1878208e-05, 3.3017855e-05)
+bones/9/rotation = Quaternion(-0.043773424, 0.053647902, -0.2493595, 0.96593255)
+bones/10/position = Vector3(0.0032920872, 1.2404124e-05, 2.2668677e-05)
+bones/10/rotation = Quaternion(-0.006280834, 0.12930293, -0.006016448, 0.9915671)
+bones/12/position = Vector3(-0.003318063, -0.00018778043, 0)
+bones/12/rotation = Quaternion(-0.05710878, 0.99836355, -0.00017144416, -0.0029971504)
+bones/13/position = Vector3(0.005339815, 0, 0)
+bones/13/rotation = Quaternion(0.0010022807, 0.021267435, -0.047064576, 0.998665)
+bones/14/position = Vector3(0.0046522375, 0, 0)
+bones/14/rotation = Quaternion(0.0019819331, -0.039664958, -0.049865223, 0.9979661)
+bones/15/position = Vector3(0.0039887396, 0, 0)
+bones/15/rotation = Quaternion(0.0007011907, 0.04123781, -0.016986664, 0.9990048)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_l26uf")
@@ -137,6 +160,10 @@ state_name = "walk"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
 
 
+[node name="WalkSFX" type="FmodEventEmitter3D" parent="AnimationTree/walk"]
+event_name = "event:/Enemys/RollyPolly/RollyPolly Crawl"
+event_guid = "{59579045-d71f-4fed-bd9d-bc55d6b799f7}"
+
 [node name="start_roll" type="Node" parent="AnimationTree"]
 script = ExtResource("8_35qt8")
 state_name = "start_roll"
@@ -159,21 +186,16 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 event_name = "event:/Enemys/RollyPolly/RollyPolly hurt"
 event_guid = "{b2e2dc76-1032-46f7-bd6e-bad6813cc497}"
 
-[node name="IdlingSFX" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Enemys/RollyPolly/RollyPolly Crawl"
-event_guid = "{59579045-d71f-4fed-bd9d-bc55d6b799f7}"
-autoplay = true
-
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
 [connection signal="hurt" from="." to="HurtSFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Cooldown" to="AnimationTree/idle" method="enter"]
 [connection signal="entered" from="StateMachine/Attacking" to="AnimationTree/start_roll" method="enter"]
-[connection signal="entered" from="StateMachine/Attacking" to="StateMachine/Attacking/RollingSFX" method="play"]
-[connection signal="entered" from="StateMachine/Attacking" to="IdlingSFX" method="stop"]
-[connection signal="finished" from="StateMachine/Attacking" to="AnimationTree/end_roll" method="enter"]
+[connection signal="entered" from="StateMachine/Attacking" to="StateMachine/Attacking/RollingSFX" method="play" binds= [true]]
 [connection signal="finished" from="StateMachine/Attacking" to="StateMachine/Attacking/RollingSFX" method="stop"]
-[connection signal="finished" from="StateMachine/Attacking" to="IdlingSFX" method="play"]
+[connection signal="finished" from="StateMachine/Attacking" to="AnimationTree/end_roll" method="enter"]
 [connection signal="entered" from="StateMachine/Dead" to="DissolveFX" method="beginDissolve"]
+[connection signal="start" from="AnimationTree/walk" to="AnimationTree/walk/WalkSFX" method="play" binds= [true]]
+[connection signal="stop" from="AnimationTree/walk" to="AnimationTree/walk/WalkSFX" method="stop"]
 
 [editable path="mossypede"]
