@@ -219,7 +219,6 @@ max_special_charges = 2
 special_cd = 10.0
 input_smoothing_speed = null
 dash_cd = null
-dash_distance = null
 _base_speed = null
 faction = 0
 _hp = null
@@ -295,6 +294,7 @@ event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 script = ExtResource("10_nhxyw")
 animation = NodePath("../../rene/charged attack")
 speed_scale_factor = 0.2
+heal = 10.0
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
 event_name = "event:/Player/Uniques/Charged Attack/Nova Charged Attack"

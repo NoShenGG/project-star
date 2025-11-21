@@ -15,7 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="13_g51g3"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="14_js430"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pxf1l"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_js430"]
+size = Vector3(1, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pxf1l"]
 size = Vector3(15, 1.355, 2)
@@ -40,8 +41,8 @@ script = ExtResource("1_6e0eo")
 metadata/_custom_type_script = "uid://b0ikb4va3mlaf"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.075, 0, 0, 0, 1.075, 0, 0, 0, 1.075, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_pxf1l")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_js430")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_pxf1l")
@@ -66,6 +67,10 @@ post_lock_state = NodePath("../fire")
 [node name="LockTimer" type="Timer" parent="StateMachine/lockon"]
 one_shot = true
 
+[node name="ChargeSFX" type="FmodEventEmitter3D" parent="StateMachine/lockon"]
+event_name = "event:/Enemys/LaserShroom/LaserShroom LaserCharge"
+event_guid = "{b82a56ab-9443-4c3b-a096-df676cb5b153}"
+
 [node name="fire" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_fire_state")]
 script = ExtResource("6_sbhox")
 damage = 4.0
@@ -80,6 +85,10 @@ one_shot = true
 [node name="DamageCooldownTimer" type="Timer" parent="StateMachine/fire"]
 one_shot = true
 
+[node name="FireSFX" type="FmodEventEmitter3D" parent="StateMachine/fire"]
+event_name = "event:/Enemys/LaserShroom/LaserShroom Lasering"
+event_guid = "{2d32b878-96cf-485a-a96d-4a58bf1cd91d}"
+
 [node name="hide" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_hide_state")]
 script = ExtResource("7_eqsdo")
 post_hide_state = NodePath("../approach")
@@ -91,6 +100,11 @@ script = ExtResource("8_arhvd")
 
 [node name="dead" type="Node" parent="StateMachine"]
 script = ExtResource("9_arhvd")
+
+[node name="DeathSFX" type="FmodEventEmitter3D" parent="StateMachine/dead"]
+event_name = "event:/Enemys/LaserShroom/LaserShroom Death"
+event_guid = "{21e09aa3-ebe4-4f53-aa24-c78a7f8e7f7e}"
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="Hitbox" type="Area3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
@@ -125,9 +139,17 @@ texture = SubResource("ViewportTexture_yed7e")
 [node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("14_js430")]
 meshes = [NodePath("../LaserShroomMesh")]
 
+[node name="HurtSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Enemys/LaserShroom/LaserShroom Hurt"
+event_guid = "{e14c303d-57b7-41df-84cc-cb781342b0d6}"
+
+[connection signal="hurt" from="." to="HurtSFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="DissolveFX" method="beginDissolve"]
+[connection signal="entered" from="StateMachine/lockon" to="StateMachine/lockon/ChargeSFX" method="play_one_shot"]
 [connection signal="timeout" from="StateMachine/lockon/LockTimer" to="StateMachine/lockon" method="_on_lock_timer_timeout"]
+[connection signal="entered" from="StateMachine/fire" to="StateMachine/fire/FireSFX" method="play_one_shot"]
 [connection signal="timeout" from="StateMachine/fire/FireTimer" to="StateMachine/fire" method="_on_fire_timer_timeout"]
 [connection signal="timeout" from="StateMachine/fire/FireEffectTimer" to="StateMachine/fire" method="_on_fire_effect_timer_timeout"]
 [connection signal="timeout" from="StateMachine/fire/DamageCooldownTimer" to="StateMachine/fire" method="_on_damage_cooldown_timer_timeout"]
 [connection signal="timeout" from="StateMachine/hide/HideTimer" to="StateMachine/hide" method="_on_hide_timer_timeout"]
+[connection signal="entered" from="StateMachine/dead" to="StateMachine/dead/DeathSFX" method="play_one_shot"]

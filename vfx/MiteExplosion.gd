@@ -34,6 +34,7 @@ var pulse_material : Material
 var fuse_lit : bool
 @export var fuse_timer : Timer
 
+signal started
 signal exploded
 signal pulsed
 
@@ -67,6 +68,7 @@ func _process(delta):
 			pulse_material.emission = pulse_material_original_emission_color.lerp(pulse_color, x)
 
 func start_fuse():
+	started.emit()
 	fuse_lit = true
 	calculate_pulses()
 	current_pulse = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bo8i2glbe0u23"]
+[gd_scene load_steps=17 format=3 uid="uid://bo8i2glbe0u23"]
 
 [ext_resource type="Script" uid="uid://bfq0pt6ajyow1" path="res://scripts/entities/enemies/fortifier/fortifier.gd" id="1_q7o8q"]
 [ext_resource type="PackedScene" uid="uid://b3u2ccl0ibwdw" path="res://art_assets/enemies/fortifier/fort2glb.glb" id="2_3safb"]
@@ -60,25 +60,20 @@ script = ExtResource("5_gtlnc")
 next_state = NodePath("../Move")
 metadata/_custom_type_script = "uid://6mm7aq2ddphu"
 
+[node name="ShieldSFX" type="FmodEventEmitter3D" parent="StateMachine/Shielding"]
+event_name = "event:/Enemys/LaserShroom/LaserShroom Lasering"
+event_guid = "{2d32b878-96cf-485a-a96d-4a58bf1cd91d}"
+
 [node name="DeadState" type="Node" parent="StateMachine"]
 script = ExtResource("3_cs6dd")
 metadata/_custom_type_script = "uid://irxuylaptnty"
 
-[node name="fort2glb" parent="." instance=ExtResource("2_3safb")]
-transform = Transform3D(0.705, 0, 0, 0, 0.705, 0, 0, 0, 0.705, -1.155, -1.52, 0.285)
+[node name="DeathSFX" type="FmodEventEmitter3D" parent="StateMachine/DeadState"]
+event_name = "event:/Enemys/MindMerger/MindMerger Die"
+event_guid = "{d292bdea-6d42-49b6-80a9-efead1ea1399}"
 
-[node name="Skeleton3D" parent="fort2glb/Armature" index="0"]
-bones/0/position = Vector3(-0.0379932, 0.8364593, 0.093899064)
-bones/0/rotation = Quaternion(0.0025154962, 0.026649432, 0.035182063, 0.99902236)
-bones/1/position = Vector3(-6.371609e-09, 0.9999999, -3.4017926e-09)
-bones/2/position = Vector3(0.0028440764, 1.6837382, 0.056201976)
-bones/3/position = Vector3(-2.2377943e-05, 2.6275914, -0.05528889)
-bones/4/position = Vector3(0.01623868, 3.0647604, 0.08059542)
-bones/4/rotation = Quaternion(0.03508546, -0.004219509, -0.009264431, 0.99933255)
-bones/5/position = Vector3(0.00032147218, 3.75734, 0.1530106)
-bones/5/rotation = Quaternion(-0.08833359, -0.0030456358, -0.009714181, 0.996039)
-bones/6/position = Vector3(0.000254876, 4.5666504, 0.015196823)
-bones/6/rotation = Quaternion(-0.40510646, -0.0056703407, -0.00052200566, 0.91425186)
+[node name="fort2glb" parent="." instance=ExtResource("2_3safb")]
+transform = Transform3D(0.705, 0, 0, 0, 0.705, 0, 0, 0, 0.705, -1.32, 0, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="fort2glb"]
 tree_root = SubResource("AnimationNodeStateMachine_tcoa5")
@@ -99,6 +94,7 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.18, 0)
 shape = SubResource("BoxShape3D_lnb36")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -109,6 +105,7 @@ debug_path_custom_color = Color(0, 1, 0, 1)
 [node name="Hitboxes" type="Node3D" parent="."]
 
 [node name="Shield" type="Area3D" parent="Hitboxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collision_layer = 0
 collision_mask = 2
 
@@ -121,15 +118,20 @@ transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357
 texture = SubResource("ViewportTexture_g0rg0")
 
 [node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("10_unhng")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 meshes = [NodePath("../fort2glb/Armature/Skeleton3D/Cube")]
+
+[node name="HitSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Enemys/MindMerger/MindMerger Allie Lost"
+event_guid = "{1faca13b-0300-43f8-a5ae-5a96a60ea1e8}"
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
+[connection signal="hurt" from="." to="HitSFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Idle" to="fort2glb/Idle" method="enter"]
-[connection signal="shield_enemy" from="StateMachine/Shielding" to="fort2glb/shielding" method="enter"]
+[connection signal="good" from="StateMachine/Shielding" to="StateMachine/Shielding/ShieldSFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/DeadState" to="DissolveFX" method="beginDissolve"]
-[connection signal="body_entered" from="Hitboxes/Aggro" to="." method="_on_aggro_body_entered"]
-[connection signal="body_exited" from="Hitboxes/Aggro" to="." method="_on_aggro_body_exited"]
+[connection signal="entered" from="StateMachine/DeadState" to="StateMachine/DeadState/DeathSFX" method="play_one_shot"]
 [connection signal="body_entered" from="Hitboxes/Shield" to="." method="_on_shield_body_entered"]
 [connection signal="body_exited" from="Hitboxes/Shield" to="." method="_on_shield_body_exited"]
 

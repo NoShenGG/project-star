@@ -521,6 +521,7 @@ tone_emitter = NodePath("ToneEmitter")
 targetting_box = NodePath("Hitboxes/Vision")
 special_charge_time = 0.25
 max_special_charges = 2
+dash_distance = 6.0
 faction = 0
 _breakable = false
 

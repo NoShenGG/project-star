@@ -49,6 +49,7 @@ cell_height = 0.01
 
 [node name="PlayerManager" parent="." instance=ExtResource("6_ygyi3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, -16.42749)
+stage = 1
 
 [node name="LevelEnder" parent="." instance=ExtResource("7_48hsk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.51645, 4.542508, -86.7066)
