@@ -306,7 +306,7 @@ metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
 [node name="Wave6" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("2_mvyfq")
-enemies = Array[PackedScene]([ExtResource("5_enm0d"), ExtResource("6_n0jqv"), ExtResource("7_ggxbb"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("5_enm0d"), ExtResource("6_ggxbb"), ExtResource("6_n0jqv")])
+enemies = Array[PackedScene]([ExtResource("5_enm0d"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("7_ggxbb"), ExtResource("5_enm0d"), ExtResource("6_ggxbb")])
 spawn_areas = [NodePath("../SpawnArea9"), NodePath("../SpawnArea12"), NodePath("../SpawnArea13")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
