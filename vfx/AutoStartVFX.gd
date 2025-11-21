@@ -6,11 +6,11 @@ class_name AutoStartVFX
 @export_category("Debugging")
 @export var play : bool : 
 	set(state):
-		debug_play(state)
+		debug_play.call_deferred(state)
 
 @export var stop : bool : 
 	set(state):
-		debug_stop(state)
+		debug_stop.call_deferred(state)
 
 
 @export_category("Playing")
@@ -33,10 +33,10 @@ func _process(delta):
 		restart_particles()
 
 func debug_play(state : bool):
-	restart_particles()
+	if (Engine.is_editor_hint()): restart_particles()
 
 func debug_stop(state : bool):
-	stop_particles()
+	if (Engine.is_editor_hint()): stop_particles()
 
 func start_timer():
 	if (lifetime <= 0):

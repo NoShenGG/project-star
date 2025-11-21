@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c2akhsyinel8t" path="res://scenes/final/dawn/dawn.tscn" id="3_kpy7t"]
 [ext_resource type="PackedScene" uid="uid://bq7t53o2llxr4" path="res://scenes/final/rene/Rene.tscn" id="3_q78nk"]
 [ext_resource type="Script" uid="uid://djfekv55fum3x" path="res://scripts/pitch_pivot.gd" id="4_mbt4c"]
-[ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="7_l7gm4"]
 [ext_resource type="PackedScene" uid="uid://b8wp31vm3qtbx" path="res://scenes/dev/raymond_b/game_ui.tscn" id="7_q78nk"]
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="9_0dwuh"]
 [ext_resource type="Script" uid="uid://43igx2jhor0s" path="res://scripts/utility/death_menu.gd" id="9_41j18"]
@@ -228,7 +227,13 @@ bank_paths = ["res://sounds/banks/Player.bank"]
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="3D Special UI" type="Control" parent="." node_paths=PackedStringArray("nova_menu", "rene_menu", "dawn_menu")]
+[node name="SpecialPivotUI" type="Node3D" parent="." node_paths=PackedStringArray("ui")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -4.586, 0, 0.04)
+visible = false
+script = ExtResource("14_fop7g")
+ui = NodePath("3D Special UI")
+
+[node name="3D Special UI" type="Control" parent="SpecialPivotUI" node_paths=PackedStringArray("nova_menu", "rene_menu", "dawn_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -245,7 +250,7 @@ nova_menu = NodePath("3D Nova Special")
 rene_menu = NodePath("3D Rene Special")
 dawn_menu = NodePath("3D Dawn Special")
 
-[node name="3D Nova Special" type="TextureProgressBar" parent="3D Special UI"]
+[node name="3D Nova Special" type="TextureProgressBar" parent="SpecialPivotUI/3D Special UI"]
 layout_mode = 0
 offset_left = -256.0
 offset_top = -256.0
@@ -260,7 +265,7 @@ script = ExtResource("11_d11v8")
 bounce_size = SubResource("Curve_q54j5")
 lifetime = 0.3
 
-[node name="3D Rene Special" type="TextureProgressBar" parent="3D Special UI"]
+[node name="3D Rene Special" type="TextureProgressBar" parent="SpecialPivotUI/3D Special UI"]
 visible = false
 layout_mode = 1
 offset_left = -256.0
@@ -276,7 +281,7 @@ script = ExtResource("11_d11v8")
 bounce_size = SubResource("Curve_q54j5")
 lifetime = 0.3
 
-[node name="3D Dawn Special" type="TextureProgressBar" parent="3D Special UI"]
+[node name="3D Dawn Special" type="TextureProgressBar" parent="SpecialPivotUI/3D Special UI"]
 visible = false
 layout_mode = 1
 offset_left = -256.0
@@ -292,7 +297,8 @@ script = ExtResource("11_d11v8")
 bounce_size = SubResource("Curve_q54j5")
 lifetime = 0.3
 
-[node name="Game Menu" type="Control" parent="."]
+[node name="Game Menu" type="Control" parent="." node_paths=PackedStringArray("overridable_menus")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -300,10 +306,12 @@ anchor_bottom = 1.0
 offset_top = -289.0
 offset_right = 306.0
 grow_vertical = 0
-script = ExtResource("7_l7gm4")
+script = ExtResource("10_d11v8")
+overridable_menus = [NodePath("../Death Menu"), NodePath("../Pause Menu"), NodePath("../SettingScene/Level1Control"), NodePath("../SettingScene/WindowSettings"), NodePath("../SettingScene/GraphicsSettings"), NodePath("../SettingScene/GameplaySettings"), NodePath("../SettingScene/AudioSettings")]
 open_on_start = true
 open_alpha_effects_all = true
 open_animation_flags = 1
+close_alpha_effects_all = true
 close_animation_flags = 1
 
 [node name="GameUi" parent="Game Menu" instance=ExtResource("7_q78nk")]
@@ -311,15 +319,16 @@ layout_mode = 1
 SWITCH_ANIMATION_EASE_CURVE = SubResource("Curve_wmnvy")
 
 [node name="Nova" parent="Game Menu/GameUi/MarginContainer/Offset" index="1" node_paths=PackedStringArray("special")]
-special = [NodePath("Special"), NodePath("../../../../../3D Special UI/3D Nova Special")]
+special = [NodePath("Special"), NodePath("../../../../../SpecialPivotUI/3D Special UI/3D Nova Special")]
 
 [node name="Rene" parent="Game Menu/GameUi/MarginContainer/Offset" index="2" node_paths=PackedStringArray("special")]
-special = [NodePath("Special"), NodePath("../../../../../3D Special UI/3D Rene Special")]
+special = [NodePath("Special"), NodePath("../../../../../SpecialPivotUI/3D Special UI/3D Rene Special")]
 
 [node name="Dawn" parent="Game Menu/GameUi/MarginContainer/Offset" index="3" node_paths=PackedStringArray("special")]
-special = [NodePath("../Rene/Special"), NodePath("../../../../../3D Special UI/3D Dawn Special")]
+special = [NodePath("../Rene/Special"), NodePath("../../../../../SpecialPivotUI/3D Special UI/3D Dawn Special")]
 
 [node name="Death Menu" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -351,13 +360,8 @@ text = "RELOAD"
 script = ExtResource("9_0dwuh")
 open_animation_flags = 5
 
-[node name="SpecialPivotUI" type="Node3D" parent="." node_paths=PackedStringArray("ui")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -4.586, 0, 0.04)
-visible = false
-script = ExtResource("14_fop7g")
-ui = NodePath("../3D Special UI")
-
 [node name="Pause Menu" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
+visible = false
 z_index = 15
 anchors_preset = 15
 anchor_right = 1.0
