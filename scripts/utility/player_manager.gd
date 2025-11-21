@@ -192,15 +192,15 @@ func team_hurt(damage: float):
 
 func team_effect(e: Array[EntityEffect]):
 	for x in get_players():
-		if x is Player:
+		if x is Player and !x.is_dead():
 			x.apply_effect(e.pop_front())
 
 func team_heal(amount: float):
 	for x in get_players():
-		if x is Player:
+		if x is Player and !x.is_dead():
 			x.try_heal(amount)
 
 func team_heal_percent(percent: float):
 	for x in get_players():
-		if x is Player and x._hp != x._max_hp:
+		if x is Player and x._hp != x._max_hp and !x.is_dead():
 			x.try_heal((x._max_hp - x._hp) * percent)
