@@ -10,7 +10,8 @@
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="9_0dwuh"]
 [ext_resource type="Script" uid="uid://43igx2jhor0s" path="res://scripts/utility/death_menu.gd" id="9_41j18"]
 [ext_resource type="Script" uid="uid://cgnkwyku38tw7" path="res://scripts/utility/per_player_ui.gd" id="9_rkpjn"]
-[ext_resource type="Texture2D" uid="uid://d1n3eyi7jjcya" path="res://vfx/Kenny Particle Pack/circle_02.png" id="10_rkpjn"]
+[ext_resource type="Script" uid="uid://byn2jbtug26j3" path="res://scripts/utility/game_menu.gd" id="10_d11v8"]
+[ext_resource type="Texture2D" uid="uid://d1n3eyi7jjcya" path="res://VFX/Kenny Particle Pack/circle_02.png" id="10_rkpjn"]
 [ext_resource type="Script" uid="uid://baxdofgbk1vp0" path="res://scripts/utility/UIBounce.gd" id="11_d11v8"]
 [ext_resource type="Script" uid="uid://b23m0ymm5td5r" path="res://scripts/utility/3d_2d_ui.gd" id="14_fop7g"]
 [ext_resource type="Script" uid="uid://bv28fxbtlv4es" path="res://scripts/utility/pause_menu.gd" id="15_rkpjn"]
@@ -43,14 +44,14 @@ bones/2/rotation = Quaternion(0.39593133, 0.24977413, 0.68152446, 0.56247294)
 bones/9/rotation = Quaternion(0.03079711, -0.53806853, 0.8415936, 0.035411507)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.075881846, 0.52624977, -0.5069226, 0.6784782)
-bones/15/rotation = Quaternion(-0.15593414, 0.5453621, 0.23009363, 0.7907728)
-bones/16/rotation = Quaternion(-0.5144295, -0.47060046, -0.23111093, 0.6785906)
+bones/14/rotation = Quaternion(-0.075568944, 0.5265456, -0.50681126, 0.6783668)
+bones/15/rotation = Quaternion(-0.15375055, 0.5417798, 0.22937848, 0.7938646)
+bones/16/rotation = Quaternion(-0.5160055, -0.46702358, -0.22845435, 0.68076134)
 bones/17/position = Vector3(0.0018554514, 0.00021904883, -2.3317207e-05)
 bones/19/position = Vector3(0.0013310545, -0.00023085652, -0.0009310012)
-bones/21/rotation = Quaternion(-0.12523712, 0.39638448, -0.47939825, 0.7728988)
-bones/22/rotation = Quaternion(-0.05670701, 0.32669926, 0.16924816, 0.9281202)
-bones/23/rotation = Quaternion(0.101995684, 0.13360545, -0.079502426, 0.98256093)
+bones/21/rotation = Quaternion(-0.1300245, 0.40292716, -0.47389138, 0.77212065)
+bones/22/rotation = Quaternion(-0.05523077, 0.3220927, 0.167701, 0.930098)
+bones/23/rotation = Quaternion(0.10794293, 0.13269557, -0.07487366, 0.9824124)
 bones/24/position = Vector3(-0.001853143, -0.00023585279, -3.842577e-05)
 bones/26/position = Vector3(-0.001368355, 0.0002611133, 0.00086672243)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
@@ -60,10 +61,10 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.35132468, 0.70577794, 0.06050223, 0.61219925)
+bones/38/rotation = Quaternion(-0.3502836, 0.706293, 0.061406035, 0.6121119)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0025147265, -0.56999886, 0.8216416, -0.4232106, 0.7450415, 0.5155637, -0.90602785, -0.34643102, -0.24310315, 0.0060619917, 0.007166138, -0.013180948)
+transform = Transform3D(-0.004189519, -0.5699891, 0.8216417, -0.4210082, 0.74628603, 0.5155668, -0.90704715, -0.34375793, -0.24309671, 0.0060358276, 0.007200589, -0.013196777)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -227,13 +228,7 @@ bank_paths = ["res://sounds/banks/Player.bank"]
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="SpecialPivotUI" type="Node3D" parent="." node_paths=PackedStringArray("ui")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -4.586, 0, 0.04)
-visible = false
-script = ExtResource("14_fop7g")
-ui = NodePath("3D Special UI")
-
-[node name="3D Special UI" type="Control" parent="SpecialPivotUI" node_paths=PackedStringArray("nova_menu", "rene_menu", "dawn_menu")]
+[node name="3D Special UI" type="Control" parent="." node_paths=PackedStringArray("nova_menu", "rene_menu", "dawn_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -250,7 +245,7 @@ nova_menu = NodePath("3D Nova Special")
 rene_menu = NodePath("3D Rene Special")
 dawn_menu = NodePath("3D Dawn Special")
 
-[node name="3D Nova Special" type="TextureProgressBar" parent="SpecialPivotUI/3D Special UI"]
+[node name="3D Nova Special" type="TextureProgressBar" parent="3D Special UI"]
 layout_mode = 0
 offset_left = -256.0
 offset_top = -256.0
@@ -265,7 +260,7 @@ script = ExtResource("11_d11v8")
 bounce_size = SubResource("Curve_q54j5")
 lifetime = 0.3
 
-[node name="3D Rene Special" type="TextureProgressBar" parent="SpecialPivotUI/3D Special UI"]
+[node name="3D Rene Special" type="TextureProgressBar" parent="3D Special UI"]
 visible = false
 layout_mode = 1
 offset_left = -256.0
@@ -281,7 +276,7 @@ script = ExtResource("11_d11v8")
 bounce_size = SubResource("Curve_q54j5")
 lifetime = 0.3
 
-[node name="3D Dawn Special" type="TextureProgressBar" parent="SpecialPivotUI/3D Special UI"]
+[node name="3D Dawn Special" type="TextureProgressBar" parent="3D Special UI"]
 visible = false
 layout_mode = 1
 offset_left = -256.0
@@ -319,13 +314,13 @@ layout_mode = 1
 SWITCH_ANIMATION_EASE_CURVE = SubResource("Curve_wmnvy")
 
 [node name="Nova" parent="Game Menu/GameUi/MarginContainer/Offset" index="1" node_paths=PackedStringArray("special")]
-special = [NodePath("Special"), NodePath("../../../../../SpecialPivotUI/3D Special UI/3D Nova Special")]
+special = [NodePath("Special"), NodePath("../../../../../3D Special UI/3D Nova Special")]
 
 [node name="Rene" parent="Game Menu/GameUi/MarginContainer/Offset" index="2" node_paths=PackedStringArray("special")]
-special = [NodePath("Special"), NodePath("../../../../../SpecialPivotUI/3D Special UI/3D Rene Special")]
+special = [NodePath("Special"), NodePath("../../../../../3D Special UI/3D Rene Special")]
 
 [node name="Dawn" parent="Game Menu/GameUi/MarginContainer/Offset" index="3" node_paths=PackedStringArray("special")]
-special = [NodePath("../Rene/Special"), NodePath("../../../../../SpecialPivotUI/3D Special UI/3D Dawn Special")]
+special = [NodePath("../Rene/Special"), NodePath("../../../../../3D Special UI/3D Dawn Special")]
 
 [node name="Death Menu" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
 visible = false
@@ -342,8 +337,8 @@ pivot_offset = Vector2(144, 96)
 script = ExtResource("9_41j18")
 time_to_die = 2.0
 focused_control = NodePath("Reload Button")
-open_animation_flags = 3
-close_animation_flags = 2
+open_animation_flags = 1
+close_animation_flags = 1
 
 [node name="Reload Button" type="Button" parent="Death Menu"]
 layout_mode = 1
@@ -359,6 +354,12 @@ pivot_offset = Vector2(61, 27)
 text = "RELOAD"
 script = ExtResource("9_0dwuh")
 open_animation_flags = 5
+
+[node name="SpecialPivotUI" type="Node3D" parent="." node_paths=PackedStringArray("ui")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -4.586, 0, 0.04)
+visible = false
+script = ExtResource("14_fop7g")
+ui = NodePath("../3D Special UI")
 
 [node name="Pause Menu" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
 visible = false
