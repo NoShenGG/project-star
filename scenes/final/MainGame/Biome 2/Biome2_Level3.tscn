@@ -68,16 +68,16 @@ stage = 1
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 8.64628)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.067498714, 0.5234155, -0.5062768, 0.68202925)
-bones/15/rotation = Quaternion(-0.16163643, 0.5545529, 0.23187058, 0.7826754)
-bones/16/rotation = Quaternion(-0.509639, -0.46707842, -0.24853504, 0.6784808)
-bones/21/rotation = Quaternion(-0.14970425, 0.39115652, -0.4564708, 0.7849967)
-bones/22/rotation = Quaternion(-0.06711999, 0.35747364, 0.179381, 0.91407335)
-bones/23/rotation = Quaternion(0.14359614, 0.11168077, -0.073069684, 0.98059595)
-bones/38/rotation = Quaternion(-0.34851, 0.7071658, 0.06294383, 0.6119604)
+bones/14/rotation = Quaternion(-0.07094437, 0.5246856, -0.5065216, 0.6805202)
+bones/15/rotation = Quaternion(-0.15829605, 0.5491982, 0.23084575, 0.78742236)
+bones/16/rotation = Quaternion(-0.5124338, -0.46701753, -0.23995522, 0.6795055)
+bones/21/rotation = Quaternion(-0.1416967, 0.3962167, -0.46398953, 0.779518)
+bones/22/rotation = Quaternion(-0.06203405, 0.34278944, 0.17459016, 0.920959)
+bones/23/rotation = Quaternion(0.1285378, 0.12039134, -0.07390035, 0.98159194)
+bones/38/rotation = Quaternion(-0.34917375, 0.70683974, 0.062368497, 0.61201763)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.007039273, -0.5699608, 0.82164174, -0.4172516, 0.7483893, 0.515572, -0.90876377, -0.33920205, -0.24308515, 0.0059913085, 0.0072593526, -0.013223432)
+transform = Transform3D(-0.0059730415, -0.5699729, 0.8216418, -0.41865817, 0.7476047, 0.51557, -0.90812427, -0.34090757, -0.24308932, 0.006007965, 0.0072373496, -0.013213502)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -318,7 +318,7 @@ transform = Transform3D(3.4254735, 0, 0, 0, 1, 0, 0, 0, 3.6188767, -30.066307, -
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.5219336, -0.61917514, 0.58669204, 0.061710697, 0.65859747, 0.74996084, -0.850751, 0.42763487, -0.3055344, 0, 22.456, 0)
 light_color = Color(0.9720134, 0.80973804, 0.91439843, 1)
-light_energy = 0.7
+light_energy = 2.0
 shadow_enabled = true
 sky_mode = 1
 
