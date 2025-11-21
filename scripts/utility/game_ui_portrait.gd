@@ -34,6 +34,8 @@ func update_special(percent: float):
 	else:
 		special.tint_under = Color("ffffff")
 
+func on_death():
+	modulate = Color("003359")
 
 func _process(delta: float) -> void:
 	if hp_step < 1:

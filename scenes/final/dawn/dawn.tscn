@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://c2akhsyinel8t"]
+[gd_scene load_steps=53 format=3 uid="uid://c2akhsyinel8t"]
 
 [ext_resource type="Script" uid="uid://ccrew8qivqlpt" path="res://scripts/entities/player/dawn/dawn.gd" id="1_m3k46"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_n7ie5"]
@@ -17,19 +17,21 @@
 [ext_resource type="Script" uid="uid://d3pkbl7ownr11" path="res://scripts/entities/player/player_states/player_hit_stun.gd" id="12_6x7f2"]
 [ext_resource type="Script" uid="uid://cpj3ro4ajatrk" path="res://scripts/entities/player/dawn/states/dawn_tone_forte.gd" id="12_bxptc"]
 [ext_resource type="Script" uid="uid://vw4slmysqu7q" path="res://scripts/entities/player/dawn/states/dawn_tone_fishshield.gd" id="13_e60w5"]
-[ext_resource type="Script" uid="uid://cpcuaot05ab18" path="res://scripts/entities/player/player_states/player_dash.gd" id="18_wex2d"]
+[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_dash.gd" id="18_wex2d"]
+[ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="19_6x7f2"]
 [ext_resource type="Script" uid="uid://dphi1qwayotd2" path="res://scripts/entities/player/dawn/dawn_notes.gd" id="21_h3uuf"]
 [ext_resource type="Script" uid="uid://cfs2f64dnml45" path="res://scripts/entities/player/dawn/dawn_tone_emitter.gd" id="22_xiq0h"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="23_h166w"]
 [ext_resource type="PackedScene" uid="uid://km5dpokk1mk0" path="res://scenes/final/dawn/tone_melody.tscn" id="23_n7ie5"]
 [ext_resource type="PackedScene" uid="uid://crtpdqb2ymr2p" path="res://scenes/final/dawn/tone_slowwave.tscn" id="25_qnimx"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
-[ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
+[ext_resource type="Script" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
 [ext_resource type="PackedScene" uid="uid://bdh4cmnftg18b" path="res://scenes/final/dawn/tone_wave.tscn" id="28_qntpm"]
 [ext_resource type="PackedScene" uid="uid://cein11fhbr6sp" path="res://scenes/final/dawn/tone_fish.tscn" id="28_wex2d"]
 [ext_resource type="PackedScene" uid="uid://btiyd8a5nuror" path="res://scenes/final/dawn/tone_stunwave.tscn" id="31_6x7f2"]
 [ext_resource type="PackedScene" uid="uid://b283w2r1qef60" path="res://art_assets/characters/Dawn/dawn_rig.glb" id="31_qntpm"]
 [ext_resource type="PackedScene" uid="uid://cl4unmlmmfvgl" path="res://scenes/final/dawn/tone_vortex.tscn" id="32_n6vc4"]
+[ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="33_bxptc"]
 [ext_resource type="PackedScene" uid="uid://bndpka5pxyhx6" path="res://scenes/final/dawn/tone_ice.tscn" id="33_fgi08"]
 [ext_resource type="PackedScene" uid="uid://bt3ebb8eyl2c7" path="res://scenes/dev/arshiya_r/magic circle things/magic_circle_dawn.tscn" id="38_pk6rl"]
 
@@ -243,6 +245,11 @@ script = ExtResource("12_6x7f2")
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource("18_wex2d")
 
+[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
+script = ExtResource("19_6x7f2")
+snap_turn_to_player = true
+animation = NodePath("")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_21ndv")
@@ -400,6 +407,13 @@ fade_out = SubResource("Curve_wex2d")
 [node name="dawn_rig" parent="." instance=ExtResource("31_qntpm")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
 
+[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("33_bxptc")]
+unique_name_in_owner = true
+noiseScale = 7.885
+dissolveBegin = 0.3
+dissolveDuration = 1.0
+meshes = [NodePath("../dawn_rig/Skeleton3D/body"), NodePath("../dawn_rig/Skeleton3D/hair")]
+
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
 [connection signal="player_dashed" from="." to="Dash SFX" method="play_one_shot"]
@@ -423,5 +437,6 @@ transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0
 [connection signal="fire" from="StateMachine/Special/SpecialAbility/ToneStunWave" to="ToneEmitter" method="spawn_stun_wave"]
 [connection signal="fire" from="StateMachine/Special/SpecialAbility/ToneVortex" to="ToneEmitter" method="spawn_vortex_note"]
 [connection signal="fire" from="StateMachine/Special/SpecialAbility/ToneIce" to="ToneEmitter" method="spawn_ice_zone"]
+[connection signal="entered" from="StateMachine/Dead" to="DissolveFX" method="beginDissolve"]
 
 [editable path="dawn_rig"]

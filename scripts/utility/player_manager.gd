@@ -19,6 +19,7 @@ const DAWN = "Dawn"
 
 ## forces a character swap when the character dies, requires all characters to go to 0
 @export var saving_grace : bool = true 
+@export var saving_grace_delay : float = 0.5
 
 signal game_over
 
@@ -166,6 +167,7 @@ func on_player_killed():
 		var p : Player = c as Player
 		if p.name != current_char.name and not p.is_dead():
 			# found a living player to switch
+			if (saving_grace_delay != 0): await get_tree().create_timer(saving_grace_delay).timeout
 			swap_char_to(p)
 			return
 	# didn't find a living player, so game over
