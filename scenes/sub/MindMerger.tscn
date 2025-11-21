@@ -64,10 +64,16 @@ script = ExtResource("5_0h12a")
 script = ExtResource("6_paam0")
 snap_turn_to_player = true
 
+[node name="DeathSFX" type="FmodEventEmitter3D" parent="StateMachine/Dead"]
+event_name = "event:/Enemys/MindMerger/MindMerger Die"
+event_guid = "{d292bdea-6d42-49b6-80a9-efead1ea1399}"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("BoxShape3D_kpfxc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 mesh = SubResource("CapsuleMesh_kpfxc")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -75,6 +81,7 @@ path_desired_distance = 0.25
 path_height_offset = -1.0
 
 [node name="Vision" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 0
 collision_mask = 8
 monitorable = false
@@ -83,6 +90,7 @@ monitorable = false
 shape = SubResource("CylinderShape3D_r8l07")
 
 [node name="Damage" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 top_level = true
 collision_layer = 0
 collision_mask = 4
@@ -95,6 +103,27 @@ shape = SubResource("BoxShape3D_0h12a")
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.69649, 0)
 texture = SubResource("ViewportTexture_3c6eo")
 
+[node name="SpawnSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Enemys/MindMerger/MindMerger Allie Gain"
+event_guid = "{3686e7b2-d6e3-4ac2-bed4-93c5db46c3d7}"
+
+[node name="MinionDeathSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Enemys/MindMerger/MindMerger Allie Lost"
+event_guid = "{1faca13b-0300-43f8-a5ae-5a96a60ea1e8}"
+
+[node name="HitSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Enemys/MindMerger/MindMerger Hit"
+event_guid = "{25102f76-9e12-4e7e-acfe-2168f43df8fc}"
+
+[node name="HumSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Enemys/MindMerger/MindMerger Hum"
+event_guid = "{96181245-cf7e-464a-a532-158335115486}"
+autoplay = true
+
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
+[connection signal="hurt" from="." to="HitSFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="StatusBars" method="death"]
+[connection signal="minion_death" from="." to="MinionDeathSFX" method="play_one_shot"]
+[connection signal="ready" from="." to="SpawnSFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/Dead" to="StateMachine/Dead/DeathSFX" method="play_one_shot"]

@@ -19,10 +19,11 @@ func enter(_prev_state: String, _data := {}) -> void:
 	entered.emit()
 
 func end() -> void:
-	finished.emit()
+	pass
 
 func exit() -> void:
 	enemy.set_movement_target(enemy.global_position)
+	finished.emit()
 
 func update(_delta: float) -> void:
 	if (enemy.death): return

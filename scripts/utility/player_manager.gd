@@ -20,6 +20,7 @@ const DAWN = "Dawn"
 ## forces a character swap when the character dies, requires all characters to go to 0
 @export var saving_grace : bool = true 
 @export var saving_grace_delay : float = 0.5
+@export_enum("One", "Two", "Three") var stage: int = 0
 
 signal game_over
 
@@ -72,9 +73,9 @@ func _process(_delta: float) -> void:
 	if current_char.can_swap():
 		if (Input.is_action_just_pressed("select_char1")):
 			swap_char(0)
-		elif (Input.is_action_just_pressed("select_char2")):
+		elif (Input.is_action_just_pressed("select_char2") and stage >= 1):
 			swap_char(1)
-		elif (Input.is_action_just_pressed("select_char3")):
+		elif (Input.is_action_just_pressed("select_char3") and stage >= 2):
 			swap_char(2)
 	
 	## this line works because the players are top_level. 
@@ -164,6 +165,8 @@ func on_player_killed():
 			break
 			
 		var p : Player = c as Player
+		if (p.name == RENE and stage < 1) or (p.name == DAWN and stage < 2):
+			continue
 		if p.name != current_char.name and not p.is_dead():
 			# found a living player to switch
 			if (saving_grace_delay != 0): await get_tree().create_timer(saving_grace_delay).timeout

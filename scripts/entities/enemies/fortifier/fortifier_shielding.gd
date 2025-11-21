@@ -1,5 +1,6 @@
 class_name Shielding extends FortifierState
 
+signal good
 
 @export var rotate_speed : float = 10
 @export var cast_time: float = 1.0
@@ -16,6 +17,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	if not fortifier.shield():
 		get_tree().create_timer(retry_time).timeout.connect(
 			trigger_finished.emit.bind(get_path()))
+	good.emit()
 	trigger_finished.emit(next_state.get_path())
 
 func update(_delta: float) -> void:
