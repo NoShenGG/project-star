@@ -7,7 +7,7 @@ extends Control
 
 
 func _ready() -> void:
-	_hide()
+	display()
 
 func display() -> void:
 	for page in pages:

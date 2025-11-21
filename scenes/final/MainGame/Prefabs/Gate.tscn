@@ -10,10 +10,10 @@ height = 5.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bo4w0"]
 render_priority = 0
 shader = ExtResource("1_ryov1")
-shader_parameter/albedo = Color(1, 1, 1, 0)
+shader_parameter/albedo = Color(0.012617188, 0.012617188, 0.012617188, 1)
 shader_parameter/emission_color = Color(0.50980395, 0, 1, 1)
-shader_parameter/emission_amount = 5.0
-shader_parameter/rim_steepness = 3.0
+shader_parameter/emission_amount = 7.4250003526875
+shader_parameter/rim_steepness = 1.2400000589
 shader_parameter/uv_scale = Vector3(0, 0, 0)
 shader_parameter/uv_offset = Vector3(0, 0, 0)
 

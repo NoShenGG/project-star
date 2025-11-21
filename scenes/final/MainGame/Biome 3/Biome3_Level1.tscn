@@ -44,7 +44,7 @@ stage = 2
 
 [node name="LevelEnder" parent="." instance=ExtResource("7_10abd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9348946, -9.536743e-07, -8.2116165)
-next_level = "MainGame/Biome 3/Biome3_Level2"
+next_level = "MainGame/Biome 3/Biome3_Level3"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_8o628")

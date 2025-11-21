@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://p0pl57lpm4x4"]
+[gd_scene load_steps=36 format=3 uid="uid://p0pl57lpm4x4"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_ajxti"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="4_47nrl"]
@@ -6,21 +6,28 @@
 [ext_resource type="PackedScene" uid="uid://cipc0pee6kke6" path="res://scenes/sub/Slime.tscn" id="7_opvqb"]
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="7_pafkc"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="9_76imp"]
+[ext_resource type="Texture2D" uid="uid://bfq2lq4t3785h" path="res://art_assets/Ui/TextboxSmall.png" id="9_pafkc"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="10_1fsox"]
-[ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://VFX/Kenny Particle Pack/star_06.png" id="10_fja3h"]
-[ext_resource type="Script" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
-[ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="11_1fsox"]
+[ext_resource type="Script" uid="uid://knd2e7gdbpfb" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
+[ext_resource type="Texture2D" uid="uid://cqlv7nqlkjrwx" path="res://art_assets/Ui/TextboxMedium.png" id="10_yvkck"]
 [ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="11_pafkc"]
 [ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="12_yvkck"]
 [ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="13_ck0to"]
-[ext_resource type="Texture2D" uid="uid://bjfyh4eqtc0tn" path="res://art_assets/Ui/nova_portrait.png" id="14_e4lx6"]
-[ext_resource type="Texture2D" uid="uid://bafjycstuh6ma" path="res://austin_newby/dialogue/resources/nova_wtf_0.png" id="15_px6kn"]
+[ext_resource type="Texture2D" uid="uid://c58k7b0faqg2l" path="res://art_assets/Ui/FinalPortraits/Nova Corner Portrait.png" id="14_e4lx6"]
+[ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="16_yvkck"]
+[ext_resource type="PackedScene" uid="uid://b4c3817gcfxs0" path="res://art_assets/environment/Biome1/Level1/Level1Working.glb" id="17_e4lx6"]
+[ext_resource type="Texture2D" uid="uid://byolbfx3m3u3r" path="res://art_assets/environment/Biome1/Level1/Level1Working_Mountain_Trees.png" id="18_nv2fo"]
+[ext_resource type="Material" uid="uid://bfg0k851shf2x" path="res://art_assets/environment/Biome1/Level1/forest_backing.material" id="18_px6kn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7oo5e"]
 size = Vector3(15, 3, 15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1fsox"]
 size = Vector3(6, 2, 6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ck0to"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4lx6"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_opvqb"]
 vertices = PackedVector3Array(51.08624, 1.3920107, -81.7892, 56.08624, 1.3920107, -81.7892, 56.08624, 2.8920107, -104.5392, 51.08624, 2.8920107, -104.5392, 51.08624, 2.8920107, -94.586075, 51.08624, 1.592011, -90.32045, 51.08624, 1.3920107, -88.898575, 56.08624, 1.3920107, -88.898575, 56.08624, 1.592011, -90.32045, 56.08624, 2.8920107, -94.586075, 52.81148, 1.3920107, -88.54446, 51.08624, 1.3920107, -55.7892, 51.08624, 1.3920107, -53.7892, 56.08624, 1.3920107, -53.7892, 56.08624, 1.3920107, -55.7892, 49.58624, 1.3920107, -79.5392, 49.58624, 1.3920107, -56.0392, 57.58624, 1.3920107, -56.0392, 57.58624, 1.3920107, -79.5392, 51.08624, 1.3920107, -79.7892, 56.08624, 1.3920107, -79.7892, 51.08624, 1.3920107, -32.2892, 56.08624, 1.3920107, -32.2892, 56.33624, 1.3920107, -30.0392, 50.83624, 1.3920107, -30.0392, 42.83624, 1.3920107, -30.0392, 42.83624, 1.3920107, -19.5392, 40.58624, 1.3920107, -19.2892, 40.58624, 1.3920107, -12.7892, 42.58624, 1.3920107, -12.7892, 42.83624, 1.3920107, -10.5392, 64.08624, 1.3920107, -10.5392, 64.08624, 1.3920107, -30.0392, -2.1637611, 0.092010975, -10.5392, 2.3362389, 0.092010975, -10.5392, 2.3362389, 0.092010975, -12.5392, -2.1637611, 0.092010975, -12.5392, -3.6637611, 0.092010975, -12.7892, 4.586239, 0.092010975, -12.7892, 4.586239, 0.092010975, -19.2892, -3.6637611, 0.092010975, -19.2892, -0.16376114, -2.907989, -19.2892, -0.16376114, -2.907989, -12.7892, 0.33623886, -2.7079892, -12.7892, 0.33623886, -2.7079892, -19.2892, 6.0262384, 0.092010975, -12.7892, 8.906239, 1.3920107, -12.7892, 8.906239, 1.3920107, -19.2892, 6.0262384, 0.092010975, -19.2892, -2.1637611, 0.092010975, 17.9608, 2.3362389, 0.092010975, 17.9608)
@@ -48,12 +55,19 @@ tonemap_mode = 2
 tonemap_exposure = 0.5
 ssao_enabled = true
 ssil_enabled = true
-volumetric_fog_density = 0.02
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
 volumetric_fog_detail_spread = 0.5
 adjustment_enabled = true
 adjustment_brightness = 1.17
 adjustment_contrast = 1.24
 adjustment_saturation = 0.9
+
+[sub_resource type="FogMaterial" id="FogMaterial_otk5b"]
+density = 0.2
+albedo = Color(1.4687854, 1.4687854, 1.4687854, 1)
+height_falloff = 1e-05
+edge_fade = 7.1012325
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fja3h"]
 size = Vector3(2.145, 16.735, 27.925)
@@ -71,20 +85,21 @@ size = Vector3(8, 3, 8)
 
 [sub_resource type="Resource" id="Resource_mn8l0"]
 script = ExtResource("13_ck0to")
+name = "Nova"
 img = ExtResource("14_e4lx6")
-text = "Dude this fucking mountain is such a"
+text = "I'm finally here. I can see the Arduous Star!"
+small_text = "Press [Space] to advance"
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="Resource" id="Resource_otk5b"]
 script = ExtResource("13_ck0to")
-img = ExtResource("15_px6kn")
-text = "Ardous Climb"
+name = "Nova"
+img = ExtResource("14_e4lx6")
+text = "Oh, what are these little guys doing here?"
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
-[sub_resource type="Resource" id="Resource_pafkc"]
-script = ExtResource("13_ck0to")
-small_text = "stfu st fg aklsjbldkj gbdsalkj bdgsahjkl  asdgjlhkdsg hjdgs alkhjadg shjkfg ljkh"
-metadata/_custom_type_script = "uid://ehvcmont8xvr"
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn8l0"]
+albedo_texture = ExtResource("18_nv2fo")
 
 [node name="Level1" type="Node3D"]
 
@@ -95,16 +110,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.06882059, 0.5238776, -0.5063817, 0.6814643)
-bones/15/rotation = Quaternion(-0.16045588, 0.55266917, 0.23151322, 0.7843548)
-bones/16/rotation = Quaternion(-0.5106868, -0.46719766, -0.24527398, 0.67879754)
-bones/21/rotation = Quaternion(-0.14641052, 0.39288193, -0.459678, 0.78288186)
-bones/22/rotation = Quaternion(-0.06518203, 0.35194778, 0.17758745, 0.9167043)
-bones/23/rotation = Quaternion(0.13745022, 0.11511129, -0.0735999, 0.9810403)
-bones/38/rotation = Quaternion(-0.34881422, 0.70701635, 0.06268012, 0.61198676)
+bones/14/rotation = Quaternion(-0.07320227, 0.5256036, -0.50665873, 0.6794699)
+bones/15/rotation = Quaternion(-0.15590408, 0.5453124, 0.23008354, 0.7908159)
+bones/16/rotation = Quaternion(-0.51432276, -0.46674508, -0.23412499, 0.68029904)
+bones/21/rotation = Quaternion(-0.13646632, 0.39999104, -0.46845865, 0.77584183)
+bones/22/rotation = Quaternion(-0.058591176, 0.3324664, 0.17117244, 0.9255988)
+bones/23/rotation = Quaternion(0.11894637, 0.12625852, -0.074060045, 0.9820518)
+bones/38/rotation = Quaternion(-0.34963027, 0.7066151, 0.06197271, 0.61205655)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.006550504, -0.56996655, 0.8216418, -0.41789645, 0.74803007, 0.5155711, -0.90847105, -0.33998394, -0.24308693, 0.005998944, 0.0072492654, -0.013218887)
+transform = Transform3D(-0.0052396515, -0.56998026, 0.82164174, -0.41962513, 0.7470633, 0.5155687, -0.9076824, -0.34208015, -0.24309242, 0.0060194223, 0.0072222236, -0.01320664)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -218,6 +233,12 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
+[node name="Rene" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" index="2"]
+visible = false
+
+[node name="Dawn" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" index="3"]
+visible = false
+
 [node name="WaveManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
 script = ExtResource("4_47nrl")
@@ -268,7 +289,7 @@ transform = Transform3D(3.6162832, 0, 0, 0, 1, 0, 0, 0, 10.80695, 29.413383, 1.4
 
 [node name="LevelEnder" parent="." instance=ExtResource("9_76imp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.65578, 2.739277, -105.33831)
-next_level = "MainGame/Biome 1/Biome1_Level2"
+next_level = "MainGame/Biome 1/Biome1_Level3"
 
 [node name="tutorial" type="Node" parent="."]
 
@@ -285,6 +306,7 @@ shape = SubResource("BoxShape3D_1fsox")
 debug_color = Color(0, 11.618606, 13.50434, 0.8509804)
 
 [node name="Menu" type="Panel" parent="tutorial/Tutorial1" node_paths=PackedStringArray("focused_control")]
+material = SubResource("ShaderMaterial_ck0to")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -296,104 +318,40 @@ offset_right = 171.0
 offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e4lx6")
 script = ExtResource("10_1fsox")
-focused_control = NodePath("Label")
+focused_control = NodePath("TextureRect/Label")
 open_time = 0.5
 open_animation_flags = 1
 close_time = 0.5
 close_animation_flags = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="tutorial/Tutorial1/Menu"]
-position = Vector2(393.57178, 132.16002)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
+[node name="TextureRect" type="TextureRect" parent="tutorial/Tutorial1/Menu"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 202.0
+offset_right = 625.0
+offset_bottom = 393.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_pafkc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="tutorial/Tutorial1/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(383.5717, 212.16)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D3" type="Sprite2D" parent="tutorial/Tutorial1/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(333.57172, 280.16)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D4" type="Sprite2D" parent="tutorial/Tutorial1/Menu"]
-position = Vector2(-6.9472046, 125.30113)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
-
-[node name="Sprite2D5" type="Sprite2D" parent="tutorial/Tutorial1/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(26, 207)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D6" type="Sprite2D" parent="tutorial/Tutorial1/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(83, 295.00003)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Label" type="Label" parent="tutorial/Tutorial1/Menu"]
+[node name="Label" type="Label" parent="tutorial/Tutorial1/Menu/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 18.0
-offset_right = -20.0
-offset_bottom = -18.0
+offset_left = 76.66669
+offset_top = 65.00001
+offset_right = 36.666687
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.65, 1.65)
 text = "Use [WASD] to move, [J] to attack"
 
 [node name="Tutorial2" type="Area3D" parent="tutorial" node_paths=PackedStringArray("menu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.74186, 2.0158982, -15.820839)
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("10_opvqb")
@@ -405,359 +363,170 @@ shape = SubResource("BoxShape3D_1fsox")
 debug_color = Color(0, 11.618606, 13.50434, 0.8509804)
 
 [node name="Menu" type="Panel" parent="tutorial/Tutorial2" node_paths=PackedStringArray("focused_control")]
+material = SubResource("ShaderMaterial_ck0to")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -171.0
-offset_top = -140.0
+offset_top = -22.0
 offset_right = 171.0
-offset_bottom = 140.0
+offset_bottom = 258.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e4lx6")
 script = ExtResource("10_1fsox")
-focused_control = NodePath("Label")
+focused_control = NodePath("TextureRect/Label")
 open_time = 0.5
 open_animation_flags = 1
 close_time = 0.5
 close_animation_flags = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="tutorial/Tutorial2/Menu"]
-position = Vector2(393.57178, 132.16002)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
+[node name="TextureRect" type="TextureRect" parent="tutorial/Tutorial2/Menu"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 86.0
+offset_right = 625.0
+offset_bottom = 277.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_pafkc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="tutorial/Tutorial2/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(383.5717, 212.16)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D3" type="Sprite2D" parent="tutorial/Tutorial2/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(333.57172, 280.16)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D4" type="Sprite2D" parent="tutorial/Tutorial2/Menu"]
-position = Vector2(-6.9472046, 125.30113)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
-
-[node name="Sprite2D5" type="Sprite2D" parent="tutorial/Tutorial2/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(26, 207)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D6" type="Sprite2D" parent="tutorial/Tutorial2/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(83, 295.00003)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Label" type="Label" parent="tutorial/Tutorial2/Menu"]
+[node name="Label" type="Label" parent="tutorial/Tutorial2/Menu/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 18.0
-offset_right = -20.0
-offset_bottom = -18.0
+offset_left = -208.33328
+offset_top = 61.66667
+offset_right = -248.33328
+offset_bottom = 25.666672
 grow_horizontal = 2
 grow_vertical = 2
-text = "press [shift] to dash"
+scale = Vector2(1.65, 1.65)
+text = "Press [Shift] to dash"
+horizontal_alignment = 1
 
 [node name="Tutorial3" type="Area3D" parent="tutorial" node_paths=PackedStringArray("menu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.947502, 2.0158982, -15.820839)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("10_opvqb")
-menu = NodePath("Menu")
+menu = NodePath("Menu2")
 
 [node name="Tutorial Collision Box" type="CollisionShape3D" parent="tutorial/Tutorial3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_1fsox")
 debug_color = Color(0, 11.618606, 13.50434, 0.8509804)
 
-[node name="Menu" type="Panel" parent="tutorial/Tutorial3" node_paths=PackedStringArray("focused_control")]
+[node name="Menu2" type="Panel" parent="tutorial/Tutorial3" node_paths=PackedStringArray("focused_control")]
+material = SubResource("ShaderMaterial_ck0to")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -171.0
-offset_top = -140.0
+offset_top = -22.0
 offset_right = 171.0
-offset_bottom = 140.0
+offset_bottom = 258.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e4lx6")
 script = ExtResource("10_1fsox")
-focused_control = NodePath("Label")
+focused_control = NodePath("TextureRect/Label")
 open_time = 0.5
 open_animation_flags = 1
 close_time = 0.5
 close_animation_flags = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="tutorial/Tutorial3/Menu"]
-position = Vector2(393.57178, 132.16002)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
+[node name="TextureRect" type="TextureRect" parent="tutorial/Tutorial3/Menu2"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 86.0
+offset_right = 625.0
+offset_bottom = 277.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_pafkc")
 
-[node name="Sprite2D2" type="Sprite2D" parent="tutorial/Tutorial3/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(383.5717, 212.16)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D3" type="Sprite2D" parent="tutorial/Tutorial3/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(333.57172, 280.16)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D4" type="Sprite2D" parent="tutorial/Tutorial3/Menu"]
-position = Vector2(-6.9472046, 125.30113)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
-
-[node name="Sprite2D5" type="Sprite2D" parent="tutorial/Tutorial3/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(26, 207)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D6" type="Sprite2D" parent="tutorial/Tutorial3/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(83, 295.00003)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Label" type="Label" parent="tutorial/Tutorial3/Menu"]
+[node name="Label" type="Label" parent="tutorial/Tutorial3/Menu2/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 18.0
-offset_right = -20.0
-offset_bottom = -18.0
+offset_left = -208.33328
+offset_top = 61.66667
+offset_right = -248.33328
+offset_bottom = 25.666672
 grow_horizontal = 2
 grow_vertical = 2
-text = "Hold [J] to perform a charged attack"
+scale = Vector2(1.65, 1.65)
+text = "Hold [j] to perfom a charged attack"
+horizontal_alignment = 1
 
 [node name="Tutorial4" type="Area3D" parent="tutorial" node_paths=PackedStringArray("menu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.37954, 2.0158982, -46.623657)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("10_opvqb")
-menu = NodePath("Menu")
+menu = NodePath("Menu2")
 
 [node name="Tutorial Collision Box" type="CollisionShape3D" parent="tutorial/Tutorial4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_1fsox")
 debug_color = Color(0, 11.618606, 13.50434, 0.8509804)
 
-[node name="Menu" type="Panel" parent="tutorial/Tutorial4" node_paths=PackedStringArray("focused_control")]
+[node name="Menu2" type="Panel" parent="tutorial/Tutorial4" node_paths=PackedStringArray("focused_control")]
+material = SubResource("ShaderMaterial_ck0to")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -171.0
-offset_top = -140.0
+offset_top = -21.0
 offset_right = 171.0
-offset_bottom = 140.0
+offset_bottom = 259.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e4lx6")
 script = ExtResource("10_1fsox")
-focused_control = NodePath("Label")
+focused_control = NodePath("TextureRect/Label")
 open_time = 0.5
 open_animation_flags = 1
 close_time = 0.5
 close_animation_flags = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="tutorial/Tutorial4/Menu"]
-position = Vector2(393.57178, 132.16002)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
+[node name="TextureRect" type="TextureRect" parent="tutorial/Tutorial4/Menu2"]
+layout_mode = 0
+offset_left = -89.0
+offset_top = 68.0
+offset_right = 775.0
+offset_bottom = 310.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_yvkck")
 
-[node name="Sprite2D2" type="Sprite2D" parent="tutorial/Tutorial4/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(383.5717, 212.16)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D3" type="Sprite2D" parent="tutorial/Tutorial4/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(333.57172, 280.16)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D4" type="Sprite2D" parent="tutorial/Tutorial4/Menu"]
-position = Vector2(-6.9472046, 125.30113)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
-
-[node name="Sprite2D5" type="Sprite2D" parent="tutorial/Tutorial4/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(26, 207)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D6" type="Sprite2D" parent="tutorial/Tutorial4/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(83, 295.00003)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_fja3h")
-script = ExtResource("11_1fsox")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Label" type="Label" parent="tutorial/Tutorial4/Menu"]
+[node name="Label" type="Label" parent="tutorial/Tutorial4/Menu2/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 18.0
-offset_right = -20.0
-offset_bottom = -18.0
+offset_left = -269.99994
+offset_top = 73.33334
+offset_right = -309.99994
+offset_bottom = 37.333344
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.65, 1.65)
 text = "Press [k] to perform a special attack
-There is a cooldown underneath your
-health bar"
+The cooldown is next to your character"
+horizontal_alignment = 1
 
 [node name="Navmesh" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_opvqb")
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="Navmesh"]
+visible = false
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2"]
@@ -812,11 +581,17 @@ size = Vector3(10.612, 1, 23.12)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.5219336, -0.61917514, 0.58669204, 0.061710697, 0.65859747, 0.74996084, -0.850751, 0.42763487, -0.3055344, 0, 22.456, 0)
+light_energy = 1.5
 shadow_enabled = true
 sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
 environment = SubResource("Environment_ck0to")
+
+[node name="FogVolume" type="FogVolume" parent="DirectionalLight3D"]
+transform = Transform3D(-0.89542913, 0.49204972, -1.6037996, -1.0622574, 5.251318, 0.8061593, 1.0065293, 5.979809, -0.5759804, -1.0184983, -45.878075, -0.8861561)
+size = Vector3(165.4, 9.7, 233.25)
+material = SubResource("FogMaterial_otk5b")
 
 [node name="walls" type="Node" parent="."]
 
@@ -919,6 +694,7 @@ shape = SubResource("BoxShape3D_7a44i")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
 [node name="DialogueCollisionCaller" type="Area3D" parent="." node_paths=PackedStringArray("dialogue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.638527)
 script = ExtResource("11_pafkc")
 dialogue = NodePath("DialogueCaller")
 metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
@@ -929,13 +705,25 @@ shape = SubResource("BoxShape3D_nv2fo")
 
 [node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
 script = ExtResource("12_yvkck")
-dialogue = Array[ExtResource("13_ck0to")]([SubResource("Resource_mn8l0"), SubResource("Resource_otk5b"), SubResource("Resource_pafkc")])
+dialogue = Array[ExtResource("13_ck0to")]([SubResource("Resource_mn8l0"), SubResource("Resource_otk5b")])
 metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://sounds/banks/Enemys.bank"]
 
+[node name="Gate" parent="." instance=ExtResource("16_yvkck")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 53.344944, 2.2422523, -81.02255)
+
+[node name="Level1Working" parent="." instance=ExtResource("17_e4lx6")]
+
+[node name="Vert_002" parent="Level1Working" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mn8l0")
+
+[node name="forest" parent="Level1Working" index="79"]
+surface_material_override/0 = ExtResource("18_px6kn")
+
 [connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
+[connection signal="ended" from="WaveManager/Wave3" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Area3D" to="WaveManager" method="_on_start" unbinds=1]
 
 [editable path="PlayerManager"]
@@ -947,3 +735,5 @@ bank_paths = ["res://sounds/banks/Enemys.bank"]
 [editable path="PlayerManager/Dawn/dawn_rig"]
 [editable path="PlayerManager/Game Menu/GameUi"]
 [editable path="PlayerManager/SettingScene"]
+[editable path="Gate"]
+[editable path="Level1Working"]

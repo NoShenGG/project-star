@@ -137,6 +137,7 @@ size = Vector3(7.545, 6, 1)
 
 [node name="LevelEnder" parent="." instance=ExtResource("7_1123x")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 79.913246, 7.9651995, -157.06155)
+next_level = "credits/credits"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_enm0d")
