@@ -294,6 +294,8 @@ event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 script = ExtResource("10_nhxyw")
 animation = NodePath("../../rene/charged attack")
 speed_scale_factor = 0.2
+heal = 10.0
+damage = null
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
 event_name = "event:/Player/Uniques/Charged Attack/Nova Charged Attack"
