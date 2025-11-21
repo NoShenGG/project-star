@@ -1,21 +1,37 @@
 extends Node
 
-@export var nova : FmodEventEmitter3D
-@export var rene : FmodEventEmitter3D
-@export var dawn : FmodEventEmitter3D
+@export var nova_swapin : FmodEventEmitter3D
+@export var rene_swapin : FmodEventEmitter3D
+@export var dawn_swapin : FmodEventEmitter3D
+@export var nova_swapout : FmodEventEmitter3D
+@export var rene_swapout : FmodEventEmitter3D
+@export var dawn_swapout : FmodEventEmitter3D
 
 var last_character : Player
 
+func _ready() -> void:
+	(owner as PlayerManager).new_player.connect(swapping)
+
 func swapping(player : Player):
-	
-	var nova_prob : float = randf_range(0,1) if player.name == "Nova" else 0
-	var rene_prob : float = randf_range(0,1) if player.name == "Rene" else 0
-	var dawn_prob : float = randf_range(0,1) if player.name == "Dawn" else 0
-	
-	if (nova_prob + rene_prob + dawn_prob > rene_prob + dawn_prob):
-		nova.play(true)
-	if (nova_prob + rene_prob + dawn_prob > nova_prob + dawn_prob):
-		rene.play(true)
-	if (nova_prob + rene_prob + dawn_prob > nova_prob + rene_prob):
-		dawn.play(true)
+	if (randi_range(0,1) == 1 and last_character != null):
+		play_swap_out(player)
+	else:
+		play_swap_in(player)
 	last_character = player
+	
+
+func play_swap_in(player :Player):
+	if player.name == "Nova":
+		nova_swapin.play()
+	if player.name == "Rene":
+		rene_swapin.play()
+	if player.name == "Dawn":
+		dawn_swapin.play()
+	
+func play_swap_out(player :Player):
+	if (last_character.name == "Nova"):
+		nova_swapout.play()
+	if (last_character.name == "Rene"):
+		rene_swapout.play()
+	if (last_character.name == "Dawn"):
+		dawn_swapout.play()
