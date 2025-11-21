@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jd6ie1ov3gt3"]
+[gd_scene load_steps=18 format=3 uid="uid://jd6ie1ov3gt3"]
 
 [ext_resource type="Script" uid="uid://dt6gotxl8mucy" path="res://scripts/utility/main_menu.gd" id="1_i0wvf"]
 [ext_resource type="Texture2D" uid="uid://bsj2h2rq3i4s5" path="res://art_assets/Ui/jtas_splash_background.png" id="2_lvhxv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="4_u1nrr"]
 [ext_resource type="Texture2D" uid="uid://fbvnsmo83d2x" path="res://art_assets/Ui/jtas_splash_nova.png" id="5_61c46"]
 [ext_resource type="Texture2D" uid="uid://b2fmtv8m321h1" path="res://art_assets/Ui/main_menu_logo.png" id="6_bx8yj"]
+[ext_resource type="Script" uid="uid://diaap70c4mvfb" path="res://scripts/utility/menu_sfx.gd" id="9_gqoms"]
 
 [sub_resource type="Animation" id="Animation_gqoms"]
 length = 0.001
@@ -254,6 +255,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_u1nrr")
+
+[node name="Menu SFX" type="Node" parent="Menu" node_paths=PackedStringArray("open_sfx", "close_sfx")]
+script = ExtResource("9_gqoms")
+open_sfx = NodePath("Open SFX")
+close_sfx = NodePath("Close SFX")
+
+[node name="Open SFX" type="FmodEventEmitter3D" parent="Menu/Menu SFX"]
+event_name = "event:/UI/Menu Open"
+event_guid = "{4a1bcb6d-acb5-431a-8121-9f9f6b8a0b3b}"
+
+[node name="Close SFX" type="FmodEventEmitter3D" parent="Menu/Menu SFX"]
+event_name = "event:/UI/Menu Closed"
+event_guid = "{1f209850-e79d-46a2-a2d3-c3a83a96f0fe}"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
