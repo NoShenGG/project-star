@@ -141,14 +141,15 @@ scale_curve = SubResource("CurveXYZTexture_4flcn")
 color = Color(5.912981, 5.912981, 3.4088943, 0.503)
 alpha_curve = SubResource("CurveTexture_0i6t6")
 
-[node name="Node" type="Node"]
-
-[node name="AutoStartVFX" type="Node3D" parent="." node_paths=PackedStringArray("particles")]
+[node name="AutoStartVFX" type="Node3D" node_paths=PackedStringArray("particles")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.1525574e-07, 0)
 script = ExtResource("1_t22lq")
-particles = [NodePath("OuterBeam"), NodePath("Splash"), NodePath("InnerBeam"), NodePath("smallParticles")]
+on_stop = 1
+lifetime = 0.1
+particles = [NodePath("OuterBeam"), NodePath("Splash"), NodePath("InnerBeam"), NodePath("smallParticles"), NodePath("OuterBeam"), NodePath("Splash"), NodePath("InnerBeam"), NodePath("smallParticles")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
-[node name="OuterBeam" type="GPUParticles3D" parent="AutoStartVFX"]
+[node name="OuterBeam" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 3.364, 0, 0, 0, 0.4, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_2lhqc")
 cast_shadow = 0
@@ -160,7 +161,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_7hx78")
 draw_pass_1 = ExtResource("4_xwwy0")
 
-[node name="Splash" type="GPUParticles3D" parent="AutoStartVFX"]
+[node name="Splash" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.35355338, 0, 0.35355338, 0, 0.3, 0, -0.35355338, 0, 0.35355338, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_gejmv")
 emitting = false
@@ -171,7 +172,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_cibnl")
 draw_pass_1 = ExtResource("6_kuajf")
 
-[node name="InnerBeam" type="GPUParticles3D" parent="AutoStartVFX"]
+[node name="InnerBeam" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 3.364, 0, 0, 0, 0.4, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_ado8y")
 emitting = false
@@ -182,7 +183,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_0i6t6")
 draw_pass_1 = ExtResource("4_xwwy0")
 
-[node name="smallParticles" type="GPUParticles3D" parent="AutoStartVFX"]
+[node name="smallParticles" type="GPUParticles3D" parent="."]
 material_override = SubResource("ShaderMaterial_bw7jq")
 emitting = false
 amount = 35
@@ -190,5 +191,3 @@ one_shot = true
 explosiveness = 0.1
 process_material = SubResource("ParticleProcessMaterial_gejmv")
 draw_pass_1 = ExtResource("9_htfaf")
-
-[node name="Node3D" type="Node3D" parent="."]
