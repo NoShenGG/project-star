@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="9_arhvd"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="13_g51g3"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="14_js430"]
+[ext_resource type="PackedScene" uid="uid://cf5t6lmcuvytc" path="res://art_assets/enemies/shrooms/laser_shroom.glb" id="15_1eeap"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_js430"]
 size = Vector3(1, 2, 1)
@@ -29,8 +30,6 @@ size = Vector3(15, 1, 1)
 material = ExtResource("8_27v6w")
 size = Vector3(15, 1, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_pxf1l"]
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_yed7e"]
 viewport_path = NodePath("SubViewport")
 
@@ -38,6 +37,8 @@ viewport_path = NodePath("SubViewport")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 collision_layer = 10
 script = ExtResource("1_6e0eo")
+_hp = 45.0
+_max_hp = 45.0
 metadata/_custom_type_script = "uid://b0ikb4va3mlaf"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -126,10 +127,6 @@ transform = Transform3D(1, 0, 0, 0, 1.5771985, 0, 0, 0, 1, 7.732189, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_iil6r")
 
-[node name="LaserShroomMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_pxf1l")
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="StatusBars" parent="." instance=ExtResource("13_g51g3")]
@@ -137,11 +134,13 @@ transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357
 texture = SubResource("ViewportTexture_yed7e")
 
 [node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("14_js430")]
-meshes = [NodePath("../LaserShroomMesh")]
+meshes = [NodePath("")]
 
 [node name="HurtSFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Enemys/LaserShroom/LaserShroom Hurt"
 event_guid = "{e14c303d-57b7-41df-84cc-cb781342b0d6}"
+
+[node name="laser_shroom" parent="." instance=ExtResource("15_1eeap")]
 
 [connection signal="hurt" from="." to="HurtSFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="DissolveFX" method="beginDissolve"]

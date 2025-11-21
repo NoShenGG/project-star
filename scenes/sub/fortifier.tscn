@@ -40,6 +40,8 @@ script = ExtResource("1_q7o8q")
 recalc_cd = 1.0
 vision = NodePath("Hitboxes/Shield")
 attack_radius = 10.0
+_hp = 30.0
+_max_hp = 30.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_ko5h1")
@@ -130,8 +132,8 @@ event_guid = "{1faca13b-0300-43f8-a5ae-5a96a60ea1e8}"
 [connection signal="hurt" from="." to="HitSFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Idle" to="fort2glb/Idle" method="enter"]
 [connection signal="good" from="StateMachine/Shielding" to="StateMachine/Shielding/ShieldSFX" method="play_one_shot"]
-[connection signal="entered" from="StateMachine/DeadState" to="DissolveFX" method="beginDissolve"]
 [connection signal="entered" from="StateMachine/DeadState" to="StateMachine/DeadState/DeathSFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/DeadState" to="DissolveFX" method="beginDissolve"]
 [connection signal="body_entered" from="Hitboxes/Shield" to="." method="_on_shield_body_entered"]
 [connection signal="body_exited" from="Hitboxes/Shield" to="." method="_on_shield_body_exited"]
 

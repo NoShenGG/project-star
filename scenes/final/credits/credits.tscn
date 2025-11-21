@@ -1,12 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://oyqaht863a7r"]
+[gd_scene load_steps=20 format=3 uid="uid://oyqaht863a7r"]
 
 [ext_resource type="Script" uid="uid://cc1ywicqptqgf" path="res://scenes/final/credits/credits-stack.gd" id="1_5ugie"]
 [ext_resource type="Script" uid="uid://ck7000kwakxa5" path="res://scenes/final/credits/credits-page.gd" id="1_6hlpj"]
 [ext_resource type="Script" uid="uid://ueybnukhbfoh" path="res://scenes/final/credits/credits.gd" id="1_efyda"]
-[ext_resource type="Texture2D" uid="uid://b20vb7m5bkcy4" path="res://art_assets/Ui/JTASM2Logo.png" id="2_v7aig"]
 [ext_resource type="LabelSettings" uid="uid://cnxf4lu3op5dh" path="res://scenes/final/credits/names.tres" id="2_x6b1k"]
 [ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_efyda"]
 [ext_resource type="Script" uid="uid://djsv87v46ka0d" path="res://scenes/final/credits/names-list-fade.gd" id="4_5ugie"]
+[ext_resource type="Texture2D" uid="uid://dywats3p5bhbw" path="res://art_assets/Ui/JTAS Title Banner.png" id="7_efyda"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2anlu"]
 font = ExtResource("3_efyda")
@@ -25,12 +25,6 @@ font = ExtResource("3_efyda")
 font_size = 50
 shadow_size = 10
 shadow_color = Color(0.60784316, 0.34901962, 0.7137255, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_t1nhf"]
-font = ExtResource("3_efyda")
-font_size = 50
-shadow_size = 10
-shadow_color = Color(0.18039216, 0.8, 0.44313726, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_a3toc"]
 font = ExtResource("3_efyda")
@@ -75,7 +69,7 @@ shadow_size = 10
 shadow_color = Color(0.9019608, 0.49019608, 1, 1)
 
 [sub_resource type="Gradient" id="Gradient_notvo"]
-colors = PackedColorArray(0.05490196, 0.05490196, 0.05490196, 1, 0.05490196, 0.05490196, 0.05490196, 1)
+colors = PackedColorArray(0.05, 0.05, 0.05, 1, 0.05490196, 0.05490196, 0.05490196, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_x6b1k"]
 gradient = SubResource("Gradient_notvo")
@@ -88,7 +82,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_efyda")
-pages = [NodePath("Window/ProgrammingPage"), NodePath("Window/ArtPage"), NodePath("Window/DesignPage"), NodePath("Window/SoundPage"), NodePath("Window/QAPage")]
+pages = [NodePath("Window/LeadsPage"), NodePath("Window/ProgrammingPage"), NodePath("Window/2DArtPage"), NodePath("Window/ArtPage"), NodePath("Window/DesignPage"), NodePath("Window/SoundPage"), NodePath("Window/QAPage"), NodePath("Window/THANKS FOR PLAYING")]
 
 [node name="Window" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -97,6 +91,64 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="LeadsPage" type="VBoxContainer" parent="Window" node_paths=PackedStringArray("items")]
+layout_mode = 2
+script = ExtResource("1_6hlpj")
+items = [NodePath("Leads")]
+
+[node name="Leads" type="VBoxContainer" parent="Window/LeadsPage" node_paths=PackedStringArray("label", "items")]
+layout_mode = 2
+script = ExtResource("1_5ugie")
+label = NodePath("Title")
+items = [NodePath("Names/Names1")]
+
+[node name="Title" type="Label" parent="Window/LeadsPage/Leads"]
+layout_mode = 2
+text = "Leads"
+label_settings = SubResource("LabelSettings_2anlu")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Names" type="HBoxContainer" parent="Window/LeadsPage/Leads"]
+layout_mode = 2
+
+[node name="Names1" type="VBoxContainer" parent="Window/LeadsPage/Leads/Names"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Christan Dutton
+Grant Aring
+Vu Nguyen
+David Tran"
+
+[node name="Christan Dutton" type="Label" parent="Window/LeadsPage/Leads/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Christan Dutton"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Grant Aring" type="Label" parent="Window/LeadsPage/Leads/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Grant Aring"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Vu Nguyen" type="Label" parent="Window/LeadsPage/Leads/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Vu Nguyen"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="David Tran" type="Label" parent="Window/LeadsPage/Leads/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "David Tran"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
 
 [node name="ProgrammingPage" type="VBoxContainer" parent="Window" node_paths=PackedStringArray("items")]
 layout_mode = 2
@@ -127,12 +179,24 @@ layout_mode = 2
 [node name="Names1" type="VBoxContainer" parent="Window/ProgrammingPage/Programming/Names"]
 layout_mode = 2
 script = ExtResource("4_5ugie")
-text = "P45T
+text = "Grant Aring
+P45T
 Arshiya Rahman
 Ian Rogers
 秋河潮殆
 Kj Kastning
-Elia Sandrini"
+Elia Sandrini
+Raymond Bian
+Arthur Clay Odom
+Carlos Suarez
+"
+
+[node name="Grant Aring" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Grant Aring"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
 
 [node name="P45T" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
 modulate = Color(1, 1, 1, 0)
@@ -176,6 +240,33 @@ text = "Elia Sandrini"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
+[node name="Raymond Bian" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Raymond Bian"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Arthur Clay Odom" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Arthur Clay Odom"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Carlos Suarez" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Carlos Suarez"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="@Label@113987" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="Window/ProgrammingPage/Programming/Names"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -183,12 +274,23 @@ layout_mode = 2
 [node name="Names2" type="VBoxContainer" parent="Window/ProgrammingPage/Programming/Names"]
 layout_mode = 2
 script = ExtResource("4_5ugie")
-text = "Austin
+text = "Christian Dutton
+Austin
 Elio Liang
 Franklin Smith
 Grace Shao
-Christian Dutton
-Rachael Setia"
+Rachael Setia
+Elliot Rogers
+Ivan
+Diemmy Dang
+Harold Fu"
+
+[node name="Christian Dutton" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Christian Dutton"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
 
 [node name="Austin" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
 modulate = Color(1, 1, 1, 0)
@@ -218,17 +320,211 @@ text = "Grace Shao"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
-[node name="Christian Dutton" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-text = "Christian Dutton"
-label_settings = ExtResource("2_x6b1k")
-horizontal_alignment = 1
-
 [node name="Rachael Setia" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 text = "Rachael Setia"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Elliot Rogers" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Elliot Rogers"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Ivan" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Ivan"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Diemmy Dang" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Diemmy Dang"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Harold Fu" type="Label" parent="Window/ProgrammingPage/Programming/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Harold Fu"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="2DArtPage" type="VBoxContainer" parent="Window" node_paths=PackedStringArray("items")]
+layout_mode = 2
+script = ExtResource("1_6hlpj")
+items = [NodePath("2DArt")]
+
+[node name="2DArt" type="VBoxContainer" parent="Window/2DArtPage" node_paths=PackedStringArray("label", "items")]
+layout_mode = 2
+script = ExtResource("1_5ugie")
+label = NodePath("Title")
+items = [NodePath("Names/Names1"), NodePath("Names/Names2")]
+
+[node name="Title" type="Label" parent="Window/2DArtPage/2DArt"]
+layout_mode = 2
+text = "2D Art"
+label_settings = SubResource("LabelSettings_2anlu")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/2DArtPage/2DArt"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Names" type="HBoxContainer" parent="Window/2DArtPage/2DArt"]
+layout_mode = 2
+
+[node name="Names1" type="VBoxContainer" parent="Window/2DArtPage/2DArt/Names"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Faaizah Nuha
+Wah Ah
+Kayla Dang
+Lyons Edge
+Elio Liang
+Nancy Nguyen
+Zoe Xiao
+cynthia peng
+Melanie Xie
+"
+
+[node name="Faaizah Nuha" type="Label" parent="Window/2DArtPage/2DArt/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Faaizah Nuha"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Wah Ah" type="Label" parent="Window/2DArtPage/2DArt/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Wah Ah"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Kayla Dang" type="Label" parent="Window/2DArtPage/2DArt/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Kayla Dang"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Lyons Edge" type="Label" parent="Window/2DArtPage/2DArt/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Lyons Edge"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Elio Liang" type="Label" parent="Window/2DArtPage/2DArt/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Elio Liang"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Nancy Nguyen" type="Label" parent="Window/2DArtPage/2DArt/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Nancy Nguyen"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Zoe Xiao" type="Label" parent="Window/2DArtPage/2DArt/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Zoe Xiao"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="cynthia peng" type="Label" parent="Window/2DArtPage/2DArt/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "cynthia peng"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Melanie Xie" type="Label" parent="Window/2DArtPage/2DArt/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Melanie Xie"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="@Label@91364" type="Label" parent="Window/2DArtPage/2DArt/Names/Names1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/2DArtPage/2DArt/Names"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Names2" type="VBoxContainer" parent="Window/2DArtPage/2DArt/Names"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Yolanda Li
+Noah
+Sophia Regnault
+Alex
+Jasmine Cobb
+Na Nguyen
+Vivian Gu"
+
+[node name="Yolanda Li" type="Label" parent="Window/2DArtPage/2DArt/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Yolanda Li"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Noah" type="Label" parent="Window/2DArtPage/2DArt/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Noah"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Sophia Regnault" type="Label" parent="Window/2DArtPage/2DArt/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Sophia Regnault"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Alex" type="Label" parent="Window/2DArtPage/2DArt/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Alex"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Jasmine Cobb" type="Label" parent="Window/2DArtPage/2DArt/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Jasmine Cobb"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Na Nguyen" type="Label" parent="Window/2DArtPage/2DArt/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Na Nguyen"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Vivian Gu" type="Label" parent="Window/2DArtPage/2DArt/Names/Names2"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Vivian Gu"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
@@ -237,7 +533,7 @@ layout_mode = 2
 script = ExtResource("1_6hlpj")
 text_time = 0.6
 label = NodePath("Title")
-items = [NodePath("SubCategories/3D"), NodePath("SubCategories/2D"), NodePath("SubCategories/VFX")]
+items = [NodePath("SubCategories/3D"), NodePath("SubCategories/VFX")]
 
 [node name="Title" type="Label" parent="Window/ArtPage"]
 layout_mode = 2
@@ -278,7 +574,8 @@ layout_mode = 2
 [node name="Names" type="VBoxContainer" parent="Window/ArtPage/SubCategories/3D"]
 layout_mode = 2
 script = ExtResource("4_5ugie")
-text = "Daniyal Khan
+text = "Vu Nguyen
+Daniyal Khan
 Wah Ah
 Kj Kastning
 Nancy Nguyen
@@ -286,7 +583,15 @@ Zoe Xiao
 cynthia peng
 Stepan Shabalin
 Vivek Tare
-Melanie Xie"
+Melanie Xie
+Jay Edwards"
+
+[node name="Vu Nguyen" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Vu Nguyen"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
 
 [node name="Daniyal Khan" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
 modulate = Color(1, 1, 1, 0)
@@ -351,99 +656,10 @@ text = "Melanie Xie"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
-[node name="2D" type="VBoxContainer" parent="Window/ArtPage/SubCategories" node_paths=PackedStringArray("label", "items")]
-custom_minimum_size = Vector2(214, 0)
-layout_mode = 2
-script = ExtResource("1_5ugie")
-text_time = 0.3
-label = NodePath("SubTitle")
-items = [NodePath("Names")]
-
-[node name="SubTitle" type="Label" parent="Window/ArtPage/SubCategories/2D"]
-layout_mode = 2
-text = "2D"
-label_settings = SubResource("LabelSettings_t1nhf")
-horizontal_alignment = 1
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="MarginContainer" type="MarginContainer" parent="Window/ArtPage/SubCategories/2D"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="Names" type="VBoxContainer" parent="Window/ArtPage/SubCategories/2D"]
-layout_mode = 2
-script = ExtResource("4_5ugie")
-text = "Faaizah Nuha
-Wah Ah
-Kayla Dang
-Lyons Edge
-Elio Liang
-Nancy Nguyen
-Zoe Xiao
-cynthia peng
-Melanie Xie"
-
-[node name="Faaizah Nuha" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
+[node name="Jay Edwards" type="Label" parent="Window/ArtPage/SubCategories/3D/Names"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-text = "Faaizah Nuha"
-label_settings = ExtResource("2_x6b1k")
-horizontal_alignment = 1
-
-[node name="Wah Ah" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-text = "Wah Ah"
-label_settings = ExtResource("2_x6b1k")
-horizontal_alignment = 1
-
-[node name="Kayla Dang" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-text = "Kayla Dang"
-label_settings = ExtResource("2_x6b1k")
-horizontal_alignment = 1
-
-[node name="Lyons Edge" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-text = "Lyons Edge"
-label_settings = ExtResource("2_x6b1k")
-horizontal_alignment = 1
-
-[node name="Elio Liang" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-text = "Elio Liang"
-label_settings = ExtResource("2_x6b1k")
-horizontal_alignment = 1
-
-[node name="Nancy Nguyen" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-text = "Nancy Nguyen"
-label_settings = ExtResource("2_x6b1k")
-horizontal_alignment = 1
-
-[node name="Zoe Xiao" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-text = "Zoe Xiao"
-label_settings = ExtResource("2_x6b1k")
-horizontal_alignment = 1
-
-[node name="cynthia peng" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-text = "cynthia peng"
-label_settings = ExtResource("2_x6b1k")
-horizontal_alignment = 1
-
-[node name="Melanie Xie" type="Label" parent="Window/ArtPage/SubCategories/2D/Names"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-text = "Melanie Xie"
+text = "Jay Edwards"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
@@ -473,7 +689,11 @@ script = ExtResource("4_5ugie")
 text = "Arshiya Rahman
 Daniyal Khan
 Jackson Vanderheyden
-Vivek Tare"
+Vivek Tare
+A*
+Christopher Lee
+Anthony Trinh
+"
 
 [node name="Arshiya Rahman" type="Label" parent="Window/ArtPage/SubCategories/VFX/Names"]
 modulate = Color(1, 1, 1, 0)
@@ -500,6 +720,33 @@ horizontal_alignment = 1
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 text = "Vivek Tare"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="A*" type="Label" parent="Window/ArtPage/SubCategories/VFX/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "A*"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Christopher Lee" type="Label" parent="Window/ArtPage/SubCategories/VFX/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Christopher Lee"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Anthony Trinh" type="Label" parent="Window/ArtPage/SubCategories/VFX/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Anthony Trinh"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="@Label@69277" type="Label" parent="Window/ArtPage/SubCategories/VFX/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
@@ -530,36 +777,90 @@ layout_mode = 2
 [node name="Names" type="VBoxContainer" parent="Window/DesignPage/Design"]
 layout_mode = 2
 script = ExtResource("4_5ugie")
-text = "Arshiya Rahman
-Daniyal Khan
-Jackson Vanderheyden
-Vivek Tare"
+text = "David Tran
+Aaron Chen
+Neil Kochhar
+秋河潮殆
+Arthur Clay Odom
+Yunlang Zheng
+Harold Fu
+Karthik Kothuri
+Daniel Lee
 
-[node name="Arshiya Rahman" type="Label" parent="Window/DesignPage/Design/Names"]
+"
+
+[node name="David Tran" type="Label" parent="Window/DesignPage/Design/Names"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-text = "Arshiya Rahman"
+text = "David Tran"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
-[node name="Daniyal Khan" type="Label" parent="Window/DesignPage/Design/Names"]
+[node name="Aaron Chen" type="Label" parent="Window/DesignPage/Design/Names"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-text = "Daniyal Khan"
+text = "Aaron Chen"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
-[node name="Jackson Vanderheyden" type="Label" parent="Window/DesignPage/Design/Names"]
+[node name="Neil Kochhar" type="Label" parent="Window/DesignPage/Design/Names"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-text = "Jackson Vanderheyden"
+text = "Neil Kochhar"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
-[node name="Vivek Tare" type="Label" parent="Window/DesignPage/Design/Names"]
+[node name="秋河潮殆" type="Label" parent="Window/DesignPage/Design/Names"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-text = "Vivek Tare"
+text = "秋河潮殆"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Arthur Clay Odom" type="Label" parent="Window/DesignPage/Design/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Arthur Clay Odom"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Yunlang Zheng" type="Label" parent="Window/DesignPage/Design/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Yunlang Zheng"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Harold Fu" type="Label" parent="Window/DesignPage/Design/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Harold Fu"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Karthik Kothuri" type="Label" parent="Window/DesignPage/Design/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Karthik Kothuri"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Daniel Lee" type="Label" parent="Window/DesignPage/Design/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Daniel Lee"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="@Label@123792" type="Label" parent="Window/DesignPage/Design/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="@Label@123793" type="Label" parent="Window/DesignPage/Design/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
@@ -612,7 +913,9 @@ script = ExtResource("4_5ugie")
 text = "Ian Rogers
 Sophie Huang 
 Jack Hayley
-Austin"
+Austin
+Will Dunn
+Yunlang Zheng"
 
 [node name="Ian Rogers" type="Label" parent="Window/SoundPage/SubCategories/Music/Names"]
 modulate = Color(1, 1, 1, 0)
@@ -642,6 +945,20 @@ text = "Austin"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
+[node name="Will Dunn" type="Label" parent="Window/SoundPage/SubCategories/Music/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Will Dunn"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
+[node name="Yunlang Zheng" type="Label" parent="Window/SoundPage/SubCategories/Music/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Yunlang Zheng"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
 [node name="SFX" type="VBoxContainer" parent="Window/SoundPage/SubCategories" node_paths=PackedStringArray("label", "items")]
 custom_minimum_size = Vector2(214, 0)
 layout_mode = 2
@@ -666,8 +983,7 @@ layout_mode = 2
 layout_mode = 2
 script = ExtResource("4_5ugie")
 text = "Thomas Vu
-Amelia Dale
-Vivek Tare"
+Amelia Dale"
 
 [node name="Thomas Vu" type="Label" parent="Window/SoundPage/SubCategories/SFX/Names"]
 modulate = Color(1, 1, 1, 0)
@@ -680,13 +996,6 @@ horizontal_alignment = 1
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 text = "Amelia Dale"
-label_settings = ExtResource("2_x6b1k")
-horizontal_alignment = 1
-
-[node name="Vivek Tare" type="Label" parent="Window/SoundPage/SubCategories/SFX/Names"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-text = "Vivek Tare"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
@@ -712,14 +1021,14 @@ layout_mode = 2
 [node name="Names" type="VBoxContainer" parent="Window/SoundPage/SubCategories/Voice Acting"]
 layout_mode = 2
 script = ExtResource("4_5ugie")
-text = "Taylor Williams - ???
+text = "Taylor Williams - Nova
 Thomas Vu - Rene
-???? - ???"
+Zoralune - Dawn"
 
-[node name="Taylor Williams - ???" type="Label" parent="Window/SoundPage/SubCategories/Voice Acting/Names"]
+[node name="Taylor Williams - Nova" type="Label" parent="Window/SoundPage/SubCategories/Voice Acting/Names"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-text = "Taylor Williams - ???"
+text = "Taylor Williams - Nova"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
@@ -730,10 +1039,10 @@ text = "Thomas Vu - Rene"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
-[node name="???? - ???" type="Label" parent="Window/SoundPage/SubCategories/Voice Acting/Names"]
+[node name="Zoralune - Dawn" type="Label" parent="Window/SoundPage/SubCategories/Voice Acting/Names"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-text = "???? - ???"
+text = "Zoralune - Dawn"
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
@@ -780,6 +1089,41 @@ text = "Surely More People..."
 label_settings = ExtResource("2_x6b1k")
 horizontal_alignment = 1
 
+[node name="THANKS FOR PLAYING" type="VBoxContainer" parent="Window" node_paths=PackedStringArray("items")]
+layout_mode = 2
+script = ExtResource("1_6hlpj")
+items = [NodePath("THANKS")]
+
+[node name="THANKS" type="VBoxContainer" parent="Window/THANKS FOR PLAYING" node_paths=PackedStringArray("label", "items")]
+layout_mode = 2
+script = ExtResource("1_5ugie")
+label = NodePath("Title")
+items = [NodePath("Names")]
+
+[node name="Title" type="Label" parent="Window/THANKS FOR PLAYING/THANKS"]
+layout_mode = 2
+text = "Thanks for playing!!!"
+label_settings = SubResource("LabelSettings_l5hb8")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/THANKS FOR PLAYING/THANKS"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Names" type="VBoxContainer" parent="Window/THANKS FOR PLAYING/THANKS"]
+layout_mode = 2
+script = ExtResource("4_5ugie")
+text = "Made with VGDev"
+
+[node name="Made with VGDev" type="Label" parent="Window/THANKS FOR PLAYING/THANKS/Names"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+text = "Made with VGDev"
+label_settings = ExtResource("2_x6b1k")
+horizontal_alignment = 1
+
 [node name="Black" type="TextureRect" parent="."]
 z_index = -2
 layout_mode = 1
@@ -804,4 +1148,4 @@ offset_bottom = 466.82056
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.585, 0.585)
-texture = ExtResource("2_v7aig")
+texture = ExtResource("7_efyda")

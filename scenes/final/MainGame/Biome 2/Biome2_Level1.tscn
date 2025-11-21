@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bm70618q6syf3"]
+[gd_scene load_steps=34 format=3 uid="uid://bm70618q6syf3"]
 
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="1_8ylh7"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_poq37"]
@@ -9,8 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="7_ivk6n"]
 [ext_resource type="Script" uid="uid://knd2e7gdbpfb" path="res://scripts/utility/menu_area.gd" id="8_b1jqb"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="9_ylyoc"]
-[ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://vfx/Kenny Particle Pack/star_06.png" id="10_ivk6n"]
-[ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="11_o7dqi"]
+[ext_resource type="Texture2D" uid="uid://bfq2lq4t3785h" path="res://art_assets/Ui/TextboxSmall.png" id="10_1cga5"]
+[ext_resource type="Texture2D" uid="uid://baw1g0c8nn8qt" path="res://art_assets/Ui/TextboxLarge.png" id="11_lurfs"]
+[ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="12_ylyoc"]
+[ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="13_1cga5"]
+[ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="14_lurfs"]
+[ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="15_dbcvv"]
+[ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="16_tadat"]
+[ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="17_6uhty"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_smqis"]
 size = Vector3(15, 3, 15)
@@ -51,15 +57,209 @@ adjustment_saturation = 0.9
 [sub_resource type="BoxShape3D" id="BoxShape3D_c25a2"]
 size = Vector3(6, 2, 6)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dbcvv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tadat"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5v5at"]
+size = Vector3(8, 3, 8)
+
+[sub_resource type="Resource" id="Resource_72i70"]
+script = ExtResource("15_dbcvv")
+name = "Nova"
+img = ExtResource("16_tadat")
+text = "How did I fall into a cave??? Whatever."
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_02hul"]
+script = ExtResource("15_dbcvv")
+name = "Nova"
+img = ExtResource("16_tadat")
+text = "Wait, who are you?"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_0rgdi"]
+script = ExtResource("15_dbcvv")
+name = "Rene"
+img = ExtResource("17_6uhty")
+text = "Oh thank GOD, I've been stuck down here for a while and it's been terrifying!"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_vy3tx"]
+script = ExtResource("15_dbcvv")
+name = "Rene"
+img = ExtResource("17_6uhty")
+text = "I was just trying to find the Arduous Star..."
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_ah10j"]
+script = ExtResource("15_dbcvv")
+name = "Nova"
+img = ExtResource("16_tadat")
+text = "Wait... You too?!! Let's travel together!"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_yvnfd"]
+script = ExtResource("15_dbcvv")
+name = "Rene"
+img = ExtResource("17_6uhty")
+text = "um ok. I'll hide behind you though"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1cga5"]
+size = Vector3(1, 1, 1.1181641)
+
 [node name="Level1" type="Node3D"]
 
 [node name="PlayerManager" parent="." instance=ExtResource("7_ivk6n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 15.590168)
 stage = 1
 
+[node name="Nova" parent="PlayerManager" index="0"]
+transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 15.590168)
+
+[node name="Nova\'s Circle" parent="PlayerManager/Nova" index="8" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
+
+[node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
+bones/14/rotation = Quaternion(-0.0650247, 0.52192205, -0.50668263, 0.683112)
+bones/15/rotation = Quaternion(-0.17044953, 0.56827134, 0.23434629, 0.7701276)
+bones/16/rotation = Quaternion(-0.50323015, -0.477019, -0.26245502, 0.6710661)
+bones/21/rotation = Quaternion(-0.14037532, 0.36918315, -0.46739057, 0.7909139)
+bones/22/rotation = Quaternion(-0.07510334, 0.37923062, 0.1863064, 0.90323514)
+bones/23/rotation = Quaternion(0.13715293, 0.10933411, -0.08599653, 0.9807343)
+bones/38/rotation = Quaternion(-0.35068202, 0.7060961, 0.06106022, 0.61214566)
+
+[node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
+transform = Transform3D(-0.0035485215, -0.5699932, 0.8216417, -0.4218512, 0.7458107, 0.5155656, -0.90665805, -0.34478107, -0.24309886, 0.0060458416, 0.0071874023, -0.013190734)
+
+[node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Move" parent="PlayerManager/Nova/nova" index="4"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash" parent="PlayerManager/Nova/nova" index="5"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash2" parent="PlayerManager/Nova/nova" index="6"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash3" parent="PlayerManager/Nova/nova" index="7"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash4" parent="PlayerManager/Nova/nova" index="8"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash5" parent="PlayerManager/Nova/nova" index="9"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="ChargedSlash" parent="PlayerManager/Nova/nova" index="10"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="ChargingSlash" parent="PlayerManager/Nova/nova" index="11"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Charging Special" parent="PlayerManager/Nova/nova" index="12"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Special" parent="PlayerManager/Nova/nova" index="13"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Dash" parent="PlayerManager/Nova/nova" index="14"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Hurt" parent="PlayerManager/Nova/nova" index="15"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Die" parent="PlayerManager/Nova/nova" index="16"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Rene\'s Circle" parent="PlayerManager/Rene" index="11" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
+
+[node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Move" parent="PlayerManager/Rene/rene" index="4"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack1" parent="PlayerManager/Rene/rene" index="5"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack2" parent="PlayerManager/Rene/rene" index="6"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack3" parent="PlayerManager/Rene/rene" index="7"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack4" parent="PlayerManager/Rene/rene" index="8"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charging attack" parent="PlayerManager/Rene/rene" index="9"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charged attack" parent="PlayerManager/Rene/rene" index="10"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charging special" parent="PlayerManager/Rene/rene" index="11"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charged special" parent="PlayerManager/Rene/rene" index="12"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Special" parent="PlayerManager/Rene/rene" index="13"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Dash" parent="PlayerManager/Rene/rene" index="14"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Hurt" parent="PlayerManager/Rene/rene" index="15"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Die" parent="PlayerManager/Rene/rene" index="16"]
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="DawnChargeVFX" parent="PlayerManager/Dawn/Effects" index="2" node_paths=PackedStringArray("particles")]
+particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX"), NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
+
+[node name="Dawn\'s Circle" parent="PlayerManager/Dawn" index="12" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
+
+[node name="Dawn" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" index="3"]
+visible = false
+
 [node name="LevelEnder" parent="." instance=ExtResource("1_8ylh7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.065105, -9.536743e-07, -127.21162)
-next_level = "MainGame/Biome 2/Biome2_Level2"
+next_level = "MainGame/Biome 2/Biome2_Level3"
 
 [node name="WaveManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
@@ -106,13 +306,13 @@ transform = Transform3D(1.2092867, 0, 0, 0, 1, 0, 0, 0, 1.4858601, -32.1372, -1.
 transform = Transform3D(3.488697, 0, 0, 0, 1, 0, 0, 0, 3.6893106, -0.16873741, -3.8146973e-06, -6.3061295)
 
 [node name="SpawnArea4" parent="WaveManager" instance=ExtResource("6_8ylh7")]
-transform = Transform3D(5.35538, 0, 0, 0, 1.0000004, 0, 0, 0, 6.6370406, 19.424305, -3.8146973e-06, -35.039627)
+transform = Transform3D(5.35538, 0, 0, 0, 1.0000004, 0, 0, 0, 6.6370406, 16.713398, -3.8146973e-06, -32.847145)
 
 [node name="SpawnArea5" parent="WaveManager" instance=ExtResource("6_8ylh7")]
 transform = Transform3D(10.222678, 0, 0, 0, 1, 0, 0, 0, 6.5466504, 15.381874, -3.8146973e-06, -47.491684)
 
 [node name="SpawnArea6" parent="WaveManager" instance=ExtResource("6_8ylh7")]
-transform = Transform3D(2.5286245, 0, 0, 0, 1.0000004, 0, 0, 0, 6.6370406, 2.1410885, 1.9073486e-06, -36.606384)
+transform = Transform3D(2.5286245, 0, 0, 0, 1.0000004, 0, 0, 0, 6.6370406, 3.8562164, 1.9073486e-06, -32.54869)
 
 [node name="Navmesh" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_8ylh7")
@@ -283,14 +483,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3991232, 0, -3.0875406)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_b1jqb")
-menu = NodePath("Menu")
+menu = NodePath("Menu2")
 
 [node name="Tutorial Collision Box" type="CollisionShape3D" parent="Tutorial1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_c25a2")
 debug_color = Color(0, 11.618606, 13.50434, 0.8509804)
 
-[node name="Menu" type="Panel" parent="Tutorial1" node_paths=PackedStringArray("focused_control")]
+[node name="Menu2" type="Panel" parent="Tutorial1" node_paths=PackedStringArray("focused_control")]
+material = SubResource("ShaderMaterial_dbcvv")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -302,115 +503,52 @@ offset_right = 171.0
 offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tadat")
 script = ExtResource("9_ylyoc")
-focused_control = NodePath("Label")
+focused_control = NodePath("TextureRect/Label")
 open_time = 0.5
 open_animation_flags = 1
 close_time = 0.5
 close_animation_flags = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Tutorial1/Menu"]
-position = Vector2(393.57178, 132.16002)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
+[node name="TextureRect" type="TextureRect" parent="Tutorial1/Menu2"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 202.0
+offset_right = 625.0
+offset_bottom = 393.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_1cga5")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Tutorial1/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(383.5717, 212.16)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D3" type="Sprite2D" parent="Tutorial1/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(333.57172, 280.16)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D4" type="Sprite2D" parent="Tutorial1/Menu"]
-position = Vector2(-6.9472046, 125.30113)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
-
-[node name="Sprite2D5" type="Sprite2D" parent="Tutorial1/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(26, 207)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D6" type="Sprite2D" parent="Tutorial1/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(83, 295.00003)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Label" type="Label" parent="Tutorial1/Menu"]
+[node name="Label" type="Label" parent="Tutorial1/Menu2/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 18.0
-offset_right = -20.0
-offset_bottom = -18.0
+offset_left = -178.33328
+offset_top = 65.00001
+offset_right = -218.33328
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Switch to Rene by pressing [1]"
+scale = Vector2(1.65, 1.65)
+text = "Switch to Rene by pressing [2]"
+horizontal_alignment = 1
 
 [node name="Tutorial2" type="Area3D" parent="." node_paths=PackedStringArray("menu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.585854, 0, -29.822565)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_b1jqb")
-menu = NodePath("Menu")
+menu = NodePath("Menu2")
 
 [node name="Tutorial Collision Box" type="CollisionShape3D" parent="Tutorial2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_c25a2")
 debug_color = Color(0, 11.618606, 13.50434, 0.8509804)
 
-[node name="Menu" type="Panel" parent="Tutorial2" node_paths=PackedStringArray("focused_control")]
+[node name="Menu2" type="Panel" parent="Tutorial2" node_paths=PackedStringArray("focused_control")]
+material = SubResource("ShaderMaterial_dbcvv")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -422,102 +560,109 @@ offset_right = 171.0
 offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tadat")
 script = ExtResource("9_ylyoc")
-focused_control = NodePath("Label")
+focused_control = NodePath("TextureRect/Label")
 open_time = 0.5
 open_animation_flags = 1
 close_time = 0.5
 close_animation_flags = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Tutorial2/Menu"]
-position = Vector2(393.57178, 132.16002)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
+[node name="TextureRect" type="TextureRect" parent="Tutorial2/Menu2"]
+layout_mode = 0
+offset_left = -92.0
+offset_top = 185.0
+offset_right = 763.0
+offset_bottom = 515.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_lurfs")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Tutorial2/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(383.5717, 212.16)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D3" type="Sprite2D" parent="Tutorial2/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(333.57172, 280.16)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D4" type="Sprite2D" parent="Tutorial2/Menu"]
-position = Vector2(-6.9472046, 125.30113)
-rotation = -0.5131922
-scale = Vector2(0.54859906, 0.54859906)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_flags = 9
-close_time = 0.6
-close_animation_flags = 9
-
-[node name="Sprite2D5" type="Sprite2D" parent="Tutorial2/Menu"]
-self_modulate = Color(0.9921667, 1, 0.53, 1)
-position = Vector2(26, 207)
-rotation = 0.07198918
-scale = Vector2(0.5485993, 0.5485993)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_delay = 0.1
-open_time = 0.5
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Sprite2D6" type="Sprite2D" parent="Tutorial2/Menu"]
-self_modulate = Color(0.98333335, 1, 0, 1)
-position = Vector2(83, 295.00003)
-rotation = -2.5458481
-scale = Vector2(0.54859895, 0.54859895)
-texture = ExtResource("10_ivk6n")
-script = ExtResource("11_o7dqi")
-tween_transition = 11
-open_animation_delay = 0.1
-open_animation_flags = 15
-close_time = 0.6
-close_animation_flags = 15
-
-[node name="Label" type="Label" parent="Tutorial2/Menu"]
+[node name="Label" type="Label" parent="Tutorial2/Menu2/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 18.0
-offset_right = -20.0
-offset_bottom = -18.0
+offset_left = -253.33333
+offset_top = 96.66667
+offset_right = -293.3333
+offset_bottom = 60.666687
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.65, 1.65)
 text = "Rene can heal the party with his charged
 attack, special, or charged special. Press
 [ESC] to see more details"
+horizontal_alignment = 1
 
+[node name="Gate" parent="." instance=ExtResource("12_ylyoc")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 32.879498, 0.98399746, -104.41482)
+
+[node name="DialogueCollisionCaller" type="Area3D" parent="." node_paths=PackedStringArray("dialogue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028913975, 0, 13.985277)
+script = ExtResource("13_1cga5")
+dialogue = NodePath("DialogueCaller")
+metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_5v5at")
+
+[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
+script = ExtResource("14_lurfs")
+dialogue = Array[ExtResource("15_dbcvv")]([SubResource("Resource_72i70"), SubResource("Resource_02hul"), SubResource("Resource_0rgdi"), SubResource("Resource_vy3tx"), SubResource("Resource_ah10j"), SubResource("Resource_yvnfd")])
+metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(4.23398e-07, 0, 24.406164, 0, 14.486825, 0, -3.228739, 0, 3.2004816e-06, 1.2139821, 0.8949719, 24.684235)
+shape = SubResource("BoxShape3D_1cga5")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-3.2287388, 0, 1.2801928e-06, 0, 14.486825, 0, -2.8226532e-07, 0, -14.643699, 12.213982, 0.8949719, 15.684235)
+shape = SubResource("BoxShape3D_1cga5")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-3.2287393, 0, 3.1688737e-06, 0, 14.486825, 0, -2.8226535e-07, 0, -36.247692, 4.2139816, 0.8949719, -9.315765)
+shape = SubResource("BoxShape3D_1cga5")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-1.4113266e-07, 0, -7.249538, 0, 14.486827, 0, 3.2287395, 0, -3.168874e-07, 8.213982, 0.8949719, 7.6842346)
+shape = SubResource("BoxShape3D_1cga5")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-1.4113267e-07, 0, -34.169064, 0, 14.486827, 0, 3.22874, 0, -1.4935772e-06, 19.383223, 0.8949719, -25.670052)
+shape = SubResource("BoxShape3D_1cga5")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(3.2287405, 0, -2.9622962e-13, 0, 14.486829, 0, -2.842171e-14, 0, 44.516544, 36.72434, 0.8949719, -49.343777)
+shape = SubResource("BoxShape3D_1cga5")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-1.4113269e-07, 0, -15.052628, 0, 14.486829, 0, 3.2287407, 0, -6.579714e-07, 44.686264, 0.8949719, -73.57138)
+shape = SubResource("BoxShape3D_1cga5")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(3.2287405, 0, -2.7330514e-13, 0, 14.486829, 0, -5.684342e-14, 0, 21.203184, 51.377907, 0.8949719, -84.36344)
+shape = SubResource("BoxShape3D_1cga5")
+debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[connection signal="ended" from="WaveManager/Wave3" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
+
+[editable path="PlayerManager"]
+[editable path="PlayerManager/Nova"]
+[editable path="PlayerManager/Nova/nova"]
+[editable path="PlayerManager/Rene"]
+[editable path="PlayerManager/Rene/rene"]
+[editable path="PlayerManager/Dawn"]
+[editable path="PlayerManager/Dawn/dawn_rig"]
+[editable path="PlayerManager/Game Menu/GameUi"]
+[editable path="PlayerManager/SettingScene"]

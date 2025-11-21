@@ -63,11 +63,13 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.15085417, 0.00025836588, 0.374713, 1)
 theme_override_fonts/normal_font = ExtResource("3_1np70")
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
 text = "This is examplke text that im writing down so ican see the stuff things and stuff and such im writing down so ican see the stuff "
 fit_content = true
+autowrap_trim_flags = 0
 
 [connection signal="timeout" from="next_char" to="." method="_on_next_char_timeout"]
 [connection signal="timeout" from="next_message" to="." method="_on_next_message_timeout"]

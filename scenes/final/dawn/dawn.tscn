@@ -717,6 +717,7 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/FishShield"]
 shape = SubResource("CylinderShape3D_shlot")
+debug_fill = false
 
 [node name="Sing" type="Area3D" parent="Hitboxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
@@ -727,6 +728,7 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Sing"]
 shape = SubResource("BoxShape3D_brwhy")
+debug_fill = false
 
 [node name="Vision" type="Area3D" parent="Hitboxes"]
 collision_layer = 0
@@ -735,6 +737,7 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Vision"]
 shape = SubResource("CylinderShape3D_n7ie5")
+debug_fill = false
 
 [node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Player/Uniques/Hurt/Nova Hurt"
