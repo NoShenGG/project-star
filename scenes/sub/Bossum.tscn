@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bc8feqpqot7h2" path="res://scripts/entities/enemies/mossum/Bossum.gd" id="1_h20vo"]
 [ext_resource type="PackedScene" uid="uid://ddx34kp4dcdqk" path="res://art_assets/enemies/mossum/mossum_rig.gltf" id="2_ytl0o"]
-[ext_resource type="Script" uid="uid://by26cigx6ba0v" path="res://vfx/wool_shell_texturing_tool.gd" id="3_kjike"]
+[ext_resource type="Script" uid="uid://by26cigx6ba0v" path="res://VFX/wool_shell_texturing_tool.gd" id="3_kjike"]
 [ext_resource type="ArrayMesh" uid="uid://bypccelfa5tm" path="res://art_assets/enemies/mossum/body.res" id="4_y61xg"]
 [ext_resource type="Shader" uid="uid://bvi3yis7lfg51" path="res://shaders/wool_shell_texturing.gdshader" id="5_4c2bm"]
 [ext_resource type="Texture2D" uid="uid://c03u082aeesl3" path="res://art_assets/textures/wool_albedo.jpg" id="6_x5xft"]
@@ -154,7 +154,7 @@ _max_hp = 30.0
 passive_death_time = 3.0
 
 [node name="mossum_rig" parent="." instance=ExtResource("2_ytl0o")]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, -0.54, 0)
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0.060000002, 0)
 
 [node name="wool_shell_texturing_tool" type="Node3D" parent="mossum_rig"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
@@ -211,7 +211,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_6dwe3")
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.205, 0.565)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.545, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.145, 0)
 shape = SubResource("BoxShape3D_l26uf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
