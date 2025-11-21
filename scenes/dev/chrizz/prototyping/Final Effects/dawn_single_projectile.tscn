@@ -1,0 +1,122 @@
+[gd_scene load_steps=22 format=3 uid="uid://d1h7wbn4on4cj"]
+
+[ext_resource type="Texture2D" uid="uid://e68748s6s3vm" path="res://scenes/dev/chrizz/prototyping/eight_note_singular.png" id="1_7mhk6"]
+[ext_resource type="Shader" uid="uid://bii13ecvcx0vv" path="res://scenes/dev/chrizz/prototyping/dawn_caustics_aura.tres" id="2_1e6l0"]
+[ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="3_00mte"]
+[ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="4_n1et7"]
+[ext_resource type="Texture2D" uid="uid://cjqkc8vqlad2r" path="res://scenes/dev/chrizz/prototyping/causticsvar2.png" id="5_4hg7j"]
+[ext_resource type="Script" uid="uid://bx10tuy8s55pq" path="res://addons/GPUTrails/GPUTrail3D.gd" id="6_qw511"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6rgy"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_7mhk6")
+albedo_texture_force_srgb = true
+texture_filter = 0
+texture_repeat = false
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n7sfj"]
+gravity = Vector3(0, 0, 0)
+color = Color(1.3644335, 3.0797336, 5.0353103, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_gm6e8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb3x3"]
+render_priority = 0
+shader = ExtResource("2_1e6l0")
+
+[sub_resource type="Curve" id="Curve_175ln"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8sl31"]
+curve = SubResource("Curve_175ln")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k1art"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+alpha_curve = SubResource("CurveTexture_8sl31")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dvq0k"]
+size = Vector2(4, 4)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ip7cr"]
+shader = ExtResource("3_00mte")
+
+[sub_resource type="Gradient" id="Gradient_jmdwp"]
+offsets = PackedFloat32Array(0, 0.19590643, 1)
+colors = PackedColorArray(0.41022095, 0.9963111, 0.89940065, 1, 0.9978573, 0.8564615, 0.8879829, 0.80701756, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fv6e4"]
+gradient = SubResource("Gradient_jmdwp")
+
+[sub_resource type="Curve" id="Curve_nal8q"]
+bake_resolution = 16
+_data = [Vector2(0, 0.24178159), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ajil0"]
+curve = SubResource("Curve_nal8q")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63jrr"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_n1et7")
+shader_parameter/tex = ExtResource("5_4hg7j")
+shader_parameter/uv_offset = Vector2(0.34451774, 0)
+shader_parameter/color_ramp = SubResource("GradientTexture1D_fv6e4")
+shader_parameter/curve = SubResource("CurveTexture_ajil0")
+shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/flags = 42
+
+[sub_resource type="QuadMesh" id="QuadMesh_tqyou"]
+material = SubResource("ShaderMaterial_63jrr")
+
+[node name="BasicProjectileFX" type="Node3D"]
+
+[node name="Note" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_l6rgy")
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_n7sfj")
+draw_pass_1 = SubResource("QuadMesh_gm6e8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.44584835, 0.7245143, 0.8957288, 1)
+light_energy = 4.642
+light_indirect_energy = 5.974
+light_volumetric_fog_energy = 4.731
+light_specular = 0.666
+omni_range = 2.453
+
+[node name="AuraCaustics" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_eb3x3")
+amount = 2
+lifetime = 2.6399999999999997
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_k1art")
+draw_pass_1 = SubResource("QuadMesh_dvq0k")
+
+[node name="GPUTrail3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99826664, 0.05885338, 0, -0.05885338, 0.99826664, 0, 0, 0)
+amount = 100
+lifetime = 100.0
+explosiveness = 1.0
+fixed_fps = 144
+process_material = SubResource("ShaderMaterial_ip7cr")
+draw_pass_1 = SubResource("QuadMesh_tqyou")
+script = ExtResource("6_qw511")
+length_seconds = 0.6944444444444444
+texture = ExtResource("5_4hg7j")
+scroll = Vector2(1.085, 0)
+color_ramp = SubResource("GradientTexture1D_fv6e4")
+curve = SubResource("CurveTexture_ajil0")
+use_red_as_alpha = true
+_defaults_have_been_set = true
+metadata/_custom_type_script = "uid://bx10tuy8s55pq"

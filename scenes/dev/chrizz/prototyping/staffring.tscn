@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dra8hxcayeykn"]
+
+[ext_resource type="PackedScene" uid="uid://bp8iehy74s173" path="res://scenes/dev/chrizz/prototyping/staff.fbx" id="1_d4y0q"]
+[ext_resource type="Shader" uid="uid://mvtw1fwnpewq" path="res://scenes/dev/chrizz/prototyping/musicstaff.tres" id="2_oef1s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oef1s"]
+render_priority = 0
+shader = ExtResource("2_oef1s")
+
+[node name="staff" instance=ExtResource("1_d4y0q")]
+
+[node name="Cylinder" parent="." index="0"]
+transform = Transform3D(107.133, 0, 0, 0, -4.6829323e-06, 30, 0, -107.133, -1.3113416e-06, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_oef1s")
