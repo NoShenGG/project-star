@@ -82,9 +82,8 @@ ground_horizon_color = Color(0.6767592, 0.58873963, 0.93670535, 1)
 sky_material = SubResource("ProceduralSkyMaterial_6scqm")
 
 [sub_resource type="Environment" id="Environment_f30ws"]
-background_mode = 2
 background_color = Color(0.94874364, 0.49866366, 0.59142554, 1)
-background_energy_multiplier = 1.17
+background_energy_multiplier = 2.37
 sky = SubResource("Sky_7a44i")
 ambient_light_source = 2
 ambient_light_color = Color(0.69779664, 0.45408309, 0.652757, 1)
@@ -94,7 +93,8 @@ tonemap_exposure = 0.5
 ssao_enabled = true
 ssil_enabled = true
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0
+volumetric_fog_density = 0.0108
+volumetric_fog_albedo = Color(0.66656035, 0.968713, 0.730658, 1)
 volumetric_fog_detail_spread = 0.5
 adjustment_enabled = true
 adjustment_brightness = 1.17
@@ -102,7 +102,7 @@ adjustment_contrast = 1.24
 adjustment_saturation = 0.9
 
 [sub_resource type="FogMaterial" id="FogMaterial_mq6a5"]
-density = 0.2
+density = 0.1025
 albedo = Color(1.1076987, 1.4687854, 1.1257529, 1)
 height_falloff = 1e-05
 edge_fade = 7.1012325
@@ -259,7 +259,7 @@ sky_mode = 1
 environment = SubResource("Environment_f30ws")
 
 [node name="FogVolume" type="FogVolume" parent="DirectionalLight3D"]
-transform = Transform3D(-0.89542913, 0.49204972, -1.6037996, -1.0622574, 5.251318, 0.8061593, 1.0065293, 5.979809, -0.5759804, -1.0184983, -45.878075, -0.8861561)
+transform = Transform3D(-0.89542913, 0.49204978, -1.6037996, -1.0622574, 5.251317, 0.8061593, 1.0065293, 5.9798083, -0.57598037, -2.5909271, -62.65957, -19.99566)
 size = Vector3(165.4, 9.7, 233.25)
 material = SubResource("FogMaterial_mq6a5")
 
