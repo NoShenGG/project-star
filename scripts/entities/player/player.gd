@@ -6,7 +6,6 @@ signal player_dashed
 signal special_cooldown_update(percent: float)
 signal special_available
 
-@onready var ray: ShapeCast3D = $ForwardRay
 @onready var player_manager: PlayerManager = owner as PlayerManager
 
 @export var targetting_box: Area3D

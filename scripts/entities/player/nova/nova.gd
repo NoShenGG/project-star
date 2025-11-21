@@ -13,4 +13,9 @@ It may eventually hold some signal binding or wtv.
 
 func _ready() -> void:
 	super()
-	$ForwardRay.target_position = Vector3.FORWARD * max(special_dash_dist, dash_distance)
+	var colshape = $Hitboxes/Dash/CollisionShape3D as CollisionShape3D
+	var old = colshape.shape as BoxShape3D
+	var new = BoxShape3D.new()
+	new.size = Vector3(old.size.x, old.size.y, special_dash_dist)
+	colshape.shape = new
+	$Hitboxes/Dash.position.z = special_dash_dist / 2

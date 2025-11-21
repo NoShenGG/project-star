@@ -1,10 +1,10 @@
-[gd_scene load_steps=117 format=3 uid="uid://brw0p1eirto83"]
+[gd_scene load_steps=116 format=3 uid="uid://brw0p1eirto83"]
 
 [ext_resource type="Script" uid="uid://om4qdtr1cye0" path="res://scripts/entities/player/nova/nova.gd" id="1_p5oh7"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="3_6m1nx"]
 [ext_resource type="Script" uid="uid://cvw6ajdumfkos" path="res://scripts/entities/player/nova/nova_dummy_anim.gd" id="3_h31i5"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="4_lfcoe"]
-[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_dash.gd" id="4_uws5v"]
+[ext_resource type="Script" uid="uid://cpcuaot05ab18" path="res://scripts/entities/player/player_states/player_dash.gd" id="4_uws5v"]
 [ext_resource type="Script" uid="uid://dq5qwb33mlr2l" path="res://scripts/entities/player/player_states/player_moving.gd" id="5_lfcoe"]
 [ext_resource type="Script" uid="uid://bpndinylqyege" path="res://scripts/entities/player/player_states/player_idle.gd" id="5_xhleb"]
 [ext_resource type="Script" uid="uid://clwu1a1we224o" path="res://scripts/entities/player/player_states/player_attacking.gd" id="6_ob225"]
@@ -40,9 +40,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
 radius = 0.235
 height = 1.54
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_ato7d"]
-radius = 0.98
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xdlwu"]
 radius = 2.25
@@ -7224,14 +7221,15 @@ states/idle/position = Vector2(107, 100)
 states/run/node = SubResource("AnimationNodeAnimation_lxyrl")
 states/run/position = Vector2(325, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_60tca"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_u6tct"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_k2lop"), "run", "combo1", SubResource("AnimationNodeStateMachineTransition_ob225"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_uws5v"), "dash", "run", SubResource("AnimationNodeStateMachineTransition_ygt4u"), "combo5", "idle", SubResource("AnimationNodeStateMachineTransition_ajeah"), "combo5", "run", SubResource("AnimationNodeStateMachineTransition_mm718"), "idle", "dash", SubResource("AnimationNodeStateMachineTransition_gedrv"), "dash", "idle", SubResource("AnimationNodeStateMachineTransition_n6rgu"), "idle", "combo1", SubResource("AnimationNodeStateMachineTransition_5up7p"), "charged_special", "run", SubResource("AnimationNodeStateMachineTransition_vrbf8"), "charged_attack", "run", SubResource("AnimationNodeStateMachineTransition_6qoku"), "combo1", "idle", SubResource("AnimationNodeStateMachineTransition_sbbhh"), "combo1", "run", SubResource("AnimationNodeStateMachineTransition_ldc4w"), "combo2", "idle", SubResource("AnimationNodeStateMachineTransition_lk157"), "combo2", "run", SubResource("AnimationNodeStateMachineTransition_n0hbj"), "combo3", "idle", SubResource("AnimationNodeStateMachineTransition_oc7x5"), "combo3", "run", SubResource("AnimationNodeStateMachineTransition_0ksem"), "combo4", "idle", SubResource("AnimationNodeStateMachineTransition_btucx"), "combo4", "run", SubResource("AnimationNodeStateMachineTransition_l0sqy"), "charged_attack", "idle", SubResource("AnimationNodeStateMachineTransition_iql2l"), "charged_special", "idle", SubResource("AnimationNodeStateMachineTransition_lxyrl")]
-graph_offset = Vector2(12, -117)
+graph_offset = Vector2(-220, -148)
 
 [node name="Nova" type="CharacterBody3D" node_paths=PackedStringArray("targetting_box")]
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_p5oh7")
+special_dash_dist = 12.0
 targetting_box = NodePath("Hitboxes/Vision")
-dash_distance = 6.0
+dash_distance = 8.0
 _base_speed = 6.0
 faction = 0
 _breakable = false
@@ -7354,13 +7352,11 @@ script = ExtResource("8_uws5v")
 special_state = NodePath("SpecialDash")
 wait_state = NodePath("SpecialWait")
 
-[node name="SpecialDash" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
+[node name="SpecialDash" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("10_ob225")
 hitbox = NodePath("../../../Hitboxes/Dash")
 damage = 10.0
-finished_state = NodePath("../../Idle")
 animation = NodePath("../../../nova/Special")
-duration = 1.125
 
 [node name="SpecialDash SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialDash"]
 event_name = "event:/Player/Uniques/Special Attack/Nova Charged Attack"
@@ -7396,12 +7392,6 @@ shape = SubResource("CapsuleShape3D_21ndv")
 
 [node name="DummyAnimation" type="Node" parent="."]
 script = ExtResource("3_h31i5")
-
-[node name="ForwardRay" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
-shape = SubResource("SphereShape3D_ato7d")
-target_position = Vector3(0, 0, -10)
 
 [node name="Hitboxes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -7492,7 +7482,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.155, 0)
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
 
 [node name="Skeleton3D" parent="nova" index="0"]
-bones/2/rotation = Quaternion(0.39593133, 0.24977413, 0.68152446, 0.56247294)
+bones/2/position = Vector3(-0.0007863449, 0.012551659, -0.0014697748)
+bones/2/rotation = Quaternion(0.587115, 0.3041098, 0.57274, 0.4845432)
 bones/3/rotation = Quaternion(-0.00029652417, -0.0756327, 0.0068116817, 0.99711245)
 bones/5/position = Vector3(0.0025945704, -0.00054700946, 0.00058215286)
 bones/5/rotation = Quaternion(0.12718768, -0.1879078, -0.033321794, 0.9733466)
@@ -7500,24 +7491,29 @@ bones/6/position = Vector3(0.0017499711, -1.9114195e-05, 0)
 bones/6/rotation = Quaternion(-0.61815953, -0.19284236, -0.44837752, 0.61615604)
 bones/7/rotation = Quaternion(0.7087308, 0.705479, -3.3087225e-24, 7.33913e-25)
 bones/9/position = Vector3(-0.00053762295, -0.0008666625, -0.0024917354)
+bones/9/rotation = Quaternion(-0.22565012, -0.7003102, 0.6357089, 0.23349921)
 bones/10/position = Vector3(0.007249624, 0, 0)
-bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
+bones/10/rotation = Quaternion(-0.0761424, 0.04146065, -0.12717225, 0.9880844)
 bones/11/position = Vector3(0.0061893025, 0, 0)
-bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.07567929, 0.52658355, -0.50681967, 0.6783188)
-bones/15/rotation = Quaternion(-0.15368831, 0.5416771, 0.22935784, 0.79395264)
-bones/16/rotation = Quaternion(-0.51605517, -0.4670922, -0.22824201, 0.68074787)
-bones/21/rotation = Quaternion(-0.12965667, 0.40295675, -0.47421768, 0.7719667)
-bones/22/rotation = Quaternion(-0.055103436, 0.32169378, 0.1675668, 0.9302678)
-bones/23/rotation = Quaternion(0.10735644, 0.1330012, -0.07497992, 0.9824273)
-bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
-bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
-bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
-bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
-bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
-bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
-bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.35033056, 0.7062697, 0.06136524, 0.612116)
+bones/11/rotation = Quaternion(0.9885927, -0.07574561, -0.099049486, 0.08447721)
+bones/14/rotation = Quaternion(-0.061621934, 0.5155309, -0.47210145, 0.71242607)
+bones/15/rotation = Quaternion(-0.16480292, 0.5595479, 0.23279706, 0.778172)
+bones/16/rotation = Quaternion(-0.6348225, -0.07397241, -0.24364816, 0.7294958)
+bones/17/position = Vector3(0.0018554493, 0.0002190501, -2.331852e-05)
+bones/19/position = Vector3(0.0013310525, -0.00023085525, -0.0009310025)
+bones/21/rotation = Quaternion(-0.17434476, 0.0763052, -0.7397585, 0.6453982)
+bones/22/rotation = Quaternion(-0.1968134, 0.60615844, 0.23993762, 0.7323022)
+bones/23/rotation = Quaternion(0.15357295, -0.17873208, 0.16175927, 0.95828193)
+bones/24/position = Vector3(-0.0018531359, -0.000235852, -3.842096e-05)
+bones/26/position = Vector3(-0.001368348, 0.0002611141, 0.00086672726)
+bones/28/rotation = Quaternion(0.241934, 0.7050683, -0.50609386, -0.43383843)
+bones/29/rotation = Quaternion(0.78476137, -0.027927753, 0.6188061, 0.021178588)
+bones/30/rotation = Quaternion(0.04001964, -0.34890047, -0.022922155, 0.93602437)
+bones/33/rotation = Quaternion(-0.32476765, 0.43038657, -0.05226376, 0.84057236)
+bones/34/rotation = Quaternion(0.90431, -0.023808304, 0.4260969, 0.009901098)
+bones/35/rotation = Quaternion(-0.10995725, -0.21798515, 0.11558059, 0.96282554)
+bones/38/position = Vector3(0.005932202, 0.012028392, -0.0034180686)
+bones/38/rotation = Quaternion(-0.21242276, 0.8693626, 0.42212987, 0.14453968)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
@@ -7541,7 +7537,7 @@ surface_material_override/0 = ExtResource("22_vrbf8")
 surface_material_override/0 = ExtResource("28_sbbhh")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0041137007, -0.5699895, 0.8216417, -0.4211076, 0.74623007, 0.5155667, -0.90700126, -0.34387866, -0.24309671, 0.006037012, 0.007199035, -0.013196064)
+transform = Transform3D(-0.86706156, -0.49297398, 0.0719748, -0.24833603, 0.5529087, 0.79537475, -0.4318945, 0.67176515, -0.6018292, -0.007631109, 0.0081684645, -0.010141414)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 
