@@ -88,18 +88,24 @@ player_close_state = NodePath("../Cooldown")
 script = ExtResource("4_vv04i")
 reached_state = NodePath("../Cooldown")
 
+[node name="RollingSFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking"]
+event_name = "event:/Enemys/RollyPolly/RollyPolly Roll"
+event_guid = "{8b99d305-3830-47f0-b782-ff00bbd394da}"
+
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("4_35qt8")
 
 [node name="Cast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 shape = SubResource("SphereShape3D_vv04i")
 target_position = Vector3(0, 0, -10)
 collide_with_areas = true
 
 [node name="mossypede" parent="." instance=ExtResource("2_sxa4w")]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -0.65710473, 0)
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_l26uf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -110,6 +116,7 @@ transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357
 texture = SubResource("ViewportTexture_g0rg0")
 
 [node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("8_2xbfi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 dissolveDuration = 1.0
 meshes = [NodePath("../mossypede/Skeleton3D/model_Back"), NodePath("../mossypede/Skeleton3D/model_Body")]
 
@@ -148,11 +155,25 @@ state_name = "end_roll"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
 
 
+[node name="HurtSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Enemys/RollyPolly/RollyPolly hurt"
+event_guid = "{b2e2dc76-1032-46f7-bd6e-bad6813cc497}"
+
+[node name="IdlingSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Enemys/RollyPolly/RollyPolly Crawl"
+event_guid = "{59579045-d71f-4fed-bd9d-bc55d6b799f7}"
+autoplay = true
+
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
+[connection signal="hurt" from="." to="HurtSFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Cooldown" to="AnimationTree/idle" method="enter"]
 [connection signal="entered" from="StateMachine/Attacking" to="AnimationTree/start_roll" method="enter"]
+[connection signal="entered" from="StateMachine/Attacking" to="StateMachine/Attacking/RollingSFX" method="play"]
+[connection signal="entered" from="StateMachine/Attacking" to="IdlingSFX" method="stop"]
 [connection signal="finished" from="StateMachine/Attacking" to="AnimationTree/end_roll" method="enter"]
+[connection signal="finished" from="StateMachine/Attacking" to="StateMachine/Attacking/RollingSFX" method="stop"]
+[connection signal="finished" from="StateMachine/Attacking" to="IdlingSFX" method="play"]
 [connection signal="entered" from="StateMachine/Dead" to="DissolveFX" method="beginDissolve"]
 
 [editable path="mossypede"]

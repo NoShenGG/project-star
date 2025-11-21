@@ -12,7 +12,9 @@ func _init(merger: MindMerger) -> void:
 
 func try_apply(entity: Entity) -> bool:
 	if super(entity):
-		_entity.killed.connect(enemy_killed.emit.bind(self))
+		_entity.killed.connect(entity_killed)
+		if _entity.state_machine:
+			_entity.state_machine.frozen = true
 		return true;
 	return false
 	
@@ -22,6 +24,15 @@ func set_target(_target: Vector3):
 func process(_delta: float) -> bool:
 	(_entity as Enemy).set_ai_override(true, target)
 	return active;
+	
+func entity_killed() -> void:
+	enemy_killed.emit(self)
+	if _entity.state_machine:
+		_entity.state_machine.frozen = false
+		_entity.state_machine.state.enter("")
 
 func stop() -> void:
 	(_entity as Enemy).set_ai_override(false);
+	if _entity.state_machine:
+		_entity.state_machine.frozen = false
+		_entity.state_machine.state.enter("")

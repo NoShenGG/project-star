@@ -49,6 +49,7 @@ adjustment_saturation = 0.9
 
 [node name="PlayerManager" parent="." instance=ExtResource("6_prq4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
+stage = 1
 
 [node name="LevelEnder" parent="." instance=ExtResource("7_s0x1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2077312, 2.3391743, -35.17933)

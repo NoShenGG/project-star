@@ -8,7 +8,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_l26uf"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g0rg0"]
-height = 0.1
 radius = 10.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_g0rg0"]
@@ -27,6 +26,7 @@ _base_speed = 2.0
 passive_death_time = 3.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_l26uf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -43,6 +43,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxes/Aggro"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_g0rg0")
 debug_color = Color(1, 0, 0, 1)
 
@@ -51,13 +52,13 @@ transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357
 texture = SubResource("ViewportTexture_g0rg0")
 
 [node name="slime" parent="." instance=ExtResource("3_jgdep")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.42604154, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Armature" parent="slime" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32969588, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8199013, 0)
 
 [node name="Skeleton3D" parent="slime/Armature" index="0"]
-bones/0/scale = Vector3(1.0756422, 0.61377335, 0.99815667)
+bones/0/scale = Vector3(0.9855548, 1.0067236, 1.0183308)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../slime")
@@ -65,6 +66,7 @@ tree_root = SubResource("AnimationNodeAnimation_g7w1c")
 anim_player = NodePath("../slime/AnimationPlayer")
 
 [node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("4_jgdep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 dissolveDuration = 1.0
 meshes = [NodePath("../slime/Armature/Skeleton3D/skin1"), NodePath("../slime/Armature/Skeleton3D/skin2")]
 
