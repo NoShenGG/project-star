@@ -70,9 +70,9 @@ func start():
 		if instance.get_node("CollisionShape3D"):
 			# temp because enemies' height midpoints are centered at origin, not bottom
 			## not offsetting by collision since if we did, those with origin at the bottom will be too high. also origin should be at bottom in every casea
-			instance.global_position = area.get_rand_point() + Vector3.UP
+			instance.global_position = area.get_rand_point()
 		else:
-			instance.global_position = area.get_rand_point() + Vector3(0.0, 1.0, 0.0)
+			instance.global_position = area.get_rand_point()
 	started.emit()
 	
 # TODO: func start_staggered()

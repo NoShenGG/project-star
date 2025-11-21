@@ -10,6 +10,11 @@ signal state_exited(state: String)
 	return initial_state if initial_state != null else get_child(0)
 ).call()
 
+var frozen: bool = false:
+	set(value):
+		frozen = value
+		self.process_mode = Node.PROCESS_MODE_DISABLED if value else Node.PROCESS_MODE_INHERIT
+
 
 func _ready() -> void:
 	for state_node: State in find_children("*", "State"):
@@ -19,15 +24,21 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if frozen:
+		return
 	state.update(delta)
 
 
 func _physics_process(delta: float) -> void:
+	if frozen:
+		return
 	state.physics_update(delta)
 
 
 ## Moves between states. Calls emits exit and enter signals before states execute their functions.
 func _transition_to_next_state(target_state_path: String, data: Dictionary = {}) -> void:
+	if frozen:
+		return
 	if not has_node(target_state_path):
 		printerr(owner.name + ": Trying to transition to state " + target_state_path + " but it does not exist.")
 		return

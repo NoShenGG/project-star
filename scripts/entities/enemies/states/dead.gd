@@ -13,6 +13,7 @@ func _ready() -> void:
 
 func enter(_prev_state: String, _data := {}) -> void:
 	entered.emit()
+	entity.velocity = Vector3.ZERO
 	if (animation): animation.enter()
 	
 	if (snap_turn_to_player):

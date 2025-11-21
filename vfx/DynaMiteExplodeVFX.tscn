@@ -1,7 +1,7 @@
 [gd_scene load_steps=69 format=3 uid="uid://cent63gp0an85"]
 
-[ext_resource type="Script" path="res://VFX/MiteExplosion.gd" id="1_cqvfm"]
-[ext_resource type="Shader" path="res://VFX/MiteExplosionCloud.gdshader" id="2_h470l"]
+[ext_resource type="Script" uid="uid://cyf1iyihnmbr6" path="res://VFX/MiteExplosion.gd" id="1_cqvfm"]
+[ext_resource type="Shader" uid="uid://cnufkqrd0wvae" path="res://VFX/MiteExplosionCloud.gdshader" id="2_h470l"]
 [ext_resource type="Texture2D" uid="uid://n8ioie3uso2u" path="res://vfx/Kenny Particle Pack/muzzle_01.png" id="3_kb7n7"]
 
 [sub_resource type="Gradient" id="Gradient_h470l"]
@@ -321,10 +321,14 @@ orientation = 2
 [node name="DynaMiteExplode" type="Node3D" node_paths=PackedStringArray("fuse_timer", "particles")]
 script = ExtResource("1_cqvfm")
 fuse_timer = NodePath("FuseTimer")
-particles = [NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D4")]
+particles = [NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D4"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D4")]
 
 [node name="FuseTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="FuseSFX" type="FmodEventEmitter3D" parent="FuseTimer"]
+event_name = "event:/Enemys/DynaMite/Explosive/Explosive Ticking"
+event_guid = "{332a907f-eb64-4927-9e76-051acaba7035}"
 
 [node name="PulseTimer" type="Timer" parent="."]
 wait_time = 0.25
@@ -361,3 +365,11 @@ local_coords = true
 transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_x4umv")
 draw_pass_1 = SubResource("PlaneMesh_rr024")
+
+[node name="ExplodeSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Enemys/DynaMite/Explosive/Explosion"
+event_guid = "{986bcb02-cf42-422f-93b8-596115f37c48}"
+
+[connection signal="exploded" from="." to="ExplodeSFX" method="play_one_shot"]
+[connection signal="started" from="." to="FuseTimer/FuseSFX" method="play"]
+[connection signal="timeout" from="FuseTimer" to="FuseTimer/FuseSFX" method="stop"]

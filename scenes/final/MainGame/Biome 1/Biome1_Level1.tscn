@@ -90,24 +90,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/2/position = Vector3(-0.000786345, 0.014272304, -0.001469775)
-bones/9/rotation = Quaternion(0.03079711, -0.53806853, 0.8415936, 0.035411507)
-bones/14/rotation = Quaternion(-0.07103854, 0.5239481, -0.5068664, 0.68082196)
-bones/15/rotation = Quaternion(-0.16419944, 0.55858195, 0.23261295, 0.7790481)
-bones/16/rotation = Quaternion(-0.50819457, -0.4759635, -0.2476322, 0.6737027)
-bones/17/position = Vector3(0.0018554514, 0.00021904883, -2.3317207e-05)
-bones/19/position = Vector3(0.0013310545, -0.00023085652, -0.0009310012)
-bones/21/rotation = Quaternion(-0.12976933, 0.37927365, -0.47751287, 0.78185225)
-bones/22/rotation = Quaternion(-0.06633186, 0.35513002, 0.17860954, 0.91519475)
-bones/23/rotation = Quaternion(0.11483516, 0.12238949, -0.085779116, 0.98207724)
-bones/24/position = Vector3(-0.001853143, -0.00023585279, -3.842577e-05)
-bones/26/position = Vector3(-0.001368355, 0.0002611133, 0.00086672243)
-bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
-bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
-bones/38/rotation = Quaternion(-0.3515129, 0.70568466, 0.060338702, 0.6122149)
+bones/14/rotation = Quaternion(-0.06882059, 0.5238776, -0.5063817, 0.6814643)
+bones/15/rotation = Quaternion(-0.16045588, 0.55266917, 0.23151322, 0.7843548)
+bones/16/rotation = Quaternion(-0.5106868, -0.46719766, -0.24527398, 0.67879754)
+bones/21/rotation = Quaternion(-0.14641052, 0.39288193, -0.459678, 0.78288186)
+bones/22/rotation = Quaternion(-0.06518203, 0.35194778, 0.17758745, 0.9167043)
+bones/23/rotation = Quaternion(0.13745022, 0.11511129, -0.0735999, 0.9810403)
+bones/38/rotation = Quaternion(-0.34881422, 0.70701635, 0.06268012, 0.61198676)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0022118133, -0.57000005, 0.8216417, -0.42360854, 0.74481565, 0.51556313, -0.90584254, -0.3469142, -0.24310434, 0.006066724, 0.007159913, -0.01317807)
+transform = Transform3D(-0.006550504, -0.56996655, 0.8216418, -0.41789645, 0.74803007, 0.5155711, -0.90847105, -0.33998394, -0.24308693, 0.005998944, 0.0072492654, -0.013218887)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -164,9 +156,6 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [node name="Die" parent="PlayerManager/Nova/nova" index="16"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
-
-[node name="AttackingCharged" parent="PlayerManager/Rene/StateMachine" index="5"]
-damage = 3.0
 
 [node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
