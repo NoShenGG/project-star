@@ -223,10 +223,9 @@ script = ExtResource("14_durvm")
 [node name="HitStun" type="Node" parent="StateMachine"]
 script = ExtResource("15_wck6d")
 
-[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
+[node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("19_66khj")
 snap_turn_to_player = true
-animation = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -398,7 +397,7 @@ unique_name_in_owner = true
 noiseScale = 7.885
 dissolveBegin = 0.3
 dissolveDuration = 1.0
-meshes = [NodePath("../Hitboxes/Construct/MeshInstance3D")]
+meshes = [NodePath("../rene_rig/Skeleton3D/body"), NodePath("../rene_rig/Skeleton3D/coat"), NodePath("../rene_rig/Skeleton3D/hair"), NodePath("../rene_rig/Skeleton3D/staff")]
 
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
@@ -417,3 +416,5 @@ meshes = [NodePath("../Hitboxes/Construct/MeshInstance3D")]
 [connection signal="entered" from="StateMachine/Dead" to="DissolveFX" method="beginDissolve"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slash0" method="do_damage"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slash1" method="do_damage"]
+
+[editable path="rene_rig"]
