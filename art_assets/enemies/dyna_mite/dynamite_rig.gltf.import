@@ -42,7 +42,7 @@ _subresources={
 "Dynamite_Texture": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://art_assets/enemies/dyna_mite/Dynamite_Texture.material",
-"use_external/path": "uid://mx2enmspa0mc"
+"use_external/path": "uid://dvlrbaa822suf"
 }
 }
 }

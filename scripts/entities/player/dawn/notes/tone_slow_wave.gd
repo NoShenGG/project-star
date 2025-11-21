@@ -12,6 +12,7 @@ func start() -> void:
 func _process(delta: float) -> void:
 	var diff = delta * speed
 	scale.x += diff
+	scale.y += diff
 	scale.z += diff
 
 func hitbox_entered(body: Node3D) -> void:
