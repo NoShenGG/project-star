@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://brmdsiu0kp6ca"]
+[gd_scene load_steps=20 format=3 uid="uid://brmdsiu0kp6ca"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_lyudl"]
 [ext_resource type="PackedScene" uid="uid://brw0p1eirto83" path="res://scenes/final/Nova.tscn" id="2_dvwxt"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://b23m0ymm5td5r" path="res://scripts/utility/3d_2d_ui.gd" id="14_fop7g"]
 [ext_resource type="Script" uid="uid://bv28fxbtlv4es" path="res://scripts/utility/pause_menu.gd" id="15_rkpjn"]
 [ext_resource type="PackedScene" uid="uid://hs6isup6bhpk" path="res://scenes/dev/ZXue/refactor_SettingMenu/SettingMenu.tscn" id="16_d11v8"]
+[ext_resource type="Script" uid="uid://ri30deerqwg7" path="res://scripts/entities/player/swap_in_vocal_selector.gd" id="17_fop7g"]
 
 [sub_resource type="Curve" id="Curve_q54j5"]
 _limits = [0.0, 2.0, 0.0, 1.0]
@@ -44,14 +45,14 @@ bones/2/rotation = Quaternion(0.39593133, 0.24977413, 0.68152446, 0.56247294)
 bones/9/rotation = Quaternion(0.03079711, -0.53806853, 0.8415936, 0.035411507)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.075568944, 0.5265456, -0.50681126, 0.6783668)
-bones/15/rotation = Quaternion(-0.15375055, 0.5417798, 0.22937848, 0.7938646)
-bones/16/rotation = Quaternion(-0.5160055, -0.46702358, -0.22845435, 0.68076134)
+bones/14/rotation = Quaternion(-0.07020681, 0.52439684, -0.50647557, 0.68085355)
+bones/15/rotation = Quaternion(-0.15907164, 0.5504484, 0.23108758, 0.78632134)
+bones/16/rotation = Quaternion(-0.511813, -0.46711218, -0.2418405, 0.67924005)
 bones/17/position = Vector3(0.0018554514, 0.00021904883, -2.3317207e-05)
 bones/19/position = Vector3(0.0013310545, -0.00023085652, -0.0009310012)
-bones/21/rotation = Quaternion(-0.1300245, 0.40292716, -0.47389138, 0.77212065)
-bones/22/rotation = Quaternion(-0.05523077, 0.3220927, 0.167701, 0.930098)
-bones/23/rotation = Quaternion(0.10794293, 0.13269557, -0.07487366, 0.9824124)
+bones/21/rotation = Quaternion(-0.14332329, 0.39499128, -0.46253943, 0.7807033)
+bones/22/rotation = Quaternion(-0.06314856, 0.3460599, 0.17566417, 0.91945475)
+bones/23/rotation = Quaternion(0.1316082, 0.11853841, -0.07384248, 0.981415)
 bones/24/position = Vector3(-0.001853143, -0.00023585279, -3.842577e-05)
 bones/26/position = Vector3(-0.001368355, 0.0002611133, 0.00086672243)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
@@ -61,10 +62,10 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.3502836, 0.706293, 0.061406035, 0.6121119)
+bones/38/rotation = Quaternion(-0.3490189, 0.70691586, 0.06250272, 0.6120043)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.004189519, -0.5699891, 0.8216417, -0.4210082, 0.74628603, 0.5155668, -0.90704715, -0.34375793, -0.24309671, 0.0060358276, 0.007200589, -0.013196777)
+transform = Transform3D(-0.0062218364, -0.5699702, 0.82164174, -0.41833016, 0.747788, 0.5155704, -0.9082736, -0.34050968, -0.24308836, 0.0060040783, 0.0072424808, -0.01321582)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -415,6 +416,39 @@ text = "Quit"
 [node name="SettingScene" parent="." node_paths=PackedStringArray("previous_page") instance=ExtResource("16_d11v8")]
 visible = false
 previous_page = NodePath("../Pause Menu")
+
+[node name="Node" type="Node3D" parent="." node_paths=PackedStringArray("nova_swapin", "rene_swapin", "dawn_swapin", "nova_swapout", "rene_swapout", "dawn_swapout")]
+script = ExtResource("17_fop7g")
+nova_swapin = NodePath("Nova Swap in")
+rene_swapin = NodePath("Rene Swap in")
+dawn_swapin = NodePath("Dawn Swap in")
+nova_swapout = NodePath("Nova Swap Out")
+rene_swapout = NodePath("Rene Swap Out")
+dawn_swapout = NodePath("Dawn Swap Out")
+
+[node name="Nova Swap in" type="FmodEventEmitter3D" parent="Node"]
+event_name = "event:/Player/Nova Swap-In"
+event_guid = "{128b8f46-e3e7-4209-b431-b0b3677f370d}"
+
+[node name="Rene Swap in" type="FmodEventEmitter3D" parent="Node"]
+event_name = "event:/Player/Rene Swap-In"
+event_guid = "{9eee40f4-fd27-4f26-8815-6da247208a08}"
+
+[node name="Dawn Swap in" type="FmodEventEmitter3D" parent="Node"]
+event_name = "event:/Player/Dawn Swap-In"
+event_guid = "{35c1a050-606b-4122-a3e2-e7cb6f991138}"
+
+[node name="Nova Swap Out" type="FmodEventEmitter3D" parent="Node"]
+event_name = "event:/Player/Nova Swap-Out"
+event_guid = "{830c7f99-f848-4e70-b4f0-cf87d1dffa7d}"
+
+[node name="Rene Swap Out" type="FmodEventEmitter3D" parent="Node"]
+event_name = "event:/Player/Rene Swap-Out"
+event_guid = "{2e60cfb9-5430-4e06-a95e-b911fa00f126}"
+
+[node name="Dawn Swap Out" type="FmodEventEmitter3D" parent="Node"]
+event_name = "event:/Player/Dawn Swap-Out"
+event_guid = "{05b0eb79-dcf6-488e-a088-a245cceeda31}"
 
 [connection signal="new_player" from="." to="Game Menu/GameUi" method="on_player_switch"]
 [connection signal="player_hp_update" from="." to="Game Menu/GameUi" method="on_player_health_update"]
