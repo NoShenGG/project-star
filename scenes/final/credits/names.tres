@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cnxf4lu3op5dh"]
+
+[ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="1_dafmf"]
+
+[resource]
+paragraph_spacing = 5.0
+font = ExtResource("1_dafmf")
+font_size = 32

@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d0bsxok00jwpt"]
+
+[ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="1_2fu1a"]
+
+[resource]
+font = ExtResource("1_2fu1a")
+font_size = 60
+shadow_size = 10
+shadow_color = Color(0.8980392, 0.41568628, 0.89411765, 1)
