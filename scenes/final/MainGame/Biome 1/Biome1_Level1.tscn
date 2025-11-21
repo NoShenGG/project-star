@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://p0pl57lpm4x4"]
+[gd_scene load_steps=30 format=3 uid="uid://p0pl57lpm4x4"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_ajxti"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="4_47nrl"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="10_1fsox"]
 [ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://VFX/Kenny Particle Pack/star_06.png" id="10_fja3h"]
 [ext_resource type="Script" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
-[ext_resource type="Script" path="res://austin_newby/menu/menu_element.gd" id="11_1fsox"]
+[ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="11_1fsox"]
 [ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="11_pafkc"]
 [ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="12_yvkck"]
 [ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="13_ck0to"]
@@ -81,6 +81,11 @@ img = ExtResource("15_px6kn")
 text = "Ardous Climb"
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
+[sub_resource type="Resource" id="Resource_pafkc"]
+script = ExtResource("13_ck0to")
+small_text = "stfu st fg aklsjbldkj gbdsalkj bdgsahjkl  asdgjlhkdsg hjdgs alkhjadg shjkfg ljkh"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
 [node name="Level1" type="Node3D"]
 
 [node name="PlayerManager" parent="." instance=ExtResource("1_ajxti")]
@@ -90,24 +95,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/2/position = Vector3(-0.000786345, 0.014272304, -0.001469775)
-bones/9/rotation = Quaternion(0.03079711, -0.53806853, 0.8415936, 0.035411507)
-bones/14/rotation = Quaternion(-0.06529982, 0.52213264, -0.5065881, 0.6829949)
-bones/15/rotation = Quaternion(-0.16939455, 0.5666567, 0.2340654, 0.771634)
-bones/16/rotation = Quaternion(-0.50397354, -0.4752348, -0.26124325, 0.672246)
-bones/17/position = Vector3(0.0018554514, 0.00021904883, -2.3317207e-05)
-bones/19/position = Vector3(0.0013310545, -0.00023085652, -0.0009310012)
-bones/21/rotation = Quaternion(-0.14324664, 0.3724058, -0.46424916, 0.79073834)
-bones/22/rotation = Quaternion(-0.07443939, 0.37747058, 0.18575348, 0.9041407)
-bones/23/rotation = Quaternion(0.14060552, 0.10846731, -0.083466545, 0.98056024)
-bones/24/position = Vector3(-0.001853143, -0.00023585279, -3.842577e-05)
-bones/26/position = Vector3(-0.001368355, 0.0002611133, 0.00086672243)
-bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
-bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
-bones/38/rotation = Quaternion(-0.35043266, 0.7062193, 0.06127661, 0.6121246)
+bones/14/rotation = Quaternion(-0.06970519, 0.5242054, -0.50644267, 0.68107694)
+bones/15/rotation = Quaternion(-0.15958369, 0.5512716, 0.23124596, 0.7855941)
+bones/16/rotation = Quaternion(-0.51139927, -0.4671571, -0.24309956, 0.6790713)
+bones/21/rotation = Quaternion(-0.14443587, 0.39419857, -0.46152467, 0.78149915)
+bones/22/rotation = Quaternion(-0.06389364, 0.3482296, 0.17637455, 0.9184475)
+bones/23/rotation = Quaternion(0.13371134, 0.11728987, -0.073775016, 0.98128575)
+bones/38/rotation = Quaternion(-0.34893167, 0.70695865, 0.062578276, 0.61199677)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.003949547, -0.5699906, 0.82164174, -0.42132372, 0.74610835, 0.51556635, -0.90690166, -0.3441409, -0.24309742, 0.0060395766, 0.007195654, -0.013194517)
+transform = Transform3D(-0.006361792, -0.56996864, 0.82164174, -0.4181454, 0.7478912, 0.51557064, -0.9083577, -0.34028575, -0.24308777, 0.0060018916, 0.007245371, -0.013217126)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -932,9 +929,13 @@ shape = SubResource("BoxShape3D_nv2fo")
 
 [node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
 script = ExtResource("12_yvkck")
-dialogue = Array[ExtResource("13_ck0to")]([SubResource("Resource_mn8l0"), SubResource("Resource_otk5b")])
+dialogue = Array[ExtResource("13_ck0to")]([SubResource("Resource_mn8l0"), SubResource("Resource_otk5b"), SubResource("Resource_pafkc")])
 metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://sounds/banks/Enemys.bank"]
+
+[connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
 [connection signal="body_entered" from="WaveManager/Area3D" to="WaveManager" method="_on_start" unbinds=1]
 
 [editable path="PlayerManager"]
@@ -945,3 +946,4 @@ metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 [editable path="PlayerManager/Dawn"]
 [editable path="PlayerManager/Dawn/dawn_rig"]
 [editable path="PlayerManager/Game Menu/GameUi"]
+[editable path="PlayerManager/SettingScene"]
