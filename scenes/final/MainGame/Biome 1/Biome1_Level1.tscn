@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://p0pl57lpm4x4"]
+[gd_scene load_steps=37 format=3 uid="uid://p0pl57lpm4x4"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_ajxti"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="4_47nrl"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bfq2lq4t3785h" path="res://art_assets/Ui/TextboxSmall.png" id="9_pafkc"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="10_1fsox"]
 [ext_resource type="Script" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
+[ext_resource type="Script" uid="uid://diaap70c4mvfb" path="res://scripts/utility/menu_sfx.gd" id="10_px6kn"]
 [ext_resource type="Texture2D" uid="uid://cqlv7nqlkjrwx" path="res://art_assets/Ui/TextboxMedium.png" id="10_yvkck"]
 [ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="11_pafkc"]
 [ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="12_yvkck"]
@@ -110,16 +111,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.07476078, 0.5256201, -0.5069151, 0.67909616)
-bones/15/rotation = Quaternion(-0.15823784, 0.5490971, 0.23082374, 0.78751093)
-bones/16/rotation = Quaternion(-0.51271147, -0.4723575, -0.235517, 0.67715377)
-bones/21/rotation = Quaternion(-0.12595274, 0.3913614, -0.47957897, 0.77522653)
-bones/22/rotation = Quaternion(-0.059262242, 0.33448482, 0.17184186, 0.9247045)
-bones/23/rotation = Quaternion(0.104531944, 0.13081194, -0.081611946, 0.9824972)
-bones/38/rotation = Quaternion(-0.3515935, 0.70564467, 0.06026878, 0.6122217)
+bones/14/rotation = Quaternion(-0.06549277, 0.5220138, -0.50674075, 0.68295395)
+bones/15/rotation = Quaternion(-0.17057715, 0.5684668, 0.23438029, 0.76994467)
+bones/16/rotation = Quaternion(-0.5031836, -0.47796085, -0.26202294, 0.6705995)
+bones/21/rotation = Quaternion(-0.13797797, 0.3681001, -0.46996492, 0.7903148)
+bones/22/rotation = Quaternion(-0.07481513, 0.3784701, 0.18606798, 0.90362704)
+bones/23/rotation = Quaternion(0.1334974, 0.11078187, -0.08744592, 0.98094803)
+bones/38/rotation = Quaternion(-0.35086954, 0.70600337, 0.06089744, 0.61216134)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0020818738, -0.5700006, 0.8216417, -0.4237788, 0.74471885, 0.515563, -0.90576327, -0.347121, -0.2431047, 0.0060687545, 0.0071572494, -0.013176839)
+transform = Transform3D(-0.0032467996, -0.569995, 0.8216416, -0.4222479, 0.7455866, 0.515565, -0.9064744, -0.3452625, -0.24310005, 0.006050555, 0.007181197, -0.0131878825)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -176,55 +177,6 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [node name="Die" parent="PlayerManager/Nova/nova" index="16"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
-
-[node name="Skeleton3D" parent="PlayerManager/Rene/rene" index="0"]
-bones/2/position = Vector3(-0.0005203143, 0.014964291, -0.0011678112)
-bones/2/rotation = Quaternion(0.05011151, 0.0043822257, 0.7011566, 0.7112307)
-bones/3/rotation = Quaternion(0, 0, 0.0068312488, 0.99997663)
-bones/5/position = Vector3(0.0038610352, -3.104834e-05, -0.00018156046)
-bones/5/rotation = Quaternion(-0.02527666, -0.16084868, 0.00066367845, 0.9866551)
-bones/6/position = Vector3(0.002076503, -1.4204944e-05, 0.001014148)
-bones/6/rotation = Quaternion(-0.03346917, 0.0342719, -0.6870552, 0.72502446)
-bones/7/rotation = Quaternion(0.7057198, 0.70248187, -0.067438774, 0.06269555)
-bones/10/rotation = Quaternion(-0.07407428, 0.443955, -0.5328873, 0.716553)
-bones/11/rotation = Quaternion(-0.031378143, 0.59293187, 0.044063475, 0.80343366)
-bones/12/rotation = Quaternion(-0.049432214, -0.07402011, -0.06356117, 0.99400073)
-bones/13/position = Vector3(0.0018554534, 0.00021904969, -2.3318698e-05)
-bones/15/position = Vector3(0.0013683459, -0.0002610989, -0.00086672726)
-bones/19/rotation = Quaternion(-0.077695705, 0.07929648, -0.6510415, 0.75087976)
-bones/20/rotation = Quaternion(-0.048384864, 0.81694615, 0.032035597, 0.5737871)
-bones/21/rotation = Quaternion(0.4274869, 0.16004647, 0.1633658, 0.8746152)
-bones/22/position = Vector3(-0.001855438, -0.0002190492, 2.331884e-05)
-bones/24/position = Vector3(-0.0013683101, 0.00026112056, 0.0008667239)
-bones/26/position = Vector3(0.0010249413, 2.9692621e-06, -0.0022887809)
-bones/26/rotation = Quaternion(0.033271033, -0.691612, 0.7211397, 0.022878462)
-bones/27/position = Vector3(0.005858415, -1.2389212e-12, 1.3877787e-18)
-bones/27/rotation = Quaternion(0, 0, -0.0472673, 0.9988823)
-bones/28/position = Vector3(0.0051753446, -1.110223e-18, 9.714452e-19)
-bones/29/position = Vector3(0.0046479213, 2.5794162e-11, 9.714452e-19)
-bones/31/position = Vector3(0.0019749494, -0.00078576047, 0.004232531)
-bones/32/position = Vector3(0.0051753446, 2.220446e-18, -1.110223e-18)
-bones/33/position = Vector3(0.0046479213, 2.220446e-18, 0)
-bones/35/position = Vector3(0.0019021163, -0.0011497505, -0.0037815273)
-bones/35/rotation = Quaternion(0.16465576, 0.0049731513, 0.9824194, 0.08784072)
-bones/36/position = Vector3(-0.005175306, -1.1119962e-09, -1.8150454e-08)
-bones/36/rotation = Quaternion(-0.33545947, -0.007531031, 0.16333342, 0.92775667)
-bones/37/position = Vector3(-0.0046478976, 3.1681417e-09, -4.5807864e-09)
-bones/37/rotation = Quaternion(0, 0, 0.011081111, 0.9999386)
-bones/39/rotation = Quaternion(-0.04316583, 0.9843434, 0.047048185, -0.1642902)
-bones/40/rotation = Quaternion(0.97830206, -0.01586422, 0.20656022, 0.0025226853)
-bones/41/rotation = Quaternion(0.06371504, -0.142788, -0.03752184, 0.9869874)
-bones/44/rotation = Quaternion(-0.027978135, 0.24861151, 0.020066638, 0.9679912)
-bones/45/rotation = Quaternion(0.9182793, -0.02292057, 0.39517635, 0.008570511)
-bones/46/rotation = Quaternion(0.013816073, -0.14898758, -0.011773926, 0.9886725)
-bones/49/position = Vector3(-0.0055159354, 0.010202143, 0.0048282756)
-bones/49/rotation = Quaternion(0.28277603, 0.9073974, -0.12096943, 0.286416)
-bones/51/position = Vector3(-1.110223e-18, 0, 0)
-bones/52/position = Vector3(0.009964881, -6.661338e-18, 0)
-bones/53/position = Vector3(0.008668151, -1.2656542e-15, 2.220446e-18)
-bones/53/rotation = Quaternion(0, 0, 0.0016023001, 0.9999987)
-bones/54/position = Vector3(0.0065154396, 1.4432899e-16, -2.220446e-18)
-bones/54/rotation = Quaternion(0.9999707, 0.007653769, 4.6865825e-19, 6.123054e-17)
 
 [node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -398,6 +350,19 @@ grow_vertical = 2
 scale = Vector2(1.65, 1.65)
 text = "Use [WASD] to move, [J] to attack"
 
+[node name="Menu SFX" type="Node" parent="tutorial/Tutorial1/Menu" node_paths=PackedStringArray("open_sfx", "close_sfx")]
+script = ExtResource("10_px6kn")
+open_sfx = NodePath("Open SFX")
+close_sfx = NodePath("Close SFX")
+
+[node name="Open SFX" type="FmodEventEmitter3D" parent="tutorial/Tutorial1/Menu/Menu SFX"]
+event_name = "event:/UI/InGame TooltIp Open"
+event_guid = "{435f6fe1-3836-4580-a0ba-81b0b8c30108}"
+
+[node name="Close SFX" type="FmodEventEmitter3D" parent="tutorial/Tutorial1/Menu/Menu SFX"]
+event_name = "event:/UI/InGame TooltIp Close"
+event_guid = "{da7d3195-919c-42e3-b5d5-9070fe6b450b}"
+
 [node name="Tutorial2" type="Area3D" parent="tutorial" node_paths=PackedStringArray("menu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.74186, 2.0158982, -15.820839)
 visible = false
@@ -456,6 +421,19 @@ scale = Vector2(1.65, 1.65)
 text = "Press [Shift] to dash"
 horizontal_alignment = 1
 
+[node name="Menu SFX" type="Node" parent="tutorial/Tutorial2/Menu" node_paths=PackedStringArray("open_sfx", "close_sfx")]
+script = ExtResource("10_px6kn")
+open_sfx = NodePath("Open SFX")
+close_sfx = NodePath("Close SFX")
+
+[node name="Open SFX" type="FmodEventEmitter3D" parent="tutorial/Tutorial2/Menu/Menu SFX"]
+event_name = "event:/UI/InGame TooltIp Open"
+event_guid = "{435f6fe1-3836-4580-a0ba-81b0b8c30108}"
+
+[node name="Close SFX" type="FmodEventEmitter3D" parent="tutorial/Tutorial2/Menu/Menu SFX"]
+event_name = "event:/UI/InGame TooltIp Close"
+event_guid = "{da7d3195-919c-42e3-b5d5-9070fe6b450b}"
+
 [node name="Tutorial3" type="Area3D" parent="tutorial" node_paths=PackedStringArray("menu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.947502, 2.0158982, -15.820839)
 collision_layer = 0
@@ -512,6 +490,19 @@ grow_vertical = 2
 scale = Vector2(1.65, 1.65)
 text = "Hold [j] to perfom a charged attack"
 horizontal_alignment = 1
+
+[node name="Menu SFX" type="Node" parent="tutorial/Tutorial3/Menu2" node_paths=PackedStringArray("open_sfx", "close_sfx")]
+script = ExtResource("10_px6kn")
+open_sfx = NodePath("Open SFX")
+close_sfx = NodePath("Close SFX")
+
+[node name="Open SFX" type="FmodEventEmitter3D" parent="tutorial/Tutorial3/Menu2/Menu SFX"]
+event_name = "event:/UI/InGame TooltIp Open"
+event_guid = "{435f6fe1-3836-4580-a0ba-81b0b8c30108}"
+
+[node name="Close SFX" type="FmodEventEmitter3D" parent="tutorial/Tutorial3/Menu2/Menu SFX"]
+event_name = "event:/UI/InGame TooltIp Close"
+event_guid = "{da7d3195-919c-42e3-b5d5-9070fe6b450b}"
 
 [node name="Tutorial4" type="Area3D" parent="tutorial" node_paths=PackedStringArray("menu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.37954, 2.0158982, -46.623657)
@@ -570,6 +561,19 @@ scale = Vector2(1.65, 1.65)
 text = "Press [k] to perform a special attack
 The cooldown is next to your character"
 horizontal_alignment = 1
+
+[node name="Menu SFX" type="Node" parent="tutorial/Tutorial4/Menu2" node_paths=PackedStringArray("open_sfx", "close_sfx")]
+script = ExtResource("10_px6kn")
+open_sfx = NodePath("Open SFX")
+close_sfx = NodePath("Close SFX")
+
+[node name="Open SFX" type="FmodEventEmitter3D" parent="tutorial/Tutorial4/Menu2/Menu SFX"]
+event_name = "event:/UI/InGame TooltIp Open"
+event_guid = "{435f6fe1-3836-4580-a0ba-81b0b8c30108}"
+
+[node name="Close SFX" type="FmodEventEmitter3D" parent="tutorial/Tutorial4/Menu2/Menu SFX"]
+event_name = "event:/UI/InGame TooltIp Close"
+event_guid = "{da7d3195-919c-42e3-b5d5-9070fe6b450b}"
 
 [node name="Navmesh" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_opvqb")
@@ -781,6 +785,7 @@ event_name = "event:/Music/Biome1_Level1"
 event_guid = "{a0fcfeaf-9830-49e8-b93c-6174f024d031}"
 autoplay = true
 
+[connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
 [connection signal="ended" from="WaveManager/Wave3" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Area3D" to="WaveManager" method="_on_start" unbinds=1]
 

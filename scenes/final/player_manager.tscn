@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://brmdsiu0kp6ca"]
+[gd_scene load_steps=31 format=3 uid="uid://brmdsiu0kp6ca"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_lyudl"]
 [ext_resource type="PackedScene" uid="uid://brw0p1eirto83" path="res://scenes/final/Nova.tscn" id="2_dvwxt"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://byn2jbtug26j3" path="res://scripts/utility/game_menu.gd" id="10_d11v8"]
 [ext_resource type="Script" uid="uid://baxdofgbk1vp0" path="res://scripts/utility/UIBounce.gd" id="11_d11v8"]
 [ext_resource type="Script" uid="uid://b23m0ymm5td5r" path="res://scripts/utility/3d_2d_ui.gd" id="14_fop7g"]
+[ext_resource type="Script" uid="uid://diaap70c4mvfb" path="res://scripts/utility/menu_sfx.gd" id="15_27jnq"]
 [ext_resource type="Script" uid="uid://bv28fxbtlv4es" path="res://scripts/utility/pause_menu.gd" id="15_rkpjn"]
 [ext_resource type="PackedScene" uid="uid://hs6isup6bhpk" path="res://scenes/dev/ZXue/refactor_SettingMenu/SettingMenu.tscn" id="16_d11v8"]
 [ext_resource type="Texture2D" uid="uid://pabqlrbnoq4a" path="res://art_assets/Ui/ControlPanels/Nova/Resume Button.png" id="16_w3iyl"]
@@ -56,16 +57,16 @@ floor_snap_length = 5.0
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.06792623, 0.5235596, -0.50631374, 0.6818488)
-bones/15/rotation = Quaternion(-0.16128157, 0.55398774, 0.23176375, 0.7831803)
-bones/16/rotation = Quaternion(-0.51, -0.46716157, -0.24739417, 0.6785692)
-bones/21/rotation = Quaternion(-0.14847144, 0.39170247, -0.45769253, 0.78424686)
-bones/22/rotation = Quaternion(-0.066440724, 0.3555471, 0.1787571, 0.914996)
-bones/23/rotation = Quaternion(0.14132056, 0.11292115, -0.07331603, 0.9807661)
-bones/38/rotation = Quaternion(-0.34865245, 0.7070959, 0.06282034, 0.6119727)
+bones/14/rotation = Quaternion(-0.07139803, 0.52409595, -0.5068715, 0.6806666)
+bones/15/rotation = Quaternion(-0.16367385, 0.5577543, 0.23246004, 0.77979696)
+bones/16/rotation = Quaternion(-0.5085974, -0.4756798, -0.2465387, 0.6740002)
+bones/21/rotation = Quaternion(-0.12937167, 0.3803081, -0.47778782, 0.7812474)
+bones/22/rotation = Quaternion(-0.065692216, 0.3533032, 0.17801628, 0.9160631)
+bones/23/rotation = Quaternion(0.11379625, 0.12316889, -0.085459486, 0.98212856)
+bones/38/rotation = Quaternion(-0.35155082, 0.7056658, 0.06030579, 0.6122181)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0068105054, -0.56996346, 0.8216416, -0.41755354, 0.7482212, 0.5155714, -0.9086266, -0.33956808, -0.24308598, 0.005994882, 0.0072546285, -0.013221302)
+transform = Transform3D(-0.0021506585, -0.5700003, 0.8216417, -0.42368868, 0.7447701, 0.515563, -0.9058052, -0.3470115, -0.24310446, 0.0060676797, 0.0071586594, -0.01317749)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -410,6 +411,19 @@ text = "RELOAD"
 script = ExtResource("9_0dwuh")
 open_animation_flags = 5
 
+[node name="Menu SFX" type="Node" parent="Death Menu" node_paths=PackedStringArray("open_sfx", "close_sfx")]
+script = ExtResource("15_27jnq")
+open_sfx = NodePath("Open SFX")
+close_sfx = NodePath("Close SFX")
+
+[node name="Open SFX" type="FmodEventEmitter3D" parent="Death Menu/Menu SFX"]
+event_name = "event:/UI/Menu Open"
+event_guid = "{4a1bcb6d-acb5-431a-8121-9f9f6b8a0b3b}"
+
+[node name="Close SFX" type="FmodEventEmitter3D" parent="Death Menu/Menu SFX"]
+event_name = "event:/UI/Menu Closed"
+event_guid = "{1f209850-e79d-46a2-a2d3-c3a83a96f0fe}"
+
 [node name="SpecialPivotUI" type="Node3D" parent="." node_paths=PackedStringArray("ui")]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -4.586, 0, 0.04)
 visible = false
@@ -520,6 +534,19 @@ theme_override_colors/icon_pressed_color = Color(0.043137256, 0.043137256, 0.043
 theme_override_colors/icon_hover_color = Color(0.5176471, 0.5176471, 0.5176471, 1)
 icon = ExtResource("18_3wvx5")
 flat = true
+
+[node name="Menu SFX" type="Node" parent="Pause Menu" node_paths=PackedStringArray("open_sfx", "close_sfx")]
+script = ExtResource("15_27jnq")
+open_sfx = NodePath("Open SFX")
+close_sfx = NodePath("Close SFX")
+
+[node name="Open SFX" type="FmodEventEmitter3D" parent="Pause Menu/Menu SFX"]
+event_name = "event:/UI/Menu Open"
+event_guid = "{4a1bcb6d-acb5-431a-8121-9f9f6b8a0b3b}"
+
+[node name="Close SFX" type="FmodEventEmitter3D" parent="Pause Menu/Menu SFX"]
+event_name = "event:/UI/Menu Closed"
+event_guid = "{1f209850-e79d-46a2-a2d3-c3a83a96f0fe}"
 
 [node name="SettingScene" parent="." node_paths=PackedStringArray("previous_page") instance=ExtResource("16_d11v8")]
 visible = false
