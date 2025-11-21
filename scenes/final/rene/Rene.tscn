@@ -1,10 +1,10 @@
-[gd_scene load_steps=43 format=3 uid="uid://bq7t53o2llxr4"]
+[gd_scene load_steps=77 format=3 uid="uid://bq7t53o2llxr4"]
 
 [ext_resource type="Script" uid="uid://ca3hlofv22ftb" path="res://scripts/entities/player/rene/rene.gd" id="1_njlal"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_yooho"]
 [ext_resource type="Script" uid="uid://bpndinylqyege" path="res://scripts/entities/player/player_states/player_idle.gd" id="3_0ylee"]
 [ext_resource type="Script" uid="uid://dq5qwb33mlr2l" path="res://scripts/entities/player/player_states/player_moving.gd" id="4_ufvor"]
-[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_dash.gd" id="5_66khj"]
+[ext_resource type="Script" uid="uid://cpcuaot05ab18" path="res://scripts/entities/player/player_states/player_dash.gd" id="5_66khj"]
 [ext_resource type="Script" uid="uid://clwu1a1we224o" path="res://scripts/entities/player/player_states/player_attacking.gd" id="5_t5f0y"]
 [ext_resource type="Script" uid="uid://d2q0nmenf1x0p" path="res://scripts/entities/player/rene/states/rene_attack.gd" id="6_u7juv"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_f5lgv"]
@@ -20,13 +20,22 @@
 [ext_resource type="Script" uid="uid://d3pkbl7ownr11" path="res://scripts/entities/player/player_states/player_hit_stun.gd" id="15_wck6d"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="19_66khj"]
 [ext_resource type="PackedScene" uid="uid://dfidn58xx6ouo" path="res://scenes/dev/arshiya_r/magic circle things/magic_circle_rene.tscn" id="23_um3o4"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="24_rij6b"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="24_rij6b"]
 [ext_resource type="Script" uid="uid://cvw6ajdumfkos" path="res://scripts/entities/player/nova/nova_dummy_anim.gd" id="24_svdc4"]
-[ext_resource type="Script" path="res://scripts/utility/ui_consumable.gd" id="25_66khj"]
+[ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="25_66khj"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="25_qvekr"]
-[ext_resource type="PackedScene" uid="uid://dm33xxp4l43po" path="res://art_assets/characters/Rene/rene_rig.glb" id="25_rij6b"]
+[ext_resource type="PackedScene" uid="uid://cjsubaculljwy" path="res://art_assets/characters/Rene/rene.glb" id="26_27ayv"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="26_66khj"]
+[ext_resource type="Material" uid="uid://dfvd7g0nn1ams" path="res://art_assets/characters/Rene/model_reneFBXASC032skinFBXASC046001.material" id="27_2qu1h"]
 [ext_resource type="Script" uid="uid://frt2deamdebe" path="res://scripts/entities/player/rene/rene_construct.gd" id="27_6n52q"]
+[ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="27_ohtv4"]
+[ext_resource type="Material" uid="uid://bh58wcr5r8ee4" path="res://art_assets/characters/Rene/model_pantFBXASC046001.material" id="28_o1ymb"]
+[ext_resource type="Material" uid="uid://eermcimgxasc" path="res://art_assets/characters/Rene/model_undershirt.material" id="29_v1pct"]
+[ext_resource type="Material" uid="uid://caf5m8vnwqsq3" path="res://art_assets/characters/Rene/model_pants.material" id="30_ffpnw"]
+[ext_resource type="Material" uid="uid://bpstb2no5fe5x" path="res://art_assets/characters/Rene/model_belt.material" id="31_pgxqw"]
+[ext_resource type="Material" uid="uid://b63soivu73rcy" path="res://art_assets/characters/Rene/model_cloak.material" id="32_wjvim"]
+[ext_resource type="Material" uid="uid://dmxs1gpt55tsj" path="res://art_assets/characters/Rene/model_reneFBXASC032hairFBXASC046001.material" id="33_cjioh"]
+[ext_resource type="Material" uid="uid://c1823ynnjpdvi" path="res://art_assets/characters/Rene/model_Material.material" id="34_py2kl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
 
@@ -103,6 +112,98 @@ _limits = [0.0, 1.5, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7, 1.3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ovtx8"]
+animation = &"basic1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r8iwf"]
+animation = &"basic2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tfmht"]
+animation = &"basic3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tg6fe"]
+animation = &"basic4"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4s5qs"]
+animation = &"charged_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2qu1h"]
+animation = &"charged_special"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o1ymb"]
+animation = &"charging_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v1pct"]
+animation = &"charging_special"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ffpnw"]
+animation = &"dash"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pgxqw"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wjvim"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cjioh"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_py2kl"]
+animation = &"special"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jhnot"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nbu67"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hhn71"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2nnna"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k76t5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oktbc"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lcr6p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sk8gi"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4djcj"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4onpj"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c2ev5"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mt7ty"]
+states/End/position = Vector2(1051, 100)
+states/basic1/node = SubResource("AnimationNodeAnimation_ovtx8")
+states/basic1/position = Vector2(314, 207)
+states/basic2/node = SubResource("AnimationNodeAnimation_r8iwf")
+states/basic2/position = Vector2(428, 207)
+states/basic3/node = SubResource("AnimationNodeAnimation_tfmht")
+states/basic3/position = Vector2(543, 207)
+states/basic4/node = SubResource("AnimationNodeAnimation_tg6fe")
+states/basic4/position = Vector2(660, 207)
+states/charged_attack/node = SubResource("AnimationNodeAnimation_4s5qs")
+states/charged_attack/position = Vector2(619, 95)
+states/charged_special/node = SubResource("AnimationNodeAnimation_2qu1h")
+states/charged_special/position = Vector2(808, 98)
+states/charging_attack/node = SubResource("AnimationNodeAnimation_o1ymb")
+states/charging_attack/position = Vector2(619, 34)
+states/charging_special/node = SubResource("AnimationNodeAnimation_v1pct")
+states/charging_special/position = Vector2(808, 34)
+states/dash/node = SubResource("AnimationNodeAnimation_ffpnw")
+states/dash/position = Vector2(934, 207)
+states/hurt/node = SubResource("AnimationNodeAnimation_pgxqw")
+states/hurt/position = Vector2(825, 200)
+states/idle/node = SubResource("AnimationNodeAnimation_wjvim")
+states/idle/position = Vector2(331, 100)
+states/run/node = SubResource("AnimationNodeAnimation_cjioh")
+states/run/position = Vector2(435, 99)
+states/special/node = SubResource("AnimationNodeAnimation_py2kl")
+states/special/position = Vector2(976, 34)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jhnot"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_nbu67"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_hhn71"), "run", "basic1", SubResource("AnimationNodeStateMachineTransition_2nnna"), "hurt", "run", SubResource("AnimationNodeStateMachineTransition_k76t5"), "run", "hurt", SubResource("AnimationNodeStateMachineTransition_oktbc"), "run", "charging_attack", SubResource("AnimationNodeStateMachineTransition_lcr6p"), "charging_attack", "run", SubResource("AnimationNodeStateMachineTransition_sk8gi"), "run", "charging_special", SubResource("AnimationNodeStateMachineTransition_4djcj"), "charging_special", "run", SubResource("AnimationNodeStateMachineTransition_4onpj"), "run", "special", SubResource("AnimationNodeStateMachineTransition_c2ev5")]
+graph_offset = Vector2(47, 5)
+
 [node name="Rene" type="CharacterBody3D" node_paths=PackedStringArray("ui_counters", "construct", "targetting_box")]
 collision_layer = 6
 collision_mask = 3
@@ -144,31 +245,36 @@ script = ExtResource("4_ufvor")
 event_name = "event:/Player/Footsteps/Cave Footstep"
 event_guid = "{1786b3c0-0467-4017-8d6d-95457d0666de}"
 
-[node name="Dash" type="Node" parent="StateMachine"]
+[node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
 script = ExtResource("5_66khj")
+animation = NodePath("../../rene/Dash")
 
 [node name="Attacking" type="Node" parent="StateMachine"]
 script = ExtResource("5_t5f0y")
 
-[node name="Slash0" type="Node" parent="StateMachine/Attacking"]
+[node name="Slash0" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
 speed_scale_factor = 0.2
+animation = NodePath("../../../rene/attack1")
 
-[node name="Slash1" type="Node" parent="StateMachine/Attacking"]
+[node name="Slash1" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
 speed_scale_factor = 0.2
+animation = NodePath("../../../rene/attack2")
 
-[node name="Slash2" type="Node" parent="StateMachine/Attacking"]
+[node name="Slash2" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
 speed_scale_factor = 0.2
+animation = NodePath("../../../rene/attack3")
 
-[node name="Slash3" type="Node" parent="StateMachine/Attacking"]
+[node name="Slash3" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
 speed_scale_factor = 0.2
+animation = NodePath("../../../rene/attack4")
 
 [node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking"]
 event_name = "event:/Player/Uniques/Grunt/Nova Grunt"
@@ -185,8 +291,9 @@ event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 event_name = "event:/Player/Uniques/Charging/Nova Charging"
 event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 
-[node name="AttackingCharged" type="Node" parent="StateMachine"]
+[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
 script = ExtResource("10_nhxyw")
+animation = NodePath("../../rene/charged attack")
 speed_scale_factor = 0.2
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
@@ -205,11 +312,13 @@ script = ExtResource("12_ovtx8")
 regular = NodePath("RegularSpecial")
 charged = NodePath("ChargedSpecial")
 
-[node name="RegularSpecial" type="Node" parent="StateMachine/Special"]
+[node name="RegularSpecial" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("animation")]
 script = ExtResource("12_27ayv")
+animation = NodePath("../../../rene/Special")
 
-[node name="ChargedSpecial" type="Node" parent="StateMachine/Special"]
+[node name="ChargedSpecial" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("animation")]
 script = ExtResource("13_ohtv4")
+animation = NodePath("../../../rene/charged special")
 
 [node name="SwapIn" type="Node" parent="StateMachine"]
 script = ExtResource("9_u7juv")
@@ -389,32 +498,140 @@ fade_out = SubResource("Curve_r8iwf")
 
 [node name="Rene\'s Circle" parent="." instance=ExtResource("23_um3o4")]
 
-[node name="rene_rig" parent="." instance=ExtResource("25_rij6b")]
+[node name="rene" parent="." instance=ExtResource("26_27ayv")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
+
+[node name="model_body" parent="rene/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("27_2qu1h")
+surface_material_override/1 = ExtResource("28_o1ymb")
+surface_material_override/2 = ExtResource("29_v1pct")
+surface_material_override/3 = ExtResource("30_ffpnw")
+surface_material_override/4 = ExtResource("31_pgxqw")
+
+[node name="model_coat" parent="rene/Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("32_wjvim")
+
+[node name="model_hair" parent="rene/Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("33_cjioh")
+
+[node name="model_staff" parent="rene/Skeleton3D" index="4"]
+surface_material_override/0 = ExtResource("34_py2kl")
+
+[node name="AnimationTree" type="AnimationTree" parent="rene"]
+tree_root = SubResource("AnimationNodeStateMachine_mt7ty")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Idle" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "idle"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Move" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "run"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack1" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "basic1"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack2" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "basic2"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack3" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "basic3"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack4" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "basic4"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charging attack" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "charging_attack"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charged attack" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "charged_attack"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charging special" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "charging_special"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charged special" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "charged_special"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Special" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "special"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Dash" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "dash"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Hurt" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "hurt"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Die" type="Node" parent="rene"]
+script = ExtResource("27_ohtv4")
+state_name = "die"
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
 
 [node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("26_66khj")]
 unique_name_in_owner = true
 noiseScale = 7.885
 dissolveBegin = 0.3
 dissolveDuration = 1.0
-meshes = [NodePath("../rene_rig/Skeleton3D/body"), NodePath("../rene_rig/Skeleton3D/coat"), NodePath("../rene_rig/Skeleton3D/hair"), NodePath("../rene_rig/Skeleton3D/staff")]
+meshes = [null, null, null, null]
 
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
 [connection signal="player_dashed" from="." to="Dash SFX" method="play_one_shot"]
 [connection signal="special_available" from="." to="Special Ready" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/Idle" to="rene/Idle" method="enter"]
 [connection signal="entered" from="StateMachine/Moving" to="StateMachine/Moving/Footstep SFX" method="play"]
+[connection signal="entered" from="StateMachine/Moving" to="rene/Move" method="enter"]
 [connection signal="finished" from="StateMachine/Moving" to="StateMachine/Moving/Footstep SFX" method="stop"]
 [connection signal="attack_started" from="StateMachine/Attacking" to="StateMachine/Attacking/Attack SFX" method="play_one_shot" unbinds=1]
 [connection signal="attack_started" from="StateMachine/Attacking" to="DummyAnimation" method="attack" unbinds=1]
 [connection signal="charge_count_increase" from="StateMachine/Charging" to="StateMachine/Charging/Charging Ready SFX" method="play_one_shot" unbinds=1]
 [connection signal="entered" from="StateMachine/Charging" to="StateMachine/Charging/Charging SFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/Charging" to="rene/charging attack" method="enter"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="StateMachine/AttackingCharged/AttackCharged SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="Rene\'s Circle" method="restart_particles"]
+[connection signal="entered" from="StateMachine/ChargingSpecial" to="rene/charging special" method="enter"]
 [connection signal="finished" from="StateMachine/ChargingSpecial" to="Rene\'s Circle" method="stop_particles"]
 [connection signal="max_charge_count" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Dead" to="DissolveFX" method="beginDissolve"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slash0" method="do_damage"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slash1" method="do_damage"]
 
-[editable path="rene_rig"]
+[editable path="rene"]
