@@ -101,8 +101,7 @@ shape = SubResource("SphereShape3D_g2vom")
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 1.5, 0)
 texture = SubResource("ViewportTexture_0gklw")
 
-[node name="DynaMiteExplode" parent="." node_paths=PackedStringArray("pulse_mesh") instance=ExtResource("11_0gklw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="DynaMiteExplode" parent="." node_paths=PackedStringArray("pulse_mesh", "particles") instance=ExtResource("11_0gklw")]
 script = ExtResource("14_0cg5m")
 explosion_color = Color(1, 0, 0, 1)
 fuse_delay = 2.0
@@ -112,6 +111,7 @@ pulse_color = Color(1, 0.227451, 0, 1)
 pulse_material_base = ExtResource("3_xrnix")
 pulse_timing = SubResource("Curve_y7q5s")
 play_on_start = false
+particles = [NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D4"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D4")]
 
 [node name="FuseTimer" parent="DynaMiteExplode" index="0"]
 wait_time = 2.0

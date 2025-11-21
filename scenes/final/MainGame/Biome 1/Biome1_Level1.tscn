@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://p0pl57lpm4x4"]
+[gd_scene load_steps=30 format=3 uid="uid://p0pl57lpm4x4"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_ajxti"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="4_47nrl"]
@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="7_pafkc"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="9_76imp"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="10_1fsox"]
-[ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://vfx/Kenny Particle Pack/star_06.png" id="10_fja3h"]
-[ext_resource type="Script" uid="uid://knd2e7gdbpfb" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
+[ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://VFX/Kenny Particle Pack/star_06.png" id="10_fja3h"]
+[ext_resource type="Script" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="11_1fsox"]
 [ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="11_pafkc"]
 [ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="12_yvkck"]
@@ -79,6 +79,11 @@ metadata/_custom_type_script = "uid://ehvcmont8xvr"
 script = ExtResource("13_ck0to")
 img = ExtResource("15_px6kn")
 text = "Ardous Climb"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_pafkc"]
+script = ExtResource("13_ck0to")
+small_text = "stfu st fg aklsjbldkj gbdsalkj bdgsahjkl  asdgjlhkdsg hjdgs alkhjadg shjkfg ljkh"
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [node name="Level1" type="Node3D"]
@@ -924,9 +929,13 @@ shape = SubResource("BoxShape3D_nv2fo")
 
 [node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
 script = ExtResource("12_yvkck")
-dialogue = Array[ExtResource("13_ck0to")]([SubResource("Resource_mn8l0"), SubResource("Resource_otk5b")])
+dialogue = Array[ExtResource("13_ck0to")]([SubResource("Resource_mn8l0"), SubResource("Resource_otk5b"), SubResource("Resource_pafkc")])
 metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://sounds/banks/Enemys.bank"]
+
+[connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
 [connection signal="body_entered" from="WaveManager/Area3D" to="WaveManager" method="_on_start" unbinds=1]
 
 [editable path="PlayerManager"]
@@ -937,3 +946,4 @@ metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 [editable path="PlayerManager/Dawn"]
 [editable path="PlayerManager/Dawn/dawn_rig"]
 [editable path="PlayerManager/Game Menu/GameUi"]
+[editable path="PlayerManager/SettingScene"]

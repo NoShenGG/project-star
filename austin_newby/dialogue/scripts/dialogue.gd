@@ -28,6 +28,11 @@ var nine_patch_text_rect : NinePatchRect
 
 signal text_interact()
 
+signal main_dialogue_called
+signal main_dialogue_sfx(image : Texture2D)
+signal sub_dialogue_called
+signal sub_dialogue_sfx(image : Texture2D)
+
 func _ready():
 	dialogue_container.modulate = Color.TRANSPARENT
 	get_tree().create_tween().tween_property(dialogue_container, "modulate", Color.WHITE, 0.5)
@@ -40,6 +45,14 @@ func _ready():
 	
 	name_label.text = "~ %s ~" % dialogue_array[current_message].name
 	speaker_image.texture = dialogue_array[current_message].img
+	
+	if (!dialogue_array[current_message].text.is_empty()):
+		main_dialogue_called.emit.call_deferred()
+		main_dialogue_sfx.emit.call_deferred(dialogue_array[current_message].img)
+	
+	if (!dialogue_array[current_message].small_text.is_empty()):
+		sub_dialogue_called.emit.call_deferred()
+		sub_dialogue_sfx.emit.call_deferred(dialogue_array[current_message].small_img)
 	
 	%SmallTextLabel.text = ""
 	if dialogue_array[current_message].small_img == null: %SmallSpeakerImage.texture = null
@@ -104,6 +117,7 @@ func _on_next_char_timeout():
 		tween.tween_property(%SmallTextSpeakerSeperator, "modulate", Color.WHITE, 0.2)
 		if dialogue_array[current_message].small_img == null: %SmallSpeakerImage.texture = null
 		else: %SmallSpeakerImage.texture = dialogue_array[current_message].small_img
+		
 		await text_interact
 		next_message.one_shot = true
 		next_message.start(0.01)
@@ -124,6 +138,15 @@ func _on_next_message_timeout():
 		label.text = display
 		label.visible_characters = 0
 		speaker_image.texture = dialogue_array[current_message].img
+		
 		current_char = 0
 		%SmallTextSpeakerSeperator.modulate = Color.TRANSPARENT
 		next_char.start()
+		
+		if (!dialogue_array[current_message].text.is_empty()):
+			main_dialogue_called.emit()
+			main_dialogue_sfx.emit(dialogue_array[current_message].img)
+		
+		if (!dialogue_array[current_message].small_text.is_empty()):
+			sub_dialogue_called.emit()
+			sub_dialogue_sfx.emit(dialogue_array[current_message].small_img)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://brmdsiu0kp6ca"]
+[gd_scene load_steps=19 format=3 uid="uid://brmdsiu0kp6ca"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_lyudl"]
 [ext_resource type="PackedScene" uid="uid://brw0p1eirto83" path="res://scenes/final/Nova.tscn" id="2_dvwxt"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://d1n3eyi7jjcya" path="res://vfx/Kenny Particle Pack/circle_02.png" id="10_rkpjn"]
 [ext_resource type="Script" uid="uid://baxdofgbk1vp0" path="res://scripts/utility/UIBounce.gd" id="11_d11v8"]
 [ext_resource type="Script" uid="uid://b23m0ymm5td5r" path="res://scripts/utility/3d_2d_ui.gd" id="14_fop7g"]
+[ext_resource type="Script" uid="uid://bv28fxbtlv4es" path="res://scripts/utility/pause_menu.gd" id="15_rkpjn"]
+[ext_resource type="PackedScene" uid="uid://hs6isup6bhpk" path="res://scenes/dev/ZXue/refactor_SettingMenu/SettingMenu.tscn" id="16_d11v8"]
 
 [sub_resource type="Curve" id="Curve_q54j5"]
 _limits = [0.0, 2.0, 0.0, 1.0]
@@ -29,7 +31,6 @@ script = ExtResource("1_lyudl")
 saving_grace_delay = 2.0
 
 [node name="Nova" parent="." instance=ExtResource("2_dvwxt")]
-process_mode = 3
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, 0, 0, 0)
 top_level = true
 floor_snap_length = 5.0
@@ -319,7 +320,6 @@ special = [NodePath("Special"), NodePath("../../../../../3D Special UI/3D Rene S
 special = [NodePath("../Rene/Special"), NodePath("../../../../../3D Special UI/3D Dawn Special")]
 
 [node name="Death Menu" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -353,8 +353,63 @@ open_animation_flags = 5
 
 [node name="SpecialPivotUI" type="Node3D" parent="." node_paths=PackedStringArray("ui")]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -4.586, 0, 0.04)
+visible = false
 script = ExtResource("14_fop7g")
 ui = NodePath("../3D Special UI")
+
+[node name="Pause Menu" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
+z_index = 15
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 332.0
+offset_top = 88.0
+offset_right = -332.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("15_rkpjn")
+focused_control = NodePath("VBoxContainer/Resume Button")
+close_animation_flags = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 2.0
+offset_right = -42.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume Button" type="Button" parent="Pause Menu/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Settings Button")
+text = "Resume"
+
+[node name="Settings Button" type="Button" parent="Pause Menu/VBoxContainer"]
+visible = false
+layout_mode = 2
+focus_neighbor_top = NodePath("../Resume Button")
+focus_neighbor_bottom = NodePath("../Reload Button")
+text = "Settings"
+
+[node name="Reload Button" type="Button" parent="Pause Menu/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Settings Button")
+focus_neighbor_bottom = NodePath("../Quit Button")
+text = "Reload"
+
+[node name="Quit Button" type="Button" parent="Pause Menu/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Reload Button")
+text = "Quit"
+
+[node name="SettingScene" parent="." node_paths=PackedStringArray("previous_page") instance=ExtResource("16_d11v8")]
+visible = false
+previous_page = NodePath("../Pause Menu")
 
 [connection signal="new_player" from="." to="Game Menu/GameUi" method="on_player_switch"]
 [connection signal="player_hp_update" from="." to="Game Menu/GameUi" method="on_player_health_update"]
@@ -366,6 +421,10 @@ ui = NodePath("../3D Special UI")
 [connection signal="killed" from="Dawn" to="Game Menu/GameUi/MarginContainer/Offset/Dawn" method="on_death"]
 [connection signal="entered" from="Dawn/StateMachine/HitStun" to="CameraTarget/Camera3D/Shake" method="shake"]
 [connection signal="pressed" from="Death Menu/Reload Button" to="Death Menu" method="restart_game"]
+[connection signal="pressed" from="Pause Menu/VBoxContainer/Resume Button" to="Pause Menu" method="close"]
+[connection signal="pressed" from="Pause Menu/VBoxContainer/Settings Button" to="SettingScene/Level1Control" method="open"]
+[connection signal="pressed" from="Pause Menu/VBoxContainer/Reload Button" to="Pause Menu" method="restart_game"]
+[connection signal="pressed" from="Pause Menu/VBoxContainer/Quit Button" to="Pause Menu" method="quit_to_main"]
 
 [editable path="Nova"]
 [editable path="Nova/nova"]
@@ -374,3 +433,4 @@ ui = NodePath("../3D Special UI")
 [editable path="Dawn"]
 [editable path="Dawn/dawn_rig"]
 [editable path="Game Menu/GameUi"]
+[editable path="SettingScene"]
