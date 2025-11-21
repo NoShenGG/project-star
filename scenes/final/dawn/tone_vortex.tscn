@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cl4unmlmmfvgl"]
+[gd_scene load_steps=11 format=3 uid="uid://cl4unmlmmfvgl"]
 
 [ext_resource type="Script" uid="uid://dxv5sbe5r57wh" path="res://scripts/entities/player/dawn/notes/tone_vortex.gd" id="1_4ldgq"]
+[ext_resource type="PackedScene" uid="uid://cinm7g4smtma2" path="res://scenes/dev/chrizz/prototyping/Final Effects/whirlpool.tscn" id="2_exp3l"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4ldgq"]
 radius = 8.0
@@ -78,6 +79,7 @@ draw_pass_1 = SubResource("RibbonTrailMesh_jn1jo")
 
 [node name="Projectile" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 mesh = SubResource("SphereMesh_exp3l")
 
 [node name="ProjectileArea" type="Area3D" parent="."]
@@ -88,3 +90,9 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ProjectileArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_4ldgq")
+
+[node name="DawnPondVFX" parent="." node_paths=PackedStringArray("particles") instance=ExtResource("2_exp3l")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+particles = [NodePath("FloorCaustics2"), NodePath("FloorCaustics"), NodePath("Droplets"), NodePath("StreamCaustics"), NodePath("FloorCaustics2"), NodePath("FloorCaustics"), NodePath("Droplets"), NodePath("StreamCaustics")]
+
+[connection signal="start" from="DawnPondVFX" to="DawnPondVFX" method="restart_particles"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://crtpdqb2ymr2p"]
+[gd_scene load_steps=8 format=3 uid="uid://crtpdqb2ymr2p"]
 
 [ext_resource type="Script" uid="uid://bams216er2qvq" path="res://scripts/entities/player/dawn/notes/tone_slow_wave.gd" id="1_qvqb4"]
-[ext_resource type="Shader" uid="uid://3b3kknb84rhv" path="res://scenes/dev/arshiya_r/spinning_magic_circle.tres" id="2_pdbj3"]
+[ext_resource type="Shader" uid="uid://3b3kknb84rhv" path="res://scenes/dev/arshiya_r/magic circle things/spinning_magic_circle.tres" id="2_pdbj3"]
 [ext_resource type="Texture2D" uid="uid://cuwr2e2lkhej" path="res://vfx/Kenny Particle Pack/magic_02.png" id="3_8lfsq"]
+[ext_resource type="PackedScene" uid="uid://b5rww4p74g62g" path="res://scenes/dev/chrizz/prototyping/Final Effects/dawn_pond_vfx.tscn" id="4_8lfsq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qvqb4"]
 radius = 1.0
@@ -35,5 +36,12 @@ monitorable = false
 shape = SubResource("CylinderShape3D_qvqb4")
 
 [node name="CircleMesh" type="MeshInstance3D" parent="."]
+visible = false
 material_override = SubResource("ShaderMaterial_ub30g")
 mesh = SubResource("PlaneMesh_m78g6")
+
+[node name="DawnPondVFX" parent="." node_paths=PackedStringArray("particles") instance=ExtResource("4_8lfsq")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+particles = [NodePath("FloorCaustics"), NodePath("StaffRing"), NodePath("Droplets"), NodePath("MusicNotes"), NodePath("FloorCaustics"), NodePath("StaffRing"), NodePath("Droplets"), NodePath("MusicNotes")]
+
+[connection signal="spawn" from="." to="DawnPondVFX" method="restart_particles"]

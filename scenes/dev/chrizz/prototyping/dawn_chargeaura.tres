@@ -121,6 +121,7 @@ op_type = 1
 constant = Color(1, 0.3330468, 0.64088196, 1)
 
 [sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_astx1"]
+keep_scale = true
 
 [resource]
 code = "shader_type spatial;
@@ -141,6 +142,7 @@ void vertex() {
 // GetBillboardMatrix:2
 	{
 		mat4 __mvm = VIEW_MATRIX * mat4(INV_VIEW_MATRIX[0], INV_VIEW_MATRIX[1], INV_VIEW_MATRIX[2], MODEL_MATRIX[3]);
+		__mvm = __mvm * mat4(vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0), vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0), vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0), vec4(0.0, 0.0, 0.0, 1.0));
 		n_out2p0 = __mvm;
 	}
 

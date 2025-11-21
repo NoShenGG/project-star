@@ -1,0 +1,130 @@
+[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://2ovro8kovyhh"]
+
+[ext_resource type="Texture2D" uid="uid://ct24ktnceutlp" path="res://scenes/dani_k/Perlin 9 - 256x256.png" id="1_qymfd"]
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_p73ix"]
+default_input_values = [1, Vector2(1, 1), 2, Vector2(0.5, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_xbir2"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_0smvc"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0.3, 1)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_naxop"]
+texture = ExtResource("1_qymfd")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_dfhab"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_crcff"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeSmoothStep" id="VisualShaderNodeSmoothStep_7o7vp"]
+default_input_values = [0, 0.1, 1, 0.4, 2, 0.5]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_j5yvf"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_tbj6u"]
+function = 31
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_a6m75"]
+default_input_values = [0, 0.65, 1, 0.0]
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_6m3wg"]
+function = 18
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_always, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, depth_prepass_alpha, unshaded;
+
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Input:3
+	vec2 n_out3p0 = UV;
+
+
+// VectorDecompose:4
+	float n_out4p0 = n_out3p0.x;
+	float n_out4p1 = n_out3p0.y;
+
+
+// SmoothStep:5
+	float n_in5p0 = 0.10000;
+	float n_in5p1 = 0.40000;
+	float n_out5p0 = smoothstep(n_in5p0, n_in5p1, n_out4p1);
+
+
+// VectorOp:12
+	vec2 n_in12p1 = vec2(0.30000, 1.00000);
+	vec2 n_out12p0 = n_out3p0 * n_in12p1;
+
+
+// Input:11
+	float n_out11p0 = TIME;
+
+
+// UVFunc:10
+	vec2 n_in10p1 = vec2(1.00000, 1.00000);
+	vec2 n_out10p0 = vec2(n_out11p0) * n_in10p1 + n_out12p0;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out10p0);
+
+
+// FloatOp:6
+	float n_out6p0 = n_out5p0 * n_out2p0.x;
+
+
+// Step:8
+	float n_in8p0 = 0.65000;
+	float n_out8p0 = step(n_in8p0, n_out6p0);
+
+
+// FloatFunc:9
+	float n_out9p0 = min(max(n_out8p0, 0.0), 1.0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out9p0);
+	ALPHA = n_out9p0;
+
+
+}
+"
+modes/depth_draw = 1
+modes/cull = 2
+flags/depth_prepass_alpha = true
+flags/unshaded = true
+nodes/fragment/0/position = Vector2(780, 180)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_naxop")
+nodes/fragment/2/position = Vector2(-180, 40)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_dfhab")
+nodes/fragment/3/position = Vector2(-1060, 540)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_crcff")
+nodes/fragment/4/position = Vector2(-460, 500)
+nodes/fragment/5/node = SubResource("VisualShaderNodeSmoothStep_7o7vp")
+nodes/fragment/5/position = Vector2(-140, 420)
+nodes/fragment/6/node = SubResource("VisualShaderNodeFloatOp_j5yvf")
+nodes/fragment/6/position = Vector2(160, 200)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatFunc_tbj6u")
+nodes/fragment/7/position = Vector2(-320, 680)
+nodes/fragment/8/node = SubResource("VisualShaderNodeStep_a6m75")
+nodes/fragment/8/position = Vector2(340, 300)
+nodes/fragment/9/node = SubResource("VisualShaderNodeFloatFunc_6m3wg")
+nodes/fragment/9/position = Vector2(547.58374, 393.09805)
+nodes/fragment/10/node = SubResource("VisualShaderNodeUVFunc_p73ix")
+nodes/fragment/10/position = Vector2(-447.7351, 227.81177)
+nodes/fragment/11/node = SubResource("VisualShaderNodeInput_xbir2")
+nodes/fragment/11/position = Vector2(-1120, 340)
+nodes/fragment/12/node = SubResource("VisualShaderNodeVectorOp_0smvc")
+nodes/fragment/12/position = Vector2(-760, 400)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 5, 0, 6, 0, 4, 1, 5, 2, 4, 1, 7, 0, 6, 0, 8, 1, 2, 0, 6, 1, 8, 0, 9, 0, 9, 0, 0, 1, 9, 0, 0, 0, 10, 0, 2, 0, 11, 0, 10, 2, 3, 0, 12, 0, 12, 0, 10, 0)

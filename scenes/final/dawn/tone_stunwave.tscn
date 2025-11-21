@@ -1,17 +1,80 @@
-[gd_scene load_steps=5 format=3 uid="uid://btiyd8a5nuror"]
+[gd_scene load_steps=17 format=3 uid="uid://btiyd8a5nuror"]
 
 [ext_resource type="Script" uid="uid://bstcbam5y5wyr" path="res://scripts/entities/player/dawn/notes/tone_stun_wave.gd" id="1_nhghl"]
+[ext_resource type="ArrayMesh" uid="uid://dj25las8p38ep" path="res://scenes/dev/chrizz/prototyping/wavecrash.obj" id="2_bx81c"]
+[ext_resource type="Shader" uid="uid://cche77hlip6fn" path="res://scenes/dev/chrizz/prototyping/fish.tres" id="2_cschx"]
+[ext_resource type="Texture2D" uid="uid://bickxash5x674" path="res://art_assets/enemies/skele_dino/DragoSkele_circle_05.png" id="4_ysq7a"]
+[ext_resource type="Texture2D" uid="uid://b8ua05aonqhxj" path="res://vfx/Kenny Particle Pack/smoke_07.png" id="5_bhv7r"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvqb4"]
-transparency = 1
-albedo_color = Color(0, 0.3764706, 1, 0.44313726)
-
-[sub_resource type="BoxMesh" id="BoxMesh_tc7to"]
-material = SubResource("StandardMaterial3D_qvqb4")
-size = Vector3(8, 4, 0.1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cschx"]
+render_priority = 0
+shader = ExtResource("2_cschx")
+shader_parameter/Vector4Parameter = Vector4(0.1, 0.1, 0.3, 0)
+shader_parameter/FloatParameter = 2.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qvqb4"]
 size = Vector3(8, 4, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhphd"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_ysq7a")
+emission_enabled = true
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_p7r7k"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.006165147), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3f055"]
+curve = SubResource("Curve_p7r7k")
+
+[sub_resource type="Gradient" id="Gradient_v41s6"]
+offsets = PackedFloat32Array(0.026666667, 1)
+colors = PackedColorArray(0, 3.3117833, 4.16015, 1, 0.614193, 0.9877376, 0.3291424, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xmoco"]
+gradient = SubResource("Gradient_v41s6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_buqqm"]
+emission_shape = 1
+emission_sphere_radius = 2.15
+direction = Vector3(0, 1, 0)
+spread = 17.542
+initial_velocity_max = 0.29999998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.099999994
+color = Color(2.9083786, 2.4787836, 1.9170059, 1)
+color_ramp = SubResource("GradientTexture1D_xmoco")
+alpha_curve = SubResource("CurveTexture_3f055")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7aemt"]
+size = Vector2(4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqtls"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_bhv7r")
+emission_enabled = true
+billboard_mode = 2
+billboard_keep_scale = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_772ib"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.5
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 17.542
+initial_velocity_max = 0.29999998
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+color = Color(2.9083786, 2.4787836, 1.9170059, 1)
+alpha_curve = SubResource("CurveTexture_3f055")
 
 [node name="ToneSlowWave" type="Node3D" node_paths=PackedStringArray("hitbox")]
 top_level = true
@@ -22,8 +85,9 @@ speed = 5.0
 damage = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-mesh = SubResource("BoxMesh_tc7to")
+transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_cschx")
+mesh = ExtResource("2_bx81c")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -33,3 +97,19 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_qvqb4")
+
+[node name="MusicNotes" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6671307, 1.5189486)
+material_override = SubResource("StandardMaterial3D_rhphd")
+amount = 16
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_buqqm")
+draw_pass_1 = SubResource("QuadMesh_7aemt")
+
+[node name="MusicNotes" type="GPUParticles3D" parent="MusicNotes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6057584, 4.8609896)
+material_override = SubResource("StandardMaterial3D_gqtls")
+amount = 16
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_772ib")
+draw_pass_1 = SubResource("QuadMesh_7aemt")
