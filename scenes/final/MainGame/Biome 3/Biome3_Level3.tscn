@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cdvkjgovnta44"]
+[gd_scene load_steps=63 format=3 uid="uid://cdvkjgovnta44"]
 
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="1_p3r0m"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="2_mvyfq"]
@@ -9,7 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="6_p3r0m"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="7_1123x"]
 [ext_resource type="PackedScene" uid="uid://jr71mbkvd0y7" path="res://scenes/sub/MindMerger.tscn" id="7_ggxbb"]
+[ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="11_3hrir"]
 [ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="11_ggxbb"]
+[ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="12_gi3qb"]
+[ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="13_3nrg2"]
+[ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="14_30m0f"]
+[ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="15_3nrg2"]
+[ext_resource type="Texture2D" uid="uid://d0np8pel0cm26" path="res://art_assets/Ui/FinalPortraits/dawnCLEAR.png" id="16_30m0f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mvyfq"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -141,6 +147,37 @@ transparency = 1
 albedo_color = Color(4.3633347, 1.0725267, 3.2683413, 0.58)
 emission_enabled = true
 emission = Color(1.4849422, 0.63221, 1.3570324, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eolt2"]
+size = Vector3(8, 3, 8)
+
+[sub_resource type="Resource" id="Resource_fjcc3"]
+script = ExtResource("13_3nrg2")
+name = "Nova"
+img = ExtResource("14_30m0f")
+text = "Wow! We can see it from here. Onwards!"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_i6srs"]
+script = ExtResource("13_3nrg2")
+name = "Rene"
+img = ExtResource("15_3nrg2")
+text = "Are you sure you should be getting that close to it Nova?"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_tbj4w"]
+script = ExtResource("13_3nrg2")
+name = "Nova"
+img = ExtResource("14_30m0f")
+text = "I'm not sure why but I feel so... drawn towards it right now"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_fcfpd"]
+script = ExtResource("13_3nrg2")
+name = "Dawn"
+img = ExtResource("16_30m0f")
+text = "Nova! NO!"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [node name="Level3" type="Node3D"]
 
@@ -754,6 +791,36 @@ transform = Transform3D(-7.649493e-08, 0, 1.75, 0, 1.75, 0, -1.75, 0, -7.649493e
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 76.4267, 17.540577, -216.60486)
 mesh = SubResource("SphereMesh_ggxbb")
 surface_material_override/0 = SubResource("StandardMaterial3D_k5jyb")
+
+[node name="DialogueCollisionCaller" type="Area3D" parent="." node_paths=PackedStringArray("dialogue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028913975, 0, 3.4465466)
+script = ExtResource("11_3hrir")
+dialogue = NodePath("DialogueCaller")
+metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_eolt2")
+
+[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
+script = ExtResource("12_gi3qb")
+dialogue = Array[ExtResource("13_3nrg2")]([SubResource("Resource_fjcc3")])
+metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
+
+[node name="DialogueCollisionCaller2" type="Area3D" parent="." node_paths=PackedStringArray("dialogue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.880394, 0.46492958, -120.88994)
+script = ExtResource("11_3hrir")
+dialogue = NodePath("DialogueCaller")
+metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_eolt2")
+
+[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller2"]
+script = ExtResource("12_gi3qb")
+dialogue = Array[ExtResource("13_3nrg2")]([SubResource("Resource_i6srs"), SubResource("Resource_tbj4w"), SubResource("Resource_fcfpd")])
+metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
 [connection signal="ended" from="WaveManager/Wave6" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]

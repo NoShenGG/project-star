@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bgdpkq36jujfn"]
+[gd_scene load_steps=35 format=3 uid="uid://bgdpkq36jujfn"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_8jmja"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_jhliq"]
@@ -10,19 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://bo8i2glbe0u23" path="res://scenes/sub/fortifier.tscn" id="7_t5tva"]
 [ext_resource type="PackedScene" uid="uid://7e32g1yd24m8" path="res://art_assets/environment/Biome3/Level1/Level3-1-Chipped.glb" id="8_jhliq"]
 [ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="10_t5tva"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jhliq"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_qeh4q"]
-sky_material = SubResource("ProceduralSkyMaterial_jhliq")
-
-[sub_resource type="Environment" id="Environment_t5tva"]
-background_mode = 2
-sky = SubResource("Sky_qeh4q")
-tonemap_mode = 2
-glow_enabled = true
+[ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="11_240as"]
+[ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="12_buk6j"]
+[ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="13_caww3"]
+[ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="14_6scqm"]
+[ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="15_f30ws"]
+[ext_resource type="Texture2D" uid="uid://d0np8pel0cm26" path="res://art_assets/Ui/FinalPortraits/dawnCLEAR.png" id="16_mq6a5"]
+[ext_resource type="Script" uid="uid://knd2e7gdbpfb" path="res://scripts/utility/menu_area.gd" id="17_6scqm"]
+[ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="18_f30ws"]
+[ext_resource type="Texture2D" uid="uid://baw1g0c8nn8qt" path="res://art_assets/Ui/TextboxLarge.png" id="19_mq6a5"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8o628"]
 vertices = PackedVector3Array(134.49998, 4.5, -199.99998, 147.74998, 4.5, -199.99998, 151.74998, 4.5, -200.24998, 151.74998, 4.5, -205.49998, 130.49998, 4.5, -205.49998, 130.49998, 4.5, -200.24998, 134.49998, -19.25, -167.74998, 147.74998, -19.25, -167.74998, 147.99998, -20.5, -165.74998, 134.24998, -20.5, -165.74998, 121.499985, -20.5, -99.999985, 161.49998, -20.5, -99.999985, 121.499985, -20.5, -165.74998, 161.49998, -20.5, -165.74998, 21.499987, -20.5, -71.249985, 47.749985, -20.5, -71.249985, 47.499985, -20.5, -81.499985, 47.999985, -20.25, -81.499985, 47.999985, -20.5, -114.749985, 21.499987, -20.5, -114.749985, 48.499985, -20.25, -81.499985, 48.499985, -19.25, -79.749985, 62.749985, -19.25, -79.749985, 62.749985, -20.25, -81.499985, 63.249985, -20.5, -114.749985, 63.249985, -20.25, -81.499985, 63.499985, -20.5, -81.499985, 93.749985, -20.5, -97.999985, 93.749985, -20.5, -114.749985, 94.249985, -20.5, -97.749985, 121.249985, -20.5, -97.749985, 119.249985, -20.5, -97.749985, 119.249985, -20.5, -82.249985, 121.499985, -20.5, -81.999985, 121.499985, -20.5, -66.999985, 161.49998, -20.5, -66.999985, 95.999985, -20.5, -82.249985, 95.999985, -20.5, -97.749985, 93.749985, -20.5, -81.999985, 63.499985, -20.5, -71.249985, 93.749985, -20.5, -71.249985, 48.499985, -0.25, -44.999985, 62.749985, -0.25, -44.749985, 22.249987, 0.5, -29.999985, 24.499987, 0.5, -30.249985, 24.499987, 0.5, -43.249985, 22.249987, 0.5, -43.499985, 11.999987, 0.5, -11.249985, 22.249987, 0.5, -11.249985, -11.500013, 0.5, -9.249985, 11.749987, 0.5, -9.249985, -11.750013, 0.5, -11.249985, -22.000013, 0.5, -48.749985, -22.000013, 0.5, -11.249985, 22.249987, 0.5, -48.749985, 37.249985, 0.5, -43.249985, 37.249985, 0.5, -30.249985, 39.249985, 0.5, -30.249985, 48.249985, 0.5, -43.249985, 39.499985, 0.5, -28.499985, 62.749985, 0.5, -28.749985, 62.749985, 0.5, -43.29544, 39.499985, 0.5, -12.249985, 62.749985, 0.5, -12.249985, -11.500013, 0.5, 12.250015, 11.749987, 0.5, 12.250015)
@@ -31,15 +27,87 @@ polygons = [PackedInt32Array(5, 4, 0), PackedInt32Array(0, 4, 1), PackedInt32Arr
 [sub_resource type="BoxShape3D" id="BoxShape3D_8mtqa"]
 size = Vector3(15, 3, 15)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dgasv"]
+size = Vector3(8, 3, 8)
+
+[sub_resource type="Resource" id="Resource_cub8n"]
+script = ExtResource("13_caww3")
+name = "Nova"
+img = ExtResource("14_6scqm")
+text = "Whew. That was awesome! "
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_75sb4"]
+script = ExtResource("13_caww3")
+name = "Rene"
+img = ExtResource("15_f30ws")
+text = "not to be rude or anything but ummm, who are you? And what were you doing in that rock?"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_r5ew7"]
+script = ExtResource("13_caww3")
+name = "Dawn"
+img = ExtResource("16_mq6a5")
+text = "Honestly... I'm not sure... Where did the [system] go?"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_rpuyo"]
+script = ExtResource("13_caww3")
+name = "Rene"
+img = ExtResource("15_f30ws")
+text = "The system? What's that"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_mqy5i"]
+script = ExtResource("13_caww3")
+name = "Dawn"
+img = ExtResource("16_mq6a5")
+text = "Hmmm, it's hard to explain. Maybe if we make it to this \"Arduous Star\" you two speak of we'll find the truth"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cub8n"]
+size = Vector3(6, 2, 6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75sb4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r5ew7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6scqm"]
+sky_top_color = Color(0.7868003, 0.8044158, 0.90088457, 1)
+sky_horizon_color = Color(0.59996814, 0.48462427, 0.7608906, 1)
+ground_bottom_color = Color(0.17863777, 0.14902645, 0.28510144, 1)
+ground_horizon_color = Color(0.6767592, 0.58873963, 0.93670535, 1)
+
+[sub_resource type="Sky" id="Sky_7a44i"]
+sky_material = SubResource("ProceduralSkyMaterial_6scqm")
+
+[sub_resource type="Environment" id="Environment_f30ws"]
+background_mode = 2
+background_color = Color(0.94874364, 0.49866366, 0.59142554, 1)
+background_energy_multiplier = 1.17
+sky = SubResource("Sky_7a44i")
+ambient_light_source = 2
+ambient_light_color = Color(0.69779664, 0.45408309, 0.652757, 1)
+ambient_light_energy = 1.13
+tonemap_mode = 2
+tonemap_exposure = 0.5
+ssao_enabled = true
+ssil_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_detail_spread = 0.5
+adjustment_enabled = true
+adjustment_brightness = 1.17
+adjustment_contrast = 1.24
+adjustment_saturation = 0.9
+
+[sub_resource type="FogMaterial" id="FogMaterial_mq6a5"]
+density = 0.2
+albedo = Color(1.1076987, 1.4687854, 1.1257529, 1)
+height_falloff = 1e-05
+edge_fade = 7.1012325
+
 [node name="Level1" type="Node3D"]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_t5tva")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_energy = 0.34
-shadow_enabled = true
 
 [node name="PlayerManager" parent="." instance=ExtResource("1_8jmja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
@@ -82,7 +150,7 @@ spawn_areas = [NodePath("../SpawnArea4")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
 [node name="Wave_Starter" type="Area3D" parent="WaveManager"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -23.960766, 0, 45.815807)
+transform = Transform3D(1.2635771, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -23.960766, 0, 33.550346)
 collision_layer = 0
 collision_mask = 2
 
@@ -91,10 +159,10 @@ shape = SubResource("BoxShape3D_8mtqa")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
 [node name="SpawnArea1" parent="WaveManager" instance=ExtResource("6_8jmja")]
-transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -11.738394, -1.9073486e-06, 19.086544)
+transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -7.819372, 1.9073486e-06, 10.915493)
 
 [node name="SpawnArea2" parent="WaveManager" instance=ExtResource("6_8jmja")]
-transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, 26.230919, -1.9073486e-06, 19.149937)
+transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, 31.48272, -1.9073486e-06, 13.153378)
 
 [node name="SpawnArea3" parent="WaveManager" instance=ExtResource("6_8jmja")]
 transform = Transform3D(19.929756, 0, 0, 0, 1, 0, 0, 0, 18.712498, 40.554512, -19.614016, -53.76763)
@@ -106,6 +174,94 @@ transform = Transform3D(19.929756, 0, 0, 0, 1, 0, 0, 0, 70.04599, 121.79181, -19
 
 [node name="Gate" parent="." instance=ExtResource("10_t5tva")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 141.32158, -19.366611, -167.0379)
+
+[node name="DialogueCollisionCaller" type="Area3D" parent="." node_paths=PackedStringArray("dialogue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028913975, 0, 2.9132004)
+script = ExtResource("11_240as")
+dialogue = NodePath("DialogueCaller")
+metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_dgasv")
+
+[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
+script = ExtResource("12_buk6j")
+dialogue = Array[ExtResource("13_caww3")]([SubResource("Resource_cub8n"), SubResource("Resource_75sb4"), SubResource("Resource_r5ew7"), SubResource("Resource_rpuyo"), SubResource("Resource_mqy5i")])
+metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
+
+[node name="Tutorial2" type="Area3D" parent="." node_paths=PackedStringArray("menu")]
+transform = Transform3D(2.2680118, 0, 0, 0, 1, 0, 0, 0, 1, 0.10462952, 0, -6.1044292)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("17_6scqm")
+menu = NodePath("Menu2")
+
+[node name="Tutorial Collision Box" type="CollisionShape3D" parent="Tutorial2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_cub8n")
+debug_color = Color(0, 11.618606, 13.50434, 0.8509804)
+
+[node name="Menu2" type="Panel" parent="Tutorial2" node_paths=PackedStringArray("focused_control")]
+material = SubResource("ShaderMaterial_75sb4")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -140.0
+offset_right = 171.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_r5ew7")
+script = ExtResource("18_f30ws")
+focused_control = NodePath("TextureRect/Label")
+open_time = 0.5
+open_animation_flags = 1
+close_time = 0.5
+close_animation_flags = 1
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial2/Menu2"]
+layout_mode = 0
+offset_left = -92.0
+offset_top = 185.0
+offset_right = 763.0
+offset_bottom = 515.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("19_mq6a5")
+
+[node name="Label" type="Label" parent="Tutorial2/Menu2/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = 95.00001
+offset_right = -295.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.65, 1.65)
+text = "Switch to Dawn by pressing [3]
+Dawn excels at debuffing groups of enemies and
+buffing her allies"
+horizontal_alignment = 1
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.5219336, -0.61917514, 0.58669204, 0.061710697, 0.65859747, 0.74996084, -0.850751, 0.42763487, -0.3055344, 0, 22.456, 0)
+light_energy = 1.5
+shadow_enabled = true
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
+environment = SubResource("Environment_f30ws")
+
+[node name="FogVolume" type="FogVolume" parent="DirectionalLight3D"]
+transform = Transform3D(-0.89542913, 0.49204972, -1.6037996, -1.0622574, 5.251318, 0.8061593, 1.0065293, 5.979809, -0.5759804, -1.0184983, -45.878075, -0.8861561)
+size = Vector3(165.4, 9.7, 233.25)
+material = SubResource("FogMaterial_mq6a5")
 
 [connection signal="ended" from="WaveManager/Wave4" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]

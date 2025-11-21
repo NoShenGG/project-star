@@ -40,14 +40,14 @@ sky_horizon_color = Color(0.59996814, 0.48462427, 0.7608906, 1)
 ground_bottom_color = Color(0.17863777, 0.14902645, 0.28510144, 1)
 ground_horizon_color = Color(0.6767592, 0.58873963, 0.93670535, 1)
 
-[sub_resource type="Sky" id="Sky_7a44i"]
+[sub_resource type="Sky" id="Sky_e4lx6"]
 sky_material = SubResource("ProceduralSkyMaterial_yvkck")
 
 [sub_resource type="Environment" id="Environment_ck0to"]
 background_mode = 2
 background_color = Color(1, 1, 1, 1)
 background_energy_multiplier = 1.17
-sky = SubResource("Sky_7a44i")
+sky = SubResource("Sky_e4lx6")
 ambient_light_source = 2
 ambient_light_color = Color(0.69779664, 0.45408309, 0.652757, 1)
 ambient_light_energy = 1.13
@@ -113,16 +113,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 particles = [NodePath("sparks"), NodePath("sparks")]
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.07354821, 0.52574706, -0.5066793, 0.67930615)
-bones/15/rotation = Quaternion(-0.15553586, 0.54471135, 0.22996466, 0.7913371)
-bones/16/rotation = Quaternion(-0.5146105, -0.46670425, -0.23322625, 0.6804181)
-bones/21/rotation = Quaternion(-0.13564275, 0.4005704, -0.46914488, 0.7752725)
-bones/22/rotation = Quaternion(-0.058060642, 0.3308559, 0.17063661, 0.926308)
-bones/23/rotation = Quaternion(0.117459536, 0.12717395, -0.07408269, 0.982111)
-bones/38/rotation = Quaternion(-0.3496987, 0.70658135, 0.061913367, 0.61206234)
+bones/14/rotation = Quaternion(-0.06591848, 0.5226057, -0.506376, 0.6827309)
+bones/15/rotation = Quaternion(-0.16521253, 0.5601853, 0.23291212, 0.77759194)
+bones/16/rotation = Quaternion(-0.5070254, -0.47027987, -0.25475457, 0.6759159)
+bones/21/rotation = Quaternion(-0.14841823, 0.38310996, -0.45834005, 0.7881137)
+bones/22/rotation = Quaternion(-0.070728496, 0.36747682, 0.18258987, 0.909186)
+bones/23/rotation = Quaternion(0.14468446, 0.10910712, -0.07692141, 0.98043114)
+bones/38/rotation = Quaternion(-0.34911725, 0.70686746, 0.06241749, 0.61201274)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0051296195, -0.5699812, 0.8216416, -0.41977003, 0.746982, 0.5155685, -0.9076159, -0.3422559, -0.24309278, 0.006021141, 0.007219958, -0.013205608)
+transform = Transform3D(-0.0060637617, -0.5699719, 0.82164174, -0.41853845, 0.7476716, 0.51557016, -0.9081787, -0.34076238, -0.24308896, 0.0060065477, 0.007239222, -0.013214346)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -734,7 +734,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_mn8l0")
 [node name="forest" parent="Level1Working" index="79"]
 surface_material_override/0 = ExtResource("18_px6kn")
 
-[connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
 [connection signal="ended" from="WaveManager/Wave3" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Area3D" to="WaveManager" method="_on_start" unbinds=1]
 
