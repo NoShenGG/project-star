@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://p0pl57lpm4x4"]
+[gd_scene load_steps=29 format=3 uid="uid://p0pl57lpm4x4"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_ajxti"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="4_47nrl"]
@@ -7,9 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="7_pafkc"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="9_76imp"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="10_1fsox"]
-[ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://vfx/Kenny Particle Pack/star_06.png" id="10_fja3h"]
-[ext_resource type="Script" uid="uid://knd2e7gdbpfb" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
-[ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="11_1fsox"]
+[ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://VFX/Kenny Particle Pack/star_06.png" id="10_fja3h"]
+[ext_resource type="Script" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
+[ext_resource type="Script" path="res://austin_newby/menu/menu_element.gd" id="11_1fsox"]
+[ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="11_pafkc"]
+[ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="12_yvkck"]
+[ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="13_ck0to"]
+[ext_resource type="Texture2D" uid="uid://bjfyh4eqtc0tn" path="res://art_assets/Ui/nova_portrait.png" id="14_e4lx6"]
+[ext_resource type="Texture2D" uid="uid://bafjycstuh6ma" path="res://austin_newby/dialogue/resources/nova_wtf_0.png" id="15_px6kn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7oo5e"]
 size = Vector3(15, 3, 15)
@@ -60,6 +65,21 @@ size = Vector3(2.565, 12.96, 49.35)
 size = Vector3(1.12, 6.495, 30.615)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7a44i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nv2fo"]
+size = Vector3(8, 3, 8)
+
+[sub_resource type="Resource" id="Resource_mn8l0"]
+script = ExtResource("13_ck0to")
+img = ExtResource("14_e4lx6")
+text = "Dude this fucking mountain is such a"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
+
+[sub_resource type="Resource" id="Resource_otk5b"]
+script = ExtResource("13_ck0to")
+img = ExtResource("15_px6kn")
+text = "Ardous Climb"
+metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [node name="Level1" type="Node3D"]
 
@@ -900,6 +920,20 @@ debug_color = Color(0, 11.578043, 13.506168, 1)
 transform = Transform3D(-1, 0, -2.6864795e-06, 0, 5.457839, 0, 8.742278e-08, 0, -30.729744, 2.9600766, 0.33717656, 3.3103054)
 shape = SubResource("BoxShape3D_7a44i")
 debug_color = Color(0, 11.578043, 13.506168, 1)
+
+[node name="DialogueCollisionCaller" type="Area3D" parent="." node_paths=PackedStringArray("dialogue")]
+script = ExtResource("11_pafkc")
+dialogue = NodePath("DialogueCaller")
+metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_nv2fo")
+
+[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
+script = ExtResource("12_yvkck")
+dialogue = Array[ExtResource("13_ck0to")]([SubResource("Resource_mn8l0"), SubResource("Resource_otk5b")])
+metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
 [connection signal="body_entered" from="WaveManager/Area3D" to="WaveManager" method="_on_start" unbinds=1]
 
