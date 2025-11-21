@@ -1,6 +1,6 @@
 class_name MindMerger extends Enemy
 
-signal unmerge
+signal minion_death
 
 @export var flee_state: State
 @export_category("Rotation")
@@ -129,6 +129,7 @@ func update_collision_shape():
 ## Unmerges a Minion, Reconnects VFX. Removes all minions if <3 
 func remove_minion(effect: Merged) -> void:
 	if minions.has(effect):
+		minion_death.emit()
 		var idx := minions.find(effect)
 		lasers[(idx - 1) % lasers.size()].node_b = \
 			minions.get((idx + 1) % minions.size())._entity

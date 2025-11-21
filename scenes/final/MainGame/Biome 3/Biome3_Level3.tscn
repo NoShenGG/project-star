@@ -148,6 +148,7 @@ shadow_enabled = true
 
 [node name="PlayerManager" parent="." instance=ExtResource("6_k5jyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
+stage = 2
 
 [node name="NavMesh" type="NavigationRegion3D" parent="."]
 transform = Transform3D(0.9556895, 0, 0, 0, 0.9556895, 0, 0, 0, 0.9556895, 0.18879128, 0.041381836, -0.1295929)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://t5a5ri5gyyjj"]
+[gd_scene load_steps=6 format=3 uid="uid://t5a5ri5gyyjj"]
 
 [ext_resource type="Texture2D" uid="uid://0ipgrw8k8cc8" path="res://austin_newby/dialogue/resources/NinePatch.png" id="1_2nsek"]
 [ext_resource type="Script" uid="uid://o8ttcfmyxgvm" path="res://austin_newby/dialogue/scripts/dialogue_container.gd" id="1_j3aq7"]
 [ext_resource type="Texture2D" uid="uid://dtvv4kt3w76n4" path="res://austin_newby/dialogue/resources/nova_face_temp_1.png" id="3_82rja"]
 [ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_j3aq7"]
+[ext_resource type="Script" uid="uid://dyydmlqaracop" path="res://austin_newby/dialogue/scripts/dialogue_audio.gd" id="5_1docy"]
 
 [node name="DialogueContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -98,3 +99,22 @@ size_flags_horizontal = 3
 size_flags_vertical = 8
 texture = ExtResource("3_82rja")
 expand_mode = 4
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("5_1docy")
+
+[node name="Nova" type="FmodEventEmitter3D" parent="Node"]
+event_name = "event:/Player/Uniques/Grunt/Nova Grunt"
+event_guid = "{8eed88f7-964e-435b-957d-c6705371ee3b}"
+
+[node name="Rene" type="FmodEventEmitter3D" parent="Node"]
+event_name = "event:/Player/Uniques/Grunt/Rene Grunt"
+event_guid = "{4bc8d8eb-07dc-4ed8-848d-3df74753b158}"
+
+[node name="Dawn" type="FmodEventEmitter3D" parent="Node"]
+event_name = "event:/Player/Uniques/Grunt/Dawn Grunt"
+event_guid = "{f51ea600-3d2e-4e47-bbe7-10d0410a697a}"
+
+[node name="Generic" type="FmodEventEmitter3D" parent="Node"]
+event_name = "event:/Enemys/DracoSkele/DracoSkele Roar"
+event_guid = "{d1bd0ac7-4220-45b1-9253-b6b75fec434f}"

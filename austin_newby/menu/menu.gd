@@ -45,6 +45,9 @@ signal menu_shown
 func _enter_tree() -> void:
 	MenuManager.menus[self.name] = self
 
+func _exit_tree() -> void:
+	MenuManager.menus.erase(self.name)
+
 func _ready() -> void:
 	print(size)
 	if open_on_start: open()
@@ -118,11 +121,11 @@ func animate(flags : int, time : float, closing : bool = false):
 		if (alpha_all):
 			modulate = modulate if closing else Color.TRANSPARENT
 			var color : Color = Color.TRANSPARENT if closing else Color.WHITE
-			get_tree().create_tween().tween_property(self, "modulate", color, time).set_trans(tween_transition)
+			create_tween().tween_property(self, "modulate", color, time).set_trans(tween_transition)
 		else:
 			self_modulate = self_modulate if closing else Color.TRANSPARENT
 			var color : Color = Color.TRANSPARENT if closing else Color.WHITE
-			get_tree().create_tween().tween_property(self, "self_modulate", color, time).set_trans(tween_transition)
+			create_tween().tween_property(self, "self_modulate", color, time).set_trans(tween_transition)
 	
 	if (flags & 2 == 2 or flags & 4 == 4):
 		print("animate scale")
@@ -134,7 +137,7 @@ func animate(flags : int, time : float, closing : bool = false):
 		var close_scale : Vector2 = Vector2(0 if scale_x else 1, 0 if scale_y else 1) * scale_magnitude
 		scale = scale if closing else Vector2(0 if scale_x else 1, 0 if scale_y else 1) * scale_magnitude
 		
-		get_tree().create_tween().tween_property(self, "scale", close_scale if closing else open_scale, time).set_trans(tween_transition)
+		create_tween().tween_property(self, "scale", close_scale if closing else open_scale, time).set_trans(tween_transition)
 	
 	if (flags & 8 == 8 or flags & 16 == 16):
 		print("animate size")
@@ -145,12 +148,12 @@ func animate(flags : int, time : float, closing : bool = false):
 		var close_size : Vector2 = Vector2(0 if size_x else default_size.x, 0 if size_y else default_size.y)
 		size = size if closing else Vector2(0 if size_x else default_size.x, 0 if size_y else default_size.y)
 		
-		get_tree().create_tween().tween_property(self, "size", close_size if closing else open_size, time).set_trans(tween_transition)
+		create_tween().tween_property(self, "size", close_size if closing else open_size, time).set_trans(tween_transition)
 	
 	if (flags & 32 == 32):
 		var current_rotation : float = rotation
 		var final_rotation : float = 2*PI if closing else default_rotation
 		rotation = rotation if closing else 2*PI
-		get_tree().create_tween().tween_property(self, "rotation", final_rotation, time).set_trans(tween_transition)
+		create_tween().tween_property(self, "rotation", final_rotation, time).set_trans(tween_transition)
 	
 	await get_tree().create_timer(time).timeout

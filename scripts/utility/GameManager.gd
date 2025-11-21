@@ -12,6 +12,12 @@ var main_scene : MainScene
 func _init() -> void:
 	print_rich("[color=dark_gray]GameManager initalized.")
 
+func exit_to_main_menu():
+	load_level("main_menu")
+
+func exit_game():
+	get_tree().quit()
+
 func reload_level():
 	load_level(current_level_name)
 
@@ -22,6 +28,7 @@ func load_level(level_name: String):
 	main_scene.add_child(loading_scene)
 	loading_scene.change_scene(LEVEL_PATH % level_name)
 	current_level_name = level_name
+
 
 # destroys current level
 func unload_level():

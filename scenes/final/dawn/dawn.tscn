@@ -17,15 +17,15 @@
 [ext_resource type="Script" uid="uid://d3pkbl7ownr11" path="res://scripts/entities/player/player_states/player_hit_stun.gd" id="12_6x7f2"]
 [ext_resource type="Script" uid="uid://cpj3ro4ajatrk" path="res://scripts/entities/player/dawn/states/dawn_tone_forte.gd" id="12_bxptc"]
 [ext_resource type="Script" uid="uid://vw4slmysqu7q" path="res://scripts/entities/player/dawn/states/dawn_tone_fishshield.gd" id="13_e60w5"]
-[ext_resource type="Script" path="res://scripts/entities/player/player_states/player_dash.gd" id="18_wex2d"]
+[ext_resource type="Script" uid="uid://cpcuaot05ab18" path="res://scripts/entities/player/player_states/player_dash.gd" id="18_wex2d"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="19_6x7f2"]
 [ext_resource type="Script" uid="uid://dphi1qwayotd2" path="res://scripts/entities/player/dawn/dawn_notes.gd" id="21_h3uuf"]
 [ext_resource type="Script" uid="uid://cfs2f64dnml45" path="res://scripts/entities/player/dawn/dawn_tone_emitter.gd" id="22_xiq0h"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="23_h166w"]
 [ext_resource type="PackedScene" uid="uid://km5dpokk1mk0" path="res://scenes/final/dawn/tone_melody.tscn" id="23_n7ie5"]
 [ext_resource type="PackedScene" uid="uid://crtpdqb2ymr2p" path="res://scenes/final/dawn/tone_slowwave.tscn" id="25_qnimx"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
-[ext_resource type="Script" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
+[ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
 [ext_resource type="PackedScene" uid="uid://bdh4cmnftg18b" path="res://scenes/final/dawn/tone_wave.tscn" id="28_qntpm"]
 [ext_resource type="PackedScene" uid="uid://cein11fhbr6sp" path="res://scenes/final/dawn/tone_fish.tscn" id="28_wex2d"]
 [ext_resource type="PackedScene" uid="uid://btiyd8a5nuror" path="res://scenes/final/dawn/tone_stunwave.tscn" id="31_6x7f2"]
@@ -129,6 +129,7 @@ tone_emitter = NodePath("ToneEmitter")
 targetting_box = NodePath("Hitboxes/Vision")
 special_charge_time = 0.25
 max_special_charges = 2
+dash_distance = 6.0
 faction = 0
 _breakable = false
 
@@ -245,10 +246,9 @@ script = ExtResource("12_6x7f2")
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource("18_wex2d")
 
-[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
+[node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("19_6x7f2")
 snap_turn_to_player = true
-animation = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -87,7 +87,7 @@ func animate(flags : int, time : float, closing : bool = false):
 		print("animate alpha")
 		modulate = modulate if closing else Color.TRANSPARENT
 		var color : Color = Color.TRANSPARENT if closing else Color.WHITE
-		get_tree().create_tween().tween_property(self, "modulate", color, time).set_trans(tween_transition)
+		create_tween().tween_property(self, "modulate", color, time).set_trans(tween_transition)
 	
 	var transform = control_self if control_self else node2d_self
 	
@@ -102,12 +102,12 @@ func animate(flags : int, time : float, closing : bool = false):
 		transform.scale = transform.scale if closing else Vector2(0 if scale_x else 1, 0 if scale_y else 1) * scale_magnitude
 		
 		print ("sacle is   " + str(close_size if closing else open_size))
-		get_tree().create_tween().tween_property(self, "scale", close_size if closing else open_size, time).set_trans(tween_transition)
+		create_tween().tween_property(self, "scale", close_size if closing else open_size, time).set_trans(tween_transition)
 	
 	if (flags & 8 == 8):
 		var current_rotation : float = transform.rotation
 		var final_rotation : float = 2*PI if closing else default_rotation
 		transform.rotation = transform.rotation if closing else 2*PI
-		get_tree().create_tween().tween_property(self, "rotation", final_rotation, time).set_trans(tween_transition)
+		create_tween().tween_property(self, "rotation", final_rotation, time).set_trans(tween_transition)
 	
 	await get_tree().create_timer(time).timeout

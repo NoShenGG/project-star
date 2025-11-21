@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bdydypuhg67jk"]
 
-[ext_resource type="Script" path="res://scripts/entities/enemies/dinoskeleton.gd" id="1_vw6fa"]
+[ext_resource type="Script" uid="uid://vvrq4bl2oey7" path="res://scripts/entities/enemies/dinoskeleton.gd" id="1_vw6fa"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_8j2wv"]
 [ext_resource type="PackedScene" uid="uid://54ykpkl5wkh3" path="res://scenes/sub/DinoSpitProjectile.tscn" id="2_vpanr"]
 [ext_resource type="Script" uid="uid://cj56h6cxt3f17" path="res://scripts/entities/enemies/states/dinoskeleton/dinoskeleton_idle.gd" id="3_8j2wv"]
@@ -53,24 +53,35 @@ metadata/_custom_type_script = "uid://cplhuefak4xe6"
 
 [node name="chase" type="Node" parent="StateMachine"]
 script = ExtResource("4_khv8b")
-metadata/_custom_type_script = "uid://ccipy7c0880vt"
+
+[node name="WalkSFX" type="FmodEventEmitter3D" parent="StateMachine/chase"]
+event_name = "event:/Enemys/DracoSkele/DracoSkele Footstep"
+event_guid = "{f3bc6994-eb69-4860-8ab1-6a5865c314f2}"
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="spit_attack_commit" type="Node" parent="StateMachine"]
 script = ExtResource("5_m0ebu")
-metadata/_custom_type_script = "uid://ccipy7c0880vt"
 
 [node name="SpitAnimationTimer" type="Timer" parent="StateMachine/spit_attack_commit"]
 
+[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/spit_attack_commit"]
+event_name = "event:/Enemys/DracoSkele/DracoSkele Attack"
+event_guid = "{ede9e9e8-cae4-493a-81a8-8349bc4c9525}"
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+
 [node name="fire_attack_prepare" type="Node" parent="StateMachine"]
 script = ExtResource("6_qoxk8")
-metadata/_custom_type_script = "uid://ccipy7c0880vt"
 
 [node name="FireAnticipationTimer" type="Timer" parent="StateMachine/fire_attack_prepare"]
 wait_time = 2.0
 
 [node name="fire_attack_commit" type="Node" parent="StateMachine"]
 script = ExtResource("8_y1oru")
-metadata/_custom_type_script = "uid://ccipy7c0880vt"
+
+[node name="RoarSFX" type="FmodEventEmitter3D" parent="StateMachine/fire_attack_commit"]
+event_name = "event:/Enemys/DracoSkele/DracoSkele Roar"
+event_guid = "{d1bd0ac7-4220-45b1-9253-b6b75fec434f}"
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="SpitSource" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.65, -7.6)
@@ -82,7 +93,7 @@ material_override = ExtResource("12_y1oru")
 surface_material_override/0 = ExtResource("12_y1oru")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.269663, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.82, 0)
 shape = SubResource("BoxShape3D_2l4st")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
@@ -95,10 +106,11 @@ debug_path_custom_color = Color(0, 1, 0, 1)
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="AggroArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.845, 0)
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 11.895866, 0, 0, 0, 1, 0, -3.9819565, 0)
+transform = Transform3D(1, 0, 0, 0, 11.895866, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_vl86s")
 debug_color = Color(1, 0, 0, 1)
 
@@ -107,6 +119,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("13_03yme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
 meshes = [NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_003/Plane_016"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_001/Plane_015"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck/Plane_014"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine_002/Plane_005"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine_020"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_008"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_007"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_006"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_012"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_011"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_010"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_009"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_008"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_007"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_006"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_005"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine/Plane_007")]
 
 [node name="FireCooldown" type="Timer" parent="."]
@@ -117,8 +130,22 @@ one_shot = true
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 8.55703, 0)
 texture = SubResource("ViewportTexture_45tao")
 
+[node name="DeathSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
+event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
+
+[node name="HitSFX" type="FmodEventEmitter3D" parent="."]
+event_name = "event:/Enemys/DracoSkele/DracoSkele Hit"
+event_guid = "{25833449-1b73-413e-9b21-c678c12fee73}"
+
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
+[connection signal="hurt" from="." to="HitSFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="DissolveFX" method="beginDissolve"]
+[connection signal="killed" from="." to="DeathSFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/chase" to="StateMachine/chase/WalkSFX" method="play"]
+[connection signal="finished" from="StateMachine/chase" to="StateMachine/chase/WalkSFX" method="stop"]
+[connection signal="entered" from="StateMachine/spit_attack_commit" to="StateMachine/spit_attack_commit/AttackSFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/fire_attack_commit" to="StateMachine/spit_attack_commit/AttackSFX" method="play_one_shot"]
 
 [editable path="DragoSkele"]
