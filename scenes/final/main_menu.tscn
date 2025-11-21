@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://jd6ie1ov3gt3"]
+[gd_scene load_steps=9 format=3 uid="uid://jd6ie1ov3gt3"]
 
 [ext_resource type="Script" uid="uid://dt6gotxl8mucy" path="res://scripts/utility/main_menu.gd" id="1_i0wvf"]
 [ext_resource type="Texture2D" uid="uid://xbdggdj3pecd" path="res://scenes/dev/rachael_s/JTAS Title Banner.png" id="2_qkpeh"]
 [ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_p0ndc"]
+[ext_resource type="Script" path="res://austin_newby/menu/menu.gd" id="4_u1nrr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_638d5"]
 
@@ -77,6 +78,15 @@ autoplay = true
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://sounds/banks/Music.bank"]
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_u1nrr")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

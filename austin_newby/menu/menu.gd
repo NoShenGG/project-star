@@ -5,6 +5,7 @@ class_name Menu
 
 @export var open_on_start : bool
 @export var focused_control : Control
+
 var is_open := false
 
 @export var tween_transition : Tween.TransitionType
@@ -16,12 +17,16 @@ var is_open := false
 @export var open_animation_delay : float
 ## amount of time taken for open animation
 @export var open_time : float = 0.4
+## if enabled, all child items will have its alpha affected
+@export var open_alpha_effects_all : bool
 @export_subgroup("Animation Flags")
 @export_flags("Alpha", "Scale X", "Scale Y", "Size X", "Size Y", "Rotate 180") var open_animation_flags : int
 
 @export_category("Close Animation")
 ## amount of time taken for close animation
 @export var close_time : float = 0.2
+## if enabled, all child items will have its alpha affected
+@export var close_alpha_effects_all : bool
 ## delay before starting the close animation
 @export var close_animation_delay : float
 @export_subgroup("Animation Flags")
@@ -108,9 +113,16 @@ func animate(flags : int, time : float, closing : bool = false):
 	print(" the flags is  " + str(flags) + " and the closing value is  " + str(closing))
 	if (flags & 1 == 1):
 		print("animate alpha")
-		self_modulate = self_modulate if closing else Color.TRANSPARENT
-		var color : Color = Color.TRANSPARENT if closing else Color.WHITE
-		get_tree().create_tween().tween_property(self, "self_modulate", color, time).set_trans(tween_transition)
+		var alpha_all : bool = close_alpha_effects_all if closing else open_alpha_effects_all 
+		
+		if (alpha_all):
+			modulate = modulate if closing else Color.TRANSPARENT
+			var color : Color = Color.TRANSPARENT if closing else Color.WHITE
+			get_tree().create_tween().tween_property(self, "modulate", color, time).set_trans(tween_transition)
+		else:
+			self_modulate = self_modulate if closing else Color.TRANSPARENT
+			var color : Color = Color.TRANSPARENT if closing else Color.WHITE
+			get_tree().create_tween().tween_property(self, "self_modulate", color, time).set_trans(tween_transition)
 	
 	if (flags & 2 == 2 or flags & 4 == 4):
 		print("animate scale")
