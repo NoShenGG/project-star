@@ -44,8 +44,10 @@ func attack_done():
 		trigger_finished.emit(CHARGING, {"time": player.max_click_time})
 		return
 	if combo_queue <= 0 or (loop_combo and (_states.size() - 1) - combo_counter == 0):
-		end()
-		return
+		await get_tree().create_timer(0.08).timeout
+		if (combo_queue <= 0):
+			end()
+			return
 	current_state.finished.disconnect(attack_done)
 	current_state.exit()
 	
