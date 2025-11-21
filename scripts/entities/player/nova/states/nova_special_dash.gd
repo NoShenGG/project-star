@@ -3,9 +3,8 @@
 class_name NovaSpecialDash extends MeleeAttackState
 
 var nova: Nova
-var anim_dur: float
 var time: float
-var dash_target_dist: float
+var direction: Vector3
 var anim_done: bool = false
 
 
@@ -17,14 +16,11 @@ func _ready() -> void:
 func enter(_prev_state: String, data := {}) -> void:
 	damage_on_enter = false
 	super(_prev_state, data)
-	var ray = nova.ray
-	ray.force_shapecast_update()
-	dash_target_dist = min(nova.global_position.distance_to(ray.get_collision_point(0))-0.5, nova.dash_distance) \
-			if ray.is_colliding() else nova.special_dash_dist
-	anim_dur = animation.playback.get_current_length()
-	time = anim_dur
+	direction = -nova.basis.z.normalized()
 	anim_done = false
 	animation.stop.connect(anim_stop)
+	time = duration
+	nova.collision_mask = 1
 	
 func anim_stop() -> void:
 	anim_done = true
@@ -36,14 +32,15 @@ func update(_delta: float) -> void:
 func physics_update(delta: float) -> void:
 	delta = min(delta, time)
 	time -= delta
-	nova.global_position += Vector3.FORWARD.rotated(Vector3.UP, nova.rotation.y) \
-		* dash_target_dist * delta / anim_dur
+	nova.velocity = direction * nova.special_dash_dist / duration
+	nova.move_and_slide()
 			
 func end() -> void:
 	finished.emit()
 		
 func exit() -> void:
 	do_damage()
+	nova.collision_mask = 3
 	active = false
 	hitbox.monitoring = false
 	animation.stop.disconnect(anim_stop)

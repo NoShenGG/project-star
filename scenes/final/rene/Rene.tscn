@@ -219,7 +219,6 @@ max_special_charges = 2
 special_cd = 10.0
 input_smoothing_speed = null
 dash_cd = null
-dash_distance = null
 _base_speed = null
 faction = 0
 _hp = null

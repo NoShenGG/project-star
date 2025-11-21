@@ -25,6 +25,7 @@ func start_state(_prev_state: String, _data := {}) -> void:
 func state_done() -> void:
 	current_state.finished.disconnect(state_done)
 	current_state.exit()
+	print(_state_queue)
 	
 	if _state_queue.is_empty():
 		end()
