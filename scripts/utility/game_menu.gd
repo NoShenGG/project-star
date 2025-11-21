@@ -14,11 +14,11 @@ func _ready() -> void:
 		menu.menu_shown.connect(close_game_menu)
 
 func close_game_menu():
-	close()
+	close.call_deferred()
 
 func check_should_open():
 	for menu in overridable_menus:
 		if (menu.is_open):
 			return
 	
-	open()
+	open.call_deferred()

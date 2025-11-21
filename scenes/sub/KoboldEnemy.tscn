@@ -1199,20 +1199,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-3.738915e-09, 0.9977308, 0.06732969, 7.540526e-08)
-bones/1/rotation = Quaternion(0.10322337, 0.0034411734, -0.00017794593, 0.9946523)
-bones/2/rotation = Quaternion(0.106165014, -0.0037552305, -0.00020697195, 0.99434143)
-bones/4/rotation = Quaternion(0.23727156, 0.048324436, -0.5616961, 0.791116)
-bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.043196995, 0.98099875)
-bones/6/rotation = Quaternion(0.054868486, 0.74948096, 0.015322978, 0.6595702)
-bones/7/rotation = Quaternion(0.08643306, -0.00028606097, -0.0007249255, 0.9962574)
-bones/8/rotation = Quaternion(-0.09463401, -0.00035993755, -0.00048758186, 0.995512)
-bones/9/rotation = Quaternion(-0.09260436, -0.17117505, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.2840447, -0.011285457, 0.5429161, 0.79021096)
-bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.0123480745, 0.97225493)
-bones/12/rotation = Quaternion(-5.8199273e-08, -0.751264, -5.181667e-08, 0.66000193)
-bones/13/rotation = Quaternion(0.10849718, -0.08205278, 0.9894506, -0.04983335)
-bones/14/rotation = Quaternion(-0.030224102, -0.0017236071, 0.035237335, 0.9989204)
+bones/0/rotation = Quaternion(-3.7246892e-09, 0.99774355, 0.06714145, 7.5405964e-08)
+bones/1/rotation = Quaternion(0.10319236, 0.0034411675, -0.00017805304, 0.9946555)
+bones/2/rotation = Quaternion(0.1063526, -0.0037548558, -0.0002064244, 0.99432147)
+bones/4/rotation = Quaternion(0.26805162, 0.026304303, -0.563157, 0.7812238)
+bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.04319699, 0.98099875)
+bones/6/rotation = Quaternion(0.054868493, 0.749481, 0.015322981, 0.6595702)
+bones/7/rotation = Quaternion(0.086550765, -0.0002861466, -0.00072489167, 0.99624723)
+bones/8/rotation = Quaternion(-0.09451637, -0.00035988004, -0.00048762446, 0.99552315)
+bones/9/rotation = Quaternion(-0.09260436, -0.17117503, 0.68309855, 0.70391756)
+bones/10/rotation = Quaternion(0.25289488, -0.032528825, 0.5420583, 0.80072397)
+bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.012348074, 0.97225493)
+bones/12/rotation = Quaternion(-5.8199284e-08, -0.751264, -5.181668e-08, 0.6600019)
+bones/13/rotation = Quaternion(0.10849719, -0.08205278, 0.9894506, -0.049833346)
+bones/14/rotation = Quaternion(-0.030224102, -0.001723607, 0.035237335, 0.9989204)
 bones/15/rotation = Quaternion(0.5967693, -0.0027287544, -0.012932465, 0.802304)
 bones/16/rotation = Quaternion(-0.10912148, -0.082282394, 0.98859936, 0.06319494)
 bones/17/rotation = Quaternion(-0.028762186, 0.0013813315, -0.021923115, 0.9993449)
@@ -1221,7 +1221,7 @@ bones/20/rotation = Quaternion(0.13317142, 7.493918e-11, 0.0009177519, 0.9910927
 bones/21/rotation = Quaternion(0.13793416, -4.2176818e-10, 0.0009505738, 0.99044096)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(-0.36064088, -0.30827674, 0.88028604, -0.18441424, -0.9015999, -0.39129254, 0.91429156, -0.3034532, 0.26830304, -0.57438636, 0.82719904, -0.05481912)
+transform = Transform3D(-0.38219947, -0.28912038, 0.87768614, -0.25360376, -0.88050985, -0.40048522, 0.8885993, -0.37564957, 0.26320833, -0.5661544, 0.8275856, -0.10652951)
 bone_name = "Hand.L"
 bone_idx = 6
 
@@ -1322,13 +1322,13 @@ shape = SubResource("BoxShape3D_sqo6n")
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
 [connection signal="hurt" from="." to="Kobold/Hurt" method="enter" unbinds=1]
+[connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="Kobold/Die" method="enter"]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Walk" to="Kobold/Move" method="enter"]
 [connection signal="entered" from="StateMachine/Idle" to="Kobold/Idle" method="enter"]
-[connection signal="entered" from="StateMachine/Attack" to="StateMachine/Attack/AttackSFX" method="play"]
+[connection signal="entered" from="StateMachine/Attack" to="StateMachine/Attack/AttackSFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Dead" to="DissolveFX" method="beginDissolve"]
-[connection signal="start" from="Kobold/Hurt" to="Hurt SFX" method="play" binds= [true]]
 
 [editable path="Kobold"]
 [editable path="Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase"]
