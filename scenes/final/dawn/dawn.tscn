@@ -30,10 +30,10 @@
 [ext_resource type="Shader" uid="uid://bnancykekno2t" path="res://scenes/dev/chrizz/distortion.tres" id="24_cih63"]
 [ext_resource type="Texture2D" uid="uid://bfmq4qyv6hv0v" path="res://scenes/final/dawn/caustics.png" id="25_1i8fv"]
 [ext_resource type="PackedScene" uid="uid://crtpdqb2ymr2p" path="res://scenes/final/dawn/tone_slowwave.tscn" id="25_qnimx"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
 [ext_resource type="ArrayMesh" uid="uid://bd5wy4vqrfeld" path="res://scenes/dev/chrizz/prototyping/sound_blast_extra.obj" id="26_h3uuf"]
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="27_1i8fv"]
-[ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="27_1i8fv"]
+[ext_resource type="Script" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
 [ext_resource type="PackedScene" uid="uid://bdh4cmnftg18b" path="res://scenes/final/dawn/tone_wave.tscn" id="28_qntpm"]
 [ext_resource type="PackedScene" uid="uid://cein11fhbr6sp" path="res://scenes/final/dawn/tone_fish.tscn" id="28_wex2d"]
 [ext_resource type="PackedScene" uid="uid://btiyd8a5nuror" path="res://scenes/final/dawn/tone_stunwave.tscn" id="31_6x7f2"]
@@ -544,46 +544,50 @@ script = ExtResource("5_548oj")
 [node name="Tone1" type="Node" parent="StateMachine/Attacking"]
 script = ExtResource("6_n7ie5")
 
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Tone1"]
+event_name = "event:/Player/Uniques/Base Attack/Dawn/Dawn Tone 1"
+event_guid = "{dd3d8c31-0929-48ce-8096-486b46e54a92}"
+
 [node name="Tone2" type="Node" parent="StateMachine/Attacking"]
 script = ExtResource("6_n7ie5")
+
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Tone2"]
+event_name = "event:/Player/Uniques/Base Attack/Dawn/Dawn Tone 2"
+event_guid = "{3d951a35-59bb-4268-942b-8586da6926e4}"
 
 [node name="Tone3" type="Node" parent="StateMachine/Attacking"]
 script = ExtResource("6_n7ie5")
 
-[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking"]
-event_name = "event:/Player/Uniques/Grunt/Nova Grunt"
-event_guid = "{8eed88f7-964e-435b-957d-c6705371ee3b}"
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Tone3"]
+event_name = "event:/Player/Uniques/Base Attack/Dawn/Dawn Tone 3"
+event_guid = "{538017aa-24da-4c8d-b28e-498aaefeff8a}"
 
 [node name="AltAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("finished_state")]
 script = ExtResource("6_n7ie5")
 auto_aim = false
 finished_state = NodePath("../Moving")
 
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/AltAttack"]
+event_name = "event:/Player/Uniques/Base Attack/Dawn/Dawn Tone 3"
+event_guid = "{538017aa-24da-4c8d-b28e-498aaefeff8a}"
+
 [node name="Charging" type="Node" parent="StateMachine"]
 script = ExtResource("6_qnimx")
-
-[node name="Charging Ready SFX" type="FmodEventEmitter3D" parent="StateMachine/Charging"]
-event_name = "event:/Player/Uniques/Charging/Nova Charging Ready"
-event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
-
-[node name="Charging SFX" type="FmodEventEmitter3D" parent="StateMachine/Charging"]
-event_name = "event:/Player/Uniques/Charging/Nova Charging"
-event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 
 [node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("8_548oj")
 hitbox = NodePath("../../Hitboxes/Sing")
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
-event_name = "event:/Player/Uniques/Charged Attack/Nova Charged Attack"
-event_guid = "{c37be128-c419-442f-9d08-d6e0895a5e23}"
+event_name = "event:/Player/Uniques/Charged Attack/Dawn Charged Attack"
+event_guid = "{3d396b53-331a-4f8e-a86f-96dd517d7f72}"
 
 [node name="ChargingSpecial" type="Node" parent="StateMachine"]
 script = ExtResource("8_bbdqe")
 
 [node name="Dash SFX" type="FmodEventEmitter3D" parent="StateMachine/ChargingSpecial"]
-event_name = "event:/Player/Uniques/Charging/Nova Charging"
-event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
+event_name = "event:/Player/Uniques/Charging Specaial/Dawn Charging"
+event_guid = "{1512640b-1c69-4752-8f8f-5392dfe9ab12}"
 
 [node name="Special" type="Node" parent="StateMachine" node_paths=PackedStringArray("regular", "charged")]
 script = ExtResource("10_7cxsd")
@@ -606,22 +610,46 @@ notes = NodePath("../../../Notes")
 [node name="ToneWave" type="Node" parent="StateMachine/Special/SpecialAbility"]
 script = ExtResource("6_n7ie5")
 
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneWave"]
+event_name = "event:/Player/Uniques/Special Attack/Dawn ToneWave"
+event_guid = "{8f4cc451-3cd2-44c2-ba34-c179df254639}"
+
 [node name="ToneForte" type="Node" parent="StateMachine/Special/SpecialAbility"]
 script = ExtResource("12_bxptc")
+
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneForte"]
+event_name = "event:/Player/Uniques/Special Attack/Dawn ToneForte"
+event_guid = "{f09c3467-0ef3-4537-94b1-5728b397f9e4}"
 
 [node name="ToneStunWave" type="Node" parent="StateMachine/Special/SpecialAbility"]
 script = ExtResource("6_n7ie5")
 
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneStunWave"]
+event_name = "event:/Player/Uniques/Special Attack/Dawn ToneStunWave"
+event_guid = "{c778ca84-7080-4fa1-b54d-6846f3ff0651}"
+
 [node name="ToneVortex" type="Node" parent="StateMachine/Special/SpecialAbility"]
 script = ExtResource("6_n7ie5")
 
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneVortex"]
+event_name = "event:/Player/Uniques/Special Attack/Dawn ToneVortex"
+event_guid = "{cb05b6db-887a-4072-a9e6-f0ee9dd499b7}"
+
 [node name="ToneIce" type="Node" parent="StateMachine/Special/SpecialAbility"]
 script = ExtResource("6_n7ie5")
+
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneIce"]
+event_name = "event:/Player/Uniques/Special Attack/Dawn ToneIce"
+event_guid = "{acfbeb8c-9fb4-4f18-901a-ed9ec47ea92b}"
 
 [node name="ToneFishShield" type="Node" parent="StateMachine/Special/SpecialAbility" node_paths=PackedStringArray("shield_mesh", "shield")]
 script = ExtResource("13_e60w5")
 shield_mesh = NodePath("../../../../Effects/Shield")
 shield = NodePath("../../../../Hitboxes/FishShield")
+
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneFishShield"]
+event_name = "event:/Player/Uniques/Special Attack/Dawn ToneWave"
+event_guid = "{8f4cc451-3cd2-44c2-ba34-c179df254639}"
 
 [node name="SwapIn" type="Node" parent="StateMachine"]
 script = ExtResource("9_qntpm")
@@ -740,20 +768,16 @@ shape = SubResource("CylinderShape3D_n7ie5")
 debug_fill = false
 
 [node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Player/Uniques/Hurt/Nova Hurt"
-event_guid = "{220c3cb7-af5f-4662-90c5-1a103656ae58}"
+event_name = "event:/Player/Uniques/Hurt/Dawn Hurt"
+event_guid = "{9eaad691-c0ab-462f-8d77-923792c9e101}"
 
 [node name="Death SFX" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Player/Uniques/Death/Nova Death"
-event_guid = "{2d5b4a29-ca66-40a9-9da8-db918424ec2c}"
+event_name = "event:/Player/Uniques/Death/Dawn Death"
+event_guid = "{d6cce387-63c2-4835-bcbc-e221bc8ba892}"
 
 [node name="Dash SFX" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Player/Dash/Base Dash"
-event_guid = "{c01c64a7-fee5-463c-adda-e0bf3a57057b}"
-
-[node name="Special Ready" type="FmodEventEmitter3D" parent="."]
-event_name = "event:/Player/Uniques/Charging/Nova Charging Ready"
-event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
+event_name = "event:/Player/Uniques/Dash/Dawn Dash"
+event_guid = "{eb59fec4-6a5a-4694-9f32-f43bc52d4469}"
 
 [node name="DawnUI" type="Control" parent="."]
 layout_mode = 3
@@ -830,32 +854,39 @@ dissolveBegin = 0.3
 dissolveDuration = 1.0
 meshes = [NodePath("../dawn_rig/Skeleton3D/body"), NodePath("../dawn_rig/Skeleton3D/hair")]
 
-[connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
-[connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
+[connection signal="hurt" from="." to="Hurt SFX" method="play" unbinds=1]
+[connection signal="killed" from="." to="Death SFX" method="play"]
 [connection signal="player_dashed" from="." to="Dash SFX" method="play_one_shot"]
-[connection signal="special_available" from="." to="Special Ready" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Moving" to="StateMachine/Moving/Footstep SFX" method="play"]
 [connection signal="finished" from="StateMachine/Moving" to="StateMachine/Moving/Footstep SFX" method="stop"]
-[connection signal="attack_started" from="StateMachine/Attacking" to="StateMachine/Attacking/Attack SFX" method="play_one_shot" unbinds=1]
 [connection signal="fire" from="StateMachine/Attacking/Tone1" to="ToneEmitter" method="spawn_melody"]
+[connection signal="fire" from="StateMachine/Attacking/Tone1" to="StateMachine/Attacking/Tone1/Attack SFX" method="play" binds= [true]]
 [connection signal="fire" from="StateMachine/Attacking/Tone2" to="ToneEmitter" method="spawn_melody"]
+[connection signal="fire" from="StateMachine/Attacking/Tone2" to="StateMachine/Attacking/Tone2/Attack SFX" method="play" binds= [true]]
 [connection signal="fire" from="StateMachine/Attacking/Tone3" to="ToneEmitter" method="spawn_melody"]
+[connection signal="fire" from="StateMachine/Attacking/Tone3" to="StateMachine/Attacking/Tone3/Attack SFX" method="play" binds= [true]]
 [connection signal="fire" from="StateMachine/AltAttack" to="ToneEmitter" method="spawn_fish"]
-[connection signal="charge_count_increase" from="StateMachine/Charging" to="StateMachine/Charging/Charging Ready SFX" method="play_one_shot" unbinds=1]
-[connection signal="entered" from="StateMachine/Charging" to="StateMachine/Charging/Charging SFX" method="play_one_shot"]
+[connection signal="fire" from="StateMachine/AltAttack" to="StateMachine/AltAttack/Attack SFX" method="play" binds= [true]]
 [connection signal="entered" from="StateMachine/Charging" to="Effects/DawnChargeVFX" method="restart_particles"]
 [connection signal="finished" from="StateMachine/Charging" to="Effects/DawnChargeVFX" method="stop_particles"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="Effects/DistortionShader" method="restart_particles"]
+[connection signal="entered" from="StateMachine/AttackingCharged" to="StateMachine/AttackingCharged/AttackCharged SFX" method="play" binds= [true]]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="Effects/SingWave" method="set_emitting" binds= [true]]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="Dawn\'s Circle" method="restart_particles"]
+[connection signal="entered" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play" binds= [true]]
 [connection signal="finished" from="StateMachine/ChargingSpecial" to="Dawn\'s Circle" method="stop_particles"]
-[connection signal="max_charge_count" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play_one_shot"]
 [connection signal="finished" from="StateMachine/Special/ToneSlowWave" to="." method="set_special_cd"]
 [connection signal="fire" from="StateMachine/Special/ToneSlowWave" to="ToneEmitter" method="spawn_slow_wave"]
+[connection signal="entered" from="StateMachine/Special/SpecialAbility/ToneWave" to="StateMachine/Special/SpecialAbility/ToneWave/SFX" method="play" binds= [true]]
 [connection signal="fire" from="StateMachine/Special/SpecialAbility/ToneWave" to="ToneEmitter" method="spawn_wave"]
+[connection signal="entered" from="StateMachine/Special/SpecialAbility/ToneForte" to="StateMachine/Special/SpecialAbility/ToneForte/SFX" method="play" binds= [true]]
+[connection signal="entered" from="StateMachine/Special/SpecialAbility/ToneStunWave" to="StateMachine/Special/SpecialAbility/ToneStunWave/SFX" method="play" binds= [true]]
 [connection signal="fire" from="StateMachine/Special/SpecialAbility/ToneStunWave" to="ToneEmitter" method="spawn_stun_wave"]
+[connection signal="entered" from="StateMachine/Special/SpecialAbility/ToneVortex" to="StateMachine/Special/SpecialAbility/ToneVortex/SFX" method="play" binds= [true]]
 [connection signal="fire" from="StateMachine/Special/SpecialAbility/ToneVortex" to="ToneEmitter" method="spawn_vortex_note"]
+[connection signal="entered" from="StateMachine/Special/SpecialAbility/ToneIce" to="StateMachine/Special/SpecialAbility/ToneIce/SFX" method="play" binds= [true]]
 [connection signal="fire" from="StateMachine/Special/SpecialAbility/ToneIce" to="ToneEmitter" method="spawn_ice_zone"]
+[connection signal="entered" from="StateMachine/Special/SpecialAbility/ToneFishShield" to="StateMachine/Special/SpecialAbility/ToneFishShield/SFX" method="play" binds= [true]]
 [connection signal="entered" from="StateMachine/Dead" to="DissolveFX" method="beginDissolve"]
 
 [editable path="dawn_rig"]
