@@ -118,8 +118,8 @@ func try_heal(heal_amount: float) -> bool:
 
 
 func trigger_death():
-	killed.emit()
 	death = true
+	killed.emit()
 	collision_layer = 0
 	await get_tree().create_timer(passive_death_time).timeout
 	self.call_deferred("queue_free")
