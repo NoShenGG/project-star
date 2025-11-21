@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://brmdsiu0kp6ca"]
+[gd_scene load_steps=12 format=3 uid="uid://brmdsiu0kp6ca"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_lyudl"]
 [ext_resource type="PackedScene" uid="uid://brw0p1eirto83" path="res://scenes/final/Nova.tscn" id="2_dvwxt"]
@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://c2akhsyinel8t" path="res://scenes/final/dawn/dawn.tscn" id="3_kpy7t"]
 [ext_resource type="PackedScene" uid="uid://bq7t53o2llxr4" path="res://scenes/final/rene/Rene.tscn" id="3_q78nk"]
 [ext_resource type="Script" uid="uid://djfekv55fum3x" path="res://scripts/pitch_pivot.gd" id="4_mbt4c"]
+[ext_resource type="Script" path="res://austin_newby/menu/menu.gd" id="7_l7gm4"]
 [ext_resource type="PackedScene" uid="uid://b8wp31vm3qtbx" path="res://scenes/dev/raymond_b/game_ui.tscn" id="7_q78nk"]
+[ext_resource type="Script" path="res://austin_newby/menu/menu_element.gd" id="9_0dwuh"]
+[ext_resource type="Script" uid="uid://43igx2jhor0s" path="res://scripts/utility/death_menu.gd" id="9_41j18"]
 
 [sub_resource type="Curve" id="Curve_wmnvy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50545454, 0.5084282), 2.0432801, 2.0432801, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -23,13 +26,19 @@ top_level = true
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.065850526, 0.52255416, -0.5063988, 0.68276)
-bones/15/rotation = Quaternion(-0.16569784, 0.5609399, 0.23304805, 0.7769036)
-bones/16/rotation = Quaternion(-0.50667155, -0.47082344, -0.255533, 0.67550874)
-bones/21/rotation = Quaternion(-0.14791924, 0.38190278, -0.45892444, 0.7884533)
-bones/22/rotation = Quaternion(-0.07117556, 0.36868784, 0.18297449, 0.90858334)
-bones/23/rotation = Quaternion(0.14436135, 0.10896713, -0.077624194, 0.98043895)
-bones/38/rotation = Quaternion(-0.34924895, 0.7068029, 0.062303398, 0.61202395)
+bones/14/rotation = Quaternion(-0.06523566, 0.5220836, -0.50661016, 0.68302214)
+bones/15/rotation = Quaternion(-0.16965838, 0.567061, 0.23413594, 0.7712576)
+bones/16/rotation = Quaternion(-0.5037866, -0.47566137, -0.261562, 0.6719603)
+bones/21/rotation = Quaternion(-0.14258601, 0.3716197, -0.46497497, 0.7908011)
+bones/22/rotation = Quaternion(-0.07461543, 0.37793818, 0.18590054, 0.9039007)
+bones/23/rotation = Quaternion(0.13983129, 0.10864672, -0.08406725, 0.9805998)
+bones/38/rotation = Quaternion(-0.350501, 0.7061854, 0.061217286, 0.6121304)
+
+[node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5"]
+transform = Transform3D(-0.0038393962, -0.56999135, 0.8216417, -0.42146823, 0.74602675, 0.5155661, -0.9068349, -0.34431642, -0.24309754, 0.006041297, 0.0071933935, -0.013193481)
+
+[node name="SwordTrail" parent="Nova/nova/Skeleton3D/BoneAttachment3D" index="0"]
+amount = 13
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -134,19 +143,65 @@ bank_paths = ["res://sounds/banks/Player.bank"]
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="GameUi" parent="." instance=ExtResource("7_q78nk")]
+[node name="Game Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -289.0
+offset_right = 306.0
+grow_vertical = 0
+script = ExtResource("7_l7gm4")
+open_on_start = true
+
+[node name="GameUi" parent="Game Menu" instance=ExtResource("7_q78nk")]
+layout_mode = 1
 SWITCH_ANIMATION_EASE_CURVE = SubResource("Curve_wmnvy")
 
-[connection signal="new_player" from="." to="GameUi" method="on_player_switch"]
-[connection signal="player_hp_update" from="." to="GameUi" method="on_player_health_update"]
-[connection signal="player_sp_update" from="." to="GameUi" method="on_player_sp_update"]
+[node name="Death Menu" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 432.0
+offset_top = 72.0
+offset_right = -432.0
+offset_bottom = -384.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(144, 96)
+script = ExtResource("9_41j18")
+time_to_die = 2.0
+focused_control = NodePath("Reload Button")
+open_animation_flags = 3
+close_animation_flags = 2
+
+[node name="Reload Button" type="Button" parent="Death Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.0
+offset_top = 38.0
+offset_right = 61.0
+offset_bottom = 92.0
+grow_horizontal = 2
+pivot_offset = Vector2(61, 27)
+text = "RELOAD"
+script = ExtResource("9_0dwuh")
+open_animation_flags = 5
+
+[connection signal="new_player" from="." to="Game Menu/GameUi" method="on_player_switch"]
+[connection signal="player_hp_update" from="." to="Game Menu/GameUi" method="on_player_health_update"]
+[connection signal="player_sp_update" from="." to="Game Menu/GameUi" method="on_player_sp_update"]
 [connection signal="entered" from="Nova/StateMachine/HitStun" to="CameraTarget/Camera3D/Shake" method="shake"]
 [connection signal="entered" from="Rene/StateMachine/HitStun" to="CameraTarget/Camera3D/Shake" method="shake"]
 [connection signal="entered" from="Dawn/StateMachine/HitStun" to="CameraTarget/Camera3D/Shake" method="shake"]
+[connection signal="pressed" from="Death Menu/Reload Button" to="Death Menu" method="restart_game"]
 
 [editable path="Nova"]
 [editable path="Nova/nova"]
 [editable path="Rene"]
 [editable path="Dawn"]
 [editable path="Dawn/dawn_rig"]
-[editable path="GameUi"]
+[editable path="Game Menu/GameUi"]
