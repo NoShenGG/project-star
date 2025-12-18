@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="6_8ylh7"]
 [ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="6_poq37"]
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="7_ivk6n"]
-[ext_resource type="Script" path="res://scripts/utility/menu_area.gd" id="8_b1jqb"]
+[ext_resource type="Script" uid="uid://knd2e7gdbpfb" path="res://scripts/utility/menu_area.gd" id="8_b1jqb"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="9_ylyoc"]
 [ext_resource type="Texture2D" uid="uid://bfq2lq4t3785h" path="res://art_assets/Ui/TextboxSmall.png" id="10_1cga5"]
-[ext_resource type="Script" uid="uid://diaap70c4mvfb" path="res://scripts/utility/menu_sfx.gd" id="11_dbcvv"]
+[ext_resource type="Script" path="res://scripts/utility/menu_sfx.gd" id="11_dbcvv"]
 [ext_resource type="Texture2D" uid="uid://baw1g0c8nn8qt" path="res://art_assets/Ui/TextboxLarge.png" id="11_lurfs"]
 [ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="12_ylyoc"]
 [ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="13_1cga5"]
@@ -120,16 +120,16 @@ stage = 1
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 15.590168)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.071919575, 0.5243198, -0.5068788, 0.68043387)
-bones/15/rotation = Quaternion(-0.16287698, 0.5564942, 0.23222522, 0.78093326)
-bones/16/rotation = Quaternion(-0.50920635, -0.47522455, -0.2449, 0.67445874)
-bones/21/rotation = Quaternion(-0.12881656, 0.38190252, -0.4781339, 0.78034914)
-bones/22/rotation = Quaternion(-0.064735025, 0.35054103, 0.1771157, 0.9173661)
-bones/23/rotation = Quaternion(0.11232174, 0.12432272, -0.08493719, 0.9821983)
-bones/38/rotation = Quaternion(-0.35160908, 0.7056369, 0.06025522, 0.61222297)
+bones/14/rotation = Quaternion(-0.06775362, 0.52272487, -0.5068128, 0.6821356)
+bones/15/rotation = Quaternion(-0.16849738, 0.56527454, 0.23382145, 0.77291715)
+bones/16/rotation = Quaternion(-0.50486106, -0.47789794, -0.2568674, 0.6713777)
+bones/21/rotation = Quaternion(-0.13378114, 0.37118405, -0.474177, 0.7870712)
+bones/22/rotation = Quaternion(-0.071752496, 0.37022388, 0.18345875, 0.90781534)
+bones/23/rotation = Quaternion(0.12486537, 0.1155507, -0.087819755, 0.9815011)
+bones/38/rotation = Quaternion(-0.3511911, 0.70584416, 0.060618237, 0.6121882)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0020568399, -0.57000065, 0.8216417, -0.4238118, 0.7447002, 0.51556295, -0.90574795, -0.34716102, -0.24310482, 0.0060691456, 0.0071567334, -0.013176601)
+transform = Transform3D(-0.0027296632, -0.56999785, 0.82164174, -0.4229281, 0.7452016, 0.51556414, -0.9061591, -0.34608808, -0.24310231, 0.0060586343, 0.007170557, -0.013182986)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -640,7 +640,7 @@ shape = SubResource("BoxShape3D_1cga5")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
 [node name="CollisionShape3D17" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-3.2287393, 0, 3.1688737e-06, 0, 14.486825, 0, -2.8226535e-07, 0, -36.247692, 4.2139816, 0.8949719, -9.315765)
+transform = Transform3D(-3.2287393, 0, 2.9689695e-06, 0, 14.486825, 0, -2.8226535e-07, 0, -33.961056, 4.2139816, 0.8949719, -8.579906)
 shape = SubResource("BoxShape3D_1cga5")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
@@ -650,7 +650,7 @@ shape = SubResource("BoxShape3D_1cga5")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
 [node name="CollisionShape3D19" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(-1.4113267e-07, 0, -34.169064, 0, 14.486827, 0, 3.22874, 0, -1.4935772e-06, 19.383223, 0.8949719, -25.670052)
+transform = Transform3D(-1.4113267e-07, 0, -34.169064, 0, 14.486827, 0, 3.22874, 0, -1.4935772e-06, 21.475853, 0.8949719, -25.670052)
 shape = SubResource("BoxShape3D_1cga5")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
@@ -679,7 +679,6 @@ event_name = "event:/Music/Biome2_Level1"
 event_guid = "{835a625f-25da-4eb1-b157-c08dfa8cab8c}"
 autoplay = true
 
-[connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
 [connection signal="ended" from="WaveManager/Wave3" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
 
