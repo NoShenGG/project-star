@@ -11,9 +11,9 @@ noise = SubResource("FastNoiseLite_ul114")
 [resource]
 render_priority = 0
 shader = ExtResource("1_ul114")
-shader_parameter/color = Color(0.42000002, 1, 0.855, 1)
+shader_parameter/color = Color(0.69, 1, 0.9225, 1)
 shader_parameter/use_second_color = true
-shader_parameter/second_color = Color(0, 0.73333335, 1, 1)
+shader_parameter/second_color = Color(0, 0.506, 0.69, 1)
 shader_parameter/cone_start_width = 0.35999999195328
 shader_parameter/cone_curve = 0.72999998368304
 shader_parameter/beam_sharpness = 0.25

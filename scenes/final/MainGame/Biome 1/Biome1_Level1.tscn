@@ -89,7 +89,7 @@ script = ExtResource("13_ck0to")
 name = "Nova"
 img = ExtResource("14_e4lx6")
 text = "I'm finally here. I can see the Arduous Star!"
-small_text = "Press [Space] to advance"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="Resource" id="Resource_otk5b"]
@@ -97,6 +97,7 @@ script = ExtResource("13_ck0to")
 name = "Nova"
 img = ExtResource("14_e4lx6")
 text = "Oh, what are these little guys doing here?"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn8l0"]
@@ -111,16 +112,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.07195842, 0.5250871, -0.506584, 0.68005747)
-bones/15/rotation = Quaternion(-0.15722688, 0.5474696, 0.23050962, 0.7889373)
-bones/16/rotation = Quaternion(-0.51328427, -0.46688843, -0.23735434, 0.6798658)
-bones/21/rotation = Quaternion(-0.1394251, 0.39790225, -0.4659847, 0.777877)
-bones/22/rotation = Quaternion(-0.06049672, 0.3382462, 0.17309368, 0.9230213)
-bones/23/rotation = Quaternion(0.1242887, 0.122964464, -0.0739768, 0.98181444)
-bones/38/rotation = Quaternion(-0.3493843, 0.70673627, 0.062186033, 0.6120356)
+bones/14/rotation = Quaternion(-0.076190285, 0.52675617, -0.5068587, 0.6780984)
+bones/15/rotation = Quaternion(-0.15340912, 0.541217, 0.22926518, 0.794347)
+bones/16/rotation = Quaternion(-0.51627845, -0.4674315, -0.22726376, 0.6806728)
+bones/21/rotation = Quaternion(-0.1279126, 0.4030591, -0.47576967, 0.7712491)
+bones/22/rotation = Quaternion(-0.054516286, 0.31985354, 0.16694757, 0.931048)
+bones/23/rotation = Quaternion(0.104584105, 0.13443291, -0.0755004, 0.98249155)
+bones/38/rotation = Quaternion(-0.35055637, 0.7061583, 0.06116929, 0.612135)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0056348373, -0.56997645, 0.8216416, -0.4191041, 0.7473553, 0.5155693, -0.90792054, -0.3414482, -0.24309075, 0.0060132486, 0.0072303736, -0.013210339)
+transform = Transform3D(-0.0037507028, -0.56999195, 0.8216416, -0.42158544, 0.74596065, 0.5155659, -0.9067808, -0.34445837, -0.24309826, 0.006042683, 0.0071915593, -0.013192641)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -177,48 +178,6 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [node name="Die" parent="PlayerManager/Nova/nova" index="16"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
-
-[node name="Rene\'s Circle" parent="PlayerManager/Rene" index="10" node_paths=PackedStringArray("particles")]
-particles = [NodePath("sparks"), NodePath("sparks")]
-
-[node name="Skeleton3D" parent="PlayerManager/Rene/rene" index="0"]
-bones/2/position = Vector3(-0.00048374574, 0.0153010115, -0.0011631509)
-bones/2/rotation = Quaternion(0.018430147, -0.018376587, 0.7058377, 0.7078953)
-bones/5/position = Vector3(0.0038610352, -3.1048305e-05, -0.00018156038)
-bones/5/rotation = Quaternion(0.0002769403, -0.12937072, -0.01278383, 0.99151385)
-bones/6/rotation = Quaternion(-0.045169156, 0.04625249, -0.68640584, 0.72433937)
-bones/10/rotation = Quaternion(-0.12016356, 0.45460087, -0.5424176, 0.696191)
-bones/11/rotation = Quaternion(-0.029113108, 0.5583652, 0.045110933, 0.8278561)
-bones/12/rotation = Quaternion(-0.07583242, 0.025066635, -0.033660546, 0.996237)
-bones/13/position = Vector3(0.0018554535, 0.00021904967, -2.3318624e-05)
-bones/15/position = Vector3(0.001368346, -0.0002610989, -0.0008667272)
-bones/19/rotation = Quaternion(-0.21518028, 0.06228493, -0.5889167, 0.77652764)
-bones/20/rotation = Quaternion(-0.049694713, 0.8316741, 0.03074594, 0.5521805)
-bones/21/rotation = Quaternion(0.37886226, 0.28131926, 0.2762043, 0.83727777)
-bones/22/position = Vector3(-0.001855438, -0.0002190491, 2.3319011e-05)
-bones/24/position = Vector3(-0.0013683101, 0.00026112064, 0.00086672406)
-bones/26/position = Vector3(0.0010249413, 2.9692717e-06, -0.0022887809)
-bones/26/rotation = Quaternion(0.045572486, -0.70563674, 0.706242, 0.03495976)
-bones/27/position = Vector3(0.005858415, 2.220446e-18, 3.6082247e-18)
-bones/27/rotation = Quaternion(0, 0, -0.045059975, 0.9989843)
-bones/28/position = Vector3(0.0051753446, 3.330669e-18, 2.9837242e-18)
-bones/29/position = Vector3(0.0046479213, 2.5794162e-11, 2.8449465e-18)
-bones/32/position = Vector3(0.0051753446, 2.220446e-18, 0)
-bones/33/position = Vector3(0.0046479213, 3.330669e-18, 0)
-bones/35/position = Vector3(0.0019021159, -0.0011497504, -0.0037815245)
-bones/35/rotation = Quaternion(0.12110399, 0.008848013, 0.9887331, 0.08753536)
-bones/39/rotation = Quaternion(-0.014321454, 0.9974153, 0.049073316, -0.050491363)
-bones/40/rotation = Quaternion(0.9953477, -0.011055938, 0.095709525, 0.00066123763)
-bones/41/rotation = Quaternion(0.029837726, -0.07132071, -0.021702385, 0.99677086)
-bones/44/rotation = Quaternion(0.00024500114, 0.12384611, 0.024326308, 0.9920032)
-bones/45/rotation = Quaternion(0.9986342, -0.009046117, 0.05145694, 0.00024816874)
-bones/46/rotation = Quaternion(-0.020922972, 0.046347305, 0.015104643, 0.998592)
-bones/49/position = Vector3(-0.004661922, 0.010273972, 0.005810315)
-bones/49/rotation = Quaternion(0.22722664, 0.91744006, -0.17050594, 0.2785669)
-bones/51/position = Vector3(-1.6653345e-18, -1.110223e-18, 0)
-bones/52/position = Vector3(0.009964881, -5.5511148e-18, -2.220446e-18)
-bones/53/position = Vector3(0.008668151, -1.2712053e-15, 0)
-bones/54/position = Vector3(0.0065154396, 1.4654943e-16, 2.220446e-18)
 
 [node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)

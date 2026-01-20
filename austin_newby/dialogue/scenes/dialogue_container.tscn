@@ -29,7 +29,7 @@ dragging_enabled = false
 [node name="VTextContainer" type="VBoxContainer" parent="TextImageHSeperator"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 8
+size_flags_vertical = 12
 
 [node name="NameMargin" type="MarginContainer" parent="TextImageHSeperator/VTextContainer"]
 layout_mode = 2
@@ -50,13 +50,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -60.0
-offset_top = 53.0
-offset_right = -60.0
-offset_bottom = 53.0
+offset_left = -53.0
+offset_top = 63.0
+offset_right = -53.0
+offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0.97, 0.7372, 0.82644004, 1)
+theme_override_colors/default_color = Color(0.97, 0.97, 0.97, 1)
 theme_override_fonts/normal_font = ExtResource("3_j3aq7")
 theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
@@ -67,8 +67,9 @@ vertical_alignment = 1
 [node name="TextRect" type="NinePatchRect" parent="TextImageHSeperator/VTextContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 texture = ExtResource("3_1docy")
-region_rect = Rect2(43.953857, 836.83594, 1926.2552, 572.6459)
+region_rect = Rect2(43.953857, 836.83594, 1926.2552, 572.33496)
 
 [node name="TextMargin" type="MarginContainer" parent="TextImageHSeperator/VTextContainer/TextRect"]
 layout_mode = 1
@@ -86,6 +87,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="UIDialogueBox" type="Control" parent="TextImageHSeperator/VTextContainer/TextRect/TextMargin"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 107.98)
 layout_mode = 2
 
 [node name="ImageMarginContainer" type="MarginContainer" parent="TextImageHSeperator"]

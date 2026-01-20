@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bm70618q6syf3"]
+[gd_scene load_steps=36 format=3 uid="uid://bm70618q6syf3"]
 
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="1_8ylh7"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_poq37"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="15_dbcvv"]
 [ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="16_tadat"]
 [ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="17_6uhty"]
+[ext_resource type="PackedScene" uid="uid://cpmbed4mvwiwk" path="res://shaders/Fog/Biome2_level1_Godray.tscn" id="20_tadat"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_smqis"]
 size = Vector3(15, 3, 15)
@@ -43,6 +44,7 @@ script = ExtResource("15_dbcvv")
 name = "Nova"
 img = ExtResource("16_tadat")
 text = "How did I fall into a cave??? Whatever."
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="Resource" id="Resource_02hul"]
@@ -50,6 +52,7 @@ script = ExtResource("15_dbcvv")
 name = "Nova"
 img = ExtResource("16_tadat")
 text = "Wait, who are you?"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="Resource" id="Resource_0rgdi"]
@@ -57,27 +60,15 @@ script = ExtResource("15_dbcvv")
 name = "Rene"
 img = ExtResource("17_6uhty")
 text = "Oh thank GOD, I've been stuck down here for a while and it's been terrifying!"
-metadata/_custom_type_script = "uid://ehvcmont8xvr"
-
-[sub_resource type="Resource" id="Resource_vy3tx"]
-script = ExtResource("15_dbcvv")
-name = "Rene"
-img = ExtResource("17_6uhty")
-text = "I was just trying to find the Arduous Star..."
-metadata/_custom_type_script = "uid://ehvcmont8xvr"
-
-[sub_resource type="Resource" id="Resource_ah10j"]
-script = ExtResource("15_dbcvv")
-name = "Nova"
-img = ExtResource("16_tadat")
-text = "Wait... You too?!! Let's travel together!"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="Resource" id="Resource_yvnfd"]
 script = ExtResource("15_dbcvv")
 name = "Rene"
 img = ExtResource("17_6uhty")
-text = "um ok. I'll hide behind you though"
+text = "I'll hide behind you"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1cga5"]
@@ -89,14 +80,14 @@ sky_horizon_color = Color(0.59996814, 0.48462427, 0.7608906, 1)
 ground_bottom_color = Color(0.17863777, 0.14902645, 0.28510144, 1)
 ground_horizon_color = Color(0.6767592, 0.58873963, 0.93670535, 1)
 
-[sub_resource type="Sky" id="Sky_b1jqb"]
+[sub_resource type="Sky" id="Sky_dbcvv"]
 sky_material = SubResource("ProceduralSkyMaterial_poq37")
 
 [sub_resource type="Environment" id="Environment_smqis"]
 background_mode = 2
 background_color = Color(1, 1, 1, 1)
 background_energy_multiplier = 1.4
-sky = SubResource("Sky_b1jqb")
+sky = SubResource("Sky_dbcvv")
 ambient_light_source = 2
 ambient_light_color = Color(0.69779664, 0.45408309, 0.652757, 1)
 ambient_light_energy = 2.23
@@ -133,16 +124,16 @@ offset_left = -266.0
 offset_bottom = 231.0
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.06551164, 0.52229476, -0.5065154, 0.6829045)
-bones/15/rotation = Quaternion(-0.1680681, 0.5646139, 0.23370518, 0.7735284)
-bones/16/rotation = Quaternion(-0.5049396, -0.4735605, -0.25926733, 0.6734664)
-bones/21/rotation = Quaternion(-0.14520974, 0.3759086, -0.46204665, 0.79001254)
-bones/22/rotation = Quaternion(-0.073315345, 0.37446374, 0.18480493, 0.90567595)
-bones/23/rotation = Quaternion(0.14238162, 0.10845883, -0.08120935, 0.9804944)
-bones/38/rotation = Quaternion(-0.34994593, 0.7064595, 0.061698895, 0.61208344)
+bones/14/rotation = Quaternion(-0.06623649, 0.52279574, -0.50633335, 0.6825862)
+bones/15/rotation = Quaternion(-0.1639061, 0.55813676, 0.2325367, 0.7794516)
+bones/16/rotation = Quaternion(-0.5079834, -0.46890616, -0.25258917, 0.6769628)
+bones/21/rotation = Quaternion(-0.1494507, 0.3862766, -0.45707253, 0.7871085)
+bones/22/rotation = Quaternion(-0.069479354, 0.36404222, 0.18149222, 0.9108823)
+bones/23/rotation = Quaternion(0.14512171, 0.10969502, -0.075199515, 0.9804345)
+bones/38/rotation = Quaternion(-0.34873548, 0.7070551, 0.062748425, 0.61197996)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0047321687, -0.5699846, 0.82164174, -0.4202935, 0.7466882, 0.5155677, -0.9073759, -0.34289092, -0.24309433, 0.00602735, 0.007211769, -0.013201881)
+transform = Transform3D(-0.006676988, -0.569965, 0.8216417, -0.4177294, 0.7481231, 0.5155713, -0.9085468, -0.33978143, -0.24308634, 0.005996968, 0.0072518783, -0.0132200625)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -203,48 +194,6 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [node name="Label" parent="PlayerManager/Rene" index="8"]
 offset_left = -266.0
 offset_bottom = 231.0
-
-[node name="Rene\'s Circle" parent="PlayerManager/Rene" index="10" node_paths=PackedStringArray("particles")]
-particles = [NodePath("sparks"), NodePath("sparks")]
-
-[node name="Skeleton3D" parent="PlayerManager/Rene/rene" index="0"]
-bones/2/position = Vector3(-0.00048374574, 0.0153010115, -0.0011631509)
-bones/2/rotation = Quaternion(0.018430147, -0.018376587, 0.7058377, 0.7078953)
-bones/5/position = Vector3(0.0038610352, -3.1048305e-05, -0.00018156038)
-bones/5/rotation = Quaternion(0.0002769403, -0.12937072, -0.01278383, 0.99151385)
-bones/6/rotation = Quaternion(-0.045169156, 0.04625249, -0.68640584, 0.72433937)
-bones/10/rotation = Quaternion(-0.12016356, 0.45460087, -0.5424176, 0.696191)
-bones/11/rotation = Quaternion(-0.029113108, 0.5583652, 0.045110933, 0.8278561)
-bones/12/rotation = Quaternion(-0.07583242, 0.025066635, -0.033660546, 0.996237)
-bones/13/position = Vector3(0.0018554535, 0.00021904967, -2.3318624e-05)
-bones/15/position = Vector3(0.001368346, -0.0002610989, -0.0008667272)
-bones/19/rotation = Quaternion(-0.21518028, 0.06228493, -0.5889167, 0.77652764)
-bones/20/rotation = Quaternion(-0.049694713, 0.8316741, 0.03074594, 0.5521805)
-bones/21/rotation = Quaternion(0.37886226, 0.28131926, 0.2762043, 0.83727777)
-bones/22/position = Vector3(-0.001855438, -0.0002190491, 2.3319011e-05)
-bones/24/position = Vector3(-0.0013683101, 0.00026112064, 0.00086672406)
-bones/26/position = Vector3(0.0010249413, 2.9692717e-06, -0.0022887809)
-bones/26/rotation = Quaternion(0.045572486, -0.70563674, 0.706242, 0.03495976)
-bones/27/position = Vector3(0.005858415, 2.220446e-18, 3.6082247e-18)
-bones/27/rotation = Quaternion(0, 0, -0.045059975, 0.9989843)
-bones/28/position = Vector3(0.0051753446, 3.330669e-18, 2.9837242e-18)
-bones/29/position = Vector3(0.0046479213, 2.5794162e-11, 2.8449465e-18)
-bones/32/position = Vector3(0.0051753446, 2.220446e-18, 0)
-bones/33/position = Vector3(0.0046479213, 3.330669e-18, 0)
-bones/35/position = Vector3(0.0019021159, -0.0011497504, -0.0037815245)
-bones/35/rotation = Quaternion(0.12110399, 0.008848013, 0.9887331, 0.08753536)
-bones/39/rotation = Quaternion(-0.014321454, 0.9974153, 0.049073316, -0.050491363)
-bones/40/rotation = Quaternion(0.9953477, -0.011055938, 0.095709525, 0.00066123763)
-bones/41/rotation = Quaternion(0.029837726, -0.07132071, -0.021702385, 0.99677086)
-bones/44/rotation = Quaternion(0.00024500114, 0.12384611, 0.024326308, 0.9920032)
-bones/45/rotation = Quaternion(0.9986342, -0.009046117, 0.05145694, 0.00024816874)
-bones/46/rotation = Quaternion(-0.020922972, 0.046347305, 0.015104643, 0.998592)
-bones/49/position = Vector3(-0.004661922, 0.010273972, 0.005810315)
-bones/49/rotation = Quaternion(0.22722664, 0.91744006, -0.17050594, 0.2785669)
-bones/51/position = Vector3(-1.6653345e-18, -1.110223e-18, 0)
-bones/52/position = Vector3(0.009964881, -5.5511148e-18, -2.220446e-18)
-bones/53/position = Vector3(0.008668151, -1.2712053e-15, 0)
-bones/54/position = Vector3(0.0065154396, 1.4654943e-16, 2.220446e-18)
 
 [node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -341,11 +290,51 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="VBoxContainer" parent="PlayerManager/Pause Menu" index="1"]
+[node name="nova_control" parent="PlayerManager/Pause Menu" index="0"]
+visible = true
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/nova_control" index="0"]
+script = null
+
+[node name="Nova_Controls" parent="PlayerManager/Pause Menu/nova_control" index="1"]
+script = null
+
+[node name="Nova_Portrait" parent="PlayerManager/Pause Menu/nova_control" index="2"]
+script = null
+
+[node name="Nova_Name" parent="PlayerManager/Pause Menu/nova_control" index="3"]
+script = null
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/rene_control" index="0"]
+script = null
+
+[node name="rene_controls" parent="PlayerManager/Pause Menu/rene_control" index="1"]
+script = null
+
+[node name="rene_portrait" parent="PlayerManager/Pause Menu/rene_control" index="2"]
+script = null
+
+[node name="rene_name" parent="PlayerManager/Pause Menu/rene_control" index="3"]
+script = null
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/dawn_control" index="0"]
+script = null
+
+[node name="dawn_controls" parent="PlayerManager/Pause Menu/dawn_control" index="1"]
+script = null
+
+[node name="dawn_portrait" parent="PlayerManager/Pause Menu/dawn_control" index="2"]
+script = null
+
+[node name="dawn_name" parent="PlayerManager/Pause Menu/dawn_control" index="3"]
+script = null
+
+[node name="VBoxContainer" parent="PlayerManager/Pause Menu" index="3"]
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
+script = null
 
 [node name="Level1Control" parent="PlayerManager/SettingScene" index="0"]
 offset_left = 0.0
@@ -594,7 +583,7 @@ shape = SubResource("BoxShape3D_5v5at")
 
 [node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
 script = ExtResource("14_lurfs")
-dialogue = Array[ExtResource("15_dbcvv")]([SubResource("Resource_72i70"), SubResource("Resource_02hul"), SubResource("Resource_0rgdi"), SubResource("Resource_vy3tx"), SubResource("Resource_ah10j"), SubResource("Resource_yvnfd")])
+dialogue = Array[ExtResource("15_dbcvv")]([SubResource("Resource_72i70"), SubResource("Resource_02hul"), SubResource("Resource_0rgdi"), SubResource("Resource_yvnfd")])
 metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -673,6 +662,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.047653, 0.22143745, 14.84
 light_color = Color(0.964426, 0.7349718, 0.8231109, 1)
 light_energy = 1.5
 
+[node name="OmniLight3D6" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94137955, 3.9416673, 15.444721)
+light_color = Color(0.5477167, 0.86433357, 0.9554605, 1)
+light_energy = 17.22
+light_size = 4.98
+omni_range = 9.89
+
 [node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.997726, 0.94679046, 11.00068)
 light_color = Color(0.964426, 0.7349718, 0.8231109, 1)
@@ -693,6 +689,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0126858, 5.4096355, -30.91
 light_color = Color(0.964426, 0.7349718, 0.8231109, 1)
 light_energy = 1.5
 light_size = 5.25
+
+[node name="Node3D" parent="WorldEnvironment" instance=ExtResource("20_tadat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4030733, 3.8334064, 45.921333)
 
 [connection signal="ended" from="WaveManager/Wave3" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
