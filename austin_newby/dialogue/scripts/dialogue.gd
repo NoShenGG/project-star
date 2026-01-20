@@ -68,10 +68,14 @@ func _ready():
 func start_dialogue():
 	print_rich("[color=turquoise]Starting Dialogue")
 	next_char.start(typing_speed) #begins typewrtier
+	for player in GameManager.player_manager.players:
+		player.process_mode = Node.PROCESS_MODE_DISABLED
 
 func stop_dialogue():
 	print_rich("[color=turquoise]Dialogue complete.")
 	get_tree().create_tween().tween_property(dialogue_container, "modulate", Color.TRANSPARENT, 0.2)
+	for player in GameManager.player_manager.players:
+		player.process_mode = Node.PROCESS_MODE_INHERIT
 	queue_free()
 
 func _unhandled_key_input(event: InputEvent) -> void:
