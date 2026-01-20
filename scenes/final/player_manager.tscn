@@ -80,16 +80,16 @@ floor_snap_length = 5.0
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.068249434, 0.5228881, -0.5068227, 0.6819536)
-bones/15/rotation = Quaternion(-0.16794667, 0.56442785, 0.23367265, 0.77370036)
-bones/16/rotation = Quaternion(-0.50529414, -0.4777375, -0.25561562, 0.67164385)
-bones/21/rotation = Quaternion(-0.13307013, 0.3721334, -0.4748605, 0.7863311)
-bones/22/rotation = Quaternion(-0.071013436, 0.36822706, 0.18282539, 0.9088129)
-bones/23/rotation = Quaternion(0.1232133, 0.11654956, -0.08769451, 0.98160297)
-bones/38/rotation = Quaternion(-0.35124522, 0.7058173, 0.06057121, 0.6121927)
+bones/14/rotation = Quaternion(-0.0650123, 0.5219126, -0.50668687, 0.6831173)
+bones/15/rotation = Quaternion(-0.17049593, 0.5683423, 0.23435858, 0.77006114)
+bones/16/rotation = Quaternion(-0.50319755, -0.47709852, -0.26250738, 0.6710135)
+bones/21/rotation = Quaternion(-0.14024559, 0.36904004, -0.467532, 0.79092)
+bones/22/rotation = Quaternion(-0.07513197, 0.37930638, 0.18633015, 0.903196)
+bones/23/rotation = Quaternion(0.1369958, 0.10937438, -0.086109646, 0.9807418)
+bones/38/rotation = Quaternion(-0.35069263, 0.7060908, 0.06105099, 0.61214656)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0026424013, -0.5699982, 0.8216417, -0.42304257, 0.74513674, 0.51556396, -0.9061059, -0.34622708, -0.24310255, 0.0060599972, 0.007168766, -0.0131821595)
+transform = Transform3D(-0.0035313554, -0.5699934, 0.82164174, -0.42187372, 0.74579793, 0.5155656, -0.90664774, -0.3448084, -0.24309897, 0.00604611, 0.0071870503, -0.013190575)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -420,6 +420,7 @@ script = ExtResource("14_fop7g")
 ui = NodePath("../3D Special UI")
 
 [node name="Pause Menu" type="Panel" parent="." node_paths=PackedStringArray("nova_menu", "rene_menu", "dawn_menu", "focused_control")]
+visible = false
 z_index = 15
 anchors_preset = 15
 anchor_right = 1.0
@@ -439,6 +440,7 @@ focused_control = NodePath("VBoxContainer/Resume Button")
 close_animation_flags = 1
 
 [node name="nova_control" type="Control" parent="Pause Menu"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
