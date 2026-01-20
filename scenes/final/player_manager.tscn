@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bq7t53o2llxr4" path="res://scenes/final/rene/Rene.tscn" id="3_q78nk"]
 [ext_resource type="Script" uid="uid://djfekv55fum3x" path="res://scripts/pitch_pivot.gd" id="4_mbt4c"]
 [ext_resource type="PackedScene" uid="uid://b8wp31vm3qtbx" path="res://scenes/dev/raymond_b/game_ui.tscn" id="7_q78nk"]
-[ext_resource type="Texture2D" uid="uid://byhsbr64tgbkf" path="res://vfx/Kenny Particle Pack/magic_03.png" id="8_3wvx5"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="8_elt32"]
+[ext_resource type="Texture2D" uid="uid://byhsbr64tgbkf" path="res://VFX/Kenny Particle Pack/magic_03.png" id="8_3wvx5"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="8_elt32"]
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="9_0dwuh"]
 [ext_resource type="Script" uid="uid://43igx2jhor0s" path="res://scripts/utility/death_menu.gd" id="9_41j18"]
 [ext_resource type="Script" uid="uid://cgnkwyku38tw7" path="res://scripts/utility/per_player_ui.gd" id="9_rkpjn"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="13_7o27n"]
 [ext_resource type="Texture2D" uid="uid://d0np8pel0cm26" path="res://art_assets/Ui/FinalPortraits/dawnCLEAR.png" id="14_72sbn"]
 [ext_resource type="Script" uid="uid://b23m0ymm5td5r" path="res://scripts/utility/3d_2d_ui.gd" id="14_fop7g"]
-[ext_resource type="Script" path="res://scripts/utility/menu_sfx.gd" id="15_27jnq"]
+[ext_resource type="Script" uid="uid://diaap70c4mvfb" path="res://scripts/utility/menu_sfx.gd" id="15_27jnq"]
 [ext_resource type="Script" uid="uid://bv28fxbtlv4es" path="res://scripts/utility/pause_menu.gd" id="15_rkpjn"]
 [ext_resource type="PackedScene" uid="uid://hs6isup6bhpk" path="res://scenes/dev/ZXue/refactor_SettingMenu/SettingMenu.tscn" id="16_d11v8"]
 [ext_resource type="Texture2D" uid="uid://pabqlrbnoq4a" path="res://art_assets/Ui/ControlPanels/Nova/Resume Button.png" id="16_w3iyl"]
@@ -79,16 +79,16 @@ floor_snap_length = 5.0
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.0675375, 0.5234276, -0.5062808, 0.6820132)
-bones/15/rotation = Quaternion(-0.16160925, 0.5545097, 0.23186247, 0.782714)
-bones/16/rotation = Quaternion(-0.5096786, -0.4670948, -0.24840653, 0.6784868)
-bones/21/rotation = Quaternion(-0.1495513, 0.39120814, -0.4566251, 0.78491026)
-bones/22/rotation = Quaternion(-0.06704327, 0.35725725, 0.17931104, 0.9141773)
-bones/23/rotation = Quaternion(0.14331834, 0.11182753, -0.073107645, 0.98061705)
-bones/38/rotation = Quaternion(-0.34853277, 0.70715445, 0.062924035, 0.6119624)
+bones/14/rotation = Quaternion(-0.07619012, 0.52674747, -0.50686044, 0.67810374)
+bones/15/rotation = Quaternion(-0.15343364, 0.54125744, 0.22927336, 0.7943125)
+bones/16/rotation = Quaternion(-0.5162612, -0.4674906, -0.22727852, 0.68064046)
+bones/21/rotation = Quaternion(-0.12780353, 0.40296844, -0.47588414, 0.7712439)
+bones/22/rotation = Quaternion(-0.054523487, 0.31987613, 0.16695513, 0.93103844)
+bones/23/rotation = Quaternion(0.104434386, 0.1344794, -0.07557807, 0.98249525)
+bones/38/rotation = Quaternion(-0.35057834, 0.7061474, 0.06115021, 0.61213684)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0070024375, -0.56996113, 0.82164174, -0.41729987, 0.7483624, 0.51557195, -0.9087418, -0.33926073, -0.24308515, 0.005991884, 0.007258597, -0.013223089)
+transform = Transform3D(-0.0037152981, -0.5699921, 0.82164156, -0.42163184, 0.7459345, 0.5155658, -0.9067593, -0.3445148, -0.24309826, 0.0060432362, 0.007190834, -0.013192307)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -418,7 +418,7 @@ visible = false
 script = ExtResource("14_fop7g")
 ui = NodePath("../3D Special UI")
 
-[node name="Pause Menu" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
+[node name="Pause Menu" type="Panel" parent="." node_paths=PackedStringArray("nova_menu", "rene_menu", "dawn_menu", "focused_control")]
 visible = false
 z_index = 15
 anchors_preset = 15
@@ -432,10 +432,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_27jnq")
 script = ExtResource("15_rkpjn")
+nova_menu = NodePath("nova_control")
+rene_menu = NodePath("rene_control")
+dawn_menu = NodePath("dawn_control")
 focused_control = NodePath("VBoxContainer/Resume Button")
 close_animation_flags = 1
 
 [node name="nova_control" type="Control" parent="Pause Menu"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -622,6 +626,10 @@ event_guid = "{4a1bcb6d-acb5-431a-8121-9f9f6b8a0b3b}"
 event_name = "event:/UI/Menu Closed"
 event_guid = "{1f209850-e79d-46a2-a2d3-c3a83a96f0fe}"
 
+[node name="Background Swapped SFX" type="FmodEventEmitter3D" parent="Pause Menu/Menu SFX"]
+event_name = "event:/Player/Swap-In"
+event_guid = "{20443e04-216b-4ea2-b846-9281fbbc9d60}"
+
 [node name="SettingScene" parent="." node_paths=PackedStringArray("previous_page") instance=ExtResource("16_d11v8")]
 visible = false
 previous_page = NodePath("../Pause Menu")
@@ -672,6 +680,7 @@ event_guid = "{05b0eb79-dcf6-488e-a088-a245cceeda31}"
 [connection signal="special_available" from="Dawn" to="3D Special UI/3D Dawn Special" method="bounce"]
 [connection signal="entered" from="Dawn/StateMachine/HitStun" to="CameraTarget/Camera3D/Shake" method="shake"]
 [connection signal="pressed" from="Death Menu/Reload Button" to="Death Menu" method="restart_game"]
+[connection signal="menu_swapped" from="Pause Menu" to="Pause Menu/Menu SFX/Background Swapped SFX" method="play"]
 [connection signal="pressed" from="Pause Menu/VBoxContainer/Resume Button" to="Pause Menu" method="close"]
 [connection signal="pressed" from="Pause Menu/VBoxContainer/Settings Button" to="SettingScene/Level1Control" method="open"]
 [connection signal="pressed" from="Pause Menu/VBoxContainer/Reload Button" to="Pause Menu" method="restart_game"]

@@ -59,7 +59,14 @@ func _ready() -> void:
 		c.top_level = true
 		c.global_position = global_position
 		c.global_rotation = global_rotation
+		
 		players.append(c)
+		if (stage == 0 and players.size() > 1):
+			players.resize(1)
+		elif (stage == 1 and players.size() > 2):
+			players.resize(2)
+		elif (stage == 2 and players.size() > 3):
+			players.resize(3)
 
 
 func _process(_delta: float) -> void:
