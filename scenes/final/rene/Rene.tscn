@@ -291,7 +291,7 @@ script = ExtResource("10_nhxyw")
 animation = NodePath("../../rene/charged attack")
 speed_scale_factor = 0.1
 heal = 10.0
-damage = 5.0
+damage = 8.0
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
 event_name = "event:/Player/Uniques/Charged Attack/Rene Strong Heal"
@@ -313,6 +313,7 @@ charged = NodePath("ChargedSpecial")
 script = ExtResource("12_27ayv")
 animation = NodePath("../../../rene/Special")
 speed_scale_factor = 0.5
+heal_percent = 0.3
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/RegularSpecial"]
 event_name = "event:/Player/Uniques/Charged Attack/Rene Normal Heal"
@@ -501,8 +502,7 @@ script = ExtResource("25_66khj")
 fade_in = SubResource("Curve_ovtx8")
 fade_out = SubResource("Curve_r8iwf")
 
-[node name="Rene\'s Circle" parent="." node_paths=PackedStringArray("particles") instance=ExtResource("23_um3o4")]
-particles = [NodePath("sparks")]
+[node name="Rene\'s Circle" parent="." instance=ExtResource("23_um3o4")]
 
 [node name="rene" parent="." instance=ExtResource("26_27ayv")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
