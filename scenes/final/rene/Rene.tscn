@@ -218,6 +218,7 @@ combo_reset_time = null
 max_special_charges = 2
 special_cd = 10.0
 input_smoothing_speed = null
+dash_distance = 7.0
 _base_speed = -0.5
 faction = 0
 _hp = null
@@ -365,6 +366,8 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Vision"]
 shape = SubResource("CylinderShape3D_qbxrk")
+debug_color = Color(0, 0.5950001, 0.7, 0)
+debug_fill = false
 
 [node name="Construct" type="Area3D" parent="Hitboxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8994203, 1, 0)
@@ -498,7 +501,8 @@ script = ExtResource("25_66khj")
 fade_in = SubResource("Curve_ovtx8")
 fade_out = SubResource("Curve_r8iwf")
 
-[node name="Rene\'s Circle" parent="." instance=ExtResource("23_um3o4")]
+[node name="Rene\'s Circle" parent="." node_paths=PackedStringArray("particles") instance=ExtResource("23_um3o4")]
+particles = [NodePath("sparks")]
 
 [node name="rene" parent="." instance=ExtResource("26_27ayv")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
