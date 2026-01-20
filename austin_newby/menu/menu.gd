@@ -55,6 +55,8 @@ func _ready() -> void:
 		close()
 		hide()
 	
+	var magnitude = scale.x if scale.x > scale.y else scale.y
+	scale_magnitude = magnitude
 	#menu_hidden.emit()
 
 func open() -> void:
