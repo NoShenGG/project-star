@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://brmdsiu0kp6ca"]
+[gd_scene load_steps=43 format=3 uid="uid://brmdsiu0kp6ca"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_lyudl"]
 [ext_resource type="PackedScene" uid="uid://brw0p1eirto83" path="res://scenes/final/Nova.tscn" id="2_dvwxt"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://cgnkwyku38tw7" path="res://scripts/utility/per_player_ui.gd" id="9_rkpjn"]
 [ext_resource type="Script" uid="uid://byn2jbtug26j3" path="res://scripts/utility/game_menu.gd" id="10_d11v8"]
 [ext_resource type="Script" uid="uid://baxdofgbk1vp0" path="res://scripts/utility/UIBounce.gd" id="11_d11v8"]
+[ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="13_7o27n"]
+[ext_resource type="Texture2D" uid="uid://d0np8pel0cm26" path="res://art_assets/Ui/FinalPortraits/dawnCLEAR.png" id="14_72sbn"]
 [ext_resource type="Script" uid="uid://b23m0ymm5td5r" path="res://scripts/utility/3d_2d_ui.gd" id="14_fop7g"]
 [ext_resource type="Script" uid="uid://diaap70c4mvfb" path="res://scripts/utility/menu_sfx.gd" id="15_27jnq"]
 [ext_resource type="Script" uid="uid://bv28fxbtlv4es" path="res://scripts/utility/pause_menu.gd" id="15_rkpjn"]
@@ -25,6 +27,12 @@
 [ext_resource type="Texture2D" uid="uid://oov1kn7x7w44" path="res://art_assets/Ui/ControlPanels/Nova/Main Menu Button.png" id="18_3wvx5"]
 [ext_resource type="Texture2D" uid="uid://bbvfl0w3ies1t" path="res://art_assets/Ui/ControlPanels/Nova/NOVA.png" id="18_elt32"]
 [ext_resource type="Texture2D" uid="uid://d308avrcwiclj" path="res://art_assets/Ui/ControlPanels/Nova/Nova Controls Panel.png" id="19_elt32"]
+[ext_resource type="Texture2D" uid="uid://c46hpmt4fb7ed" path="res://art_assets/Ui/ControlPanels/Rene/Rene Controls Panel.png" id="23_d01lr"]
+[ext_resource type="Texture2D" uid="uid://dgca7rw8ve58r" path="res://art_assets/Ui/ControlPanels/Rene/Rene Corner Portrait.png" id="24_3h4bm"]
+[ext_resource type="Texture2D" uid="uid://b8a50abxuvdck" path="res://art_assets/Ui/ControlPanels/Rene/RENE.png" id="25_w6fg2"]
+[ext_resource type="Texture2D" uid="uid://147m6fkwtvf3" path="res://art_assets/Ui/ControlPanels/Dawn/Dawn Full Control Panel.png" id="26_lwj1m"]
+[ext_resource type="Texture2D" uid="uid://bklpvubfdogqr" path="res://art_assets/Ui/ControlPanels/Dawn/Dawn Corner Portrait.png" id="27_f620v"]
+[ext_resource type="Texture2D" uid="uid://c66y8x2ip4vdm" path="res://art_assets/Ui/ControlPanels/Dawn/DAWN.png" id="28_p704c"]
 
 [sub_resource type="Curve" id="Curve_q54j5"]
 _limits = [0.0, 2.0, 0.0, 1.0]
@@ -37,9 +45,23 @@ point_count = 3
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27jnq"]
 
+[sub_resource type="Gradient" id="Gradient_djt8t"]
+offsets = PackedFloat32Array(0, 0.62, 1)
+colors = PackedColorArray(0.055000007, 0.3368334, 0.5, 0.17254902, 0.71, 0.31429332, 0.17040001, 0.5921569, 0.48235294, 0.14901961, 0.06666667, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ko4b2"]
+gradient = SubResource("Gradient_djt8t")
+
+[sub_resource type="Gradient" id="Gradient_hakay"]
+offsets = PackedFloat32Array(0, 0.6333333, 1)
+colors = PackedColorArray(0, 0, 0, 0.16078432, 0.2368, 0.48, 0.09599999, 0.45882353, 0.07349999, 0.2, 0.062000003, 0.5137255)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a2sxn"]
+gradient = SubResource("Gradient_hakay")
+
 [sub_resource type="Gradient" id="Gradient_27jnq"]
-offsets = PackedFloat32Array(0, 0.66, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0.7055968, 0.3133042, 0.17184411, 0.67, 0.48000664, 0.15170373, 0.07016479, 0.88000005)
+offsets = PackedFloat32Array(0, 0.68, 1)
+colors = PackedColorArray(0.04800001, 0.2958001, 0.3, 0.3019608, 0.72, 0.3744, 0.3801599, 0.7058824, 0.1288, 0.5528135, 0.56, 0.5529412)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ripws"]
 gradient = SubResource("Gradient_27jnq")
@@ -47,6 +69,7 @@ gradient = SubResource("Gradient_27jnq")
 [node name="PlayerManager" type="Node3D"]
 script = ExtResource("1_lyudl")
 saving_grace_delay = 2.0
+stage = 2
 
 [node name="Nova" parent="." instance=ExtResource("2_dvwxt")]
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, 0, 0, 0)
@@ -57,16 +80,16 @@ floor_snap_length = 5.0
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.07139803, 0.52409595, -0.5068715, 0.6806666)
-bones/15/rotation = Quaternion(-0.16367385, 0.5577543, 0.23246004, 0.77979696)
-bones/16/rotation = Quaternion(-0.5085974, -0.4756798, -0.2465387, 0.6740002)
-bones/21/rotation = Quaternion(-0.12937167, 0.3803081, -0.47778782, 0.7812474)
-bones/22/rotation = Quaternion(-0.065692216, 0.3533032, 0.17801628, 0.9160631)
-bones/23/rotation = Quaternion(0.11379625, 0.12316889, -0.085459486, 0.98212856)
-bones/38/rotation = Quaternion(-0.35155082, 0.7056658, 0.06030579, 0.6122181)
+bones/14/rotation = Quaternion(-0.0650123, 0.5219126, -0.50668687, 0.6831173)
+bones/15/rotation = Quaternion(-0.17049593, 0.5683423, 0.23435858, 0.77006114)
+bones/16/rotation = Quaternion(-0.50319755, -0.47709852, -0.26250738, 0.6710135)
+bones/21/rotation = Quaternion(-0.14024559, 0.36904004, -0.467532, 0.79092)
+bones/22/rotation = Quaternion(-0.07513197, 0.37930638, 0.18633015, 0.903196)
+bones/23/rotation = Quaternion(0.1369958, 0.10937438, -0.086109646, 0.9807418)
+bones/38/rotation = Quaternion(-0.35069263, 0.7060908, 0.06105099, 0.61214656)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0021506585, -0.5700003, 0.8216417, -0.42368868, 0.7447701, 0.515563, -0.9058052, -0.3470115, -0.24310446, 0.0060676797, 0.0071586594, -0.01317749)
+transform = Transform3D(-0.0035313554, -0.5699934, 0.82164174, -0.42187372, 0.74579793, 0.5155656, -0.90664774, -0.3448084, -0.24309897, 0.00604611, 0.0071870503, -0.013190575)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -132,7 +155,6 @@ attack_charge_time = 0.5
 max_attack_charges = 1
 combo_reset_time = 0.6
 input_smoothing_speed = 8.0
-dash_cd = 1.0
 _base_speed = 5.0
 _hp = 10.0
 _max_hp = 10.0
@@ -145,54 +167,8 @@ passive_death_time = 2.5
 [node name="HitStun" parent="Rene/StateMachine" index="11"]
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
-[node name="Skeleton3D" parent="Rene/rene" index="0"]
-bones/2/position = Vector3(-0.0005203143, 0.014964291, -0.0011678112)
-bones/2/rotation = Quaternion(0.05011151, 0.0043822257, 0.7011566, 0.7112307)
-bones/3/rotation = Quaternion(0, 0, 0.0068312488, 0.99997663)
-bones/5/position = Vector3(0.0038610352, -3.104834e-05, -0.00018156046)
-bones/5/rotation = Quaternion(-0.02527666, -0.16084868, 0.00066367845, 0.9866551)
-bones/6/position = Vector3(0.002076503, -1.4204944e-05, 0.001014148)
-bones/6/rotation = Quaternion(-0.03346917, 0.0342719, -0.6870552, 0.72502446)
-bones/7/rotation = Quaternion(0.7057198, 0.70248187, -0.067438774, 0.06269555)
-bones/10/rotation = Quaternion(-0.07407428, 0.443955, -0.5328873, 0.716553)
-bones/11/rotation = Quaternion(-0.031378143, 0.59293187, 0.044063475, 0.80343366)
-bones/12/rotation = Quaternion(-0.049432214, -0.07402011, -0.06356117, 0.99400073)
-bones/13/position = Vector3(0.0018554534, 0.00021904969, -2.3318698e-05)
-bones/15/position = Vector3(0.0013683459, -0.0002610989, -0.00086672726)
-bones/19/rotation = Quaternion(-0.077695705, 0.07929648, -0.6510415, 0.75087976)
-bones/20/rotation = Quaternion(-0.048384864, 0.81694615, 0.032035597, 0.5737871)
-bones/21/rotation = Quaternion(0.4274869, 0.16004647, 0.1633658, 0.8746152)
-bones/22/position = Vector3(-0.001855438, -0.0002190492, 2.331884e-05)
-bones/24/position = Vector3(-0.0013683101, 0.00026112056, 0.0008667239)
-bones/26/position = Vector3(0.0010249413, 2.9692621e-06, -0.0022887809)
-bones/26/rotation = Quaternion(0.033271033, -0.691612, 0.7211397, 0.022878462)
-bones/27/position = Vector3(0.005858415, -1.2389212e-12, 1.3877787e-18)
-bones/27/rotation = Quaternion(0, 0, -0.0472673, 0.9988823)
-bones/28/position = Vector3(0.0051753446, -1.110223e-18, 9.714452e-19)
-bones/29/position = Vector3(0.0046479213, 2.5794162e-11, 9.714452e-19)
-bones/31/position = Vector3(0.0019749494, -0.00078576047, 0.004232531)
-bones/32/position = Vector3(0.0051753446, 2.220446e-18, -1.110223e-18)
-bones/33/position = Vector3(0.0046479213, 2.220446e-18, 0)
-bones/35/position = Vector3(0.0019021163, -0.0011497505, -0.0037815273)
-bones/35/rotation = Quaternion(0.16465576, 0.0049731513, 0.9824194, 0.08784072)
-bones/36/position = Vector3(-0.005175306, -1.1119962e-09, -1.8150454e-08)
-bones/36/rotation = Quaternion(-0.33545947, -0.007531031, 0.16333342, 0.92775667)
-bones/37/position = Vector3(-0.0046478976, 3.1681417e-09, -4.5807864e-09)
-bones/37/rotation = Quaternion(0, 0, 0.011081111, 0.9999386)
-bones/39/rotation = Quaternion(-0.04316583, 0.9843434, 0.047048185, -0.1642902)
-bones/40/rotation = Quaternion(0.97830206, -0.01586422, 0.20656022, 0.0025226853)
-bones/41/rotation = Quaternion(0.06371504, -0.142788, -0.03752184, 0.9869874)
-bones/44/rotation = Quaternion(-0.027978135, 0.24861151, 0.020066638, 0.9679912)
-bones/45/rotation = Quaternion(0.9182793, -0.02292057, 0.39517635, 0.008570511)
-bones/46/rotation = Quaternion(0.013816073, -0.14898758, -0.011773926, 0.9886725)
-bones/49/position = Vector3(-0.0055159354, 0.010202143, 0.0048282756)
-bones/49/rotation = Quaternion(0.28277603, 0.9073974, -0.12096943, 0.286416)
-bones/51/position = Vector3(-1.110223e-18, 0, 0)
-bones/52/position = Vector3(0.009964881, -6.661338e-18, 0)
-bones/53/position = Vector3(0.008668151, -1.2656542e-15, 2.220446e-18)
-bones/53/rotation = Quaternion(0, 0, 0.0016023001, 0.9999987)
-bones/54/position = Vector3(0.0065154396, 1.4432899e-16, -2.220446e-18)
-bones/54/rotation = Quaternion(0.9999707, 0.007653769, 4.6865825e-19, 6.123054e-17)
+[node name="Rene\'s Circle" parent="Rene" index="10" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
 
 [node name="Idle" parent="Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -372,11 +348,24 @@ SWITCH_ANIMATION_EASE_CURVE = SubResource("Curve_wmnvy")
 [node name="Nova" parent="Game Menu/GameUi/MarginContainer/Offset" index="1" node_paths=PackedStringArray("special")]
 special = [NodePath("Special"), NodePath("../../../../../3D Special UI/3D Nova Special")]
 
+[node name="nova_icon" parent="Game Menu/GameUi/MarginContainer/Offset/Nova/IconMask" index="0"]
+offset_left = 862.235
+offset_top = 1768.304
+offset_right = 1510.236
+offset_bottom = 2324.3052
+scale = Vector2(0.535, 0.535)
+texture = ExtResource("13_7o27n")
+expand_mode = 3
+stretch_mode = 5
+
 [node name="Rene" parent="Game Menu/GameUi/MarginContainer/Offset" index="2" node_paths=PackedStringArray("special")]
 special = [NodePath("Special"), NodePath("../../../../../3D Special UI/3D Rene Special")]
 
 [node name="Dawn" parent="Game Menu/GameUi/MarginContainer/Offset" index="3" node_paths=PackedStringArray("special")]
 special = [NodePath("../Rene/Special"), NodePath("../../../../../3D Special UI/3D Dawn Special")]
+
+[node name="dawn_icon" parent="Game Menu/GameUi/MarginContainer/Offset/Dawn/IconMask" index="0"]
+texture = ExtResource("14_72sbn")
 
 [node name="Death Menu" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
 visible = false
@@ -430,7 +419,7 @@ visible = false
 script = ExtResource("14_fop7g")
 ui = NodePath("../3D Special UI")
 
-[node name="Pause Menu" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
+[node name="Pause Menu" type="Panel" parent="." node_paths=PackedStringArray("nova_menu", "rene_menu", "dawn_menu", "focused_control")]
 visible = false
 z_index = 15
 anchors_preset = 15
@@ -444,10 +433,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_27jnq")
 script = ExtResource("15_rkpjn")
+nova_menu = NodePath("nova_control")
+rene_menu = NodePath("rene_control")
+dawn_menu = NodePath("dawn_control")
 focused_control = NodePath("VBoxContainer/Resume Button")
 close_animation_flags = 1
 
 [node name="nova_control" type="Control" parent="Pause Menu"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -460,7 +453,11 @@ offset_right = 893.875
 offset_bottom = 39.009987
 rotation = 1.5707964
 scale = Vector2(8.76, 8.76)
-texture = SubResource("GradientTexture2D_ripws")
+texture = SubResource("GradientTexture2D_ko4b2")
+script = ExtResource("9_0dwuh")
+open_animation_flags = 5
+close_time = 0.4
+close_animation_flags = 5
 
 [node name="Nova_Controls" type="TextureRect" parent="Pause Menu/nova_control"]
 layout_mode = 0
@@ -470,6 +467,9 @@ offset_right = 1386.0
 offset_bottom = 992.0
 scale = Vector2(0.57, 0.57)
 texture = ExtResource("19_elt32")
+script = ExtResource("9_0dwuh")
+open_animation_flags = 1
+close_animation_flags = 1
 
 [node name="Nova_Portrait" type="TextureRect" parent="Pause Menu/nova_control"]
 layout_mode = 0
@@ -479,6 +479,13 @@ offset_right = 78.99997
 offset_bottom = 455.0
 scale = Vector2(0.63, 0.63)
 texture = ExtResource("17_3wvx5")
+script = ExtResource("9_0dwuh")
+open_animation_delay = 0.4
+open_time = 0.3
+open_animation_flags = 1
+close_time = 0.1
+close_animation_delay = 0.2
+close_animation_flags = 1
 
 [node name="Nova_Name" type="TextureRect" parent="Pause Menu/nova_control"]
 layout_mode = 0
@@ -488,6 +495,122 @@ offset_right = 9.9999695
 offset_bottom = 319.0
 scale = Vector2(0.63, 0.63)
 texture = ExtResource("18_elt32")
+script = ExtResource("9_0dwuh")
+open_animation_delay = 0.4
+open_animation_flags = 5
+close_animation_flags = 5
+
+[node name="rene_control" type="Control" parent="Pause Menu"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Pause Menu/rene_control"]
+layout_mode = 0
+offset_left = 819.0
+offset_top = -92.00001
+offset_right = 893.875
+offset_bottom = 39.009987
+rotation = 1.5707964
+scale = Vector2(8.76, 8.76)
+texture = SubResource("GradientTexture2D_a2sxn")
+script = ExtResource("9_0dwuh")
+open_animation_flags = 3
+close_time = 0.4
+close_animation_flags = 3
+
+[node name="rene_controls" type="TextureRect" parent="Pause Menu/rene_control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -67.0
+offset_right = 1386.0
+offset_bottom = 992.0
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("23_d01lr")
+script = ExtResource("9_0dwuh")
+
+[node name="rene_portrait" type="TextureRect" parent="Pause Menu/rene_control"]
+layout_mode = 0
+offset_left = -289.00003
+offset_top = -80.0
+offset_right = 78.99997
+offset_bottom = 455.0
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("24_3h4bm")
+script = ExtResource("9_0dwuh")
+open_animation_delay = 0.4
+open_time = 0.3
+open_animation_flags = 1
+close_time = 0.1
+close_animation_delay = 0.2
+close_animation_flags = 1
+
+[node name="rene_name" type="TextureRect" parent="Pause Menu/rene_control"]
+layout_mode = 0
+offset_left = -253.00003
+offset_top = 252.0
+offset_right = 9.9999695
+offset_bottom = 319.0
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("25_w6fg2")
+script = ExtResource("9_0dwuh")
+
+[node name="dawn_control" type="Control" parent="Pause Menu"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Pause Menu/dawn_control"]
+layout_mode = 0
+offset_left = 819.0
+offset_top = -92.00001
+offset_right = 893.875
+offset_bottom = 39.009987
+rotation = 1.5707964
+scale = Vector2(8.76, 8.76)
+texture = SubResource("GradientTexture2D_ripws")
+script = ExtResource("9_0dwuh")
+open_animation_flags = 7
+close_time = 0.4
+close_animation_flags = 7
+
+[node name="dawn_controls" type="TextureRect" parent="Pause Menu/dawn_control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -67.0
+offset_right = 1386.0
+offset_bottom = 992.0
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("26_lwj1m")
+script = ExtResource("9_0dwuh")
+
+[node name="dawn_portrait" type="TextureRect" parent="Pause Menu/dawn_control"]
+layout_mode = 0
+offset_left = -289.00003
+offset_top = -80.0
+offset_right = 78.99997
+offset_bottom = 455.0
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("27_f620v")
+script = ExtResource("9_0dwuh")
+open_animation_delay = 0.4
+open_time = 0.3
+open_animation_flags = 1
+close_time = 0.1
+close_animation_delay = 0.2
+close_animation_flags = 1
+
+[node name="dawn_name" type="TextureRect" parent="Pause Menu/dawn_control"]
+layout_mode = 0
+offset_left = -253.00003
+offset_top = 252.0
+offset_right = 9.9999695
+offset_bottom = 319.0
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("28_p704c")
+script = ExtResource("9_0dwuh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu"]
 layout_mode = 1
@@ -502,6 +625,11 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_constants/separation = -1
+script = ExtResource("9_0dwuh")
+open_animation_delay = 0.4
+open_time = 0.2
+open_animation_flags = 1
+close_animation_flags = 1
 
 [node name="Resume Button" type="Button" parent="Pause Menu/VBoxContainer"]
 layout_mode = 2
@@ -547,6 +675,10 @@ event_guid = "{4a1bcb6d-acb5-431a-8121-9f9f6b8a0b3b}"
 [node name="Close SFX" type="FmodEventEmitter3D" parent="Pause Menu/Menu SFX"]
 event_name = "event:/UI/Menu Closed"
 event_guid = "{1f209850-e79d-46a2-a2d3-c3a83a96f0fe}"
+
+[node name="Background Swapped SFX" type="FmodEventEmitter3D" parent="Pause Menu/Menu SFX"]
+event_name = "event:/Player/Swap-In"
+event_guid = "{20443e04-216b-4ea2-b846-9281fbbc9d60}"
 
 [node name="SettingScene" parent="." node_paths=PackedStringArray("previous_page") instance=ExtResource("16_d11v8")]
 visible = false
@@ -598,6 +730,7 @@ event_guid = "{05b0eb79-dcf6-488e-a088-a245cceeda31}"
 [connection signal="special_available" from="Dawn" to="3D Special UI/3D Dawn Special" method="bounce"]
 [connection signal="entered" from="Dawn/StateMachine/HitStun" to="CameraTarget/Camera3D/Shake" method="shake"]
 [connection signal="pressed" from="Death Menu/Reload Button" to="Death Menu" method="restart_game"]
+[connection signal="menu_swapped" from="Pause Menu" to="Pause Menu/Menu SFX/Background Swapped SFX" method="play"]
 [connection signal="pressed" from="Pause Menu/VBoxContainer/Resume Button" to="Pause Menu" method="close"]
 [connection signal="pressed" from="Pause Menu/VBoxContainer/Settings Button" to="SettingScene/Level1Control" method="open"]
 [connection signal="pressed" from="Pause Menu/VBoxContainer/Reload Button" to="Pause Menu" method="restart_game"]

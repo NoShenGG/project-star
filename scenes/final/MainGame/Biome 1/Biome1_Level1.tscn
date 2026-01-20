@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://p0pl57lpm4x4"]
+[gd_scene load_steps=36 format=3 uid="uid://p0pl57lpm4x4"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_ajxti"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="4_47nrl"]
@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="9_76imp"]
 [ext_resource type="Texture2D" uid="uid://bfq2lq4t3785h" path="res://art_assets/Ui/TextboxSmall.png" id="9_pafkc"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="10_1fsox"]
-[ext_resource type="Script" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
-[ext_resource type="Script" uid="uid://diaap70c4mvfb" path="res://scripts/utility/menu_sfx.gd" id="10_px6kn"]
+[ext_resource type="Script" uid="uid://knd2e7gdbpfb" path="res://scripts/utility/menu_area.gd" id="10_opvqb"]
+[ext_resource type="Script" path="res://scripts/utility/menu_sfx.gd" id="10_px6kn"]
 [ext_resource type="Texture2D" uid="uid://cqlv7nqlkjrwx" path="res://art_assets/Ui/TextboxMedium.png" id="10_yvkck"]
 [ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="11_pafkc"]
 [ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="12_yvkck"]
@@ -89,14 +89,7 @@ script = ExtResource("13_ck0to")
 name = "Nova"
 img = ExtResource("14_e4lx6")
 text = "I'm finally here. I can see the Arduous Star!"
-small_text = "Press [Space] to advance"
-metadata/_custom_type_script = "uid://ehvcmont8xvr"
-
-[sub_resource type="Resource" id="Resource_otk5b"]
-script = ExtResource("13_ck0to")
-name = "Nova"
-img = ExtResource("14_e4lx6")
-text = "Oh, what are these little guys doing here?"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn8l0"]
@@ -106,21 +99,22 @@ albedo_texture = ExtResource("18_nv2fo")
 
 [node name="PlayerManager" parent="." instance=ExtResource("1_ajxti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
+stage = 0
 
 [node name="Nova" parent="PlayerManager" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.06549277, 0.5220138, -0.50674075, 0.68295395)
-bones/15/rotation = Quaternion(-0.17057715, 0.5684668, 0.23438029, 0.76994467)
-bones/16/rotation = Quaternion(-0.5031836, -0.47796085, -0.26202294, 0.6705995)
-bones/21/rotation = Quaternion(-0.13797797, 0.3681001, -0.46996492, 0.7903148)
-bones/22/rotation = Quaternion(-0.07481513, 0.3784701, 0.18606798, 0.90362704)
-bones/23/rotation = Quaternion(0.1334974, 0.11078187, -0.08744592, 0.98094803)
-bones/38/rotation = Quaternion(-0.35086954, 0.70600337, 0.06089744, 0.61216134)
+bones/14/rotation = Quaternion(-0.06987969, 0.52426994, -0.5064547, 0.68100035)
+bones/15/rotation = Quaternion(-0.15941156, 0.55099565, 0.23119314, 0.7858382)
+bones/16/rotation = Quaternion(-0.51153946, -0.46714875, -0.24267043, 0.6791249)
+bones/21/rotation = Quaternion(-0.14404608, 0.3944578, -0.46188834, 0.7812252)
+bones/22/rotation = Quaternion(-0.06363931, 0.3474953, 0.17613484, 0.91878927)
+bones/23/rotation = Quaternion(0.1329734, 0.11771942, -0.073809385, 0.98133194)
+bones/38/rotation = Quaternion(-0.3489549, 0.7069472, 0.062558174, 0.61199886)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0032467996, -0.569995, 0.8216416, -0.4222479, 0.7455866, 0.515565, -0.9064744, -0.3452625, -0.24310005, 0.006050555, 0.007181197, -0.0131878825)
+transform = Transform3D(-0.0063244784, -0.569969, 0.8216418, -0.4181945, 0.74786377, 0.51557064, -0.90833545, -0.34034538, -0.24308777, 0.006002475, 0.007244603, -0.013216781)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -240,6 +234,48 @@ visible = false
 [node name="Dawn" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" index="3"]
 visible = false
 
+[node name="nova_control" parent="PlayerManager/Pause Menu" index="0"]
+visible = true
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/nova_control" index="0"]
+script = null
+
+[node name="Nova_Controls" parent="PlayerManager/Pause Menu/nova_control" index="1"]
+script = null
+
+[node name="Nova_Portrait" parent="PlayerManager/Pause Menu/nova_control" index="2"]
+script = null
+
+[node name="Nova_Name" parent="PlayerManager/Pause Menu/nova_control" index="3"]
+script = null
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/rene_control" index="0"]
+script = null
+
+[node name="rene_controls" parent="PlayerManager/Pause Menu/rene_control" index="1"]
+script = null
+
+[node name="rene_portrait" parent="PlayerManager/Pause Menu/rene_control" index="2"]
+script = null
+
+[node name="rene_name" parent="PlayerManager/Pause Menu/rene_control" index="3"]
+script = null
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/dawn_control" index="0"]
+script = null
+
+[node name="dawn_controls" parent="PlayerManager/Pause Menu/dawn_control" index="1"]
+script = null
+
+[node name="dawn_portrait" parent="PlayerManager/Pause Menu/dawn_control" index="2"]
+script = null
+
+[node name="dawn_name" parent="PlayerManager/Pause Menu/dawn_control" index="3"]
+script = null
+
+[node name="VBoxContainer" parent="PlayerManager/Pause Menu" index="3"]
+script = null
+
 [node name="WaveManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
 script = ExtResource("4_47nrl")
@@ -289,7 +325,7 @@ transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, 34.235626, 1.4689131,
 transform = Transform3D(3.6162832, 0, 0, 0, 1, 0, 0, 0, 10.80695, 29.413383, 1.4689131, -20.453758)
 
 [node name="LevelEnder" parent="." instance=ExtResource("9_76imp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.65578, 2.739277, -105.33831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.47463, 1.1054125, -85.48791)
 next_level = "MainGame/Biome 1/Biome1_Level3"
 
 [node name="tutorial" type="Node" parent="."]
@@ -758,7 +794,7 @@ shape = SubResource("BoxShape3D_nv2fo")
 
 [node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
 script = ExtResource("12_yvkck")
-dialogue = Array[ExtResource("13_ck0to")]([SubResource("Resource_mn8l0"), SubResource("Resource_otk5b")])
+dialogue = Array[ExtResource("13_ck0to")]([SubResource("Resource_mn8l0")])
 metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
@@ -785,7 +821,6 @@ event_name = "event:/Music/Biome1_Level1"
 event_guid = "{a0fcfeaf-9830-49e8-b93c-6174f024d031}"
 autoplay = true
 
-[connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
 [connection signal="ended" from="WaveManager/Wave3" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Area3D" to="WaveManager" method="_on_start" unbinds=1]
 

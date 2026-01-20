@@ -35,8 +35,12 @@ func _ready() -> void:
 	var transform = control_self if control_self else node2d_self
 	assert(transform != null, name +" must inherit from Node2D or Control node")
 	
+	if (control_self):
+		var magnitude = control_self.scale.x if control_self.scale.x > control_self.scale.y else control_self.scale.y
+		scale_magnitude = magnitude
 	if (node2d_self): 
-		scale_magnitude = transform.scale.length()
+		var magnitude = transform.scale.x if transform.scale.x > transform.scale.y else transform.scale.y
+		scale_magnitude = magnitude
 	default_rotation = transform.rotation
 
 func find_menu(node : Node = self) -> Menu:

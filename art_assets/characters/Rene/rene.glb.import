@@ -36,7 +36,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=2
 materials/extract_format=2
-materials/extract_path=""
+materials/extract_path="res://art_assets/characters/Rene"
 _subresources={
 "animations": {
 "idle": {

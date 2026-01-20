@@ -20,9 +20,9 @@
 [ext_resource type="Script" uid="uid://d3pkbl7ownr11" path="res://scripts/entities/player/player_states/player_hit_stun.gd" id="15_wck6d"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="19_66khj"]
 [ext_resource type="PackedScene" uid="uid://dfidn58xx6ouo" path="res://scenes/dev/arshiya_r/magic circle things/magic_circle_rene.tscn" id="23_um3o4"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="24_rij6b"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="24_rij6b"]
 [ext_resource type="Script" uid="uid://cvw6ajdumfkos" path="res://scripts/entities/player/nova/nova_dummy_anim.gd" id="24_svdc4"]
-[ext_resource type="Script" path="res://scripts/utility/ui_consumable.gd" id="25_66khj"]
+[ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="25_66khj"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="25_qvekr"]
 [ext_resource type="PackedScene" uid="uid://cjsubaculljwy" path="res://art_assets/characters/Rene/rene.glb" id="26_27ayv"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="26_66khj"]
@@ -43,7 +43,7 @@
 radius = 0.98
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qbxrk"]
-radius = 15.0
+radius = 10.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_27ayv"]
 radius = 7.0
@@ -137,7 +137,7 @@ animation = &"charging_attack"
 animation = &"charging_special"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ffpnw"]
-animation = &"dash"
+animation = &"dodge"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pgxqw"]
 animation = &"hurt"
@@ -191,8 +191,8 @@ states/charging_attack/node = SubResource("AnimationNodeAnimation_o1ymb")
 states/charging_attack/position = Vector2(619, 34)
 states/charging_special/node = SubResource("AnimationNodeAnimation_v1pct")
 states/charging_special/position = Vector2(808, 34)
-states/dash/node = SubResource("AnimationNodeAnimation_ffpnw")
-states/dash/position = Vector2(934, 207)
+states/dodge/node = SubResource("AnimationNodeAnimation_ffpnw")
+states/dodge/position = Vector2(934, 207)
 states/hurt/node = SubResource("AnimationNodeAnimation_pgxqw")
 states/hurt/position = Vector2(825, 200)
 states/idle/node = SubResource("AnimationNodeAnimation_wjvim")
@@ -202,7 +202,7 @@ states/run/position = Vector2(435, 99)
 states/special/node = SubResource("AnimationNodeAnimation_py2kl")
 states/special/position = Vector2(976, 34)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jhnot"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_nbu67"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_hhn71"), "run", "basic1", SubResource("AnimationNodeStateMachineTransition_2nnna"), "hurt", "run", SubResource("AnimationNodeStateMachineTransition_k76t5"), "run", "hurt", SubResource("AnimationNodeStateMachineTransition_oktbc"), "run", "charging_attack", SubResource("AnimationNodeStateMachineTransition_lcr6p"), "charging_attack", "run", SubResource("AnimationNodeStateMachineTransition_sk8gi"), "run", "charging_special", SubResource("AnimationNodeStateMachineTransition_4djcj"), "charging_special", "run", SubResource("AnimationNodeStateMachineTransition_4onpj"), "run", "special", SubResource("AnimationNodeStateMachineTransition_c2ev5")]
-graph_offset = Vector2(253, -20)
+graph_offset = Vector2(91, 25)
 
 [node name="Rene" type="CharacterBody3D" node_paths=PackedStringArray("ui_counters", "construct", "targetting_box")]
 collision_layer = 6
@@ -218,8 +218,8 @@ combo_reset_time = null
 max_special_charges = 2
 special_cd = 10.0
 input_smoothing_speed = null
-dash_cd = null
-_base_speed = null
+dash_distance = 7.0
+_base_speed = -0.5
 faction = 0
 _hp = null
 _max_hp = null
@@ -254,25 +254,25 @@ script = ExtResource("5_t5f0y")
 [node name="Slash0" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
-speed_scale_factor = 0.2
+speed_scale_factor = 0.05
 animation = NodePath("../../../rene/attack1")
 
 [node name="Slash1" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
-speed_scale_factor = 0.2
+speed_scale_factor = 0.05
 animation = NodePath("../../../rene/attack2")
 
 [node name="Slash2" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
-speed_scale_factor = 0.2
+speed_scale_factor = 0.05
 animation = NodePath("../../../rene/attack3")
 
 [node name="Slash3" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("animation")]
 script = ExtResource("6_u7juv")
 bullet = ExtResource("7_qbxrk")
-speed_scale_factor = 0.2
+speed_scale_factor = 0.05
 animation = NodePath("../../../rene/attack4")
 
 [node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking"]
@@ -289,8 +289,9 @@ event_guid = "{a18320c8-e115-4a07-8008-687c14fff59c}"
 [node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
 script = ExtResource("10_nhxyw")
 animation = NodePath("../../rene/charged attack")
-speed_scale_factor = 0.2
+speed_scale_factor = 0.1
 heal = 10.0
+damage = 5.0
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
 event_name = "event:/Player/Uniques/Charged Attack/Rene Strong Heal"
@@ -311,6 +312,7 @@ charged = NodePath("ChargedSpecial")
 [node name="RegularSpecial" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("animation")]
 script = ExtResource("12_27ayv")
 animation = NodePath("../../../rene/Special")
+speed_scale_factor = 0.5
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/RegularSpecial"]
 event_name = "event:/Player/Uniques/Charged Attack/Rene Normal Heal"
@@ -319,6 +321,7 @@ event_guid = "{febf3d01-646b-467e-bbec-aa8bc0b7804d}"
 [node name="ChargedSpecial" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("animation")]
 script = ExtResource("13_ohtv4")
 animation = NodePath("../../../rene/charged special")
+speed_scale_factor = 0.01
 
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/ChargedSpecial"]
 event_name = "event:/Player/Uniques/Charged Attack/Rene Strong Heal"
@@ -363,6 +366,8 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Vision"]
 shape = SubResource("CylinderShape3D_qbxrk")
+debug_color = Color(0, 0.5950001, 0.7, 0)
+debug_fill = false
 
 [node name="Construct" type="Area3D" parent="Hitboxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8994203, 1, 0)
@@ -496,59 +501,11 @@ script = ExtResource("25_66khj")
 fade_in = SubResource("Curve_ovtx8")
 fade_out = SubResource("Curve_r8iwf")
 
-[node name="Rene\'s Circle" parent="." instance=ExtResource("23_um3o4")]
+[node name="Rene\'s Circle" parent="." node_paths=PackedStringArray("particles") instance=ExtResource("23_um3o4")]
+particles = [NodePath("sparks")]
 
 [node name="rene" parent="." instance=ExtResource("26_27ayv")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
-
-[node name="Skeleton3D" parent="rene" index="0"]
-bones/2/position = Vector3(-0.00048374574, 0.0153010115, -0.0011631509)
-bones/2/rotation = Quaternion(0.018430147, -0.01837658, 0.70583767, 0.70789534)
-bones/3/rotation = Quaternion(0, 0, 0.0068312488, 0.99997675)
-bones/5/position = Vector3(0.0038610352, -3.1048294e-05, -0.0001815603)
-bones/5/rotation = Quaternion(0.00027693782, -0.12937072, -0.012783831, 0.99151385)
-bones/6/position = Vector3(0.002076503, -1.42049985e-05, 0.001014148)
-bones/6/rotation = Quaternion(-0.045169152, 0.04625249, -0.68640584, 0.72433937)
-bones/7/rotation = Quaternion(0.70571977, 0.7024819, -0.067438774, 0.06269555)
-bones/10/rotation = Quaternion(-0.120163515, 0.45460087, -0.5424175, 0.6961911)
-bones/11/rotation = Quaternion(-0.02911311, 0.5583652, 0.04511093, 0.8278561)
-bones/12/rotation = Quaternion(-0.075832404, 0.02506663, -0.03366054, 0.9962369)
-bones/13/position = Vector3(0.0018554748, 0.00021905181, -2.3312234e-05)
-bones/15/position = Vector3(0.0013683672, -0.00026109678, -0.0008667208)
-bones/19/rotation = Quaternion(-0.21518026, 0.0622849, -0.58891666, 0.7765277)
-bones/20/rotation = Quaternion(-0.049694717, 0.8316741, 0.030745938, 0.55218065)
-bones/21/rotation = Quaternion(0.3788623, 0.28131926, 0.27620426, 0.83727777)
-bones/22/position = Vector3(-0.00185544, -0.00021904956, 2.331894e-05)
-bones/24/position = Vector3(-0.001368312, 0.0002611202, 0.000866724)
-bones/26/position = Vector3(0.0010234474, 4.4187877e-06, -0.0022902524)
-bones/26/rotation = Quaternion(0.045572493, -0.7056367, 0.706242, 0.03495976)
-bones/27/position = Vector3(0.0058558113, 0, 0)
-bones/27/rotation = Quaternion(0, 0, -0.045059975, 0.9989843)
-bones/28/position = Vector3(0.005173045, 0, 0)
-bones/29/position = Vector3(0.004645856, 0, 0)
-bones/31/position = Vector3(0.0019740716, -0.0007854113, 0.00423065)
-bones/32/position = Vector3(0.005173045, 0, 0)
-bones/33/position = Vector3(0.004645856, 0, 0)
-bones/35/position = Vector3(0.001901271, -0.0011492397, -0.0037798467)
-bones/35/rotation = Quaternion(0.16465579, 0.0049731503, 0.9824194, 0.087840736)
-bones/36/position = Vector3(-0.005173007, 0, 0)
-bones/36/rotation = Quaternion(-0.33545947, -0.0075310348, 0.16333342, 0.92775667)
-bones/37/position = Vector3(-0.006326586, 0.0018329638, 0.003974776)
-bones/37/rotation = Quaternion(-0.08390469, 0.2826035, -0.07295182, 0.9527714)
-bones/39/rotation = Quaternion(-0.014321456, 0.9974153, 0.04907331, -0.050491378)
-bones/40/rotation = Quaternion(0.99534774, -0.011055938, 0.09570954, 0.0006612376)
-bones/41/rotation = Quaternion(0.02983773, -0.07132071, -0.021702386, 0.99677086)
-bones/44/rotation = Quaternion(0.0002450007, 0.123846106, 0.024326308, 0.9920032)
-bones/45/rotation = Quaternion(0.9986342, -0.009046118, 0.051456954, 0.00024816953)
-bones/46/rotation = Quaternion(-0.020922966, 0.04634732, 0.015104641, 0.9985921)
-bones/49/position = Vector3(-0.004661922, 0.010273972, 0.005810315)
-bones/49/rotation = Quaternion(0.22722667, 0.91744006, -0.17050593, 0.2785669)
-bones/51/position = Vector3(0, 0, 0)
-bones/52/position = Vector3(0.009964881, 0, 0)
-bones/53/position = Vector3(0.008668151, 0, 0)
-bones/53/rotation = Quaternion(0, 0, 0.0016023, 0.99999875)
-bones/54/position = Vector3(0.0065154396, 0, 0)
-bones/54/rotation = Quaternion(0.9999708, 0.007653769, 0, 7.5059985e-28)
 
 [node name="model_body" parent="rene/Skeleton3D" index="1"]
 surface_material_override/0 = ExtResource("27_2qu1h")
@@ -638,7 +595,7 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 
 [node name="Dash" type="Node" parent="rene"]
 script = ExtResource("27_ohtv4")
-state_name = "dash"
+state_name = "dodge"
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 

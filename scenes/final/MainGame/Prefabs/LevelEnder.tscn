@@ -23,6 +23,7 @@ shape = SubResource("BoxShape3D_aonar")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 2.5, -2.3841858e-07)
+visible = false
 size = Vector3(1, 5, 1)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]

@@ -60,6 +60,7 @@ script = ExtResource("13_3nrg2")
 name = "Nova"
 img = ExtResource("14_30m0f")
 text = "Wow! We can see it from here. Onwards!"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="Resource" id="Resource_i6srs"]
@@ -67,6 +68,7 @@ script = ExtResource("13_3nrg2")
 name = "Rene"
 img = ExtResource("15_3nrg2")
 text = "Are you sure you should be getting that close to it Nova?"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="Resource" id="Resource_tbj4w"]
@@ -74,6 +76,7 @@ script = ExtResource("13_3nrg2")
 name = "Nova"
 img = ExtResource("14_30m0f")
 text = "I'm not sure why but I feel so... drawn towards it right now"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="Resource" id="Resource_fcfpd"]
@@ -81,6 +84,7 @@ script = ExtResource("13_3nrg2")
 name = "Dawn"
 img = ExtResource("16_30m0f")
 text = "Nova! NO!"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_30m0f"]
@@ -105,7 +109,6 @@ shadow_enabled = true
 
 [node name="PlayerManager" parent="." instance=ExtResource("6_k5jyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
-stage = 2
 
 [node name="NavMesh" type="NavigationRegion3D" parent="."]
 transform = Transform3D(0.9556895, 0, 0, 0, 0.9556895, 0, 0, 0, 0.9556895, 0.18879128, 0.041381836, -0.1295929)

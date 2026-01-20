@@ -49,6 +49,8 @@ height = 16
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 0, 0)
 billboard = 2
 texture = SubResource("ViewportTexture_y83ja")
+region_enabled = true
+region_rect = Rect2(2.3107376, 0, 506.6043, 78.22911)
 script = ExtResource("1_wpcfj")
 BAR_ANIMATION_EASE_CURVE = SubResource("Curve_3ijnh")
 
