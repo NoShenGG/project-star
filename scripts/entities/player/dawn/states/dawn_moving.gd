@@ -29,21 +29,22 @@ func physics_update(delta: float) -> void:
 
 	if Input.is_action_just_pressed("synergy_burst"):
 		trigger_finished.emit(BURSTING)
-	elif not Input.get_vector("move_down", "move_up", "move_left", "move_right"):
+	if not Input.get_vector("move_down", "move_up", "move_left", "move_right"):
 		trigger_finished.emit(IDLE)
-	elif Input.is_action_just_pressed("special_attack"):
+	if Input.is_action_just_pressed("special_attack"):
 		if (charge_attack):
 			trigger_finished.emit(ALT_ATTACK)
-		charge_special = true
-	elif Input.is_action_just_released("special_attack"):
+		elif player._has_special:
+			charge_special = true
+	elif Input.is_action_just_released("special_attack") and charge_special:
 		charge_special = false
 		if player._has_special:
 			trigger_finished.emit(SPECIAL, {"charges": 1})
-	elif Input.is_action_pressed("basic_attack"):
+	if Input.is_action_pressed("basic_attack"):
 		if (charge_special):
 			trigger_finished.emit(ALT_ATTACK)
 		charge_attack = true
-	elif Input.is_action_just_released("basic_attack"):
+	elif Input.is_action_just_released("basic_attack") and charge_attack:
 		charge_attack = false
 		trigger_finished.emit(ATTACKING)
 			

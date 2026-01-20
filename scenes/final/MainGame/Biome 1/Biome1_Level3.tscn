@@ -84,21 +84,22 @@ metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [node name="PlayerManager" parent="." instance=ExtResource("1_k1xpg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
+stage = 0
 
 [node name="Nova" parent="PlayerManager" index="0"]
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 3.947483)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.074588664, 0.52553433, -0.5069131, 0.6791829)
-bones/15/rotation = Quaternion(-0.15854377, 0.5495892, 0.23091857, 0.78707826)
-bones/16/rotation = Quaternion(-0.5124822, -0.47256306, -0.23612347, 0.67697257)
-bones/21/rotation = Quaternion(-0.12611234, 0.39072224, -0.47952765, 0.7755546)
-bones/22/rotation = Quaternion(-0.05961521, 0.33554056, 0.17219132, 0.9242341)
-bones/23/rotation = Quaternion(0.10498295, 0.13040137, -0.08185382, 0.9824837)
-bones/38/rotation = Quaternion(-0.35162255, 0.7056302, 0.060243484, 0.6122241)
+bones/14/rotation = Quaternion(-0.06770487, 0.5234822, -0.5062963, 0.6819432)
+bones/15/rotation = Quaternion(-0.16148019, 0.5543043, 0.23182373, 0.7828977)
+bones/16/rotation = Quaternion(-0.50983334, -0.46714464, -0.24791081, 0.6785176)
+bones/21/rotation = Quaternion(-0.14898804, 0.39142594, -0.45718876, 0.7845807)
+bones/22/rotation = Quaternion(-0.06674769, 0.35642123, 0.17904058, 0.9145782)
+bones/23/rotation = Quaternion(0.14228746, 0.11238028, -0.07323474, 0.9806945)
+bones/38/rotation = Quaternion(-0.348608, 0.7071177, 0.06285888, 0.6119688)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0020350246, -0.57000065, 0.8216417, -0.42384025, 0.744684, 0.51556283, -0.90573454, -0.34719566, -0.2431047, 0.006069486, 0.0071562883, -0.013176392)
+transform = Transform3D(-0.0068820324, -0.5699627, 0.8216417, -0.41745937, 0.7482737, 0.51557165, -0.9086695, -0.33945388, -0.24308598, 0.005993765, 0.0072561023, -0.013221967)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
