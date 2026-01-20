@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://t5a5ri5gyyjj"]
+[gd_scene load_steps=6 format=3 uid="uid://t5a5ri5gyyjj"]
 
 [ext_resource type="Script" uid="uid://o8ttcfmyxgvm" path="res://austin_newby/dialogue/scripts/dialogue_container.gd" id="1_j3aq7"]
-[ext_resource type="Texture2D" uid="uid://bsvhngsvswmih" path="res://art_assets/Ui/name_area.png" id="2_51wlb"]
+[ext_resource type="Texture2D" uid="uid://cg1t584s06dy0" path="res://art_assets/Ui/New Text Boxes/Untitled1310_20260107201403.png" id="3_1docy"]
 [ext_resource type="Texture2D" uid="uid://dtvv4kt3w76n4" path="res://austin_newby/dialogue/resources/nova_face_temp_1.png" id="3_82rja"]
 [ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_j3aq7"]
-[ext_resource type="Texture2D" uid="uid://bxkgcsdq5x6qv" path="res://art_assets/Ui/text_area.png" id="4_51wlb"]
 [ext_resource type="Script" uid="uid://dyydmlqaracop" path="res://austin_newby/dialogue/scripts/dialogue_audio.gd" id="5_1docy"]
 
 [node name="DialogueContainer" type="MarginContainer"]
@@ -19,7 +18,7 @@ size_flags_vertical = 8
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_bottom = 40
 script = ExtResource("1_j3aq7")
 
 [node name="TextImageHSeperator" type="HSplitContainer" parent="."]
@@ -39,7 +38,6 @@ theme_override_constants/margin_right = 250
 [node name="NameRect" type="NinePatchRect" parent="TextImageHSeperator/VTextContainer/NameMargin"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-texture = ExtResource("2_51wlb")
 region_rect = Rect2(0, 0, 885, 183.5)
 patch_margin_top = 16
 patch_margin_right = 16
@@ -47,13 +45,18 @@ patch_margin_bottom = 16
 
 [node name="NameLabel" type="RichTextLabel" parent="TextImageHSeperator/VTextContainer/NameMargin/NameRect"]
 unique_name_in_owner = true
+z_index = 50
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = 53.0
+offset_right = -60.0
+offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0.36645922, 0, 0.119532235, 1)
+theme_override_colors/default_color = Color(0.97, 0.7372, 0.82644004, 1)
 theme_override_fonts/normal_font = ExtResource("3_j3aq7")
 theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
@@ -64,19 +67,16 @@ vertical_alignment = 1
 [node name="TextRect" type="NinePatchRect" parent="TextImageHSeperator/VTextContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("4_51wlb")
-region_rect = Rect2(7.0509644, 7.9591312, 1848.6194, 463.64096)
-patch_margin_left = 16
-patch_margin_top = 16
-patch_margin_right = 16
-patch_margin_bottom = 16
+texture = ExtResource("3_1docy")
+region_rect = Rect2(43.953857, 836.83594, 1926.2552, 572.6459)
 
 [node name="TextMargin" type="MarginContainer" parent="TextImageHSeperator/VTextContainer/TextRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 25.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
