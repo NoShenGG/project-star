@@ -30,10 +30,10 @@
 [ext_resource type="Shader" uid="uid://bnancykekno2t" path="res://scenes/dev/chrizz/distortion.tres" id="24_cih63"]
 [ext_resource type="Texture2D" uid="uid://bfmq4qyv6hv0v" path="res://scenes/final/dawn/caustics.png" id="25_1i8fv"]
 [ext_resource type="PackedScene" uid="uid://crtpdqb2ymr2p" path="res://scenes/final/dawn/tone_slowwave.tscn" id="25_qnimx"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
 [ext_resource type="ArrayMesh" uid="uid://bd5wy4vqrfeld" path="res://scenes/dev/chrizz/prototyping/sound_blast_extra.obj" id="26_h3uuf"]
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="27_1i8fv"]
-[ext_resource type="Script" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="27_1i8fv"]
+[ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
 [ext_resource type="PackedScene" uid="uid://bdh4cmnftg18b" path="res://scenes/final/dawn/tone_wave.tscn" id="28_qntpm"]
 [ext_resource type="PackedScene" uid="uid://cein11fhbr6sp" path="res://scenes/final/dawn/tone_fish.tscn" id="28_wex2d"]
 [ext_resource type="PackedScene" uid="uid://btiyd8a5nuror" path="res://scenes/final/dawn/tone_stunwave.tscn" id="31_6x7f2"]
@@ -480,7 +480,7 @@ radius = 2.0
 size = Vector3(2.5, 2, 9)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_n7ie5"]
-radius = 12.0
+radius = 9.0
 
 [sub_resource type="Curve" id="Curve_qnimx"]
 _limits = [0.0, 1.5, 0.0, 1.0]
@@ -745,6 +745,7 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/FishShield"]
 shape = SubResource("CylinderShape3D_shlot")
+debug_color = Color(0, 0.5950001, 0.7, 0)
 debug_fill = false
 
 [node name="Sing" type="Area3D" parent="Hitboxes"]
@@ -756,6 +757,7 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Sing"]
 shape = SubResource("BoxShape3D_brwhy")
+debug_color = Color(0, 0.5950001, 0.7, 0)
 debug_fill = false
 
 [node name="Vision" type="Area3D" parent="Hitboxes"]
@@ -765,6 +767,7 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Vision"]
 shape = SubResource("CylinderShape3D_n7ie5")
+debug_color = Color(0, 0.5950001, 0.7, 0)
 debug_fill = false
 
 [node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]

@@ -7379,7 +7379,6 @@ script = ExtResource("13_5otq2")
 [node name="HitStun" type="Node" parent="StateMachine"]
 script = ExtResource("15_h46t7")
 stun_duration = 0.5
-stun_cooldown = 3.0
 
 [node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
 script = ExtResource("17_gedrv")
@@ -7494,12 +7493,12 @@ bones/10/position = Vector3(0.007249624, 0, 0)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.066702396, 0.52307415, -0.50627077, 0.6823739)
-bones/15/rotation = Quaternion(-0.1626271, 0.556123, 0.23216455, 0.7812677)
-bones/16/rotation = Quaternion(-0.5089187, -0.4675792, -0.25045398, 0.6779707)
-bones/21/rotation = Quaternion(-0.15038256, 0.38935277, -0.45589867, 0.7860955)
-bones/22/rotation = Quaternion(-0.06824648, 0.3606308, 0.18039863, 0.91254824)
-bones/23/rotation = Quaternion(0.14544941, 0.11032299, -0.073554516, 0.9804403)
+bones/14/rotation = Quaternion(-0.067230955, 0.5233316, -0.5062498, 0.6821402)
+bones/15/rotation = Quaternion(-0.16182403, 0.55485106, 0.23192668, 0.7824087)
+bones/16/rotation = Quaternion(-0.50944626, -0.4669776, -0.24917002, 0.6784621)
+bones/21/rotation = Quaternion(-0.1505015, 0.39092872, -0.45566136, 0.7854278)
+bones/22/rotation = Quaternion(-0.06749959, 0.35854357, 0.17972665, 0.9135583)
+bones/23/rotation = Quaternion(0.14502928, 0.11093399, -0.07285379, 0.98048586)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
@@ -7507,7 +7506,7 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.3483869, 0.7072261, 0.063050434, 0.61194974)
+bones/38/rotation = Quaternion(-0.3483524, 0.707243, 0.06308031, 0.6119467)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
@@ -7531,7 +7530,7 @@ surface_material_override/0 = ExtResource("22_vrbf8")
 surface_material_override/0 = ExtResource("28_sbbhh")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0072368085, -0.56995827, 0.82164174, -0.4169907, 0.74853444, 0.51557237, -0.9088819, -0.3388858, -0.24308443, 0.0059882225, 0.0072634337, -0.013225267)
+transform = Transform3D(-0.007292361, -0.56995755, 0.82164174, -0.41691756, 0.7485751, 0.5155724, -0.908915, -0.33879715, -0.24308419, 0.0059873546, 0.0072645773, -0.013225779)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 
