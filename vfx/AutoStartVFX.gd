@@ -112,8 +112,8 @@ func stop_particles():
 	for particle in particles:
 		particle.emitting = false
 		if (particle.lifetime > max_emitting_time): max_emitting_time = particle.lifetime
-	await get_tree().create_timer(max_emitting_time).timeout
 	finished.emit()
+	await get_tree().create_timer(max_emitting_time).timeout
 	if (!Engine.is_editor_hint()):
 		if (on_stop == 0):
 			#print("pooled")
