@@ -111,16 +111,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.076092765, 0.5267259, -0.5068508, 0.6781387)
-bones/15/rotation = Quaternion(-0.1534551, 0.54129285, 0.22928047, 0.79428226)
-bones/16/rotation = Quaternion(-0.5162411, -0.46734902, -0.22744612, 0.6806969)
-bones/21/rotation = Quaternion(-0.12827826, 0.40306687, -0.47543928, 0.77138793)
-bones/22/rotation = Quaternion(-0.054626208, 0.3201982, 0.16706355, 0.9309022)
-bones/23/rotation = Quaternion(0.105158284, 0.13414578, -0.07537783, 0.982479)
-bones/38/rotation = Quaternion(-0.35050672, 0.70618284, 0.061212406, 0.61213076)
+bones/14/rotation = Quaternion(-0.07195842, 0.5250871, -0.506584, 0.68005747)
+bones/15/rotation = Quaternion(-0.15722688, 0.5474696, 0.23050962, 0.7889373)
+bones/16/rotation = Quaternion(-0.51328427, -0.46688843, -0.23735434, 0.6798658)
+bones/21/rotation = Quaternion(-0.1394251, 0.39790225, -0.4659847, 0.777877)
+bones/22/rotation = Quaternion(-0.06049672, 0.3382462, 0.17309368, 0.9230213)
+bones/23/rotation = Quaternion(0.1242887, 0.122964464, -0.0739768, 0.98181444)
+bones/38/rotation = Quaternion(-0.3493843, 0.70673627, 0.062186033, 0.6120356)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0038306937, -0.5699915, 0.82164156, -0.42148036, 0.74601996, 0.51556605, -0.9068293, -0.34433082, -0.24309802, 0.0060414337, 0.007193203, -0.013193393)
+transform = Transform3D(-0.0056348373, -0.56997645, 0.8216416, -0.4191041, 0.7473553, 0.5155693, -0.90792054, -0.3414482, -0.24309075, 0.0060132486, 0.0072303736, -0.013210339)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -177,6 +177,9 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [node name="Die" parent="PlayerManager/Nova/nova" index="16"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
+
+[node name="Rene\'s Circle" parent="PlayerManager/Rene" index="10" node_paths=PackedStringArray("particles")]
+particles = [NodePath("sparks"), NodePath("sparks")]
 
 [node name="Skeleton3D" parent="PlayerManager/Rene/rene" index="0"]
 bones/2/position = Vector3(-0.00048374574, 0.0153010115, -0.0011631509)
@@ -328,7 +331,7 @@ transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, 34.235626, 1.4689131,
 transform = Transform3D(3.6162832, 0, 0, 0, 1, 0, 0, 0, 10.80695, 29.413383, 1.4689131, -20.453758)
 
 [node name="LevelEnder" parent="." instance=ExtResource("9_76imp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.65578, 2.739277, -105.33831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.47463, 1.1054125, -85.48791)
 next_level = "MainGame/Biome 1/Biome1_Level3"
 
 [node name="tutorial" type="Node" parent="."]
