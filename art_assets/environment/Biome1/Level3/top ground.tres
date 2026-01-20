@@ -8,5 +8,5 @@ resource_name = "top ground"
 cull_mode = 2
 albedo_texture = ExtResource("1_idgnh")
 normal_enabled = true
-normal_scale = 1.82
+normal_scale = 0.37
 normal_texture = ExtResource("2_3glt6")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bgdpkq36jujfn"]
+[gd_scene load_steps=36 format=3 uid="uid://bgdpkq36jujfn"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_8jmja"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_jhliq"]
@@ -37,34 +37,23 @@ script = ExtResource("13_caww3")
 name = "Nova"
 img = ExtResource("14_6scqm")
 text = "Whew. That was awesome! "
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="Resource" id="Resource_75sb4"]
 script = ExtResource("13_caww3")
 name = "Rene"
 img = ExtResource("15_f30ws")
-text = "not to be rude or anything but ummm, who are you? And what were you doing in that rock?"
-metadata/_custom_type_script = "uid://ehvcmont8xvr"
-
-[sub_resource type="Resource" id="Resource_r5ew7"]
-script = ExtResource("13_caww3")
-name = "Dawn"
-img = ExtResource("16_mq6a5")
-text = "Honestly... I'm not sure... Where did the [system] go?"
-metadata/_custom_type_script = "uid://ehvcmont8xvr"
-
-[sub_resource type="Resource" id="Resource_rpuyo"]
-script = ExtResource("13_caww3")
-name = "Rene"
-img = ExtResource("15_f30ws")
-text = "The system? What's that"
+text = "Who are you?"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="Resource" id="Resource_mqy5i"]
 script = ExtResource("13_caww3")
 name = "Dawn"
 img = ExtResource("16_mq6a5")
-text = "Hmmm, it's hard to explain. Maybe if we make it to this \"Arduous Star\" you two speak of we'll find the truth"
+text = "I'm Dawn! Ready to shine!"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cub8n"]
@@ -115,8 +104,7 @@ size = Vector3(1, 4.745, 24)
 [node name="Level1" type="Node3D"]
 
 [node name="PlayerManager" parent="." instance=ExtResource("1_8jmja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
-stage = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, -2.052517)
 
 [node name="LevelEnder" parent="." instance=ExtResource("7_10abd")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 141.14204, 4.1178856, -202.57288)
@@ -164,11 +152,12 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter"]
+transform = Transform3D(1.6000001, 0, 0, 0, 1, 0, 0, 0, 1, -0.015526245, 0, -18)
 shape = SubResource("BoxShape3D_8mtqa")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
 [node name="SpawnArea1" parent="WaveManager" instance=ExtResource("6_8jmja")]
-transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -7.819372, 1.9073486e-06, 10.915493)
+transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, 1.1806278, 1.9073486e-06, 10.915493)
 
 [node name="SpawnArea2" parent="WaveManager" instance=ExtResource("6_8jmja")]
 transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, 31.48272, -1.9073486e-06, 13.153378)
@@ -191,12 +180,12 @@ dialogue = NodePath("DialogueCaller")
 metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4)
 shape = SubResource("BoxShape3D_dgasv")
 
 [node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
 script = ExtResource("12_buk6j")
-dialogue = Array[ExtResource("13_caww3")]([SubResource("Resource_cub8n"), SubResource("Resource_75sb4"), SubResource("Resource_r5ew7"), SubResource("Resource_rpuyo"), SubResource("Resource_mqy5i")])
+dialogue = Array[ExtResource("13_caww3")]([SubResource("Resource_cub8n"), SubResource("Resource_75sb4"), SubResource("Resource_mqy5i")])
 metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
 [node name="Tutorial2" type="Area3D" parent="." node_paths=PackedStringArray("menu")]
@@ -207,7 +196,7 @@ script = ExtResource("17_6scqm")
 menu = NodePath("Menu2")
 
 [node name="Tutorial Collision Box" type="CollisionShape3D" parent="Tutorial2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1, 0.008650135, 1, -9)
 shape = SubResource("BoxShape3D_cub8n")
 debug_color = Color(0, 11.618606, 13.50434, 0.8509804)
 
@@ -255,7 +244,8 @@ grow_vertical = 2
 scale = Vector2(1.65, 1.65)
 text = "Switch to Dawn by pressing [3]
 Dawn excels at debuffing groups of enemies and
-buffing her allies"
+buffing her allies
+Press [ESC] to see her "
 horizontal_alignment = 1
 
 [node name="Menu SFX" type="Node" parent="Tutorial2/Menu2" node_paths=PackedStringArray("open_sfx", "close_sfx")]

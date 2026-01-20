@@ -7229,7 +7229,7 @@ collision_mask = 3
 script = ExtResource("1_p5oh7")
 special_dash_dist = 12.0
 targetting_box = NodePath("Hitboxes/Vision")
-dash_distance = 8.0
+dash_distance = 7.0
 _base_speed = 6.0
 faction = 0
 _breakable = false
@@ -7493,12 +7493,12 @@ bones/10/position = Vector3(0.007249624, 0, 0)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.067230955, 0.5233316, -0.5062498, 0.6821402)
-bones/15/rotation = Quaternion(-0.16182403, 0.55485106, 0.23192668, 0.7824087)
-bones/16/rotation = Quaternion(-0.50944626, -0.4669776, -0.24917002, 0.6784621)
-bones/21/rotation = Quaternion(-0.1505015, 0.39092872, -0.45566136, 0.7854278)
-bones/22/rotation = Quaternion(-0.06749959, 0.35854357, 0.17972665, 0.9135583)
-bones/23/rotation = Quaternion(0.14502928, 0.11093399, -0.07285379, 0.98048586)
+bones/14/rotation = Quaternion(-0.06870525, 0.52305627, -0.5068305, 0.681773)
+bones/15/rotation = Quaternion(-0.16735886, 0.5635146, 0.23350856, 0.7745425)
+bones/16/rotation = Quaternion(-0.505753, -0.47748154, -0.2543467, 0.6719621)
+bones/21/rotation = Quaternion(-0.13250558, 0.37323555, -0.47533977, 0.78561413)
+bones/22/rotation = Quaternion(-0.070268534, 0.3661599, 0.18216272, 0.90983844)
+bones/23/rotation = Quaternion(0.12181114, 0.11749631, -0.08742651, 0.981689)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
@@ -7506,7 +7506,7 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.3483524, 0.707243, 0.06308031, 0.6119467)
+bones/38/rotation = Quaternion(-0.35129035, 0.70579493, 0.06053203, 0.6121965)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
@@ -7530,7 +7530,7 @@ surface_material_override/0 = ExtResource("22_vrbf8")
 surface_material_override/0 = ExtResource("28_sbbhh")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.007292361, -0.56995755, 0.82164174, -0.41691756, 0.7485751, 0.5155724, -0.908915, -0.33879715, -0.24308419, 0.0059873546, 0.0072645773, -0.013225779)
+transform = Transform3D(-0.002569683, -0.5699985, 0.8216417, -0.42313793, 0.7450827, 0.5155638, -0.90606153, -0.34634292, -0.24310267, 0.0060611335, 0.007167274, -0.013181471)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 

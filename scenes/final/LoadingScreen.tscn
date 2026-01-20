@@ -1,17 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://c41j5ds1pfvyx"]
+[gd_scene load_steps=11 format=3 uid="uid://c41j5ds1pfvyx"]
 
 [ext_resource type="Script" uid="uid://drbqk57mt5etk" path="res://scripts/utility/loading_screen.gd" id="1_cessv"]
-[ext_resource type="Texture2D" uid="uid://b20vb7m5bkcy4" path="res://art_assets/Ui/JTASM2Logo.png" id="2_g1ooo"]
+[ext_resource type="Texture2D" uid="uid://upm5mupqvfdc" path="res://art_assets/Ui/JTASM2LogoTransparent.png" id="2_5scik"]
+[ext_resource type="Texture2D" uid="uid://bsj2h2rq3i4s5" path="res://art_assets/Ui/jtas_splash_background.png" id="3_rv3yy"]
 
 [sub_resource type="Curve" id="Curve_rlclu"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.47826087, 0.49438208), 2.3736997, 2.3736997, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
-
-[sub_resource type="Gradient" id="Gradient_notvo"]
-colors = PackedColorArray(0.05490196, 0.05490196, 0.05490196, 1, 0.05490196, 0.05490196, 0.05490196, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_mu44x"]
-gradient = SubResource("Gradient_notvo")
 
 [sub_resource type="LabelSettings" id="LabelSettings_tafce"]
 font_size = 30
@@ -54,12 +49,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 236.02
-offset_right = 236.02002
+offset_left = 210.0
+offset_top = -3.0
+offset_right = 3258.0
+offset_bottom = 1799.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.585, 0.585)
-texture = ExtResource("2_g1ooo")
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("2_5scik")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -68,7 +65,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_mu44x")
+texture = ExtResource("3_rv3yy")
+expand_mode = 2
 
 [node name="Center" type="CenterContainer" parent="."]
 layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://p0pl57lpm4x4"]
+[gd_scene load_steps=36 format=3 uid="uid://p0pl57lpm4x4"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_ajxti"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="4_47nrl"]
@@ -89,14 +89,7 @@ script = ExtResource("13_ck0to")
 name = "Nova"
 img = ExtResource("14_e4lx6")
 text = "I'm finally here. I can see the Arduous Star!"
-small_text = "Press [Space] to advance"
-metadata/_custom_type_script = "uid://ehvcmont8xvr"
-
-[sub_resource type="Resource" id="Resource_otk5b"]
-script = ExtResource("13_ck0to")
-name = "Nova"
-img = ExtResource("14_e4lx6")
-text = "Oh, what are these little guys doing here?"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn8l0"]
@@ -106,21 +99,22 @@ albedo_texture = ExtResource("18_nv2fo")
 
 [node name="PlayerManager" parent="." instance=ExtResource("1_ajxti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
+stage = 0
 
 [node name="Nova" parent="PlayerManager" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 14.637955)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.07195842, 0.5250871, -0.506584, 0.68005747)
-bones/15/rotation = Quaternion(-0.15722688, 0.5474696, 0.23050962, 0.7889373)
-bones/16/rotation = Quaternion(-0.51328427, -0.46688843, -0.23735434, 0.6798658)
-bones/21/rotation = Quaternion(-0.1394251, 0.39790225, -0.4659847, 0.777877)
-bones/22/rotation = Quaternion(-0.06049672, 0.3382462, 0.17309368, 0.9230213)
-bones/23/rotation = Quaternion(0.1242887, 0.122964464, -0.0739768, 0.98181444)
-bones/38/rotation = Quaternion(-0.3493843, 0.70673627, 0.062186033, 0.6120356)
+bones/14/rotation = Quaternion(-0.06987969, 0.52426994, -0.5064547, 0.68100035)
+bones/15/rotation = Quaternion(-0.15941156, 0.55099565, 0.23119314, 0.7858382)
+bones/16/rotation = Quaternion(-0.51153946, -0.46714875, -0.24267043, 0.6791249)
+bones/21/rotation = Quaternion(-0.14404608, 0.3944578, -0.46188834, 0.7812252)
+bones/22/rotation = Quaternion(-0.06363931, 0.3474953, 0.17613484, 0.91878927)
+bones/23/rotation = Quaternion(0.1329734, 0.11771942, -0.073809385, 0.98133194)
+bones/38/rotation = Quaternion(-0.3489549, 0.7069472, 0.062558174, 0.61199886)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0056348373, -0.56997645, 0.8216416, -0.4191041, 0.7473553, 0.5155693, -0.90792054, -0.3414482, -0.24309075, 0.0060132486, 0.0072303736, -0.013210339)
+transform = Transform3D(-0.0063244784, -0.569969, 0.8216418, -0.4181945, 0.74786377, 0.51557064, -0.90833545, -0.34034538, -0.24308777, 0.006002475, 0.007244603, -0.013216781)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -177,48 +171,6 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [node name="Die" parent="PlayerManager/Nova/nova" index="16"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
-
-[node name="Rene\'s Circle" parent="PlayerManager/Rene" index="10" node_paths=PackedStringArray("particles")]
-particles = [NodePath("sparks"), NodePath("sparks")]
-
-[node name="Skeleton3D" parent="PlayerManager/Rene/rene" index="0"]
-bones/2/position = Vector3(-0.00048374574, 0.0153010115, -0.0011631509)
-bones/2/rotation = Quaternion(0.018430147, -0.018376587, 0.7058377, 0.7078953)
-bones/5/position = Vector3(0.0038610352, -3.1048305e-05, -0.00018156038)
-bones/5/rotation = Quaternion(0.0002769403, -0.12937072, -0.01278383, 0.99151385)
-bones/6/rotation = Quaternion(-0.045169156, 0.04625249, -0.68640584, 0.72433937)
-bones/10/rotation = Quaternion(-0.12016356, 0.45460087, -0.5424176, 0.696191)
-bones/11/rotation = Quaternion(-0.029113108, 0.5583652, 0.045110933, 0.8278561)
-bones/12/rotation = Quaternion(-0.07583242, 0.025066635, -0.033660546, 0.996237)
-bones/13/position = Vector3(0.0018554535, 0.00021904967, -2.3318624e-05)
-bones/15/position = Vector3(0.001368346, -0.0002610989, -0.0008667272)
-bones/19/rotation = Quaternion(-0.21518028, 0.06228493, -0.5889167, 0.77652764)
-bones/20/rotation = Quaternion(-0.049694713, 0.8316741, 0.03074594, 0.5521805)
-bones/21/rotation = Quaternion(0.37886226, 0.28131926, 0.2762043, 0.83727777)
-bones/22/position = Vector3(-0.001855438, -0.0002190491, 2.3319011e-05)
-bones/24/position = Vector3(-0.0013683101, 0.00026112064, 0.00086672406)
-bones/26/position = Vector3(0.0010249413, 2.9692717e-06, -0.0022887809)
-bones/26/rotation = Quaternion(0.045572486, -0.70563674, 0.706242, 0.03495976)
-bones/27/position = Vector3(0.005858415, 2.220446e-18, 3.6082247e-18)
-bones/27/rotation = Quaternion(0, 0, -0.045059975, 0.9989843)
-bones/28/position = Vector3(0.0051753446, 3.330669e-18, 2.9837242e-18)
-bones/29/position = Vector3(0.0046479213, 2.5794162e-11, 2.8449465e-18)
-bones/32/position = Vector3(0.0051753446, 2.220446e-18, 0)
-bones/33/position = Vector3(0.0046479213, 3.330669e-18, 0)
-bones/35/position = Vector3(0.0019021159, -0.0011497504, -0.0037815245)
-bones/35/rotation = Quaternion(0.12110399, 0.008848013, 0.9887331, 0.08753536)
-bones/39/rotation = Quaternion(-0.014321454, 0.9974153, 0.049073316, -0.050491363)
-bones/40/rotation = Quaternion(0.9953477, -0.011055938, 0.095709525, 0.00066123763)
-bones/41/rotation = Quaternion(0.029837726, -0.07132071, -0.021702385, 0.99677086)
-bones/44/rotation = Quaternion(0.00024500114, 0.12384611, 0.024326308, 0.9920032)
-bones/45/rotation = Quaternion(0.9986342, -0.009046117, 0.05145694, 0.00024816874)
-bones/46/rotation = Quaternion(-0.020922972, 0.046347305, 0.015104643, 0.998592)
-bones/49/position = Vector3(-0.004661922, 0.010273972, 0.005810315)
-bones/49/rotation = Quaternion(0.22722664, 0.91744006, -0.17050594, 0.2785669)
-bones/51/position = Vector3(-1.6653345e-18, -1.110223e-18, 0)
-bones/52/position = Vector3(0.009964881, -5.5511148e-18, -2.220446e-18)
-bones/53/position = Vector3(0.008668151, -1.2712053e-15, 0)
-bones/54/position = Vector3(0.0065154396, 1.4654943e-16, 2.220446e-18)
 
 [node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -281,6 +233,48 @@ visible = false
 
 [node name="Dawn" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" index="3"]
 visible = false
+
+[node name="nova_control" parent="PlayerManager/Pause Menu" index="0"]
+visible = true
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/nova_control" index="0"]
+script = null
+
+[node name="Nova_Controls" parent="PlayerManager/Pause Menu/nova_control" index="1"]
+script = null
+
+[node name="Nova_Portrait" parent="PlayerManager/Pause Menu/nova_control" index="2"]
+script = null
+
+[node name="Nova_Name" parent="PlayerManager/Pause Menu/nova_control" index="3"]
+script = null
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/rene_control" index="0"]
+script = null
+
+[node name="rene_controls" parent="PlayerManager/Pause Menu/rene_control" index="1"]
+script = null
+
+[node name="rene_portrait" parent="PlayerManager/Pause Menu/rene_control" index="2"]
+script = null
+
+[node name="rene_name" parent="PlayerManager/Pause Menu/rene_control" index="3"]
+script = null
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/dawn_control" index="0"]
+script = null
+
+[node name="dawn_controls" parent="PlayerManager/Pause Menu/dawn_control" index="1"]
+script = null
+
+[node name="dawn_portrait" parent="PlayerManager/Pause Menu/dawn_control" index="2"]
+script = null
+
+[node name="dawn_name" parent="PlayerManager/Pause Menu/dawn_control" index="3"]
+script = null
+
+[node name="VBoxContainer" parent="PlayerManager/Pause Menu" index="3"]
+script = null
 
 [node name="WaveManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
@@ -800,7 +794,7 @@ shape = SubResource("BoxShape3D_nv2fo")
 
 [node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
 script = ExtResource("12_yvkck")
-dialogue = Array[ExtResource("13_ck0to")]([SubResource("Resource_mn8l0"), SubResource("Resource_otk5b")])
+dialogue = Array[ExtResource("13_ck0to")]([SubResource("Resource_mn8l0")])
 metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]

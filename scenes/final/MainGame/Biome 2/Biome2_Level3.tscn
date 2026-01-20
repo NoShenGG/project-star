@@ -20,9 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="18_dcj4q"]
 [ext_resource type="PackedScene" uid="uid://cjv0ka23mxpmd" path="res://art_assets/environment/Biome2/Level2/Level2-3Floor.glb" id="19_kq2w8"]
 [ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="20_du5fa"]
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="21_atvsj"]
-[ext_resource type="Texture2D" uid="uid://n8ioie3uso2u" path="res://VFX/Kenny Particle Pack/muzzle_01.png" id="22_7tvui"]
-[ext_resource type="Shader" uid="uid://cnufkqrd0wvae" path="res://VFX/MiteExplosionCloud.gdshader" id="23_lo1tq"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="21_atvsj"]
+[ext_resource type="Texture2D" uid="uid://n8ioie3uso2u" path="res://vfx/Kenny Particle Pack/muzzle_01.png" id="22_7tvui"]
+[ext_resource type="Shader" uid="uid://cnufkqrd0wvae" path="res://vfx/MiteExplosionCloud.gdshader" id="23_lo1tq"]
 [ext_resource type="Shader" uid="uid://c77hfyht2fpxt" path="res://shaders/Fog/lightbeam.gdshader" id="24_7tvui"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_31ltn"]
@@ -42,6 +42,7 @@ script = ExtResource("16_du5fa")
 name = "Rene"
 img = ExtResource("17_5b1lo")
 text = "Ahhhhh, run away! I can't- believe those Dyna-Mites caused a cave in"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="Resource" id="Resource_lo1tq"]
@@ -49,6 +50,7 @@ script = ExtResource("16_du5fa")
 name = "Nova"
 img = ExtResource("18_dcj4q")
 text = "Looks like there's a clearing up ahead, let's go!"
+small_text = "[pulse]press Space to Advance "
 metadata/_custom_type_script = "uid://ehvcmont8xvr"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kq2w8"]
@@ -409,7 +411,7 @@ shader_parameter/noise_texture = SubResource("NoiseTexture2D_7tvui")
 shader_parameter/noise_scale = 0.70000001043084
 shader_parameter/noise_intensity = 0.999999977648
 shader_parameter/noise_scroll_speed = Vector2(0.075, 0.01)
-shader_parameter/noise_distortion_intensity = 0.054000002564999997
+shader_parameter/noise_distortion_intensity = 0.05400000256499999
 shader_parameter/noise_distortion_scroll_speed = Vector2(-0.02, -0.01)
 
 [node name="Level3" type="Node3D"]
@@ -422,16 +424,16 @@ stage = 1
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 8.64628)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.06642333, 0.52290744, -0.5063083, 0.68250114)
-bones/15/rotation = Quaternion(-0.16313799, 0.556931, 0.23231514, 0.7805405)
-bones/16/rotation = Quaternion(-0.508544, -0.46809754, -0.2513163, 0.67757505)
-bones/21/rotation = Quaternion(-0.15005617, 0.3881341, -0.45632502, 0.786513)
-bones/22/rotation = Quaternion(-0.068745054, 0.36202186, 0.18084602, 0.9118712)
-bones/23/rotation = Quaternion(0.14537835, 0.11004018, -0.074188, 0.98043483)
-bones/38/rotation = Quaternion(-0.34851113, 0.7071652, 0.062942825, 0.6119606)
+bones/14/rotation = Quaternion(-0.06526893, 0.52195835, -0.5067225, 0.6830313)
+bones/15/rotation = Quaternion(-0.17059769, 0.568498, 0.2343857, 0.76991546)
+bones/16/rotation = Quaternion(-0.5031503, -0.47768176, -0.26229662, 0.6707164)
+bones/21/rotation = Quaternion(-0.1388079, 0.36833686, -0.46907774, 0.7905862)
+bones/22/rotation = Quaternion(-0.074987374, 0.37892509, 0.18621069, 0.90339273)
+bones/23/rotation = Quaternion(0.1348296, 0.11021851, -0.0870012, 0.9808688)
+bones/38/rotation = Quaternion(-0.35080537, 0.7060351, 0.060953114, 0.6121559)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0070372475, -0.56996065, 0.8216417, -0.4172539, 0.74838805, 0.51557195, -0.9087625, -0.339205, -0.24308491, 0.0059913397, 0.0072593163, -0.013223412)
+transform = Transform3D(-0.0033501545, -0.56999445, 0.8216416, -0.42211226, 0.7456633, 0.51556516, -0.90653723, -0.34509784, -0.24309969, 0.0060489406, 0.0071833185, -0.0131888585)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -488,48 +490,6 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 [node name="Die" parent="PlayerManager/Nova/nova" index="16"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
-
-[node name="Rene\'s Circle" parent="PlayerManager/Rene" index="10" node_paths=PackedStringArray("particles")]
-particles = [NodePath("sparks"), NodePath("sparks")]
-
-[node name="Skeleton3D" parent="PlayerManager/Rene/rene" index="0"]
-bones/2/position = Vector3(-0.00048374574, 0.0153010115, -0.0011631509)
-bones/2/rotation = Quaternion(0.018430147, -0.018376587, 0.7058377, 0.7078953)
-bones/5/position = Vector3(0.0038610352, -3.1048305e-05, -0.00018156038)
-bones/5/rotation = Quaternion(0.0002769403, -0.12937072, -0.01278383, 0.99151385)
-bones/6/rotation = Quaternion(-0.045169156, 0.04625249, -0.68640584, 0.72433937)
-bones/10/rotation = Quaternion(-0.12016356, 0.45460087, -0.5424176, 0.696191)
-bones/11/rotation = Quaternion(-0.029113108, 0.5583652, 0.045110933, 0.8278561)
-bones/12/rotation = Quaternion(-0.07583242, 0.025066635, -0.033660546, 0.996237)
-bones/13/position = Vector3(0.0018554535, 0.00021904967, -2.3318624e-05)
-bones/15/position = Vector3(0.001368346, -0.0002610989, -0.0008667272)
-bones/19/rotation = Quaternion(-0.21518028, 0.06228493, -0.5889167, 0.77652764)
-bones/20/rotation = Quaternion(-0.049694713, 0.8316741, 0.03074594, 0.5521805)
-bones/21/rotation = Quaternion(0.37886226, 0.28131926, 0.2762043, 0.83727777)
-bones/22/position = Vector3(-0.001855438, -0.0002190491, 2.3319011e-05)
-bones/24/position = Vector3(-0.0013683101, 0.00026112064, 0.00086672406)
-bones/26/position = Vector3(0.0010249413, 2.9692717e-06, -0.0022887809)
-bones/26/rotation = Quaternion(0.045572486, -0.70563674, 0.706242, 0.03495976)
-bones/27/position = Vector3(0.005858415, 2.220446e-18, 3.6082247e-18)
-bones/27/rotation = Quaternion(0, 0, -0.045059975, 0.9989843)
-bones/28/position = Vector3(0.0051753446, 3.330669e-18, 2.9837242e-18)
-bones/29/position = Vector3(0.0046479213, 2.5794162e-11, 2.8449465e-18)
-bones/32/position = Vector3(0.0051753446, 2.220446e-18, 0)
-bones/33/position = Vector3(0.0046479213, 3.330669e-18, 0)
-bones/35/position = Vector3(0.0019021159, -0.0011497504, -0.0037815245)
-bones/35/rotation = Quaternion(0.12110399, 0.008848013, 0.9887331, 0.08753536)
-bones/39/rotation = Quaternion(-0.014321454, 0.9974153, 0.049073316, -0.050491363)
-bones/40/rotation = Quaternion(0.9953477, -0.011055938, 0.095709525, 0.00066123763)
-bones/41/rotation = Quaternion(0.029837726, -0.07132071, -0.021702385, 0.99677086)
-bones/44/rotation = Quaternion(0.00024500114, 0.12384611, 0.024326308, 0.9920032)
-bones/45/rotation = Quaternion(0.9986342, -0.009046117, 0.05145694, 0.00024816874)
-bones/46/rotation = Quaternion(-0.020922972, 0.046347305, 0.015104643, 0.998592)
-bones/49/position = Vector3(-0.004661922, 0.010273972, 0.005810315)
-bones/49/rotation = Quaternion(0.22722664, 0.91744006, -0.17050594, 0.2785669)
-bones/51/position = Vector3(-1.6653345e-18, -1.110223e-18, 0)
-bones/52/position = Vector3(0.009964881, -5.5511148e-18, -2.220446e-18)
-bones/53/position = Vector3(0.008668151, -1.2712053e-15, 0)
-bones/54/position = Vector3(0.0065154396, 1.4654943e-16, 2.220446e-18)
 
 [node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -589,6 +549,48 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 
 [node name="Dawn" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" index="3"]
 visible = false
+
+[node name="nova_control" parent="PlayerManager/Pause Menu" index="0"]
+visible = true
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/nova_control" index="0"]
+script = null
+
+[node name="Nova_Controls" parent="PlayerManager/Pause Menu/nova_control" index="1"]
+script = null
+
+[node name="Nova_Portrait" parent="PlayerManager/Pause Menu/nova_control" index="2"]
+script = null
+
+[node name="Nova_Name" parent="PlayerManager/Pause Menu/nova_control" index="3"]
+script = null
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/rene_control" index="0"]
+script = null
+
+[node name="rene_controls" parent="PlayerManager/Pause Menu/rene_control" index="1"]
+script = null
+
+[node name="rene_portrait" parent="PlayerManager/Pause Menu/rene_control" index="2"]
+script = null
+
+[node name="rene_name" parent="PlayerManager/Pause Menu/rene_control" index="3"]
+script = null
+
+[node name="TextureRect" parent="PlayerManager/Pause Menu/dawn_control" index="0"]
+script = null
+
+[node name="dawn_controls" parent="PlayerManager/Pause Menu/dawn_control" index="1"]
+script = null
+
+[node name="dawn_portrait" parent="PlayerManager/Pause Menu/dawn_control" index="2"]
+script = null
+
+[node name="dawn_name" parent="PlayerManager/Pause Menu/dawn_control" index="3"]
+script = null
+
+[node name="VBoxContainer" parent="PlayerManager/Pause Menu" index="3"]
+script = null
 
 [node name="LevelEnder" parent="." instance=ExtResource("7_s0x1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20773125, -3.6608257, -32.17933)
@@ -663,7 +665,7 @@ transform = Transform3D(4.9094515, 0, 0, 0, 1, 0, 0, 0, 2.4655247, -30.92141, 1.
 transform = Transform3D(3.4254735, 0, 0, 0, 1, 0, 0, 0, 3.6188767, -30.066307, -1.9073486e-06, 44.32631)
 
 [node name="DialogueCollisionCaller" type="Area3D" parent="." node_paths=PackedStringArray("dialogue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028913975, 0, 8.611918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5815616, 0, 8.611918)
 script = ExtResource("14_irc2h")
 dialogue = NodePath("DialogueCaller")
 metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
@@ -827,7 +829,7 @@ script = ExtResource("21_atvsj")
 on_stop = 1
 lifetime = 3.0
 light = NodePath("OmniLight3D")
-particles = [NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D4"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D4"), NodePath("GPUParticles3D3")]
+particles = [NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D4"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D4")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="Cutscene Explosions"]
