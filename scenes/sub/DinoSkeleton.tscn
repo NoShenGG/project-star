@@ -42,6 +42,7 @@ vision_radius = 25.0
 attack_radius = 10.0
 _base_speed = 1.0
 _hp = 25.0
+_max_hp = 25.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_8j2wv")
