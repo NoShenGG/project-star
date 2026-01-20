@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cdvkjgovnta44"]
+[gd_scene load_steps=40 format=3 uid="uid://cdvkjgovnta44"]
 
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="1_p3r0m"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="2_mvyfq"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="14_30m0f"]
 [ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="15_3nrg2"]
 [ext_resource type="Texture2D" uid="uid://d0np8pel0cm26" path="res://art_assets/Ui/FinalPortraits/dawnCLEAR.png" id="16_30m0f"]
+[ext_resource type="Shader" uid="uid://c77hfyht2fpxt" path="res://shaders/Fog/lightbeam.gdshader" id="18_i6srs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3nrg2"]
 sky_top_color = Color(0.8235294, 0, 0.45882353, 1)
@@ -94,6 +95,46 @@ size = Vector3(17.605, 1, 4.03)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i6srs"]
 size = Vector3(1, 4.745, 30.705)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tbj4w"]
+size = Vector2(20, 60)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fcfpd"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i6srs"]
+height = 305
+noise = SubResource("FastNoiseLite_fcfpd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ic5nq"]
+render_priority = 0
+shader = ExtResource("18_i6srs")
+shader_parameter/color = Color(1, 0.8, 1, 1)
+shader_parameter/use_second_color = true
+shader_parameter/second_color = Color(1, 0.26, 1, 1)
+shader_parameter/cone_start_width = 0.35999999195328
+shader_parameter/cone_curve = 0.72999998368304
+shader_parameter/beam_sharpness = 0.25
+shader_parameter/beam_fade = 0.90000001341108
+shader_parameter/use_gradient = false
+shader_parameter/proximity_fade_distance = 8.5499998088904
+shader_parameter/z_fade_start = 0.0
+shader_parameter/z_fade_end = 0.0
+shader_parameter/use_noise = true
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_i6srs")
+shader_parameter/noise_scale = 2.30000003427276
+shader_parameter/noise_intensity = 0.999999977648
+shader_parameter/noise_scroll_speed = Vector2(0, -0.475)
+shader_parameter/noise_distortion_intensity = 0.10000000149012
+shader_parameter/noise_distortion_scroll_speed = Vector2(-0.02, -0.01)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fcfpd"]
+size = Vector2(42.72, 60)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1q2o5"]
+size = Vector2(86.17, 60)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ms5vr"]
+size = Vector2(60.605, 150)
 
 [node name="Level3" type="Node3D"]
 
@@ -494,6 +535,50 @@ shape = SubResource("BoxShape3D_i6srs")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, 0.6299999, 0, 1, 0, -1, 0, -2.7538169e-08, 2.2375927, 0, -45.599003)
 shape = SubResource("BoxShape3D_i6srs")
+
+[node name="GodRays" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GodRays"]
+transform = Transform3D(-0.8852963, 0.34146363, -0.315679, 6.419341e-08, -0.67883927, -0.73428696, -0.46502757, -0.6500615, 0.6009738, -17.756767, 5.1592865, -70.430336)
+mesh = SubResource("PlaneMesh_tbj4w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="GodRays"]
+transform = Transform3D(-0.7234246, -0.19066098, -0.6635549, 0.68483764, -0.3199642, -0.65469134, -0.0874899, -0.9280472, 0.36204165, -49.107544, -19.897034, -109.78726)
+mesh = SubResource("PlaneMesh_tbj4w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="GodRays"]
+transform = Transform3D(-0.97418356, -0.07625011, 0.2124913, -0.10213285, -0.69055384, -0.7160339, 0.20133425, -0.7192508, 0.66493857, -1.0283461, 7.2685566, -70.98172)
+mesh = SubResource("PlaneMesh_tbj4w")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="GodRays"]
+transform = Transform3D(-0.4488029, -0.8599342, 0.24308307, 0.850368, -0.49458316, -0.17961489, 0.27468187, 0.12609819, 0.9532309, -20.707127, 18.997105, 3.9328804)
+mesh = SubResource("PlaneMesh_fcfpd")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="GodRays"]
+transform = Transform3D(-0.8852963, 0.34146363, -0.315679, 6.419341e-08, -0.67883927, -0.73428696, -0.46502757, -0.6500615, 0.6009738, 41.35923, 5.1592865, -159.29355)
+mesh = SubResource("PlaneMesh_1q2o5")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="GodRays"]
+transform = Transform3D(-0.704399, -0.52120006, 0.48184294, 9.124426e-08, -0.6788393, -0.734287, 0.7098044, -0.517231, 0.4781738, 107.85162, 5.1592865, -168.48802)
+mesh = SubResource("PlaneMesh_1q2o5")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="GodRays"]
+transform = Transform3D(0.1358712, 0.72747755, -0.6725441, 1.0557427e-07, -0.67883945, -0.734287, -0.9907266, 0.09976852, -0.092234835, -18.172756, -11.482265, -231.61186)
+mesh = SubResource("PlaneMesh_ms5vr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
 
 [connection signal="ended" from="WaveManager/Wave6" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
