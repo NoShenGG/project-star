@@ -1,0 +1,31 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://n4gsimn17mbj"]
+
+[ext_resource type="Shader" uid="uid://c77hfyht2fpxt" path="res://shaders/Fog/lightbeam.gdshader" id="1_ul114"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ul114"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xo2ee"]
+height = 1
+noise = SubResource("FastNoiseLite_ul114")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ul114")
+shader_parameter/color = Color(0.42000002, 1, 0.855, 1)
+shader_parameter/use_second_color = true
+shader_parameter/second_color = Color(0, 0.73333335, 1, 1)
+shader_parameter/cone_start_width = 0.35999999195328
+shader_parameter/cone_curve = 0.72999998368304
+shader_parameter/beam_sharpness = 0.25
+shader_parameter/beam_fade = 0.70000001043084
+shader_parameter/use_gradient = false
+shader_parameter/proximity_fade_distance = 8.5499998088904
+shader_parameter/z_fade_start = 0.0
+shader_parameter/z_fade_end = 0.0
+shader_parameter/use_noise = true
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_xo2ee")
+shader_parameter/noise_scale = 2.30000003427276
+shader_parameter/noise_intensity = 0.999999977648
+shader_parameter/noise_scroll_speed = Vector2(0.265, 0.01)
+shader_parameter/noise_distortion_intensity = 0.01
+shader_parameter/noise_distortion_scroll_speed = Vector2(-0.02, -0.01)
