@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://brw0p1eirto83"]
+[gd_scene load_steps=120 format=3 uid="uid://brw0p1eirto83"]
 
 [ext_resource type="Script" uid="uid://om4qdtr1cye0" path="res://scripts/entities/player/nova/nova.gd" id="1_p5oh7"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="3_6m1nx"]
@@ -20,17 +20,11 @@
 [ext_resource type="Script" uid="uid://d3pkbl7ownr11" path="res://scripts/entities/player/player_states/player_hit_stun.gd" id="15_h46t7"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="15_ranno"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="17_gedrv"]
-[ext_resource type="Material" uid="uid://bmvdfa1accn3t" path="res://art_assets/characters/Nova/nova_rig_nobaFBXASC032jack.material" id="21_5up7p"]
-[ext_resource type="Material" uid="uid://qq8kt1ydqeac" path="res://art_assets/characters/Nova/nova_rig_steel.material" id="22_vrbf8"]
-[ext_resource type="Material" uid="uid://bedc7fjgjx4xi" path="res://art_assets/characters/Nova/nova_rig_nobaFBXASC032hair.material" id="23_6qoku"]
-[ext_resource type="Material" uid="uid://cnworlc0o6vaa" path="res://art_assets/characters/Nova/nova_rig_novaFBXASC032skin.material" id="24_mm718"]
-[ext_resource type="Material" uid="uid://twex182vu8ib" path="res://art_assets/characters/Nova/nova_rig_nobaFBXASC032boots.material" id="25_ajeah"]
-[ext_resource type="Material" uid="uid://buvujfk56n3sq" path="res://art_assets/characters/Nova/nova_rig_novaFBXASC032chestFBXASC032plate.material" id="26_gedrv"]
-[ext_resource type="Material" uid="uid://bsofjwbdtli4c" path="res://art_assets/characters/Nova/nova_rig_nobaFBXASC032clothesFBXASC0322.material" id="27_5up7p"]
+[ext_resource type="Shader" uid="uid://cw2eeqmautiwo" path="res://shaders/grass - Dylearn/Shaders/ToonShader.gdshader" id="22_5up7p"]
+[ext_resource type="Shader" uid="uid://crwsrlgfy4fjb" path="res://shaders/grass - Dylearn/Shaders/Outline.gdshader" id="23_vrbf8"]
+[ext_resource type="Texture2D" uid="uid://eigm3rxkvtcq" path="res://art_assets/characters/Nova/nova_0.png" id="24_6qoku"]
 [ext_resource type="PackedScene" uid="uid://bi2pwq60ilskr" path="res://scenes/dev/arshiya_r/magic circle things/magic_circle_nova.tscn" id="27_ygt4u"]
 [ext_resource type="PackedScene" uid="uid://cod3je274l3of" path="res://art_assets/characters/Nova/nova.glb" id="28_8qhfg"]
-[ext_resource type="Material" uid="uid://ccpis1o8571vf" path="res://art_assets/characters/Nova/nova_rig_nova_sword_ncl1_1.material" id="28_sbbhh"]
-[ext_resource type="Material" uid="uid://c7y1xv4mah141" path="res://art_assets/characters/Nova/nova_rig_nobaFBXASC032clothes.material" id="28_vrbf8"]
 [ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="30_ajeah"]
 [ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="31_gedrv"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrails/defaults/texture.tres" id="32_ajeah"]
@@ -56,11 +50,96 @@ size = Vector3(2.5, 2, 3)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ob225"]
 radius = 3.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mm718"]
+render_priority = 0
+shader = ExtResource("22_5up7p")
+shader_parameter/albedo = Color(0.44722706, 0.23483713, 0.2402109, 1)
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7eh3"]
+render_priority = 0
+shader = ExtResource("23_vrbf8")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 0.5499999877064
+shader_parameter/highlight_strength = 0.46999998949456
+shader_parameter/highlight_color = Color(1, 0, 0, 1)
+shader_parameter/shadow_color = Color(0.19, 0.0037999963, 0.0037999963, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ajeah"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_v7eh3")
+shader = ExtResource("22_5up7p")
+shader_parameter/albedo = Color(0.84, 0.14224, 0.09240001, 1)
+shader_parameter/cuts = 6
+shader_parameter/wrap = -0.08499990903749999
+shader_parameter/steepness = 1.7110000337725
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gedrv"]
+render_priority = 0
+shader = ExtResource("22_5up7p")
+shader_parameter/albedo = Color(0.8196137, 0.6470595, 0.53333163, 1)
+shader_parameter/cuts = 2
+shader_parameter/wrap = 0.3200001102000001
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6rgu"]
+render_priority = 0
+shader = ExtResource("22_5up7p")
+shader_parameter/albedo = Color(0.57, 0.14819999, 0.23958999, 1)
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sbbhh"]
+render_priority = 0
+shader = ExtResource("22_5up7p")
+shader_parameter/albedo = Color(0.6478, 0.74259996, 0.79, 1)
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.01700009580750006
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lk157"]
+render_priority = 0
+shader = ExtResource("22_5up7p")
+shader_parameter/albedo = Color(0.52763075, 0.52763075, 0.52763075, 1)
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n0hbj"]
+render_priority = 0
+shader = ExtResource("22_5up7p")
+shader_parameter/albedo = Color(0.49411765, 0.3529412, 0.3529412, 1)
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oc7x5"]
+render_priority = 0
+shader = ExtResource("22_5up7p")
+shader_parameter/albedo = Color(0.31155083, 0.31155083, 0.31155083, 1)
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.4490001163274999
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ksem"]
+render_priority = 0
+shader = ExtResource("22_5up7p")
+shader_parameter/albedo = Color(1, 0.91333336, 0.74, 1)
+shader_parameter/albedo_texture = ExtResource("24_6qoku")
+shader_parameter/cuts = 1
+shader_parameter/wrap = -0.7269999395325
+shader_parameter/steepness = 3.022000096045
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ldc4w"]
 shader = ExtResource("30_ajeah")
 
 [sub_resource type="Gradient" id="Gradient_lk157"]
-colors = PackedColorArray(1, 1, 0.30980393, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.99319726)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0.5499997, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_n0hbj"]
 gradient = SubResource("Gradient_lk157")
@@ -7493,12 +7572,12 @@ bones/10/position = Vector3(0.007249624, 0, 0)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.06870525, 0.52305627, -0.5068305, 0.681773)
-bones/15/rotation = Quaternion(-0.16735886, 0.5635146, 0.23350856, 0.7745425)
-bones/16/rotation = Quaternion(-0.505753, -0.47748154, -0.2543467, 0.6719621)
-bones/21/rotation = Quaternion(-0.13250558, 0.37323555, -0.47533977, 0.78561413)
-bones/22/rotation = Quaternion(-0.070268534, 0.3661599, 0.18216272, 0.90983844)
-bones/23/rotation = Quaternion(0.12181114, 0.11749631, -0.08742651, 0.981689)
+bones/14/rotation = Quaternion(-0.06586662, 0.5225665, -0.50639325, 0.6827531)
+bones/15/rotation = Quaternion(-0.16558068, 0.5607578, 0.2330153, 0.7770698)
+bones/16/rotation = Quaternion(-0.5067571, -0.47069207, -0.25534528, 0.6756072)
+bones/21/rotation = Quaternion(-0.14804041, 0.38219446, -0.45878282, 0.7883716)
+bones/22/rotation = Quaternion(-0.071067736, 0.3683959, 0.18288176, 0.9087288)
+bones/23/rotation = Quaternion(0.14444028, 0.109000474, -0.07745417, 0.9804371)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
@@ -7506,31 +7585,31 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.35129035, 0.70579493, 0.06053203, 0.6121965)
+bones/38/rotation = Quaternion(-0.34921715, 0.70681834, 0.06233089, 0.6120214)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
 [node name="nova_rig_jacket" parent="nova/Skeleton3D" index="1"]
-surface_material_override/0 = ExtResource("21_5up7p")
-surface_material_override/1 = ExtResource("22_vrbf8")
+surface_material_override/0 = SubResource("ShaderMaterial_mm718")
+surface_material_override/1 = SubResource("ShaderMaterial_mm718")
 
 [node name="nova_rig_body" parent="nova/Skeleton3D" index="2"]
-surface_material_override/0 = ExtResource("23_6qoku")
-surface_material_override/1 = ExtResource("24_mm718")
-surface_material_override/2 = ExtResource("25_ajeah")
-surface_material_override/3 = ExtResource("26_gedrv")
-surface_material_override/4 = ExtResource("27_5up7p")
-surface_material_override/5 = ExtResource("28_vrbf8")
-surface_material_override/6 = ExtResource("22_vrbf8")
+surface_material_override/0 = SubResource("ShaderMaterial_ajeah")
+surface_material_override/1 = SubResource("ShaderMaterial_gedrv")
+surface_material_override/2 = SubResource("ShaderMaterial_n6rgu")
+surface_material_override/3 = SubResource("ShaderMaterial_sbbhh")
+surface_material_override/4 = SubResource("ShaderMaterial_lk157")
+surface_material_override/5 = SubResource("ShaderMaterial_n0hbj")
+surface_material_override/6 = SubResource("ShaderMaterial_oc7x5")
 
 [node name="nova_rig_pauldrons" parent="nova/Skeleton3D" index="3"]
-surface_material_override/0 = ExtResource("22_vrbf8")
+surface_material_override/0 = SubResource("ShaderMaterial_oc7x5")
 
 [node name="nova_rig_sword" parent="nova/Skeleton3D" index="4"]
-surface_material_override/0 = ExtResource("28_sbbhh")
+surface_material_override/0 = SubResource("ShaderMaterial_0ksem")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.002569683, -0.5699985, 0.8216417, -0.42313793, 0.7450827, 0.5155638, -0.90606153, -0.34634292, -0.24310267, 0.0060611335, 0.007167274, -0.013181471)
+transform = Transform3D(-0.0059031835, -0.5699736, 0.82164174, -0.41875005, 0.7475533, 0.5155699, -0.90808225, -0.34101906, -0.24308944, 0.0060090567, 0.007235912, -0.01321285)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 
