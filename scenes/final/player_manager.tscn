@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://brmdsiu0kp6ca"]
+[gd_scene load_steps=46 format=3 uid="uid://brmdsiu0kp6ca"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_lyudl"]
 [ext_resource type="PackedScene" uid="uid://brw0p1eirto83" path="res://scenes/final/Nova.tscn" id="2_dvwxt"]
@@ -33,6 +33,26 @@
 [ext_resource type="Texture2D" uid="uid://147m6fkwtvf3" path="res://art_assets/Ui/ControlPanels/Dawn/Dawn Full Control Panel.png" id="26_lwj1m"]
 [ext_resource type="Texture2D" uid="uid://bklpvubfdogqr" path="res://art_assets/Ui/ControlPanels/Dawn/Dawn Corner Portrait.png" id="27_f620v"]
 [ext_resource type="Texture2D" uid="uid://c66y8x2ip4vdm" path="res://art_assets/Ui/ControlPanels/Dawn/DAWN.png" id="28_p704c"]
+[ext_resource type="Shader" uid="uid://d27ndcngym04q" path="res://shaders/post-processing - klaktus1901/PosterizeScreenEffect.gdshader" id="33_3h4bm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w6fg2"]
+shader = ExtResource("33_3h4bm")
+shader_parameter/exposure = 1.026000024985
+shader_parameter/contrast = 0.662000007695
+shader_parameter/saturation = 1.414000067165
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 3.00000011875
+shader_parameter/enable_posterize = true
+shader_parameter/color_levels = 16.000000665
+shader_parameter/dither_strength = 0.406000019285
+shader_parameter/chrom_aberration = 0.030000001425
+shader_parameter/vignette_strength = 0.2070000098325
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Vector3(0.935, 1.015, 1.44)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lwj1m"]
 
 [sub_resource type="Curve" id="Curve_q54j5"]
 _limits = [0.0, 2.0, 0.0, 1.0]
@@ -80,16 +100,16 @@ floor_snap_length = 5.0
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.0650123, 0.5219126, -0.50668687, 0.6831173)
-bones/15/rotation = Quaternion(-0.17049593, 0.5683423, 0.23435858, 0.77006114)
-bones/16/rotation = Quaternion(-0.50319755, -0.47709852, -0.26250738, 0.6710135)
-bones/21/rotation = Quaternion(-0.14024559, 0.36904004, -0.467532, 0.79092)
-bones/22/rotation = Quaternion(-0.07513197, 0.37930638, 0.18633015, 0.903196)
-bones/23/rotation = Quaternion(0.1369958, 0.10937438, -0.086109646, 0.9807418)
-bones/38/rotation = Quaternion(-0.35069263, 0.7060908, 0.06105099, 0.61214656)
+bones/14/rotation = Quaternion(-0.07554336, 0.52604455, -0.5069215, 0.67867595)
+bones/15/rotation = Quaternion(-0.15669537, 0.5466018, 0.23033786, 0.7896946)
+bones/16/rotation = Quaternion(-0.5138634, -0.47121924, -0.23253746, 0.6781027)
+bones/21/rotation = Quaternion(-0.12538493, 0.3946866, -0.47956133, 0.77364206)
+bones/22/rotation = Quaternion(-0.05753255, 0.3292416, 0.17009826, 0.92701495)
+bones/23/rotation = Quaternion(0.10267696, 0.13273685, -0.080251954, 0.9825468)
+bones/38/rotation = Quaternion(-0.35142252, 0.7057295, 0.060417276, 0.6122075)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0035313554, -0.5699934, 0.82164174, -0.42187372, 0.74579793, 0.5155656, -0.90664774, -0.3448084, -0.24309897, 0.00604611, 0.0071870503, -0.013190575)
+transform = Transform3D(-0.0023571304, -0.56999946, 0.8216417, -0.42341736, 0.7449241, 0.5155634, -0.9059316, -0.3466821, -0.24310362, 0.006064454, 0.0071629034, -0.013179453)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -166,9 +186,6 @@ passive_death_time = 2.5
 
 [node name="HitStun" parent="Rene/StateMachine" index="11"]
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
-
-[node name="Rene\'s Circle" parent="Rene" index="10" node_paths=PackedStringArray("particles")]
-particles = [NodePath("sparks"), NodePath("sparks")]
 
 [node name="Idle" parent="Rene/rene" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -257,6 +274,15 @@ bank_paths = ["res://sounds/banks/Player.bank"]
 
 [node name="FmodListener3D" type="FmodListener3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="PostProcessing" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_w6fg2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_lwj1m")
 
 [node name="3D Special UI" type="Control" parent="." node_paths=PackedStringArray("nova_menu", "rene_menu", "dawn_menu")]
 layout_mode = 3

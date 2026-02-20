@@ -188,3 +188,46 @@ rendering_device/driver="d3d12"
 rendering_device/driver.windows="d3d12"
 anti_aliasing/quality/msaa_3d=2
 anti_aliasing/physics_interpolation=true
+
+[shader_globals]
+
+cloud_contrast={
+"type": "float",
+"value": 0.155
+}
+cloud_direction={
+"type": "vec2",
+"value": Vector2(0, -1)
+}
+cloud_diverge_angle={
+"type": "float",
+"value": 20.0
+}
+cloud_noise={
+"type": "sampler2D",
+"value": "res://shaders/grass - Dylearn/Textures and Materials/Cloud_Noise.tres"
+}
+cloud_scale={
+"type": "float",
+"value": 40.0
+}
+cloud_shadow_min={
+"type": "float",
+"value": 0.2
+}
+cloud_speed={
+"type": "float",
+"value": -0.01
+}
+cloud_threshold={
+"type": "float",
+"value": 0.27
+}
+cloud_world_y={
+"type": "float",
+"value": 50.0
+}
+light_direction={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
