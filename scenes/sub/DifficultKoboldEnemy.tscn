@@ -1,11 +1,11 @@
-[gd_scene load_steps=64 format=3 uid="uid://cv7a8503lutop"]
+[gd_scene load_steps=74 format=3 uid="uid://cv7a8503lutop"]
 
 [ext_resource type="Script" uid="uid://meavewo15aog" path="res://scripts/entities/enemies/enemy.gd" id="1_gavg2"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_wawl6"]
 [ext_resource type="Script" uid="uid://b2t1awuy1mis7" path="res://scripts/entities/enemies/states/move_to_player.gd" id="3_6ppla"]
 [ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="4_o3trl"]
 [ext_resource type="Script" uid="uid://becnk6gd1e51o" path="res://scripts/entities/player/melee_attack.gd" id="5_0qgj4"]
-[ext_resource type="Script" path="res://scripts/entities/enemies/states/SelectState.gd" id="6_0qgj4"]
+[ext_resource type="Script" uid="uid://dmfs43bw4srvs" path="res://scripts/entities/enemies/states/SelectState.gd" id="6_0qgj4"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="6_n5mpu"]
 [ext_resource type="PackedScene" uid="uid://cj1dreixyrara" path="res://art_assets/enemies/kobold/Kobold.glb" id="7_hmh7o"]
 [ext_resource type="PackedScene" uid="uid://di4qml3bmbcmh" path="res://art_assets/enemies/Weapons/SwordBase.glb" id="8_hyoos"]
@@ -20,6 +20,10 @@
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="14_jaab8"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="15_2hkfm"]
 [ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="16_5n8xg"]
+[ext_resource type="Script" uid="uid://dmydpfuw6v81a" path="res://scripts/entities/grass_size_change.gd" id="19_k5lyv"]
+[ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="21_hyoos"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="22_k5lyv"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="23_qncd1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1ibp7"]
 radius = 0.995
@@ -1166,11 +1170,43 @@ size = Vector3(4, 2, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0qgj4"]
 size = Vector3(9, 2, 9)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x32kg"]
+transparency = 1
+
+[sub_resource type="Curve" id="Curve_7nahu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cqf5t"]
+curve = SubResource("Curve_7nahu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6rlsh"]
+direction = Vector3(0, 0.5, 1)
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_cqf5t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xf2e"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("23_qncd1")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_jaab8"]
+material = SubResource("StandardMaterial3D_5xf2e")
+
 [node name="KoboldEnemy" type="CharacterBody3D"]
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_gavg2")
-_movement_speed = 5.0
 faction = 2
 _hp = 25.0
 _max_hp = 25.0
@@ -1278,16 +1314,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-4.536648e-09, 0.9969624, 0.07788396, 7.536146e-08)
-bones/1/rotation = Quaternion(0.092708014, 0.0034391014, -0.00021429552, 0.9956874)
-bones/2/rotation = Quaternion(0.09581257, -0.0037757165, -0.0002371591, 0.99539226)
-bones/4/rotation = Quaternion(0.23185396, 0.052165866, -0.5613523, 0.7927206)
+bones/0/rotation = Quaternion(-3.742321e-09, 0.9977278, 0.06737476, 7.540509e-08)
+bones/1/rotation = Quaternion(0.10316393, 0.0034411626, -0.00017815146, 0.99465847)
+bones/2/rotation = Quaternion(0.106120095, -0.003755321, -0.00020710297, 0.9943462)
+bones/4/rotation = Quaternion(0.23641266, 0.048934184, -0.56164336, 0.7913731)
 bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.043196995, 0.98099875)
 bones/6/rotation = Quaternion(0.054868486, 0.74948096, 0.015322978, 0.6595702)
-bones/7/rotation = Quaternion(0.099886015, -0.00029582978, -0.000720994, 0.99499863)
-bones/8/rotation = Quaternion(-0.08117453, -0.00035331695, -0.0004924005, 0.99669975)
+bones/7/rotation = Quaternion(0.08650041, -0.00028610995, -0.0007249061, 0.9962516)
+bones/8/rotation = Quaternion(-0.094566695, -0.00035990457, -0.00048760613, 0.9955183)
 bones/9/rotation = Quaternion(-0.09260436, -0.17117505, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.2971539, -0.0022501342, 0.5430288, 0.78537524)
+bones/10/rotation = Quaternion(0.2849022, -0.0106962, 0.54292804, 0.78990215)
 bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.0123480745, 0.97225493)
 bones/12/rotation = Quaternion(-5.8199273e-08, -0.751264, -5.181667e-08, 0.66000193)
 bones/13/rotation = Quaternion(0.10849718, -0.08205278, 0.9894506, -0.04983335)
@@ -1303,7 +1339,7 @@ bones/21/rotation = Quaternion(0.13793416, -4.2176818e-10, 0.0009505738, 0.99044
 surface_material_override/0 = SubResource("StandardMaterial3D_n5mpu")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(-0.35672462, -0.31144732, 0.8807657, -0.22962458, -0.8846383, -0.40581828, 0.9055494, -0.34701067, 0.2440562, -0.5756827, 0.832075, -0.053973857)
+transform = Transform3D(-0.3600223, -0.30878335, 0.8803617, -0.18273096, -0.90202236, -0.3911081, 0.9148733, -0.30167687, 0.268324, -0.57459486, 0.82726353, -0.053420816)
 bone_name = "Hand.L"
 bone_idx = 6
 
@@ -1402,6 +1438,11 @@ animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_i
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
+[node name="Grass Change" type="Node" parent="Kobold/Die"]
+script = ExtResource("19_k5lyv")
+delay = 0.2
+grass_displacement_size = 5.0
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]
@@ -1436,6 +1477,26 @@ metadata/_custom_type_script = "uid://c1iptw5vqre6f"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_0qgj4")
 
+[node name="Hurt" type="Node3D" parent="." node_paths=PackedStringArray("vfx", "meshes_root")]
+script = ExtResource("21_hyoos")
+vfx = NodePath("Hurt VFX")
+meshes_root = NodePath("../Kobold/Armature")
+hurt_overlay = SubResource("StandardMaterial3D_x32kg")
+
+[node name="Hurt VFX" type="Node3D" parent="Hurt" node_paths=PackedStringArray("particles")]
+script = ExtResource("22_k5lyv")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
+metadata/_custom_type_script = "uid://hrugoc51xhma"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_6rlsh")
+draw_pass_1 = SubResource("QuadMesh_jaab8")
+
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
 [connection signal="hurt" from="." to="Kobold/Hurt" method="enter" unbinds=1]
@@ -1449,5 +1510,7 @@ shape = SubResource("BoxShape3D_0qgj4")
 [connection signal="entered" from="StateMachine/ComboAttack/Attack3" to="StateMachine/ComboAttack/Attack3/AttackSFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/ComboAttack/Attack4" to="StateMachine/ComboAttack/Attack4/AttackSFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/ComboAttack/Attack5" to="StateMachine/ComboAttack/Attack5/AttackSFX" method="play_one_shot"]
+[connection signal="start" from="Kobold/Die" to="Kobold/Die/Grass Change" method="start"]
+[connection signal="stop" from="Kobold/Die" to="Kobold/Die/Grass Change" method="stop"]
 
 [editable path="Kobold"]
