@@ -179,6 +179,13 @@ text_interact={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="World"
+3d_physics/layer_2="Entity"
+3d_physics/layer_3="Player"
+3d_physics/layer_4="Enemy"
+
 [physics]
 
 common/physics_interpolation=true
