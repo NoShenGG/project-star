@@ -58,6 +58,9 @@ uniform float view_sway_angle : hint_range(0.0f, 45.0f) = 10.0; // Maximum angle
 	group_uniforms character_displacement;
 uniform bool character_displacement = true; // Toggle character based displacement rotation
 uniform bool debug_displacement = false; // Toggle colour debugging for rotation
+uniform vec4 tint_displacement : source_color = vec4(1.0f); // Toggle colour debugging for rotation
+uniform float tint_weight : hint_range(0.0, 1, 0.01) = 0; // Toggle colour debugging for rotation
+
 uniform float player_displacement_angle_z : hint_range(0.0, 360.0, 0.1) = 45.0; // Maximum degrees of rotation around viewspace z axis
 uniform float player_displacement_angle_x : hint_range(0.0, 360.0, 0.1) = 45.0;// MAximum degrees of rotation around viewspace x axis
 uniform float radius_exponent : hint_range(0.0, 10.0, 0.001) = 1.0; // Steepness of displacement mask
@@ -313,6 +316,7 @@ void fragment() {
 		albedo_tex = texture(accent_texture2, uv);
 		ALBEDO = accent_albedo2.rgb * albedo_tex.rgb;
 	}
+	ALBEDO = mix(ALBEDO.rgb, tint_displacement.rgb, min(length(debug_interactive_color), 1) * tint_weight);
 
 	LIGHT_VERTEX = model_origin;
 	ALPHA = albedo_tex.a;
