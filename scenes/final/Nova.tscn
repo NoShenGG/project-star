@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://brw0p1eirto83"]
+[gd_scene load_steps=121 format=3 uid="uid://brw0p1eirto83"]
 
 [ext_resource type="Script" uid="uid://om4qdtr1cye0" path="res://scripts/entities/player/nova/nova.gd" id="1_p5oh7"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="3_6m1nx"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://8l57dsfm2da5" path="res://scripts/entities/player/nova/states/nova_attack.gd" id="7_ob225"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_w7jsq"]
 [ext_resource type="Script" uid="uid://divq6voanp8gg" path="res://scripts/entities/player/nova/states/nova_special.gd" id="8_uws5v"]
+[ext_resource type="Script" uid="uid://b2cb5sd2b4epw" path="res://scripts/entities/state_grass_size_change.gd" id="8_vrbf8"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="9_8b4uh"]
 [ext_resource type="Script" uid="uid://dc7b5xuh33cje" path="res://scripts/entities/player/nova/states/nova_special_wait.gd" id="10_8qhfg"]
 [ext_resource type="Script" uid="uid://gui8m2w4ihx1" path="res://scripts/entities/player/nova/states/nova_special_dash.gd" id="10_ob225"]
@@ -7302,7 +7303,7 @@ states/run/position = Vector2(325, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_60tca"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_u6tct"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_k2lop"), "run", "combo1", SubResource("AnimationNodeStateMachineTransition_ob225"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_uws5v"), "dash", "run", SubResource("AnimationNodeStateMachineTransition_ygt4u"), "combo5", "idle", SubResource("AnimationNodeStateMachineTransition_ajeah"), "combo5", "run", SubResource("AnimationNodeStateMachineTransition_mm718"), "idle", "dash", SubResource("AnimationNodeStateMachineTransition_gedrv"), "dash", "idle", SubResource("AnimationNodeStateMachineTransition_n6rgu"), "idle", "combo1", SubResource("AnimationNodeStateMachineTransition_5up7p"), "charged_special", "run", SubResource("AnimationNodeStateMachineTransition_vrbf8"), "charged_attack", "run", SubResource("AnimationNodeStateMachineTransition_6qoku"), "combo1", "idle", SubResource("AnimationNodeStateMachineTransition_sbbhh"), "combo1", "run", SubResource("AnimationNodeStateMachineTransition_ldc4w"), "combo2", "idle", SubResource("AnimationNodeStateMachineTransition_lk157"), "combo2", "run", SubResource("AnimationNodeStateMachineTransition_n0hbj"), "combo3", "idle", SubResource("AnimationNodeStateMachineTransition_oc7x5"), "combo3", "run", SubResource("AnimationNodeStateMachineTransition_0ksem"), "combo4", "idle", SubResource("AnimationNodeStateMachineTransition_btucx"), "combo4", "run", SubResource("AnimationNodeStateMachineTransition_l0sqy"), "charged_attack", "idle", SubResource("AnimationNodeStateMachineTransition_iql2l"), "charged_special", "idle", SubResource("AnimationNodeStateMachineTransition_lxyrl")]
 graph_offset = Vector2(-220, -148)
 
-[node name="Nova" type="CharacterBody3D" node_paths=PackedStringArray("targetting_box")]
+[node name="Nova" type="CharacterBody3D" node_paths=PackedStringArray("targetting_box") groups=["characters"]]
 collision_layer = 6
 collision_mask = 3
 script = ExtResource("1_p5oh7")
@@ -7312,6 +7313,7 @@ dash_distance = 7.0
 _base_speed = 6.0
 faction = 0
 _breakable = false
+grass_displacement_size = 1.5
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_lfcoe")
@@ -7348,6 +7350,12 @@ duration = 0.375
 event_name = "event:/Player/Uniques/Base Attack/Nova/Nova Slash 0"
 event_guid = "{0eb4d8da-9e49-4a06-8388-937268b28869}"
 
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Slash0"]
+script = ExtResource("8_vrbf8")
+delay = 0.02
+grass_displacement_size = 2.0
+metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
+
 [node name="Slash1" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 hitbox = NodePath("../../../Hitboxes/Slash")
@@ -7357,6 +7365,12 @@ duration = 0.458
 [node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Slash1"]
 event_name = "event:/Player/Uniques/Base Attack/Nova/Nova Slash 1"
 event_guid = "{4162234c-ed08-4ddd-91e2-651079e29ba1}"
+
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Slash1"]
+script = ExtResource("8_vrbf8")
+delay = 0.02
+grass_displacement_size = 2.0
+metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
 
 [node name="Slam2" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
@@ -7370,6 +7384,12 @@ duration = 0.47
 event_name = "event:/Player/Uniques/Base Attack/Nova/Nova Slam 2"
 event_guid = "{53534982-8501-4324-b9bb-d376a1798429}"
 
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Slam2"]
+script = ExtResource("8_vrbf8")
+delay = 0.02
+grass_displacement_size = 2.0
+metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
+
 [node name="Poke3" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 speed_scale_factor = 1.2
@@ -7381,6 +7401,12 @@ duration = 0.375
 [node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Poke3"]
 event_name = "event:/Player/Uniques/Base Attack/Nova/Nova Poke 3"
 event_guid = "{e405defb-cb6f-4189-b714-9b97c60532b4}"
+
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Poke3"]
+script = ExtResource("8_vrbf8")
+delay = 0.02
+grass_displacement_size = 2.0
+metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
 
 [node name="Sweep4" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
 script = ExtResource("7_ob225")
@@ -7394,6 +7420,12 @@ duration = 0.917
 [node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Sweep4"]
 event_name = "event:/Player/Uniques/Base Attack/Nova/Nova Sweep 4"
 event_guid = "{c1bc774a-57e8-4eff-ab95-8284f91c1d11}"
+
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Sweep4"]
+script = ExtResource("8_vrbf8")
+delay = 0.02
+grass_displacement_size = 2.0
+metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
 
 [node name="Charging" type="Node" parent="StateMachine"]
 script = ExtResource("7_w7jsq")
@@ -7572,12 +7604,12 @@ bones/10/position = Vector3(0.007249624, 0, 0)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.06586662, 0.5225665, -0.50639325, 0.6827531)
-bones/15/rotation = Quaternion(-0.16558068, 0.5607578, 0.2330153, 0.7770698)
-bones/16/rotation = Quaternion(-0.5067571, -0.47069207, -0.25534528, 0.6756072)
-bones/21/rotation = Quaternion(-0.14804041, 0.38219446, -0.45878282, 0.7883716)
-bones/22/rotation = Quaternion(-0.071067736, 0.3683959, 0.18288176, 0.9087288)
-bones/23/rotation = Quaternion(0.14444028, 0.109000474, -0.07745417, 0.9804371)
+bones/14/rotation = Quaternion(-0.065921985, 0.52260774, -0.5063755, 0.68272924)
+bones/15/rotation = Quaternion(-0.16519807, 0.56016266, 0.23290797, 0.77761257)
+bones/16/rotation = Quaternion(-0.507036, -0.47026464, -0.2547306, 0.6759275)
+bones/21/rotation = Quaternion(-0.14842966, 0.383145, -0.45832607, 0.7881026)
+bones/22/rotation = Quaternion(-0.0707147, 0.3674389, 0.18257774, 0.9092049)
+bones/23/rotation = Quaternion(0.14468926, 0.109113604, -0.07690237, 0.98043114)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
@@ -7585,7 +7617,7 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.34921715, 0.70681834, 0.06233089, 0.6120214)
+bones/38/rotation = Quaternion(-0.34911308, 0.70686966, 0.062421173, 0.6120124)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
@@ -7609,7 +7641,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_oc7x5")
 surface_material_override/0 = SubResource("ShaderMaterial_0ksem")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0059031835, -0.5699736, 0.82164174, -0.41875005, 0.7475533, 0.5155699, -0.90808225, -0.34101906, -0.24308944, 0.0060090567, 0.007235912, -0.01321285)
+transform = Transform3D(-0.006070676, -0.569972, 0.8216416, -0.41852954, 0.74767655, 0.5155702, -0.90818274, -0.3407515, -0.24308908, 0.0060064397, 0.0072393618, -0.01321441)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 
