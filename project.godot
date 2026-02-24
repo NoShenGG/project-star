@@ -194,7 +194,7 @@ anti_aliasing/physics_interpolation=true
 
 cloud_contrast={
 "type": "float",
-"value": 0.155
+"value": 0.715
 }
 cloud_direction={
 "type": "vec2",
@@ -222,7 +222,7 @@ cloud_speed={
 }
 cloud_threshold={
 "type": "float",
-"value": 0.27
+"value": 0.795
 }
 cloud_world_y={
 "type": "float",
