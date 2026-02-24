@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jd6ie1ov3gt3"]
+[gd_scene load_steps=20 format=3 uid="uid://jd6ie1ov3gt3"]
 
 [ext_resource type="Script" uid="uid://dt6gotxl8mucy" path="res://scripts/utility/main_menu.gd" id="1_i0wvf"]
 [ext_resource type="Texture2D" uid="uid://bsj2h2rq3i4s5" path="res://art_assets/Ui/jtas_splash_background.png" id="2_lvhxv"]
@@ -22,6 +22,92 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+
+[sub_resource type="Animation" id="Animation_gqoms"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99, -62)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Midground:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99, -62)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("title:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lvhxv"]
+resource_name = "main_menu_idle"
+length = 12.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334, 4.1, 8.266666, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-99, -62), Vector2(-130, -62), Vector2(-93, -62), Vector2(-99, -62)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Midground:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 5.6666665, 12.024759),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-99, -62), Vector2(-104.00001, -62), Vector2(-99, -62)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("title:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03333333, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-65, -1), Vector2(-65, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lovrv"]
+_data = {
+&"RESET": SubResource("Animation_gqoms"),
+&"main_menu_idle": SubResource("Animation_lvhxv")
+}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lvhxv"]
 animation = &"main_menu_idle"
@@ -201,6 +287,9 @@ close_animation_delay = 0.2
 close_animation_flags = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menu/Background"]
+libraries = {
+&"": SubResource("AnimationLibrary_lovrv")
+}
 speed_scale = 2.0
 
 [node name="AnimationTree" type="AnimationTree" parent="Menu/Background"]
