@@ -1,5 +1,7 @@
-extends Node
+class_name GrassSizeChange extends Node
 
+## if disabled, the grass size will go to zero when finished
+@export var return_to_default : bool = true
 ## the delay after start() before the grass size changes
 @export_range(0, 3) var delay : float = 0
 
@@ -37,7 +39,8 @@ func start():
 		if (tween):
 			var tween = _entity.create_tween()
 			tween.set_trans(tween_transition)
-			tween.tween_property(_entity, "grass_displacement_size", _default_grass_size, duration)
+			var end_size : float = _default_grass_size if return_to_default else 0.0
+			tween.tween_property(_entity, "grass_displacement_size", end_size, duration)
 			tween.tween_callback(stop)
 		else:
 			await get_tree().create_timer(duration).timeout

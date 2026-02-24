@@ -11,9 +11,11 @@ var flash_count : int = 0
 
 func _enter_tree() -> void:
 	(get_parent() as Entity).hurt.connect(hurt)
-	
 	_meshes = find_meshs(meshes_root, [])
 	
+	## used so that each enemy can flash on their own
+	## i dont thinkk this should require a shader compilation?
+	hurt_overlay = hurt_overlay.duplicate()
 
 func _exit_tree() -> void:
 	(get_parent() as Entity).hurt.disconnect(hurt)
