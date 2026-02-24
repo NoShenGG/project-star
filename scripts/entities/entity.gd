@@ -29,6 +29,10 @@ signal break_update(percent: float)
 
 @onready var state_machine: StateMachine = $StateMachine
 
+@export_category("Ground VFX")
+@export var grass_displacement_size: float = 0.5
+
+
 var _status_effects: Dictionary[EntityEffect.EffectID, EntityEffect] = {}
 var _stopped_effects: Array[EntityEffect.EffectID] = []
 var _buffs: Dictionary[StatMod.Stat, Array] = {}
