@@ -1309,16 +1309,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-4.0185215e-09, 0.9974743, 0.07102919, 7.539089e-08)
-bones/1/rotation = Quaternion(0.099563494, 0.0034404958, -0.00019060425, 0.99502534)
-bones/2/rotation = Quaternion(0.1024769, -0.0037625784, -0.00021773287, 0.99472827)
-bones/4/rotation = Quaternion(0.20790438, 0.06902751, -0.5595293, 0.79933596)
+bones/0/rotation = Quaternion(-3.9203223e-09, 0.997566, 0.06972993, 7.539605e-08)
+bones/1/rotation = Quaternion(0.100840375, 0.003440738, -0.00018618874, 0.9948967)
+bones/2/rotation = Quaternion(0.10376684, -0.003760014, -0.00021396973, 0.9945945)
+bones/4/rotation = Quaternion(0.3039518, 0.00018947195, -0.563771, 0.7679684)
 bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.043196995, 0.98099875)
 bones/6/rotation = Quaternion(0.054868486, 0.74948096, 0.015322978, 0.6595702)
-bones/7/rotation = Quaternion(0.091190435, -0.0002895203, -0.00072355085, 0.99583316)
-bones/8/rotation = Quaternion(-0.08987808, -0.00035760473, -0.00048929517, 0.99595267)
+bones/7/rotation = Quaternion(0.08955365, -0.00028833046, -0.0007240257, 0.99598175)
+bones/8/rotation = Quaternion(-0.09151483, -0.00035840835, -0.00048870704, 0.99580353)
 bones/9/rotation = Quaternion(-0.09260436, -0.17117505, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.31301185, 0.008757161, 0.5429628, 0.7791909)
+bones/10/rotation = Quaternion(0.21551056, -0.057617545, 0.5399682, 0.81158483)
 bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.0123480745, 0.97225493)
 bones/12/rotation = Quaternion(-5.8199273e-08, -0.751264, -5.181667e-08, 0.66000193)
 bones/13/rotation = Quaternion(0.10849718, -0.08205278, 0.9894506, -0.04983335)
@@ -1344,7 +1344,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(-0.33900908, -0.3247381, 0.88295966, -0.1379444, -0.9112354, -0.3881005, 0.93061477, -0.25336882, 0.2641213, -0.5808692, 0.8309056, -0.008774791)
+transform = Transform3D(-0.4057123, -0.26433638, 0.87494206, -0.34665906, -0.84124017, -0.41490075, 0.8457095, -0.47163707, 0.24966705, -0.5546711, 0.8359095, -0.16920376)
 bone_name = "Hand.L"
 bone_idx = 6
 
