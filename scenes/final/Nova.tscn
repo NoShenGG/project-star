@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://8l57dsfm2da5" path="res://scripts/entities/player/nova/states/nova_attack.gd" id="7_ob225"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_w7jsq"]
 [ext_resource type="Script" uid="uid://divq6voanp8gg" path="res://scripts/entities/player/nova/states/nova_special.gd" id="8_uws5v"]
-[ext_resource type="Script" uid="uid://b2cb5sd2b4epw" path="res://scripts/entities/state_grass_size_change.gd" id="8_vrbf8"]
+[ext_resource type="Script" path="res://scripts/entities/state_grass_size_change.gd" id="8_vrbf8"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="9_8b4uh"]
 [ext_resource type="Script" uid="uid://dc7b5xuh33cje" path="res://scripts/entities/player/nova/states/nova_special_wait.gd" id="10_8qhfg"]
 [ext_resource type="Script" uid="uid://gui8m2w4ihx1" path="res://scripts/entities/player/nova/states/nova_special_dash.gd" id="10_ob225"]
@@ -7305,7 +7305,7 @@ graph_offset = Vector2(-220, -148)
 
 [node name="Nova" type="CharacterBody3D" node_paths=PackedStringArray("targetting_box") groups=["characters"]]
 collision_layer = 6
-collision_mask = 3
+collision_mask = 5
 script = ExtResource("1_p5oh7")
 special_dash_dist = 12.0
 targetting_box = NodePath("Hitboxes/Vision")
@@ -7354,7 +7354,6 @@ event_guid = "{0eb4d8da-9e49-4a06-8388-937268b28869}"
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
-metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
 
 [node name="Slash1" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
@@ -7370,7 +7369,6 @@ event_guid = "{4162234c-ed08-4ddd-91e2-651079e29ba1}"
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
-metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
 
 [node name="Slam2" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
@@ -7388,7 +7386,6 @@ event_guid = "{53534982-8501-4324-b9bb-d376a1798429}"
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
-metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
 
 [node name="Poke3" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
@@ -7406,7 +7403,6 @@ event_guid = "{e405defb-cb6f-4189-b714-9b97c60532b4}"
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
-metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
 
 [node name="Sweep4" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
 script = ExtResource("7_ob225")
@@ -7425,7 +7421,6 @@ event_guid = "{c1bc774a-57e8-4eff-ab95-8284f91c1d11}"
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
-metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
 
 [node name="Charging" type="Node" parent="StateMachine"]
 script = ExtResource("7_w7jsq")
@@ -7451,7 +7446,6 @@ event_guid = "{c37be128-c419-442f-9d08-d6e0895a5e23}"
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.5
-metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
 
 [node name="ChargingSpecial" type="Node" parent="StateMachine"]
 script = ExtResource("9_8b4uh")
@@ -7610,12 +7604,12 @@ bones/10/position = Vector3(0.007249624, 0, 0)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.06514563, 0.5220146, -0.50664115, 0.6830605)
-bones/15/rotation = Quaternion(-0.16999614, 0.5675779, 0.23422584, 0.7707756)
-bones/16/rotation = Quaternion(-0.50354934, -0.47624108, -0.2619433, 0.67157894)
-bones/21/rotation = Quaternion(-0.14164273, 0.3705805, -0.46600696, 0.7908509)
-bones/22/rotation = Quaternion(-0.074823715, 0.37848997, 0.18607385, 0.9036169)
-bones/23/rotation = Quaternion(0.13868831, 0.10894027, -0.08489082, 0.98065853)
+bones/14/rotation = Quaternion(-0.06497976, 0.52188766, -0.506698, 0.6831311)
+bones/15/rotation = Quaternion(-0.1706178, 0.5685287, 0.23439094, 0.76988673)
+bones/16/rotation = Quaternion(-0.5031115, -0.47730765, -0.26264498, 0.6708755)
+bones/21/rotation = Quaternion(-0.13990462, 0.36866394, -0.46790355, 0.79093605)
+bones/22/rotation = Quaternion(-0.07520713, 0.3795055, 0.18639271, 0.9030932)
+bones/23/rotation = Quaternion(0.13658287, 0.10948021, -0.08640691, 0.98076147)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
@@ -7623,7 +7617,7 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.35057828, 0.7061473, 0.061150227, 0.61213684)
+bones/38/rotation = Quaternion(-0.35072052, 0.70607704, 0.06102677, 0.6121488)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
@@ -7647,7 +7641,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_oc7x5")
 surface_material_override/0 = SubResource("ShaderMaterial_0ksem")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0037152977, -0.5699922, 0.8216417, -0.42163178, 0.7459345, 0.5155659, -0.90675944, -0.3445148, -0.24309826, 0.0060432362, 0.0071908343, -0.013192308)
+transform = Transform3D(-0.003486651, -0.5699936, 0.8216417, -0.4219328, 0.7457647, 0.51556545, -0.9066203, -0.34488, -0.24309921, 0.0060468083, 0.0071861264, -0.013190148)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 

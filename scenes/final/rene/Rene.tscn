@@ -210,7 +210,7 @@ graph_offset = Vector2(91, 25)
 
 [node name="Rene" type="CharacterBody3D" node_paths=PackedStringArray("ui_counters", "construct", "targetting_box")]
 collision_layer = 6
-collision_mask = 3
+collision_mask = 5
 script = ExtResource("1_njlal")
 ui_counters = [NodePath("ReneUI/HBoxContainer/Center/Charge1"), NodePath("ReneUI/HBoxContainer/Center2/Charge2"), NodePath("ReneUI/HBoxContainer/Center3/Charge3"), NodePath("ReneUI/HBoxContainer/Center4/Charge4")]
 construct = NodePath("Hitboxes/Construct")

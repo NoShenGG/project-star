@@ -45,16 +45,14 @@ script = ExtResource("2_w4rfv")
 initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_close_state")]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_close_state")]
 script = ExtResource("3_30ym2")
-wait_time = 2.0
-post_wait_state = NodePath("../Moving")
-max_player_distance = 2.0
+max_player_distance = 20.0
 player_close_state = NodePath("../Moving")
 
-[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("reached_enemy_state")]
+[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy_far_state")]
 script = ExtResource("4_mxyim")
-reached_enemy_state = NodePath("../Idle")
+enemy_far_state = NodePath("../Idle")
 
 [node name="Fleeing" type="Node" parent="StateMachine"]
 script = ExtResource("5_0h12a")
