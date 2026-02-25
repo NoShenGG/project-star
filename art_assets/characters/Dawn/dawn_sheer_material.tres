@@ -1,8 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dljk6gnsxlsf1"]
-
-[ext_resource type="Texture2D" uid="uid://cws38abopcqk" path="res://art_assets/characters/Dawn/sheer_sleeve_alpha.png" id="1_jcjjb"]
-
-[resource]
-transparency = 1
-depth_draw_mode = 1
-albedo_texture = ExtResource("1_jcjjb")
