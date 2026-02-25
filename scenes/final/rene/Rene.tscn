@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bq7t53o2llxr4"]
+[gd_scene load_steps=78 format=3 uid="uid://bq7t53o2llxr4"]
 
 [ext_resource type="Script" uid="uid://ca3hlofv22ftb" path="res://scripts/entities/player/rene/rene.gd" id="1_njlal"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_yooho"]
@@ -81,6 +81,10 @@ emission_energy_multiplier = 3.0
 material = SubResource("StandardMaterial3D_6n52q")
 radius = 0.1
 height = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2qu1h"]
+height = 3.0
+radius = 3.0
 
 [sub_resource type="Curve" id="Curve_nhxyw"]
 _limits = [0.0, 1.5, 0.0, 1.0]
@@ -286,9 +290,10 @@ script = ExtResource("7_f5lgv")
 event_name = "event:/Player/Uniques/Charging Specaial/Rene Charging"
 event_guid = "{a18320c8-e115-4a07-8008-687c14fff59c}"
 
-[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
+[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation", "hitbox")]
 script = ExtResource("10_nhxyw")
 animation = NodePath("../../rene/charged attack")
+hitbox = NodePath("../../Hitboxes/ChargedSpecial")
 speed_scale_factor = 0.1
 heal = 10.0
 damage = 8.0
@@ -394,6 +399,17 @@ lifetime = 0.3
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_6n52q")
 draw_pass_1 = SubResource("SphereMesh_6n52q")
+
+[node name="ChargedSpecial" type="Area3D" parent="Hitboxes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+top_level = true
+collision_layer = 0
+collision_mask = 8
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/ChargedSpecial"]
+shape = SubResource("CylinderShape3D_2qu1h")
 
 [node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Player/Uniques/Hurt/Rene Hurt"

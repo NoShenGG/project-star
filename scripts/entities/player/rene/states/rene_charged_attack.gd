@@ -8,10 +8,10 @@ const vfx = preload("res://scenes/dani_k/Rene_CA_VFX1.tscn")
 var rene: Rene
 var enemy: Enemy
 var oldspd: float
+@export var hitbox: Area3D
 @export var speed_scale_factor: float = 1.0
 @export var heal: float = 3.0
 @export var damage: float = 3.0
-
 
 ## Saves instance of Rene as variable
 func _ready() -> void:
@@ -32,12 +32,15 @@ func enter(_prev_state: String, _data := {}) -> void:
 		oldspd =  enemy._base_speed
 		enemy._base_speed = 0
 		effect.finished.connect(func(): if enemy != null: enemy._base_speed = oldspd)
-	if animation != null:
-		animation.enter()
-		await animation.stop
-	else:
-		await get_tree().create_timer(0.5).timeout
-	end()
+	animation.enter()
+	animation.stop.connect(end)
+	hitbox.transform = enemy.global_transform
+	hitbox.monitoring = true
+	await get_tree().physics_frame
+	enemies = hitbox.get_overlapping_bodies().filter(func(b): return b is Enemy)
+	for thing: Enemy in enemies:
+		thing.try_damage(damage * rene.damage_mult * pow(1.2, rene.counters))
+	hitbox.monitoring = false
 	
 func update(_delta: float) -> void:
 	pass
@@ -51,7 +54,5 @@ func end() -> void:
 
 func exit() -> void:
 	rene.try_heal(heal * rene.damage_mult * pow(1.2, rene.counters))
-	if enemy != null:
-		enemy.try_damage(damage * rene.damage_mult * pow(1.2, rene.counters))
 	rene.counters = 0
 	finished.emit()
