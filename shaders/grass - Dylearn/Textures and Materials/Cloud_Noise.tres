@@ -3,5 +3,5 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lail1"]
 
 [resource]
-seamless = true
 noise = SubResource("FastNoiseLite_lail1")
+seamless = true
