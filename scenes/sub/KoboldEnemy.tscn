@@ -20,11 +20,11 @@
 [ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="12_xgdxt"]
 [ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="13_bfl6e"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="15_1ibp7"]
-[ext_resource type="Script" uid="uid://cn026nsv8xexc" path="res://scripts/entities/animated_grass_size_change.gd" id="15_ydysj"]
+[ext_resource type="Script" path="res://scripts/entities/animated_grass_size_change.gd" id="15_ydysj"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="16_6vm5w"]
-[ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="18_pa7ii"]
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="19_hskl7"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="20_0fawd"]
+[ext_resource type="Script" path="res://scripts/entities/HurtVFX.gd" id="18_pa7ii"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="19_hskl7"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="20_0fawd"]
 [ext_resource type="Script" uid="uid://dqkj3m2abvuwx" path="res://scripts/entities/HurtNode3D.gd" id="20_cqf5t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1ibp7"]
@@ -1309,16 +1309,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-3.9203223e-09, 0.997566, 0.06972993, 7.539605e-08)
-bones/1/rotation = Quaternion(0.100840375, 0.003440738, -0.00018618874, 0.9948967)
-bones/2/rotation = Quaternion(0.10376684, -0.003760014, -0.00021396973, 0.9945945)
-bones/4/rotation = Quaternion(0.3039518, 0.00018947195, -0.563771, 0.7679684)
+bones/0/rotation = Quaternion(-4.102284e-09, 0.99739474, 0.07213741, 7.538636e-08)
+bones/1/rotation = Quaternion(0.09843272, 0.0034402767, -0.00019451379, 0.99513775)
+bones/2/rotation = Quaternion(0.10137161, -0.0037647688, -0.00022095631, 0.9948415)
+bones/4/rotation = Quaternion(0.20406029, 0.071715854, -0.559191, 0.800326)
 bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.043196995, 0.98099875)
 bones/6/rotation = Quaternion(0.054868486, 0.74948096, 0.015322978, 0.6595702)
-bones/7/rotation = Quaternion(0.08955365, -0.00028833046, -0.0007240257, 0.99598175)
-bones/8/rotation = Quaternion(-0.09151483, -0.00035840835, -0.00048870704, 0.99580353)
+bones/7/rotation = Quaternion(0.092624635, -0.00029056193, -0.00072313304, 0.99570084)
+bones/8/rotation = Quaternion(-0.08844355, -0.0003568998, -0.0004898098, 0.996081)
 bones/9/rotation = Quaternion(-0.09260436, -0.17117505, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.21551056, -0.057617545, 0.5399682, 0.81158483)
+bones/10/rotation = Quaternion(0.3167521, 0.01136578, 0.5429145, 0.7776779)
 bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.0123480745, 0.97225493)
 bones/12/rotation = Quaternion(-5.8199273e-08, -0.751264, -5.181667e-08, 0.66000193)
 bones/13/rotation = Quaternion(0.10849718, -0.08205278, 0.9894506, -0.04983335)
@@ -1344,7 +1344,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(-0.4057123, -0.26433638, 0.87494206, -0.34665906, -0.84124017, -0.41490075, 0.8457095, -0.47163707, 0.24966705, -0.5546711, 0.8359095, -0.16920376)
+transform = Transform3D(-0.33610728, -0.32676125, 0.8833226, -0.13544218, -0.91136724, -0.3886716, 0.93203354, -0.2502743, 0.26205987, -0.58161974, 0.83158517, -0.0032719932)
 bone_name = "Hand.L"
 bone_idx = 6
 

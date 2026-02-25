@@ -39,13 +39,12 @@ var _states: Array[State] = []
 var _entered_state : String
 
 func _ready() -> void:
-	super()
+	await super()
 	for child in get_children():
 		if not child is State:
 			continue
 		child = child as State
 		_states.append(child)
-	
 	enemy.hurt.connect(hurt)
 
 func hurt(damage : float):
