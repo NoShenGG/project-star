@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bq7t53o2llxr4" path="res://scenes/final/rene/Rene.tscn" id="3_q78nk"]
 [ext_resource type="Script" uid="uid://djfekv55fum3x" path="res://scripts/pitch_pivot.gd" id="4_mbt4c"]
 [ext_resource type="PackedScene" uid="uid://b8wp31vm3qtbx" path="res://scenes/dev/raymond_b/game_ui.tscn" id="7_q78nk"]
-[ext_resource type="Texture2D" uid="uid://byhsbr64tgbkf" path="res://VFX/Kenny Particle Pack/magic_03.png" id="8_3wvx5"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="8_elt32"]
+[ext_resource type="Texture2D" uid="uid://byhsbr64tgbkf" path="res://vfx/Kenny Particle Pack/magic_03.png" id="8_3wvx5"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="8_elt32"]
 [ext_resource type="Material" uid="uid://bm2jj6hjfrn45" path="res://scenes/final/PostProcessingSamples/mediumPostProcessing.tres" id="8_w6fg2"]
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="9_0dwuh"]
 [ext_resource type="Script" uid="uid://43igx2jhor0s" path="res://scripts/utility/death_menu.gd" id="9_41j18"]
@@ -101,16 +101,16 @@ floor_snap_length = 5.0
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.0716404, 0.52495795, -0.5065646, 0.68020517)
-bones/15/rotation = Quaternion(-0.15756355, 0.54801637, 0.23061676, 0.78845906)
-bones/16/rotation = Quaternion(-0.5130179, -0.4669266, -0.238175, 0.6797536)
-bones/21/rotation = Quaternion(-0.1401605, 0.39737043, -0.46535498, 0.77839357)
-bones/22/rotation = Quaternion(-0.06098131, 0.33969787, 0.17357403, 0.92236584)
-bones/23/rotation = Quaternion(0.1256384, 0.12213875, -0.07395409, 0.98174745)
-bones/38/rotation = Quaternion(-0.34931985, 0.70676786, 0.06224182, 0.6120301)
+bones/14/rotation = Quaternion(-0.06536702, 0.5221841, -0.50656503, 0.6829662)
+bones/15/rotation = Quaternion(-0.16897391, 0.5660093, 0.23395136, 0.7722358)
+bones/16/rotation = Quaternion(-0.50428045, -0.47470415, -0.26061663, 0.67263377)
+bones/21/rotation = Quaternion(-0.14386977, 0.37351796, -0.46355146, 0.79050994)
+bones/22/rotation = Quaternion(-0.07408289, 0.37651724, 0.18545282, 0.9046291)
+bones/23/rotation = Quaternion(0.14116913, 0.10846471, -0.08275052, 0.98054016)
+bones/38/rotation = Quaternion(-0.35027826, 0.7062955, 0.061410595, 0.6121115)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0057381946, -0.56997526, 0.8216417, -0.41896766, 0.74743164, 0.5155695, -0.9079829, -0.34128284, -0.24309015, 0.006011634, 0.0072325086, -0.013211306)
+transform = Transform3D(-0.004197864, -0.56998885, 0.8216416, -0.42099696, 0.74629235, 0.5155668, -0.9070523, -0.34374437, -0.24309647, 0.006035697, 0.0072007654, -0.013196856)
 
 [node name="Idle" parent="Nova/nova" index="3"]
 animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)

@@ -514,11 +514,13 @@ point_count = 3
 
 [node name="Dawn" type="CharacterBody3D" node_paths=PackedStringArray("note_manager", "tone_emitter", "targetting_box")]
 collision_layer = 6
-collision_mask = 3
+collision_mask = 5
 script = ExtResource("1_m3k46")
 note_manager = NodePath("Notes")
 tone_emitter = NodePath("ToneEmitter")
 targetting_box = NodePath("Hitboxes/Vision")
+max_click_time = 0.3
+attack_charge_time = 0.8
 special_charge_time = 0.25
 max_special_charges = 2
 dash_cd = 2.0
