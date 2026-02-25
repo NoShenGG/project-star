@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dfidn58xx6ouo" path="res://scenes/dev/arshiya_r/magic circle things/magic_circle_rene.tscn" id="23_um3o4"]
 [ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="24_rij6b"]
 [ext_resource type="Script" uid="uid://cvw6ajdumfkos" path="res://scripts/entities/player/nova/nova_dummy_anim.gd" id="24_svdc4"]
-[ext_resource type="Script" path="res://scripts/utility/ui_consumable.gd" id="25_66khj"]
+[ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="25_66khj"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="25_qvekr"]
 [ext_resource type="PackedScene" uid="uid://cjsubaculljwy" path="res://art_assets/characters/Rene/rene.glb" id="26_27ayv"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="26_66khj"]
@@ -36,6 +36,7 @@
 [ext_resource type="Material" uid="uid://b63soivu73rcy" path="res://art_assets/characters/Rene/model_cloak.material" id="32_wjvim"]
 [ext_resource type="Material" uid="uid://dmxs1gpt55tsj" path="res://art_assets/characters/Rene/model_reneFBXASC032hairFBXASC046001.material" id="33_cjioh"]
 [ext_resource type="Material" uid="uid://c1823ynnjpdvi" path="res://art_assets/characters/Rene/model_Material.material" id="34_py2kl"]
+[ext_resource type="PackedScene" path="res://VFX/dashFX.tscn" id="37_o1ymb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
 
@@ -523,20 +524,20 @@ fade_out = SubResource("Curve_r8iwf")
 [node name="rene" parent="." unique_id=1073875666 instance=ExtResource("26_27ayv")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
 
-[node name="model_body" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 648120904) index="1" unique_id=933826182]
+[node name="model_body" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1390848865) index="1" unique_id=264668777]
 surface_material_override/0 = ExtResource("27_2qu1h")
 surface_material_override/1 = ExtResource("28_o1ymb")
 surface_material_override/2 = ExtResource("29_v1pct")
 surface_material_override/3 = ExtResource("30_ffpnw")
 surface_material_override/4 = ExtResource("31_pgxqw")
 
-[node name="model_coat" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 648120904) index="2" unique_id=1449460035]
+[node name="model_coat" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1390848865) index="2" unique_id=246711448]
 surface_material_override/0 = ExtResource("32_wjvim")
 
-[node name="model_hair" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 648120904) index="3" unique_id=1924945520]
+[node name="model_hair" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1390848865) index="3" unique_id=324573479]
 surface_material_override/0 = ExtResource("33_cjioh")
 
-[node name="model_staff" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 648120904) index="4" unique_id=1392215688]
+[node name="model_staff" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1390848865) index="4" unique_id=592016717]
 surface_material_override/0 = ExtResource("34_py2kl")
 
 [node name="AnimationTree" type="AnimationTree" parent="rene" unique_id=333013972]
@@ -634,6 +635,8 @@ dissolveBegin = 0.3
 dissolveDuration = 1.0
 meshes = [null, null, null, null]
 
+[node name="dashFX" parent="." unique_id=987713212 instance=ExtResource("37_o1ymb")]
+
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
 [connection signal="player_dashed" from="." to="Dash SFX" method="play_one_shot"]
@@ -642,6 +645,8 @@ meshes = [null, null, null, null]
 [connection signal="entered" from="StateMachine/Moving" to="rene/Move" method="enter"]
 [connection signal="finished" from="StateMachine/Moving" to="StateMachine/Moving/Footstep SFX" method="stop"]
 [connection signal="entered" from="StateMachine/Dash" to="Dash SFX" method="play" binds= [true]]
+[connection signal="entered" from="StateMachine/Dash" to="dashFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="StateMachine/Dash" to="dashFX" method="set_emitting" binds= [false]]
 [connection signal="attack_started" from="StateMachine/Attacking" to="StateMachine/Attacking/Attack SFX" method="play_one_shot" unbinds=1]
 [connection signal="attack_started" from="StateMachine/Attacking" to="DummyAnimation" method="attack" unbinds=1]
 [connection signal="entered" from="StateMachine/Charging" to="rene/charging attack" method="enter"]
