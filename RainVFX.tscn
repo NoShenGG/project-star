@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://81qoovusaho7"]
+[gd_scene format=3 uid="uid://81qoovusaho7"]
 
 [sub_resource type="Curve" id="Curve_sgfw8"]
 _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(0.1885522, 1), 0.0, 0.0, 0, 0]
@@ -63,13 +63,23 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_j5752"]
 curve = SubResource("Curve_lh5nn")
 
+[sub_resource type="Curve" id="Curve_dfbgb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="Curve" id="Curve_n4k8m"]
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.21885523, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="Curve" id="Curve_txw40"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_dfbgb"]
+curve_x = SubResource("Curve_dfbgb")
 curve_y = SubResource("Curve_n4k8m")
+curve_z = SubResource("Curve_txw40")
 
 [sub_resource type="Curve" id="Curve_j5752"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
@@ -115,7 +125,7 @@ albedo_texture = SubResource("GradientTexture2D_5laux")
 material = SubResource("StandardMaterial3D_ox8ql")
 size = Vector2(1, 1)
 
-[node name="RainVFX" type="GPUParticles3D"]
+[node name="RainVFX" type="GPUParticles3D" unique_id=164417071]
 amount = 1024
 sub_emitter = NodePath("GPUParticles3D")
 lifetime = 5.0
@@ -127,13 +137,13 @@ trail_lifetime = 0.25
 process_material = SubResource("ParticleProcessMaterial_lh5nn")
 draw_pass_1 = SubResource("RibbonTrailMesh_j5752")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=189637146]
 emitting = false
 amount = 2048
 process_material = SubResource("ParticleProcessMaterial_n4k8m")
 draw_pass_1 = SubResource("PlaneMesh_dfbgb")
 
-[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="." unique_id=151085106]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.3404222, 5)
 size = Vector3(30, 10, 30)
 follow_camera_enabled = true

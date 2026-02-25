@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://ci7517nn4ceog"]
+[gd_resource type="VisualShader" format=3 uid="uid://ci7517nn4ceog"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4mtcb"]
 load_path = "res://.godot/imported/eightnote.png-f26d59428ee6afbf40705bf0c85898fd.s3tc.ctex"
@@ -15,48 +15,6 @@ billboard_type = 2
 keep_scale = true
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
-
-uniform sampler2D tex_frg_2;
-
-
-
-void vertex() {
-	mat4 n_out2p0;
-// GetBillboardMatrix:2
-	{
-		mat4 __mvm = VIEW_MATRIX * mat4(INV_VIEW_MATRIX[0], MODEL_MATRIX[1], vec4(normalize(cross(INV_VIEW_MATRIX[0].xyz, MODEL_MATRIX[1].xyz)), 0.0), MODEL_MATRIX[3]);
-		__mvm = __mvm * mat4(vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0), vec4(0.0, 1.0, 0.0, 0.0), vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0), vec4(0.0, 0.0, 0.0, 1.0));
-		n_out2p0 = __mvm;
-	}
-
-
-// Output:0
-	MODELVIEW_MATRIX = n_out2p0;
-
-
-}
-
-void fragment() {
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, UV);
-
-
-// VectorDecompose:3
-	float n_out3p0 = n_out2p0.x;
-	float n_out3p1 = n_out2p0.y;
-	float n_out3p2 = n_out2p0.z;
-	float n_out3p3 = n_out2p0.w;
-
-
-// Output:0
-	ALBEDO = vec3(n_out3p3);
-	ALPHA = n_out3p3;
-
-
-}
-"
 modes/cull = 2
 flags/unshaded = true
 nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_kam8e")

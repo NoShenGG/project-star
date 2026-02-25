@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cw87q52v3jxf0"]
+[gd_scene format=3 uid="uid://cw87q52v3jxf0"]
 
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="1_oxdyg"]
 [ext_resource type="Script" uid="uid://r8oki41bfmky" path="res://scripts/entities/enemies/ranged_enemy.gd" id="1_v2glr"]
@@ -17,7 +17,7 @@ height = 1.15
 [sub_resource type="ViewportTexture" id="ViewportTexture_45tao"]
 viewport_path = NodePath("SubViewport")
 
-[node name="RangedEnemy" type="CharacterBody3D" groups=["Enemies"]]
+[node name="RangedEnemy" type="CharacterBody3D" unique_id=2104037228 groups=["Enemies"]]
 collision_layer = 10
 collision_mask = 3
 motion_mode = 1
@@ -28,46 +28,46 @@ vision_radius = 20.0
 attack_radius = 10.0
 _base_speed = 0.5
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." unique_id=754019140]
 script = ExtResource("1_oxdyg")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
-[node name="idle" type="Node" parent="StateMachine"]
+[node name="idle" type="Node" parent="StateMachine" unique_id=2039021523]
 script = ExtResource("3_em2bo")
 
-[node name="attacking" type="Node" parent="StateMachine"]
+[node name="attacking" type="Node" parent="StateMachine" unique_id=120096444]
 script = ExtResource("4_bb0s1")
 
-[node name="rocket_shroom" parent="." instance=ExtResource("2_bb0s1")]
+[node name="rocket_shroom" parent="." unique_id=1517515477 instance=ExtResource("2_bb0s1")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2102681687]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575, 0)
 shape = SubResource("BoxShape3D_2l4st")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1489399389]
 path_desired_distance = 10.0
 target_desired_distance = 2.0
 path_max_distance = 100.01
 debug_path_custom_color = Color(0, 1, 0, 1)
 
-[node name="AggroArea" type="Node3D" parent="."]
+[node name="AggroArea" type="Node3D" parent="." unique_id=452705238]
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0.575, 0)
 
-[node name="Area3D" type="Area3D" parent="AggroArea"]
+[node name="Area3D" type="Area3D" parent="AggroArea" unique_id=187386681]
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea/Area3D" unique_id=310528182]
 shape = SubResource("CylinderShape3D_vl86s")
 debug_color = Color(1, 0, 0, 1)
 
-[node name="Cooldown" type="Timer" parent="."]
+[node name="Cooldown" type="Timer" parent="." unique_id=406639699]
 wait_time = 2.0
 
-[node name="StatusBars" parent="." instance=ExtResource("6_2l4st")]
+[node name="StatusBars" parent="." unique_id=635110643 instance=ExtResource("6_2l4st")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 1.5, 0)
 texture = SubResource("ViewportTexture_45tao")
 
-[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("7_45tao")]
+[node name="DissolveFX" parent="." unique_id=990990498 node_paths=PackedStringArray("meshes") instance=ExtResource("7_45tao")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 meshes = [NodePath("../rocket_shroom/Skeleton3D/Cap"), NodePath("../rocket_shroom/Skeleton3D/Body")]
 

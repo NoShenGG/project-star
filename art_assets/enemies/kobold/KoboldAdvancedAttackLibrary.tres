@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=13 format=3 uid="uid://b7bvpoe1yqi4o"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://b7bvpoe1yqi4o"]
 
 [sub_resource type="Animation" id="Animation_nlddh"]
 resource_name = "Charged Slash"

@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cl4rsspsk2nhi"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cl4rsspsk2nhi"]
 
 [ext_resource type="Texture2D" uid="uid://cquifpckqv315" path="res://art_assets/environment/Biome1/Level3/Level3_forest_col.png" id="1_q341n"]
 [ext_resource type="Texture2D" uid="uid://bmmchj3avw3i5" path="res://art_assets/environment/Biome1/Level3/Level3_forest_norm.png" id="2_v8hau"]

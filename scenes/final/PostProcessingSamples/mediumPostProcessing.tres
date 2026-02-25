@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bm2jj6hjfrn45"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bm2jj6hjfrn45"]
 
 [ext_resource type="Shader" uid="uid://d27ndcngym04q" path="res://shaders/post-processing - klaktus1901/PosterizeScreenEffect.gdshader" id="1_5wgji"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bc5fkhakcfxan"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bc5fkhakcfxan"]
 
 [ext_resource type="Texture2D" uid="uid://c808375n6kl0o" path="res://VFX/Kenny Particle Pack/dirt_02.png" id="1_ahvxj"]
 

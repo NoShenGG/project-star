@@ -1,12 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://bi2pwq60ilskr"]
+[gd_scene format=3 uid="uid://bi2pwq60ilskr"]
 
 [ext_resource type="Shader" uid="uid://cwxym6x8q6dfq" path="res://scenes/dev/arshiya_r/magic circle things/spinning_ring.tres" id="1_8f5l2"]
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_pnu6d"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="1_pnu6d"]
 [ext_resource type="Texture2D" uid="uid://b7umibsft0hc3" path="res://scenes/dev/arshiya_r/magic circle things/nova_circle_textures/nova_ring.png" id="2_g7mh2"]
 [ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/magic circle things/circle_particles.tres" id="3_8f5l2"]
 [ext_resource type="Texture2D" uid="uid://c4ugedgddtpnt" path="res://scenes/dev/arshiya_r/magic circle things/nova_circle_textures/nova_inner_ring.png" id="3_g7mh2"]
 [ext_resource type="Shader" uid="uid://cjyovschd3cas" path="res://scenes/dev/arshiya_r/magic circle things/magic_circle_center.tres" id="3_pnu6d"]
-[ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://vfx/Kenny Particle Pack/star_04.png" id="4_g7mh2"]
+[ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://VFX/Kenny Particle Pack/star_04.png" id="4_g7mh2"]
 [ext_resource type="Texture2D" uid="uid://befo0hpwh4khf" path="res://scenes/dev/arshiya_r/magic circle things/nova_circle_textures/nova_star.png" id="4_raqfb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfcmf"]
@@ -123,33 +123,33 @@ _data = {
 &"RESET": SubResource("Animation_raqfb")
 }
 
-[node name="Nova\'s Circle" type="Node3D" node_paths=PackedStringArray("particles")]
+[node name="Nova\'s Circle" type="Node3D" unique_id=1201873029 node_paths=PackedStringArray("particles")]
 script = ExtResource("1_pnu6d")
 play_on_start = false
 particles = [NodePath("sparks"), NodePath("sparks")]
 
-[node name="outer ring parent" type="Node3D" parent="."]
+[node name="outer ring parent" type="Node3D" parent="." unique_id=99379215]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[node name="outer ring" type="MeshInstance3D" parent="outer ring parent"]
+[node name="outer ring" type="MeshInstance3D" parent="outer ring parent" unique_id=1200952599]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_gfcmf")
 mesh = SubResource("PlaneMesh_a0i5e")
 skeleton = NodePath("../..")
 
-[node name="center" type="Node3D" parent="."]
+[node name="center" type="Node3D" parent="." unique_id=1046318539]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[node name="inner ring" type="MeshInstance3D" parent="center"]
+[node name="inner ring" type="MeshInstance3D" parent="center" unique_id=2104577397]
 material_override = SubResource("ShaderMaterial_pnu6d")
 mesh = SubResource("PlaneMesh_raqfb")
 
-[node name="star" type="MeshInstance3D" parent="center"]
+[node name="star" type="MeshInstance3D" parent="center" unique_id=1365028376]
 material_override = SubResource("ShaderMaterial_mnait")
 mesh = SubResource("PlaneMesh_apg51")
 skeleton = NodePath("../..")
 
-[node name="sparks" type="GPUParticles3D" parent="."]
+[node name="sparks" type="GPUParticles3D" parent="." unique_id=1919659155]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_ippvo")
 emitting = false
@@ -159,11 +159,9 @@ randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_xscg6")
 draw_pass_1 = SubResource("QuadMesh_gajvk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1991562056]
 reset_on_save = false
-libraries = {
-&"": SubResource("AnimationLibrary_gfcmf")
-}
+libraries/ = SubResource("AnimationLibrary_gfcmf")
 
 [connection signal="finished" from="." to="AnimationPlayer" method="play_backwards" binds= ["Open"]]
 [connection signal="start" from="." to="AnimationPlayer" method="play" binds= ["Open"]]

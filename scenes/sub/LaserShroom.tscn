@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cuq57gnl0xn2m"]
+[gd_scene format=3 uid="uid://cuq57gnl0xn2m"]
 
 [ext_resource type="Script" uid="uid://b0ikb4va3mlaf" path="res://scenes/dev/ZXue/LaserShroom/LaserShroomEnemy.gd" id="1_6e0eo"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_pxf1l"]
@@ -30,10 +30,10 @@ size = Vector3(15, 1, 1)
 material = ExtResource("8_27v6w")
 size = Vector3(15, 1, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_yed7e"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1eeap"]
 viewport_path = NodePath("SubViewport")
 
-[node name="LaserShroom" type="CharacterBody3D" node_paths=PackedStringArray("aim_mesh", "fire_mesh")]
+[node name="LaserShroom" type="CharacterBody3D" unique_id=1537587731 node_paths=PackedStringArray("aim_mesh", "fire_mesh")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 collision_layer = 10
 script = ExtResource("1_6e0eo")
@@ -43,69 +43,69 @@ _hp = 45.0
 _max_hp = 45.0
 metadata/_custom_type_script = "uid://b0ikb4va3mlaf"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1243199418]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_js430")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." unique_id=1882667308]
 script = ExtResource("2_pxf1l")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
-[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_far_state")]
+[node name="idle" type="Node" parent="StateMachine" unique_id=390490985 node_paths=PackedStringArray("post_wait_state", "player_far_state")]
 script = ExtResource("3_arhvd")
 post_wait_state = NodePath("../approach")
 max_player_distance = 20.0
 player_far_state = NodePath(".")
 
-[node name="approach" type="Node" parent="StateMachine" node_paths=PackedStringArray("reached_enemy_state")]
+[node name="approach" type="Node" parent="StateMachine" unique_id=980058353 node_paths=PackedStringArray("reached_enemy_state")]
 script = ExtResource("4_arhvd")
 attack_distance = 10.0
 reached_enemy_state = NodePath("../lockon")
 
-[node name="lockon" type="Node" parent="StateMachine" node_paths=PackedStringArray("lost_track_state", "post_lock_state")]
+[node name="lockon" type="Node" parent="StateMachine" unique_id=378463344 node_paths=PackedStringArray("lost_track_state", "post_lock_state")]
 script = ExtResource("5_s1jrn")
 lost_track_state = NodePath("../approach")
 post_lock_state = NodePath("../fire")
 
-[node name="LockTimer" type="Timer" parent="StateMachine/lockon"]
+[node name="LockTimer" type="Timer" parent="StateMachine/lockon" unique_id=69401729]
 wait_time = 2.5
 one_shot = true
 
-[node name="HoldTimer" type="Timer" parent="StateMachine/lockon"]
+[node name="HoldTimer" type="Timer" parent="StateMachine/lockon" unique_id=726530446]
 wait_time = 0.5
 one_shot = true
 
-[node name="ChargeSFX" type="FmodEventEmitter3D" parent="StateMachine/lockon"]
+[node name="ChargeSFX" type="FmodEventEmitter3D" parent="StateMachine/lockon" unique_id=1926749934]
 event_name = "event:/Enemys/LaserShroom/LaserShroom LaserCharge"
 event_guid = "{b82a56ab-9443-4c3b-a096-df676cb5b153}"
 
-[node name="fire" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "post_fire_state")]
+[node name="fire" type="Node" parent="StateMachine" unique_id=1272956195 node_paths=PackedStringArray("hitbox", "post_fire_state")]
 script = ExtResource("6_sbhox")
 hitbox = NodePath("../../Hitbox")
 post_fire_state = NodePath("../hide")
 
-[node name="FireSFX" type="FmodEventEmitter3D" parent="StateMachine/fire"]
+[node name="FireSFX" type="FmodEventEmitter3D" parent="StateMachine/fire" unique_id=2015271058]
 event_name = "event:/Enemys/LaserShroom/LaserShroom Lasering"
 event_guid = "{2d32b878-96cf-485a-a96d-4a58bf1cd91d}"
 
-[node name="hide" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_hide_state")]
+[node name="hide" type="Node" parent="StateMachine" unique_id=532918790 node_paths=PackedStringArray("post_hide_state")]
 script = ExtResource("7_eqsdo")
 post_hide_state = NodePath("../approach")
 
-[node name="HideTimer" type="Timer" parent="StateMachine/hide"]
+[node name="HideTimer" type="Timer" parent="StateMachine/hide" unique_id=692552812]
 
-[node name="broken" type="Node" parent="StateMachine"]
+[node name="broken" type="Node" parent="StateMachine" unique_id=1788571376]
 script = ExtResource("8_arhvd")
 
-[node name="dead" type="Node" parent="StateMachine"]
+[node name="dead" type="Node" parent="StateMachine" unique_id=160068779]
 script = ExtResource("9_arhvd")
 
-[node name="DeathSFX" type="FmodEventEmitter3D" parent="StateMachine/dead"]
+[node name="DeathSFX" type="FmodEventEmitter3D" parent="StateMachine/dead" unique_id=713091820]
 event_name = "event:/Enemys/LaserShroom/LaserShroom Death"
 event_guid = "{21e09aa3-ebe4-4f53-aa24-c78a7f8e7f7e}"
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="Hitbox" type="Area3D" parent="."]
+[node name="Hitbox" type="Area3D" parent="." unique_id=1695802966]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
 collision_mask = 2
 monitoring = false
@@ -113,34 +113,34 @@ monitorable = false
 script = ExtResource("3_dkojg")
 metadata/_custom_type_script = "uid://c1iptw5vqre6f"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=146508348]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7399154, 0, 0)
 shape = SubResource("BoxShape3D_pxf1l")
 
-[node name="AimMesh" type="MeshInstance3D" parent="Hitbox"]
+[node name="AimMesh" type="MeshInstance3D" parent="Hitbox" unique_id=145421274]
 transform = Transform3D(1, 0, 0, 0, 1.6175327, 0, 0, 0, 1, 7.7461843, 0, -2.842171e-14)
 visible = false
 mesh = SubResource("BoxMesh_s1jrn")
 
-[node name="FireMesh" type="MeshInstance3D" parent="Hitbox"]
+[node name="FireMesh" type="MeshInstance3D" parent="Hitbox" unique_id=1144393264]
 transform = Transform3D(1, 0, 0, 0, 1.5771985, 0, 0, 0, 1, 7.6628604, 0.0037727356, 0.13651085)
 visible = false
 mesh = SubResource("BoxMesh_iil6r")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=344471589]
 
-[node name="StatusBars" parent="." instance=ExtResource("13_g51g3")]
+[node name="StatusBars" parent="." unique_id=765670220 instance=ExtResource("13_g51g3")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.6692805, 0)
-texture = SubResource("ViewportTexture_yed7e")
+texture = SubResource("ViewportTexture_1eeap")
 
-[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("14_js430")]
+[node name="DissolveFX" parent="." unique_id=1938342030 node_paths=PackedStringArray("meshes") instance=ExtResource("14_js430")]
 meshes = [null]
 
-[node name="HurtSFX" type="FmodEventEmitter3D" parent="."]
+[node name="HurtSFX" type="FmodEventEmitter3D" parent="." unique_id=262349141]
 event_name = "event:/Enemys/LaserShroom/LaserShroom Hurt"
 event_guid = "{e14c303d-57b7-41df-84cc-cb781342b0d6}"
 
-[node name="laser_shroom" parent="." instance=ExtResource("15_1eeap")]
+[node name="laser_shroom" parent="." unique_id=1383525887 instance=ExtResource("15_1eeap")]
 
 [connection signal="hurt" from="." to="HurtSFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="DissolveFX" method="beginDissolve"]

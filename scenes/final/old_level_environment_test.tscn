@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b56s3jvwgpp1u"]
+[gd_scene format=3 uid="uid://b56s3jvwgpp1u"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_s5nng"]
 [ext_resource type="Shader" uid="uid://cylk6ffp5hsy4" path="res://shaders/screen_space.gdshader" id="3_cmqig"]
@@ -52,25 +52,25 @@ adjustment_brightness = 1.17
 adjustment_contrast = 1.24
 adjustment_saturation = 0.9
 
-[node name="Prototype" type="Node3D"]
+[node name="Prototype" type="Node3D" unique_id=1906748852]
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1101948150]
 transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 44.902454, 29.529377, 30.247894)
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=833124784]
 transform = Transform3D(0.70710695, -0.40557995, 0.5792281, 0, 0.81915236, 0.57357657, -0.70710695, -0.40557995, 0.5792281, 0, 0, 0)
 keep_aspect = 0
 projection = 1
 size = 56.098
 near = 0.012
 
-[node name="PlayerManager" parent="." instance=ExtResource("1_s5nng")]
+[node name="PlayerManager" parent="." unique_id=1754076042 instance=ExtResource("1_s5nng")]
 transform = Transform3D(-0.6942816, 0, -0.7197035, 0, 1, 0, 0.7197035, 0, -0.6942816, 12.968387, 0.9841995, 0)
 
-[node name="geo" type="NavigationRegion3D" parent="."]
+[node name="geo" type="NavigationRegion3D" parent="." unique_id=1619889743]
 navigation_mesh = SubResource("NavigationMesh_2lb0l")
 
-[node name="GridMap" type="GridMap" parent="geo"]
+[node name="GridMap" type="GridMap" parent="geo" unique_id=176141817]
 mesh_library = ExtResource("4_8d5j7")
 cell_center_y = false
 data = {
@@ -78,18 +78,18 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -2, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="geo"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="geo" unique_id=1635536755]
 transform = Transform3D(105.69242, 0, 0, 0, 1, 0, 0, 0, 71.13601, 0, -17, 0)
 material_override = SubResource("StandardMaterial3D_bly0l")
 mesh = SubResource("PlaneMesh_0lut4")
 skeleton = NodePath("../..")
 
-[node name="screen_modification" type="Node" parent="."]
+[node name="screen_modification" type="Node" parent="." unique_id=885794026]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="screen_modification"]
+[node name="CanvasLayer" type="CanvasLayer" parent="screen_modification" unique_id=1008479856]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="screen_modification/CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="screen_modification/CanvasLayer" unique_id=1476642224]
 visible = false
 material = SubResource("ShaderMaterial_5t1bp")
 anchors_preset = 15
@@ -98,15 +98,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="screen_modification"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="screen_modification" unique_id=308946300]
 transform = Transform3D(-0.5219336, -0.61917514, 0.58669204, 0.061710697, 0.65859747, 0.74996084, -0.850751, 0.42763487, -0.3055344, 0, 22.456, 0)
 shadow_enabled = true
 sky_mode = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="screen_modification/DirectionalLight3D"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="screen_modification/DirectionalLight3D" unique_id=1393231675]
 environment = SubResource("Environment_tgj7d")
 
-[node name="FrameLimiter" parent="." instance=ExtResource("5_6khfp")]
+[node name="FrameLimiter" parent="." unique_id=1623070349 instance=ExtResource("5_6khfp")]
 visible = false
 offset_left = -228.99994
 offset_top = 14.0
@@ -114,5 +114,5 @@ offset_right = 180.0
 offset_bottom = 300.0
 scale = Vector2(0.52616984, 0.52616984)
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+[node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=1283950470]
 bank_paths = ["res://sounds/banks/Enemys.bank"]

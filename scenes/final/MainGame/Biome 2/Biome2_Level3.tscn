@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://cllo2m2p8svjf"]
+[gd_scene format=3 uid="uid://cllo2m2p8svjf"]
 
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="1_d2yy8"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="2_aha3a"]
@@ -20,9 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="18_dcj4q"]
 [ext_resource type="PackedScene" uid="uid://cjv0ka23mxpmd" path="res://art_assets/environment/Biome2/Level2/Level2-3Floor.glb" id="19_kq2w8"]
 [ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="20_du5fa"]
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="21_atvsj"]
-[ext_resource type="Texture2D" uid="uid://n8ioie3uso2u" path="res://vfx/Kenny Particle Pack/muzzle_01.png" id="22_7tvui"]
-[ext_resource type="Shader" uid="uid://cnufkqrd0wvae" path="res://vfx/MiteExplosionCloud.gdshader" id="23_lo1tq"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="21_atvsj"]
+[ext_resource type="Texture2D" uid="uid://n8ioie3uso2u" path="res://VFX/Kenny Particle Pack/muzzle_01.png" id="22_7tvui"]
+[ext_resource type="Shader" uid="uid://cnufkqrd0wvae" path="res://VFX/MiteExplosionCloud.gdshader" id="23_lo1tq"]
 [ext_resource type="Shader" uid="uid://c77hfyht2fpxt" path="res://shaders/Fog/lightbeam.gdshader" id="24_7tvui"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_31ltn"]
@@ -414,416 +414,483 @@ shader_parameter/noise_scroll_speed = Vector2(0.075, 0.01)
 shader_parameter/noise_distortion_intensity = 0.05400000256499999
 shader_parameter/noise_distortion_scroll_speed = Vector2(-0.02, -0.01)
 
-[node name="Level3" type="Node3D"]
+[node name="Level3" type="Node3D" unique_id=1664932546]
 
-[node name="PlayerManager" parent="." instance=ExtResource("6_prq4x")]
+[node name="PlayerManager" parent="." unique_id=798221631 instance=ExtResource("6_prq4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 8.64628)
 stage = 1
 
-[node name="Nova" parent="PlayerManager" index="0"]
+[node name="Nova" parent="PlayerManager" index="0" unique_id=1837126418]
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 8.64628)
 
-[node name="Skeleton3D" parent="PlayerManager/Nova/nova" index="0"]
-bones/14/rotation = Quaternion(-0.06526893, 0.52195835, -0.5067225, 0.6830313)
-bones/15/rotation = Quaternion(-0.17059769, 0.568498, 0.2343857, 0.76991546)
-bones/16/rotation = Quaternion(-0.5031503, -0.47768176, -0.26229662, 0.6707164)
-bones/21/rotation = Quaternion(-0.1388079, 0.36833686, -0.46907774, 0.7905862)
-bones/22/rotation = Quaternion(-0.074987374, 0.37892509, 0.18621069, 0.90339273)
-bones/23/rotation = Quaternion(0.1348296, 0.11021851, -0.0870012, 0.9808688)
-bones/38/rotation = Quaternion(-0.35080537, 0.7060351, 0.060953114, 0.6121559)
+[node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="0" unique_id=1156861599]
+bones/14/rotation = Quaternion(-0.071761385, 0.5250052, -0.5065721, 0.68015045)
+bones/15/rotation = Quaternion(-0.15743624, 0.54781085, 0.23057692, 0.788639)
+bones/16/rotation = Quaternion(-0.5131193, -0.46691063, -0.23786557, 0.6797964)
+bones/21/rotation = Quaternion(-0.13989347, 0.39757067, -0.46559194, 0.77819777)
+bones/22/rotation = Quaternion(-0.06079828, 0.33916017, 0.1733972, 0.922609)
+bones/23/rotation = Quaternion(0.12513442, 0.122442245, -0.07396334, 0.98177326)
+bones/38/rotation = Quaternion(-0.34934527, 0.70675534, 0.06221982, 0.6120323)
 
-[node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.0033501545, -0.56999445, 0.8216416, -0.42211226, 0.7456633, 0.51556516, -0.90653723, -0.34509784, -0.24309969, 0.0060489406, 0.0071833185, -0.0131888585)
+[node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
+transform = Transform3D(-0.0056974236, -0.56997573, 0.8216418, -0.4190215, 0.7474015, 0.51556957, -0.90795845, -0.34134814, -0.24309039, 0.0060122707, 0.0072316662, -0.013210927)
 
-[node name="Idle" parent="PlayerManager/Nova/nova" index="3"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
-
-
-[node name="Move" parent="PlayerManager/Nova/nova" index="4"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="3" unique_id=1649251518]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Slash" parent="PlayerManager/Nova/nova" index="5"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="Move" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="4" unique_id=1674795872]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Slash2" parent="PlayerManager/Nova/nova" index="6"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="Slash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="5" unique_id=1029051473]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Slash3" parent="PlayerManager/Nova/nova" index="7"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="Slash2" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="6" unique_id=467086926]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Slash4" parent="PlayerManager/Nova/nova" index="8"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="Slash3" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="7" unique_id=961566355]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Slash5" parent="PlayerManager/Nova/nova" index="9"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="Slash4" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="8" unique_id=1701571526]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="ChargedSlash" parent="PlayerManager/Nova/nova" index="10"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="Slash5" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="9" unique_id=1779999045]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="ChargingSlash" parent="PlayerManager/Nova/nova" index="11"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="ChargedSlash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="10" unique_id=62004012]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Charging Special" parent="PlayerManager/Nova/nova" index="12"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="ChargingSlash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="11" unique_id=2013996429]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Special" parent="PlayerManager/Nova/nova" index="13"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="Charging Special" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="12" unique_id=830214116]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Dash" parent="PlayerManager/Nova/nova" index="14"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="Special" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="13" unique_id=1806959467]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Hurt" parent="PlayerManager/Nova/nova" index="15"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="Dash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="14" unique_id=1170297168]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Die" parent="PlayerManager/Nova/nova" index="16"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+[node name="Hurt" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="15" unique_id=677616342]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Die" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="16" unique_id=852275494]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Move" parent="PlayerManager/Rene/rene" index="4"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="attack1" parent="PlayerManager/Rene/rene" index="5"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="attack2" parent="PlayerManager/Rene/rene" index="6"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="attack3" parent="PlayerManager/Rene/rene" index="7"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="attack4" parent="PlayerManager/Rene/rene" index="8"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="charging attack" parent="PlayerManager/Rene/rene" index="9"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="charged attack" parent="PlayerManager/Rene/rene" index="10"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="charging special" parent="PlayerManager/Rene/rene" index="11"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="charged special" parent="PlayerManager/Rene/rene" index="12"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Special" parent="PlayerManager/Rene/rene" index="13"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Dash" parent="PlayerManager/Rene/rene" index="14"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Hurt" parent="PlayerManager/Rene/rene" index="15"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Die" parent="PlayerManager/Rene/rene" index="16"]
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Dawn" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" index="3"]
+[node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="0" unique_id=581899794]
+bones/2/rotation = Quaternion(0.03142982, -0.031338472, 0.7053812, 0.7074372)
+bones/15/rotation = Quaternion(0.019274915, -0.10343764, -0.66685176, 0.73772484)
+bones/16/rotation = Quaternion(-0.03584465, 0.395562, 0.10393077, 0.9118357)
+bones/17/rotation = Quaternion(0.18201587, 0.09191682, -0.25498864, 0.9451997)
+bones/23/rotation = Quaternion(-0.08221233, -0.0875255, -0.68408936, 0.71944577)
+bones/24/rotation = Quaternion(-0.030756354, 0.27549547, 0.12677902, 0.9524093)
+bones/25/rotation = Quaternion(-0.0004861341, 0.058378767, -0.17757201, 0.9823746)
+bones/30/rotation = Quaternion(0.0015803063, 0.9682027, -0.2499098, 0.01123208)
+bones/31/rotation = Quaternion(0.9984746, -0.011228729, 0.054058656, 0.00044059302)
+bones/32/rotation = Quaternion(0.5688949, -0.3700922, 0.42036888, 0.60222954)
+bones/34/rotation = Quaternion(0.060950372, 0.117404275, 0.013236388, 0.9911236)
+bones/35/rotation = Quaternion(0.9920087, -0.015225461, 0.12523916, 0.001528119)
+bones/36/rotation = Quaternion(0.5988229, -0.35931376, 0.3703164, 0.6125117)
+
+[node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="3" unique_id=636726215]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Move" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="4" unique_id=216360919]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack start" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="5" unique_id=1398567198]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack hold" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="6" unique_id=2059599407]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack end" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="7" unique_id=2127963097]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="fish" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="8" unique_id=1943936372]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="ChargedAttack" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="9" unique_id=670848599]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="ChargingAttack" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="10" unique_id=1168808960]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Charging Special" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="11" unique_id=1249691474]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Special" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="12" unique_id=1108651509]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Dash" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="13" unique_id=221988257]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Hurt" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="14" unique_id=318539843]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Die" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="15" unique_id=2085062700]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Dawn" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" parent_id_path=PackedInt32Array(798221631, 1776298804, 1757688413) index="3" unique_id=1894984408]
 visible = false
 
-[node name="nova_control" parent="PlayerManager/Pause Menu" index="0"]
+[node name="nova_control" parent="PlayerManager/Pause Menu" parent_id_path=PackedInt32Array(798221631, 1394924557) index="0" unique_id=642816585]
 visible = true
 
-[node name="TextureRect" parent="PlayerManager/Pause Menu/nova_control" index="0"]
+[node name="TextureRect" parent="PlayerManager/Pause Menu/nova_control" index="0" unique_id=1544761983]
 script = null
 
-[node name="Nova_Controls" parent="PlayerManager/Pause Menu/nova_control" index="1"]
+[node name="Nova_Controls" parent="PlayerManager/Pause Menu/nova_control" index="1" unique_id=1906121385]
 script = null
 
-[node name="Nova_Portrait" parent="PlayerManager/Pause Menu/nova_control" index="2"]
+[node name="Nova_Portrait" parent="PlayerManager/Pause Menu/nova_control" index="2" unique_id=429359075]
 script = null
 
-[node name="Nova_Name" parent="PlayerManager/Pause Menu/nova_control" index="3"]
+[node name="Nova_Name" parent="PlayerManager/Pause Menu/nova_control" index="3" unique_id=1743390306]
 script = null
 
-[node name="TextureRect" parent="PlayerManager/Pause Menu/rene_control" index="0"]
+[node name="TextureRect" parent="PlayerManager/Pause Menu/rene_control" parent_id_path=PackedInt32Array(798221631, 449681494) index="0" unique_id=2095550914]
 script = null
 
-[node name="rene_controls" parent="PlayerManager/Pause Menu/rene_control" index="1"]
+[node name="rene_controls" parent="PlayerManager/Pause Menu/rene_control" parent_id_path=PackedInt32Array(798221631, 449681494) index="1" unique_id=1417508243]
 script = null
 
-[node name="rene_portrait" parent="PlayerManager/Pause Menu/rene_control" index="2"]
+[node name="rene_portrait" parent="PlayerManager/Pause Menu/rene_control" parent_id_path=PackedInt32Array(798221631, 449681494) index="2" unique_id=1494172272]
 script = null
 
-[node name="rene_name" parent="PlayerManager/Pause Menu/rene_control" index="3"]
+[node name="rene_name" parent="PlayerManager/Pause Menu/rene_control" parent_id_path=PackedInt32Array(798221631, 449681494) index="3" unique_id=1079678198]
 script = null
 
-[node name="TextureRect" parent="PlayerManager/Pause Menu/dawn_control" index="0"]
+[node name="TextureRect" parent="PlayerManager/Pause Menu/dawn_control" parent_id_path=PackedInt32Array(798221631, 1293898452) index="0" unique_id=195356916]
 script = null
 
-[node name="dawn_controls" parent="PlayerManager/Pause Menu/dawn_control" index="1"]
+[node name="dawn_controls" parent="PlayerManager/Pause Menu/dawn_control" parent_id_path=PackedInt32Array(798221631, 1293898452) index="1" unique_id=27835387]
 script = null
 
-[node name="dawn_portrait" parent="PlayerManager/Pause Menu/dawn_control" index="2"]
+[node name="dawn_portrait" parent="PlayerManager/Pause Menu/dawn_control" parent_id_path=PackedInt32Array(798221631, 1293898452) index="2" unique_id=166905207]
 script = null
 
-[node name="dawn_name" parent="PlayerManager/Pause Menu/dawn_control" index="3"]
+[node name="dawn_name" parent="PlayerManager/Pause Menu/dawn_control" parent_id_path=PackedInt32Array(798221631, 1293898452) index="3" unique_id=1825686634]
 script = null
 
-[node name="VBoxContainer" parent="PlayerManager/Pause Menu" index="3"]
+[node name="VBoxContainer" parent="PlayerManager/Pause Menu" parent_id_path=PackedInt32Array(798221631, 1394924557) index="3" unique_id=507698086]
 script = null
 
-[node name="LevelEnder" parent="." instance=ExtResource("7_s0x1b")]
+[node name="LevelEnder" parent="." unique_id=2144247461 instance=ExtResource("7_s0x1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20773125, -3.6608257, -32.17933)
 next_level = "MainGame/Biome 3/Biome3_Level1"
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=49409672]
 transform = Transform3D(0.995262, 0, 0, 0, 0.995262, 0, 0, 0, 0.995262, 0.009864807, 0.053094864, -0.11214638)
 navigation_mesh = SubResource("NavigationMesh_31ltn")
 
-[node name="Level2-3Color" parent="NavigationRegion3D" instance=ExtResource("10_31ltn")]
+[node name="Level2-3Color" parent="NavigationRegion3D" unique_id=1097275735 instance=ExtResource("10_31ltn")]
 transform = Transform3D(-2.195974e-08, 0, -0.5023803, 0, 0.5023803, 0, 0.5023803, 0, -2.195974e-08, -0.00991177, -0.05334763, 7.491768)
 
-[node name="Cylinder" parent="NavigationRegion3D/Level2-3Color" index="4"]
+[node name="Cylinder" parent="NavigationRegion3D/Level2-3Color" index="4" unique_id=2055371778]
 surface_material_override/0 = ExtResource("4_s0x1b")
 
-[node name="Cylinder_005" parent="NavigationRegion3D/Level2-3Color" index="5"]
+[node name="Cylinder_005" parent="NavigationRegion3D/Level2-3Color" index="5" unique_id=1939594064]
 surface_material_override/0 = ExtResource("5_hotib")
 
-[node name="Cylinder_007" parent="NavigationRegion3D/Level2-3Color" index="11"]
+[node name="Cylinder_007" parent="NavigationRegion3D/Level2-3Color" index="11" unique_id=758064821]
 surface_material_override/0 = ExtResource("6_tr382")
 
-[node name="Cylinder_016" parent="NavigationRegion3D/Level2-3Color" index="19"]
+[node name="Cylinder_016" parent="NavigationRegion3D/Level2-3Color" index="19" unique_id=308843215]
 surface_material_override/0 = ExtResource("5_hotib")
 
-[node name="Cylinder_017" parent="NavigationRegion3D/Level2-3Color" index="21"]
+[node name="Cylinder_017" parent="NavigationRegion3D/Level2-3Color" index="21" unique_id=2090791108]
 surface_material_override/0 = ExtResource("4_s0x1b")
 
-[node name="Cylinder_018" parent="NavigationRegion3D/Level2-3Color" index="22"]
+[node name="Cylinder_018" parent="NavigationRegion3D/Level2-3Color" index="22" unique_id=1366777030]
 surface_material_override/0 = ExtResource("5_hotib")
 
-[node name="WaveManager" type="Node3D" parent="."]
+[node name="WaveManager" type="Node3D" parent="." unique_id=1058454041]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
 script = ExtResource("1_d2yy8")
 metadata/_custom_type_script = "uid://cs72ukacrgd4g"
 
-[node name="Wave1" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave1" type="Node3D" parent="WaveManager" unique_id=75934069 node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("2_aha3a")
 enemies = Array[PackedScene]([ExtResource("5_6kimk"), ExtResource("5_6kimk"), ExtResource("5_6kimk"), ExtResource("5_6kimk"), ExtResource("8_prq4x"), ExtResource("8_prq4x")])
 spawn_areas = [NodePath("../SpawnArea1"), NodePath("../SpawnArea2"), NodePath("../SpawnArea3"), NodePath("../SpawnArea4"), NodePath("../SpawnArea5")]
 spawnAreaIndices = Array[int]([4, 4, 2, 2, 1, 0, 0, 0, 0, 3])
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="Wave2" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave2" type="Node3D" parent="WaveManager" unique_id=1570096408 node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("2_aha3a")
 enemies = Array[PackedScene]([ExtResource("5_6kimk"), ExtResource("5_6kimk"), ExtResource("5_6kimk"), ExtResource("6_31ltn"), ExtResource("8_prq4x"), ExtResource("8_prq4x"), ExtResource("7_r2uke")])
 spawn_areas = [NodePath("../SpawnArea1"), NodePath("../SpawnArea2"), NodePath("../SpawnArea3"), NodePath("../SpawnArea4"), NodePath("../SpawnArea5")]
 spawnAreaIndices = Array[int]([4, 4, 2, 2, 1, 0, 0, 0, 0, 3])
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="Wave_Starter" type="Area3D" parent="WaveManager"]
+[node name="Wave_Starter" type="Area3D" parent="WaveManager" unique_id=1999859471]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -24.182987, 0, 51.88923)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter" unique_id=461413358]
 shape = SubResource("BoxShape3D_r2uke")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
-[node name="SpawnArea1" parent="WaveManager" instance=ExtResource("6_d2yy8")]
+[node name="SpawnArea1" parent="WaveManager" unique_id=391571156 instance=ExtResource("6_d2yy8")]
 transform = Transform3D(8.309688, 0, 0, 0, 1, 0, 0, 0, 10, -22.42935, -1.9073486e-06, 30.670176)
 
-[node name="SpawnArea2" parent="WaveManager" instance=ExtResource("6_d2yy8")]
+[node name="SpawnArea2" parent="WaveManager" unique_id=1916735081 instance=ExtResource("6_d2yy8")]
 transform = Transform3D(2.765296, 0, 0, 0, 1, 0, 0, 0, 2.8338914, -15.030594, -1.9073486e-06, 27.624691)
 
-[node name="SpawnArea3" parent="WaveManager" instance=ExtResource("6_d2yy8")]
+[node name="SpawnArea3" parent="WaveManager" unique_id=1648875664 instance=ExtResource("6_d2yy8")]
 transform = Transform3D(3.4254735, 0, 0, 0, 1, 0, 0, 0, 3.6188767, -14.261655, -1.9073486e-06, 41.06053)
 
-[node name="SpawnArea4" parent="WaveManager" instance=ExtResource("6_d2yy8")]
+[node name="SpawnArea4" parent="WaveManager" unique_id=428320408 instance=ExtResource("6_d2yy8")]
 transform = Transform3D(4.9094515, 0, 0, 0, 1, 0, 0, 0, 2.4655247, -30.92141, 1.9073486e-06, 29.780798)
 
-[node name="SpawnArea5" parent="WaveManager" instance=ExtResource("6_d2yy8")]
+[node name="SpawnArea5" parent="WaveManager" unique_id=1838029206 instance=ExtResource("6_d2yy8")]
 transform = Transform3D(3.4254735, 0, 0, 0, 1, 0, 0, 0, 3.6188767, -30.066307, -1.9073486e-06, 44.32631)
 
-[node name="DialogueCollisionCaller" type="Area3D" parent="." node_paths=PackedStringArray("dialogue")]
+[node name="DialogueCollisionCaller" type="Area3D" parent="." unique_id=819669717 node_paths=PackedStringArray("dialogue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5815616, 0, 8.611918)
 script = ExtResource("14_irc2h")
 dialogue = NodePath("DialogueCaller")
 metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller" unique_id=1285877968]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_atvsj")
 
-[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
+[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller" unique_id=1001823935]
 script = ExtResource("15_kq2w8")
 dialogue = Array[ExtResource("16_du5fa")]([SubResource("Resource_7tvui"), SubResource("Resource_lo1tq")])
 metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
-[node name="Level2-3Floor" parent="." instance=ExtResource("19_kq2w8")]
+[node name="Level2-3Floor" parent="." unique_id=1312358397 instance=ExtResource("19_kq2w8")]
 transform = Transform3D(-2.1943116e-08, 0, -0.502, 0, 0.502, 0, 0.502, 0, -2.1943116e-08, -0.01, 0, 7.492)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=229912318]
 
-[node name="CollisionShape3D15" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="StaticBody3D" unique_id=298842341]
 transform = Transform3D(4.2339798e-07, 0, 9.466162, 0, 11.084598, 0, -3.2287388, 0, 1.241337e-06, -0.67126274, 0.8949719, 14.122734)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D27" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D27" type="CollisionShape3D" parent="StaticBody3D" unique_id=1524590557]
 transform = Transform3D(-1.2251308, 0, 4.730233, 0, 11.084599, 0, -1.1576177, 0, -5.006105, 0.29050383, 0.8949719, -5.9290876)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D29" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D29" type="CollisionShape3D" parent="StaticBody3D" unique_id=295327985]
 transform = Transform3D(-1.2251308, 0, 1.1102042, 0, 11.084599, 0, -1.1576177, 0, -1.1749524, 11.412889, 0.8949719, -14.762191)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D30" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D30" type="CollisionShape3D" parent="StaticBody3D" unique_id=2099718107]
 transform = Transform3D(-1.2251308, 0, 1.1102042, 0, 11.084599, 0, -1.1576177, 0, -1.1749524, -9.120529, 0.8949719, -4.014467)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D28" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D28" type="CollisionShape3D" parent="StaticBody3D" unique_id=1228966059]
 transform = Transform3D(-2.161087, 0, -0.033896446, 0, 11.084599, 0, 0.013540606, 0, -5.4098063, -2.7969496, 0.8949719, -1.0777235)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D16" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="StaticBody3D" unique_id=26126843]
 transform = Transform3D(-3.2287388, 0, 8.275578e-07, 0, 11.084598, 0, -2.8226532e-07, 0, -9.466162, 4.40394, 0.8949719, 9.14886)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D18" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="StaticBody3D" unique_id=1690546888]
 transform = Transform3D(4.2339798e-07, 0, 12.30601, 0, 11.084598, 0, -3.2287388, 0, 1.6137378e-06, 9.40394, 0.8949719, 3.14886)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D26" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D26" type="CollisionShape3D" parent="StaticBody3D" unique_id=1512361127]
 transform = Transform3D(-2.7961698, 0, 6.153006, 0, 11.084598, 0, -1.6143696, 0, -10.657317, 11.40394, 0.8949719, -0.85114)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D19" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="StaticBody3D" unique_id=1292670638]
 transform = Transform3D(-3.2287393, 0, 2.6723494e-06, 0, 11.084598, 0, -2.822653e-07, 0, -30.568132, 14.40394, 0.8949719, -10.85114)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D20" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="StaticBody3D" unique_id=1381963981]
 transform = Transform3D(-1.411326e-07, 0, -12.227251, 0, 11.084597, 0, 3.2287393, 0, -5.344695e-07, 9.40394, 0.8949719, -24.85114)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D22" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="StaticBody3D" unique_id=1104930516]
 transform = Transform3D(-1.411326e-07, 0, -7.336351, 0, 11.084597, 0, 3.2287393, 0, -3.2068172e-07, -6.59606, 0.8949719, -23.85114)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D23" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="StaticBody3D" unique_id=416966692]
 transform = Transform3D(2.7961705, 0, -3.6681755, 0, 11.084598, 0, 1.6143695, 0, 6.353466, -10.59606, 0.8949719, -21.85114)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D24" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="StaticBody3D" unique_id=1493002620]
 transform = Transform3D(3.2287393, 0, 0, 0, 11.084598, 0, -2.3841858e-07, 0, 27.731405, -12.59606, 0.8949719, -9.851139)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D25" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D25" type="CollisionShape3D" parent="StaticBody3D" unique_id=1817887416]
 transform = Transform3D(-3.7955124e-07, 0, 11.092562, 0, 11.084598, 0, -3.2287393, 0, -4.8487124e-07, -8.59606, 0.8949719, 3.148861)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D21" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="StaticBody3D" unique_id=93173601]
 transform = Transform3D(-1.411326e-07, 0, -12.227251, 0, 11.084597, 0, 3.2287393, 0, -5.344695e-07, 9.40394, 0.8949719, -26.85114)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D17" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="StaticBody3D" unique_id=1251124995]
 transform = Transform3D(-3.2287388, 0, 9.103136e-07, 0, 11.084598, 0, -2.8226532e-07, 0, -10.412778, -4.59606, 0.8949719, 8.14886)
 shape = SubResource("BoxShape3D_kq2w8")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="Gate" parent="." instance=ExtResource("20_du5fa")]
+[node name="Gate" parent="." unique_id=1923661977 instance=ExtResource("20_du5fa")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1, -24)
 
-[node name="Explosion" type="FmodEventEmitter3D" parent="."]
+[node name="Explosion" type="FmodEventEmitter3D" parent="." unique_id=1308176949]
 event_name = "event:/Levels/BIGASS Explosion"
 event_guid = "{528955f8-ad3b-4a07-9735-6c57605b0600}"
 autoplay = true
 
-[node name="Ambiance SFX" type="FmodEventEmitter3D" parent="."]
+[node name="Ambiance SFX" type="FmodEventEmitter3D" parent="." unique_id=1732051060]
 event_name = "event:/Levels/GrassLand/Cave Ambiance"
 event_guid = "{ae17bacc-f896-436e-8226-eec66b9e436a}"
 autoplay = true
 
-[node name="Music SFX" type="FmodEventEmitter3D" parent="."]
+[node name="Music SFX" type="FmodEventEmitter3D" parent="." unique_id=814212854]
 event_name = "event:/Music/Biome2_Level2"
 event_guid = "{1796148b-b2e6-4ff8-8b66-389969561393}"
 autoplay = true
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+[node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=493338417]
 bank_paths = ["res://sounds/banks/Music.bank"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=358160248]
 environment = SubResource("Environment_5b1lo")
 
-[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment" unique_id=1320985390]
 transform = Transform3D(1.7156007, 6.198883e-06, -8.940697e-08, 0, 7.973485, 4.172325e-07, -4.4703484e-07, -4.529953e-06, 1.8851571, 28.418222, -41.89631, -20.014988)
 size = Vector3(165.4, 9.7, 233.25)
 material = SubResource("FogMaterial_dcj4q")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment" unique_id=1047276048]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.962824, 3.3665123, -4.0326157)
 light_color = Color(0.83, 0.1992, 0.73537993, 1)
 light_energy = 0.265
 light_size = 25.77
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment" unique_id=867734795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.145456, 3.3665123, -14.425742)
 light_color = Color(0.83, 0.1992, 0.73537993, 1)
 light_energy = 0.265
 light_size = 25.77
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment"]
+[node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment" unique_id=798646408]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.606338, 3.3665123, -9.315815)
 light_color = Color(0.83, 0.1992, 0.73537993, 1)
 light_energy = 0.265
 light_size = 25.77
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="WorldEnvironment"]
+[node name="OmniLight3D4" type="OmniLight3D" parent="WorldEnvironment" unique_id=186857987]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8919821, 5.295903, -22.890213)
 light_color = Color(0.83, 0.1992, 0.73537993, 1)
 light_energy = 0.265
 light_size = 25.77
 
-[node name="OmniLight3D5" type="OmniLight3D" parent="WorldEnvironment"]
+[node name="OmniLight3D5" type="OmniLight3D" parent="WorldEnvironment" unique_id=158812404]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2475691, 5.295903, -22.890213)
 light_color = Color(0.83, 0.1992, 0.73537993, 1)
 light_energy = 0.265
 light_size = 25.77
 
-[node name="Cutscene Explosions" type="Node3D" parent="." node_paths=PackedStringArray("light", "particles")]
+[node name="Cutscene Explosions" type="Node3D" parent="." unique_id=2130032832 node_paths=PackedStringArray("light", "particles")]
 transform = Transform3D(0.6903522, 0.7234733, -1.4901161e-08, 0.5115728, -0.48815262, 0.7071068, 0.511573, -0.4881528, -0.70710665, -7.9625983, 10.762986, 20.387058)
 script = ExtResource("21_atvsj")
 on_stop = 1
@@ -832,7 +899,7 @@ light = NodePath("OmniLight3D")
 particles = [NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D4"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D4")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="Cutscene Explosions"]
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="Cutscene Explosions" unique_id=889195966]
 emitting = false
 amount = 25
 one_shot = true
@@ -841,7 +908,7 @@ transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_atvsj")
 draw_pass_1 = SubResource("PlaneMesh_1ahim")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Cutscene Explosions"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Cutscene Explosions" unique_id=1858617543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 visible = false
 emitting = false
@@ -852,7 +919,7 @@ explosiveness = 0.78
 process_material = SubResource("ParticleProcessMaterial_7tvui")
 draw_pass_1 = SubResource("SphereMesh_dgsqx")
 
-[node name="GPUParticles3D3" type="GPUParticles3D" parent="Cutscene Explosions"]
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="Cutscene Explosions" unique_id=1913168953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9880872, 0)
 emitting = false
 amount = 5
@@ -862,7 +929,7 @@ explosiveness = 0.78
 process_material = SubResource("ParticleProcessMaterial_lrg0w")
 draw_pass_1 = SubResource("SphereMesh_dgsqx")
 
-[node name="GPUParticles3D4" type="GPUParticles3D" parent="Cutscene Explosions"]
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="Cutscene Explosions" unique_id=780681840]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3841858e-07, 14.013026, 5.5135784)
 emitting = false
 amount = 35
@@ -877,7 +944,7 @@ transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_lo1tq")
 draw_pass_1 = SubResource("PlaneMesh_ahi5a")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Cutscene Explosions"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Cutscene Explosions" unique_id=1392084944]
 light_color = Color(1, 0.7666667, 0, 1)
 light_energy = 15.0
 light_volumetric_fog_energy = 6.727
@@ -885,11 +952,11 @@ light_size = 0.682
 omni_range = 26.499
 omni_attenuation = 0.291
 
-[node name="Cutscene Godrays" type="Node3D" parent="."]
+[node name="Cutscene Godrays" type="Node3D" parent="." unique_id=138648984]
 transform = Transform3D(0.8694034, 0.28437096, -0.40406764, 0.3658196, 0.17925242, 0.9132606, 0.33213454, -0.94180787, 0.05181396, -7.578781, 30.494987, 22.822449)
 visible = false
 
-[node name="Node3D2" type="SpotLight3D" parent="Cutscene Godrays"]
+[node name="Node3D2" type="SpotLight3D" parent="Cutscene Godrays" unique_id=416636733]
 light_color = Color(0.58000004, 0.92999995, 1, 1)
 light_energy = 10.091
 distance_fade_enabled = true
@@ -897,7 +964,7 @@ spot_range = 44.842
 spot_attenuation = 0.2
 spot_angle = 33.13
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cutscene Godrays/Node3D2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cutscene Godrays/Node3D2" unique_id=1562412800]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5674895, -2.0115223, -14.085201)
 mesh = SubResource("PlaneMesh_7tvui")
 surface_material_override/0 = SubResource("ShaderMaterial_lo1tq")
@@ -913,7 +980,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_lo1tq")
 [editable path="PlayerManager/Rene"]
 [editable path="PlayerManager/Rene/rene"]
 [editable path="PlayerManager/Dawn"]
-[editable path="PlayerManager/Dawn/dawn_rig"]
+[editable path="PlayerManager/Dawn/dawn"]
 [editable path="PlayerManager/Game Menu/GameUi"]
 [editable path="PlayerManager/SettingScene"]
 [editable path="NavigationRegion3D/Level2-3Color"]

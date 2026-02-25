@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://crqwkpb2jn8fq"]
+[gd_scene format=3 uid="uid://crqwkpb2jn8fq"]
 
 [ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="1_6v43l"]
 [ext_resource type="Script" uid="uid://dbgqvlk72h7l" path="res://scripts/entities/enemies/attacks/ranged_weapon.gd" id="1_duflq"]
@@ -10,22 +10,22 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pcnfp"]
 
-[node name="RangedWeapon" type="Node3D" groups=["Enemies"]]
+[node name="RangedWeapon" type="Node3D" unique_id=773822131 groups=["Enemies"]]
 script = ExtResource("1_duflq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=186764661]
 material_overlay = SubResource("StandardMaterial3D_duflq")
 mesh = SubResource("SphereMesh_kfiv0")
 
-[node name="Hitbox" type="Area3D" parent="."]
+[node name="Hitbox" type="Area3D" parent="." unique_id=1377018701]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 collision_mask = 3
 script = ExtResource("1_6v43l")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=880851270]
 shape = SubResource("SphereShape3D_pcnfp")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1225829807]
 wait_time = 3.0
 one_shot = true
 autostart = true

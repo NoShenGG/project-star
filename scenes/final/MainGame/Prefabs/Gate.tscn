@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dssh8iaq3ldy5"]
+[gd_scene format=3 uid="uid://dssh8iaq3ldy5"]
 
 [ext_resource type="Script" uid="uid://bar5haf7dm68l" path="res://scenes/final/MainGame/Prefabs/gate.gd" id="1_m44iy"]
-[ext_resource type="Shader" uid="uid://cnv2tty5nd2lw" path="res://shaders/gate.gdshader" id="1_ryov1"]
+[ext_resource type="Shader" path="res://shaders/gate.gdshader" id="1_ryov1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ryov1"]
 radius = 1.0
@@ -20,13 +20,13 @@ shader_parameter/uv_offset = Vector3(0, 0, 0)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ryov1"]
 size = Vector3(5, 2, 2)
 
-[node name="Gate" type="StaticBody3D"]
+[node name="Gate" type="StaticBody3D" unique_id=1029550152]
 script = ExtResource("1_m44iy")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=985794874]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_ryov1")
 surface_material_override/0 = SubResource("ShaderMaterial_bo4w0")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=453464052]
 shape = SubResource("BoxShape3D_ryov1")

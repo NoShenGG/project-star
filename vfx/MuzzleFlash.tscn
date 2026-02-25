@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://n526bksfs56w"]
+[gd_scene format=3 uid="uid://n526bksfs56w"]
 
 [ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="1_hugfv"]
 [ext_resource type="Texture2D" uid="uid://c87luii1whawe" path="res://VFX/Kenny Particle Pack/star_07.png" id="2_hugfv"]
@@ -332,11 +332,11 @@ material = SubResource("StandardMaterial3D_hugfv")
 size = Vector2(0.1, 0.5)
 orientation = 2
 
-[node name="MuzzleFlash" type="Node3D" node_paths=PackedStringArray("particles")]
+[node name="MuzzleFlash" type="Node3D" unique_id=1804320630 node_paths=PackedStringArray("particles")]
 script = ExtResource("1_hugfv")
 particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D4"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D4")]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1520768031]
 emitting = false
 amount = 1
 one_shot = true
@@ -344,7 +344,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_w6gdk")
 draw_pass_1 = SubResource("PlaneMesh_d4rqv")
 
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=1771482131]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0980327)
 emitting = false
 amount = 1
@@ -353,7 +353,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_nn6v1")
 draw_pass_1 = SubResource("PlaneMesh_37iol")
 
-[node name="GPUParticles3D3" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="." unique_id=2005738701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0802536)
 emitting = false
 amount = 1
@@ -362,7 +362,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_l1lhe")
 draw_pass_1 = SubResource("PlaneMesh_xu8dl")
 
-[node name="GPUParticles3D4" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="." unique_id=1855383347]
 emitting = false
 amount = 16
 one_shot = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://hs6isup6bhpk"]
+[gd_scene format=3 uid="uid://hs6isup6bhpk"]
 
 [ext_resource type="Script" uid="uid://ci2p324tsrsjb" path="res://scenes/dev/ZXue/SettingScene/setting_scene.gd" id="1_uh3ej"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="1_x5ukb"]
@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://djmb4u34fsbar" path="res://scenes/dev/ZXue/SettingScene/Assets/Level_Audio/topic.png" id="23_04rtr"]
 [ext_resource type="Script" uid="uid://dndn7rguc0gfu" path="res://scenes/dev/ZXue/refactor_SettingMenu/audio_settings.gd" id="23_ld8q1"]
 
-[node name="SettingScene" type="Control"]
+[node name="SettingScene" type="Control" unique_id=202184898]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -32,7 +32,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_uh3ej")
 
-[node name="Level1Control" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
+[node name="Level1Control" type="Panel" parent="." unique_id=1388596194 node_paths=PackedStringArray("focused_control")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -52,7 +52,7 @@ open_animation_flags = 1
 close_alpha_effects_all = true
 close_animation_flags = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Level1Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Level1Control" unique_id=842533786]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.73200005
@@ -67,14 +67,14 @@ grow_vertical = 2
 theme_override_constants/separation = 39
 alignment = 1
 
-[node name="OP1Button" type="Button" parent="Level1Control/HBoxContainer"]
+[node name="OP1Button" type="Button" parent="Level1Control/HBoxContainer" unique_id=2103093594]
 layout_mode = 2
 focus_neighbor_right = NodePath("../OP2Button")
 focus_neighbor_bottom = NodePath("../../ReturnButton")
 text = "                                            "
 script = ExtResource("4_15orc")
 
-[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP1Button"]
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP1Button" unique_id=1340054597]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.047
@@ -83,7 +83,7 @@ offset_right = 0.022994995
 offset_bottom = 149.5
 texture = ExtResource("6_d1cul")
 
-[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP1Button"]
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP1Button" unique_id=754464963]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.767
@@ -94,12 +94,12 @@ offset_right = 0.022994995
 grow_vertical = 0
 texture = ExtResource("7_3fgnr")
 
-[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP1Button" node_paths=PackedStringArray("button", "next_menu")]
+[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP1Button" unique_id=456090342 node_paths=PackedStringArray("button", "next_menu")]
 script = ExtResource("8_pq8it")
 button = NodePath("..")
 next_menu = NodePath("../../../../WindowSettings")
 
-[node name="OP2Button" type="Button" parent="Level1Control/HBoxContainer"]
+[node name="OP2Button" type="Button" parent="Level1Control/HBoxContainer" unique_id=1440292618]
 layout_mode = 2
 focus_neighbor_left = NodePath("../OP1Button")
 focus_neighbor_right = NodePath("../OP3Button")
@@ -107,24 +107,24 @@ focus_neighbor_bottom = NodePath("../../ReturnButton")
 text = "                                            "
 script = ExtResource("4_15orc")
 
-[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP2Button"]
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP2Button" unique_id=1659987757]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("8_lg51d")
 
-[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP2Button"]
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP2Button" unique_id=685146721]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("9_uk6ft")
 
-[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP2Button" node_paths=PackedStringArray("button", "next_menu")]
+[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP2Button" unique_id=1121310406 node_paths=PackedStringArray("button", "next_menu")]
 script = ExtResource("8_pq8it")
 button = NodePath("..")
 next_menu = NodePath("../../../../WindowSettings")
 
-[node name="OP3Button" type="Button" parent="Level1Control/HBoxContainer"]
+[node name="OP3Button" type="Button" parent="Level1Control/HBoxContainer" unique_id=1183235177]
 layout_mode = 2
 focus_neighbor_left = NodePath("../OP2Button")
 focus_neighbor_right = NodePath("../OP4Button")
@@ -132,24 +132,24 @@ focus_neighbor_bottom = NodePath("../../ReturnButton")
 text = "                                            "
 script = ExtResource("4_15orc")
 
-[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP3Button"]
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP3Button" unique_id=434534014]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("10_j5b4e")
 
-[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP3Button"]
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP3Button" unique_id=2023769077]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("11_nxmo5")
 
-[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP3Button" node_paths=PackedStringArray("button", "next_menu")]
+[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP3Button" unique_id=1439381089 node_paths=PackedStringArray("button", "next_menu")]
 script = ExtResource("8_pq8it")
 button = NodePath("..")
 next_menu = NodePath("../../../../GameplaySettings")
 
-[node name="OP4Button" type="Button" parent="Level1Control/HBoxContainer"]
+[node name="OP4Button" type="Button" parent="Level1Control/HBoxContainer" unique_id=727673511]
 layout_mode = 2
 focus_neighbor_left = NodePath("../OP3Button")
 focus_neighbor_right = NodePath("../../ReturnButton")
@@ -157,24 +157,24 @@ focus_neighbor_bottom = NodePath("../../ReturnButton")
 text = "                                            "
 script = ExtResource("4_15orc")
 
-[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP4Button"]
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP4Button" unique_id=440821546]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_gf0jx")
 
-[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP4Button"]
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP4Button" unique_id=2143846158]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("13_0n513")
 
-[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP4Button" node_paths=PackedStringArray("button", "next_menu")]
+[node name="MenuSwitchButton" type="Node" parent="Level1Control/HBoxContainer/OP4Button" unique_id=560785211 node_paths=PackedStringArray("button", "next_menu")]
 script = ExtResource("8_pq8it")
 button = NodePath("..")
 next_menu = NodePath("../../../../AudioSettings")
 
-[node name="ReturnButton" type="Button" parent="Level1Control"]
+[node name="ReturnButton" type="Button" parent="Level1Control" unique_id=1998002295]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -194,9 +194,9 @@ script = ExtResource("4_15orc")
 open_animation_flags = 1
 close_animation_flags = 1
 
-[node name="MenuSwitchButton" type="Node" parent="Level1Control/ReturnButton"]
+[node name="MenuSwitchButton" type="Node" parent="Level1Control/ReturnButton" unique_id=1893228841]
 
-[node name="Label" type="Label" parent="Level1Control"]
+[node name="Label" type="Label" parent="Level1Control" unique_id=869334460]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -210,7 +210,7 @@ theme_override_font_sizes/font_size = 56
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="WindowSettings" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
+[node name="WindowSettings" type="Panel" parent="." unique_id=1559541377 node_paths=PackedStringArray("focused_control")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -229,7 +229,7 @@ open_animation_flags = 1
 close_alpha_effects_all = true
 close_animation_flags = 1
 
-[node name="TextureRect" type="TextureRect" parent="WindowSettings"]
+[node name="TextureRect" type="TextureRect" parent="WindowSettings" unique_id=692341468]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.23700002
@@ -245,7 +245,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 texture = ExtResource("6_d1cul")
 
-[node name="Topic" type="TextureRect" parent="WindowSettings"]
+[node name="Topic" type="TextureRect" parent="WindowSettings" unique_id=2081075497]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -253,7 +253,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 texture = ExtResource("17_4c65m")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="WindowSettings"]
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowSettings" unique_id=581965058]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.697
@@ -267,30 +267,30 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 59
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="WindowSettings/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="WindowSettings/HBoxContainer" unique_id=682726934]
 layout_mode = 2
 theme_override_constants/separation = 57
 
-[node name="WindowModeLabel" type="Label" parent="WindowSettings/HBoxContainer/VBoxContainer2"]
+[node name="WindowModeLabel" type="Label" parent="WindowSettings/HBoxContainer/VBoxContainer2" unique_id=309108148]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Window Mode"
 
-[node name="ResolutionLabel" type="Label" parent="WindowSettings/HBoxContainer/VBoxContainer2"]
+[node name="ResolutionLabel" type="Label" parent="WindowSettings/HBoxContainer/VBoxContainer2" unique_id=1793983582]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Resolution"
 
-[node name="BrightnessLabel" type="Label" parent="WindowSettings/HBoxContainer/VBoxContainer2"]
+[node name="BrightnessLabel" type="Label" parent="WindowSettings/HBoxContainer/VBoxContainer2" unique_id=1902729817]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Brightness"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WindowSettings/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowSettings/HBoxContainer" unique_id=2134234405]
 layout_mode = 2
 theme_override_constants/separation = 57
 
-[node name="WindowedOptionButton" type="OptionButton" parent="WindowSettings/HBoxContainer/VBoxContainer"]
+[node name="WindowedOptionButton" type="OptionButton" parent="WindowSettings/HBoxContainer/VBoxContainer" unique_id=785447572]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ResolutionOptionButton")
 theme_override_font_sizes/font_size = 30
@@ -302,7 +302,7 @@ popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
 script = ExtResource("4_15orc")
 
-[node name="ResolutionOptionButton" type="OptionButton" parent="WindowSettings/HBoxContainer/VBoxContainer"]
+[node name="ResolutionOptionButton" type="OptionButton" parent="WindowSettings/HBoxContainer/VBoxContainer" unique_id=1509435100]
 layout_mode = 2
 focus_neighbor_top = NodePath("../WindowedOptionButton")
 focus_neighbor_bottom = NodePath("../BrightnessBar")
@@ -315,14 +315,14 @@ popup/item_1/text = "1280*720"
 popup/item_1/id = 1
 script = ExtResource("4_15orc")
 
-[node name="BrightnessBar" type="HSlider" parent="WindowSettings/HBoxContainer/VBoxContainer"]
+[node name="BrightnessBar" type="HSlider" parent="WindowSettings/HBoxContainer/VBoxContainer" unique_id=1807364493]
 layout_mode = 2
 focus_neighbor_top = NodePath("../ResolutionOptionButton")
 focus_neighbor_bottom = NodePath("../../../ReturnButton")
 value = 50.0
 script = ExtResource("4_15orc")
 
-[node name="ReturnButton" type="Button" parent="WindowSettings"]
+[node name="ReturnButton" type="Button" parent="WindowSettings" unique_id=1644529039]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -339,12 +339,12 @@ text = "Return
 "
 script = ExtResource("4_15orc")
 
-[node name="MenuSwitchButton" type="Node" parent="WindowSettings/ReturnButton" node_paths=PackedStringArray("button", "next_menu")]
+[node name="MenuSwitchButton" type="Node" parent="WindowSettings/ReturnButton" unique_id=1265902094 node_paths=PackedStringArray("button", "next_menu")]
 script = ExtResource("8_pq8it")
 button = NodePath("..")
 next_menu = NodePath("../../../Level1Control")
 
-[node name="GraphicsSettings" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
+[node name="GraphicsSettings" type="Panel" parent="." unique_id=1345748068 node_paths=PackedStringArray("focused_control")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -359,7 +359,7 @@ open_animation_flags = 1
 close_alpha_effects_all = true
 close_animation_flags = 1
 
-[node name="TextureRect" type="TextureRect" parent="GraphicsSettings"]
+[node name="TextureRect" type="TextureRect" parent="GraphicsSettings" unique_id=810106119]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.23700002
@@ -375,7 +375,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 texture = ExtResource("8_lg51d")
 
-[node name="Topic" type="TextureRect" parent="GraphicsSettings"]
+[node name="Topic" type="TextureRect" parent="GraphicsSettings" unique_id=2022985813]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -383,7 +383,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 texture = ExtResource("19_ykq0l")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GraphicsSettings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphicsSettings" unique_id=1083111257]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -398,7 +398,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="FPSLimitButton" type="OptionButton" parent="GraphicsSettings/VBoxContainer"]
+[node name="FPSLimitButton" type="OptionButton" parent="GraphicsSettings/VBoxContainer" unique_id=362532552]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../../ReturnButton")
 theme_override_font_sizes/font_size = 30
@@ -410,7 +410,7 @@ popup/item_1/text = "Yes"
 popup/item_1/id = 1
 script = ExtResource("4_15orc")
 
-[node name="FPSLimitSlider" type="HSlider" parent="GraphicsSettings/VBoxContainer" groups=["FPS Limit"]]
+[node name="FPSLimitSlider" type="HSlider" parent="GraphicsSettings/VBoxContainer" unique_id=1365324571 groups=["FPS Limit"]]
 visible = false
 layout_mode = 2
 min_value = 30.0
@@ -418,12 +418,12 @@ max_value = 240.0
 value = 30.0
 script = ExtResource("4_15orc")
 
-[node name="FPSLimitManifest" type="Label" parent="GraphicsSettings/VBoxContainer" groups=["FPS Limit"]]
+[node name="FPSLimitManifest" type="Label" parent="GraphicsSettings/VBoxContainer" unique_id=1092412010 groups=["FPS Limit"]]
 visible = false
 layout_mode = 2
 script = ExtResource("4_15orc")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="GraphicsSettings"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="GraphicsSettings" unique_id=960196980]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -437,18 +437,18 @@ offset_bottom = 155.0
 grow_vertical = 2
 theme_override_constants/separation = 12
 
-[node name="FPSLockLabel" type="Label" parent="GraphicsSettings/VBoxContainer2"]
+[node name="FPSLockLabel" type="Label" parent="GraphicsSettings/VBoxContainer2" unique_id=1711307652]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "FPS Lock"
 
-[node name="FPSSliderLabel" type="Label" parent="GraphicsSettings/VBoxContainer2" groups=["FPS Limit"]]
+[node name="FPSSliderLabel" type="Label" parent="GraphicsSettings/VBoxContainer2" unique_id=2072778398 groups=["FPS Limit"]]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "FPS Limit"
 
-[node name="ReturnButton" type="Button" parent="GraphicsSettings"]
+[node name="ReturnButton" type="Button" parent="GraphicsSettings" unique_id=432920666]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.85600007
@@ -464,12 +464,12 @@ grow_vertical = 0
 text = "Return"
 script = ExtResource("4_15orc")
 
-[node name="MenuSwitchButton" type="Node" parent="GraphicsSettings/ReturnButton" node_paths=PackedStringArray("button", "next_menu")]
+[node name="MenuSwitchButton" type="Node" parent="GraphicsSettings/ReturnButton" unique_id=130641031 node_paths=PackedStringArray("button", "next_menu")]
 script = ExtResource("8_pq8it")
 button = NodePath("..")
 next_menu = NodePath("../../../Level1Control")
 
-[node name="GameplaySettings" type="Control" parent="." node_paths=PackedStringArray("focused_control")]
+[node name="GameplaySettings" type="Control" parent="." unique_id=449775388 node_paths=PackedStringArray("focused_control")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -485,7 +485,7 @@ open_animation_flags = 1
 close_alpha_effects_all = true
 close_animation_flags = 1
 
-[node name="TextureRect" type="TextureRect" parent="GameplaySettings"]
+[node name="TextureRect" type="TextureRect" parent="GameplaySettings" unique_id=1803136036]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.23700002
@@ -501,7 +501,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 texture = ExtResource("10_j5b4e")
 
-[node name="Topic" type="TextureRect" parent="GameplaySettings"]
+[node name="Topic" type="TextureRect" parent="GameplaySettings" unique_id=538886150]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -509,7 +509,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 texture = ExtResource("21_rbwf6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameplaySettings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameplaySettings" unique_id=1849541430]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -524,13 +524,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="ReverseControlButton" type="CheckBox" parent="GameplaySettings/VBoxContainer"]
+[node name="ReverseControlButton" type="CheckBox" parent="GameplaySettings/VBoxContainer" unique_id=978238987]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = " "
 script = ExtResource("4_15orc")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="GameplaySettings"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="GameplaySettings" unique_id=581930741]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -544,13 +544,13 @@ offset_bottom = 155.0
 grow_vertical = 2
 theme_override_constants/separation = 12
 
-[node name="ReverseControlLabel" type="Label" parent="GameplaySettings/VBoxContainer2"]
+[node name="ReverseControlLabel" type="Label" parent="GameplaySettings/VBoxContainer2" unique_id=1849438123]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Reverse Control"
 script = ExtResource("4_15orc")
 
-[node name="ReturnButton" type="Button" parent="GameplaySettings"]
+[node name="ReturnButton" type="Button" parent="GameplaySettings" unique_id=1728106560]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.85600007
@@ -567,12 +567,12 @@ text = "Return
 "
 script = ExtResource("4_15orc")
 
-[node name="MenuSwitchButton" type="Node" parent="GameplaySettings/ReturnButton" node_paths=PackedStringArray("button", "next_menu")]
+[node name="MenuSwitchButton" type="Node" parent="GameplaySettings/ReturnButton" unique_id=1896887627 node_paths=PackedStringArray("button", "next_menu")]
 script = ExtResource("8_pq8it")
 button = NodePath("..")
 next_menu = NodePath("../../../Level1Control")
 
-[node name="AudioSettings" type="Control" parent="." node_paths=PackedStringArray("focused_control")]
+[node name="AudioSettings" type="Control" parent="." unique_id=176892703 node_paths=PackedStringArray("focused_control")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -588,7 +588,7 @@ open_animation_flags = 1
 close_alpha_effects_all = true
 close_animation_flags = 1
 
-[node name="TextureRect" type="TextureRect" parent="AudioSettings"]
+[node name="TextureRect" type="TextureRect" parent="AudioSettings" unique_id=1943551694]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.23700002
@@ -604,7 +604,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 texture = ExtResource("12_gf0jx")
 
-[node name="Topic" type="TextureRect" parent="AudioSettings"]
+[node name="Topic" type="TextureRect" parent="AudioSettings" unique_id=76389816]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -612,7 +612,7 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 texture = ExtResource("23_04rtr")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AudioSettings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AudioSettings" unique_id=277754916]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -627,22 +627,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 41
 
-[node name="MasterVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer"]
+[node name="MasterVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer" unique_id=1573038618]
 layout_mode = 2
 value = 50.0
 script = ExtResource("4_15orc")
 
-[node name="MusicVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer"]
+[node name="MusicVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer" unique_id=549676583]
 layout_mode = 2
 value = 50.0
 script = ExtResource("4_15orc")
 
-[node name="SFXVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer"]
+[node name="SFXVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer" unique_id=1466835429]
 layout_mode = 2
 value = 50.0
 script = ExtResource("4_15orc")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="AudioSettings"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="AudioSettings" unique_id=412825078]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -656,22 +656,22 @@ offset_bottom = 155.0
 grow_vertical = 2
 theme_override_constants/separation = 12
 
-[node name="MasterVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2"]
+[node name="MasterVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2" unique_id=1212415945]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Master Volume"
 
-[node name="MusicVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2"]
+[node name="MusicVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2" unique_id=167009638]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Music Volume"
 
-[node name="SFXVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2"]
+[node name="SFXVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2" unique_id=1466033922]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "SFX Volume"
 
-[node name="ReturnButton" type="Button" parent="AudioSettings"]
+[node name="ReturnButton" type="Button" parent="AudioSettings" unique_id=66987948]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.85600007
@@ -687,15 +687,15 @@ grow_vertical = 0
 text = "Return"
 script = ExtResource("4_15orc")
 
-[node name="MenuSwitchButton" type="Node" parent="AudioSettings/ReturnButton" node_paths=PackedStringArray("button", "next_menu")]
+[node name="MenuSwitchButton" type="Node" parent="AudioSettings/ReturnButton" unique_id=768455863 node_paths=PackedStringArray("button", "next_menu")]
 script = ExtResource("8_pq8it")
 button = NodePath("..")
 next_menu = NodePath("../../../Level1Control")
 
-[connection signal="done_reading" from="." to="GameplaySettings" method="_on_setting_scene_done_reading"]
-[connection signal="done_reading" from="." to="AudioSettings" method="_on_setting_scene_done_reading"]
 [connection signal="done_reading" from="." to="WindowSettings" method="_on_setting_scene_done_reading"]
 [connection signal="done_reading" from="." to="GraphicsSettings" method="_on_setting_scene_done_reading"]
+[connection signal="done_reading" from="." to="GameplaySettings" method="_on_setting_scene_done_reading"]
+[connection signal="done_reading" from="." to="AudioSettings" method="_on_setting_scene_done_reading"]
 [connection signal="pressed" from="Level1Control/HBoxContainer/OP1Button" to="." method="_on_op_1_button_pressed"]
 [connection signal="pressed" from="Level1Control/HBoxContainer/OP2Button" to="." method="_on_op_2_button_pressed"]
 [connection signal="pressed" from="Level1Control/HBoxContainer/OP3Button" to="." method="_on_op_3_button_pressed"]

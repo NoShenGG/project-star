@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://cv7a8503lutop"]
+[gd_scene format=3 uid="uid://cv7a8503lutop"]
 
 [ext_resource type="Script" uid="uid://meavewo15aog" path="res://scripts/entities/enemies/enemy.gd" id="1_gavg2"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_wawl6"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="6_n5mpu"]
 [ext_resource type="PackedScene" uid="uid://cj1dreixyrara" path="res://art_assets/enemies/kobold/Kobold.glb" id="7_hmh7o"]
 [ext_resource type="PackedScene" uid="uid://di4qml3bmbcmh" path="res://art_assets/enemies/Weapons/SwordBase.glb" id="8_hyoos"]
-[ext_resource type="Texture2D" uid="uid://umb363uqrtl4" path="res://art_assets/enemies/kobold/Heavy_Body_BaseColor.png" id="8_o3trl"]
+[ext_resource type="Texture2D" uid="uid://2r15bxw7nkju" path="res://art_assets/enemies/kobold/Heavy_Body_BaseColor.png" id="8_o3trl"]
 [ext_resource type="Texture2D" uid="uid://d3dafksd7mvsj" path="res://art_assets/enemies/kobold/textures/Body_Normal.png" id="9_0qgj4"]
 [ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="9_k5lyv"]
 [ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="10_qncd1"]
@@ -1161,7 +1161,7 @@ states/Start/position = Vector2(73, 166)
 transitions = ["Walk Forward", "Hurt", SubResource("AnimationNodeStateMachineTransition_sqo6n"), "Hurt", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_bwcbt"), "Walk Forward", "Slash", SubResource("AnimationNodeStateMachineTransition_bfl6e"), "Slash", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_1ibp7"), "Slash", "Death", SubResource("AnimationNodeStateMachineTransition_6vm5w"), "Walk Forward", "Death", SubResource("AnimationNodeStateMachineTransition_pa7ii"), "Slash", "Idle", SubResource("AnimationNodeStateMachineTransition_hskl7"), "Walk Forward", "Idle", SubResource("AnimationNodeStateMachineTransition_0fawd"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_cqf5t"), "Idle", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_ydysj"), "Idle", "Slash", SubResource("AnimationNodeStateMachineTransition_5xf2e"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_jbtjh"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_nnkb1")]
 graph_offset = Vector2(-44, -106)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_uisve"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_k5lyv"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sqo6n"]
@@ -1203,7 +1203,7 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_jaab8"]
 material = SubResource("StandardMaterial3D_5xf2e")
 
-[node name="KoboldEnemy" type="CharacterBody3D"]
+[node name="KoboldEnemy" type="CharacterBody3D" unique_id=807260650]
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_gavg2")
@@ -1212,33 +1212,33 @@ _hp = 25.0
 _max_hp = 25.0
 metadata/_custom_type_script = "uid://meavewo15aog"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=264369508]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 shape = SubResource("CapsuleShape3D_1ibp7")
 debug_fill = false
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=60563168 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_wawl6")
 initial_state = NodePath("Walk")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
-[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("reached_enemy_state")]
+[node name="Walk" type="Node" parent="StateMachine" unique_id=1693256323 node_paths=PackedStringArray("reached_enemy_state")]
 script = ExtResource("3_6ppla")
 attack_distance = 1.5
 reached_enemy_state = NodePath("../ComboAttack")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_far_state")]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1133058767 node_paths=PackedStringArray("post_wait_state", "player_far_state")]
 script = ExtResource("4_o3trl")
 post_wait_state = NodePath("../ComboAttack")
 max_player_distance = 5.0
 player_far_state = NodePath("../Walk")
 
-[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
+[node name="Dead" type="Node" parent="StateMachine" unique_id=1374437637 node_paths=PackedStringArray("animation")]
 script = ExtResource("6_n5mpu")
 snap_turn_to_player = true
 animation = NodePath("../../Kobold/Die")
 
-[node name="ComboAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("exit_state", "player_lost_state")]
+[node name="ComboAttack" type="Node" parent="StateMachine" unique_id=769899106 node_paths=PackedStringArray("exit_state", "player_lost_state")]
 script = ExtResource("6_0qgj4")
 exit_state = NodePath("../Idle")
 damage_interrupt = false
@@ -1246,7 +1246,7 @@ max_player_distance = 5.0
 sight_angle = 90.0
 player_lost_state = NodePath("../Walk")
 
-[node name="Attack" type="Node" parent="StateMachine/ComboAttack" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Attack" type="Node" parent="StateMachine/ComboAttack" unique_id=1816742933 node_paths=PackedStringArray("hitbox", "animation")]
 unique_name_in_owner = true
 script = ExtResource("5_0qgj4")
 hitbox = NodePath("../../../Hitbox")
@@ -1254,11 +1254,11 @@ damage_on_enter = true
 animation = NodePath("../../../Kobold/Slash")
 duration = 1.0
 
-[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/ComboAttack/Attack"]
+[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/ComboAttack/Attack" unique_id=203583358]
 event_name = "event:/Enemys/Kobold/Kobold Attack"
 event_guid = "{dfbdbb2a-8d75-45fc-b546-cbbe19d39792}"
 
-[node name="Attack2" type="Node" parent="StateMachine/ComboAttack" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Attack2" type="Node" parent="StateMachine/ComboAttack" unique_id=192404660 node_paths=PackedStringArray("hitbox", "animation")]
 unique_name_in_owner = true
 script = ExtResource("5_0qgj4")
 hitbox = NodePath("../../../Hitbox")
@@ -1266,11 +1266,11 @@ damage_on_enter = true
 animation = NodePath("../../../Kobold/Slash2")
 duration = 1.0
 
-[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/ComboAttack/Attack2"]
+[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/ComboAttack/Attack2" unique_id=1536551555]
 event_name = "event:/Enemys/Kobold/Kobold Attack"
 event_guid = "{dfbdbb2a-8d75-45fc-b546-cbbe19d39792}"
 
-[node name="Attack3" type="Node" parent="StateMachine/ComboAttack" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Attack3" type="Node" parent="StateMachine/ComboAttack" unique_id=1588120161 node_paths=PackedStringArray("hitbox", "animation")]
 unique_name_in_owner = true
 script = ExtResource("5_0qgj4")
 hitbox = NodePath("../../../Hitbox")
@@ -1278,11 +1278,11 @@ damage_on_enter = true
 animation = NodePath("../../../Kobold/Slash3")
 duration = 1.0
 
-[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/ComboAttack/Attack3"]
+[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/ComboAttack/Attack3" unique_id=912003744]
 event_name = "event:/Enemys/Kobold/Kobold Attack"
 event_guid = "{dfbdbb2a-8d75-45fc-b546-cbbe19d39792}"
 
-[node name="Attack4" type="Node" parent="StateMachine/ComboAttack" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Attack4" type="Node" parent="StateMachine/ComboAttack" unique_id=439999596 node_paths=PackedStringArray("hitbox", "animation")]
 unique_name_in_owner = true
 script = ExtResource("5_0qgj4")
 hitbox = NodePath("../../../Hitbox")
@@ -1290,11 +1290,11 @@ damage_on_enter = true
 animation = NodePath("../../../Kobold/Slash4")
 duration = 1.0
 
-[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/ComboAttack/Attack4"]
+[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/ComboAttack/Attack4" unique_id=1263563829]
 event_name = "event:/Enemys/Kobold/Kobold Attack"
 event_guid = "{dfbdbb2a-8d75-45fc-b546-cbbe19d39792}"
 
-[node name="Attack5" type="Node" parent="StateMachine/ComboAttack" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Attack5" type="Node" parent="StateMachine/ComboAttack" unique_id=792307464 node_paths=PackedStringArray("hitbox", "animation")]
 unique_name_in_owner = true
 script = ExtResource("5_0qgj4")
 hitbox = NodePath("../../../Attack5 Hitbox")
@@ -1302,28 +1302,28 @@ damage_on_enter = true
 animation = NodePath("../../../Kobold/Slash5")
 duration = 1.0
 
-[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/ComboAttack/Attack5"]
+[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/ComboAttack/Attack5" unique_id=51734268]
 event_name = "event:/Enemys/Kobold/Kobold Attack"
 event_guid = "{dfbdbb2a-8d75-45fc-b546-cbbe19d39792}"
 
-[node name="Kobold" parent="." instance=ExtResource("7_hmh7o")]
+[node name="Kobold" parent="." unique_id=1486501648 instance=ExtResource("7_hmh7o")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
 
-[node name="Armature" parent="Kobold" index="0"]
+[node name="Armature" parent="Kobold" index="0" unique_id=2094599677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
-[node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
+[node name="GeneralSkeleton" parent="Kobold/Armature" index="0" unique_id=1728353589]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-3.742321e-09, 0.9977278, 0.06737476, 7.540509e-08)
-bones/1/rotation = Quaternion(0.10316393, 0.0034411626, -0.00017815146, 0.99465847)
-bones/2/rotation = Quaternion(0.106120095, -0.003755321, -0.00020710297, 0.9943462)
-bones/4/rotation = Quaternion(0.23641266, 0.048934184, -0.56164336, 0.7913731)
+bones/0/rotation = Quaternion(-4.6599014e-09, 0.9968338, 0.07951446, 7.535394e-08)
+bones/1/rotation = Quaternion(0.09107938, 0.0034387456, -0.00021992021, 0.99583775)
+bones/2/rotation = Quaternion(0.094008684, -0.0037792418, -0.00024241349, 0.9955642)
+bones/4/rotation = Quaternion(0.26587066, 0.0278756, -0.5630815, 0.78196865)
 bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.043196995, 0.98099875)
 bones/6/rotation = Quaternion(0.054868486, 0.74948096, 0.015322978, 0.6595702)
-bones/7/rotation = Quaternion(0.08650041, -0.00028610995, -0.0007249061, 0.9962516)
-bones/8/rotation = Quaternion(-0.094566695, -0.00035990457, -0.00048760613, 0.9955183)
+bones/7/rotation = Quaternion(0.10232114, -0.0002975938, -0.00072026765, 0.99475116)
+bones/8/rotation = Quaternion(-0.078734696, -0.00035211057, -0.0004932639, 0.9968955)
 bones/9/rotation = Quaternion(-0.09260436, -0.17117505, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.2849022, -0.0106962, 0.54292804, 0.78990215)
+bones/10/rotation = Quaternion(0.2717311, -0.019720629, 0.5426753, 0.79452926)
 bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.0123480745, 0.97225493)
 bones/12/rotation = Quaternion(-5.8199273e-08, -0.751264, -5.181667e-08, 0.66000193)
 bones/13/rotation = Quaternion(0.10849718, -0.08205278, 0.9894506, -0.04983335)
@@ -1335,18 +1335,18 @@ bones/18/rotation = Quaternion(0.59676915, 0.0027265504, 0.0129355155, 0.8023041
 bones/20/rotation = Quaternion(0.13317142, 7.493918e-11, 0.0009177519, 0.9910927)
 bones/21/rotation = Quaternion(0.13793416, -4.2176818e-10, 0.0009505738, 0.99044096)
 
-[node name="Cube" parent="Kobold/Armature/GeneralSkeleton" index="0"]
+[node name="Cube" parent="Kobold/Armature/GeneralSkeleton" index="0" unique_id=515638321]
 surface_material_override/0 = SubResource("StandardMaterial3D_n5mpu")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(-0.3600223, -0.30878335, 0.8803617, -0.18273096, -0.90202236, -0.3911081, 0.9148733, -0.30167687, 0.268324, -0.57459486, 0.82726353, -0.053420816)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4" unique_id=1617574229]
+transform = Transform3D(-0.38071215, -0.29054144, 0.8778633, -0.31382006, -0.8524155, -0.41821665, 0.8698132, -0.4347115, 0.23334725, -0.5667865, 0.8370788, -0.11239674)
 bone_name = "Hand.L"
 bone_idx = 6
 
-[node name="SwordBase" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D" instance=ExtResource("8_hyoos")]
+[node name="SwordBase" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D" unique_id=1071957809 instance=ExtResource("8_hyoos")]
 transform = Transform3D(8.710518e-09, -0.583637, -2.1781628, -2.255, -9.856919e-08, 1.7393742e-08, -9.971235e-08, 2.1781628, -0.583637, -0.006293071, 0.09777588, 0.023486042)
 
-[node name="SlashVFX" type="GPUParticles3D" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase"]
+[node name="SlashVFX" type="GPUParticles3D" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase" unique_id=494385925]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -1.6277612e-08, 1, 0, -0.37238836, -4.371139e-08, 4.656613e-09, 2.1140183e-08, 0.48895755)
 amount = 22
@@ -1364,131 +1364,129 @@ snap_to_transform = true
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://bx10tuy8s55pq"
 
-[node name="AnimationPlayer" parent="Kobold" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_booda"),
-&"KoboldAdvancedAttackLibrary": ExtResource("13_6ppla"),
-&"KoboldAttackLibrary": ExtResource("13_6rlsh")
-}
+[node name="AnimationPlayer" parent="Kobold" index="1" unique_id=729487273]
+libraries/ = SubResource("AnimationLibrary_booda")
+libraries/KoboldAdvancedAttackLibrary = ExtResource("13_6ppla")
+libraries/KoboldAttackLibrary = ExtResource("13_6rlsh")
 
-[node name="AnimationTree" type="AnimationTree" parent="Kobold"]
+[node name="AnimationTree" type="AnimationTree" parent="Kobold" unique_id=358306948]
 tree_root = SubResource("AnimationNodeStateMachine_hmh7o")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="Idle" type="Node" parent="Kobold"]
+[node name="Idle" type="Node" parent="Kobold" unique_id=1240725136]
 script = ExtResource("14_jaab8")
 state_name = "Idle"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Move" type="Node" parent="Kobold"]
+[node name="Move" type="Node" parent="Kobold" unique_id=810692343]
 script = ExtResource("14_jaab8")
 state_name = "Walk Forward"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Slash" type="Node" parent="Kobold"]
+[node name="Slash" type="Node" parent="Kobold" unique_id=1698580470]
 script = ExtResource("14_jaab8")
 state_name = "Slash1"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Slash2" type="Node" parent="Kobold"]
+[node name="Slash2" type="Node" parent="Kobold" unique_id=1894656370]
 script = ExtResource("14_jaab8")
 state_name = "Slash2"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Slash3" type="Node" parent="Kobold"]
+[node name="Slash3" type="Node" parent="Kobold" unique_id=688414953]
 script = ExtResource("14_jaab8")
 state_name = "Slash3"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Slash4" type="Node" parent="Kobold"]
+[node name="Slash4" type="Node" parent="Kobold" unique_id=770509542]
 script = ExtResource("14_jaab8")
 state_name = "Slash4"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Slash5" type="Node" parent="Kobold"]
+[node name="Slash5" type="Node" parent="Kobold" unique_id=1830207693]
 script = ExtResource("14_jaab8")
 state_name = "Slash5"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Hurt" type="Node" parent="Kobold"]
+[node name="Hurt" type="Node" parent="Kobold" unique_id=358802019]
 script = ExtResource("14_jaab8")
 state_name = "Hurt"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Die" type="Node" parent="Kobold"]
+[node name="Die" type="Node" parent="Kobold" unique_id=361393281]
 script = ExtResource("14_jaab8")
 state_name = "Death"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hmh7o"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Grass Change" type="Node" parent="Kobold/Die"]
+[node name="Grass Change" type="Node" parent="Kobold/Die" unique_id=1990051694]
 script = ExtResource("19_k5lyv")
 delay = 0.2
 grass_displacement_size = 5.0
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1149626777]
 
-[node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]
+[node name="Hurt SFX" type="FmodEventEmitter3D" parent="." unique_id=1166680101]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Hit"
 event_guid = "{25833449-1b73-413e-9b21-c678c12fee73}"
 
-[node name="Death SFX" type="FmodEventEmitter3D" parent="."]
+[node name="Death SFX" type="FmodEventEmitter3D" parent="." unique_id=1975271162]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
 event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 
-[node name="StatusBars" parent="." instance=ExtResource("15_2hkfm")]
+[node name="StatusBars" parent="." unique_id=769480112 instance=ExtResource("15_2hkfm")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 4.336514, 0)
-texture = SubResource("ViewportTexture_uisve")
+texture = SubResource("ViewportTexture_k5lyv")
 
-[node name="Hitbox" type="Area3D" parent="."]
+[node name="Hitbox" type="Area3D" parent="." unique_id=612576580]
 collision_mask = 2
 monitorable = false
 script = ExtResource("16_5n8xg")
 metadata/_custom_type_script = "uid://c1iptw5vqre6f"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=170795884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.3)
 shape = SubResource("BoxShape3D_sqo6n")
 
-[node name="Attack5 Hitbox" type="Area3D" parent="."]
+[node name="Attack5 Hitbox" type="Area3D" parent="." unique_id=2040069999]
 collision_mask = 2
 monitorable = false
 script = ExtResource("16_5n8xg")
 metadata/_custom_type_script = "uid://c1iptw5vqre6f"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Attack5 Hitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Attack5 Hitbox" unique_id=122496796]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_0qgj4")
 
-[node name="Hurt" type="Node3D" parent="." node_paths=PackedStringArray("vfx", "meshes_root")]
+[node name="Hurt" type="Node3D" parent="." unique_id=1891128801 node_paths=PackedStringArray("vfx", "meshes_root")]
 script = ExtResource("21_hyoos")
 vfx = NodePath("Hurt VFX")
 meshes_root = NodePath("../Kobold/Armature")
 hurt_overlay = SubResource("StandardMaterial3D_x32kg")
 
-[node name="Hurt VFX" type="Node3D" parent="Hurt" node_paths=PackedStringArray("particles")]
+[node name="Hurt VFX" type="Node3D" parent="Hurt" unique_id=1695818680 node_paths=PackedStringArray("particles")]
 script = ExtResource("22_k5lyv")
 particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX" unique_id=44892573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
 emitting = false
 lifetime = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cipc0pee6kke6"]
+[gd_scene format=3 uid="uid://cipc0pee6kke6"]
 
 [ext_resource type="Script" uid="uid://b7yyj3bvtur37" path="res://scripts/entities/enemies/slime/Slime.gd" id="1_g7w1c"]
 [ext_resource type="Script" uid="uid://dqkj3m2abvuwx" path="res://scripts/entities/HurtNode3D.gd" id="2_7n13j"]
@@ -14,7 +14,7 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g0rg0"]
 radius = 10.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_g0rg0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7n13j"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Curve" id="Curve_qnj25"]
@@ -70,7 +70,7 @@ transparency = 1
 cull_mode = 2
 shading_mode = 0
 
-[node name="Slime" type="CharacterBody3D"]
+[node name="Slime" type="CharacterBody3D" unique_id=1139207953]
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_g7w1c")
@@ -79,59 +79,59 @@ attack_radius = 2.0
 _base_speed = 2.0
 passive_death_time = 3.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1922501736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_l26uf")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1222913211]
 path_desired_distance = 10.0
 target_desired_distance = 2.0
 path_max_distance = 100.01
 debug_path_custom_color = Color(0, 1, 0, 1)
 
-[node name="HitBoxes" type="Node3D" parent="."]
+[node name="HitBoxes" type="Node3D" parent="." unique_id=115680885]
 
-[node name="Aggro" type="Area3D" parent="HitBoxes"]
+[node name="Aggro" type="Area3D" parent="HitBoxes" unique_id=1810524137]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxes/Aggro"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxes/Aggro" unique_id=1786527197]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_g0rg0")
 debug_color = Color(1, 0, 0, 1)
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=1975371736]
 script = ExtResource("2_7n13j")
 
-[node name="StatusBars" parent="Node3D" instance=ExtResource("2_g7w1c")]
+[node name="StatusBars" parent="Node3D" unique_id=631191606 instance=ExtResource("2_g7w1c")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.035, 0)
-texture = SubResource("ViewportTexture_g0rg0")
+texture = SubResource("ViewportTexture_7n13j")
 
-[node name="slime" parent="." instance=ExtResource("3_jgdep")]
+[node name="slime" parent="." unique_id=1841772703 instance=ExtResource("3_jgdep")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
-[node name="Armature" parent="slime" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8558419, 0)
+[node name="Armature" parent="slime" index="0" unique_id=1995407556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.913545, 0)
 
-[node name="Skeleton3D" parent="slime/Armature" index="0"]
-bones/0/scale = Vector3(0.98615867, 0.7403684, 0.9933364)
+[node name="Skeleton3D" parent="slime/Armature" index="0" unique_id=60013278]
+bones/0/scale = Vector3(0.99461204, 0.9933362, 0.9942922)
 
-[node name="skin2" parent="slime/Armature/Skeleton3D" index="1"]
+[node name="skin2" parent="slime/Armature/Skeleton3D" index="1" unique_id=1233777885]
 visible = false
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="slime/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.98615867, 0, 0, 0, 0.7403684, 0, 0, 0, 0.9933364, 0, 0, 0)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="slime/Armature/Skeleton3D" index="2" unique_id=1577401257]
+transform = Transform3D(0.99461204, 0, 0, 0, 0.9933362, 0, 0, 0, 0.9942922, 0, 0, 0)
 bone_name = "Bone"
 bone_idx = 0
 
-[node name="Hurt VFX" type="Node3D" parent="slime/Armature/Skeleton3D/BoneAttachment3D" node_paths=PackedStringArray("particles")]
+[node name="Hurt VFX" type="Node3D" parent="slime/Armature/Skeleton3D/BoneAttachment3D" unique_id=375563607 node_paths=PackedStringArray("particles")]
 transform = Transform3D(2.0118082, 0, 0, 0, 2.01636, 0, 0, 0, 2.0129473, 0, 0.695, 0)
 script = ExtResource("4_q2gmn")
 particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="slime/Armature/Skeleton3D/BoneAttachment3D/Hurt VFX"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="slime/Armature/Skeleton3D/BoneAttachment3D/Hurt VFX" unique_id=1492111417]
 transform = Transform3D(1.0197061, 0, 0, 0, 1.2548542, 0, 0, 0, 1.0016198, 0, 0, 0)
 emitting = false
 lifetime = 0.5
@@ -140,17 +140,17 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_xiby0")
 draw_pass_1 = SubResource("QuadMesh_1shxt")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2023257898]
 root_node = NodePath("../slime")
 tree_root = SubResource("AnimationNodeAnimation_g7w1c")
 anim_player = NodePath("../slime/AnimationPlayer")
 
-[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("4_jgdep")]
+[node name="DissolveFX" parent="." unique_id=1143816169 node_paths=PackedStringArray("meshes") instance=ExtResource("4_jgdep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 dissolveDuration = 1.0
 meshes = [NodePath("../slime/Armature/Skeleton3D/skin1"), NodePath("../slime/Armature/Skeleton3D/skin2")]
 
-[node name="Hurt" type="Node3D" parent="." node_paths=PackedStringArray("vfx", "meshes_root")]
+[node name="Hurt" type="Node3D" parent="." unique_id=1654909549 node_paths=PackedStringArray("vfx", "meshes_root")]
 script = ExtResource("7_8pvig")
 vfx = NodePath("../slime/Armature/Skeleton3D/BoneAttachment3D/Hurt VFX")
 meshes_root = NodePath("../slime/Armature")

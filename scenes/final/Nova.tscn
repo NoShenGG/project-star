@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://brw0p1eirto83"]
+[gd_scene format=3 uid="uid://brw0p1eirto83"]
 
 [ext_resource type="Script" uid="uid://om4qdtr1cye0" path="res://scripts/entities/player/nova/nova.gd" id="1_p5oh7"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="3_6m1nx"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://8l57dsfm2da5" path="res://scripts/entities/player/nova/states/nova_attack.gd" id="7_ob225"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_w7jsq"]
 [ext_resource type="Script" uid="uid://divq6voanp8gg" path="res://scripts/entities/player/nova/states/nova_special.gd" id="8_uws5v"]
-[ext_resource type="Script" path="res://scripts/entities/state_grass_size_change.gd" id="8_vrbf8"]
+[ext_resource type="Script" uid="uid://b2cb5sd2b4epw" path="res://scripts/entities/state_grass_size_change.gd" id="8_vrbf8"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="9_8b4uh"]
 [ext_resource type="Script" uid="uid://dc7b5xuh33cje" path="res://scripts/entities/player/nova/states/nova_special_wait.gd" id="10_8qhfg"]
 [ext_resource type="Script" uid="uid://gui8m2w4ihx1" path="res://scripts/entities/player/nova/states/nova_special_dash.gd" id="10_ob225"]
@@ -7303,7 +7303,7 @@ states/run/position = Vector2(325, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_60tca"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_u6tct"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_k2lop"), "run", "combo1", SubResource("AnimationNodeStateMachineTransition_ob225"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_uws5v"), "dash", "run", SubResource("AnimationNodeStateMachineTransition_ygt4u"), "combo5", "idle", SubResource("AnimationNodeStateMachineTransition_ajeah"), "combo5", "run", SubResource("AnimationNodeStateMachineTransition_mm718"), "idle", "dash", SubResource("AnimationNodeStateMachineTransition_gedrv"), "dash", "idle", SubResource("AnimationNodeStateMachineTransition_n6rgu"), "idle", "combo1", SubResource("AnimationNodeStateMachineTransition_5up7p"), "charged_special", "run", SubResource("AnimationNodeStateMachineTransition_vrbf8"), "charged_attack", "run", SubResource("AnimationNodeStateMachineTransition_6qoku"), "combo1", "idle", SubResource("AnimationNodeStateMachineTransition_sbbhh"), "combo1", "run", SubResource("AnimationNodeStateMachineTransition_ldc4w"), "combo2", "idle", SubResource("AnimationNodeStateMachineTransition_lk157"), "combo2", "run", SubResource("AnimationNodeStateMachineTransition_n0hbj"), "combo3", "idle", SubResource("AnimationNodeStateMachineTransition_oc7x5"), "combo3", "run", SubResource("AnimationNodeStateMachineTransition_0ksem"), "combo4", "idle", SubResource("AnimationNodeStateMachineTransition_btucx"), "combo4", "run", SubResource("AnimationNodeStateMachineTransition_l0sqy"), "charged_attack", "idle", SubResource("AnimationNodeStateMachineTransition_iql2l"), "charged_special", "idle", SubResource("AnimationNodeStateMachineTransition_lxyrl")]
 graph_offset = Vector2(-220, -148)
 
-[node name="Nova" type="CharacterBody3D" node_paths=PackedStringArray("targetting_box") groups=["characters"]]
+[node name="Nova" type="CharacterBody3D" unique_id=1806536932 node_paths=PackedStringArray("targetting_box") groups=["characters"]]
 collision_layer = 6
 collision_mask = 5
 script = ExtResource("1_p5oh7")
@@ -7315,62 +7315,62 @@ faction = 0
 _breakable = false
 grass_displacement_size = 1.4
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=104146512 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_lfcoe")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1295868431]
 script = ExtResource("5_xhleb")
 
-[node name="Dash" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
+[node name="Dash" type="Node" parent="StateMachine" unique_id=2088639567 node_paths=PackedStringArray("animation")]
 script = ExtResource("4_uws5v")
 animation = NodePath("../../nova/Dash")
 
-[node name="Dash SFX" type="FmodEventEmitter3D" parent="StateMachine/Dash"]
+[node name="Dash SFX" type="FmodEventEmitter3D" parent="StateMachine/Dash" unique_id=518089338]
 event_name = "event:/Player/Uniques/Dash/Nova Dash"
 event_guid = "{dd5394a4-c0c1-4096-ab2f-c20fc1817bc0}"
 
-[node name="Moving" type="Node" parent="StateMachine"]
+[node name="Moving" type="Node" parent="StateMachine" unique_id=1626460492]
 script = ExtResource("5_lfcoe")
 
-[node name="Footstep SFX" type="FmodEventEmitter3D" parent="StateMachine/Moving"]
+[node name="Footstep SFX" type="FmodEventEmitter3D" parent="StateMachine/Moving" unique_id=540973996]
 event_name = "event:/Player/Footsteps/Cave Footstep"
 event_guid = "{1786b3c0-0467-4017-8d6d-95457d0666de}"
 
-[node name="Attacking" type="Node" parent="StateMachine"]
+[node name="Attacking" type="Node" parent="StateMachine" unique_id=1450379482]
 script = ExtResource("6_ob225")
 
-[node name="Slash0" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Slash0" type="Node" parent="StateMachine/Attacking" unique_id=650722669 node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 hitbox = NodePath("../../../Hitboxes/Slash")
 animation = NodePath("../../../nova/Slash")
 duration = 0.375
 
-[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Slash0"]
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Slash0" unique_id=753617814]
 event_name = "event:/Player/Uniques/Base Attack/Nova/Nova Slash 0"
 event_guid = "{0eb4d8da-9e49-4a06-8388-937268b28869}"
 
-[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Slash0"]
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Slash0" unique_id=2125149221]
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
 
-[node name="Slash1" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Slash1" type="Node" parent="StateMachine/Attacking" unique_id=331139195 node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 hitbox = NodePath("../../../Hitboxes/Slash")
 animation = NodePath("../../../nova/Slash2")
 duration = 0.458
 
-[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Slash1"]
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Slash1" unique_id=1330990971]
 event_name = "event:/Player/Uniques/Base Attack/Nova/Nova Slash 1"
 event_guid = "{4162234c-ed08-4ddd-91e2-651079e29ba1}"
 
-[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Slash1"]
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Slash1" unique_id=771555416]
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
 
-[node name="Slam2" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Slam2" type="Node" parent="StateMachine/Attacking" unique_id=1790790388 node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 speed_scale_factor = 0.0
 hitbox = NodePath("../../../Hitboxes/Poke")
@@ -7378,16 +7378,16 @@ damage = 3.0
 animation = NodePath("../../../nova/Slash3")
 duration = 0.47
 
-[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Slam2"]
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Slam2" unique_id=1548731380]
 event_name = "event:/Player/Uniques/Base Attack/Nova/Nova Slam 2"
 event_guid = "{53534982-8501-4324-b9bb-d376a1798429}"
 
-[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Slam2"]
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Slam2" unique_id=1419336091]
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
 
-[node name="Poke3" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="Poke3" type="Node" parent="StateMachine/Attacking" unique_id=1113201392 node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 speed_scale_factor = 1.2
 hitbox = NodePath("../../../Hitboxes/Poke")
@@ -7395,16 +7395,16 @@ damage = 7.0
 animation = NodePath("../../../nova/Slash4")
 duration = 0.375
 
-[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Poke3"]
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Poke3" unique_id=1997072619]
 event_name = "event:/Player/Uniques/Base Attack/Nova/Nova Poke 3"
 event_guid = "{e405defb-cb6f-4189-b714-9b97c60532b4}"
 
-[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Poke3"]
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Poke3" unique_id=1560304417]
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
 
-[node name="Sweep4" type="Node" parent="StateMachine/Attacking" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
+[node name="Sweep4" type="Node" parent="StateMachine/Attacking" unique_id=1072540040 node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
 script = ExtResource("7_ob225")
 speed_scale_factor = 0.4
 hitbox = NodePath("../../../Hitboxes/Sweep")
@@ -7413,23 +7413,23 @@ finished_state = NodePath("../../Moving")
 animation = NodePath("../../../nova/Slash5")
 duration = 0.917
 
-[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Sweep4"]
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Sweep4" unique_id=882609611]
 event_name = "event:/Player/Uniques/Base Attack/Nova/Nova Sweep 4"
 event_guid = "{c1bc774a-57e8-4eff-ab95-8284f91c1d11}"
 
-[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Sweep4"]
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/Attacking/Sweep4" unique_id=1028975475]
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
 
-[node name="Charging" type="Node" parent="StateMachine"]
+[node name="Charging" type="Node" parent="StateMachine" unique_id=2067014592]
 script = ExtResource("7_w7jsq")
 
-[node name="Charging SFX" type="FmodEventEmitter3D" parent="StateMachine/Charging"]
+[node name="Charging SFX" type="FmodEventEmitter3D" parent="StateMachine/Charging" unique_id=1268804865]
 event_name = "event:/Player/Uniques/Charging/Nova Charging"
 event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
 
-[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
+[node name="AttackingCharged" type="Node" parent="StateMachine" unique_id=1409388114 node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
 script = ExtResource("7_ob225")
 speed_scale_factor = 0.6
 hitbox = NodePath("../../Hitboxes/Sweep")
@@ -7438,132 +7438,132 @@ finished_state = NodePath("../Idle")
 animation = NodePath("../../nova/ChargedSlash")
 duration = 1.0
 
-[node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
+[node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged" unique_id=1713543978]
 event_name = "event:/Player/Uniques/Charged Attack/Nova Charged Attack"
 event_guid = "{c37be128-c419-442f-9d08-d6e0895a5e23}"
 
-[node name="StateGrassSizeChange" type="Node" parent="StateMachine/AttackingCharged"]
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/AttackingCharged" unique_id=1805835756]
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.5
 
-[node name="ChargingSpecial" type="Node" parent="StateMachine"]
+[node name="ChargingSpecial" type="Node" parent="StateMachine" unique_id=2078202830]
 script = ExtResource("9_8b4uh")
 
-[node name="Charging Special Ready SFX" type="FmodEventEmitter3D" parent="StateMachine/ChargingSpecial"]
+[node name="Charging Special Ready SFX" type="FmodEventEmitter3D" parent="StateMachine/ChargingSpecial" unique_id=1213949763]
 event_name = "event:/Player/Uniques/Charging Specaial/Nova Charging Special Ready"
 event_guid = "{e4a573a3-fa40-480b-b89e-13d53a72b5de}"
 
-[node name="Charging Special SFX" type="FmodEventEmitter3D" parent="StateMachine/ChargingSpecial"]
+[node name="Charging Special SFX" type="FmodEventEmitter3D" parent="StateMachine/ChargingSpecial" unique_id=1570345679]
 event_name = "event:/Player/Uniques/Charging Specaial/Nova Charging Special"
 event_guid = "{92ba1217-e96b-4b27-8d6a-be5b84852145}"
 
-[node name="Special" type="Node" parent="StateMachine" node_paths=PackedStringArray("special_state", "wait_state")]
+[node name="Special" type="Node" parent="StateMachine" unique_id=1518892482 node_paths=PackedStringArray("special_state", "wait_state")]
 script = ExtResource("8_uws5v")
 special_state = NodePath("SpecialDash")
 wait_state = NodePath("SpecialWait")
 
-[node name="SpecialDash" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("hitbox", "animation")]
+[node name="SpecialDash" type="Node" parent="StateMachine/Special" unique_id=1032419520 node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("10_ob225")
 hitbox = NodePath("../../../Hitboxes/Dash")
 damage = 5.0
 animation = NodePath("../../../nova/Special")
 
-[node name="SpecialDash SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialDash"]
+[node name="SpecialDash SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialDash" unique_id=770404478]
 event_name = "event:/Player/Uniques/Special Attack/Nova Charged Attack"
 event_guid = "{fa6cb029-0401-4fe9-912c-cd975a2e4368}"
 
-[node name="SpecialWait" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("animation")]
+[node name="SpecialWait" type="Node" parent="StateMachine/Special" unique_id=952203556 node_paths=PackedStringArray("animation")]
 script = ExtResource("10_8qhfg")
 animation = NodePath("../../../nova/Charging Special")
 duration = 0.35
 
-[node name="SwapIn" type="Node" parent="StateMachine"]
+[node name="SwapIn" type="Node" parent="StateMachine" unique_id=84980597]
 script = ExtResource("11_1o1ys")
 
-[node name="SwapOut" type="Node" parent="StateMachine"]
+[node name="SwapOut" type="Node" parent="StateMachine" unique_id=351440247]
 script = ExtResource("12_cfkss")
 
-[node name="Sleeping" type="Node" parent="StateMachine"]
+[node name="Sleeping" type="Node" parent="StateMachine" unique_id=499878706]
 script = ExtResource("13_5otq2")
 
-[node name="HitStun" type="Node" parent="StateMachine"]
+[node name="HitStun" type="Node" parent="StateMachine" unique_id=1389929998]
 script = ExtResource("15_h46t7")
 stun_duration = 0.5
 
-[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
+[node name="Dead" type="Node" parent="StateMachine" unique_id=1806022313 node_paths=PackedStringArray("animation")]
 script = ExtResource("17_gedrv")
 snap_turn_to_player = true
 animation = NodePath("../../nova/Die")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1820971115]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77, 0)
 shape = SubResource("CapsuleShape3D_21ndv")
 
-[node name="DummyAnimation" type="Node" parent="."]
+[node name="DummyAnimation" type="Node" parent="." unique_id=78370564]
 script = ExtResource("3_h31i5")
 
-[node name="Hitboxes" type="Node3D" parent="."]
+[node name="Hitboxes" type="Node3D" parent="." unique_id=294100039]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
 script = ExtResource("3_6m1nx")
 
-[node name="Sweep" type="Area3D" parent="Hitboxes"]
+[node name="Sweep" type="Area3D" parent="Hitboxes" unique_id=1889582293]
 collision_layer = 0
 collision_mask = 8
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Sweep"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Sweep" unique_id=446845073]
 shape = SubResource("CylinderShape3D_xdlwu")
 
-[node name="Poke" type="Area3D" parent="Hitboxes"]
+[node name="Poke" type="Area3D" parent="Hitboxes" unique_id=1809905050]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.25)
 collision_layer = 0
 collision_mask = 8
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Poke"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Poke" unique_id=731048827]
 shape = SubResource("BoxShape3D_21ndv")
 
-[node name="Dash" type="Area3D" parent="Hitboxes"]
+[node name="Dash" type="Area3D" parent="Hitboxes" unique_id=2100798428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 collision_layer = 0
 collision_mask = 8
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Dash"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Dash" unique_id=1045289079]
 shape = SubResource("BoxShape3D_7ch2h")
 
-[node name="Slash" type="Area3D" parent="Hitboxes"]
+[node name="Slash" type="Area3D" parent="Hitboxes" unique_id=1559867862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 collision_layer = 0
 collision_mask = 8
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Slash"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Slash" unique_id=561114345]
 shape = SubResource("BoxShape3D_x427t")
 
-[node name="Vision" type="Area3D" parent="Hitboxes"]
+[node name="Vision" type="Area3D" parent="Hitboxes" unique_id=1167762638]
 collision_layer = 0
 collision_mask = 8
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Vision"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Vision" unique_id=2027726091]
 shape = SubResource("CylinderShape3D_ob225")
 
-[node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]
+[node name="Hurt SFX" type="FmodEventEmitter3D" parent="." unique_id=1746505905]
 event_name = "event:/Player/Uniques/Hurt/Nova Hurt"
 event_guid = "{220c3cb7-af5f-4662-90c5-1a103656ae58}"
 
-[node name="Death SFX" type="FmodEventEmitter3D" parent="."]
+[node name="Death SFX" type="FmodEventEmitter3D" parent="." unique_id=2005501166]
 event_name = "event:/Player/Uniques/Death/Nova Death"
 event_guid = "{2d5b4a29-ca66-40a9-9da8-db918424ec2c}"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=581528506]
 visible = false
 anchors_preset = 1
 anchor_left = 1.0
@@ -7581,17 +7581,17 @@ Charged Left Click = Charged Slash
 
 "
 
-[node name="Special Ready" type="FmodEventEmitter3D" parent="."]
+[node name="Special Ready" type="FmodEventEmitter3D" parent="." unique_id=2018350177]
 event_name = "event:/Player/Uniques/Charging/Nova Charging Ready"
 event_guid = "{23409221-4198-492f-a97b-47731df994d2}"
 
-[node name="Nova\'s Circle" parent="." instance=ExtResource("27_ygt4u")]
+[node name="Nova\'s Circle" parent="." unique_id=646179578 instance=ExtResource("27_ygt4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.155, 0)
 
-[node name="nova" parent="." instance=ExtResource("28_8qhfg")]
+[node name="nova" parent="." unique_id=1395090033 instance=ExtResource("28_8qhfg")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
 
-[node name="Skeleton3D" parent="nova" index="0"]
+[node name="Skeleton3D" parent="nova" index="0" unique_id=1156861599]
 bones/2/rotation = Quaternion(0.39593133, 0.24977413, 0.68152446, 0.56247294)
 bones/3/rotation = Quaternion(-0.00029652417, -0.0756327, 0.0068116817, 0.99711245)
 bones/5/position = Vector3(0.0025945704, -0.00054700946, 0.00058215286)
@@ -7604,12 +7604,12 @@ bones/10/position = Vector3(0.007249624, 0, 0)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.06497976, 0.52188766, -0.506698, 0.6831311)
-bones/15/rotation = Quaternion(-0.1706178, 0.5685287, 0.23439094, 0.76988673)
-bones/16/rotation = Quaternion(-0.5031115, -0.47730765, -0.26264498, 0.6708755)
-bones/21/rotation = Quaternion(-0.13990462, 0.36866394, -0.46790355, 0.79093605)
-bones/22/rotation = Quaternion(-0.07520713, 0.3795055, 0.18639271, 0.9030932)
-bones/23/rotation = Quaternion(0.13658287, 0.10948021, -0.08640691, 0.98076147)
+bones/14/rotation = Quaternion(-0.068069175, 0.5236096, -0.50632507, 0.6817878)
+bones/15/rotation = Quaternion(-0.16115329, 0.5537831, 0.23172499, 0.78336287)
+bones/16/rotation = Quaternion(-0.5101076, -0.46717247, -0.24706045, 0.6786025)
+bones/21/rotation = Quaternion(-0.14813773, 0.391881, -0.45801777, 0.7840308)
+bones/22/rotation = Quaternion(-0.06624241, 0.35498226, 0.17857388, 0.9152656)
+bones/23/rotation = Quaternion(0.1406959, 0.11327043, -0.07336847, 0.9808118)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
@@ -7617,15 +7617,15 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.35072052, 0.70607704, 0.06102677, 0.6121488)
+bones/38/rotation = Quaternion(-0.34868112, 0.70708174, 0.06279546, 0.61197525)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
-[node name="nova_rig_jacket" parent="nova/Skeleton3D" index="1"]
+[node name="nova_rig_jacket" parent="nova/Skeleton3D" index="1" unique_id=994991286]
 surface_material_override/0 = SubResource("ShaderMaterial_mm718")
 surface_material_override/1 = SubResource("ShaderMaterial_mm718")
 
-[node name="nova_rig_body" parent="nova/Skeleton3D" index="2"]
+[node name="nova_rig_body" parent="nova/Skeleton3D" index="2" unique_id=1056847734]
 surface_material_override/0 = SubResource("ShaderMaterial_ajeah")
 surface_material_override/1 = SubResource("ShaderMaterial_gedrv")
 surface_material_override/2 = SubResource("ShaderMaterial_n6rgu")
@@ -7634,18 +7634,18 @@ surface_material_override/4 = SubResource("ShaderMaterial_lk157")
 surface_material_override/5 = SubResource("ShaderMaterial_n0hbj")
 surface_material_override/6 = SubResource("ShaderMaterial_oc7x5")
 
-[node name="nova_rig_pauldrons" parent="nova/Skeleton3D" index="3"]
+[node name="nova_rig_pauldrons" parent="nova/Skeleton3D" index="3" unique_id=965137311]
 surface_material_override/0 = SubResource("ShaderMaterial_oc7x5")
 
-[node name="nova_rig_sword" parent="nova/Skeleton3D" index="4"]
+[node name="nova_rig_sword" parent="nova/Skeleton3D" index="4" unique_id=999313899]
 surface_material_override/0 = SubResource("ShaderMaterial_0ksem")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.003486651, -0.5699936, 0.8216417, -0.4219328, 0.7457647, 0.51556545, -0.9066203, -0.34488, -0.24309921, 0.0060468083, 0.0071861264, -0.013190148)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5" unique_id=316903610]
+transform = Transform3D(-0.006764251, -0.569964, 0.8216418, -0.41761437, 0.74818736, 0.5155714, -0.9085991, -0.33964193, -0.2430861, 0.0059956047, 0.007253678, -0.013220875)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 
-[node name="SwordTrail" type="GPUParticles3D" parent="nova/Skeleton3D/BoneAttachment3D"]
+[node name="SwordTrail" type="GPUParticles3D" parent="nova/Skeleton3D/BoneAttachment3D" unique_id=95898460]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0.013908019, 0, -1, -6.079388e-10, 0, 0, 0, 1, 0.0036901052, -6.477457e-11, -4.67935e-10)
 amount = 13
@@ -7662,104 +7662,102 @@ curve = SubResource("CurveTexture_0ksem")
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://bx10tuy8s55pq"
 
-[node name="AnimationPlayer" parent="nova" index="1"]
+[node name="AnimationPlayer" parent="nova" index="1" unique_id=864939013]
 deterministic = true
-libraries = {
-&"": SubResource("AnimationLibrary_5up7p"),
-&"nova_animation_library": SubResource("AnimationLibrary_60tca")
-}
+libraries/ = SubResource("AnimationLibrary_5up7p")
+libraries/nova_animation_library = SubResource("AnimationLibrary_60tca")
 playback_default_blend_time = 450.3
 
-[node name="AnimationTree" type="AnimationTree" parent="nova"]
+[node name="AnimationTree" type="AnimationTree" parent="nova" unique_id=151002011]
 deterministic = false
 tree_root = SubResource("AnimationNodeStateMachine_eqnmt")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="Idle" type="Node" parent="nova"]
+[node name="Idle" type="Node" parent="nova" unique_id=1649251518]
 script = ExtResource("15_ranno")
 state_name = "idle"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Move" type="Node" parent="nova"]
+[node name="Move" type="Node" parent="nova" unique_id=1674795872]
 script = ExtResource("15_ranno")
 state_name = "run"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Slash" type="Node" parent="nova"]
+[node name="Slash" type="Node" parent="nova" unique_id=1029051473]
 script = ExtResource("15_ranno")
 state_name = "combo1"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Slash2" type="Node" parent="nova"]
+[node name="Slash2" type="Node" parent="nova" unique_id=467086926]
 script = ExtResource("15_ranno")
 state_name = "combo2"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Slash3" type="Node" parent="nova"]
+[node name="Slash3" type="Node" parent="nova" unique_id=961566355]
 script = ExtResource("15_ranno")
 state_name = "combo3"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Slash4" type="Node" parent="nova"]
+[node name="Slash4" type="Node" parent="nova" unique_id=1701571526]
 script = ExtResource("15_ranno")
 state_name = "combo4"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Slash5" type="Node" parent="nova"]
+[node name="Slash5" type="Node" parent="nova" unique_id=1779999045]
 script = ExtResource("15_ranno")
 state_name = "combo5"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="ChargedSlash" type="Node" parent="nova"]
+[node name="ChargedSlash" type="Node" parent="nova" unique_id=62004012]
 script = ExtResource("15_ranno")
 state_name = "charged_attack"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="ChargingSlash" type="Node" parent="nova"]
+[node name="ChargingSlash" type="Node" parent="nova" unique_id=2013996429]
 script = ExtResource("15_ranno")
 state_name = "charging_attack"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Charging Special" type="Node" parent="nova"]
+[node name="Charging Special" type="Node" parent="nova" unique_id=830214116]
 script = ExtResource("15_ranno")
 state_name = "charging_special"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Special" type="Node" parent="nova"]
+[node name="Special" type="Node" parent="nova" unique_id=1806959467]
 script = ExtResource("15_ranno")
 state_name = "charged_special"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Dash" type="Node" parent="nova"]
+[node name="Dash" type="Node" parent="nova" unique_id=1170297168]
 script = ExtResource("15_ranno")
 state_name = "dash"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Hurt" type="Node" parent="nova"]
+[node name="Hurt" type="Node" parent="nova" unique_id=677616342]
 script = ExtResource("15_ranno")
 state_name = "hurt"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Die" type="Node" parent="nova"]
+[node name="Die" type="Node" parent="nova" unique_id=852275494]
 script = ExtResource("15_ranno")
 state_name = "die"
-animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_eqnmt"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("36_n6rgu")]
+[node name="DissolveFX" parent="." unique_id=156256012 node_paths=PackedStringArray("meshes") instance=ExtResource("36_n6rgu")]
 unique_name_in_owner = true
 noiseScale = 7.885
 dissolveBegin = 0.3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dikwtund4a5xs"]
+[gd_scene format=3 uid="uid://dikwtund4a5xs"]
 
 [ext_resource type="Script" uid="uid://cetk67agmcktg" path="res://scenes/dev/ZXue/DynaMite/DynaMiteEnemy.gd" id="1_gnlae"]
 [ext_resource type="PackedScene" uid="uid://b0liiu5ijolin" path="res://art_assets/enemies/dyna_mite/dynamite_rig.gltf" id="2_i3822"]
@@ -12,29 +12,27 @@
 [ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="7_g2vom"]
 [ext_resource type="Script" uid="uid://la2fd47cp2em" path="res://scenes/dev/ZXue/DynaMite/break.gd" id="7_ybb5r"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="10_bnow6"]
-[ext_resource type="PackedScene" uid="uid://cent63gp0an85" path="res://vfx/DynaMiteExplodeVFX.tscn" id="11_0gklw"]
-[ext_resource type="Script" uid="uid://cyf1iyihnmbr6" path="res://vfx/MiteExplosion.gd" id="14_0cg5m"]
+[ext_resource type="PackedScene" uid="uid://cent63gp0an85" path="res://VFX/DynaMiteExplodeVFX.tscn" id="11_0gklw"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="15_o6d2w"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6d2w"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cg5m"]
 resource_name = "Dynamite_Texture"
 albedo_texture = ExtResource("3_v7lte")
 roughness = 0.45005363
-emission_energy_multiplier = 0.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i3822"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2vom"]
 radius = 3.463
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0gklw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_o6d2w"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Curve" id="Curve_y7q5s"]
 _data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
 point_count = 2
 
-[node name="DynaMite" type="CharacterBody3D" groups=["Enemies"]]
+[node name="DynaMite" type="CharacterBody3D" unique_id=661467667 groups=["Enemies"]]
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_gnlae")
@@ -44,65 +42,64 @@ DAMAGE = 7.0
 attack_radius = 5.0
 passive_death_time = 0.5
 
-[node name="dynamite_rig" parent="." instance=ExtResource("2_i3822")]
+[node name="dynamite_rig" parent="." unique_id=2035000597 instance=ExtResource("2_i3822")]
 
-[node name="Dynamite" parent="dynamite_rig/Skeleton3D" index="1"]
+[node name="Dynamite" parent="dynamite_rig/Skeleton3D" parent_id_path=PackedInt32Array(2035000597, 882596521) index="1" unique_id=244032091]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_o6d2w")
+material_override = SubResource("StandardMaterial3D_0cg5m")
 surface_material_override/0 = ExtResource("3_xrnix")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=943803878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_i3822")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." unique_id=720466032]
 script = ExtResource("2_ybb5r")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
-[node name="idle" type="Node" parent="StateMachine"]
+[node name="idle" type="Node" parent="StateMachine" unique_id=1556334847]
 script = ExtResource("3_5e5g7")
 
-[node name="approach" type="Node" parent="StateMachine"]
+[node name="approach" type="Node" parent="StateMachine" unique_id=627465706]
 script = ExtResource("4_ljwvm")
 
-[node name="WalkSFX" type="FmodEventEmitter3D" parent="StateMachine/approach"]
+[node name="WalkSFX" type="FmodEventEmitter3D" parent="StateMachine/approach" unique_id=124348791]
 event_name = "event:/Enemys/DynaMite/DynaMite Footstep"
 event_guid = "{59220500-0a68-401d-b89b-6e58c0afbd68}"
 
-[node name="countdown" type="Node" parent="StateMachine"]
+[node name="countdown" type="Node" parent="StateMachine" unique_id=2041955926]
 script = ExtResource("5_htoe2")
 
-[node name="dead" type="Node" parent="StateMachine"]
+[node name="dead" type="Node" parent="StateMachine" unique_id=138650656]
 script = ExtResource("6_g2vom")
 
-[node name="DeathSFX" type="FmodEventEmitter3D" parent="StateMachine/dead"]
+[node name="DeathSFX" type="FmodEventEmitter3D" parent="StateMachine/dead" unique_id=1246138874]
 event_name = "event:/Enemys/DynaMite/DynaMite Die"
 event_guid = "{3a016713-c2d4-4c8c-839a-88bf01c26dfc}"
 
-[node name="break" type="Node" parent="StateMachine"]
+[node name="break" type="Node" parent="StateMachine" unique_id=143826169]
 script = ExtResource("7_ybb5r")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=349219623]
 
-[node name="CountdownTimer" type="Timer" parent="."]
+[node name="CountdownTimer" type="Timer" parent="." unique_id=1050242143]
 one_shot = true
 
-[node name="Hitbox" type="Area3D" parent="."]
+[node name="Hitbox" type="Area3D" parent="." unique_id=1932725519]
 visible = false
 script = ExtResource("7_g2vom")
 metadata/_custom_type_script = "uid://c1iptw5vqre6f"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=381384261]
 shape = SubResource("SphereShape3D_g2vom")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=44081661]
 
-[node name="StatusBars" parent="." instance=ExtResource("10_bnow6")]
+[node name="StatusBars" parent="." unique_id=1092069497 instance=ExtResource("10_bnow6")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 1.5, 0)
-texture = SubResource("ViewportTexture_0gklw")
+texture = SubResource("ViewportTexture_o6d2w")
 
-[node name="DynaMiteExplode" parent="." node_paths=PackedStringArray("pulse_mesh", "particles") instance=ExtResource("11_0gklw")]
-script = ExtResource("14_0cg5m")
+[node name="DynaMiteExplode" parent="." unique_id=1061697461 node_paths=PackedStringArray("pulse_mesh", "particles") instance=ExtResource("11_0gklw")]
 explosion_color = Color(1, 0, 0, 1)
 fuse_delay = 2.0
 pulse_mesh = NodePath("../dynamite_rig/Skeleton3D/Dynamite")
@@ -122,11 +119,11 @@ wait_time = 0.06153846557323763
 [node name="MeshInstance3D" parent="DynaMiteExplode" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("15_o6d2w")]
+[node name="DissolveFX" parent="." unique_id=1880495758 node_paths=PackedStringArray("meshes") instance=ExtResource("15_o6d2w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 meshes = [NodePath("../dynamite_rig/Skeleton3D/Dynamite")]
 
-[node name="HitSFX" type="FmodEventEmitter3D" parent="."]
+[node name="HitSFX" type="FmodEventEmitter3D" parent="." unique_id=873301741]
 event_name = "event:/Enemys/DynaMite/DynaMite Hit"
 event_guid = "{66e64576-83b8-4013-84c6-c5d913355836}"
 
@@ -136,8 +133,8 @@ event_guid = "{66e64576-83b8-4013-84c6-c5d913355836}"
 [connection signal="entered" from="StateMachine/approach" to="StateMachine/approach/WalkSFX" method="play"]
 [connection signal="finished" from="StateMachine/approach" to="StateMachine/approach/WalkSFX" method="stop"]
 [connection signal="entered" from="StateMachine/countdown" to="DynaMiteExplode" method="start_fuse"]
-[connection signal="entered" from="StateMachine/dead" to="DissolveFX" method="beginDissolve"]
 [connection signal="entered" from="StateMachine/dead" to="StateMachine/dead/DeathSFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/dead" to="DissolveFX" method="beginDissolve"]
 [connection signal="timeout" from="CountdownTimer" to="StateMachine/countdown" method="_on_countdown_timer_timeout"]
 
 [editable path="dynamite_rig"]

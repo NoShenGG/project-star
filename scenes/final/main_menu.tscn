@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://jd6ie1ov3gt3"]
+[gd_scene format=3 uid="uid://jd6ie1ov3gt3"]
 
 [ext_resource type="Script" uid="uid://dt6gotxl8mucy" path="res://scripts/utility/main_menu.gd" id="1_i0wvf"]
 [ext_resource type="Texture2D" uid="uid://bsj2h2rq3i4s5" path="res://art_assets/Ui/jtas_splash_background.png" id="2_lvhxv"]
@@ -120,7 +120,7 @@ animation = &"main_menu_idle"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u7n6r"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=124409210]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -131,18 +131,18 @@ script = ExtResource("1_i0wvf")
 load_delay = 0.5
 quit_delay = 1.0
 
-[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="."]
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="." unique_id=804987063]
 event_name = "event:/Music/Main Menu Music"
 event_guid = "{eab26c0b-1f9c-4cea-ab86-41a3ece4b152}"
 autoplay = true
 auto_release = true
 
-[node name="FmodListener2D" type="FmodListener2D" parent="."]
+[node name="FmodListener2D" type="FmodListener2D" parent="." unique_id=216674226]
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+[node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=1648697953]
 bank_paths = ["res://sounds/banks/Music.bank"]
 
-[node name="Backdrop" type="Panel" parent="."]
+[node name="Backdrop" type="Panel" parent="." unique_id=760102084]
 z_index = -205
 layout_mode = 1
 anchors_preset = 15
@@ -152,7 +152,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lovrv")
 
-[node name="Menu" type="Control" parent="." node_paths=PackedStringArray("focused_control")]
+[node name="Menu" type="Control" parent="." unique_id=1601446055 node_paths=PackedStringArray("focused_control")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -169,7 +169,7 @@ focused_control = NodePath("VBoxContainer/StartButton")
 open_time = 2.0
 close_time = 0.5
 
-[node name="Background" type="Control" parent="Menu"]
+[node name="Background" type="Control" parent="Menu" unique_id=186625065]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -177,7 +177,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="Menu/Background"]
+[node name="Background" type="TextureRect" parent="Menu/Background" unique_id=2013506598]
 z_index = -3
 layout_mode = 1
 anchors_preset = 15
@@ -197,7 +197,7 @@ open_animation_flags = 1
 close_time = 0.5
 close_animation_flags = 1
 
-[node name="Midground" type="TextureRect" parent="Menu/Background"]
+[node name="Midground" type="TextureRect" parent="Menu/Background" unique_id=261081590]
 z_index = -2
 layout_mode = 1
 anchors_preset = 15
@@ -222,7 +222,7 @@ close_time = 0.4
 close_animation_delay = 0.1
 close_animation_flags = 1
 
-[node name="Foreground" type="TextureRect" parent="Menu/Background"]
+[node name="Foreground" type="TextureRect" parent="Menu/Background" unique_id=1158462303]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -246,7 +246,7 @@ open_animation_flags = 1
 close_time = 0.4
 close_animation_flags = 1
 
-[node name="nova" type="TextureRect" parent="Menu/Background"]
+[node name="nova" type="TextureRect" parent="Menu/Background" unique_id=582610416]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -266,7 +266,7 @@ close_time = 0.4
 close_animation_delay = 0.2
 close_animation_flags = 1
 
-[node name="title" type="TextureRect" parent="Menu/Background"]
+[node name="title" type="TextureRect" parent="Menu/Background" unique_id=210203044]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -286,17 +286,15 @@ close_time = 0.3
 close_animation_delay = 0.2
 close_animation_flags = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Menu/Background"]
-libraries = {
-&"": SubResource("AnimationLibrary_lovrv")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menu/Background" unique_id=1820383998]
+libraries/ = SubResource("AnimationLibrary_lovrv")
 speed_scale = 2.0
 
-[node name="AnimationTree" type="AnimationTree" parent="Menu/Background"]
+[node name="AnimationTree" type="AnimationTree" parent="Menu/Background" unique_id=1183728342]
 tree_root = SubResource("AnimationNodeAnimation_lvhxv")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=400129361]
 top_level = true
 z_index = 2
 layout_mode = 1
@@ -310,7 +308,7 @@ offset_bottom = -166.0
 grow_vertical = 0
 scale = Vector2(1.5, 1.5)
 
-[node name="StartButton" type="Button" parent="Menu/VBoxContainer"]
+[node name="StartButton" type="Button" parent="Menu/VBoxContainer" unique_id=1468803949]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../QuitButton")
 theme_override_colors/font_focus_color = Color(0.6509804, 0.43137255, 0.6, 1)
@@ -322,7 +320,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_638d5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_p0ndc")
 text = "Start"
 
-[node name="QuitButton" type="Button" parent="Menu/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="Menu/VBoxContainer" unique_id=1396519484]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
 theme_override_colors/font_focus_color = Color(0.6509804, 0.43137255, 0.6, 1)
@@ -334,15 +332,15 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_iv24n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u7n6r")
 text = "Quit"
 
-[node name="Menu SFX" type="Node" parent="Menu" node_paths=PackedStringArray("close_sfx")]
+[node name="Menu SFX" type="Node" parent="Menu" unique_id=1919800879 node_paths=PackedStringArray("close_sfx")]
 script = ExtResource("9_gqoms")
 close_sfx = NodePath("Close SFX")
 
-[node name="Open SFX" type="FmodEventEmitter3D" parent="Menu/Menu SFX"]
+[node name="Open SFX" type="FmodEventEmitter3D" parent="Menu/Menu SFX" unique_id=1808007299]
 event_name = "event:/UI/Menu Open"
 event_guid = "{4a1bcb6d-acb5-431a-8121-9f9f6b8a0b3b}"
 
-[node name="Close SFX" type="FmodEventEmitter3D" parent="Menu/Menu SFX"]
+[node name="Close SFX" type="FmodEventEmitter3D" parent="Menu/Menu SFX" unique_id=792514354]
 event_name = "event:/UI/Button"
 event_guid = "{70d41cbd-8ac8-4096-876f-5f73c04bb7e5}"
 

@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkkelkrht7j7a"]
+[gd_scene format=3 uid="uid://bkkelkrht7j7a"]
 
 [ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="1_cm0pq"]
 [ext_resource type="Script" uid="uid://dpbu6k4xu88l8" path="res://addons/GPUTrails/examples/GPUTrailsMove.gd" id="1_fos0i"]
 [ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="2_fos0i"]
-[ext_resource type="Texture2D" uid="uid://cagaha4c1ky0e" path="res://vfx/Kenny Particle Pack/spark_05.png" id="4_fos0i"]
+[ext_resource type="Texture2D" uid="uid://cagaha4c1ky0e" path="res://VFX/Kenny Particle Pack/spark_05.png" id="4_fos0i"]
 [ext_resource type="Script" uid="uid://bx10tuy8s55pq" path="res://addons/GPUTrails/GPUTrail3D.gd" id="4_lgr22"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_trn2v"]
@@ -38,15 +38,15 @@ shader_parameter/flags = 45
 [sub_resource type="QuadMesh" id="QuadMesh_c2ibq"]
 material = SubResource("ShaderMaterial_c6i3y")
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=2129722452]
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=782098267]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7817895, 0, 0)
 script = ExtResource("1_fos0i")
 speed = 2.0
 distance = 2.0
 
-[node name="GPUTrail3D" type="GPUParticles3D" parent="Node3D"]
+[node name="GPUTrail3D" type="GPUParticles3D" parent="Node3D" unique_id=526111442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.010165632)
 amount = 100
 lifetime = 100.0
@@ -64,5 +64,5 @@ vertical_texture = true
 billboard = true
 _defaults_have_been_set = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1891774018]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4920218, 5.029621)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://vhk4mn8xs8ji"]
+[gd_scene format=3 uid="uid://vhk4mn8xs8ji"]
 
 [ext_resource type="PackedScene" uid="uid://cstjy2kihtks0" path="res://art_assets/environment/demo/Models/Demo Ornaments.glb" id="1_2ajuk"]
 
-[node name="DemoOrnamentAssetScene" type="Node3D"]
+[node name="DemoOrnamentAssetScene" type="Node3D" unique_id=1935199487]
 
-[node name="Demo Ornaments" parent="." instance=ExtResource("1_2ajuk")]
+[node name="Demo Ornaments" parent="." unique_id=231904930 instance=ExtResource("1_2ajuk")]

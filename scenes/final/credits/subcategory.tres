@@ -1,4 +1,4 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b4frl4pwnggh8"]
+[gd_resource type="LabelSettings" format=3 uid="uid://b4frl4pwnggh8"]
 
 [ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="1_mx4i6"]
 
