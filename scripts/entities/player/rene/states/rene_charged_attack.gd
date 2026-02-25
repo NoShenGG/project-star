@@ -26,21 +26,21 @@ func enter(_prev_state: String, _data := {}) -> void:
 	enemies.sort_custom(func(a: Node3D,b: Node3D): \
 				return a.global_position.distance_to(rene.global_position) < b.global_position.distance_to(rene.global_position))
 	enemy = enemies.pop_front()
+	animation.enter()
+	animation.stop.connect(end)
 	if enemy != null:
 		var effect = vfx.instantiate()
 		enemy.add_child(effect)
 		oldspd =  enemy._base_speed
 		enemy._base_speed = 0
 		effect.finished.connect(func(): if enemy != null: enemy._base_speed = oldspd)
-	animation.enter()
-	animation.stop.connect(end)
-	hitbox.transform = enemy.global_transform
-	hitbox.monitoring = true
-	await get_tree().physics_frame
-	enemies = hitbox.get_overlapping_bodies().filter(func(b): return b is Enemy)
-	for thing: Enemy in enemies:
-		thing.try_damage(damage * rene.damage_mult * pow(1.2, rene.counters))
-	hitbox.monitoring = false
+		hitbox.transform = enemy.global_transform
+		hitbox.monitoring = true
+		await get_tree().physics_frame
+		enemies = hitbox.get_overlapping_bodies().filter(func(b): return b is Enemy)
+		for thing: Enemy in enemies:
+			thing.try_damage(damage * rene.damage_mult * pow(1.2, rene.counters))
+		hitbox.monitoring = false
 	
 func update(_delta: float) -> void:
 	pass
