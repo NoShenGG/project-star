@@ -7313,7 +7313,7 @@ dash_distance = 7.0
 _base_speed = 6.0
 faction = 0
 _breakable = false
-grass_displacement_size = 1.5
+grass_displacement_size = 1.4
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_lfcoe")
@@ -7446,6 +7446,12 @@ duration = 1.0
 [node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
 event_name = "event:/Player/Uniques/Charged Attack/Nova Charged Attack"
 event_guid = "{c37be128-c419-442f-9d08-d6e0895a5e23}"
+
+[node name="StateGrassSizeChange" type="Node" parent="StateMachine/AttackingCharged"]
+script = ExtResource("8_vrbf8")
+delay = 0.02
+grass_displacement_size = 2.5
+metadata/_custom_type_script = "uid://b2cb5sd2b4epw"
 
 [node name="ChargingSpecial" type="Node" parent="StateMachine"]
 script = ExtResource("9_8b4uh")
@@ -7604,12 +7610,12 @@ bones/10/position = Vector3(0.007249624, 0, 0)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.065921985, 0.52260774, -0.5063755, 0.68272924)
-bones/15/rotation = Quaternion(-0.16519807, 0.56016266, 0.23290797, 0.77761257)
-bones/16/rotation = Quaternion(-0.507036, -0.47026464, -0.2547306, 0.6759275)
-bones/21/rotation = Quaternion(-0.14842966, 0.383145, -0.45832607, 0.7881026)
-bones/22/rotation = Quaternion(-0.0707147, 0.3674389, 0.18257774, 0.9092049)
-bones/23/rotation = Quaternion(0.14468926, 0.109113604, -0.07690237, 0.98043114)
+bones/14/rotation = Quaternion(-0.06514563, 0.5220146, -0.50664115, 0.6830605)
+bones/15/rotation = Quaternion(-0.16999614, 0.5675779, 0.23422584, 0.7707756)
+bones/16/rotation = Quaternion(-0.50354934, -0.47624108, -0.2619433, 0.67157894)
+bones/21/rotation = Quaternion(-0.14164273, 0.3705805, -0.46600696, 0.7908509)
+bones/22/rotation = Quaternion(-0.074823715, 0.37848997, 0.18607385, 0.9036169)
+bones/23/rotation = Quaternion(0.13868831, 0.10894027, -0.08489082, 0.98065853)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
@@ -7617,7 +7623,7 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.34911308, 0.70686966, 0.062421173, 0.6120124)
+bones/38/rotation = Quaternion(-0.35057828, 0.7061473, 0.061150227, 0.61213684)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
@@ -7641,7 +7647,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_oc7x5")
 surface_material_override/0 = SubResource("ShaderMaterial_0ksem")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5"]
-transform = Transform3D(-0.006070676, -0.569972, 0.8216416, -0.41852954, 0.74767655, 0.5155702, -0.90818274, -0.3407515, -0.24308908, 0.0060064397, 0.0072393618, -0.01321441)
+transform = Transform3D(-0.0037152977, -0.5699922, 0.8216417, -0.42163178, 0.7459345, 0.5155659, -0.90675944, -0.3445148, -0.24309826, 0.0060432362, 0.0071908343, -0.013192308)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 

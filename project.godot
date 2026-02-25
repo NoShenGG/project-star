@@ -201,7 +201,7 @@ anti_aliasing/physics_interpolation=true
 
 cloud_contrast={
 "type": "float",
-"value": 0.155
+"value": 1.305
 }
 cloud_direction={
 "type": "vec2",
@@ -209,7 +209,7 @@ cloud_direction={
 }
 cloud_diverge_angle={
 "type": "float",
-"value": 20.0
+"value": 21.98
 }
 cloud_noise={
 "type": "sampler2D",
@@ -217,19 +217,19 @@ cloud_noise={
 }
 cloud_scale={
 "type": "float",
-"value": 40.0
+"value": 25.965
 }
 cloud_shadow_min={
 "type": "float",
-"value": 0.2
+"value": 0.1
 }
 cloud_speed={
 "type": "float",
-"value": -0.01
+"value": -0.02
 }
 cloud_threshold={
 "type": "float",
-"value": 0.27
+"value": 0.195
 }
 cloud_world_y={
 "type": "float",
@@ -237,5 +237,5 @@ cloud_world_y={
 }
 light_direction={
 "type": "vec3",
-"value": Vector3(0, 0, 0)
+"value": Vector3(0.587, 1.26, -0.306)
 }

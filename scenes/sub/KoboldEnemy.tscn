@@ -1203,7 +1203,7 @@ scale_min = 0.79999995
 scale_max = 1.3
 scale_curve = SubResource("CurveTexture_cqf5t")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fawd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3cu5"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -1215,30 +1215,31 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_jbtjh"]
-material = SubResource("StandardMaterial3D_0fawd")
+material = SubResource("StandardMaterial3D_k3cu5")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pa7ii"]
 transparency = 1
+shading_mode = 0
 
 [sub_resource type="Curve" id="Curve_ydysj"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_5xf2e"]
+[sub_resource type="CurveTexture" id="CurveTexture_0gpj1"]
 curve = SubResource("Curve_ydysj")
 
 [sub_resource type="Curve" id="Curve_jbtjh"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7659185, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_77gr8"]
+[sub_resource type="CurveTexture" id="CurveTexture_4u8kd"]
 curve = SubResource("Curve_jbtjh")
 
 [sub_resource type="Curve" id="Curve_0fawd"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ydysj"]
+[sub_resource type="CurveTexture" id="CurveTexture_m4apj"]
 curve = SubResource("Curve_0fawd")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ydysj"]
@@ -1247,9 +1248,9 @@ initial_velocity_min = 6.0
 initial_velocity_max = 10.0
 scale_min = 0.79999995
 scale_max = 1.3
-scale_curve = SubResource("CurveTexture_ydysj")
-alpha_curve = SubResource("CurveTexture_5xf2e")
-emission_curve = SubResource("CurveTexture_77gr8")
+scale_curve = SubResource("CurveTexture_m4apj")
+alpha_curve = SubResource("CurveTexture_0gpj1")
+emission_curve = SubResource("CurveTexture_4u8kd")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_uisve"]
 viewport_path = NodePath("SubViewport")
@@ -1309,16 +1310,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-4.102284e-09, 0.99739474, 0.07213741, 7.538636e-08)
-bones/1/rotation = Quaternion(0.09843272, 0.0034402767, -0.00019451379, 0.99513775)
-bones/2/rotation = Quaternion(0.10137161, -0.0037647688, -0.00022095631, 0.9948415)
-bones/4/rotation = Quaternion(0.20406029, 0.071715854, -0.559191, 0.800326)
+bones/0/rotation = Quaternion(-4.7111675e-09, 0.9967794, 0.08019263, 7.5350755e-08)
+bones/1/rotation = Quaternion(0.09040185, 0.0034385952, -0.00022225978, 0.99589944)
+bones/2/rotation = Quaternion(0.093195476, -0.003780827, -0.00024478143, 0.99564064)
+bones/4/rotation = Quaternion(0.29389757, 0.0075513544, -0.5637204, 0.7718722)
 bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.043196995, 0.98099875)
 bones/6/rotation = Quaternion(0.054868486, 0.74948096, 0.015322978, 0.6595702)
-bones/7/rotation = Quaternion(0.092624635, -0.00029056193, -0.00072313304, 0.99570084)
-bones/8/rotation = Quaternion(-0.08844355, -0.0003568998, -0.0004898098, 0.996081)
+bones/7/rotation = Quaternion(0.103068195, -0.0002981344, -0.0007200444, 0.994674)
+bones/8/rotation = Quaternion(-0.077986, -0.00035173993, -0.00049352803, 0.9969543)
 bones/9/rotation = Quaternion(-0.09260436, -0.17117505, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.3167521, 0.01136578, 0.5429145, 0.7776779)
+bones/10/rotation = Quaternion(0.24694861, -0.03654855, 0.54180217, 0.80257773)
 bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.0123480745, 0.97225493)
 bones/12/rotation = Quaternion(-5.8199273e-08, -0.751264, -5.181667e-08, 0.66000193)
 bones/13/rotation = Quaternion(0.10849718, -0.08205278, 0.9894506, -0.04983335)
@@ -1344,7 +1345,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(-0.33610728, -0.32676125, 0.8833226, -0.13544218, -0.91136724, -0.3886716, 0.93203354, -0.2502743, 0.26205987, -0.58161974, 0.83158517, -0.0032719932)
+transform = Transform3D(-0.39931732, -0.27154127, 0.87567747, -0.3780369, -0.82138807, -0.42709485, 0.8352445, -0.5015848, 0.22534195, -0.55809325, 0.84494615, -0.15998289)
 bone_name = "Hand.L"
 bone_idx = 6
 
