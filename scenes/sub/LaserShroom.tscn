@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="13_g51g3"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="14_js430"]
 [ext_resource type="PackedScene" uid="uid://cf5t6lmcuvytc" path="res://art_assets/enemies/shrooms/laser_shroom.glb" id="15_1eeap"]
+[ext_resource type="PackedScene" uid="uid://bxf0bqm6vq8x4" path="res://VFX/laserAttackFX.tscn" id="16_6ayco"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_js430"]
 size = Vector3(1, 2, 1)
@@ -30,15 +31,74 @@ size = Vector3(15, 1, 1)
 material = ExtResource("8_27v6w")
 size = Vector3(15, 1, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1eeap"]
+[sub_resource type="Curve" id="Curve_pqvp8"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.34496123, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rmnni"]
+curve = SubResource("Curve_pqvp8")
+
+[sub_resource type="Gradient" id="Gradient_6ayco"]
+offsets = PackedFloat32Array(0.00862069, 0.50431037, 1)
+colors = PackedColorArray(1, 0, 0.27058825, 1, 1, 0, 1, 1, 0.5686275, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pqvp8"]
+gradient = SubResource("Gradient_6ayco")
+
+[sub_resource type="Gradient" id="Gradient_rmnni"]
+offsets = PackedFloat32Array(0, 0.5215517, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cjmyr"]
+gradient = SubResource("Gradient_rmnni")
+
+[sub_resource type="CurveTexture" id="CurveTexture_cjmyr"]
+
+[sub_resource type="Curve" id="Curve_6ayco"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pqvp8"]
+curve = SubResource("Curve_6ayco")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ayco"]
+emission_shape_offset = Vector3(5, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 1)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(-5, 4, 0)
+scale_min = 0.29999998
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_pqvp8")
+color_ramp = SubResource("GradientTexture1D_cjmyr")
+color_initial_ramp = SubResource("GradientTexture1D_pqvp8")
+alpha_curve = SubResource("CurveTexture_rmnni")
+emission_curve = SubResource("CurveTexture_cjmyr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ayco"]
+transparency = 1
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_pqvp8"]
+material = SubResource("StandardMaterial3D_6ayco")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6ayco"]
 viewport_path = NodePath("SubViewport")
 
-[node name="LaserShroom" type="CharacterBody3D" unique_id=1537587731 node_paths=PackedStringArray("aim_mesh", "fire_mesh")]
+[node name="LaserShroom" type="CharacterBody3D" unique_id=1537587731 node_paths=PackedStringArray("aim_mesh", "fire_mesh", "warning_particles")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 collision_layer = 10
 script = ExtResource("1_6e0eo")
 aim_mesh = NodePath("Hitbox/AimMesh")
 fire_mesh = NodePath("Hitbox/FireMesh")
+warning_particles = NodePath("Hitbox/GPUParticles3D")
 _hp = 45.0
 _max_hp = 45.0
 metadata/_custom_type_script = "uid://b0ikb4va3mlaf"
@@ -117,6 +177,9 @@ metadata/_custom_type_script = "uid://c1iptw5vqre6f"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7399154, 0, 0)
 shape = SubResource("BoxShape3D_pxf1l")
 
+[node name="laserAttackFX" parent="Hitbox" unique_id=819473353 instance=ExtResource("16_6ayco")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.07708943, 0)
+
 [node name="AimMesh" type="MeshInstance3D" parent="Hitbox" unique_id=145421274]
 transform = Transform3D(1, 0, 0, 0, 1.6175327, 0, 0, 0, 1, 7.7461843, 0, -2.842171e-14)
 visible = false
@@ -127,11 +190,18 @@ transform = Transform3D(1, 0, 0, 0, 1.5771985, 0, 0, 0, 1, 7.6628604, 0.00377273
 visible = false
 mesh = SubResource("BoxMesh_iil6r")
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Hitbox" unique_id=1086465136]
+emitting = false
+amount = 32
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_6ayco")
+draw_pass_1 = SubResource("SphereMesh_pqvp8")
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=344471589]
 
 [node name="StatusBars" parent="." unique_id=765670220 instance=ExtResource("13_g51g3")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.6692805, 0)
-texture = SubResource("ViewportTexture_1eeap")
+texture = SubResource("ViewportTexture_6ayco")
 
 [node name="DissolveFX" parent="." unique_id=1938342030 node_paths=PackedStringArray("meshes") instance=ExtResource("14_js430")]
 meshes = [null]
@@ -147,5 +217,7 @@ event_guid = "{e14c303d-57b7-41df-84cc-cb781342b0d6}"
 [connection signal="entered" from="StateMachine/lockon" to="StateMachine/lockon/ChargeSFX" method="play_one_shot"]
 [connection signal="timeout" from="StateMachine/lockon/LockTimer" to="StateMachine/lockon" method="_on_lock_timer_timeout"]
 [connection signal="entered" from="StateMachine/fire" to="StateMachine/fire/FireSFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/fire" to="Hitbox/laserAttackFX" method="restart_particles"]
+[connection signal="finished" from="StateMachine/fire" to="Hitbox/laserAttackFX" method="stop_particles"]
 [connection signal="timeout" from="StateMachine/hide/HideTimer" to="StateMachine/hide" method="_on_hide_timer_timeout"]
 [connection signal="entered" from="StateMachine/dead" to="StateMachine/dead/DeathSFX" method="play_one_shot"]
