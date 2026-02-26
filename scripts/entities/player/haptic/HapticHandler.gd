@@ -1,9 +1,10 @@
 extends Node3D
 class_name HapticHandler
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _enter_tree() -> void:
 	haptic_listeners.append(self)
+func _exit_tree() -> void:
+	haptic_listeners.erase(self)
 
 func haptic(frequency: float, amplitude: float, duration_sec: float, delay_sec: float):
 	push_warning("no override on haptic. called by " + name)

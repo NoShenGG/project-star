@@ -86,9 +86,8 @@ func _process(_delta: float) -> void:
 			swap_char(2)
 		
 		if (Input.is_action_just_pressed("next_char")):
-			print("current character is " + str((players.find(current_char))))
 			var new_index : int = (players.find(current_char) + 1) % (players.size())
-			print("swapping character to " + str(new_index))
+			if (players[new_index].is_dead()): new_index = new_index + 1 if new_index + 1 <= players.size() - 1 else 0
 			match new_index:
 				0:
 					swap_char(0)
@@ -98,9 +97,8 @@ func _process(_delta: float) -> void:
 				2:
 					if (stage >= 2): swap_char(2)
 		if (Input.is_action_just_pressed("prev_char")):
-			print("current character is " + str((players.find(current_char))))
 			var new_index : int = players.size() - 1 if (players.find(current_char) - 1) < 0 else players.find(current_char) - 1
-			print("swapping character to " + str(new_index))
+			if (players[new_index].is_dead()): new_index = new_index - 1 if new_index - 1 >= 0 else players.size() - 1
 			match new_index:
 				0:
 					swap_char(0)
