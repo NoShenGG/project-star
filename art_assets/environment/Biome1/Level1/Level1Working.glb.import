@@ -44,11 +44,6 @@ _subresources={
 "use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/@MATERIAL_2.material",
 "use_external/path": "res://art_assets/environment/Biome1/Level1/@MATERIAL_2.material"
 },
-"@MATERIAL:3": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/@MATERIAL_3.material",
-"use_external/path": "res://art_assets/environment/Biome1/Level1/@MATERIAL_3.material"
-},
 "BackgroundGrass": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/BackgroundGrass.material",
@@ -69,6 +64,11 @@ _subresources={
 "use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/Material.020.material",
 "use_external/path": "uid://htndq7q7tle3"
 },
+"MountainBackground": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/MountainBackground.tres",
+"use_external/path": "uid://dek0aou47yvv2"
+},
 "Top Grass": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/Top Grass.material",
@@ -76,13 +76,8 @@ _subresources={
 },
 "side wall": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/side wall.material",
-"use_external/path": "uid://bda31s4lxr56b"
-},
-"top ground": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/top ground.material",
-"use_external/path": "uid://bi5yol8kkn2rv"
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/MountainWalls.tres",
+"use_external/path": "uid://8jreytrlne5r"
 }
 }
 }
