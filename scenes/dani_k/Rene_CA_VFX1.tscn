@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bvkaxwwm5i0da"]
 
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="1_t22lq"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_t22lq"]
 [ext_resource type="Shader" uid="uid://uu1u6uc6ajag" path="res://scenes/dani_k/Rene_CA_beamshader.tres" id="2_882mb"]
 [ext_resource type="Curve" uid="uid://1ebfgkl7sdm7" path="res://scenes/dani_k/Rene_CA_speedCurve.tres" id="3_qqpec"]
 [ext_resource type="ArrayMesh" uid="uid://be30yeg54t5bx" path="res://scenes/dani_k/JTAS_ReneVFX_Mesh_beam.obj" id="4_xwwy0"]
@@ -14,18 +14,8 @@
 render_priority = 0
 shader = ExtResource("2_882mb")
 
-[sub_resource type="Curve" id="Curve_31706"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_xjmxi"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ik5b8"]
-curve_x = SubResource("Curve_31706")
 curve_y = ExtResource("3_qqpec")
-curve_z = SubResource("Curve_xjmxi")
 
 [sub_resource type="Curve" id="Curve_218og"]
 _data = [Vector2(0.65, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.9, 0.0, 0, 0]
@@ -47,8 +37,8 @@ curve_z = SubResource("Curve_8eyyx")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7hx78"]
 emission_shape_offset = Vector3(0, 5, 0)
-directional_velocity_min = 0.9999839
-directional_velocity_max = 0.9999839
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
 directional_velocity_curve = SubResource("CurveXYZTexture_ik5b8")
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveXYZTexture_2lhqc")
@@ -74,18 +64,8 @@ color = Color(1.4164544, 1.2674794, 0.8802462, 1)
 render_priority = 0
 shader = ExtResource("7_eu55r")
 
-[sub_resource type="Curve" id="Curve_p4br4"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_ydq0w"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_gejmv"]
-curve_x = SubResource("Curve_p4br4")
 curve_y = ExtResource("3_qqpec")
-curve_z = SubResource("Curve_ydq0w")
 
 [sub_resource type="Curve" id="Curve_ado8y"]
 _data = [Vector2(0, 0.57303375), 0.0, 0.0, 0, 0, Vector2(0.6, 0.562), 0.75911415, 0.75911415, 0, 0, Vector2(1, 0), 0.9, 0.0, 0, 0]

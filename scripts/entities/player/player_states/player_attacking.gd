@@ -84,6 +84,9 @@ func update(_delta: float) -> void:
 	if Input.is_action_just_pressed("basic_attack"):
 		start_charge_timer()
 		combo_queue = min(combo_queue + 1, (_states.size()) - (combo_counter + 1)) if queue_combo else 1
+	if Input.is_action_just_released("basic_attack") and charge_timer != null:
+		charge_timer.timeout.disconnect(attack_held)
+		charge_timer = null
 	current_state.update(_delta)
 
 func physics_update(_delta: float) -> void:
