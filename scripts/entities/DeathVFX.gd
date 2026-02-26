@@ -8,7 +8,7 @@ var _meshes : Array[MeshInstance3D]
 @export_range(0.01,5, 0.01) var flash_duration : float = 1
 @export var tween : bool = true
 var _overlay_tween : Tween
-@onready var original_a : float = hurt_overlay.albedo_color.a
+@onready var original_a : float = hurt_overlay.albedo_color.a if hurt_overlay else 1
 var flash_count : int = 0
 
 @export_category("Death")
@@ -29,7 +29,7 @@ func _enter_tree() -> void:
 	
 	## used so that each enemy can flash on their own
 	## i dont thinkk this should require a shader compilation?
-	hurt_overlay = hurt_overlay.duplicate()
+	if (hurt_overlay): hurt_overlay = hurt_overlay.duplicate()
 
 func _exit_tree() -> void:
 	(get_parent() as Entity).killed.disconnect(death)
@@ -73,6 +73,7 @@ func scale_mesh():
 
 
 func flash(duration : float, intensity : float):
+	if (!hurt_overlay): return
 	print("hurt overlay call!!")
 	flash_count += 1
 	var flash_size : int = flash_count

@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="4_q2gmn"]
 [ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="5_7n13j"]
 [ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="7_8pvig"]
+[ext_resource type="Script" uid="uid://b7pj5dra8sjgx" path="res://scripts/entities/DeathVFX.gd" id="9_vaxoq"]
+[ext_resource type="Script" uid="uid://dxy6p70rncayl" path="res://scripts/entities/SpawnVFX.gd" id="10_sqflu"]
+[ext_resource type="PackedScene" uid="uid://dtrpcl1nasika" path="res://VFX/enemySummonFX.tscn" id="11_xiby0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l26uf"]
 
@@ -70,6 +73,47 @@ transparency = 1
 cull_mode = 2
 shading_mode = 0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1shxt"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.2901961)
+
+[sub_resource type="Curve" id="Curve_i62o6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lvi8h"]
+curve = SubResource("Curve_i62o6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1ojq5"]
+direction = Vector3(0, 1, 0)
+spread = 85.0
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_lvi8h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ud8xd"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("5_7n13j")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_hu004"]
+material = SubResource("StandardMaterial3D_ud8xd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l12q4"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 0)
+
 [node name="Slime" type="CharacterBody3D" unique_id=1139207953]
 collision_layer = 10
 collision_mask = 3
@@ -112,16 +156,16 @@ texture = SubResource("ViewportTexture_7n13j")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Armature" parent="slime" index="0" unique_id=1995407556]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8170718, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54404145, 0)
 
 [node name="Skeleton3D" parent="slime/Armature" index="0" unique_id=60013278]
-bones/0/scale = Vector3(0.98532605, 1.0069946, 1.0183669)
+bones/0/scale = Vector3(1.0253586, 0.66493386, 0.99592733)
 
 [node name="skin2" parent="slime/Armature/Skeleton3D" index="1" unique_id=1233777885]
 visible = false
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="slime/Armature/Skeleton3D" index="2" unique_id=1577401257]
-transform = Transform3D(0.98532605, 0, 0, 0, 1.0069946, 0, 0, 0, 1.0183669, 0, 0, 0)
+transform = Transform3D(1.0253586, 0, 0, 0, 0.66493386, 0, 0, 0, 0.99592733, 0, 0, 0)
 bone_name = "Bone"
 bone_idx = 0
 
@@ -168,6 +212,44 @@ event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
 event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 
+[node name="Death" type="Node3D" parent="." unique_id=496084609 node_paths=PackedStringArray("vfx", "meshes_root")]
+script = ExtResource("9_vaxoq")
+vfx = NodePath("Death VFX")
+meshes_root = NodePath("../slime/Armature")
+hurt_overlay = SubResource("StandardMaterial3D_1shxt")
+flash_duration = 3.0
+death_delay = 2.0
+death_time = 2.0
+fade_out = false
+
+[node name="Death VFX" type="Node3D" parent="Death" unique_id=838819033 node_paths=PackedStringArray("particles")]
+script = ExtResource("4_q2gmn")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
+metadata/_custom_type_script = "uid://hrugoc51xhma"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Death/Death VFX" unique_id=1501866234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099999905, 0.050730154)
+emitting = false
+amount = 17
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1ojq5")
+draw_pass_1 = SubResource("QuadMesh_hu004")
+
+[node name="Spawned" type="Node3D" parent="." unique_id=1780289289 node_paths=PackedStringArray("vfx", "meshes_root", "_meshes")]
+process_mode = 3
+script = ExtResource("10_sqflu")
+vfx = NodePath("enemySummonFX")
+meshes_root = NodePath("../slime/Armature")
+_meshes = [NodePath("")]
+hurt_overlay = SubResource("StandardMaterial3D_l12q4")
+flash_duration = 0.75
+
+[node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("11_xiby0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+lifetime = 1.25
+
 [connection signal="Slime_attack" from="." to="Attack SFX" method="play"]
 [connection signal="break_update" from="." to="Node3D/StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="Node3D/StatusBars" method="update_health"]
@@ -178,3 +260,4 @@ event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 [connection signal="body_exited" from="HitBoxes/Aggro" to="." method="_on_aggro_body_exited"]
 
 [editable path="slime"]
+[editable path="Spawned/enemySummonFX"]

@@ -68,4 +68,6 @@ func flash(duration : float, intensity : float):
 	## disabling this will cause jittery flash during fast attacks
 	if (flash_count > flash_size): return
 	hurt_overlay.albedo_color.a = 0
+	for mesh in _meshes:
+		mesh.material_overlay = null
 	flash_count -= 1

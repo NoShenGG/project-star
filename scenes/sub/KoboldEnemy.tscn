@@ -1197,7 +1197,9 @@ size = Vector3(4, 2, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pa7ii"]
 transparency = 1
+blend_mode = 1
 shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.59607846)
 
 [sub_resource type="Curve" id="Curve_ydysj"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="19_5xcys"]
 [ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="20_ln7ek"]
 [ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="21_fl1jj"]
+[ext_resource type="Script" uid="uid://b7pj5dra8sjgx" path="res://scripts/entities/DeathVFX.gd" id="22_ln7ek"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_js430"]
 size = Vector3(1, 2, 1)
@@ -97,7 +98,7 @@ material = SubResource("StandardMaterial3D_6ayco")
 [sub_resource type="ViewportTexture" id="ViewportTexture_rmnni"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xcys"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ln7ek"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 0)
@@ -152,6 +153,42 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_gjst3"]
 material = SubResource("StandardMaterial3D_k3cu5")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ofen"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.59607846)
+
+[sub_resource type="Curve" id="Curve_00n1l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cqf5t"]
+curve = SubResource("Curve_00n1l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s5l70"]
+direction = Vector3(0, 1, 0)
+spread = 85.0
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_cqf5t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4u8kd"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("21_fl1jj")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_txu5v"]
+material = SubResource("StandardMaterial3D_4u8kd")
+
 [node name="LaserShroom" type="CharacterBody3D" unique_id=1537587731 node_paths=PackedStringArray("aim_mesh", "fire_mesh", "warning_particles")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 collision_layer = 10
@@ -161,6 +198,7 @@ fire_mesh = NodePath("Hitbox/FireMesh")
 warning_particles = NodePath("Hitbox/GPUParticles3D")
 _hp = 45.0
 _max_hp = 45.0
+passive_death_time = 3.0
 metadata/_custom_type_script = "uid://b0ikb4va3mlaf"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1243199418]
@@ -281,7 +319,7 @@ script = ExtResource("17_rmnni")
 vfx = NodePath("enemySummonFX")
 meshes_root = NodePath("../laser_shroom")
 _meshes = [NodePath("../laser_shroom/body"), NodePath("../laser_shroom/helmet")]
-hurt_overlay = SubResource("StandardMaterial3D_5xcys")
+hurt_overlay = SubResource("StandardMaterial3D_ln7ek")
 flash_duration = 2.0
 
 [node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("18_cjmyr")]
@@ -322,6 +360,32 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_wr5yb")
 draw_pass_1 = SubResource("QuadMesh_gjst3")
 
+[node name="Death" type="Node3D" parent="." unique_id=1417365512 node_paths=PackedStringArray("vfx", "meshes_root")]
+script = ExtResource("22_ln7ek")
+vfx = NodePath("Death VFX")
+meshes_root = NodePath("../laser_shroom")
+hurt_overlay = SubResource("StandardMaterial3D_5ofen")
+flash_duration = 3.0
+death_delay = 0.3
+death_time = 3.0
+fade_out = false
+sink_depth = 5.0
+
+[node name="Death VFX" type="Node3D" parent="Death" unique_id=990056038 node_paths=PackedStringArray("particles")]
+script = ExtResource("20_ln7ek")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
+metadata/_custom_type_script = "uid://hrugoc51xhma"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Death/Death VFX" unique_id=1917957440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
+emitting = false
+amount = 17
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_s5l70")
+draw_pass_1 = SubResource("QuadMesh_txu5v")
+
 [connection signal="hurt" from="." to="HurtSFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="DissolveFX" method="beginDissolve"]
 [connection signal="entered" from="StateMachine/lockon" to="StateMachine/lockon/ChargeSFX" method="play_one_shot"]
@@ -332,5 +396,4 @@ draw_pass_1 = SubResource("QuadMesh_gjst3")
 [connection signal="timeout" from="StateMachine/hide/HideTimer" to="StateMachine/hide" method="_on_hide_timer_timeout"]
 [connection signal="entered" from="StateMachine/dead" to="StateMachine/dead/DeathSFX" method="play_one_shot"]
 
-[editable path="laser_shroom"]
 [editable path="Spawned/enemySummonFX"]
