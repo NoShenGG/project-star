@@ -78,7 +78,7 @@ func stop_dialogue():
 		player.process_mode = Node.PROCESS_MODE_INHERIT
 	queue_free()
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("text_interact"):
 		text_interact.emit()
 	if event.is_action("text_skip"):

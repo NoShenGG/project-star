@@ -274,6 +274,8 @@ shader_parameter/explosion_noise = SubResource("NoiseTexture2D_4hu5f")
 shader_parameter/color_ramp = SubResource("GradientTexture1D_lvq8w")
 shader_parameter/explosion_color = Color(1, 0.431373, 0, 1)
 shader_parameter/explosion_amount = 0.0
+shader_parameter/radius_scale = 1.0
+shader_parameter/cloud_scale = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_dgsqx"]
 material = SubResource("ShaderMaterial_uy6ch")
@@ -424,16 +426,16 @@ stage = 1
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 8.64628)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="0" unique_id=1156861599]
-bones/14/rotation = Quaternion(-0.071761385, 0.5250052, -0.5065721, 0.68015045)
-bones/15/rotation = Quaternion(-0.15743624, 0.54781085, 0.23057692, 0.788639)
-bones/16/rotation = Quaternion(-0.5131193, -0.46691063, -0.23786557, 0.6797964)
-bones/21/rotation = Quaternion(-0.13989347, 0.39757067, -0.46559194, 0.77819777)
-bones/22/rotation = Quaternion(-0.06079828, 0.33916017, 0.1733972, 0.922609)
-bones/23/rotation = Quaternion(0.12513442, 0.122442245, -0.07396334, 0.98177326)
-bones/38/rotation = Quaternion(-0.34934527, 0.70675534, 0.06221982, 0.6120323)
+bones/14/rotation = Quaternion(-0.06519917, 0.52205557, -0.5066227, 0.6830377)
+bones/15/rotation = Quaternion(-0.16979538, 0.56727076, 0.23417243, 0.77106214)
+bones/16/rotation = Quaternion(-0.50369054, -0.47589648, -0.26171666, 0.6718056)
+bones/21/rotation = Quaternion(-0.14220345, 0.37119836, -0.46539366, 0.79082155)
+bones/22/rotation = Quaternion(-0.074699916, 0.37816197, 0.18597084, 0.9037856)
+bones/23/rotation = Quaternion(0.13936773, 0.10876583, -0.08440131, 0.9806239)
+bones/38/rotation = Quaternion(-0.35053238, 0.7061701, 0.06119009, 0.61213297)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0056974236, -0.56997573, 0.8216418, -0.4190215, 0.7474015, 0.51556957, -0.90795845, -0.34134814, -0.24309039, 0.0060122707, 0.0072316662, -0.013210927)
+transform = Transform3D(-0.0037893276, -0.5699917, 0.8216417, -0.42153472, 0.7459893, 0.51556605, -0.9068043, -0.34439686, -0.24309814, 0.00604208, 0.007192353, -0.013193006)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -491,76 +493,76 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Idle" parent="PlayerManager/Rene/rene" index="3"]
+[node name="Idle" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="3" unique_id=1766965671]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Move" parent="PlayerManager/Rene/rene" index="4"]
+[node name="Move" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="4" unique_id=430131360]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="attack1" parent="PlayerManager/Rene/rene" index="5"]
+[node name="attack1" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="5" unique_id=207814382]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="attack2" parent="PlayerManager/Rene/rene" index="6"]
+[node name="attack2" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="6" unique_id=973975926]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="attack3" parent="PlayerManager/Rene/rene" index="7"]
+[node name="attack3" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="7" unique_id=434901014]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="attack4" parent="PlayerManager/Rene/rene" index="8"]
+[node name="attack4" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="8" unique_id=1443796247]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="charging attack" parent="PlayerManager/Rene/rene" index="9"]
+[node name="charging attack" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="9" unique_id=2114657163]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="charged attack" parent="PlayerManager/Rene/rene" index="10"]
+[node name="charged attack" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="10" unique_id=606465513]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="charging special" parent="PlayerManager/Rene/rene" index="11"]
+[node name="charging special" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="11" unique_id=1086055220]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="charged special" parent="PlayerManager/Rene/rene" index="12"]
+[node name="charged special" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="12" unique_id=1719295273]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Special" parent="PlayerManager/Rene/rene" index="13"]
+[node name="Special" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="13" unique_id=99131050]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Dash" parent="PlayerManager/Rene/rene" index="14"]
+[node name="Dash" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="14" unique_id=501049339]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Hurt" parent="PlayerManager/Rene/rene" index="15"]
+[node name="Hurt" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="15" unique_id=1346543891]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Die" parent="PlayerManager/Rene/rene" index="16"]
+[node name="Die" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(798221631, 1678208346, 1073875666) index="16" unique_id=1741788305]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
 [node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="0" unique_id=581899794]
-bones/2/rotation = Quaternion(0.03142982, -0.031338472, 0.7053812, 0.7074372)
-bones/15/rotation = Quaternion(0.019274915, -0.10343764, -0.66685176, 0.73772484)
-bones/16/rotation = Quaternion(-0.03584465, 0.395562, 0.10393077, 0.9118357)
-bones/17/rotation = Quaternion(0.18201587, 0.09191682, -0.25498864, 0.9451997)
-bones/23/rotation = Quaternion(-0.08221233, -0.0875255, -0.68408936, 0.71944577)
-bones/24/rotation = Quaternion(-0.030756354, 0.27549547, 0.12677902, 0.9524093)
-bones/25/rotation = Quaternion(-0.0004861341, 0.058378767, -0.17757201, 0.9823746)
-bones/30/rotation = Quaternion(0.0015803063, 0.9682027, -0.2499098, 0.01123208)
-bones/31/rotation = Quaternion(0.9984746, -0.011228729, 0.054058656, 0.00044059302)
-bones/32/rotation = Quaternion(0.5688949, -0.3700922, 0.42036888, 0.60222954)
-bones/34/rotation = Quaternion(0.060950372, 0.117404275, 0.013236388, 0.9911236)
-bones/35/rotation = Quaternion(0.9920087, -0.015225461, 0.12523916, 0.001528119)
-bones/36/rotation = Quaternion(0.5988229, -0.35931376, 0.3703164, 0.6125117)
+bones/2/rotation = Quaternion(0.028913561, -0.028829522, 0.7054882, 0.70754457)
+bones/15/rotation = Quaternion(0.020039594, -0.1012051, -0.66705245, 0.7378327)
+bones/16/rotation = Quaternion(-0.035295486, 0.39190587, 0.103713535, 0.9134591)
+bones/17/rotation = Quaternion(0.18071993, 0.08997742, -0.25480947, 0.94568306)
+bones/23/rotation = Quaternion(-0.08214821, -0.08682235, -0.6841042, 0.7195241)
+bones/24/rotation = Quaternion(-0.030614184, 0.2746418, 0.12663157, 0.95267993)
+bones/25/rotation = Quaternion(-0.0012267132, 0.0553484, -0.17807916, 0.98245764)
+bones/30/rotation = Quaternion(-0.0004692126, 0.9680406, -0.24965699, 0.02384498)
+bones/31/rotation = Quaternion(0.99923986, -0.010197133, 0.037624355, 0.00027794347)
+bones/32/rotation = Quaternion(0.57206, -0.36563894, 0.41647053, 0.60465515)
+bones/34/rotation = Quaternion(0.060854558, 0.106637895, 0.01265855, 0.9923532)
+bones/35/rotation = Quaternion(0.9934551, -0.0145217385, 0.11328918, 0.001302551)
+bones/36/rotation = Quaternion(0.60068023, -0.35603166, 0.36755767, 0.6142688)
 
 [node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -969,6 +971,16 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.56
 mesh = SubResource("PlaneMesh_7tvui")
 surface_material_override/0 = SubResource("ShaderMaterial_lo1tq")
 
+[connection signal="entered" from="PlayerManager/Nova/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Nova/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Nova/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Rene/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Rene/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Rene/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Dawn/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Dawn/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Dawn/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
 [connection signal="ended" from="WaveManager/Wave2" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
 [connection signal="finished" from="Cutscene Explosions" to="Cutscene Godrays" method="show"]

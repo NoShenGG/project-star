@@ -6,10 +6,12 @@ uniform sampler2D explosion_noise : source_color, repeat_enable;
 uniform sampler2D color_ramp : source_color;
 uniform vec4 explosion_color : source_color;
 uniform float explosion_amount : hint_range(0.0, 1.0, 0.01);
+uniform float radius_scale = 1;
+uniform float cloud_scale = 1;
 
 void vertex() {
-	float x = texture(cloud_noise, UV + vec2(0,TIME)).r*0.25 + 1.0;
-	VERTEX += vec3(x,x,x) * NORMAL;
+	float x = texture(cloud_noise, UV + vec2(0,TIME)).r*0.25 * cloud_scale + 1.0;
+	VERTEX = VERTEX + vec3(x,x,x) * NORMAL * radius_scale;
 }
 
 void fragment() {

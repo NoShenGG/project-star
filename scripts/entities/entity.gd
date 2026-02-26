@@ -8,6 +8,8 @@ signal hurt(damage : float)
 signal health_update(percent: float)
 signal broken
 signal break_update(percent: float)
+## called when WaveManager is the one spawning in the enemy. if it was 
+signal spawned()
 
 @export var _base_speed: float = 5.0
 @export var faction: Faction = Faction.NEUTRAL

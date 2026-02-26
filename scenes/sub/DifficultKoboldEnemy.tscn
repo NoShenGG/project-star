@@ -24,6 +24,9 @@
 [ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="21_hyoos"]
 [ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="22_k5lyv"]
 [ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="23_qncd1"]
+[ext_resource type="Script" uid="uid://b7pj5dra8sjgx" path="res://scripts/entities/DeathVFX.gd" id="25_7nahu"]
+[ext_resource type="Script" uid="uid://dxy6p70rncayl" path="res://scripts/entities/SpawnVFX.gd" id="26_6rlsh"]
+[ext_resource type="PackedScene" uid="uid://dtrpcl1nasika" path="res://VFX/enemySummonFX.tscn" id="27_jaab8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1ibp7"]
 radius = 0.995
@@ -1161,7 +1164,7 @@ states/Start/position = Vector2(73, 166)
 transitions = ["Walk Forward", "Hurt", SubResource("AnimationNodeStateMachineTransition_sqo6n"), "Hurt", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_bwcbt"), "Walk Forward", "Slash", SubResource("AnimationNodeStateMachineTransition_bfl6e"), "Slash", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_1ibp7"), "Slash", "Death", SubResource("AnimationNodeStateMachineTransition_6vm5w"), "Walk Forward", "Death", SubResource("AnimationNodeStateMachineTransition_pa7ii"), "Slash", "Idle", SubResource("AnimationNodeStateMachineTransition_hskl7"), "Walk Forward", "Idle", SubResource("AnimationNodeStateMachineTransition_0fawd"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_cqf5t"), "Idle", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_ydysj"), "Idle", "Slash", SubResource("AnimationNodeStateMachineTransition_5xf2e"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_jbtjh"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_nnkb1")]
 graph_offset = Vector2(-44, -106)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_k5lyv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7nahu"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sqo6n"]
@@ -1170,29 +1173,47 @@ size = Vector3(4, 2, 4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0qgj4"]
 size = Vector3(9, 2, 9)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x32kg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hkfm"]
 transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.59607846)
 
-[sub_resource type="Curve" id="Curve_7nahu"]
+[sub_resource type="Curve" id="Curve_5n8xg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m4apj"]
+curve = SubResource("Curve_5n8xg")
+
+[sub_resource type="Curve" id="Curve_xmj46"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7659185, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n7xiu"]
+curve = SubResource("Curve_xmj46")
+
+[sub_resource type="Curve" id="Curve_qm2ua"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_cqf5t"]
-curve = SubResource("Curve_7nahu")
+[sub_resource type="CurveTexture" id="CurveTexture_bn177"]
+curve = SubResource("Curve_qm2ua")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6rlsh"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q2txv"]
 direction = Vector3(0, 0.5, 1)
 initial_velocity_min = 6.0
 initial_velocity_max = 10.0
 scale_min = 0.79999995
 scale_max = 1.3
-scale_curve = SubResource("CurveTexture_cqf5t")
+scale_curve = SubResource("CurveTexture_bn177")
+alpha_curve = SubResource("CurveTexture_m4apj")
+emission_curve = SubResource("CurveTexture_n7xiu")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xf2e"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4u8kd"]
+transparency = 1
 shading_mode = 0
+vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("23_qncd1")
 billboard_mode = 3
 billboard_keep_scale = true
@@ -1200,8 +1221,29 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_jaab8"]
-material = SubResource("StandardMaterial3D_5xf2e")
+[sub_resource type="QuadMesh" id="QuadMesh_k7cla"]
+material = SubResource("StandardMaterial3D_4u8kd")
+
+[sub_resource type="Curve" id="Curve_yxlfs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cqf5t"]
+curve = SubResource("Curve_yxlfs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_50pev"]
+direction = Vector3(0, 1, 0)
+spread = 85.0
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_cqf5t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7nahu"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 0)
 
 [node name="KoboldEnemy" type="CharacterBody3D" unique_id=807260650]
 collision_layer = 10
@@ -1314,16 +1356,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="GeneralSkeleton" parent="Kobold/Armature" index="0" unique_id=1728353589]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-4.6599014e-09, 0.9968338, 0.07951446, 7.535394e-08)
-bones/1/rotation = Quaternion(0.09107938, 0.0034387456, -0.00021992021, 0.99583775)
-bones/2/rotation = Quaternion(0.094008684, -0.0037792418, -0.00024241349, 0.9955642)
-bones/4/rotation = Quaternion(0.26587066, 0.0278756, -0.5630815, 0.78196865)
+bones/0/rotation = Quaternion(-4.559113e-09, 0.99693924, 0.07818115, 7.5360106e-08)
+bones/1/rotation = Quaternion(0.09241118, 0.0034390371, -0.00021532078, 0.995715)
+bones/2/rotation = Quaternion(0.09532459, -0.0037766704, -0.00023858031, 0.99543905)
+bones/4/rotation = Quaternion(0.3047197, -0.000374332, -0.5637708, 0.7676642)
 bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.043196995, 0.98099875)
 bones/6/rotation = Quaternion(0.054868486, 0.74948096, 0.015322978, 0.6595702)
-bones/7/rotation = Quaternion(0.10232114, -0.0002975938, -0.00072026765, 0.99475116)
-bones/8/rotation = Quaternion(-0.078734696, -0.00035211057, -0.0004932639, 0.9968955)
+bones/7/rotation = Quaternion(0.1003553, -0.0002961697, -0.0007208544, 0.99495137)
+bones/8/rotation = Quaternion(-0.08070445, -0.00035308444, -0.00049256685, 0.9967379)
 bones/9/rotation = Quaternion(-0.09260436, -0.17117505, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.2717311, -0.019720629, 0.5426753, 0.79452926)
+bones/10/rotation = Quaternion(0.22500563, -0.051286425, 0.5406062, 0.80900383)
 bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.0123480745, 0.97225493)
 bones/12/rotation = Quaternion(-5.8199273e-08, -0.751264, -5.181667e-08, 0.66000193)
 bones/13/rotation = Quaternion(0.10849718, -0.08205278, 0.9894506, -0.04983335)
@@ -1339,7 +1381,7 @@ bones/21/rotation = Quaternion(0.13793416, -4.2176818e-10, 0.0009505738, 0.99044
 surface_material_override/0 = SubResource("StandardMaterial3D_n5mpu")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4" unique_id=1617574229]
-transform = Transform3D(-0.38071215, -0.29054144, 0.8778633, -0.31382006, -0.8524155, -0.41821665, 0.8698132, -0.4347115, 0.23334725, -0.5667865, 0.8370788, -0.11239674)
+transform = Transform3D(-0.4061947, -0.26377794, 0.87488693, -0.3908363, -0.8152858, -0.42726654, 0.8259859, -0.515491, 0.2280707, -0.5544034, 0.84612066, -0.17662266)
 bone_name = "Hand.L"
 bone_idx = 6
 
@@ -1453,7 +1495,7 @@ event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 
 [node name="StatusBars" parent="." unique_id=769480112 instance=ExtResource("15_2hkfm")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 4.336514, 0)
-texture = SubResource("ViewportTexture_k5lyv")
+texture = SubResource("ViewportTexture_7nahu")
 
 [node name="Hitbox" type="Area3D" parent="." unique_id=612576580]
 collision_mask = 2
@@ -1475,25 +1517,63 @@ metadata/_custom_type_script = "uid://c1iptw5vqre6f"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_0qgj4")
 
-[node name="Hurt" type="Node3D" parent="." unique_id=1891128801 node_paths=PackedStringArray("vfx", "meshes_root")]
+[node name="Hurt" type="Node3D" parent="." unique_id=1554626316 node_paths=PackedStringArray("vfx", "meshes_root")]
 script = ExtResource("21_hyoos")
 vfx = NodePath("Hurt VFX")
-meshes_root = NodePath("../Kobold/Armature")
-hurt_overlay = SubResource("StandardMaterial3D_x32kg")
+meshes_root = NodePath("../Kobold")
+hurt_overlay = SubResource("StandardMaterial3D_2hkfm")
+flash_duration = 0.5
 
-[node name="Hurt VFX" type="Node3D" parent="Hurt" unique_id=1695818680 node_paths=PackedStringArray("particles")]
+[node name="Hurt VFX" type="Node3D" parent="Hurt" unique_id=1905446861 node_paths=PackedStringArray("particles")]
 script = ExtResource("22_k5lyv")
 particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX" unique_id=44892573]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX" unique_id=1249470209]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
 emitting = false
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_6rlsh")
-draw_pass_1 = SubResource("QuadMesh_jaab8")
+process_material = SubResource("ParticleProcessMaterial_q2txv")
+draw_pass_1 = SubResource("QuadMesh_k7cla")
+
+[node name="Death" type="Node3D" parent="." unique_id=352207397 node_paths=PackedStringArray("vfx", "meshes_root")]
+script = ExtResource("25_7nahu")
+vfx = NodePath("Death VFX")
+meshes_root = NodePath("../Kobold")
+hurt_overlay = SubResource("StandardMaterial3D_2hkfm")
+flash_duration = 3.0
+death_delay = 2.0
+death_time = 2.0
+fade_out = false
+
+[node name="Death VFX" type="Node3D" parent="Death" unique_id=1690819195 node_paths=PackedStringArray("particles")]
+script = ExtResource("22_k5lyv")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
+metadata/_custom_type_script = "uid://hrugoc51xhma"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Death/Death VFX" unique_id=331079847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
+emitting = false
+amount = 17
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_50pev")
+draw_pass_1 = SubResource("QuadMesh_k7cla")
+
+[node name="Spawned" type="Node3D" parent="." unique_id=321404575 node_paths=PackedStringArray("vfx", "meshes_root", "_meshes")]
+process_mode = 3
+script = ExtResource("26_6rlsh")
+vfx = NodePath("enemySummonFX")
+meshes_root = NodePath("../Kobold")
+_meshes = [NodePath("../Kobold/Armature/GeneralSkeleton/Cube"), NodePath("../Kobold/Armature/GeneralSkeleton/Cube_004"), NodePath("../Kobold/Armature/GeneralSkeleton/Cube_006"), NodePath("../Kobold/Armature/GeneralSkeleton/Plane_003"), NodePath("../Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase/Cube_001")]
+hurt_overlay = SubResource("StandardMaterial3D_7nahu")
+flash_duration = 0.75
+
+[node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("27_jaab8")]
+lifetime = 1.25
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
@@ -1512,3 +1592,4 @@ draw_pass_1 = SubResource("QuadMesh_jaab8")
 [connection signal="stop" from="Kobold/Die" to="Kobold/Die/Grass Change" method="stop"]
 
 [editable path="Kobold"]
+[editable path="Spawned/enemySummonFX"]
