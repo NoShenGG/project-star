@@ -6,8 +6,9 @@ extends Control
 ## the magnitude of the scale at a time
 @export var bounce_size : Curve = Curve.new()
 ## how long the bounce animation will last
-@export var lifetime : float = 0.3
-var _bounce_call_count : int
+@export var lifetime : float = 0.2
+var tween: Tween
+var bounce_count : int
 var og_scale : Vector2
 var fire_og_scale: Vector2
 
@@ -26,23 +27,24 @@ func _process(_delta: float) -> void:
 
 func combo_inc():
 	combo += 1
+	bounce_count += 1
+	if bounce_count == 1:
+		tween_bounce()
 	fire.scale = fire_og_scale * min(floor(combo/10)/5.0, 1)
 	timer.start()
-	bounce()
 	
 func combo_reset():
 	combo += 0
 	fire.scale = fire_og_scale
 
-
-func bounce():
-	var time = 0
-	
-	_bounce_call_count += 1
-	var cur_bounce_id = _bounce_call_count
-	while(time < lifetime):
-		text.scale = og_scale * bounce_size.sample(time / lifetime)
-		await get_tree().process_frame
-		if (cur_bounce_id != _bounce_call_count): break
-		time += get_process_delta_time()
-	_bounce_call_count -= 1
+func tween_bounce() -> void:
+	if tween != null: # If tween doesnt exist, its the init call
+		bounce_count -= 1
+	if bounce_count > 0: # If has bounces left, start next
+		print("here")
+		tween = get_tree().create_tween()
+		tween.tween_method(func(step): text.scale = og_scale * bounce_size.sample(step),
+				 0.0, 1.0, lifetime)
+		tween.tween_callback(tween_bounce)
+	else: # else clear tween
+		tween = null

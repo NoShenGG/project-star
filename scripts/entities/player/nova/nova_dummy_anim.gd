@@ -12,8 +12,9 @@ func attack() -> void:
 	attack_done.emit()
 	
 func attack_charged() -> void:
+	print("heweraeraeofjaopejgpewajo")
 	for i in range(3):
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.3).timeout
 		attack_charged_hit.emit()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.1).timeout
 	attack_charged_done.emit()

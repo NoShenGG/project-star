@@ -36,7 +36,7 @@
 [ext_resource type="Material" uid="uid://b63soivu73rcy" path="res://art_assets/characters/Rene/model_cloak.material" id="32_wjvim"]
 [ext_resource type="Material" uid="uid://dmxs1gpt55tsj" path="res://art_assets/characters/Rene/model_reneFBXASC032hairFBXASC046001.material" id="33_cjioh"]
 [ext_resource type="Material" uid="uid://c1823ynnjpdvi" path="res://art_assets/characters/Rene/model_Material.material" id="34_py2kl"]
-[ext_resource type="PackedScene" path="res://VFX/dashFX.tscn" id="37_o1ymb"]
+[ext_resource type="PackedScene" uid="uid://bj2tgvkpsohid" path="res://vfx/dashFX.tscn" id="37_o1ymb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
 
@@ -216,13 +216,10 @@ script = ExtResource("1_njlal")
 ui_counters = [NodePath("ReneUI/HBoxContainer/Center/Charge1"), NodePath("ReneUI/HBoxContainer/Center2/Charge2"), NodePath("ReneUI/HBoxContainer/Center3/Charge3"), NodePath("ReneUI/HBoxContainer/Center4/Charge4")]
 construct = NodePath("Hitboxes/Construct")
 targetting_box = NodePath("Hitboxes/Vision")
-max_click_time = null
-attack_charge_time = null
-max_attack_charges = null
-combo_reset_time = null
+max_click_time = 0.4
+attack_charge_time = 0.8
 max_special_charges = 2
 special_cd = 10.0
-input_smoothing_speed = null
 dash_distance = 7.0
 _base_speed = -0.5
 faction = 0
@@ -524,20 +521,20 @@ fade_out = SubResource("Curve_r8iwf")
 [node name="rene" parent="." unique_id=1073875666 instance=ExtResource("26_27ayv")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
 
-[node name="model_body" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1390848865) index="1" unique_id=264668777]
+[node name="model_body" parent="rene/Skeleton3D" index="1"]
 surface_material_override/0 = ExtResource("27_2qu1h")
 surface_material_override/1 = ExtResource("28_o1ymb")
 surface_material_override/2 = ExtResource("29_v1pct")
 surface_material_override/3 = ExtResource("30_ffpnw")
 surface_material_override/4 = ExtResource("31_pgxqw")
 
-[node name="model_coat" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1390848865) index="2" unique_id=246711448]
+[node name="model_coat" parent="rene/Skeleton3D" index="2"]
 surface_material_override/0 = ExtResource("32_wjvim")
 
-[node name="model_hair" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1390848865) index="3" unique_id=324573479]
+[node name="model_hair" parent="rene/Skeleton3D" index="3"]
 surface_material_override/0 = ExtResource("33_cjioh")
 
-[node name="model_staff" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1390848865) index="4" unique_id=592016717]
+[node name="model_staff" parent="rene/Skeleton3D" index="4"]
 surface_material_override/0 = ExtResource("34_py2kl")
 
 [node name="AnimationTree" type="AnimationTree" parent="rene" unique_id=333013972]
