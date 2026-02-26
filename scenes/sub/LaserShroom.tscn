@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bopvog2l4xqc" path="res://scenes/dev/ZXue/LaserShroom/state_lockon.gd" id="5_s1jrn"]
 [ext_resource type="Script" uid="uid://dfduxqv1wui16" path="res://scenes/dev/ZXue/LaserShroom/state_fire.gd" id="6_sbhox"]
 [ext_resource type="Script" uid="uid://dtitauqx0skm" path="res://scenes/dev/ZXue/LaserShroom/state_hide.gd" id="7_eqsdo"]
+[ext_resource type="Script" uid="uid://812k18g6fo3h" path="res://scripts/entities/player/haptic/StateHapticCaller.gd" id="7_fl1jj"]
 [ext_resource type="Material" uid="uid://eaw3fdki5ha1" path="res://art_assets/environment/demo/Models/goldDemo.tres" id="7_iil6r"]
 [ext_resource type="Material" uid="uid://dpp3p3xiu4weh" path="res://art_assets/environment/demo/Models/glowDemo.tres" id="8_27v6w"]
 [ext_resource type="Script" uid="uid://bkgp46pi8byeg" path="res://scenes/dev/ZXue/LaserShroom/state_broken.gd" id="8_arhvd"]
@@ -15,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="13_g51g3"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="14_js430"]
 [ext_resource type="PackedScene" uid="uid://cf5t6lmcuvytc" path="res://art_assets/enemies/shrooms/laser_shroom.glb" id="15_1eeap"]
-[ext_resource type="PackedScene" path="res://VFX/laserAttackFX.tscn" id="16_6ayco"]
+[ext_resource type="PackedScene" uid="uid://bxf0bqm6vq8x4" path="res://VFX/laserAttackFX.tscn" id="16_6ayco"]
 [ext_resource type="Script" uid="uid://dxy6p70rncayl" path="res://scripts/entities/SpawnVFX.gd" id="17_rmnni"]
 [ext_resource type="PackedScene" uid="uid://dtrpcl1nasika" path="res://VFX/enemySummonFX.tscn" id="18_cjmyr"]
 [ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="19_5xcys"]
@@ -95,10 +96,10 @@ vertex_color_is_srgb = true
 [sub_resource type="SphereMesh" id="SphereMesh_pqvp8"]
 material = SubResource("StandardMaterial3D_6ayco")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rmnni"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5ofen"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ln7ek"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5l70"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 0)
@@ -249,6 +250,14 @@ event_name = "event:/Enemys/LaserShroom/LaserShroom Lasering"
 event_guid = "{2d32b878-96cf-485a-a96d-4a58bf1cd91d}"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3116798, -10.158032)
 
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/fire" unique_id=600642629]
+script = ExtResource("7_fl1jj")
+small_motor = 0.2
+large_motor = 0.5
+duration_sec = 0.7
+delay_sec = 0.05
+metadata/_custom_type_script = "uid://812k18g6fo3h"
+
 [node name="hide" type="Node" parent="StateMachine" unique_id=532918790 node_paths=PackedStringArray("post_hide_state")]
 script = ExtResource("7_eqsdo")
 post_hide_state = NodePath("../approach")
@@ -302,7 +311,7 @@ draw_pass_1 = SubResource("SphereMesh_pqvp8")
 
 [node name="StatusBars" parent="." unique_id=765670220 instance=ExtResource("13_g51g3")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.6692805, 0)
-texture = SubResource("ViewportTexture_rmnni")
+texture = SubResource("ViewportTexture_5ofen")
 
 [node name="DissolveFX" parent="." unique_id=1938342030 node_paths=PackedStringArray("meshes") instance=ExtResource("14_js430")]
 meshes = [null]
@@ -319,20 +328,20 @@ script = ExtResource("17_rmnni")
 vfx = NodePath("enemySummonFX")
 meshes_root = NodePath("../laser_shroom")
 _meshes = [NodePath("../laser_shroom/body"), NodePath("../laser_shroom/helmet")]
-hurt_overlay = SubResource("StandardMaterial3D_ln7ek")
+hurt_overlay = SubResource("StandardMaterial3D_s5l70")
 flash_duration = 2.0
 
 [node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("18_cjmyr")]
 lifetime = 1.25
 
 [node name="GPUParticles3D" parent="Spawned/enemySummonFX" index="0" unique_id=797663744]
-lifetime = 1.8800000000000001
+lifetime = 1.88
 
 [node name="GPUParticles3D2" parent="Spawned/enemySummonFX" index="1" unique_id=726252779]
-lifetime = 1.8800000000000001
+lifetime = 1.88
 
 [node name="GPUParticles3D3" parent="Spawned/enemySummonFX" index="2" unique_id=2013747253]
-lifetime = 1.8800000000000001
+lifetime = 1.88
 
 [node name="FmodEventEmitter3D" parent="Spawned/enemySummonFX" index="3" unique_id=1296561884]
 event_name = "event:/Enemys/Spawned Big"

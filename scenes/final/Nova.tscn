@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://divq6voanp8gg" path="res://scripts/entities/player/nova/states/nova_special.gd" id="8_uws5v"]
 [ext_resource type="Script" uid="uid://b2cb5sd2b4epw" path="res://scripts/entities/state_grass_size_change.gd" id="8_vrbf8"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="9_8b4uh"]
+[ext_resource type="Script" uid="uid://812k18g6fo3h" path="res://scripts/entities/player/haptic/StateHapticCaller.gd" id="9_mm718"]
 [ext_resource type="Script" uid="uid://dc7b5xuh33cje" path="res://scripts/entities/player/nova/states/nova_special_wait.gd" id="10_8qhfg"]
 [ext_resource type="Script" uid="uid://gui8m2w4ihx1" path="res://scripts/entities/player/nova/states/nova_special_dash.gd" id="10_ob225"]
 [ext_resource type="Script" uid="uid://cw3b5sywe4lom" path="res://scripts/entities/player/nova/states/nova_swap_in.gd" id="11_1o1ys"]
@@ -31,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://bj2tgvkpsohid" path="res://VFX/dashFX.tscn" id="32_6qoku"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrails/defaults/texture.tres" id="32_ajeah"]
 [ext_resource type="Script" uid="uid://drugjbbmd0wed" path="res://scripts/entities/SlashVFX.gd" id="33_ajeah"]
+[ext_resource type="Script" uid="uid://c2h87hwcx212b" path="res://scripts/entities/player/haptic/HapticCaller.gd" id="34_ajeah"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="36_n6rgu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
@@ -7331,6 +7333,12 @@ animation = NodePath("../../nova/Dash")
 event_name = "event:/Player/Uniques/Dash/Nova Dash"
 event_guid = "{dd5394a4-c0c1-4096-ab2f-c20fc1817bc0}"
 
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/Dash" unique_id=450670232]
+script = ExtResource("9_mm718")
+large_motor = 0.0
+duration_sec = 0.1
+metadata/_custom_type_script = "uid://812k18g6fo3h"
+
 [node name="Moving" type="Node" parent="StateMachine" unique_id=1626460492]
 script = ExtResource("5_lfcoe")
 
@@ -7356,6 +7364,12 @@ script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
 
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/Attacking/Slash0" unique_id=1616892116]
+script = ExtResource("9_mm718")
+duration_sec = 0.1
+delay_sec = 0.2
+metadata/_custom_type_script = "uid://812k18g6fo3h"
+
 [node name="Slash1" type="Node" parent="StateMachine/Attacking" unique_id=331139195 node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 hitbox = NodePath("../../../Hitboxes/Slash")
@@ -7370,6 +7384,12 @@ event_guid = "{4162234c-ed08-4ddd-91e2-651079e29ba1}"
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
+
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/Attacking/Slash1" unique_id=1220337517]
+script = ExtResource("9_mm718")
+duration_sec = 0.1
+delay_sec = 0.2
+metadata/_custom_type_script = "uid://812k18g6fo3h"
 
 [node name="Slam2" type="Node" parent="StateMachine/Attacking" unique_id=1790790388 node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
@@ -7388,6 +7408,12 @@ script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
 
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/Attacking/Slam2" unique_id=1189257353]
+script = ExtResource("9_mm718")
+duration_sec = 0.1
+delay_sec = 0.2
+metadata/_custom_type_script = "uid://812k18g6fo3h"
+
 [node name="Poke3" type="Node" parent="StateMachine/Attacking" unique_id=1113201392 node_paths=PackedStringArray("hitbox", "animation")]
 script = ExtResource("7_ob225")
 speed_scale_factor = 1.2
@@ -7404,6 +7430,12 @@ event_guid = "{e405defb-cb6f-4189-b714-9b97c60532b4}"
 script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
+
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/Attacking/Poke3" unique_id=1685240387]
+script = ExtResource("9_mm718")
+duration_sec = 0.1
+delay_sec = 0.2
+metadata/_custom_type_script = "uid://812k18g6fo3h"
 
 [node name="Sweep4" type="Node" parent="StateMachine/Attacking" unique_id=1072540040 node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
 script = ExtResource("7_ob225")
@@ -7423,12 +7455,25 @@ script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.0
 
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/Attacking/Sweep4" unique_id=544041568]
+script = ExtResource("9_mm718")
+duration_sec = 0.1
+delay_sec = 0.2
+metadata/_custom_type_script = "uid://812k18g6fo3h"
+
 [node name="Charging" type="Node" parent="StateMachine" unique_id=2067014592]
 script = ExtResource("7_w7jsq")
 
 [node name="Charging SFX" type="FmodEventEmitter3D" parent="StateMachine/Charging" unique_id=1268804865]
 event_name = "event:/Player/Uniques/Charging/Nova Charging"
 event_guid = "{ae35a316-7807-4d22-94f3-798abfea4c5d}"
+
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/Charging" unique_id=1651427658]
+script = ExtResource("9_mm718")
+small_motor = 0.01
+large_motor = 0.0
+duration_sec = 0.1
+metadata/_custom_type_script = "uid://812k18g6fo3h"
 
 [node name="AttackingCharged" type="Node" parent="StateMachine" unique_id=1409388114 node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
 script = ExtResource("7_ob225")
@@ -7448,6 +7493,13 @@ script = ExtResource("8_vrbf8")
 delay = 0.02
 grass_displacement_size = 2.5
 
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/AttackingCharged" unique_id=1009961206]
+script = ExtResource("9_mm718")
+large_motor = 0.4
+duration_sec = 0.5
+delay_sec = 0.2
+metadata/_custom_type_script = "uid://812k18g6fo3h"
+
 [node name="ChargingSpecial" type="Node" parent="StateMachine" unique_id=2078202830]
 script = ExtResource("9_8b4uh")
 
@@ -7458,6 +7510,11 @@ event_guid = "{e4a573a3-fa40-480b-b89e-13d53a72b5de}"
 [node name="Charging Special SFX" type="FmodEventEmitter3D" parent="StateMachine/ChargingSpecial" unique_id=1570345679]
 event_name = "event:/Player/Uniques/Charging Specaial/Nova Charging Special"
 event_guid = "{92ba1217-e96b-4b27-8d6a-be5b84852145}"
+
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/ChargingSpecial" unique_id=924989065]
+script = ExtResource("9_mm718")
+duration_sec = 0.1
+metadata/_custom_type_script = "uid://812k18g6fo3h"
 
 [node name="Special" type="Node" parent="StateMachine" unique_id=1518892482 node_paths=PackedStringArray("special_state", "wait_state")]
 script = ExtResource("8_uws5v")
@@ -7474,13 +7531,27 @@ animation = NodePath("../../../nova/Special")
 event_name = "event:/Player/Uniques/Special Attack/Nova Charged Attack"
 event_guid = "{fa6cb029-0401-4fe9-912c-cd975a2e4368}"
 
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/Special/SpecialDash" unique_id=1755880762]
+script = ExtResource("9_mm718")
+metadata/_custom_type_script = "uid://812k18g6fo3h"
+
 [node name="SpecialWait" type="Node" parent="StateMachine/Special" unique_id=952203556 node_paths=PackedStringArray("animation")]
 script = ExtResource("10_8qhfg")
 animation = NodePath("../../../nova/Charging Special")
 duration = 0.35
 
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/Special/SpecialWait" unique_id=1844208015]
+script = ExtResource("9_mm718")
+duration_sec = 0.4
+metadata/_custom_type_script = "uid://812k18g6fo3h"
+
 [node name="SwapIn" type="Node" parent="StateMachine" unique_id=84980597]
 script = ExtResource("11_1o1ys")
+
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/SwapIn" unique_id=672238237]
+script = ExtResource("9_mm718")
+duration_sec = 0.1
+metadata/_custom_type_script = "uid://812k18g6fo3h"
 
 [node name="SwapOut" type="Node" parent="StateMachine" unique_id=351440247]
 script = ExtResource("12_cfkss")
@@ -7496,6 +7567,13 @@ stun_duration = 0.5
 script = ExtResource("17_gedrv")
 snap_turn_to_player = true
 animation = NodePath("../../nova/Die")
+
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/Dead" unique_id=625333006]
+script = ExtResource("9_mm718")
+small_motor = 0.3
+large_motor = 0.4
+duration_sec = 0.1
+metadata/_custom_type_script = "uid://812k18g6fo3h"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1820971115]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77, 0)
@@ -7556,6 +7634,10 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Vision" unique_id=2027726091]
 shape = SubResource("CylinderShape3D_ob225")
 
+[node name="Hurt HapticCaller" type="Node3D" parent="." unique_id=1006862430]
+script = ExtResource("34_ajeah")
+metadata/_custom_type_script = "uid://c2h87hwcx212b"
+
 [node name="Hurt SFX" type="FmodEventEmitter3D" parent="." unique_id=1746505905]
 event_name = "event:/Player/Uniques/Hurt/Nova Hurt"
 event_guid = "{220c3cb7-af5f-4662-90c5-1a103656ae58}"
@@ -7605,12 +7687,12 @@ bones/10/position = Vector3(0.007249624, 0, 0)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.07567754, 0.5265829, -0.50681955, 0.67831945)
-bones/15/rotation = Quaternion(-0.15368928, 0.54167885, 0.22935815, 0.7939512)
-bones/16/rotation = Quaternion(-0.5160544, -0.46709105, -0.22824535, 0.68074805)
-bones/21/rotation = Quaternion(-0.12966247, 0.40295637, -0.47421262, 0.77196914)
-bones/22/rotation = Quaternion(-0.05510543, 0.32170004, 0.16756889, 0.9302651)
-bones/23/rotation = Quaternion(0.10736564, 0.13299637, -0.07497825, 0.98242706)
+bones/14/rotation = Quaternion(-0.06565391, 0.5224036, -0.50646645, 0.6828439)
+bones/15/rotation = Quaternion(-0.16712593, 0.56315774, 0.23344639, 0.77487105)
+bones/16/rotation = Quaternion(-0.5056265, -0.47242334, -0.257822, 0.67430407)
+bones/21/rotation = Quaternion(-0.14643967, 0.37834084, -0.46064806, 0.7894409)
+bones/22/rotation = Quaternion(-0.07249003, 0.37224513, 0.18410324, 0.9067992)
+bones/23/rotation = Quaternion(0.14339773, 0.10856014, -0.0796982, 0.98045915)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
@@ -7618,7 +7700,7 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.3503298, 0.70627004, 0.06136587, 0.6121159)
+bones/38/rotation = Quaternion(-0.34963566, 0.7066124, 0.061967984, 0.612057)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
@@ -7642,7 +7724,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_oc7x5")
 surface_material_override/0 = SubResource("ShaderMaterial_0ksem")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.004114893, -0.56998944, 0.8216417, -0.42110598, 0.746231, 0.51556665, -0.907002, -0.34387675, -0.24309659, 0.006036993, 0.00719906, -0.013196075)
+transform = Transform3D(-0.0052309493, -0.5699802, 0.8216416, -0.4196366, 0.7470569, 0.5155686, -0.907677, -0.34209406, -0.24309242, 0.0060195583, 0.0072220447, -0.013206557)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 
@@ -7768,6 +7850,7 @@ meshes = [NodePath("../nova/Skeleton3D/nova_rig_jacket"), NodePath("../nova/Skel
 [node name="dashFX" parent="." unique_id=1290950531 instance=ExtResource("32_6qoku")]
 
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
+[connection signal="hurt" from="." to="Hurt HapticCaller" method="call_haptic" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
 [connection signal="special_available" from="." to="Special Ready" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Idle" to="nova/Idle" method="enter"]

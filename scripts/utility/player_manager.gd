@@ -84,6 +84,30 @@ func _process(_delta: float) -> void:
 			swap_char(1)
 		elif (Input.is_action_just_pressed("select_char3") and stage >= 2):
 			swap_char(2)
+		
+		if (Input.is_action_just_pressed("next_char")):
+			print("current character is " + str((players.find(current_char))))
+			var new_index : int = (players.find(current_char) + 1) % (players.size())
+			print("swapping character to " + str(new_index))
+			match new_index:
+				0:
+					swap_char(0)
+				1:
+					if (stage >= 1): swap_char(1)
+					print("nova")
+				2:
+					if (stage >= 2): swap_char(2)
+		if (Input.is_action_just_pressed("prev_char")):
+			print("current character is " + str((players.find(current_char))))
+			var new_index : int = players.size() - 1 if (players.find(current_char) - 1) < 0 else players.find(current_char) - 1
+			print("swapping character to " + str(new_index))
+			match new_index:
+				0:
+					swap_char(0)
+				1:
+					if (stage >= 1): swap_char(1)
+				2:
+					if (stage >= 2): swap_char(2)
 	
 	## this line works because the players are top_level. 
 	## allowing external code to be able to see the player still in edgecases
