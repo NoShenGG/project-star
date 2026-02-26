@@ -19,7 +19,6 @@ func enter(_prev_state: String, _data := {}) -> void:
 	super(_prev_state, _data)
 	hitbox.monitoring = true
 	active = true
-	entered.emit()
 	if (damage_on_enter):
 		do_damage()
 	
