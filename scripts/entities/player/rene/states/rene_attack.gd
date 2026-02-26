@@ -21,6 +21,7 @@ func enter(_prev_state: String, _data := {}) -> void:
 	shot.global_transform = rene.global_transform
 	shot.damage = damage * rene.damage_mult
 	shot.hit.connect(func(): rene.counters += 1)
+	shot.hit.connect(rene.enemy_hit.emit)
 	rene.add_child(shot)
 	await animation_finished
 	end()

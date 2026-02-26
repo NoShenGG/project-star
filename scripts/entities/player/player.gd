@@ -5,6 +5,7 @@ class_name Player extends Entity
 signal player_dashed
 signal special_cooldown_update(percent: float)
 signal special_available
+signal enemy_hit
 
 @onready var player_manager: PlayerManager = owner as PlayerManager
 

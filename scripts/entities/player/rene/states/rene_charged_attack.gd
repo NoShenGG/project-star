@@ -41,6 +41,7 @@ func enter(_prev_state: String, _data := {}) -> void:
 		for thing: Enemy in enemies:
 			thing.try_damage(damage * rene.damage_mult * pow(1.2, rene.counters))
 		hitbox.monitoring = false
+		rene.enemy_hit.emit()
 	
 func update(_delta: float) -> void:
 	pass

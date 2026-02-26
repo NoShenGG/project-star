@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://8l57dsfm2da5" path="res://scripts/entities/player/nova/states/nova_attack.gd" id="7_ob225"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_w7jsq"]
 [ext_resource type="Script" uid="uid://divq6voanp8gg" path="res://scripts/entities/player/nova/states/nova_special.gd" id="8_uws5v"]
-[ext_resource type="Script" uid="uid://b2cb5sd2b4epw" path="res://scripts/entities/state_grass_size_change.gd" id="8_vrbf8"]
+[ext_resource type="Script" path="res://scripts/entities/state_grass_size_change.gd" id="8_vrbf8"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="9_8b4uh"]
 [ext_resource type="Script" uid="uid://dc7b5xuh33cje" path="res://scripts/entities/player/nova/states/nova_special_wait.gd" id="10_8qhfg"]
 [ext_resource type="Script" uid="uid://gui8m2w4ihx1" path="res://scripts/entities/player/nova/states/nova_special_dash.gd" id="10_ob225"]
@@ -7591,7 +7591,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.155, 0)
 [node name="nova" parent="." unique_id=1395090033 instance=ExtResource("28_8qhfg")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
 
-[node name="Skeleton3D" parent="nova" index="0" unique_id=1156861599]
+[node name="Skeleton3D" parent="nova" index="0"]
 bones/2/rotation = Quaternion(0.39593133, 0.24977413, 0.68152446, 0.56247294)
 bones/3/rotation = Quaternion(-0.00029652417, -0.0756327, 0.0068116817, 0.99711245)
 bones/5/position = Vector3(0.0025945704, -0.00054700946, 0.00058215286)
@@ -7604,12 +7604,12 @@ bones/10/position = Vector3(0.007249624, 0, 0)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.068069175, 0.5236096, -0.50632507, 0.6817878)
-bones/15/rotation = Quaternion(-0.16115329, 0.5537831, 0.23172499, 0.78336287)
-bones/16/rotation = Quaternion(-0.5101076, -0.46717247, -0.24706045, 0.6786025)
-bones/21/rotation = Quaternion(-0.14813773, 0.391881, -0.45801777, 0.7840308)
-bones/22/rotation = Quaternion(-0.06624241, 0.35498226, 0.17857388, 0.9152656)
-bones/23/rotation = Quaternion(0.1406959, 0.11327043, -0.07336847, 0.9808118)
+bones/14/rotation = Quaternion(-0.07407423, 0.5259614, -0.50671226, 0.67905843)
+bones/15/rotation = Quaternion(-0.1550244, 0.54387325, 0.22979768, 0.79206216)
+bones/16/rotation = Quaternion(-0.51501006, -0.46671835, -0.2319215, 0.68055207)
+bones/21/rotation = Quaternion(-0.13427131, 0.40131685, -0.4702902, 0.774431)
+bones/22/rotation = Quaternion(-0.05728881, 0.3284804, 0.16984272, 0.92734677)
+bones/23/rotation = Quaternion(0.11507931, 0.12859929, -0.074204795, 0.98219794)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
@@ -7617,15 +7617,15 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.34868112, 0.70708174, 0.06279546, 0.61197525)
+bones/38/rotation = Quaternion(-0.34982932, 0.70651704, 0.061800074, 0.6120735)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
-[node name="nova_rig_jacket" parent="nova/Skeleton3D" index="1" unique_id=994991286]
+[node name="nova_rig_jacket" parent="nova/Skeleton3D" index="1"]
 surface_material_override/0 = SubResource("ShaderMaterial_mm718")
 surface_material_override/1 = SubResource("ShaderMaterial_mm718")
 
-[node name="nova_rig_body" parent="nova/Skeleton3D" index="2" unique_id=1056847734]
+[node name="nova_rig_body" parent="nova/Skeleton3D" index="2"]
 surface_material_override/0 = SubResource("ShaderMaterial_ajeah")
 surface_material_override/1 = SubResource("ShaderMaterial_gedrv")
 surface_material_override/2 = SubResource("ShaderMaterial_n6rgu")
@@ -7634,14 +7634,14 @@ surface_material_override/4 = SubResource("ShaderMaterial_lk157")
 surface_material_override/5 = SubResource("ShaderMaterial_n0hbj")
 surface_material_override/6 = SubResource("ShaderMaterial_oc7x5")
 
-[node name="nova_rig_pauldrons" parent="nova/Skeleton3D" index="3" unique_id=965137311]
+[node name="nova_rig_pauldrons" parent="nova/Skeleton3D" index="3"]
 surface_material_override/0 = SubResource("ShaderMaterial_oc7x5")
 
-[node name="nova_rig_sword" parent="nova/Skeleton3D" index="4" unique_id=999313899]
+[node name="nova_rig_sword" parent="nova/Skeleton3D" index="4"]
 surface_material_override/0 = SubResource("ShaderMaterial_0ksem")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.006764251, -0.569964, 0.8216418, -0.41761437, 0.74818736, 0.5155714, -0.9085991, -0.33964193, -0.2430861, 0.0059956047, 0.007253678, -0.013220875)
+transform = Transform3D(-0.004919807, -0.5699831, 0.82164174, -0.42004666, 0.7468268, 0.51556814, -0.9074892, -0.3425914, -0.24309373, 0.006024419, 0.00721563, -0.01320364)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 
@@ -7662,7 +7662,7 @@ curve = SubResource("CurveTexture_0ksem")
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://bx10tuy8s55pq"
 
-[node name="AnimationPlayer" parent="nova" index="1" unique_id=864939013]
+[node name="AnimationPlayer" parent="nova" index="1"]
 deterministic = true
 libraries/ = SubResource("AnimationLibrary_5up7p")
 libraries/nova_animation_library = SubResource("AnimationLibrary_60tca")
