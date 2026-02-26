@@ -17,7 +17,7 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g0rg0"]
 radius = 10.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7n13j"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vaxoq"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Curve" id="Curve_qnj25"]
@@ -109,7 +109,7 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_hu004"]
 material = SubResource("StandardMaterial3D_ud8xd")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l12q4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqflu"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 0)
@@ -150,22 +150,22 @@ script = ExtResource("2_7n13j")
 
 [node name="StatusBars" parent="Node3D" unique_id=631191606 instance=ExtResource("2_g7w1c")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.035, 0)
-texture = SubResource("ViewportTexture_7n13j")
+texture = SubResource("ViewportTexture_vaxoq")
 
 [node name="slime" parent="." unique_id=1841772703 instance=ExtResource("3_jgdep")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Armature" parent="slime" index="0" unique_id=1995407556]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54404145, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8279934, 0)
 
 [node name="Skeleton3D" parent="slime/Armature" index="0" unique_id=60013278]
-bones/0/scale = Vector3(1.0253586, 0.66493386, 0.99592733)
+bones/0/scale = Vector3(0.9862092, 1.0059487, 1.0182276)
 
 [node name="skin2" parent="slime/Armature/Skeleton3D" index="1" unique_id=1233777885]
 visible = false
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="slime/Armature/Skeleton3D" index="2" unique_id=1577401257]
-transform = Transform3D(1.0253586, 0, 0, 0, 0.66493386, 0, 0, 0, 0.99592733, 0, 0, 0)
+transform = Transform3D(0.9862092, 0, 0, 0, 1.0059487, 0, 0, 0, 1.0182276, 0, 0, 0)
 bone_name = "Bone"
 bone_idx = 0
 
@@ -201,16 +201,16 @@ meshes_root = NodePath("../slime/Armature")
 hurt_overlay = SubResource("StandardMaterial3D_i62o6")
 
 [node name="Hurt SFX" type="FmodEventEmitter3D" parent="." unique_id=1083740479]
-event_name = "event:/Enemys/DracoSkele/DracoSkele Hit"
-event_guid = "{25833449-1b73-413e-9b21-c678c12fee73}"
+event_name = "event:/Enemys/Slime/Hurt"
+event_guid = "{443c20cf-ff32-4a01-9d6e-df97f676ee58}"
 
 [node name="Death SFX" type="FmodEventEmitter3D" parent="." unique_id=75358411]
-event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
-event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
+event_name = "event:/Enemys/Slime/Die"
+event_guid = "{c4835596-eba0-410e-b537-fce10d4a5be0}"
 
 [node name="Attack SFX" type="FmodEventEmitter3D" parent="." unique_id=1827332098]
-event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
-event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
+event_name = "event:/Enemys/Slime/Attack"
+event_guid = "{44386161-f609-4ed7-9378-267d02827ac3}"
 
 [node name="Death" type="Node3D" parent="." unique_id=496084609 node_paths=PackedStringArray("vfx", "meshes_root")]
 script = ExtResource("9_vaxoq")
@@ -242,8 +242,8 @@ process_mode = 3
 script = ExtResource("10_sqflu")
 vfx = NodePath("enemySummonFX")
 meshes_root = NodePath("../slime/Armature")
-_meshes = [NodePath("")]
-hurt_overlay = SubResource("StandardMaterial3D_l12q4")
+_meshes = [NodePath("../slime/Armature/Skeleton3D/skin1"), NodePath("../slime/Armature/Skeleton3D/skin2")]
+hurt_overlay = SubResource("StandardMaterial3D_sqflu")
 flash_duration = 0.75
 
 [node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("11_xiby0")]
