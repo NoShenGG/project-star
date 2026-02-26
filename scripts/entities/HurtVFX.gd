@@ -5,8 +5,10 @@ extends Node
 @export var meshes_root : Node3D
 var _meshes : Array[MeshInstance3D]
 @export var hurt_overlay : BaseMaterial3D
-@export_range(0.01,1, 0.01) var flash_duration : float = 0.1
-
+@export_range(0.01,2, 0.01) var flash_duration : float = 0.3
+@export var tween : bool = true
+var _overlay_tween : Tween
+@onready var original_a : float = hurt_overlay.albedo_color.a
 var flash_count : int = 0
 
 func _enter_tree() -> void:
@@ -40,7 +42,14 @@ func flash(duration : float, intensity : float):
 	for mesh in _meshes:
 		mesh.material_overlay = hurt_overlay
 	
-	hurt_overlay.albedo_color.a = 1
+	hurt_overlay.albedo_color.a = original_a
+	if (tween):
+		if (_overlay_tween): _overlay_tween.stop()
+		_overlay_tween = create_tween()
+		_overlay_tween.set_trans(_overlay_tween.TRANS_EXPO)
+		var new_albedo = hurt_overlay.albedo_color
+		new_albedo.a = 0
+		_overlay_tween.tween_property(hurt_overlay, "albedo_color", new_albedo, flash_duration)
 	await get_tree().create_timer(duration).timeout
 	## a new flash was called, we dont want to continue since the new one will handle it.
 	## disabling this will cause jittery flash during fast attacks

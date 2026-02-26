@@ -76,9 +76,10 @@ func start():
 		else:
 			instance.global_position = area.get_rand_point()
 			
-		var instanceFX : Node3D = summonFX.instantiate()
-		add_child(instanceFX)
-		instanceFX.global_position = instance.global_position
+		#var instanceFX : Node3D = summonFX.instantiate()
+		#add_child(instanceFX)
+		#instanceFX.global_position = instance.global_position
+		instance.spawned.emit.call_deferred()
 	started.emit()
 	
 # TODO: func start_staggered()

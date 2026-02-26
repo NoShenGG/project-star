@@ -15,7 +15,7 @@ func _ready():
 	if (Engine.is_editor_hint()): return
 	sword = get_parent()
 	start_pos = position
-	reparent(owner)
+	reparent.call_deferred(owner)
 	hide()
 
 func start():

@@ -112,16 +112,16 @@ texture = SubResource("ViewportTexture_7n13j")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Armature" parent="slime" index="0" unique_id=1995407556]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.913545, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8170718, 0)
 
 [node name="Skeleton3D" parent="slime/Armature" index="0" unique_id=60013278]
-bones/0/scale = Vector3(0.99461204, 0.9933362, 0.9942922)
+bones/0/scale = Vector3(0.98532605, 1.0069946, 1.0183669)
 
 [node name="skin2" parent="slime/Armature/Skeleton3D" index="1" unique_id=1233777885]
 visible = false
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="slime/Armature/Skeleton3D" index="2" unique_id=1577401257]
-transform = Transform3D(0.99461204, 0, 0, 0, 0.9933362, 0, 0, 0, 0.9942922, 0, 0, 0)
+transform = Transform3D(0.98532605, 0, 0, 0, 1.0069946, 0, 0, 0, 1.0183669, 0, 0, 0)
 bone_name = "Bone"
 bone_idx = 0
 
@@ -156,9 +156,24 @@ vfx = NodePath("../slime/Armature/Skeleton3D/BoneAttachment3D/Hurt VFX")
 meshes_root = NodePath("../slime/Armature")
 hurt_overlay = SubResource("StandardMaterial3D_i62o6")
 
+[node name="Hurt SFX" type="FmodEventEmitter3D" parent="." unique_id=1083740479]
+event_name = "event:/Enemys/DracoSkele/DracoSkele Hit"
+event_guid = "{25833449-1b73-413e-9b21-c678c12fee73}"
+
+[node name="Death SFX" type="FmodEventEmitter3D" parent="." unique_id=75358411]
+event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
+event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
+
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="." unique_id=1827332098]
+event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
+event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
+
+[connection signal="Slime_attack" from="." to="Attack SFX" method="play"]
 [connection signal="break_update" from="." to="Node3D/StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="Node3D/StatusBars" method="update_health"]
+[connection signal="hurt" from="." to="Hurt SFX" method="play" unbinds=1]
 [connection signal="killed" from="." to="DissolveFX" method="beginDissolve"]
+[connection signal="killed" from="." to="Death SFX" method="play"]
 [connection signal="body_entered" from="HitBoxes/Aggro" to="." method="_on_aggro_body_entered"]
 [connection signal="body_exited" from="HitBoxes/Aggro" to="." method="_on_aggro_body_exited"]
 

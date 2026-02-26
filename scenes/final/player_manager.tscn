@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bklpvubfdogqr" path="res://art_assets/Ui/ControlPanels/Dawn/Dawn Corner Portrait.png" id="27_f620v"]
 [ext_resource type="Texture2D" uid="uid://c66y8x2ip4vdm" path="res://art_assets/Ui/ControlPanels/Dawn/DAWN.png" id="28_p704c"]
 [ext_resource type="Shader" uid="uid://d27ndcngym04q" path="res://shaders/post-processing - klaktus1901/PosterizeScreenEffect.gdshader" id="33_3h4bm"]
-[ext_resource type="PackedScene" uid="uid://bmtsybcr7qvm1" path="res://VFX/characterSwapFX.tscn" id="36_lwj1m"]
+[ext_resource type="PackedScene" path="res://VFX/characterSwapFX.tscn" id="36_lwj1m"]
 [ext_resource type="PackedScene" path="res://VFX/footprintsFX.tscn" id="38_djt8t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lwj1m"]
@@ -102,17 +102,17 @@ floor_snap_length = 5.0
 [node name="HitStun" parent="Nova/StateMachine" parent_id_path=PackedInt32Array(1837126418, 104146512) index="11" unique_id=1389929998]
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
-[node name="Skeleton3D" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="0" unique_id=2102061534]
-bones/14/rotation = Quaternion(-0.069030866, 0.5239555, -0.50639623, 0.68137234)
-bones/15/rotation = Quaternion(-0.16024867, 0.55233717, 0.23144981, 0.78464967)
-bones/16/rotation = Quaternion(-0.51085633, -0.4671882, -0.2447573, 0.6788629)
-bones/21/rotation = Quaternion(-0.14594133, 0.3931952, -0.46011728, 0.7825539)
-bones/22/rotation = Quaternion(-0.06487592, 0.3510647, 0.1772995, 0.9171203)
-bones/23/rotation = Quaternion(0.13656183, 0.11562927, -0.073641635, 0.9811003)
-bones/38/rotation = Quaternion(-0.34884214, 0.7070027, 0.06265592, 0.6119891)
+[node name="Skeleton3D" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="0" unique_id=1156861599]
+bones/14/rotation = Quaternion(-0.07112151, 0.5239798, -0.5068675, 0.680788)
+bones/15/rotation = Quaternion(-0.16408692, 0.55840594, 0.23258089, 0.77920765)
+bones/16/rotation = Quaternion(-0.5082808, -0.47590902, -0.24739315, 0.67376405)
+bones/21/rotation = Quaternion(-0.12967184, 0.37948796, -0.47758964, 0.7817174)
+bones/22/rotation = Quaternion(-0.06619163, 0.35473654, 0.17848258, 0.91538227)
+bones/23/rotation = Quaternion(0.114586875, 0.122563384, -0.085720405, 0.9820897)
+bones/38/rotation = Quaternion(-0.35152078, 0.70568067, 0.060331833, 0.6122157)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0065057995, -0.56996703, 0.8216418, -0.41795564, 0.7479971, 0.515571, -0.90844405, -0.34005564, -0.24308729, 0.005999642, 0.0072483392, -0.013218468)
+transform = Transform3D(-0.0021988195, -0.57, 0.82164174, -0.42362517, 0.74480623, 0.5155631, -0.90583485, -0.34693453, -0.2431041, 0.006066927, 0.0071596527, -0.013177951)
 
 [node name="Idle" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -256,31 +256,20 @@ interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpe
 [node name="SingWave" parent="Dawn/Effects" parent_id_path=PackedInt32Array(618181988, 352519910) index="0" unique_id=304307782]
 material_override = null
 
-[node name="Skeleton3D" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="0" unique_id=146541413]
-bones/2/position = Vector3(0, 0.017364519, 0.0011158077)
-bones/2/rotation = Quaternion(0.03233962, -0.032245614, 0.70534027, 0.7073964)
-bones/3/rotation = Quaternion(0, 0, 0.0068312488, 0.99997675)
-bones/5/rotation = Quaternion(0, 0, -0.012892174, 0.9999169)
-bones/8/position = Vector3(0.006264908, 0.0002332588, 0.0021057494)
-bones/8/rotation = Quaternion(0.1148612, 0.69771546, 0.6933893, -0.13860488)
-bones/9/rotation = Quaternion(0, 0, 0.016648974, 0.9998614)
-bones/10/position = Vector3(0.006148092, -0.0004052415, 0)
-bones/10/rotation = Quaternion(0.9975918, -0.06935874, 4.135903e-25, 8.60583e-26)
-bones/11/position = Vector3(0.005535342, -5.0917533e-05, 0)
-bones/11/rotation = Quaternion(0, 0, 0.08164492, 0.9966615)
-bones/12/rotation = Quaternion(-0.44732416, 0.54763234, 0.4473242, 0.5476323)
-bones/15/rotation = Quaternion(0.019486228, -0.103507414, -0.66693074, 0.737638)
-bones/16/rotation = Quaternion(-0.035785653, 0.39517, 0.103907585, 0.9120106)
-bones/17/rotation = Quaternion(0.18193047, 0.09346563, -0.2550178, 0.9450564)
-bones/23/rotation = Quaternion(-0.08142581, -0.08680231, -0.6842213, 0.7194974)
-bones/24/rotation = Quaternion(-0.030536326, 0.27417395, 0.12655072, 0.952828)
-bones/25/rotation = Quaternion(-0.0008074888, 0.060539152, -0.17702141, 0.9823431)
-bones/30/rotation = Quaternion(0.001717905, 0.9682147, -0.2499641, 0.008675978)
-bones/31/rotation = Quaternion(0.9983361, -0.011383096, 0.056528028, 0.00046919228)
-bones/32/rotation = Quaternion(0.5684065, -0.37076145, 0.42097136, 0.601858)
-bones/34/rotation = Quaternion(0.06097582, 0.1197473, 0.013285974, 0.9908411)
-bones/35/rotation = Quaternion(0.99176824, -0.015335394, 0.12711464, 0.0015657967)
-bones/36/rotation = Quaternion(0.59852, -0.35984376, 0.37076563, 0.6122248)
+[node name="Skeleton3D" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="0" unique_id=581899794]
+bones/2/rotation = Quaternion(0.058000207, -0.05783162, 0.70370466, 0.7057559)
+bones/15/rotation = Quaternion(0.013107816, -0.12294291, -0.6649757, 0.7365599)
+bones/16/rotation = Quaternion(-0.040401008, 0.42470235, 0.10551441, 0.8982552)
+bones/17/rotation = Quaternion(0.193966, 0.11583639, -0.25626746, 0.9398331)
+bones/23/rotation = Quaternion(-0.08059939, -0.08993811, -0.6843374, 0.7190949)
+bones/24/rotation = Quaternion(-0.030761357, 0.27552536, 0.1267842, 0.95239985)
+bones/25/rotation = Quaternion(0.006063275, 0.09398133, -0.17075418, 0.9808026)
+bones/30/rotation = Quaternion(0.01365467, 0.96351004, -0.25222802, -0.088560775)
+bones/31/rotation = Quaternion(0.98499805, -0.018393932, 0.171563, 0.0026202393)
+bones/32/rotation = Quaternion(0.5454198, -0.40192243, 0.44798365, 0.58334064)
+bones/34/rotation = Quaternion(0.061977293, 0.21087478, 0.017200982, 0.9753947)
+bones/35/rotation = Quaternion(0.97489816, -0.020721156, 0.221649, 0.0040138266)
+bones/36/rotation = Quaternion(0.5835857, -0.38580942, 0.3921648, 0.5973154)
 
 [node name="Idle" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -350,11 +339,11 @@ script = ExtResource("4_mbt4c")
 [node name="weak_shake" type="Node" parent="CameraTarget/Camera3D" unique_id=2043459318]
 script = ExtResource("4_mbt4c")
 
+[node name="FmodListener3D" type="FmodListener3D" parent="CameraTarget/Camera3D" unique_id=473440791]
+transform = Transform3D(0.7071068, -2.9802322e-08, -0.7071068, -0.52996767, 0.6620185, -0.52996767, 0.46811783, 0.7494875, 0.46811783, -4.7683716e-07, 0.2774725, -21.019495)
+
 [node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=340440421]
 bank_paths = ["res://sounds/banks/Player.bank"]
-
-[node name="FmodListener3D" type="FmodListener3D" parent="." unique_id=473440791]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Unique PostProcessing" type="TextureRect" parent="." unique_id=2070269412]
 visible = false
