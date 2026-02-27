@@ -6,9 +6,11 @@ static var game_menu : GameMenu
 
 func _enter_tree() -> void:
 	game_menu = self
+	super()
 
 func _exit_tree() -> void:
 	game_menu = null
+	super()
 
 func add_menu(menu : Menu):
 	overridable_menus.append(menu)
@@ -21,6 +23,7 @@ func remove_menu(menu : Menu):
 		overridable_menus.erase(menu)
 
 func _ready() -> void:
+	super()
 	for menu in overridable_menus:
 		menu.menu_closed.connect(check_should_open)
 		menu.menu_shown.connect(close_game_menu)

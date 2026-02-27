@@ -25,7 +25,9 @@ func read(dialogue_array:Array[DialogueResource]):
 func instantiate_dialogue(dialogue_array:Array[DialogueResource]):
 	if (GameMenu.game_menu): GameMenu.game_menu.add_menu(self)
 	await get_tree().create_timer(0.5).timeout
-	if (!self): return
+	if (!self): 
+		if (GameMenu.game_menu): GameMenu.game_menu.remove_menu(self)
+		return
 	var d = dialogue_scene.instantiate()
 	d.speaker_image = %SpeakerImage
 	d.name_label = %NameLabel
@@ -39,12 +41,27 @@ func instantiate_dialogue(dialogue_array:Array[DialogueResource]):
 	d.sub_dialogue_called.connect(sub_dialogue_recieved)
 	d.sub_dialogue_sfx.connect(sub_dialogue_image_recieved)
 	
+	check_scene_change()
+	
 	await open()
 	
 	await d.dialogue_finished
 	await close()
 	dialogue_finished.emit()
 	if (GameMenu.game_menu): GameMenu.game_menu.remove_menu(self)
+
+func check_scene_change():
+	## getting child because we have one scene tree instead of swapping it out
+	var scene_root : Node = get_tree().current_scene.get_child(0)
+	await get_tree().process_frame
+	while is_open:
+		if (!scene_root):
+			close()
+			hide()
+			break
+		## could do it when heirarchy changed, but it would be much harder to stop
+		await get_tree().process_frame
+		
 
 func main_dialogue_recieved():
 	main_dialogue_called.emit()

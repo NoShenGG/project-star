@@ -11,6 +11,7 @@ var background_index : int = 0
 signal menu_swapped()
 
 func _ready() -> void:
+	super()
 	(owner as PlayerManager).new_player.connect(swap_menu_background)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	menu_shown.connect(pause_opened)
@@ -56,6 +57,7 @@ func swap_menu_background(player : Player):
 
 func _exit_tree() -> void:
 	get_tree().paused = false
+	super()
 
 func pause_opened():
 	print("test opened")
