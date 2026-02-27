@@ -32,6 +32,7 @@ signal main_dialogue_called
 signal main_dialogue_sfx(image : Texture2D)
 signal sub_dialogue_called
 signal sub_dialogue_sfx(image : Texture2D)
+signal dialogue_finished()
 
 func _ready():
 	dialogue_container.modulate = Color.TRANSPARENT
@@ -73,10 +74,10 @@ func start_dialogue():
 
 func stop_dialogue():
 	print_rich("[color=turquoise]Dialogue complete.")
-	get_tree().create_tween().tween_property(dialogue_container, "modulate", Color.TRANSPARENT, 0.2)
 	for player in GameManager.player_manager.players:
 		player.process_mode = Node.PROCESS_MODE_INHERIT
 	queue_free()
+	dialogue_finished.emit()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("text_interact"):

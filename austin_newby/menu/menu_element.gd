@@ -23,6 +23,9 @@ class_name MenuElements
 
 var menu : Menu
 
+var tween : Tween
+var transitioning : bool
+
 func _ready() -> void:
 	menu = find_menu()
 	
@@ -86,12 +89,20 @@ func closed() -> void:
 #    1        2             4             8
 ## "Alpha", "Scale X", "Scale Y", "Rotate 90"
 func animate(flags : int, time : float, closing : bool = false):
+	if (tween): 
+		tween.stop()
+		tween = null
+	
+	
+	transitioning = true
+	tween = create_tween()
+	
 	print(" the flags is  " + str(flags) + " and the closing value is  " + str(closing))
 	if (flags & 1 == 1):
 		print("animate alpha")
 		modulate = modulate if closing else Color.TRANSPARENT
 		var color : Color = Color.TRANSPARENT if closing else Color.WHITE
-		create_tween().tween_property(self, "modulate", color, time).set_trans(tween_transition)
+		tween.tween_property(self, "modulate", color, time).set_trans(tween_transition)
 	
 	var transform = control_self if control_self else node2d_self
 	
@@ -106,12 +117,12 @@ func animate(flags : int, time : float, closing : bool = false):
 		transform.scale = transform.scale if closing else Vector2(0 if scale_x else 1, 0 if scale_y else 1) * scale_magnitude
 		
 		print ("sacle is   " + str(close_size if closing else open_size))
-		create_tween().tween_property(self, "scale", close_size if closing else open_size, time).set_trans(tween_transition)
+		tween.tween_property(self, "scale", close_size if closing else open_size, time).set_trans(tween_transition)
 	
 	if (flags & 8 == 8):
 		var current_rotation : float = transform.rotation
 		var final_rotation : float = 2*PI if closing else default_rotation
 		transform.rotation = transform.rotation if closing else 2*PI
-		create_tween().tween_property(self, "rotation", final_rotation, time).set_trans(tween_transition)
-	
-	await get_tree().create_timer(time).timeout
+		tween.tween_property(self, "rotation", final_rotation, time).set_trans(tween_transition)
+	transitioning = false
+	await tween.finished
