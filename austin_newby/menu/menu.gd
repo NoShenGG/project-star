@@ -69,13 +69,15 @@ func open() -> void:
 	#if focused_control == null:
 		#focused_control = get_child(0)
 		#print_rich("[color=spring_green]* No focus specified, defaulting to ", focused_control)
+	control_grab_focus()
 	
 	menu_shown.emit()
 	
 	await _visuals_open()
-	
-	if (focused_control and !focused_control.has_focus()): 
-		print(focused_control.visible)
+
+func control_grab_focus():
+	if (focused_control and !focused_control.has_focus()):
+		await focused_control.visibility_changed
 		focused_control.grab_focus.call_deferred()
 
 func _visuals_open():
