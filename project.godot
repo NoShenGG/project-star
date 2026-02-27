@@ -27,6 +27,7 @@ FmodManager="*res://addons/fmod/FmodManager.gd"
 MasterBankLoader="*res://sounds/MasterBankLoader.tscn"
 DialogueContainer="*res://austin_newby/dialogue/scenes/dialogue_container.tscn"
 MenuManager="*res://austin_newby/menu/menu_manager.gd"
+Wreckcon="*uid://bdjo2hbinyu3l"
 
 [display]
 

@@ -10,7 +10,7 @@ var current_level
 var current_level_name : String
 var main_scene : MainScene
 func _init() -> void:
-	print_rich("[color=dark_gray]GameManager initalized.")
+	print_rich("[color=dark_gray]GameManager initalized.") 
 
 func exit_to_main_menu():
 	load_level("main_menu")
