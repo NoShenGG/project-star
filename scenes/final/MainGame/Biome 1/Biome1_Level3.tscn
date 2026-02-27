@@ -186,7 +186,7 @@ colors = PackedColorArray(0.9515795, 0.95157963, 0.9515795, 1, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rfvoo"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l0vgp"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nnwbs"]
 noise = SubResource("FastNoiseLite_rfvoo")
 color_ramp = SubResource("Gradient_y4lca")
 seamless = true
@@ -194,7 +194,7 @@ seamless = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ih0l"]
 shading_mode = 0
 albedo_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
-albedo_texture = SubResource("NoiseTexture2D_l0vgp")
+albedo_texture = SubResource("NoiseTexture2D_nnwbs")
 uv1_scale = Vector3(0.025, 0.025, 0.025)
 uv1_triplanar = true
 uv1_world_triplanar = true
@@ -218,7 +218,7 @@ color = Color(1, 1, 1, 0.3529412)
 hue_variation_min = -0.020000022
 hue_variation_max = 0.019999977
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0b1bm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a81es"]
 render_priority = 0
 shader = ExtResource("16_hohex")
 shader_parameter/Albedo = Color(1, 1, 1, 1)
@@ -228,7 +228,7 @@ shader_parameter/alpha_2 = ExtResource("17_a5h1i")
 shader_parameter/proximity = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_wuhd1"]
-material = SubResource("ShaderMaterial_0b1bm")
+material = SubResource("ShaderMaterial_a81es")
 orientation = 1
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cs3m6"]
@@ -245,7 +245,7 @@ color = Color(1, 1, 1, 0.3529412)
 hue_variation_min = -0.020000022
 hue_variation_max = 0.019999977
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u1p3j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ibjk5"]
 render_priority = 0
 shader = ExtResource("19_rdw2x")
 shader_parameter/Albedo = Color(1, 1, 1, 1)
@@ -255,7 +255,7 @@ shader_parameter/alpha_2 = ExtResource("20_hxdqf")
 shader_parameter/proximity = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_esiog"]
-material = SubResource("ShaderMaterial_u1p3j")
+material = SubResource("ShaderMaterial_ibjk5")
 
 [sub_resource type="MultiMesh" id="MultiMesh_nnwbs"]
 transform_format = 1
@@ -382,16 +382,16 @@ stage = 0
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 3.947483)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1756698475, 1837126418, 1395090033) index="0" unique_id=1156861599]
-bones/14/rotation = Quaternion(-0.06542653, 0.5222296, -0.5065446, 0.68294084)
-bones/15/rotation = Quaternion(-0.16860126, 0.56543535, 0.23385015, 0.7727681)
-bones/16/rotation = Quaternion(-0.504552, -0.4742338, -0.26006153, 0.67297673)
-bones/21/rotation = Quaternion(-0.14442134, 0.37450212, -0.46293277, 0.7903062)
-bones/22/rotation = Quaternion(-0.073767126, 0.37567258, 0.18518639, 0.90506065)
-bones/23/rotation = Quaternion(0.14166816, 0.10846234, -0.08211637, 0.98052174)
-bones/38/rotation = Quaternion(-0.35014156, 0.706363, 0.061529223, 0.6121)
+bones/14/rotation = Quaternion(-0.06541979, 0.52199566, -0.5067348, 0.68297917)
+bones/15/rotation = Quaternion(-0.17058383, 0.56847686, 0.23438203, 0.7699352)
+bones/16/rotation = Quaternion(-0.50317276, -0.4778698, -0.2621122, 0.67063767)
+bones/21/rotation = Quaternion(-0.13824853, 0.3681773, -0.4696757, 0.7904034)
+bones/22/rotation = Quaternion(-0.07487127, 0.37861845, 0.18611452, 0.90355074)
+bones/23/rotation = Quaternion(0.1339317, 0.110598244, -0.087300956, 0.9809225)
+bones/38/rotation = Quaternion(-0.35084862, 0.7060137, 0.060915597, 0.61215955)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0044175703, -0.5699872, 0.8216417, -0.42070758, 0.7464553, 0.5155672, -0.90718544, -0.3433933, -0.24309552, 0.0060322653, 0.0072052917, -0.013198924)
+transform = Transform3D(-0.0032805358, -0.56999487, 0.8216417, -0.42220372, 0.74561155, 0.5155651, -0.906495, -0.34520882, -0.24310005, 0.006050028, 0.007181888, -0.013188201)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1756698475, 1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -506,19 +506,19 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 
 
 [node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1756698475, 618181988, 1566855500) index="0" unique_id=581899794]
-bones/2/rotation = Quaternion(0.043495215, -0.043368794, 0.7047438, 0.70679814)
-bones/15/rotation = Quaternion(0.016156817, -0.11302737, -0.6659723, 0.73718697)
-bones/16/rotation = Quaternion(-0.037995238, 0.40954706, 0.10472159, 0.9054618)
-bones/17/rotation = Quaternion(0.1876827, 0.102644786, -0.25564817, 0.9428061)
-bones/23/rotation = Quaternion(-0.08146879, -0.08935124, -0.6841999, 0.7192007)
-bones/24/rotation = Quaternion(-0.030859116, 0.27611098, 0.1268852, 0.9522135)
-bones/25/rotation = Quaternion(0.0025558914, 0.07429997, -0.17457591, 0.98183316)
-bones/30/rotation = Quaternion(0.008255835, 0.9672511, -0.25095293, -0.03714661)
-bones/31/rotation = Quaternion(0.9934255, -0.014904946, 0.1134993, 0.0013217541)
-bones/32/rotation = Quaternion(0.55719703, -0.386221, 0.43441468, 0.59299976)
-bones/34/rotation = Quaternion(0.061391324, 0.16137294, 0.015320938, 0.98486304)
-bones/35/rotation = Quaternion(0.9849109, -0.017940527, 0.17211086, 0.0025893927)
-bones/36/rotation = Quaternion(0.5913728, -0.37236634, 0.38117287, 0.6052511)
+bones/2/rotation = Quaternion(0.049629644, -0.049485397, 0.70434076, 0.7063938)
+bones/15/rotation = Quaternion(0.01495496, -0.117333755, -0.6656076, 0.7368689)
+bones/16/rotation = Quaternion(-0.038897477, 0.41530973, 0.105033, 0.90275854)
+bones/17/rotation = Quaternion(0.19015618, 0.10879031, -0.25592738, 0.9415448)
+bones/23/rotation = Quaternion(-0.08050789, -0.089405686, -0.68435526, 0.7191543)
+bones/24/rotation = Quaternion(-0.030710138, 0.27521858, 0.12673125, 0.9524971)
+bones/25/rotation = Quaternion(0.0037051109, 0.0831797, -0.17277978, 0.98143494)
+bones/30/rotation = Quaternion(0.010547315, 0.9660403, -0.2514591, -0.058509693)
+bones/31/rotation = Quaternion(0.99032986, -0.016376227, 0.13775147, 0.0018100903)
+bones/32/rotation = Quaternion(0.5522951, -0.39281183, 0.44013363, 0.58902586)
+bones/34/rotation = Quaternion(0.061620265, 0.18172665, 0.016115038, 0.9812842)
+bones/35/rotation = Quaternion(0.9811162, -0.019094292, 0.19244905, 0.0031355433)
+bones/36/rotation = Quaternion(0.5880993, -0.37803775, 0.3858374, 0.6019603)
 
 [node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1756698475, 618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -852,18 +852,18 @@ visibility_aabb = AABB(-75, -10, -75, 150, 20, 150)
 process_material = SubResource("ParticleProcessMaterial_cs3m6")
 draw_pass_1 = SubResource("QuadMesh_esiog")
 
-[node name="MMPlus CharacterManager" type="Node" parent="." unique_id=922487265 node_paths=PackedStringArray("mm_plus")]
-script = ExtResource("37_mlpux")
-mm_plus = NodePath("../MmPlus3D")
-meshes = Array[Mesh]([ExtResource("30_jhpsb"), ExtResource("31_48fa2"), ExtResource("32_nnwbs"), ExtResource("33_hxjvs")])
-debug_meshes = Array[Mesh]([ExtResource("30_jhpsb"), ExtResource("31_48fa2"), ExtResource("32_nnwbs"), ExtResource("33_hxjvs")])
-grass_framerate = 30.0
-
 [node name="MmPlus3D" type="Node3D" parent="." unique_id=1311354562]
 script = ExtResource("30_cs3m6")
 data = Array[ExtResource("31_esiog")]([SubResource("Resource_mlpux"), SubResource("Resource_o5bgx"), SubResource("Resource_n2667"), SubResource("Resource_ksi5s")])
 metadata/_custom_type_script = "uid://be4lu3ug8donp"
 metadata/_edit_lock_ = true
+
+[node name="MMPlus CharacterManager" type="Node" parent="MmPlus3D" unique_id=922487265 node_paths=PackedStringArray("mm_plus")]
+script = ExtResource("37_mlpux")
+mm_plus = NodePath("..")
+meshes = Array[Mesh]([ExtResource("30_jhpsb"), ExtResource("31_48fa2"), ExtResource("32_nnwbs"), ExtResource("33_hxjvs")])
+debug_meshes = Array[Mesh]([ExtResource("30_jhpsb"), ExtResource("31_48fa2"), ExtResource("32_nnwbs"), ExtResource("33_hxjvs")])
+grass_framerate = 30.0
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=855077054]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8576789, 3.5586033, -76.37063)

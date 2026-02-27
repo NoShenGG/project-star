@@ -166,7 +166,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -8, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="geo" unique_id=2077162536]
+[node name="Water Mesh" type="MeshInstance3D" parent="geo" unique_id=2077162536]
 transform = Transform3D(105.69242, 0, 0, 0, 1, 0, 0, 0, 149.38562, -3, -14.759684, -47)
 material_override = SubResource("ShaderMaterial_a886n")
 mesh = SubResource("PlaneMesh_0lut4")

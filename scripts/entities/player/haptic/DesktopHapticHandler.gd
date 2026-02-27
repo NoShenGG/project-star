@@ -4,6 +4,8 @@ class_name DesktopHapticHandler
 var current_vibration : float
 
 func haptic(frequency: float, amplitude: float, duration_sec: float, delay_sec: float):
+	if (GameManager.current_input_type == GameManager.InputType.KEYBOARD): return
+	
 	if ((!frequency and !amplitude) or !duration_sec): return
 	if (delay_sec > 0): await get_tree().create_timer(delay_sec).timeout
 	
