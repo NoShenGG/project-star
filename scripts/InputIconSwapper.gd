@@ -1,8 +1,8 @@
-extends TextureRect
+class_name InputIconSwapper extends TextureRect
 
 @export var icons : Array[InputIconInfo]
 
-var input_name : String = "text_interact"
+@export var input_name : String = "text_interact"
 
 var cur_icon_info : InputIconInfo
 
@@ -15,12 +15,20 @@ func update_icons():
 		if icon.input_type == GameManager.current_input_type:
 			cur_icon_info = icon
 			texture = cur_icon_info.unpressed_icon
-			break
+			return
+	
+	## if the input type is a controller and we dont have what it wants, we want to use generic controller as a backup
+	if (GameManager.current_input_type != GameManager.InputType.KEYBOARD):
+		for icon in icons:
+			if icon.input_type == GameManager.InputType.GENERIC_CONTROLLER:
+				cur_icon_info = icon
+				texture = cur_icon_info.unpressed_icon
+				return
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("text_interact"):
+	if event.is_action_pressed(input_name):
 		pressed_icon()
-	elif event.is_action_released("text_interact"):
+	elif event.is_action_released(input_name):
 		unpressed_icon()
 
 func pressed_icon():

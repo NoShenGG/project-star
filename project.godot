@@ -46,6 +46,7 @@ enabled=PackedStringArray("res://addons/GPUTrails/plugin.cfg", "res://addons/fmo
 Enemies="Group for all enemies in game."
 land=""
 characters=""
+Player=""
 
 [input]
 
