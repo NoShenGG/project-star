@@ -5,38 +5,100 @@
 [ext_resource type="Texture2D" uid="uid://dtvv4kt3w76n4" path="res://austin_newby/dialogue/resources/nova_face_temp_1.png" id="3_82rja"]
 [ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_j3aq7"]
 [ext_resource type="Script" uid="uid://dyydmlqaracop" path="res://austin_newby/dialogue/scripts/dialogue_audio.gd" id="5_1docy"]
+[ext_resource type="Texture2D" uid="uid://3taqqnrb0i10" path="res://art_assets/Ui/Kenny Input Prompts/Keyboard & Mouse/Vector/keyboard_space.svg" id="6_84iv3"]
+[ext_resource type="Script" uid="uid://dlb7i27u8fcw1" path="res://scripts/InputIconSwapper.gd" id="6_b61tb"]
+[ext_resource type="Script" uid="uid://dvsf3dgfmvi38" path="res://scripts/InputIconInfo.gd" id="7_nrdtk"]
+[ext_resource type="Texture2D" uid="uid://wj10x5p8uwf2" path="res://art_assets/Ui/Kenny Input Prompts/Keyboard & Mouse/Vector/keyboard_space_outline.svg" id="8_qabci"]
+[ext_resource type="Texture2D" uid="uid://brhtcqvwsqlna" path="res://art_assets/Ui/Kenny Input Prompts/Generic/Default/generic_button_circle_outline.png" id="8_sh8id"]
+[ext_resource type="Texture2D" uid="uid://bpmomb27ut7u2" path="res://art_assets/Ui/Kenny Input Prompts/Generic/Default/generic_button_circle_fill.png" id="9_qabci"]
+[ext_resource type="Texture2D" uid="uid://c802uxctal02d" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Vector/xbox_button_a_outline.svg" id="12_d1x4n"]
+[ext_resource type="Texture2D" uid="uid://dojp7mylityup" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Vector/xbox_button_a.svg" id="13_xmn7v"]
+[ext_resource type="Texture2D" uid="uid://y6tyshqr2b5x" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_button_cross_outline.svg" id="14_ywa0i"]
+[ext_resource type="Texture2D" uid="uid://cllwn1nmwwpvn" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_button_cross.svg" id="15_b5wcw"]
+[ext_resource type="Texture2D" uid="uid://clisej6wri3xq" path="res://art_assets/Ui/Kenny Input Prompts/Nintendo Switch/Vector/switch_button_b_outline.svg" id="16_5qabx"]
+[ext_resource type="Texture2D" uid="uid://cjnelgd3s0blo" path="res://art_assets/Ui/Kenny Input Prompts/Nintendo Switch/Vector/switch_button_b.svg" id="17_qgcqf"]
 
-[node name="DialogueContainer" type="MarginContainer" unique_id=904427905]
+[sub_resource type="Resource" id="Resource_ug1lr"]
+script = ExtResource("7_nrdtk")
+unpressed_icon = ExtResource("6_84iv3")
+pressed_icon = ExtResource("8_qabci")
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
+[sub_resource type="Resource" id="Resource_e83vv"]
+script = ExtResource("7_nrdtk")
+input_type = 1
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
+[sub_resource type="Resource" id="Resource_sh8id"]
+script = ExtResource("7_nrdtk")
+input_type = 2
+unpressed_icon = ExtResource("13_xmn7v")
+pressed_icon = ExtResource("12_d1x4n")
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
+[sub_resource type="Resource" id="Resource_7rh07"]
+script = ExtResource("7_nrdtk")
+input_type = 3
+unpressed_icon = ExtResource("15_b5wcw")
+pressed_icon = ExtResource("14_ywa0i")
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
+[sub_resource type="Resource" id="Resource_t07oy"]
+script = ExtResource("7_nrdtk")
+input_type = 4
+unpressed_icon = ExtResource("17_qgcqf")
+pressed_icon = ExtResource("16_5qabx")
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
+[node name="Container" type="Control" unique_id=89894981]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -64.0
-offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.9)
+script = ExtResource("1_j3aq7")
+open_time = 0.2
+open_alpha_effects_all = true
+open_animation_flags = 5
+close_time = 0.1
+close_alpha_effects_all = true
+close_animation_delay = 0.2
+close_animation_flags = 5
+metadata/_custom_type_script = "uid://iopn2ymsvuny"
+
+[node name="DialogueContainer" type="MarginContainer" parent="." unique_id=904427905]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -559.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_vertical = 8
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 40
-script = ExtResource("1_j3aq7")
 
-[node name="TextImageHSeperator" type="HSplitContainer" parent="." unique_id=1674535565]
+[node name="TextImageHSeperator" type="HSplitContainer" parent="DialogueContainer" unique_id=1674535565]
 layout_mode = 2
-split_offsets = PackedInt32Array(125)
+split_offsets = PackedInt32Array(226)
 dragging_enabled = false
-split_offset = 125
+split_offset = 226
 
-[node name="VTextContainer" type="VBoxContainer" parent="TextImageHSeperator" unique_id=718956892]
+[node name="VTextContainer" type="VBoxContainer" parent="DialogueContainer/TextImageHSeperator" unique_id=718956892]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 12
 
-[node name="NameMargin" type="MarginContainer" parent="TextImageHSeperator/VTextContainer" unique_id=1095371654]
+[node name="NameMargin" type="MarginContainer" parent="DialogueContainer/TextImageHSeperator/VTextContainer" unique_id=1095371654]
 layout_mode = 2
 theme_override_constants/margin_right = 250
 
-[node name="NameRect" type="NinePatchRect" parent="TextImageHSeperator/VTextContainer/NameMargin" unique_id=174080485]
+[node name="NameRect" type="NinePatchRect" parent="DialogueContainer/TextImageHSeperator/VTextContainer/NameMargin" unique_id=174080485]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 region_rect = Rect2(0, 0, 885, 183.5)
@@ -44,7 +106,7 @@ patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 
-[node name="NameLabel" type="RichTextLabel" parent="TextImageHSeperator/VTextContainer/NameMargin/NameRect" unique_id=769565260]
+[node name="NameLabel" type="RichTextLabel" parent="DialogueContainer/TextImageHSeperator/VTextContainer/NameMargin/NameRect" unique_id=769565260]
 unique_name_in_owner = true
 z_index = 50
 layout_mode = 1
@@ -65,14 +127,14 @@ text = "~ Nova ~"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextRect" type="NinePatchRect" parent="TextImageHSeperator/VTextContainer" unique_id=1845618967]
+[node name="TextRect" type="NinePatchRect" parent="DialogueContainer/TextImageHSeperator/VTextContainer" unique_id=1845618967]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("3_1docy")
 region_rect = Rect2(43.953857, 836.83594, 1926.2552, 572.33496)
 
-[node name="TextMargin" type="MarginContainer" parent="TextImageHSeperator/VTextContainer/TextRect" unique_id=1088387233]
+[node name="TextMargin" type="MarginContainer" parent="DialogueContainer/TextImageHSeperator/VTextContainer/TextRect" unique_id=1088387233]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,19 +148,33 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="UIDialogueBox" type="Control" parent="TextImageHSeperator/VTextContainer/TextRect/TextMargin" unique_id=1036507303]
+[node name="UIDialogueBox" type="Control" parent="DialogueContainer/TextImageHSeperator/VTextContainer/TextRect/TextMargin" unique_id=1036507303]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 107.98)
 layout_mode = 2
 
-[node name="ImageMarginContainer" type="MarginContainer" parent="TextImageHSeperator" unique_id=405087545]
+[node name="Input" type="TextureRect" parent="DialogueContainer/TextImageHSeperator/VTextContainer/TextRect" unique_id=700726189]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = -45.0
+offset_bottom = 19.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("6_84iv3")
+script = ExtResource("6_b61tb")
+icons = Array[ExtResource("7_nrdtk")]([SubResource("Resource_ug1lr"), SubResource("Resource_e83vv"), SubResource("Resource_sh8id"), SubResource("Resource_7rh07"), SubResource("Resource_t07oy")])
+
+[node name="ImageMarginContainer" type="MarginContainer" parent="DialogueContainer/TextImageHSeperator" unique_id=405087545]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 25
 
-[node name="SpeakerImage" type="TextureRect" parent="TextImageHSeperator/ImageMarginContainer" unique_id=1133085901]
+[node name="SpeakerImage" type="TextureRect" parent="DialogueContainer/TextImageHSeperator/ImageMarginContainer" unique_id=1133085901]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -106,21 +182,37 @@ size_flags_vertical = 8
 texture = ExtResource("3_82rja")
 expand_mode = 5
 
-[node name="Node" type="Node" parent="." unique_id=377198928]
+[node name="Node" type="Node" parent="DialogueContainer" unique_id=377198928]
 script = ExtResource("5_1docy")
 
-[node name="Nova" type="FmodEventEmitter3D" parent="Node" unique_id=27893145]
+[node name="Nova" type="FmodEventEmitter3D" parent="DialogueContainer/Node" unique_id=27893145]
 event_name = "event:/Player/Uniques/Grunt/Nova Grunt"
 event_guid = "{8eed88f7-964e-435b-957d-c6705371ee3b}"
 
-[node name="Rene" type="FmodEventEmitter3D" parent="Node" unique_id=825011405]
+[node name="Rene" type="FmodEventEmitter3D" parent="DialogueContainer/Node" unique_id=825011405]
 event_name = "event:/Player/Uniques/Grunt/Rene Grunt"
 event_guid = "{4bc8d8eb-07dc-4ed8-848d-3df74753b158}"
 
-[node name="Dawn" type="FmodEventEmitter3D" parent="Node" unique_id=641100480]
+[node name="Dawn" type="FmodEventEmitter3D" parent="DialogueContainer/Node" unique_id=641100480]
 event_name = "event:/Player/Uniques/Grunt/Dawn Grunt"
 event_guid = "{f51ea600-3d2e-4e47-bbe7-10d0410a697a}"
 
-[node name="Generic" type="FmodEventEmitter3D" parent="Node" unique_id=1472763018]
+[node name="Generic" type="FmodEventEmitter3D" parent="DialogueContainer/Node" unique_id=1472763018]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Roar"
 event_guid = "{d1bd0ac7-4220-45b1-9253-b6b75fec434f}"
+
+[node name="SmallTextSpeakerSeperator" type="HBoxContainer" parent="." unique_id=1071023946]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = -185.0
+offset_right = -491.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 10
+alignment = 2

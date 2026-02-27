@@ -1,12 +1,24 @@
-extends Menu
+class_name GameMenu extends Menu
 
 @export var overridable_menus : Array[Menu]
 
+static var game_menu : GameMenu
+
 func _enter_tree() -> void:
-	pass
+	game_menu = self
 
 func _exit_tree() -> void:
-	pass
+	game_menu = null
+
+func add_menu(menu : Menu):
+	overridable_menus.append(menu)
+	menu.menu_closed.connect(check_should_open)
+	menu.menu_shown.connect(close_game_menu)
+func remove_menu(menu : Menu):
+	if overridable_menus.has(menu):
+		menu.menu_closed.disconnect(check_should_open)
+		menu.menu_shown.disconnect(close_game_menu)
+		overridable_menus.erase(menu)
 
 func _ready() -> void:
 	for menu in overridable_menus:

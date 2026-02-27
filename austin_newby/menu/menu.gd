@@ -37,10 +37,12 @@ var is_open := false
 @onready var default_rotation : float = rotation
 @onready var default_size : Vector2 = size
 
+var transitioning : bool
 
 signal menu_hidden
 signal menu_closed
 signal menu_shown
+signal menu_transition_finished
 
 func _enter_tree() -> void:
 	MenuManager.menus[self.name] = self
@@ -63,14 +65,18 @@ func open() -> void:
 	MenuManager.force_close()
 	is_open = true
 	print_rich("[color=spring_green]Opening menu: ", self)
-	if focused_control == null:
-		focused_control = get_child(0)
-		print_rich("[color=spring_green]* No focus specified, defaulting to ", focused_control)
-	focused_control.grab_focus.call_deferred()
+	## some menus dont want focus, this may be causing focus issues
+	#if focused_control == null:
+		#focused_control = get_child(0)
+		#print_rich("[color=spring_green]* No focus specified, defaulting to ", focused_control)
 	
 	menu_shown.emit()
 	
 	await _visuals_open()
+	
+	if (focused_control and !focused_control.has_focus()): 
+		print(focused_control.visible)
+		focused_control.grab_focus.call_deferred()
 
 func _visuals_open():
 	focus_mode = Control.FOCUS_ALL #makes focusable/selectable
@@ -114,9 +120,18 @@ func _visuals_close():
 	#await get_tree().create_tween().tween_property(self, "modulate", Color.TRANSPARENT, close_time).finished # ANIMATION IN FUTURE
 	hide()
 
+var tween : Tween
+
 #    1        2             4         8      16         32
 ## "Alpha", "Scale X", "Scale Y", "Size X", "Size Y", "Rotate 180"
 func animate(flags : int, time : float, closing : bool = false):
+	if (tween): 
+		tween.stop()
+		tween = null
+	
+	
+	transitioning = true
+	tween = create_tween()
 	print(" the flags is  " + str(flags) + " and the closing value is  " + str(closing))
 	if (flags & 1 == 1):
 		print("animate alpha")
@@ -125,11 +140,11 @@ func animate(flags : int, time : float, closing : bool = false):
 		if (alpha_all):
 			modulate = modulate if closing else Color.TRANSPARENT
 			var color : Color = Color.TRANSPARENT if closing else Color.WHITE
-			create_tween().tween_property(self, "modulate", color, time).set_trans(tween_transition)
+			tween.tween_property(self, "modulate", color, time).set_trans(tween_transition)
 		else:
 			self_modulate = self_modulate if closing else Color.TRANSPARENT
 			var color : Color = Color.TRANSPARENT if closing else Color.WHITE
-			create_tween().tween_property(self, "self_modulate", color, time).set_trans(tween_transition)
+			tween.tween_property(self, "self_modulate", color, time).set_trans(tween_transition)
 	
 	if (flags & 2 == 2 or flags & 4 == 4):
 		print("animate scale")
@@ -141,7 +156,7 @@ func animate(flags : int, time : float, closing : bool = false):
 		var close_scale : Vector2 = Vector2(0 if scale_x else 1, 0 if scale_y else 1) * scale_magnitude
 		scale = scale if closing else Vector2(0 if scale_x else 1, 0 if scale_y else 1) * scale_magnitude
 		
-		create_tween().tween_property(self, "scale", close_scale if closing else open_scale, time).set_trans(tween_transition)
+		tween.tween_property(self, "scale", close_scale if closing else open_scale, time).set_trans(tween_transition)
 	
 	if (flags & 8 == 8 or flags & 16 == 16):
 		print("animate size")
@@ -152,12 +167,14 @@ func animate(flags : int, time : float, closing : bool = false):
 		var close_size : Vector2 = Vector2(0 if size_x else default_size.x, 0 if size_y else default_size.y)
 		size = size if closing else Vector2(0 if size_x else default_size.x, 0 if size_y else default_size.y)
 		
-		create_tween().tween_property(self, "size", close_size if closing else open_size, time).set_trans(tween_transition)
+		tween.tween_property(self, "size", close_size if closing else open_size, time).set_trans(tween_transition)
 	
 	if (flags & 32 == 32):
 		var current_rotation : float = rotation
 		var final_rotation : float = 2*PI if closing else default_rotation
 		rotation = rotation if closing else 2*PI
-		create_tween().tween_property(self, "rotation", final_rotation, time).set_trans(tween_transition)
+		tween.tween_property(self, "rotation", final_rotation, time).set_trans(tween_transition)
 	
-	await get_tree().create_timer(time).timeout
+	await tween.finished
+	menu_transition_finished.emit()
+	transitioning = false
