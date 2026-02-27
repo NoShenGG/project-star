@@ -34,7 +34,7 @@ func update_input_type(event: InputEvent):
 				current_input_type = InputType.NINTENDO
 			_:
 				current_input_type = InputType.GENERIC_CONTROLLER
-	if event is InputEventKey:
+	if event is InputEventKey or event is InputEventMouse:
 		current_input_type = InputType.KEYBOARD
 	
 	if old_input_type != current_input_type:

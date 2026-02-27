@@ -14,9 +14,11 @@ func _enter_tree() -> void:
 
 
 func open_menu(body : Node3D):
+	if (!body.is_in_group("Player")): return
 	print("opening")
 	menu.open()
 
 func close_menu(body : Node3D):
+	if (!body.is_in_group("Player")): return
 	print("closing")
 	menu.close()
