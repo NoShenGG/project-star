@@ -45,7 +45,8 @@ func enter(_prev_state: String, _data := {}) -> void:
 		get_tree().create_timer(1.0).timeout.connect(
 			func(): 
 				for thing in targets:
-					thing._base_speed = oldspds.pop_front())
+					if thing != null:
+						thing._base_speed = oldspds.pop_front())
 		hitbox.monitoring = false
 		rene.enemy_hit.emit()
 	

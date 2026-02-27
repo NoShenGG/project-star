@@ -355,10 +355,11 @@ font = SubResource("FontFile_a2sxn")
 font_size = 48
 outline_size = 5
 
-[node name="PlayerManager" type="Node3D" unique_id=584625856]
+[node name="PlayerManager" type="Node3D" unique_id=584625856 node_paths=PackedStringArray("combo_counter")]
 script = ExtResource("1_lyudl")
 saving_grace_delay = 2.0
 stage = 2
+combo_counter = NodePath("ComboCounter")
 
 [node name="Nova" parent="." unique_id=1837126418 instance=ExtResource("2_dvwxt")]
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, 0, 0, 0)

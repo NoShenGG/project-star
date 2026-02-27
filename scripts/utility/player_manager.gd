@@ -21,6 +21,7 @@ const DAWN = "Dawn"
 @export var saving_grace : bool = true 
 @export var saving_grace_delay : float = 0.5
 @export_enum("One", "Two", "Three") var stage: int = 0
+@export var combo_counter: ComboCounter
 
 signal game_over
 
