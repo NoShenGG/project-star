@@ -1,0 +1,78 @@
+[gd_resource type="QuadMesh" format=3 uid="uid://chf7m4pwwd041"]
+
+[ext_resource type="Shader" uid="uid://bvjdruuput33e" path="res://shaders/grass - Dylearn/Shaders/Grass.gdshader" id="1_p1rf7"]
+[ext_resource type="Texture2D" uid="uid://wqdllhnecuw2" path="res://shaders/grass - Dylearn/Textures and Materials/RockAccent.png" id="2_f6ax8"]
+[ext_resource type="Texture2D" uid="uid://vlpruqfbtgwv" path="res://shaders/grass - Dylearn/Textures and Materials/Rock.png" id="3_smn3t"]
+[ext_resource type="Texture2D" uid="uid://b6fhxncxd7b1t" path="res://shaders/grass - Dylearn/Textures and Materials/WindNoise.tres" id="4_relk7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_phyxh"]
+noise_type = 3
+frequency = 0.0016
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v7eh3"]
+noise = SubResource("FastNoiseLite_phyxh")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_urkgm"]
+seed = 1
+frequency = 0.0424
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7rd26"]
+noise = SubResource("FastNoiseLite_urkgm")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v5so3"]
+render_priority = 0
+shader = ExtResource("1_p1rf7")
+shader_parameter/albedo_texture = ExtResource("2_f6ax8")
+shader_parameter/albedo1 = Color(0.48962224, 0.48962224, 0.48962206, 1)
+shader_parameter/albedo2 = Color(0.45119998, 0.46342, 0.47, 1)
+shader_parameter/albedo2_scale = 0.11
+shader_parameter/albedo2_threshold = 0.537
+shader_parameter/albedo2_noise = SubResource("NoiseTexture2D_v7eh3")
+shader_parameter/albedo3 = Color(0.46749336, 0.47, 0.45119998, 1)
+shader_parameter/albedo3_scale = 0.01200000057
+shader_parameter/albedo3_threshold = 0.471
+shader_parameter/albedo3_noise = SubResource("NoiseTexture2D_7rd26")
+shader_parameter/accent_frequency1 = 0.01189999969893
+shader_parameter/accent_texture1 = ExtResource("2_f6ax8")
+shader_parameter/accent_albedo1 = Color(0.5418, 0.58296, 0.63, 1)
+shader_parameter/accent_height1 = 0.1200000057
+shader_parameter/accent_scale1 = 0.7070000335825
+shader_parameter/accent_probability2 = 0.01049999973435
+shader_parameter/accent_texture2 = ExtResource("3_smn3t")
+shader_parameter/accent_albedo2 = Color(0.6420191, 0.6847981, 0.6909296, 1)
+shader_parameter/accent_height2 = 0.3490000165775
+shader_parameter/accent_scale2 = 0.618000029355
+shader_parameter/framerate = 5.0
+shader_parameter/quantised = true
+shader_parameter/world_space_sway = true
+shader_parameter/debug_noise = false
+shader_parameter/world_sway_angle = 10.4450004961375
+shader_parameter/fake_perspective_scale = 0.3
+shader_parameter/wind_noise = ExtResource("4_relk7")
+shader_parameter/wind_noise_threshold = 0.365
+shader_parameter/wind_noise_scale = 0.0210000009975
+shader_parameter/wind_noise_speed = 0.010000000475
+shader_parameter/wind_noise_direction = Vector2(0, 1)
+shader_parameter/noise_diverge_angle = 10.0
+shader_parameter/view_space_sway = true
+shader_parameter/view_sway_speed = 0.010000000475
+shader_parameter/view_sway_angle = 11.600000551
+shader_parameter/character_displacement = true
+shader_parameter/debug_displacement = false
+shader_parameter/tint_displacement = Color(1, 1, 1, 1)
+shader_parameter/tint_weight = 1.0
+shader_parameter/player_displacement_angle_z = 50.00000074506
+shader_parameter/player_displacement_angle_x = 45.0
+shader_parameter/radius_exponent = 1.0
+shader_parameter/character_positions = [Vector4(-0.04858756, 0, 3.947483, 1.4), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0)]
+shader_parameter/cuts = 4
+shader_parameter/wrap = 0.31300010986750015
+shader_parameter/steepness = 1.590000028025
+shader_parameter/threshold_gradient_size = 0.255
+
+[resource]
+lightmap_size_hint = Vector2i(3, 3)
+material = SubResource("ShaderMaterial_v5so3")
+center_offset = Vector3(0, 0.36, 0)

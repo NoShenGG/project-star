@@ -1,0 +1,64 @@
+[gd_resource type="QuadMesh" format=3 uid="uid://dreolnmdlxar7"]
+
+[ext_resource type="Shader" uid="uid://bvjdruuput33e" path="res://shaders/grass - Dylearn/Shaders/Grass.gdshader" id="1_r5pld"]
+[ext_resource type="Texture2D" uid="uid://cqgqycukx0rde" path="res://shaders/grass - Dylearn/Textures and Materials/grassleaf.png" id="2_f8hg2"]
+[ext_resource type="Texture2D" uid="uid://c6mr82xyarp16" path="res://shaders/grass - Dylearn/Textures and Materials/accentleaf.png" id="3_jovem"]
+[ext_resource type="Texture2D" uid="uid://vqml4pj02ucs" path="res://shaders/grass - Dylearn/Textures and Materials/Albedo2Noise.tres" id="4_rpmbx"]
+[ext_resource type="Texture2D" uid="uid://c52v6tkx73uro" path="res://shaders/grass - Dylearn/Textures and Materials/Albedo3Noise.tres" id="5_o2ney"]
+[ext_resource type="Texture2D" uid="uid://b6fhxncxd7b1t" path="res://shaders/grass - Dylearn/Textures and Materials/WindNoise.tres" id="6_mrl4c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fdvwm"]
+render_priority = 0
+shader = ExtResource("1_r5pld")
+shader_parameter/albedo_texture = ExtResource("2_f8hg2")
+shader_parameter/albedo1 = Color(0.24313726, 0.54901963, 0.5647059, 1)
+shader_parameter/albedo2 = Color(0.25882354, 0.57254905, 0.5882353, 1)
+shader_parameter/albedo2_scale = 0.050000002375
+shader_parameter/albedo2_threshold = 0.537
+shader_parameter/albedo2_noise = ExtResource("4_rpmbx")
+shader_parameter/albedo3 = Color(0.308, 0.5095999, 0.56, 1)
+shader_parameter/albedo3_scale = 0.1
+shader_parameter/albedo3_threshold = 0.471
+shader_parameter/albedo3_noise = ExtResource("5_o2ney")
+shader_parameter/accent_frequency1 = 0.001
+shader_parameter/accent_texture1 = ExtResource("2_f8hg2")
+shader_parameter/accent_albedo1 = Color(0.3481, 0.5617783, 0.59, 1)
+shader_parameter/accent_height1 = 0.1
+shader_parameter/accent_scale1 = 1.0
+shader_parameter/accent_probability2 = 0.0001
+shader_parameter/accent_texture2 = ExtResource("3_jovem")
+shader_parameter/accent_albedo2 = Color(0.19800001, 0.55, 0.46200004, 1)
+shader_parameter/accent_height2 = 0.185
+shader_parameter/accent_scale2 = 1.0
+shader_parameter/framerate = 5.0
+shader_parameter/quantised = true
+shader_parameter/world_space_sway = true
+shader_parameter/debug_noise = false
+shader_parameter/world_sway_angle = 60.0
+shader_parameter/fake_perspective_scale = 0.3
+shader_parameter/wind_noise = ExtResource("6_mrl4c")
+shader_parameter/wind_noise_threshold = 0.365
+shader_parameter/wind_noise_scale = 0.071
+shader_parameter/wind_noise_speed = 0.025
+shader_parameter/wind_noise_direction = Vector2(0, 1)
+shader_parameter/noise_diverge_angle = 10.0
+shader_parameter/view_space_sway = true
+shader_parameter/view_sway_speed = 0.1
+shader_parameter/view_sway_angle = 10.0
+shader_parameter/character_displacement = true
+shader_parameter/debug_displacement = false
+shader_parameter/tint_displacement = Color(0.15, 0.007500002, 0.007500002, 1)
+shader_parameter/tint_weight = 0.249999994412
+shader_parameter/player_displacement_angle_z = 60.0
+shader_parameter/player_displacement_angle_x = 62.7
+shader_parameter/radius_exponent = 0.9
+shader_parameter/character_positions = [Vector4(-0.04858756, 0, 3.947483, 1.4), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0), Vector4(0, 0, 0, 0)]
+shader_parameter/cuts = 2
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/threshold_gradient_size = 0.255
+
+[resource]
+lightmap_size_hint = Vector2i(3, 3)
+material = SubResource("ShaderMaterial_fdvwm")
+size = Vector2(0.24, 0.34)

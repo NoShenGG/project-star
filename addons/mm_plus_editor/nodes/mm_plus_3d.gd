@@ -7,6 +7,8 @@ extends Node3D
 @export var previous_grid_size : float = 50.0
 @export var data : Array[MMPlusData] : set = _set_data
 
+@export_tool_button("Wipe MultiMesh Data") var wipe_data : Callable = wipe_multimesh_info
+
 signal data_changed
 
 func _set_data(new_data : Array[MMPlusData]) -> void:
@@ -34,6 +36,15 @@ func _set_data(new_data : Array[MMPlusData]) -> void:
 	if previous_data != data:
 		flush()
 		load_multimesh()
+
+func wipe_multimesh_info():
+	print("wiping 5")
+	flush()
+	delete_all_transforms()
+	for d in data:
+		d.multimesh_data_map.clear()
+		d.multimesh_RID_map.clear()
+		d.visual_instance_RID_map.clear()
 
 func _ready() -> void:
 	load_multimesh()

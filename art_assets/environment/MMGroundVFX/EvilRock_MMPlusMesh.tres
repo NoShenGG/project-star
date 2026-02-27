@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MMPlusMesh" format=3 uid="uid://csugxoxv862ai"]
+
+[ext_resource type="QuadMesh" uid="uid://chf7m4pwwd041" path="res://art_assets/environment/MMGroundVFX/EvilRock_Mesh.tres" id="1_852i0"]
+[ext_resource type="Script" uid="uid://dre8v2iurryb6" path="res://addons/mm_plus_editor/resources/mm_plus_mesh.gd" id="2_svj8u"]
+
+[resource]
+script = ExtResource("2_svj8u")
+name = &"Evil Rock"
+mesh = ExtResource("1_852i0")
+cast_shadow = 0
+metadata/_custom_type_script = "uid://dre8v2iurryb6"

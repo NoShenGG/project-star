@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bmb2oxnvmju4b"]
 
-[ext_resource type="Texture2D" uid="uid://pcyag165a4n4" path="res://art_assets/environment/Biome1/Level3/Level3_Mountain_Trees.png" id="1_ausyd"]
+[ext_resource type="Texture2D" uid="uid://yl0eu35k2iog" path="res://art_assets/environment/Biome1/Level3/Level3_Mountain_Trees.png" id="1_ausyd"]
 
 [resource]
 resource_name = "Material.019"

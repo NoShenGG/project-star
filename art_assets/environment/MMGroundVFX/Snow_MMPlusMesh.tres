@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MMPlusMesh" format=3 uid="uid://d0gt7hfhwfwm1"]
+
+[ext_resource type="QuadMesh" uid="uid://c45n5drmpi00w" path="res://art_assets/environment/MMGroundVFX/Snow_Mesh.tres" id="1_n3gj6"]
+[ext_resource type="Script" uid="uid://dre8v2iurryb6" path="res://addons/mm_plus_editor/resources/mm_plus_mesh.gd" id="2_te7ef"]
+
+[resource]
+script = ExtResource("2_te7ef")
+name = &"Snow"
+mesh = ExtResource("1_n3gj6")
+cast_shadow = 0
+spacing = 0.15
+metadata/_custom_type_script = "uid://dre8v2iurryb6"

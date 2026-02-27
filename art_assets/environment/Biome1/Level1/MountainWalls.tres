@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://8jreytrlne5r"]
 
-[ext_resource type="Shader" uid="uid://cw2eeqmautiwo" path="res://shaders/grass - Dylearn/Shaders/ToonShader.gdshader" id="1_2iwg5"]
+[ext_resource type="Shader" uid="uid://8aqwdc6v08ve" path="res://shaders/grass - Dylearn/Shaders/ToonShaderTriplanar.gdshader" id="1_2iwg5"]
 
 [sub_resource type="Gradient" id="Gradient_5ytjf"]
 colors = PackedColorArray(0.65, 0.65, 0.65, 1, 1, 1, 1, 1)
@@ -20,3 +20,8 @@ shader_parameter/albedo_texture = SubResource("NoiseTexture2D_rquws")
 shader_parameter/cuts = 6
 shader_parameter/wrap = 0.0
 shader_parameter/steepness = 2.7610000836475
+shader_parameter/uv1_blend_sharpness = 0.0
+shader_parameter/uv1_scale = 0.0
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)

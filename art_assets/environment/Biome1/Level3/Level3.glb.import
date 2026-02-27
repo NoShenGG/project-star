@@ -34,9 +34,42 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-materials/extract=2
+materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"Material.019": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level3/Material.019.tres",
+"use_external/path": "uid://bmb2oxnvmju4b"
+},
+"Material.020": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level3/Material.020.tres",
+"use_external/path": "uid://q88obhy2xfgb"
+},
+"RockFace": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level3/RockFace.tres",
+"use_external/path": "uid://b7mhr73h7wq27"
+},
+"forest_backing": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level3/forest_backing.tres",
+"use_external/path": "uid://cl4rsspsk2nhi"
+},
+"side wall": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level3/side wall.tres",
+"use_external/path": "uid://dpbeuvscaorl2"
+},
+"top ground": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level3/top ground.tres",
+"use_external/path": "uid://c0ukpte2w1say"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

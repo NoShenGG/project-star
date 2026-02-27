@@ -77,7 +77,12 @@ func open() -> void:
 
 func control_grab_focus():
 	if (focused_control and !focused_control.has_focus()):
-		await focused_control.visibility_changed
+		
+		## it really hates when its
+		if (!focused_control.is_visible_in_tree()): 
+			while (!focused_control.is_visible_in_tree()):
+				await focused_control.visibility_changed
+		print("focusing")
 		focused_control.grab_focus.call_deferred()
 
 func _visuals_open():

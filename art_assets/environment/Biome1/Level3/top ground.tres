@@ -1,12 +1,28 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://c0ukpte2w1say"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c0ukpte2w1say"]
 
-[ext_resource type="Texture2D" uid="uid://b8ho4qliqefts" path="res://art_assets/environment/Biome1/Level3/Level3_Biome1_level3_texture.png" id="1_idgnh"]
-[ext_resource type="Texture2D" uid="uid://biwojctlmttil" path="res://art_assets/environment/Biome1/Level3/Level3_Biome1_level3_norm.png" id="2_3glt6"]
+[ext_resource type="Shader" uid="uid://bimv0japa4qaw" path="res://shaders/grass - Dylearn/Shaders/Floor.gdshader" id="1_idgnh"]
+[ext_resource type="Texture2D" uid="uid://vqml4pj02ucs" path="res://shaders/grass - Dylearn/Textures and Materials/Albedo2Noise.tres" id="2_3glt6"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_33iv1"]
+seed = 1
+frequency = 0.0052
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ip02y"]
+noise = SubResource("FastNoiseLite_33iv1")
+seamless = true
 
 [resource]
-resource_name = "top ground"
-cull_mode = 2
-albedo_texture = ExtResource("1_idgnh")
-normal_enabled = true
-normal_scale = 6.7699995
-normal_texture = ExtResource("2_3glt6")
+render_priority = 0
+shader = ExtResource("1_idgnh")
+shader_parameter/albedo1 = Color(0.24307457, 0.54832757, 0.562853, 1)
+shader_parameter/albedo2 = Color(0.25800538, 0.57406825, 0.5891125, 1)
+shader_parameter/albedo2_noise = ExtResource("2_3glt6")
+shader_parameter/albedo2_scale = 0.050000002375
+shader_parameter/albedo2_threshold = 0.537
+shader_parameter/albedo3 = Color(0.32347766, 0.53081614, 0.5817588, 1)
+shader_parameter/albedo3_noise = SubResource("NoiseTexture2D_ip02y")
+shader_parameter/albedo3_scale = 0.1
+shader_parameter/albedo3_threshold = 0.471
+shader_parameter/cuts = 2
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0

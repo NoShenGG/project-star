@@ -127,6 +127,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_i0wvf")
 load_delay = 0.5
 quit_delay = 1.0
@@ -163,6 +164,7 @@ offset_right = -6.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("4_u1nrr")
 open_on_start = true
 focused_control = NodePath("VBoxContainer/StartButton")
@@ -310,6 +312,7 @@ scale = Vector2(1.5, 1.5)
 
 [node name="StartButton" type="Button" parent="Menu/VBoxContainer" unique_id=1468803949]
 layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
 theme_override_colors/font_focus_color = Color(0.6509804, 0.43137255, 0.6, 1)
 theme_override_colors/font_hover_color = Color(0.8392157, 0.5529412, 0.77254903, 1)
