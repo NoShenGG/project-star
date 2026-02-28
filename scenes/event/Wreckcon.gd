@@ -31,10 +31,14 @@ var complete: PackedInt32Array = []
 var todo: PackedInt32Array = []
 
 # Global vars
-var ui: Menu
 var curr_level = null
 var is_level = false
+
+# UI
+var ui: Menu
 var menu_open = false
+var stars: Array[TextureRect] = []
+
 
 # Loads todo array with all tasks
 func _ready() -> void:
@@ -42,6 +46,10 @@ func _ready() -> void:
 		todo.append(task)
 	ui = preload("res://scenes/event/Wreckcon_UI.tscn").instantiate()
 	add_child(ui)
+	for child in ui.get_children()[0].get_children()[0].get_children()[0].get_children():
+		var star = child.get_children()[0] as TextureRect
+		star.hide()
+		stars.append(star)
 
 # Calls processors and updates task statuses
 func _process(_delta: float) -> void:
@@ -66,6 +74,7 @@ func _process(_delta: float) -> void:
 	var to_remove: PackedInt32Array = []
 	for task in todo:
 		if (map.get(task) as Callable).call():
+			stars[task].show()
 			complete.append(task)
 			to_remove.append(task)
 	for task in to_remove:
