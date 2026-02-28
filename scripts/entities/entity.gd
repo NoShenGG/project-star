@@ -62,9 +62,9 @@ func _process(delta: float) -> void:
 		var effect = _status_effects.get(id)
 		if not effect.process(delta):
 			effect.stop()
+			effect.queue_free()
 			_stopped_effects.append(id)
 	for id: EntityEffect.EffectID in _stopped_effects:
-		_status_effects.get(id).queue_free()
 		_status_effects.erase(id)
 	_stopped_effects.clear()
 	if _breakable:

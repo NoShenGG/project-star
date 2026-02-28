@@ -66,7 +66,7 @@ func _ready() -> void:
 	#menu_hidden.emit()
 
 func open() -> void:
-	MenuManager.force_close()
+	if (affects_other_menus ): MenuManager.force_close()
 	is_open = true
 	print_rich("[color=spring_green]Opening menu: ", self)
 	## some menus dont want focus, this may be causing focus issues
