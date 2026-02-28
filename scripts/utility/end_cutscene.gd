@@ -8,6 +8,8 @@ extends Node3D
 @export var boom_dur: float = 7.0
 
 var playing : bool = false
+
+signal scene_done
 	
 func start() -> void:
 	for i in range(120):
@@ -35,3 +37,5 @@ func nova_boom() -> void:
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property(camera, "fov", camera.fov+30, boom_dur)
+	await tween.finished
+	scene_done.emit()

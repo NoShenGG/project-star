@@ -23,6 +23,9 @@ func _enter_tree() -> void:
 
 func end_level(body):
 	GameManager.load_level(next_level)
+	
+func end_level_man():
+	GameManager.load_level(next_level)
 
 func ping_signal(body):
 	print("HERHERHRHEAH")
