@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cnjg0iurat3r2"]
+[gd_scene load_steps=26 format=4 uid="uid://cnjg0iurat3r2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_siffg"]
 resource_name = "grass"
@@ -357,63 +357,68 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_frypp")
 
-[node name="Meshlibrary" type="Node2D" unique_id=1447962789]
+[node name="Meshlibrary" type="Node2D"]
 
-[node name="cliff_blockHalf_rock2" type="MeshInstance3D" parent="." unique_id=2044285755]
+[node name="cliff_blockHalf_rock2" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.055934787, -0.1, -2.0805278)
 mesh = SubResource("ArrayMesh_csiyg")
+skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_blockHalf_rock2" unique_id=1463636595]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_blockHalf_rock2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 disable_mode = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_blockHalf_rock2/StaticBody3D" unique_id=368121384]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_blockHalf_rock2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19887716, 0)
 shape = SubResource("BoxShape3D_cw8hk")
 
-[node name="cliff_block_rock" type="MeshInstance3D" parent="." unique_id=1863380979]
+[node name="cliff_block_rock" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.3641977, -0.1, -2.0805278)
 mesh = SubResource("ArrayMesh_84va7")
+skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cliff_block_rock" unique_id=1539566082]
+[node name="StaticBody3D" type="StaticBody3D" parent="cliff_block_rock"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 disable_mode = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_block_rock/StaticBody3D" unique_id=1667904684]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cliff_block_rock/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46464843, 0)
 shape = SubResource("BoxShape3D_csiyg")
 
-[node name="tree_default2" type="MeshInstance3D" parent="." unique_id=477809684]
+[node name="tree_default2" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.223, 0.02, 0)
 mesh = SubResource("ArrayMesh_esu1u")
+skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="tree_default2" unique_id=1249115055]
+[node name="StaticBody3D" type="StaticBody3D" parent="tree_default2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
 disable_mode = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tree_default2/StaticBody3D" unique_id=264651280]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tree_default2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_cwlsq")
 
-[node name="stone_tallA2" type="MeshInstance3D" parent="." unique_id=929870075]
+[node name="stone_tallA2" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.05, 3.0521317)
 mesh = SubResource("ArrayMesh_wxa8h")
+skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="stone_tallA2" unique_id=302297215]
+[node name="StaticBody3D" type="StaticBody3D" parent="stone_tallA2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052048445, 0, 0)
 disable_mode = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stone_tallA2/StaticBody3D" unique_id=1954713989]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stone_tallA2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024577022, 0.45088312, 0)
 shape = SubResource("CylinderShape3D_div75")
 
-[node name="statue_column2" type="MeshInstance3D" parent="." unique_id=875026381]
+[node name="statue_column2" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.01, 0)
 mesh = SubResource("ArrayMesh_cqg8v")
+skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="statue_column2" unique_id=1526471868]
+[node name="StaticBody3D" type="StaticBody3D" parent="statue_column2"]
 disable_mode = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="statue_column2/StaticBody3D" unique_id=219230834]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="statue_column2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45544434, 0)
 shape = SubResource("CylinderShape3D_cwlsq")

@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cvws13l62ludv"]
+[gd_scene load_steps=16 format=3 uid="uid://cvws13l62ludv"]
 
-[ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_jamys"]
-[ext_resource type="Script" uid="uid://727asywd4f55" path="res://scripts/entities/player/debug_player.gd" id="2_ywyxu"]
+[ext_resource type="Script" path="res://scripts/utility/player_manager.gd" id="1_jamys"]
+[ext_resource type="Script" path="res://scripts/entities/player/debug_player.gd" id="2_ywyxu"]
 [ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="3_tnqa6"]
 [ext_resource type="MeshLibrary" uid="uid://b88u34a3ref8h" path="res://art_assets/environment/level_1/level1tiles.tres" id="4_ddglp"]
 [ext_resource type="Script" uid="uid://0dst74xe1xdr" path="res://scenes/dev/diemmy_d/restart.gd" id="5_5xy1d"]
@@ -40,63 +40,63 @@ albedo_color = Color(0.16739999, 0.40878665, 0.62, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r6xms"]
 
-[node name="Prototype" type="Node3D" unique_id=1448528686]
+[node name="Prototype" type="Node3D"]
 
-[node name="Marker3D" type="Marker3D" parent="." unique_id=501489834]
+[node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 44.902454, 29.529377, 30.247894)
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=2007609409]
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
 transform = Transform3D(0.70710695, -0.40557995, 0.5792281, 0, 0.81915236, 0.57357657, -0.70710695, -0.40557995, 0.5792281, 0, 0, 0)
 keep_aspect = 0
 projection = 1
 size = 56.098
 near = 0.012
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1731214267]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D" unique_id=1012915326]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
 environment = SubResource("Environment_bly0l")
 
-[node name="PlayerManager" type="Node3D" parent="." unique_id=1462964314]
+[node name="PlayerManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6510315, 0, 2.2056503)
 script = ExtResource("1_jamys")
 
-[node name="Player" type="CharacterBody3D" parent="PlayerManager" unique_id=1728011217]
+[node name="Player" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 script = ExtResource("2_ywyxu")
 _movement_speed = 14.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player" unique_id=1255642662]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player" unique_id=334437003]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("ShaderMaterial_05f11")
 
-[node name="Player2" type="CharacterBody3D" parent="PlayerManager" unique_id=676093410]
+[node name="Player2" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2" unique_id=929228808]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2" unique_id=311080859]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_8jnod")
 
-[node name="Player3" type="CharacterBody3D" parent="PlayerManager" unique_id=2073307033]
+[node name="Player3" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3" unique_id=688306132]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3" unique_id=1928088234]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_s3r3p")
 
-[node name="geo" type="Node" parent="." unique_id=1357937344]
+[node name="geo" type="Node" parent="."]
 
-[node name="GridMap" type="GridMap" parent="geo" unique_id=2060601813]
+[node name="GridMap" type="GridMap" parent="geo"]
 mesh_library = ExtResource("4_ddglp")
 cell_center_y = false
 data = {
@@ -104,22 +104,22 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -2, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="geo" unique_id=489999488]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="geo"]
 transform = Transform3D(105.69242, 0, 0, 0, 1, 0, 0, 0, 71.13601, 0, -17, 0)
 material_override = SubResource("StandardMaterial3D_bly0l")
 mesh = SubResource("PlaneMesh_0lut4")
 skeleton = NodePath("../..")
 
-[node name="RestartCylinder" type="Node3D" parent="." unique_id=1702347214]
+[node name="RestartCylinder" type="Node3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 1, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RestartCylinder" unique_id=944476561]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RestartCylinder"]
 mesh = SubResource("CylinderMesh_lqfnu")
 
-[node name="Area3D" type="Area3D" parent="RestartCylinder" unique_id=1579090757]
+[node name="Area3D" type="Area3D" parent="RestartCylinder"]
 script = ExtResource("5_5xy1d")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RestartCylinder/Area3D" unique_id=357629401]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RestartCylinder/Area3D"]
 shape = SubResource("CylinderShape3D_r6xms")
 
 [connection signal="body_entered" from="RestartCylinder/Area3D" to="RestartCylinder/Area3D" method="_on_body_entered"]

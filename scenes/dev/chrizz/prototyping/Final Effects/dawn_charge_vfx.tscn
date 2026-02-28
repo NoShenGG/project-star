@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://c4numrguhjb63"]
+[gd_scene load_steps=30 format=3 uid="uid://c4numrguhjb63"]
 
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="1_b3phu"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_b3phu"]
 [ext_resource type="Texture2D" uid="uid://y58tcj1a2dha" path="res://scenes/dev/chrizz/prototyping/eightnote.png" id="2_hjypb"]
 [ext_resource type="Shader" uid="uid://mvtw1fwnpewq" path="res://scenes/dev/chrizz/prototyping/musicstaff.tres" id="3_mcc40"]
 [ext_resource type="ArrayMesh" uid="uid://c8m6cejgd3b32" path="res://scenes/dev/chrizz/prototyping/staff.obj" id="4_djf37"]
@@ -82,11 +82,7 @@ alpha_curve = SubResource("CurveTexture_cg3pb")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0mmn4"]
 render_priority = 0
 shader = ExtResource("7_5sps6")
-shader_parameter/ColorParameter2 = Color(0.051628, 0, 0.407949, 1)
 shader_parameter/ColorParameter = Color(8e-06, 0.667188, 0.8998, 1)
-shader_parameter/Vector2Parameter = Vector2(0, 0.3)
-shader_parameter/FloatParameter = 0.001
-shader_parameter/FloatParameter2 = 7.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hjypb"]
 gravity = Vector3(0, 0, 0)
@@ -117,13 +113,13 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("9_wmg55")
 
-[node name="DawnChargeVFX" type="Node3D" unique_id=971215326 node_paths=PackedStringArray("light", "particles")]
+[node name="DawnChargeVFX" type="Node3D" node_paths=PackedStringArray("light", "particles")]
 script = ExtResource("1_b3phu")
 lifetime = 2.0
 light = NodePath("OmniLight3D")
-particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX"), NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
+particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
 
-[node name="MusicNotes" type="GPUParticles3D" parent="." unique_id=1381222379]
+[node name="MusicNotes" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6074677, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_45ydp")
@@ -133,7 +129,7 @@ lifetime = 0.7
 process_material = SubResource("ParticleProcessMaterial_v7g43")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="StaffRing" type="GPUParticles3D" parent="." unique_id=91420618]
+[node name="StaffRing" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.66775, 0)
 visible = false
 material_override = SubResource("ShaderMaterial_7wd4a")
@@ -145,7 +141,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_mcc40")
 draw_pass_1 = ExtResource("4_djf37")
 
-[node name="StreamCaustics" type="GPUParticles3D" parent="." unique_id=1281474629]
+[node name="StreamCaustics" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -0.10724807, -2.4388032, 1.6570206)
 material_override = SubResource("ShaderMaterial_v7g43")
 emitting = false
@@ -156,7 +152,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_b3phu")
 draw_pass_1 = ExtResource("6_0kq2q")
 
-[node name="FloorCaustics" type="GPUParticles3D" parent="." unique_id=240932232]
+[node name="FloorCaustics" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.106943846, -2.9661467, -0.43862295)
 material_override = SubResource("ShaderMaterial_0mmn4")
 emitting = false
@@ -167,7 +163,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_hjypb")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="AuraCaustics" type="GPUParticles3D" parent="." unique_id=436289422]
+[node name="AuraCaustics" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106943846, -2.3257928, -0.43862295)
 material_override = SubResource("ShaderMaterial_eb3x3")
 emitting = false
@@ -178,7 +174,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_ag0r6")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="ChargeVFX" type="GPUParticles3D" parent="." unique_id=722780186]
+[node name="ChargeVFX" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.106943846, -2.3257928, -0.43862295)
 material_override = SubResource("ShaderMaterial_ehjd0")
 emitting = false
@@ -189,7 +185,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_ag0r6")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=217274840]
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.2429283, 0)
 visible = false
 light_color = Color(0.44584835, 0.7245143, 0.8957288, 1)

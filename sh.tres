@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" format=3 uid="uid://8l3nttsqbjy1"]
+[gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://8l3nttsqbjy1"]
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_qpuov"]
 
@@ -59,6 +59,82 @@ texture = SubResource("NoiseTexture2D_1ume8")
 default_input_values = [1, Vector2(-0.1, -0.1), 2, Vector2(0, 0)]
 
 [resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform float FloatParameter = 0.20000000298023;
+uniform sampler2D tex_frg_2;
+uniform sampler2D tex_frg_7;
+uniform vec4 ColorParameter : source_color = vec4(0.831373, 0.431373, 0.890196, 1.000000);
+
+
+
+void fragment() {
+// Input:4
+	float n_out4p0 = TIME;
+
+
+// FloatParameter:5
+	float n_out5p0 = FloatParameter;
+
+
+// FloatOp:6
+	float n_out6p0 = n_out4p0 + n_out5p0;
+
+
+// UVFunc:3
+	vec2 n_in3p1 = vec2(0.10000, 0.10000);
+	vec2 n_out3p0 = vec2(n_out6p0) * n_in3p1 + UV;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out3p0);
+
+
+// UVFunc:8
+	vec2 n_in8p1 = vec2(-0.10000, -0.10000);
+	vec2 n_out8p0 = vec2(n_out6p0) * n_in8p1 + UV;
+
+
+// Texture2D:7
+	vec4 n_out7p0 = texture(tex_frg_7, n_out8p0);
+
+
+// VectorOp:10
+	vec3 n_out10p0 = vec3(n_out2p0.xyz) + vec3(n_out7p0.xyz);
+
+
+// VectorOp:11
+	vec3 n_in11p1 = vec3(2.00000, 2.00000, 2.00000);
+	vec3 n_out11p0 = n_out10p0 * n_in11p1;
+
+
+// ColorParameter:12
+	vec4 n_out12p0 = ColorParameter;
+
+
+// VectorOp:13
+	vec3 n_out13p0 = n_out11p0 * vec3(n_out12p0.xyz);
+
+
+// VectorDecompose:14
+	float n_out14p0 = n_out11p0.x;
+	float n_out14p1 = n_out11p0.y;
+	float n_out14p2 = n_out11p0.z;
+
+
+// FloatOp:15
+	float n_in15p1 = 0.20000;
+	float n_out15p0 = n_out14p0 * n_in15p1;
+
+
+// Output:0
+	ALBEDO = n_out13p0;
+	ALPHA = n_out15p0;
+
+
+}
+"
 preview_params/ColorParameter = "Color(0.831373, 0.431373, 0.890196, 1)"
 nodes/fragment/0/position = Vector2(1000, 160)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_llp6v")

@@ -14,5 +14,6 @@ func _process(_delta):
 		# Get the world direction of the directional light
 		var light_direction = directional_light.global_transform.basis.z.normalized()
 		#print("light dir", light_direction)
+		
 		# Pass the light direction to the shader
 		RenderingServer.global_shader_parameter_set("light_direction", light_direction)

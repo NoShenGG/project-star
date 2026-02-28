@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://4yygnlitc2ke"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://4yygnlitc2ke"]
 
 [ext_resource type="Texture2D" uid="uid://ctemup772c06u" path="res://art_assets/enemies/kobold/Kobold_Body_BaseColor.png" id="1_dhj1p"]
 [ext_resource type="Texture2D" uid="uid://d3dafksd7mvsj" path="res://art_assets/enemies/kobold/textures/Body_Normal.png" id="2_s32o2"]

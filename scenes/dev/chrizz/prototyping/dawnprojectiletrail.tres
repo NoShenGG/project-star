@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" format=3 uid="uid://cy6ye786t4n12"]
+[gd_resource type="VisualShader" load_steps=31 format=3 uid="uid://cy6ye786t4n12"]
 
 [ext_resource type="Texture2D" uid="uid://d016ca5jndja2" path="res://scenes/dev/chrizz/prototyping/caustics.png" id="1_272kd"]
 [ext_resource type="Script" uid="uid://bih3ttrf1kb4x" path="res://addons/shaderV/tools/remap.gd" id="2_ug1jt"]
@@ -102,6 +102,113 @@ texture = ExtResource("3_rke7r")
 input_name = "vertex"
 
 [resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
+
+uniform sampler2D tex_frg_2;
+
+
+
+void vertex() {
+// Input:9
+	vec3 n_out9p0 = VERTEX;
+
+
+// Output:0
+	VERTEX = n_out9p0;
+
+
+}
+
+void fragment() {
+// Input:17
+	vec4 n_out17p0 = COLOR;
+
+
+// ColorConstant:15
+	vec4 n_out15p0 = vec4(0.000001, 0.375669, 0.939055, 1.000000);
+
+
+// Input:4
+	vec2 n_out4p0 = UV;
+
+
+// VectorOp:5
+	vec2 n_in5p1 = vec2(1.00000, 0.50000);
+	vec2 n_out5p0 = n_out4p0 * n_in5p1;
+
+
+// Input:6
+	float n_out6p0 = TIME;
+
+
+// VectorOp:8
+	vec2 n_in8p1 = vec2(2.00000, 0.00000);
+	vec2 n_out8p0 = vec2(n_out6p0) * n_in8p1;
+
+
+// MultiplyAdd:7
+	vec2 n_in7p1 = vec2(1.00000, 1.00000);
+	vec2 n_out7p0 = fma(n_out5p0, n_in7p1, n_out8p0);
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out7p0);
+
+
+// Mix:14
+	vec4 n_out14p0 = mix(n_out17p0, n_out15p0, n_out2p0);
+
+
+// VectorDecompose:18
+	float n_out18p0 = n_out17p0.x;
+	float n_out18p1 = n_out17p0.y;
+	float n_out18p2 = n_out17p0.z;
+	float n_out18p3 = n_out17p0.w;
+
+
+// FloatOp:16
+	float n_in16p1 = 2.00000;
+	float n_out16p0 = pow(n_out2p0.x, n_in16p1);
+
+
+// VectorDecompose:10
+	float n_out10p0 = vec3(n_out4p0, 0.0).x;
+	float n_out10p1 = vec3(n_out4p0, 0.0).y;
+	float n_out10p2 = vec3(n_out4p0, 0.0).z;
+
+
+// SmoothStep:9
+	float n_in9p0 = 0.30000;
+	float n_in9p1 = 0.80000;
+	float n_out9p0 = smoothstep(n_in9p0, n_in9p1, n_out10p0);
+
+
+// SmoothStep:12
+	float n_in12p0 = 1.00000;
+	float n_in12p1 = 0.80000;
+	float n_out12p0 = smoothstep(n_in12p0, n_in12p1, n_out10p0);
+
+
+// FloatOp:13
+	float n_out13p0 = n_out9p0 * n_out12p0;
+
+
+// FloatOp:11
+	float n_out11p0 = n_out16p0 * n_out13p0;
+
+
+// FloatOp:19
+	float n_out19p0 = n_out18p3 * n_out11p0;
+
+
+// Output:0
+	ALBEDO = vec3(n_out14p0.xyz);
+	ALPHA = n_out19p0;
+
+
+}
+"
 modes/cull = 2
 flags/unshaded = true
 nodes/vertex/2/node = SubResource("VisualShaderNodeVectorOp_q6fti")

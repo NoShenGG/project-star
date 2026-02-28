@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dnfgpacphxpuf"]
+[gd_scene load_steps=7 format=3 uid="uid://dnfgpacphxpuf"]
 
 [ext_resource type="Shader" uid="uid://c0b41bba5feld" path="res://scenes/dev/chrizz/decal.gdshader" id="1_pv4y6"]
 [ext_resource type="Texture2D" uid="uid://cubil75wqx67v" path="res://art_assets/textures/foam.png" id="2_24wro"]
@@ -30,12 +30,12 @@ shader_parameter/PORTAL_NORMAL = Vector3(0, 0, 1)
 shader_parameter/PORTAL_CENTER = Vector3(0, 0, 0)
 shader_parameter/PORTAL_SEAM = Vector3(0, 1, 0)
 
-[node name="Corruption_Base" type="MeshInstance3D" unique_id=1883817889]
+[node name="Corruption_Base" type="MeshInstance3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("PlaneMesh_tko7d")
 surface_material_override/0 = SubResource("ShaderMaterial_um112")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1230227939]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(19.999966, 0, 0, 0, 19.999966, 0, 0, 0, 20, 0, 0, 0)
 mesh = SubResource("PlaneMesh_tko7d")
 surface_material_override/0 = SubResource("ShaderMaterial_um112")

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dh4jmyikg1de4"]
+[gd_scene load_steps=13 format=3 uid="uid://dh4jmyikg1de4"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_8r6d4"]
 [ext_resource type="Script" uid="uid://727asywd4f55" path="res://scripts/entities/player/debug_player.gd" id="2_87uf1"]
@@ -35,62 +35,62 @@ albedo_color = Color(0.16739999, 0.40878665, 0.62, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0lut4"]
 
-[node name="Prototype" type="Node3D" unique_id=2113418284]
+[node name="Prototype" type="Node3D"]
 
-[node name="Marker3D" type="Marker3D" parent="." unique_id=2075749747]
+[node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 44.902454, 29.529377, 30.247894)
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=292542590]
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
 transform = Transform3D(0.70710695, -0.40557995, 0.5792281, 0, 0.81915236, 0.57357657, -0.70710695, -0.40557995, 0.5792281, 0, 0, 0)
 keep_aspect = 0
 projection = 1
 size = 56.098
 near = 0.012
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1457552208]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D" unique_id=556386258]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
 environment = SubResource("Environment_bly0l")
 
-[node name="PlayerManager" type="Node3D" parent="." unique_id=234978512]
+[node name="PlayerManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6510315, 0, 2.2056503)
 script = ExtResource("1_8r6d4")
 
-[node name="Player" type="CharacterBody3D" parent="PlayerManager" unique_id=2046546378]
+[node name="Player" type="CharacterBody3D" parent="PlayerManager"]
 script = ExtResource("2_87uf1")
 _movement_speed = 14.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player" unique_id=2133169424]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player" unique_id=1700753401]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("ShaderMaterial_05f11")
 
-[node name="Player2" type="CharacterBody3D" parent="PlayerManager" unique_id=1829336083]
+[node name="Player2" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2" unique_id=640881538]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2" unique_id=235431844]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_8jnod")
 
-[node name="Player3" type="CharacterBody3D" parent="PlayerManager" unique_id=1612445719]
+[node name="Player3" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3" unique_id=628412100]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3" unique_id=102503513]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_s3r3p")
 
-[node name="geo" type="Node" parent="." unique_id=659329480]
+[node name="geo" type="Node" parent="."]
 
-[node name="GridMap" type="GridMap" parent="geo" unique_id=776890414]
+[node name="GridMap" type="GridMap" parent="geo"]
 mesh_library = ExtResource("4_x8g3v")
 cell_center_y = false
 data = {
@@ -98,7 +98,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -2, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="geo" unique_id=923631539]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="geo"]
 transform = Transform3D(105.69242, 0, 0, 0, 1, 0, 0, 0, 71.13601, 0, -17, 0)
 material_override = SubResource("StandardMaterial3D_bly0l")
 mesh = SubResource("PlaneMesh_0lut4")

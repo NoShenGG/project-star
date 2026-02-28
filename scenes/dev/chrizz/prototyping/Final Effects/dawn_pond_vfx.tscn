@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://b5rww4p74g62g"]
+[gd_scene load_steps=65 format=3 uid="uid://b5rww4p74g62g"]
 
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="1_gs3m4"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_gs3m4"]
 [ext_resource type="Script" uid="uid://b6cr1imhnu2xs" path="res://addons/shaderV/uv/twirl.gd" id="1_h1vqm"]
 [ext_resource type="Texture2D" uid="uid://cjqkc8vqlad2r" path="res://scenes/dev/chrizz/prototyping/causticsvar2.png" id="2_73xlm"]
 [ext_resource type="Script" uid="uid://bu4eh5nf0nj1j" path="res://addons/shaderV/tools/transformCoordinates/cartesianToPolar.gd" id="3_gs3m4"]
@@ -133,6 +133,134 @@ op_type = 1
 constant = Color(1, 0.3330468, 0.64088196, 1)
 
 [sub_resource type="VisualShader" id="VisualShader_djn2r"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_disabled, unshaded;
+
+uniform vec4 ColorParameter : source_color = vec4(0.000008, 0.667188, 0.899800, 1.000000);
+uniform sampler2D tex_frg_35;
+
+
+// CartesianToPolar
+#include \"res://addons/shaderV/tools/transformCoordinates/cartesianToPolar.gdshaderinc\"
+// TwirlUV
+#include \"res://addons/shaderV/uv/twirl.gdshaderinc\"
+
+void fragment() {
+// ColorConstant:5
+	vec4 n_out5p0 = vec4(0.051628, 0.000000, 0.407949, 1.000000);
+
+
+// ColorParameter:2
+	vec4 n_out2p0 = ColorParameter;
+
+
+// Input:7
+	vec2 n_out7p0 = UV;
+
+
+// MultiplyAdd:8
+	vec2 n_in8p1 = vec2(1.00000, 1.00000);
+	vec2 n_in8p2 = vec2(-0.50000, -0.50000);
+	vec2 n_out8p0 = fma(n_out7p0, n_in8p1, n_in8p2);
+
+
+	vec3 n_out6p0;
+// CartesianToPolar:6
+	{
+		n_out6p0 = vec3(_cartesianToPolarFunc(vec3(n_out8p0, 0.0).xy), vec3(n_out8p0, 0.0).z);
+	}
+
+
+// Input:11
+	float n_out11p0 = TIME;
+
+
+// VectorOp:23
+	vec2 n_in23p1 = vec2(0.30000, 0.00000);
+	vec2 n_out23p0 = vec2(n_out11p0) * n_in23p1;
+
+
+// VectorOp:10
+	vec2 n_out10p0 = vec2(n_out6p0.xy) + n_out23p0;
+
+
+// MultiplyAdd:13
+	vec2 n_in13p1 = vec2(0.80000, 0.20000);
+	vec2 n_in13p2 = vec2(0.00000, 0.00000);
+	vec2 n_out13p0 = fma(n_out10p0, n_in13p1, n_in13p2);
+
+
+	vec3 n_out22p0;
+// TwirlUV:22
+	float n_in22p1 = 0.00100;
+	vec3 n_in22p2 = vec3(0.50000, 0.50000, 0.00000);
+	{
+		n_out22p0 = _twirlUVFunc(vec3(n_out13p0, 0.0).xy, n_in22p2.xy, n_in22p1);
+	}
+
+
+// Texture2D:35
+	vec4 n_out35p0 = texture(tex_frg_35, vec2(n_out22p0.xy));
+
+
+// FloatOp:34
+	float n_in34p1 = 1.00000;
+	float n_out34p0 = pow(n_out35p0.x, n_in34p1);
+
+
+// Mix:4
+	vec4 n_out4p0 = mix(n_out5p0, n_out2p0, vec4(n_out34p0));
+
+
+// Input:14
+	vec2 n_out14p0 = UV;
+
+
+// MultiplyAdd:17
+	vec2 n_in17p1 = vec2(1.00000, 1.00000);
+	vec2 n_in17p2 = vec2(-0.50000, -0.50000);
+	vec2 n_out17p0 = fma(n_out14p0, n_in17p1, n_in17p2);
+
+
+// VectorLen:15
+	float n_out15p0 = length(n_out17p0);
+
+
+// FloatFunc:42
+	float n_out42p0 = 1.0 - n_out15p0;
+
+
+// FloatFunc:43
+	float n_out43p0 = min(max(n_out42p0, 0.0), 1.0);
+
+
+// FloatOp:44
+	float n_in44p1 = 7.00000;
+	float n_out44p0 = pow(n_out43p0, n_in44p1);
+
+
+// Input:45
+	vec4 n_out45p0 = COLOR;
+
+
+// VectorDecompose:46
+	float n_out46p0 = n_out45p0.x;
+	float n_out46p1 = n_out45p0.y;
+	float n_out46p2 = n_out45p0.z;
+	float n_out46p3 = n_out45p0.w;
+
+
+// FloatOp:47
+	float n_out47p0 = n_out44p0 * n_out46p3;
+
+
+// Output:0
+	ALBEDO = vec3(n_out4p0.xyz);
+	ALPHA = n_out47p0;
+
+
+}
+"
 modes/cull = 2
 modes/specular = 2
 flags/unshaded = true
@@ -332,11 +460,11 @@ color = Color(2.1068149, 1.7934209, 1.3835983, 1)
 color_ramp = SubResource("GradientTexture1D_xmoco")
 alpha_curve = SubResource("CurveTexture_3f055")
 
-[node name="DawnPondVFX" type="Node3D" unique_id=222982381 node_paths=PackedStringArray("particles")]
+[node name="DawnPondVFX" type="Node3D" node_paths=PackedStringArray("particles")]
 script = ExtResource("1_gs3m4")
 particles = [NodePath("FloorCaustics"), NodePath("StaffRing"), NodePath("Droplets"), NodePath("MusicNotes"), NodePath("FloorCaustics"), NodePath("StaffRing"), NodePath("Droplets"), NodePath("MusicNotes")]
 
-[node name="FloorCaustics" type="GPUParticles3D" parent="." unique_id=1159127535]
+[node name="FloorCaustics" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.22287005, 0)
 material_override = SubResource("ShaderMaterial_0mmn4")
 emitting = false
@@ -347,7 +475,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_h84bc")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="StaffRing" type="GPUParticles3D" parent="." unique_id=2072417577]
+[node name="StaffRing" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41124249, 0)
 material_override = SubResource("ShaderMaterial_7wd4a")
 emitting = false
@@ -358,13 +486,13 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_ag0r6")
 draw_pass_1 = ExtResource("5_3xsi4")
 
-[node name="Droplets" type="GPUParticles3D" parent="." unique_id=1568395]
+[node name="Droplets" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_45ydp")
 lifetime = 4.0
 process_material = SubResource("ParticleProcessMaterial_n7sfj")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="MusicNotes" type="GPUParticles3D" parent="." unique_id=1074266654]
+[node name="MusicNotes" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41124249, 0)
 material_override = SubResource("StandardMaterial3D_gs3m4")
 lifetime = 0.7

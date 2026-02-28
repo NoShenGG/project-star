@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://cwtic6pdgjkn7"]
+[gd_scene load_steps=12 format=3 uid="uid://cwtic6pdgjkn7"]
 
-[ext_resource type="Shader" uid="uid://3b3kknb84rhv" path="res://scenes/dev/arshiya_r/magic circle things/spinning_magic_circle.tres" id="1_j1b70"]
-[ext_resource type="Texture2D" uid="uid://cuwr2e2lkhej" path="res://VFX/Kenny Particle Pack/magic_02.png" id="2_ahrdn"]
-[ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/magic circle things/circle_particles.tres" id="3_nrwjk"]
-[ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://VFX/Kenny Particle Pack/star_04.png" id="4_5vsb2"]
+[ext_resource type="Shader" uid="uid://3b3kknb84rhv" path="res://scenes/dev/arshiya_r/spinning_magic_circle.tres" id="1_j1b70"]
+[ext_resource type="Texture2D" uid="uid://cuwr2e2lkhej" path="res://vfx/Kenny Particle Pack/magic_02.png" id="2_ahrdn"]
+[ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/circle_particles.tres" id="3_nrwjk"]
+[ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://vfx/Kenny Particle Pack/star_04.png" id="4_5vsb2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_recpq"]
 render_priority = 0
@@ -47,14 +47,14 @@ alpha_curve = SubResource("CurveTexture_n0ury")
 [sub_resource type="QuadMesh" id="QuadMesh_s5ah3"]
 size = Vector2(0.25, 0.25)
 
-[node name="MagicCircleTemplate" type="Node3D" unique_id=1491134792]
+[node name="MagicCircleTemplate" type="Node3D"]
 
-[node name="CircleMesh" type="MeshInstance3D" parent="." unique_id=1676203336]
+[node name="CircleMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("ShaderMaterial_recpq")
 mesh = SubResource("PlaneMesh_xgnm0")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=671468778]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("ShaderMaterial_8utvy")
 amount = 10

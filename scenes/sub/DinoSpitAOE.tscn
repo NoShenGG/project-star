@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://co7hni4fhm5tu"]
+[gd_scene load_steps=5 format=3 uid="uid://co7hni4fhm5tu"]
 
 [ext_resource type="Script" uid="uid://dwqn2hhfnf8ad" path="res://scripts/entities/enemies/attacks/dinoskeleton_aoe.gd" id="1_pif6q"]
 [ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="2_nm83e"]
@@ -6,26 +6,26 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pcnfp"]
 
-[node name="DinoSpitAOE" type="Node3D" unique_id=701011763 groups=["Enemies"]]
+[node name="DinoSpitAOE" type="Node3D" groups=["Enemies"]]
 script = ExtResource("1_pif6q")
 
-[node name="Hitbox" type="Area3D" parent="." unique_id=112483272]
+[node name="Hitbox" type="Area3D" parent="."]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 collision_mask = 3
 script = ExtResource("2_nm83e")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=1932379911]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 shape = SubResource("SphereShape3D_pcnfp")
 
-[node name="Corruption_Base" parent="." unique_id=1718433218 instance=ExtResource("3_d67cd")]
+[node name="Corruption_Base" parent="." instance=ExtResource("3_d67cd")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
-[node name="EndTimer" type="Timer" parent="." unique_id=211256314]
+[node name="EndTimer" type="Timer" parent="."]
 wait_time = 3.5
 one_shot = true
 
-[node name="GrowTimer" type="Timer" parent="." unique_id=449851111]
+[node name="GrowTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
 

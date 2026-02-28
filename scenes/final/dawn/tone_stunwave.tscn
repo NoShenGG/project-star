@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://btiyd8a5nuror"]
+[gd_scene load_steps=17 format=3 uid="uid://btiyd8a5nuror"]
 
 [ext_resource type="Script" uid="uid://bstcbam5y5wyr" path="res://scripts/entities/player/dawn/notes/tone_stun_wave.gd" id="1_nhghl"]
 [ext_resource type="ArrayMesh" uid="uid://dj25las8p38ep" path="res://scenes/dev/chrizz/prototyping/wavecrash.obj" id="2_bx81c"]
 [ext_resource type="Shader" uid="uid://cche77hlip6fn" path="res://scenes/dev/chrizz/prototyping/fish.tres" id="2_cschx"]
 [ext_resource type="Texture2D" uid="uid://bickxash5x674" path="res://art_assets/enemies/skele_dino/DragoSkele_circle_05.png" id="4_ysq7a"]
-[ext_resource type="Texture2D" uid="uid://b8ua05aonqhxj" path="res://VFX/Kenny Particle Pack/smoke_07.png" id="5_bhv7r"]
+[ext_resource type="Texture2D" uid="uid://b8ua05aonqhxj" path="res://vfx/Kenny Particle Pack/smoke_07.png" id="5_bhv7r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cschx"]
 render_priority = 0
@@ -76,7 +76,7 @@ scale_min = 0.099999994
 color = Color(2.9083786, 2.4787836, 1.9170059, 1)
 alpha_curve = SubResource("CurveTexture_3f055")
 
-[node name="ToneSlowWave" type="Node3D" unique_id=1948961053 node_paths=PackedStringArray("hitbox")]
+[node name="ToneSlowWave" type="Node3D" node_paths=PackedStringArray("hitbox")]
 top_level = true
 script = ExtResource("1_nhghl")
 hitbox = NodePath("Area3D")
@@ -84,21 +84,21 @@ max_duration = 5.0
 speed = 5.0
 damage = 0.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1127353839]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_cschx")
 mesh = ExtResource("2_bx81c")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=129081798]
+[node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 collision_layer = 0
 collision_mask = 8
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=991074705]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_qvqb4")
 
-[node name="MusicNotes" type="GPUParticles3D" parent="." unique_id=1714174244]
+[node name="MusicNotes" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6671307, 1.5189486)
 material_override = SubResource("StandardMaterial3D_rhphd")
 amount = 16
@@ -106,7 +106,7 @@ lifetime = 0.7
 process_material = SubResource("ParticleProcessMaterial_buqqm")
 draw_pass_1 = SubResource("QuadMesh_7aemt")
 
-[node name="MusicNotes" type="GPUParticles3D" parent="MusicNotes" unique_id=2101306323]
+[node name="MusicNotes" type="GPUParticles3D" parent="MusicNotes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6057584, 4.8609896)
 material_override = SubResource("StandardMaterial3D_gqtls")
 amount = 16

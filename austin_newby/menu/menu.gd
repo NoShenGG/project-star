@@ -88,7 +88,6 @@ func _visuals_open():
 	
 	if (open_animation_delay > 0): 
 		await get_tree().create_timer(open_animation_delay).timeout
-		if (!get_tree()): return
 	animate(open_animation_flags, open_time, false)
 	#modulate = Color.TRANSPARENT
 	#await get_tree().create_tween().tween_property(self, "modulate", Color.WHITE, open_time).finished # ANIMATION IN FUTURE
@@ -108,7 +107,6 @@ func _visuals_close():
 	
 	if (close_animation_delay > 0): 
 		await get_tree().create_timer(close_animation_delay).timeout
-		if (!get_tree()): return
 	await animate(close_animation_flags, close_time, true)
 	
 	#await get_tree().create_tween().tween_property(self, "modulate", Color.TRANSPARENT, close_time).finished # ANIMATION IN FUTURE

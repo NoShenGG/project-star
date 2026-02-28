@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://26ldjfmtjy8y"]
+[gd_scene load_steps=4 format=3 uid="uid://26ldjfmtjy8y"]
 
 [ext_resource type="Shader" uid="uid://8l3nttsqbjy1" path="res://sh.tres" id="1_ikopc"]
 
@@ -12,9 +12,9 @@ shader = ExtResource("1_ikopc")
 shader_parameter/FloatParameter = 0.2
 shader_parameter/ColorParameter = Color(0.831373, 0.431373, 0.890196, 1)
 
-[node name="FortifierShieldVfx" type="Node3D" unique_id=1951433703]
+[node name="FortifierShieldVfx" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1343170797]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("SphereMesh_eul7n")
 surface_material_override/0 = SubResource("ShaderMaterial_01170")

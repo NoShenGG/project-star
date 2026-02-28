@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" format=4 uid="uid://bul5hm42nen1c"]
+[gd_resource type="MeshLibrary" load_steps=18 format=4 uid="uid://bul5hm42nen1c"]
 
 [ext_resource type="Material" uid="uid://eaw3fdki5ha1" path="res://art_assets/environment/demo/Models/goldDemo.tres" id="1_aujr0"]
 [ext_resource type="Material" uid="uid://dpp3p3xiu4weh" path="res://art_assets/environment/demo/Models/glowDemo.tres" id="2_ilw4l"]

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cdvkjgovnta44"]
+[gd_scene load_steps=45 format=3 uid="uid://cdvkjgovnta44"]
 
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="1_p3r0m"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="2_mvyfq"]
@@ -169,609 +169,616 @@ size = Vector2(86.17, 60)
 [sub_resource type="PlaneMesh" id="PlaneMesh_ms5vr"]
 size = Vector2(60.605, 150)
 
-[node name="Level3" type="Node3D" unique_id=81862851]
+[node name="Level3" type="Node3D"]
 
-[node name="LevelEnder" parent="." unique_id=1537754185 instance=ExtResource("7_1123x")]
+[node name="LevelEnder" parent="." instance=ExtResource("7_1123x")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 70.61142, 7.9651995, -154.31766)
 next_level = "credits/credits"
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1250259073]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_enm0d")
 
-[node name="FogVolume" type="FogVolume" parent="WorldEnvironment" unique_id=1948501776]
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1679498789]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.4221687, 0.90115887, 0.09841809, -0.267906, -0.02030959, -0.9632309, 0, 0, 0)
 light_color = Color(1, 0.64, 0.90999997, 1)
 light_energy = 3.46
 shadow_enabled = true
 
-[node name="PlayerManager" parent="." unique_id=1690189146 instance=ExtResource("6_k5jyb")]
+[node name="PlayerManager" parent="." instance=ExtResource("6_k5jyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
 
-[node name="NavMesh" type="NavigationRegion3D" parent="." unique_id=1876695167]
+[node name="NavMesh" type="NavigationRegion3D" parent="."]
 transform = Transform3D(0.9556895, 0, 0, 0, 0.9556895, 0, 0, 0, 0.9556895, 0.18879128, 0.041381836, -0.1295929)
 navigation_mesh = SubResource("NavigationMesh_n0jqv")
 
-[node name="3-3-DK-ModApplied" parent="NavMesh" unique_id=1198827781 instance=ExtResource("3_30m0f")]
+[node name="3-3-DK-ModApplied" parent="NavMesh" instance=ExtResource("3_30m0f")]
 
-[node name="Tile_001" parent="NavMesh/3-3-DK-ModApplied" index="0" unique_id=121789753]
+[node name="Tile_001" parent="NavMesh/3-3-DK-ModApplied" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_002" parent="NavMesh/3-3-DK-ModApplied" index="1" unique_id=695269328]
+[node name="Tile_002" parent="NavMesh/3-3-DK-ModApplied" index="1"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_003" parent="NavMesh/3-3-DK-ModApplied" index="2" unique_id=863433929]
+[node name="Tile_003" parent="NavMesh/3-3-DK-ModApplied" index="2"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_004" parent="NavMesh/3-3-DK-ModApplied" index="3" unique_id=263111212]
+[node name="Tile_004" parent="NavMesh/3-3-DK-ModApplied" index="3"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_005" parent="NavMesh/3-3-DK-ModApplied" index="4" unique_id=97402500]
+[node name="Tile_005" parent="NavMesh/3-3-DK-ModApplied" index="4"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_006" parent="NavMesh/3-3-DK-ModApplied" index="5" unique_id=571381974]
+[node name="Tile_006" parent="NavMesh/3-3-DK-ModApplied" index="5"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_007" parent="NavMesh/3-3-DK-ModApplied" index="6" unique_id=1660391370]
+[node name="Tile_007" parent="NavMesh/3-3-DK-ModApplied" index="6"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_008" parent="NavMesh/3-3-DK-ModApplied" index="7" unique_id=389485194]
+[node name="Tile_008" parent="NavMesh/3-3-DK-ModApplied" index="7"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_009" parent="NavMesh/3-3-DK-ModApplied" index="8" unique_id=1108629858]
+[node name="Tile_009" parent="NavMesh/3-3-DK-ModApplied" index="8"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_010" parent="NavMesh/3-3-DK-ModApplied" index="9" unique_id=1352526220]
+[node name="Tile_010" parent="NavMesh/3-3-DK-ModApplied" index="9"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_011" parent="NavMesh/3-3-DK-ModApplied" index="10" unique_id=1529157460]
+[node name="Tile_011" parent="NavMesh/3-3-DK-ModApplied" index="10"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_012" parent="NavMesh/3-3-DK-ModApplied" index="11" unique_id=1180575975]
+[node name="Tile_012" parent="NavMesh/3-3-DK-ModApplied" index="11"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_013" parent="NavMesh/3-3-DK-ModApplied" index="12" unique_id=1492381167]
+[node name="Tile_013" parent="NavMesh/3-3-DK-ModApplied" index="12"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_014" parent="NavMesh/3-3-DK-ModApplied" index="13" unique_id=399827174]
+[node name="Tile_014" parent="NavMesh/3-3-DK-ModApplied" index="13"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_015" parent="NavMesh/3-3-DK-ModApplied" index="14" unique_id=964106165]
+[node name="Tile_015" parent="NavMesh/3-3-DK-ModApplied" index="14"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_016" parent="NavMesh/3-3-DK-ModApplied" index="15" unique_id=911571490]
+[node name="Tile_016" parent="NavMesh/3-3-DK-ModApplied" index="15"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_017" parent="NavMesh/3-3-DK-ModApplied" index="16" unique_id=948248099]
+[node name="Tile_017" parent="NavMesh/3-3-DK-ModApplied" index="16"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_018" parent="NavMesh/3-3-DK-ModApplied" index="17" unique_id=97310280]
+[node name="Tile_018" parent="NavMesh/3-3-DK-ModApplied" index="17"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_019" parent="NavMesh/3-3-DK-ModApplied" index="18" unique_id=254629444]
+[node name="Tile_019" parent="NavMesh/3-3-DK-ModApplied" index="18"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_020" parent="NavMesh/3-3-DK-ModApplied" index="19" unique_id=885734053]
+[node name="Tile_020" parent="NavMesh/3-3-DK-ModApplied" index="19"]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="RIm" parent="NavMesh/3-3-DK-ModApplied" index="20" unique_id=4993844]
+[node name="RIm" parent="NavMesh/3-3-DK-ModApplied" index="20"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_001" parent="NavMesh/3-3-DK-ModApplied" index="21" unique_id=276214770]
+[node name="RIm_001" parent="NavMesh/3-3-DK-ModApplied" index="21"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_001" parent="NavMesh/3-3-DK-ModApplied" index="22" unique_id=1870461506]
+[node name="Rim_001" parent="NavMesh/3-3-DK-ModApplied" index="22"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_002" parent="NavMesh/3-3-DK-ModApplied" index="23" unique_id=299490675]
+[node name="RIm_002" parent="NavMesh/3-3-DK-ModApplied" index="23"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_002" parent="NavMesh/3-3-DK-ModApplied" index="24" unique_id=333115560]
+[node name="Rim_002" parent="NavMesh/3-3-DK-ModApplied" index="24"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_003" parent="NavMesh/3-3-DK-ModApplied" index="25" unique_id=1985621483]
+[node name="RIm_003" parent="NavMesh/3-3-DK-ModApplied" index="25"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_003" parent="NavMesh/3-3-DK-ModApplied" index="26" unique_id=227749053]
+[node name="Rim_003" parent="NavMesh/3-3-DK-ModApplied" index="26"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_004" parent="NavMesh/3-3-DK-ModApplied" index="27" unique_id=1503192358]
+[node name="RIm_004" parent="NavMesh/3-3-DK-ModApplied" index="27"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_004" parent="NavMesh/3-3-DK-ModApplied" index="28" unique_id=1985531475]
+[node name="Rim_004" parent="NavMesh/3-3-DK-ModApplied" index="28"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_005" parent="NavMesh/3-3-DK-ModApplied" index="29" unique_id=120967740]
+[node name="RIm_005" parent="NavMesh/3-3-DK-ModApplied" index="29"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_005" parent="NavMesh/3-3-DK-ModApplied" index="30" unique_id=1916735232]
+[node name="Rim_005" parent="NavMesh/3-3-DK-ModApplied" index="30"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_006" parent="NavMesh/3-3-DK-ModApplied" index="31" unique_id=1854752339]
+[node name="RIm_006" parent="NavMesh/3-3-DK-ModApplied" index="31"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_006" parent="NavMesh/3-3-DK-ModApplied" index="32" unique_id=1171782879]
+[node name="Rim_006" parent="NavMesh/3-3-DK-ModApplied" index="32"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_007" parent="NavMesh/3-3-DK-ModApplied" index="33" unique_id=406434397]
+[node name="RIm_007" parent="NavMesh/3-3-DK-ModApplied" index="33"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_007" parent="NavMesh/3-3-DK-ModApplied" index="34" unique_id=534416355]
+[node name="Rim_007" parent="NavMesh/3-3-DK-ModApplied" index="34"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_008" parent="NavMesh/3-3-DK-ModApplied" index="35" unique_id=979228395]
+[node name="RIm_008" parent="NavMesh/3-3-DK-ModApplied" index="35"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_008" parent="NavMesh/3-3-DK-ModApplied" index="36" unique_id=570435979]
+[node name="Rim_008" parent="NavMesh/3-3-DK-ModApplied" index="36"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_009" parent="NavMesh/3-3-DK-ModApplied" index="37" unique_id=2034778849]
+[node name="RIm_009" parent="NavMesh/3-3-DK-ModApplied" index="37"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_009" parent="NavMesh/3-3-DK-ModApplied" index="38" unique_id=432639904]
+[node name="Rim_009" parent="NavMesh/3-3-DK-ModApplied" index="38"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_010" parent="NavMesh/3-3-DK-ModApplied" index="39" unique_id=1997523603]
+[node name="RIm_010" parent="NavMesh/3-3-DK-ModApplied" index="39"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_010" parent="NavMesh/3-3-DK-ModApplied" index="40" unique_id=1927836620]
+[node name="Rim_010" parent="NavMesh/3-3-DK-ModApplied" index="40"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_011" parent="NavMesh/3-3-DK-ModApplied" index="41" unique_id=252213044]
+[node name="RIm_011" parent="NavMesh/3-3-DK-ModApplied" index="41"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_011" parent="NavMesh/3-3-DK-ModApplied" index="42" unique_id=826582491]
+[node name="Rim_011" parent="NavMesh/3-3-DK-ModApplied" index="42"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_012" parent="NavMesh/3-3-DK-ModApplied" index="43" unique_id=1318657307]
+[node name="RIm_012" parent="NavMesh/3-3-DK-ModApplied" index="43"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim" parent="NavMesh/3-3-DK-ModApplied" index="44" unique_id=588766258]
+[node name="Rim" parent="NavMesh/3-3-DK-ModApplied" index="44"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_012" parent="NavMesh/3-3-DK-ModApplied" index="45" unique_id=218291394]
+[node name="Rim_012" parent="NavMesh/3-3-DK-ModApplied" index="45"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_013" parent="NavMesh/3-3-DK-ModApplied" index="46" unique_id=1448020553]
+[node name="RIm_013" parent="NavMesh/3-3-DK-ModApplied" index="46"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_013" parent="NavMesh/3-3-DK-ModApplied" index="47" unique_id=115610391]
+[node name="Rim_013" parent="NavMesh/3-3-DK-ModApplied" index="47"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_014" parent="NavMesh/3-3-DK-ModApplied" index="48" unique_id=1584914399]
+[node name="RIm_014" parent="NavMesh/3-3-DK-ModApplied" index="48"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_014" parent="NavMesh/3-3-DK-ModApplied" index="49" unique_id=1177903518]
+[node name="Rim_014" parent="NavMesh/3-3-DK-ModApplied" index="49"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_015" parent="NavMesh/3-3-DK-ModApplied" index="50" unique_id=710885204]
+[node name="RIm_015" parent="NavMesh/3-3-DK-ModApplied" index="50"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_015" parent="NavMesh/3-3-DK-ModApplied" index="51" unique_id=846984862]
+[node name="Rim_015" parent="NavMesh/3-3-DK-ModApplied" index="51"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_016" parent="NavMesh/3-3-DK-ModApplied" index="52" unique_id=2003223870]
+[node name="Rim_016" parent="NavMesh/3-3-DK-ModApplied" index="52"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_017" parent="NavMesh/3-3-DK-ModApplied" index="53" unique_id=557154786]
+[node name="Rim_017" parent="NavMesh/3-3-DK-ModApplied" index="53"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_018" parent="NavMesh/3-3-DK-ModApplied" index="54" unique_id=355104615]
+[node name="Rim_018" parent="NavMesh/3-3-DK-ModApplied" index="54"]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="NewBase_001" parent="NavMesh/3-3-DK-ModApplied" index="90" unique_id=1765392864]
+[node name="NewBase_001" parent="NavMesh/3-3-DK-ModApplied" index="90"]
 surface_material_override/0 = SubResource("ShaderMaterial_rtlmi")
 
-[node name="WaveManager" type="Node3D" parent="." unique_id=917111061]
+[node name="WaveManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
 script = ExtResource("1_p3r0m")
 metadata/_custom_type_script = "uid://cs72ukacrgd4g"
 
-[node name="Wave1" type="Node3D" parent="WaveManager" unique_id=1488677761 node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave1" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("2_mvyfq")
 enemies = Array[PackedScene]([ExtResource("6_n0jqv"), ExtResource("6_n0jqv")])
 spawn_areas = [NodePath("../SpawnArea1")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="Wave2" type="Node3D" parent="WaveManager" unique_id=806520012 node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave2" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("2_mvyfq")
 enemies = Array[PackedScene]([ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv")])
 spawn_areas = [NodePath("../SpawnArea2")]
 conditionalStart = true
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="Wave3" type="Node3D" parent="WaveManager" unique_id=494887244 node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave3" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("2_mvyfq")
 enemies = Array[PackedScene]([ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_ggxbb")])
 spawn_areas = [NodePath("../SpawnArea5")]
 conditionalStart = true
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="Wave4" type="Node3D" parent="WaveManager" unique_id=160997786 node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave4" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("2_mvyfq")
 enemies = Array[PackedScene]([ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("5_enm0d"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv")])
 spawn_areas = [NodePath("../SpawnArea6")]
 conditionalStart = true
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="Wave5" type="Node3D" parent="WaveManager" unique_id=1191760223 node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave5" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("2_mvyfq")
 enemies = Array[PackedScene]([ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("5_enm0d"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_ggxbb")])
 spawn_areas = [NodePath("../SpawnArea7")]
 conditionalStart = true
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="Wave6" type="Node3D" parent="WaveManager" unique_id=2126920010 node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave6" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("2_mvyfq")
 enemies = Array[PackedScene]([ExtResource("5_enm0d"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("7_ggxbb"), ExtResource("5_enm0d"), ExtResource("6_ggxbb")])
 spawn_areas = [NodePath("../SpawnArea9"), NodePath("../SpawnArea12"), NodePath("../SpawnArea13")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="Wave_Starter" type="Area3D" parent="WaveManager" unique_id=1661694353]
+[node name="Wave_Starter" type="Area3D" parent="WaveManager"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -14.77544, 0, 44.378326)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter" unique_id=1502404687]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2674, 0, -19.656963)
 shape = SubResource("BoxShape3D_ggxbb")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
-[node name="Wave_Starter2" type="Area3D" parent="WaveManager" unique_id=88862211]
+[node name="Wave_Starter2" type="Area3D" parent="WaveManager"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -38.429245, -7.6293945e-06, -5.9202347)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter2" unique_id=745000285]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.548706, -7.6293945e-06, -17.842575)
 shape = SubResource("BoxShape3D_ggxbb")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
-[node name="Wave_Starter3" type="Area3D" parent="WaveManager" unique_id=1546253571]
+[node name="Wave_Starter3" type="Area3D" parent="WaveManager"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -81.17113, -7.6293945e-06, -61.491905)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter3" unique_id=965780736]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4832764, 7.6293945e-06, 19.516403)
 shape = SubResource("BoxShape3D_ggxbb")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
-[node name="Wave_Starter4" type="Area3D" parent="WaveManager" unique_id=112126705]
+[node name="Wave_Starter4" type="Area3D" parent="WaveManager"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -80.83859, -7.6293945e-06, -98.700806)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter4" unique_id=906750356]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.410263, 0, -14.176788)
 shape = SubResource("BoxShape3D_ggxbb")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
-[node name="Wave_Starter5" type="Area3D" parent="WaveManager" unique_id=437250460]
+[node name="Wave_Starter5" type="Area3D" parent="WaveManager"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -39.289288, -7.6293945e-06, -185.05757)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter5" unique_id=1996568361]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.081116, 0, 89.83725)
 shape = SubResource("BoxShape3D_ggxbb")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
-[node name="SpawnArea1" parent="WaveManager" unique_id=791504326 instance=ExtResource("6_p3r0m")]
+[node name="SpawnArea1" parent="WaveManager" instance=ExtResource("6_p3r0m")]
 transform = Transform3D(16.47, 0, 0, 0, 1, 0, 0, 0, 10, -22.42935, -1.9073486e-06, 9.366867)
 
-[node name="SpawnArea2" parent="WaveManager" unique_id=1509469213 instance=ExtResource("6_p3r0m")]
+[node name="SpawnArea2" parent="WaveManager" instance=ExtResource("6_p3r0m")]
 transform = Transform3D(13.58, 0, 0, 0, 1, 0, 0, 0, 10, -60.94951, -1.9073486e-06, -31.597473)
 
-[node name="SpawnArea5" parent="WaveManager" unique_id=143288135 instance=ExtResource("6_p3r0m")]
+[node name="SpawnArea5" parent="WaveManager" instance=ExtResource("6_p3r0m")]
 transform = Transform3D(13.377548, 0, 0, 0, 1, 0, 0, 0, 12.002695, -93.9838, -1.9073486e-06, -74.11074)
 
-[node name="SpawnArea6" parent="WaveManager" unique_id=1458560630 instance=ExtResource("6_p3r0m")]
+[node name="SpawnArea6" parent="WaveManager" instance=ExtResource("6_p3r0m")]
 transform = Transform3D(10.28, 0, 0, 0, 1, 0, 0, 0, 8.185, -77.96726, -1.9073486e-06, -119.74324)
 
-[node name="SpawnArea7" parent="WaveManager" unique_id=1291138850 instance=ExtResource("6_p3r0m")]
+[node name="SpawnArea7" parent="WaveManager" instance=ExtResource("6_p3r0m")]
 transform = Transform3D(12.911812, 0, 0.017461196, 0, 0.9999999, 0, -0.011042369, 0, 20.417511, -26.449572, -1.9073486e-06, -141.74063)
 
-[node name="SpawnArea9" parent="WaveManager" unique_id=1608393486 instance=ExtResource("6_p3r0m")]
+[node name="SpawnArea9" parent="WaveManager" instance=ExtResource("6_p3r0m")]
 transform = Transform3D(14.996553, 0, 0, 0, 1, 0, 0, 0, 13.429203, -21.707869, -1.9073486e-06, -75.51022)
 
-[node name="SpawnArea12" parent="WaveManager" unique_id=1654639909 instance=ExtResource("6_p3r0m")]
+[node name="SpawnArea12" parent="WaveManager" instance=ExtResource("6_p3r0m")]
 transform = Transform3D(13.261096, 0, 0, 0, 1, 0, 0, 0, 10.96858, -6.096262, -1.9073486e-06, -58.897964)
 
-[node name="SpawnArea13" parent="WaveManager" unique_id=997618109 instance=ExtResource("6_p3r0m")]
+[node name="SpawnArea13" parent="WaveManager" instance=ExtResource("6_p3r0m")]
 transform = Transform3D(11.409352, 0, 0, 0, 1, 0, 0, 0, 11.618183, -37.060963, -1.9073486e-06, -59.519768)
 
-[node name="Gate" parent="." unique_id=950639005 instance=ExtResource("11_ggxbb")]
+[node name="Gate" parent="." instance=ExtResource("11_ggxbb")]
 transform = Transform3D(-7.649493e-08, 0, 1.75, 0, 1.75, 0, -1.75, 0, -7.649493e-08, 30.088423, 1.0413802, -115.05538)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=950944550]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 73.016464, 17.540577, -207.76659)
 mesh = SubResource("SphereMesh_ggxbb")
 surface_material_override/0 = SubResource("StandardMaterial3D_k5jyb")
 
-[node name="DialogueCollisionCaller" type="Area3D" parent="." unique_id=400359772 node_paths=PackedStringArray("dialogue")]
+[node name="DialogueCollisionCaller" type="Area3D" parent="." node_paths=PackedStringArray("dialogue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028913975, 0, 3.4465466)
 script = ExtResource("11_3hrir")
 dialogue = NodePath("DialogueCaller")
 metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller" unique_id=174853794]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_eolt2")
 
-[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller" unique_id=1751539047]
+[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller"]
 script = ExtResource("12_gi3qb")
 dialogue = Array[ExtResource("13_3nrg2")]([SubResource("Resource_fjcc3")])
 metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
-[node name="DialogueCollisionCaller2" type="Area3D" parent="." unique_id=2058217026 node_paths=PackedStringArray("dialogue")]
+[node name="DialogueCollisionCaller2" type="Area3D" parent="." node_paths=PackedStringArray("dialogue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.04174, 5.605074, -138.10242)
 script = ExtResource("11_3hrir")
 dialogue = NodePath("DialogueCaller")
 metadata/_custom_type_script = "uid://dn1pm1qlsm08j"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller2" unique_id=725448513]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueCollisionCaller2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_eolt2")
 
-[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller2" unique_id=2051540610]
+[node name="DialogueCaller" type="Node" parent="DialogueCollisionCaller2"]
 script = ExtResource("12_gi3qb")
 dialogue = Array[ExtResource("13_3nrg2")]([SubResource("Resource_i6srs"), SubResource("Resource_tbj4w"), SubResource("Resource_fcfpd")])
 metadata/_custom_type_script = "uid://dp3mgj1n5ewhs"
 
-[node name="Ambiance SFX" type="FmodEventEmitter3D" parent="." unique_id=1045633845]
+[node name="Ambiance SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Levels/GrassLand/Cave Ambiance"
 event_guid = "{ae17bacc-f896-436e-8226-eec66b9e436a}"
 autoplay = true
 
-[node name="Music SFX" type="FmodEventEmitter3D" parent="." unique_id=1657413984]
+[node name="Music SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Music/Biome3_Level2"
 event_guid = "{4061fb90-3025-49da-b5a6-72acc79e0cf9}"
 autoplay = true
 
-[node name="stair collider" type="Node3D" parent="." unique_id=146951753]
+[node name="stair collider" type="Node3D" parent="."]
 transform = Transform3D(-7.649492e-08, 4.9018855e-17, 1.75, 0.6336118, 1.6312683, 2.7696053e-08, -1.6312683, 0.6336118, -7.1305e-08, 72.376816, 2.7684402, -128.8768)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="stair collider" unique_id=77402702]
+[node name="StaticBody3D" type="StaticBody3D" parent="stair collider"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stair collider/StaticBody3D" unique_id=239073036]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stair collider/StaticBody3D"]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, -8.881784e-16, -3.5527137e-15, 0, 0.99999994, 0, 0, -0.33594894)
 shape = SubResource("BoxShape3D_30m0f")
 
-[node name="collisions" type="StaticBody3D" parent="." unique_id=55331813]
+[node name="collisions" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="collisions" unique_id=353602386]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3351355, 0, -7.789345)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="collisions" unique_id=1414155112]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2566261, 0, -7.789345)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="collisions" unique_id=1470789938]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, -0.39999998, 0, 1, 0, 1, 0, -1.7484554e-08, 0.2375927, 0, 7.6983776)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="collisions" unique_id=1038437360]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, -0.35999995, 0, 1, 0, 1, 0, -1.5736099e-08, -8.762407, 0, -23.30162)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="collisions" unique_id=1220375002]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, -0.35999995, 0, 1, 0, 1, 0, -1.5736099e-08, 9.237593, 0, -23.484364)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="collisions" unique_id=141828301]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.89999986, 10.474352, 0, -35.30162)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="collisions" unique_id=668573138]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6299999, -9.779041, 0, -32.30162)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="collisions" unique_id=949891759]
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6929999, -44.89304, 0, -70.03861)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="collisions" unique_id=26925712]
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.6929999, -29.186361, 0, -79.04761)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D17" type="CollisionShape3D" parent="collisions" unique_id=2001409342]
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.83435535, -50.117195, 0, -117.50067)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D24" type="CollisionShape3D" parent="collisions" unique_id=91528925]
+[node name="CollisionShape3D24" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.60683674, -45.010746, 0, -160.31175)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D25" type="CollisionShape3D" parent="collisions" unique_id=913549363]
+[node name="CollisionShape3D25" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, -0.5081626, 0, 1, 0, 1, 0, -2.2212493e-08, -50.583225, 0, -154.02829)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D26" type="CollisionShape3D" parent="collisions" unique_id=59963248]
+[node name="CollisionShape3D26" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, -0.18796755, 0, 1, 0, 1, 0, -8.216323e-09, -67.88818, 0, -153.48836)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D27" type="CollisionShape3D" parent="collisions" unique_id=1612883867]
+[node name="CollisionShape3D27" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-1, 0, 6.573058e-08, 0, 1, 0, -8.742278e-08, 0, -0.7518702, -69.852234, 0, -164.44803)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D28" type="CollisionShape3D" parent="collisions" unique_id=1513779929]
+[node name="CollisionShape3D28" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1.3113416e-07, 0, 0.82705724, 0, 1, 0, -1, 0, 1.0845547e-07, -59.072342, 0, -174.36455)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D31" type="CollisionShape3D" parent="collisions" unique_id=1940799344]
+[node name="CollisionShape3D31" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1.3113416e-07, 0, 0.94198596, 0, 1, 0, -1, 0, 1.2352655e-07, -7.9247932, 0, -205.28676)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D35" type="CollisionShape3D" parent="collisions" unique_id=198680232]
+[node name="CollisionShape3D35" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1.3113416e-07, 0, 0.65939015, 0, 1, 0, -1, 0, 8.646858e-08, -12.257934, 0, -175.65364)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D38" type="CollisionShape3D" parent="collisions" unique_id=2106526708]
+[node name="CollisionShape3D38" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1.3113416e-07, 0, 0.65939015, 0, 1, 0, -1, 0, 8.646858e-08, 14.117673, 0, -176.09995)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D32" type="CollisionShape3D" parent="collisions" unique_id=191416213]
+[node name="CollisionShape3D32" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, -1.6470206e-07, 0, 1, 0, 1.7484555e-07, 0, 0.94198596, 6.20833, 0, -191.17819)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D36" type="CollisionShape3D" parent="collisions" unique_id=1976573537]
+[node name="CollisionShape3D36" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, -2.1411267e-07, 0, 1, 0, 1.7484555e-07, 0, 1.2245817, 3.0851302, 0, -156.3247)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D37" type="CollisionShape3D" parent="collisions" unique_id=1138844466]
+[node name="CollisionShape3D37" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, -2.1411267e-07, 0, 1, 0, 1.7484555e-07, 0, 1.2245817, -2.9148698, 0, -156.3247)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D39" type="CollisionShape3D" parent="collisions" unique_id=1093979276]
+[node name="CollisionShape3D39" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, -2.7834648e-07, 0, 1, 0, 1.7484555e-07, 0, 1.5919561, -21.344143, 0, -115.546135)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D40" type="CollisionShape3D" parent="collisions" unique_id=1670973726]
+[node name="CollisionShape3D40" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1.3113416e-07, 0, 1.7511518, 0, 1, 0, -1, 0, 2.2963586e-07, 1.9644605, 0, -93.76662)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D45" type="CollisionShape3D" parent="collisions" unique_id=379151610]
+[node name="CollisionShape3D45" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1.3113416e-07, 0, 1.7511518, 0, 1, 0, -1, 0, 2.2963586e-07, 54.49902, 0, -111.54613)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D46" type="CollisionShape3D" parent="collisions" unique_id=362037497]
+[node name="CollisionShape3D46" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1.3113416e-07, 0, 1.3238975, 0, 1, 0, -1, 0, 1.7360821e-07, 48.65659, 0, -119.54613)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D48" type="CollisionShape3D" parent="collisions" unique_id=1039457121]
+[node name="CollisionShape3D48" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1.3113416e-07, 0, 0.25903922, 0, 1, 0, -1, 0, 3.3968895e-08, 79.09078, 0, -119.54611)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D47" type="CollisionShape3D" parent="collisions" unique_id=888067597]
+[node name="CollisionShape3D47" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, -8.217009e-08, 0, 1, 0, 1.7484555e-07, 0, 0.46995807, 80.226944, 0, -115.71609)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D49" type="CollisionShape3D" parent="collisions" unique_id=1728239058]
+[node name="CollisionShape3D49" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(16.029625, 0, -8.216992e-08, 0, 1, 0, 2.8027087e-06, 0, 0.46995708, 70.664566, 6.0973196, -148.58463)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D41" type="CollisionShape3D" parent="collisions" unique_id=280275872]
+[node name="CollisionShape3D41" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1.3113416e-07, 0, 0.6724424, 0, 1, 0, -1, 0, 8.818018e-08, -13.207514, 0, -137.8926)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D42" type="CollisionShape3D" parent="collisions" unique_id=1449070236]
+[node name="CollisionShape3D42" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1.3113416e-07, 0, 0.81365526, 0, 1, 0, -1, 0, 1.06698025e-07, 15.8487215, 0, -138.54614)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D43" type="CollisionShape3D" parent="collisions" unique_id=686320749]
+[node name="CollisionShape3D43" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, -1.13811225e-07, 0, 1, 0, 1.7484555e-07, 0, 0.6509242, 27.239893, 0, -129.19707)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D44" type="CollisionShape3D" parent="collisions" unique_id=229246585]
+[node name="CollisionShape3D44" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, -1.13811225e-07, 0, 1, 0, 1.7484555e-07, 0, 0.6509242, 26.306732, 0, -101.858246)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D33" type="CollisionShape3D" parent="collisions" unique_id=608892210]
+[node name="CollisionShape3D33" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, -8.235103e-08, 0, 1, 0, 1.7484555e-07, 0, 0.47099298, -22.29848, 0, -199.65607)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D34" type="CollisionShape3D" parent="collisions" unique_id=1883581597]
+[node name="CollisionShape3D34" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, -5.764572e-08, 0, 1, 0, 1.7484555e-07, 0, 0.32969508, -22.268303, 0, -179.40337)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D18" type="CollisionShape3D" parent="collisions" unique_id=437681281]
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.83435535, -78.20655, 0, -117.50067)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D19" type="CollisionShape3D" parent="collisions" unique_id=437901395]
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, 0.58404875, 0, 1, 0, -1, 0, -2.552958e-08, -70.94861, 0, -106.01694)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D20" type="CollisionShape3D" parent="collisions" unique_id=1252970988]
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, 0.63077265, 0, 1, 0, -1, 0, -2.7571947e-08, -58.683586, 0, -129.0528)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D21" type="CollisionShape3D" parent="collisions" unique_id=344688105]
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, 0.12615453, 0, 1, 0, -1, 0, -5.514389e-09, -76.97599, 0, -129.50067)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D13" type="CollisionShape3D" parent="collisions" unique_id=1975701408]
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, 0.6929999, 0, 1, 0, -1, 0, -3.029199e-08, -30.148401, 0, -85.07024)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D14" type="CollisionShape3D" parent="collisions" unique_id=2048801960]
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, 0.6929999, 0, 1, 0, -1, 0, -3.029199e-08, -39.1574, 0, -59.977608)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="collisions" unique_id=1225608327]
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(0.7071067, 0, 0.5791202, 0, 0.99999994, 0, -0.7071067, 0, 0.5791202, -19.76241, 0, -50.30162)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D15" type="CollisionShape3D" parent="collisions" unique_id=1559644657]
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(0.8243238, 0, 0.5424353, 0, 0.99999994, 0, -0.5661185, 0, 0.7898388, -53.741707, 0, -92.76619)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D22" type="CollisionShape3D" parent="collisions" unique_id=1856006821]
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(0.9100914, 0, -0.3494225, 0, 0.99999994, 0, 0.41440737, 0, 0.7673762, -69.91372, 0, -141.63783)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D23" type="CollisionShape3D" parent="collisions" unique_id=1102128857]
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(0.921863, 0, -0.32009223, 0, 0.99999994, 0, 0.3875156, 0, 0.761469, -63.550053, 0, -141.7547)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D29" type="CollisionShape3D" parent="collisions" unique_id=1184918705]
+[node name="CollisionShape3D29" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(0.58304495, 0, -0.6710843, 0, 0.99999994, 0, 0.8124398, 0, 0.48160148, -33.315285, 0, -177.12975)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D30" type="CollisionShape3D" parent="collisions" unique_id=692566398]
+[node name="CollisionShape3D30" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(0.58304495, 0, -0.8337252, 0, 0.99999994, 0, 0.8124398, 0, 0.59832025, -34.34569, 0, -183.36906)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D16" type="CollisionShape3D" parent="collisions" unique_id=777377323]
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(0.8243238, 0, 0.44025248, 0, 0.99999994, 0, -0.5661185, 0, 0.64105064, -47.292732, 0, -95.8716)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="collisions" unique_id=2041876328]
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(0.7071067, 0, 0.7134761, 0, 0.99999994, 0, -0.7071067, 0, 0.7134761, -17.147675, 0, -57.586376)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="collisions" unique_id=62603025]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="collisions"]
 transform = Transform3D(-4.371139e-08, 0, 0.6299999, 0, 1, 0, -1, 0, -2.7538169e-08, 2.2375927, 0, -45.599003)
 shape = SubResource("BoxShape3D_i6srs")
 
-[node name="GodRays" type="Node3D" parent="." unique_id=90624342]
+[node name="GodRays" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GodRays" unique_id=829280169]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GodRays"]
 transform = Transform3D(-0.8852963, 0.34146363, -0.315679, 6.419341e-08, -0.67883927, -0.73428696, -0.46502757, -0.6500615, 0.6009738, -17.756767, 5.1592865, -70.430336)
 mesh = SubResource("PlaneMesh_tbj4w")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="GodRays" unique_id=473647607]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="GodRays"]
 transform = Transform3D(-0.7234246, -0.19066098, -0.6635549, 0.68483764, -0.3199642, -0.65469134, -0.0874899, -0.9280472, 0.36204165, -49.107544, -19.897034, -109.78726)
 mesh = SubResource("PlaneMesh_tbj4w")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="GodRays" unique_id=2099765024]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="GodRays"]
 transform = Transform3D(-0.97418356, -0.07625011, 0.2124913, -0.10213285, -0.69055384, -0.7160339, 0.20133425, -0.7192508, 0.66493857, -1.0283461, 7.2685566, -70.98172)
 mesh = SubResource("PlaneMesh_tbj4w")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="GodRays" unique_id=1808232400]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="GodRays"]
 transform = Transform3D(-0.4488029, -0.8599342, 0.24308307, 0.850368, -0.49458316, -0.17961489, 0.27468187, 0.12609819, 0.9532309, -20.707127, 18.997105, 3.9328804)
 mesh = SubResource("PlaneMesh_fcfpd")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="GodRays" unique_id=1672762333]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="GodRays"]
 transform = Transform3D(-0.8852963, 0.34146363, -0.315679, 6.419341e-08, -0.67883927, -0.73428696, -0.46502757, -0.6500615, 0.6009738, 41.35923, 5.1592865, -159.29355)
 mesh = SubResource("PlaneMesh_1q2o5")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="GodRays" unique_id=1178608728]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="GodRays"]
 transform = Transform3D(-0.704399, -0.52120006, 0.48184294, 9.124426e-08, -0.6788393, -0.734287, 0.7098044, -0.517231, 0.4781738, 107.85162, 5.1592865, -168.48802)
 mesh = SubResource("PlaneMesh_1q2o5")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="GodRays" unique_id=1709138573]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="GodRays"]
 transform = Transform3D(0.1358712, 0.72747755, -0.6725441, 1.0557427e-07, -0.67883945, -0.734287, -0.9907266, 0.09976852, -0.092234835, -18.172756, -11.482265, -231.61186)
 mesh = SubResource("PlaneMesh_ms5vr")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
 
 [connection signal="ended" from="WaveManager/Wave6" to="Gate" method="open"]

@@ -16,10 +16,10 @@ func _ready() -> void:
 func enter(_prev_state: String, _data := {}) -> void:
 	super(_prev_state, _data)
 	hitbox.monitoring = true	
+	entered.emit()
 	if dawn.closest_enemy != null:
 		var target = dawn.closest_enemy.global_position
 		dawn.look_at(Vector3(target.x, dawn.global_position.y, target.z))
-	entered.emit()
 	do_damage()
 	await_end()
 	

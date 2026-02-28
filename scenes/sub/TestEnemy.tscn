@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cy13cantipmem"]
+[gd_scene load_steps=7 format=3 uid="uid://cy13cantipmem"]
 
 [ext_resource type="Script" uid="uid://ep4kvytqtqxh" path="res://scripts/entities/enemies/melee_enemy.gd" id="1_ubbc6"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_oyuv5"]
@@ -13,34 +13,34 @@ albedo_color = Color(1, 0, 0, 1)
 material = SubResource("StandardMaterial3D_0ai77")
 height = 2.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_oyuv5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2d2if"]
 viewport_path = NodePath("SubViewport")
 
-[node name="TestEnemy" type="CharacterBody3D" unique_id=445098899]
+[node name="TestEnemy" type="CharacterBody3D"]
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_ubbc6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=836459441]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_4wg20")
 debug_fill = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1840849551]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_swy48")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1032801392]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="Hurt SFX" type="FmodEventEmitter3D" parent="." unique_id=1180901045]
+[node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Hit"
 event_guid = "{25833449-1b73-413e-9b21-c678c12fee73}"
 
-[node name="Death SFX" type="FmodEventEmitter3D" parent="." unique_id=630213217]
+[node name="Death SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
 event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 
-[node name="StatusBars" parent="." unique_id=895703593 instance=ExtResource("2_oyuv5")]
+[node name="StatusBars" parent="." instance=ExtResource("2_oyuv5")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 1.5867994, 0)
-texture = SubResource("ViewportTexture_oyuv5")
+texture = SubResource("ViewportTexture_2d2if")
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]

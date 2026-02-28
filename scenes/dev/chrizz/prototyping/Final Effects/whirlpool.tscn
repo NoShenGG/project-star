@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cinm7g4smtma2"]
+[gd_scene load_steps=31 format=3 uid="uid://cinm7g4smtma2"]
 
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="1_1tqh2"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_1tqh2"]
 [ext_resource type="Shader" uid="uid://q8q163jukosm" path="res://scenes/dev/chrizz/prototyping/dawn_caustics_aura_nonbillboard.tres" id="2_aeojm"]
 [ext_resource type="Shader" uid="uid://usej5ia4h82v" path="res://scenes/dev/chrizz/prototyping/dawn_chargeaura.tres" id="2_go80i"]
 [ext_resource type="Shader" uid="uid://bj0houc6tnfxa" path="res://scenes/dev/chrizz/prototyping/dawnstream.tres" id="5_aeojm"]
@@ -41,9 +41,7 @@ render_priority = 0
 shader = ExtResource("2_aeojm")
 shader_parameter/ColorParameter2 = Color(0.051628, 0, 0.407949, 1)
 shader_parameter/ColorParameter = Color(1.5465398, 0.90138984, 0.7859582, 1)
-shader_parameter/Vector2Parameter = Vector2(0, 0.3)
 shader_parameter/FloatParameter = 0.05
-shader_parameter/FloatParameter2 = 7.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_45ydp"]
 transparency = 1
@@ -130,11 +128,11 @@ scale_curve = SubResource("CurveTexture_pvgir")
 color = Color(2.6996513e-05, 1.2434195, 1.6023284, 1)
 alpha_curve = SubResource("CurveTexture_80slm")
 
-[node name="DawnPondVFX" type="Node3D" unique_id=168262058 node_paths=PackedStringArray("particles")]
+[node name="DawnPondVFX" type="Node3D" node_paths=PackedStringArray("particles")]
 script = ExtResource("1_1tqh2")
-particles = [NodePath("FloorCaustics2"), NodePath("FloorCaustics"), NodePath("Droplets"), NodePath("StreamCaustics"), NodePath("FloorCaustics2"), NodePath("FloorCaustics"), NodePath("Droplets"), NodePath("StreamCaustics")]
+particles = [NodePath("FloorCaustics2"), NodePath("FloorCaustics"), NodePath("Droplets"), NodePath("FloorCaustics"), NodePath("Droplets"), NodePath("FloorCaustics2"), NodePath("StreamCaustics")]
 
-[node name="FloorCaustics2" type="GPUParticles3D" parent="." unique_id=424635616]
+[node name="FloorCaustics2" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.22287004, 0.22287005)
 material_override = SubResource("ShaderMaterial_1tqh2")
 emitting = false
@@ -145,7 +143,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_h84bc")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="FloorCaustics" type="GPUParticles3D" parent="." unique_id=120475920]
+[node name="FloorCaustics" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.22287005, 0)
 material_override = SubResource("ShaderMaterial_0mmn4")
 emitting = false
@@ -156,13 +154,13 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_h84bc")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="Droplets" type="GPUParticles3D" parent="." unique_id=527427804]
+[node name="Droplets" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_45ydp")
 lifetime = 4.0
 process_material = SubResource("ParticleProcessMaterial_n7sfj")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="StreamCaustics" type="GPUParticles3D" parent="." unique_id=789173147]
+[node name="StreamCaustics" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.9999881, -4.272266e-10, 0.0048869024, 0, -1, -8.742278e-08, 0.0048869024, 8.742173e-08, -0.9999881, 0, 0, 2.1081138)
 material_override = SubResource("ShaderMaterial_kc7dy")
 emitting = false

@@ -10,9 +10,9 @@ func _ready() -> void:
 	menu.menu_closed.connect(close)
 
 func open():
-	if (open_sfx): open_sfx.play(true)
-	if (close_sfx): close_sfx.stop()
+	open_sfx.play(true)
+	close_sfx.stop()
 
 func close():
-	if (close_sfx): close_sfx.play(true)
-	if (open_sfx): open_sfx.stop()
+	close_sfx.play(true)
+	open_sfx.stop()

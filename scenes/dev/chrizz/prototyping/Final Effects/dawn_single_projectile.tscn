@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://d1h7wbn4on4cj"]
+[gd_scene load_steps=29 format=3 uid="uid://d1h7wbn4on4cj"]
 
 [ext_resource type="Texture2D" uid="uid://e68748s6s3vm" path="res://scenes/dev/chrizz/prototyping/eight_note_singular.png" id="1_7mhk6"]
 [ext_resource type="Shader" uid="uid://bii13ecvcx0vv" path="res://scenes/dev/chrizz/prototyping/dawn_caustics_aura.tres" id="2_1e6l0"]
 [ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="3_00mte"]
-[ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://VFX/Kenny Particle Pack/star_04.png" id="3_1e6l0"]
+[ext_resource type="Texture2D" uid="uid://dmsf8p2txe0l3" path="res://vfx/Kenny Particle Pack/star_04.png" id="3_1e6l0"]
 [ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="4_n1et7"]
 [ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrails/defaults/texture.tres" id="5_7mhk6"]
 [ext_resource type="Script" uid="uid://bx10tuy8s55pq" path="res://addons/GPUTrails/GPUTrail3D.gd" id="6_qw511"]
@@ -121,18 +121,18 @@ shader_parameter/flags = 42
 [sub_resource type="QuadMesh" id="QuadMesh_tqyou"]
 material = SubResource("ShaderMaterial_63jrr")
 
-[node name="BasicProjectileFX" type="Node3D" unique_id=469287748]
+[node name="BasicProjectileFX" type="Node3D"]
 script = SubResource("GDScript_7mhk6")
 amplitude = 2.0
 speed = 5.0
 
-[node name="Note" type="GPUParticles3D" parent="." unique_id=1141988863]
+[node name="Note" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_l6rgy")
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_n7sfj")
 draw_pass_1 = SubResource("QuadMesh_gm6e8")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1081283127]
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(0.44584835, 0.7245143, 0.8957288, 1)
 light_energy = 4.642
 light_indirect_energy = 5.974
@@ -140,7 +140,7 @@ light_volumetric_fog_energy = 4.731
 light_specular = 0.666
 omni_range = 2.453
 
-[node name="AuraCaustics" type="GPUParticles3D" parent="." unique_id=1768215873]
+[node name="AuraCaustics" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_eb3x3")
 amount = 2
@@ -149,14 +149,14 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_k1art")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1246123578]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.99826664, 0.05885338, 0, -0.05885338, 0.99826664, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_00mte")
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_qw511")
 draw_pass_1 = SubResource("QuadMesh_33p8n")
 
-[node name="GPUTrail3D" type="GPUParticles3D" parent="." unique_id=299277782]
+[node name="GPUTrail3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.99826664, 0.05885338, 0, -0.05885338, 0.99826664, 0, 0, 0)
 amount = 43
 lifetime = 43.0

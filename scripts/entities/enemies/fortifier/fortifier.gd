@@ -14,7 +14,7 @@ func _ready() -> void:
 		
 func shield() -> bool:
 	var enemy = vision.get_overlapping_bodies().filter(
-		func(a): return a is Enemy and not a is Fortifier).pick_random()
+		func(a): return a is Enemy and a != self).pick_random()
 	if enemy == null:
 		return false
 	enemy.apply_effect(FortifierInvincible.new(self))

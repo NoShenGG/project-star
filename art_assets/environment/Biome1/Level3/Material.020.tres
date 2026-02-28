@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://q88obhy2xfgb"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://q88obhy2xfgb"]
 
 [ext_resource type="Texture2D" uid="uid://cwad01uh7y4c" path="res://art_assets/environment/Biome1/Level3/Level3_TCom_Leaves_EuropeanBeech01_1K_alpha.png" id="1_suj2b"]
 [ext_resource type="Texture2D" uid="uid://cutq8pjx2igyv" path="res://art_assets/environment/Biome1/Level3/Level3_TCom_Leaves_EuropeanBeech01_1K_height.png" id="2_4iv37"]

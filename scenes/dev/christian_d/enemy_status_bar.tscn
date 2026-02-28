@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://pv4ghgiiejhk"]
+[gd_scene load_steps=13 format=3 uid="uid://pv4ghgiiejhk"]
 
 [ext_resource type="Script" uid="uid://wjmuurwxsrpw" path="res://scripts/entities/statusbars.gd" id="1_wpcfj"]
 
@@ -45,7 +45,7 @@ gradient = SubResource("Gradient_ipcke")
 width = 384
 height = 16
 
-[node name="StatusBars" type="Sprite3D" unique_id=1383528249]
+[node name="StatusBars" type="Sprite3D"]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 0, 0)
 billboard = 2
 texture = SubResource("ViewportTexture_y83ja")
@@ -54,11 +54,11 @@ region_rect = Rect2(2.3107376, 0, 506.6043, 78.22911)
 script = ExtResource("1_wpcfj")
 BAR_ANIMATION_EASE_CURVE = SubResource("Curve_3ijnh")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1521951289]
+[node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(512, 80)
 
-[node name="HealthCont" type="PanelContainer" parent="SubViewport" unique_id=1332210678]
+[node name="HealthCont" type="PanelContainer" parent="SubViewport"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -68,13 +68,13 @@ offset_bottom = 48.0
 grow_horizontal = 2
 theme = SubResource("Theme_wpcfj")
 
-[node name="Health" type="TextureProgressBar" parent="SubViewport/HealthCont" unique_id=1497432984]
+[node name="Health" type="TextureProgressBar" parent="SubViewport/HealthCont"]
 layout_mode = 2
 value = 50.0
 texture_under = SubResource("GradientTexture2D_tuo4h")
 texture_progress = SubResource("GradientTexture2D_y83ja")
 
-[node name="BreakCont" type="PanelContainer" parent="SubViewport" unique_id=1138241996]
+[node name="BreakCont" type="PanelContainer" parent="SubViewport"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -86,7 +86,7 @@ offset_right = 192.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Break" type="TextureProgressBar" parent="SubViewport/BreakCont" unique_id=746557992]
+[node name="Break" type="TextureProgressBar" parent="SubViewport/BreakCont"]
 layout_mode = 2
 value = 50.0
 texture_under = SubResource("GradientTexture2D_nveos")

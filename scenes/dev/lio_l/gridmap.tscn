@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://54g2a6m6ict6"]
+[gd_scene load_steps=10 format=3 uid="uid://54g2a6m6ict6"]
 
 [ext_resource type="MeshLibrary" uid="uid://cnulqav1s7m8a" path="res://scenes/dev/lio_l/tempmeshlibrary.tres" id="1_vchsd"]
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_xfosa"]
+[ext_resource type="Script" uid="uid://cx0wca3wtcorv" path="res://scripts/entities/player/player.gd" id="2_t8cgi"]
 [ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="4_t8cgi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t8cgi"]
@@ -18,9 +19,9 @@ albedo_color = Color(0, 1, 1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3efvy"]
 albedo_color = Color(1, 0, 1, 1)
 
-[node name="Gridmap" type="Node2D" unique_id=1543180515]
+[node name="Gridmap" type="Node2D"]
 
-[node name="GridMap" type="GridMap" parent="." unique_id=447085459]
+[node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh_library = ExtResource("1_vchsd")
 cell_size = Vector3(1, 1, 1)
@@ -29,44 +30,47 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -1, 0)
 
-[node name="PlayerManager" type="Node3D" parent="." unique_id=1808208715]
+[node name="PlayerManager" type="Node3D" parent="."]
 script = ExtResource("1_xfosa")
 
-[node name="Player" type="CharacterBody3D" parent="PlayerManager" unique_id=359445396]
+[node name="Player" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+script = ExtResource("2_t8cgi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player" unique_id=1542602824]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player"]
 shape = SubResource("CapsuleShape3D_t8cgi")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player" unique_id=288520809]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player"]
 mesh = SubResource("CapsuleMesh_vl4ta")
 surface_material_override/0 = SubResource("ShaderMaterial_xlfcv")
 
-[node name="Player2" type="CharacterBody3D" parent="PlayerManager" unique_id=1830661347]
+[node name="Player2" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+script = ExtResource("2_t8cgi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2" unique_id=1765378480]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2"]
 shape = SubResource("CapsuleShape3D_t8cgi")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2" unique_id=1033463314]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2"]
 mesh = SubResource("CapsuleMesh_vl4ta")
 surface_material_override/0 = SubResource("StandardMaterial3D_qeqnr")
 
-[node name="Player3" type="CharacterBody3D" parent="PlayerManager" unique_id=1498335385]
+[node name="Player3" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
+script = ExtResource("2_t8cgi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3" unique_id=1275302731]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3"]
 shape = SubResource("CapsuleShape3D_t8cgi")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3" unique_id=1072216111]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3"]
 mesh = SubResource("CapsuleMesh_vl4ta")
 surface_material_override/0 = SubResource("StandardMaterial3D_3efvy")
 
-[node name="Marker3D" type="Marker3D" parent="." unique_id=2043707931]
+[node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.770402, -0.637558, 0, 0.637558, 0.770402, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=1551179320]
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -19)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=388756507]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)

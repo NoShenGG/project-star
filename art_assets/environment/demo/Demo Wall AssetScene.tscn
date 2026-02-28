@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://df4avq15c1x0s"]
+[gd_scene load_steps=7 format=3 uid="uid://df4avq15c1x0s"]
 
 [ext_resource type="PackedScene" uid="uid://rr6qms6v8yml" path="res://art_assets/environment/demo/Models/Demo Wall.glb" id="1_0jxxe"]
 
@@ -17,33 +17,33 @@ points = PackedVector3Array(1, 0, -1.0000001, 0.99999976, 2, -1.0000001, 1.00000
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d4db4"]
 points = PackedVector3Array(-1.0000002, 2, -1.0000001, -1.0000002, 2, 0.9998044, 0.9998045, 2, -1.0000001, 0.9998045, 0, -1.0000001, 0.9998045, 0, -0.60003924, 1.0000002, 0, 0.9998044, 0.9998045, 2, 0.9998044, 1.0000002, 0, -0.31440878)
 
-[node name="DemoWallAssetScene" type="Node3D" unique_id=711153368]
+[node name="DemoWallAssetScene" type="Node3D"]
 
-[node name="Demo Wall" parent="." unique_id=1716731477 instance=ExtResource("1_0jxxe")]
+[node name="Demo Wall" parent="." instance=ExtResource("1_0jxxe")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Demo Wall/Wall_006" parent_id_path=PackedInt32Array(1716731477, 1395637250) index="0" unique_id=1636650295]
+[node name="StaticBody3D" type="StaticBody3D" parent="Demo Wall/Wall_006" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Wall/Wall_006/StaticBody3D" unique_id=612536490]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Wall/Wall_006/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_0jxxe")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Demo Wall/Wall_007" parent_id_path=PackedInt32Array(1716731477, 145000716) index="0" unique_id=667449498]
+[node name="StaticBody3D" type="StaticBody3D" parent="Demo Wall/Wall_007" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Wall/Wall_007/StaticBody3D" unique_id=758157431]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Wall/Wall_007/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_1mhm6")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Demo Wall/Wall_008" parent_id_path=PackedInt32Array(1716731477, 1777481065) index="0" unique_id=881614166]
+[node name="StaticBody3D" type="StaticBody3D" parent="Demo Wall/Wall_008" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Wall/Wall_008/StaticBody3D" unique_id=1463588898]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Wall/Wall_008/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_6n8s0")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Demo Wall/Wall_009" parent_id_path=PackedInt32Array(1716731477, 2116073038) index="0" unique_id=1664070570]
+[node name="StaticBody3D" type="StaticBody3D" parent="Demo Wall/Wall_009" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Wall/Wall_009/StaticBody3D" unique_id=2085394546]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Wall/Wall_009/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_yde03")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Demo Wall/Wall_010" parent_id_path=PackedInt32Array(1716731477, 795225931) index="0" unique_id=1655400057]
+[node name="StaticBody3D" type="StaticBody3D" parent="Demo Wall/Wall_010" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Wall/Wall_010/StaticBody3D" unique_id=840655398]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Wall/Wall_010/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_d4db4")
 
 [editable path="Demo Wall"]

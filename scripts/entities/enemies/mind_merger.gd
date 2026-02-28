@@ -3,13 +3,14 @@ class_name MindMerger extends Enemy
 signal minion_death
 
 @export var flee_state: State
-@export var area_damage: float = 1.0
 @export_category("Rotation")
 @export var ROTATION_SPEED_DEG_PER_SEC: float = 60
+@export var MIN_ROTATION_WAIT:float = 3
+@export var MAX_ROTATION_WAIT: float = 8
 @export_category("Expansion")
-@export var MINION_OFFSET: float = 5
+@export var MINION_OFFSET: float = 3
 @export var MAX_EXPANSION: float = 2
-@export var EXPANSION_SPEED: float = 0.4
+@export var EXPANSION_SPEED: float = 0.5
 @export var EXPANSION_CURVE: Curve
 
 @onready var vision = $Vision
@@ -20,6 +21,8 @@ signal minion_death
 var minions: Array[Merged] = []
 var lasers: Array = []
 var rotation_offset: float = 0
+var rotation_flip_wait: float = 0
+var rotation_flip_mult: int = 1
 var expansion_time: float = 0
 var expansion_mult: int = 1
 var hit_cooldown: Array[Node3D] = []
@@ -66,9 +69,15 @@ func _enter_tree() -> void:
 
 func _process(delta: float) -> void:
 	super(delta)
-	rotation_offset += ROTATION_SPEED_DEG_PER_SEC * delta
+	
+	## Calculates Minion Rotation
+	if (rotation_flip_wait <= 0):
+		rotation_flip_wait = lerp(MIN_ROTATION_WAIT, MAX_ROTATION_WAIT, randf())
+		rotation_flip_mult *= -1
+	rotation_offset += ROTATION_SPEED_DEG_PER_SEC * delta * rotation_flip_mult
 	if (abs(rotation_offset) >= 360): # Float Modulus for Offset Wrapping
 		rotation_offset -= sign(rotation_offset)*360
+	rotation_flip_wait -= delta # Reduce cooldown Timer	
 	
 	## Calculates Minion Expansion
 	expansion_time += EXPANSION_SPEED * delta * expansion_mult
@@ -87,7 +96,7 @@ func _process(delta: float) -> void:
 				hit_cooldown.append(body)
 				get_tree().create_timer(1.0).timeout.connect(func(): hit_cooldown.erase(body))
 				body = body as Player
-				body.try_damage(area_damage * damage_mult)
+				body.try_damage(0.1)
 
 
 func _physics_process(_delta: float) -> void:
