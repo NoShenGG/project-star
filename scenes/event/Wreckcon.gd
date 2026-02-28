@@ -6,7 +6,7 @@ enum Task {
 	ReneSmite,
 	DawnSustain,
 	DawnChilling,
-	Combo100,
+	Combo75,
 	Switch100,
 	WinGame,
 	Speedrun,
@@ -19,7 +19,7 @@ var map = {
 	Task.ReneSmite: process_rene_smite,
 	Task.DawnSustain: process_dawn_sustain,
 	Task.DawnChilling: process_dawn_chilling,
-	Task.Combo100: process_combo_100,
+	Task.Combo75: process_combo_75,
 	Task.Switch100: process_switch_100,
 	Task.WinGame: process_win_game,
 	Task.Speedrun: process_speedrun,
@@ -154,10 +154,10 @@ func process_dawn_chilling() -> bool:
 	return false
 
 
-# Hit 100 Combo Task
-func process_combo_100() -> bool:
+# Hit 75 Combo Task
+func process_combo_75() -> bool:
 	if not is_level: return false
-	return GameManager.player_manager.combo_counter.combo >= 100
+	return GameManager.player_manager.combo_counter.combo >= 75
 
 
 # Switch Characters 100 Times Task

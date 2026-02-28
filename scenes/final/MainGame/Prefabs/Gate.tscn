@@ -250,7 +250,6 @@ shape = SubResource("BoxShape3D_ryov1")
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=2137510842]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4559042, 0, 0)
-emitting = false
 amount = 5
 lifetime = 0.5
 speed_scale = 0.5
@@ -262,7 +261,6 @@ draw_pass_1 = SubResource("RibbonTrailMesh_02orc")
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=665199481]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.531264, 0, 0)
-emitting = false
 amount = 5
 lifetime = 0.5
 speed_scale = 0.5
