@@ -2,15 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://den4qvhi4e7kd" path="res://art_assets/Wreckcon_Task_Sheet.png" id="1_0bax6"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="1_4mpem"]
-[ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="3_1t3dl"]
-[ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="4_obfvh"]
-[ext_resource type="Texture2D" uid="uid://b18dlvux7xx6l" path="res://art_assets/Ui/dawn_portrait.png" id="5_4iu27"]
-[ext_resource type="Texture2D" uid="uid://d0np8pel0cm26" path="res://art_assets/Ui/FinalPortraits/dawnCLEAR.png" id="6_82avu"]
-[ext_resource type="Texture2D" uid="uid://cqoaj0qflq6xg" path="res://scripts/Icons/Sword.svg" id="7_rghw5"]
-[ext_resource type="Texture2D" uid="uid://btv30atgumepn" path="res://scripts/Icons/CircularLogic.svg" id="8_m31o4"]
-[ext_resource type="Texture2D" uid="uid://b23jk7qpglhje" path="res://icon.png" id="9_ocn0f"]
-[ext_resource type="Texture2D" uid="uid://bafjycstuh6ma" path="res://austin_newby/dialogue/resources/nova_wtf_0.png" id="10_ri2nu"]
-[ext_resource type="Texture2D" uid="uid://d1fmp2t3674by" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Vector/xbox_dpad_all.svg" id="11_n22hn"]
+[ext_resource type="Texture2D" uid="uid://bjfyh4eqtc0tn" path="res://art_assets/Ui/nova_portrait.png" id="3_rhiti"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhiti"]
 content_margin_left = 0.0
@@ -80,7 +72,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_1t3dl")
+texture = ExtResource("3_rhiti")
 expand_mode = 5
 stretch_mode = 5
 
@@ -96,7 +88,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_obfvh")
+texture = ExtResource("3_rhiti")
 expand_mode = 5
 stretch_mode = 5
 
@@ -112,7 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_4iu27")
+texture = ExtResource("3_rhiti")
 expand_mode = 5
 stretch_mode = 5
 
@@ -128,7 +120,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_82avu")
+texture = ExtResource("3_rhiti")
 expand_mode = 5
 stretch_mode = 5
 
@@ -137,22 +129,14 @@ custom_minimum_size = Vector2(28, 25.5)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rhiti")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/VBoxContainer/Panel5" unique_id=812354612]
+[node name="Star" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/Panel5" unique_id=1440752111]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="Star" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/Panel5/MarginContainer" unique_id=1894256403]
-modulate = Color(0.5803922, 0.6509804, 1, 1)
-layout_mode = 2
-texture = ExtResource("7_rghw5")
+texture = ExtResource("3_rhiti")
 expand_mode = 5
 stretch_mode = 5
 
@@ -161,22 +145,14 @@ custom_minimum_size = Vector2(28, 26)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rhiti")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/VBoxContainer/Panel6" unique_id=1669912471]
+[node name="Star" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/Panel6" unique_id=628993930]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Star" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/Panel6/MarginContainer" unique_id=628993930]
-modulate = Color(1, 1, 0, 1)
-layout_mode = 2
-texture = ExtResource("8_m31o4")
+texture = ExtResource("3_rhiti")
 expand_mode = 5
 stretch_mode = 5
 
@@ -185,21 +161,14 @@ custom_minimum_size = Vector2(28, 26)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rhiti")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/VBoxContainer/Panel7" unique_id=1273004465]
+[node name="Star" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/Panel7" unique_id=278233951]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Star" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/Panel7/MarginContainer" unique_id=1214618039]
-layout_mode = 2
-texture = ExtResource("9_ocn0f")
+texture = ExtResource("3_rhiti")
 expand_mode = 5
 stretch_mode = 5
 
@@ -208,21 +177,14 @@ custom_minimum_size = Vector2(28, 26)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rhiti")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/VBoxContainer/Panel8" unique_id=672930936]
+[node name="Star" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/Panel8" unique_id=1627293806]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
-
-[node name="Star" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/Panel8/MarginContainer" unique_id=890528048]
-layout_mode = 2
-texture = ExtResource("10_ri2nu")
+texture = ExtResource("3_rhiti")
 expand_mode = 5
 stretch_mode = 5
 
@@ -231,20 +193,13 @@ custom_minimum_size = Vector2(28, 26)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rhiti")
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/VBoxContainer/Panel9" unique_id=1379179782]
+[node name="Star" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/Panel9" unique_id=958874365]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="Star" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/Panel9/MarginContainer" unique_id=2135626489]
-layout_mode = 2
-texture = ExtResource("11_n22hn")
+texture = ExtResource("3_rhiti")
 expand_mode = 5
 stretch_mode = 5
