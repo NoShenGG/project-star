@@ -334,6 +334,7 @@ orientation = 2
 
 [node name="MuzzleFlash" type="Node3D" node_paths=PackedStringArray("particles")]
 script = ExtResource("1_hugfv")
+on_stop = 1
 particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D4"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D4")]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]

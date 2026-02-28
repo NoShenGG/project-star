@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ca5osqv2xr25p"]
+[gd_scene format=3 uid="uid://ca5osqv2xr25p"]
 
 [ext_resource type="Script" uid="uid://fxpa1rjy8dpj" path="res://scripts/entities/player/rene/rene_shot.gd" id="1_id3ua"]
 [ext_resource type="Shader" uid="uid://0ag3db3c3fdf" path="res://scenes/dani_k/Rene_NA_spark.tres" id="2_tkcim"]
@@ -48,7 +48,7 @@ shader_parameter/flags = 45
 [sub_resource type="QuadMesh" id="QuadMesh_142so"]
 material = SubResource("ShaderMaterial_c6i3y")
 
-[node name="ReneShot" type="RigidBody3D"]
+[node name="ReneShot" type="RigidBody3D" unique_id=170567503]
 top_level = true
 collision_layer = 0
 collision_mask = 8
@@ -59,19 +59,19 @@ contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_id3ua")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1369936519]
 shape = SubResource("SphereShape3D_shbbm")
 
-[node name="Rene_NA" type="Node3D" parent="CollisionShape3D"]
+[node name="Rene_NA" type="Node3D" parent="CollisionShape3D" unique_id=346851203]
 transform = Transform3D(-7.450581e-09, 0.2820153, 0.41287696, -0.42065758, 0.2231785, -0.15244193, -0.27027243, -0.34735966, 0.23726375, 0.05913949, 0.016975284, -0.026420712)
 
-[node name="spark" type="MeshInstance3D" parent="CollisionShape3D/Rene_NA"]
+[node name="spark" type="MeshInstance3D" parent="CollisionShape3D/Rene_NA" unique_id=1471484656]
 transform = Transform3D(0.9999996, -0.12919985, 0.11494434, -9.126961e-08, 1.0222037, -0.20771831, 7.8231096e-08, 1.0430813e-07, 1.0273046, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_6uas7")
 transparency = 0.42
 mesh = SubResource("QuadMesh_mcnef")
 
-[node name="Trail" type="GPUParticles3D" parent="CollisionShape3D/Rene_NA/spark"]
+[node name="Trail" type="GPUParticles3D" parent="CollisionShape3D/Rene_NA/spark" unique_id=1445150966]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.010165632)
 ignore_occlusion_culling = true
 amount = 24

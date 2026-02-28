@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://n4gsimn17mbj"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://n4gsimn17mbj"]
 
 [ext_resource type="Shader" uid="uid://c77hfyht2fpxt" path="res://shaders/Fog/lightbeam.gdshader" id="1_ul114"]
 

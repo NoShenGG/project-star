@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://4k1on6ftdobj"]
+[gd_scene format=3 uid="uid://4k1on6ftdobj"]
 
 [ext_resource type="Script" uid="uid://be5xdr8b760fo" path="res://scenes/final/MainGame/Prefabs/LevelChangerArea.gd" id="1_2rssv"]
 
@@ -10,31 +10,31 @@ emission_enabled = true
 emission = Color(1, 0.98333335, 0, 1)
 emission_energy_multiplier = 3.37
 
-[node name="LevelEnder" type="Node3D" node_paths=PackedStringArray("area")]
+[node name="LevelEnder" type="Node3D" unique_id=1306769333 node_paths=PackedStringArray("area")]
 script = ExtResource("1_2rssv")
 area = NodePath("Area3D")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=218148087]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=981279184]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_aonar")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=940520796]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 2.5, -2.3841858e-07)
 visible = false
 size = Vector3(1, 5, 1)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D" unique_id=1185229846]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, -1, -1.5)
 size = Vector3(0.41, 3, 3)
 material = SubResource("StandardMaterial3D_616pu")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=740254661]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 size = Vector3(1, 5, 1)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D/CSGBox3D2"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D/CSGBox3D2" unique_id=1107574917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.5)
 size = Vector3(1, 2, 3)

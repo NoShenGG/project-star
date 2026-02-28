@@ -1,12 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://dv7posnge2p4n"]
+[gd_scene format=3 uid="uid://dv7posnge2p4n"]
 
-[ext_resource type="Script" uid="uid://bh4fw4wqjy02n" path="res://scenes/ZXue/Scripts/main.gd" id="1_0ucqh"]
+[ext_resource type="Script" uid="uid://bh4fw4wqjy02n" path="res://scenes/dev/ZXue/Scripts/main.gd" id="1_0ucqh"]
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_ni6b7"]
 [ext_resource type="Script" uid="uid://cx0wca3wtcorv" path="res://scripts/entities/player/player.gd" id="2_q60bb"]
 [ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="3_4mbqi"]
-[ext_resource type="PackedScene" uid="uid://m2ppkxqi0ksw" path="res://scenes/ZXue/PauseScreen.tscn" id="4_no8iu"]
-[ext_resource type="PackedScene" uid="uid://bqokxhofhov86" path="res://scenes/ZXue/DynaMite/Scenes/Enemy_DynaMite.tscn" id="5_gdefu"]
-[ext_resource type="PackedScene" uid="uid://drr502wbtq7up" path="res://scenes/ZXue/ReverseControlModule/Scenes/ReverseControlModule.tscn" id="6_1pkqs"]
+[ext_resource type="PackedScene" uid="uid://m2ppkxqi0ksw" path="res://scenes/dev/ZXue/PauseScreen.tscn" id="4_no8iu"]
+[ext_resource type="PackedScene" uid="uid://i3dj6mon7uts" path="res://scenes/sub/DinoFireAOEAnticipation.tscn" id="5_gdefu"]
+[ext_resource type="PackedScene" uid="uid://drr502wbtq7up" path="res://scenes/dev/ZXue/ReverseControlModule/Scenes/ReverseControlModule.tscn" id="6_1pkqs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1m1m0"]
 size = Vector3(60, 2, 60)

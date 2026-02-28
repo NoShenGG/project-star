@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://54ykpkl5wkh3"]
+[gd_scene format=3 uid="uid://54ykpkl5wkh3"]
 
-[ext_resource type="Script" uid="uid://b4vc5s7kbfoin" path="res://scripts/entities/enemies/attacks/dinoskeleton_spit_projectile_controller.gd" id="1_3md0x"]
+[ext_resource type="Script" path="res://scripts/entities/enemies/attacks/dinoskeleton_spit_projectile_controller.gd" id="1_3md0x"]
 [ext_resource type="PackedScene" uid="uid://co7hni4fhm5tu" path="res://scenes/sub/DinoSpitAOE.tscn" id="2_5wod2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duflq"]
@@ -8,16 +8,16 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_kfiv0"]
 
-[node name="DinoSpitProjectile" type="Node3D" node_paths=PackedStringArray("projectile_node") groups=["Enemies"]]
+[node name="DinoSpitProjectile" type="Node3D" unique_id=1277012728 node_paths=PackedStringArray("projectile_node") groups=["Enemies"]]
 script = ExtResource("1_3md0x")
 projectile_node = NodePath("MeshInstance3D")
 aoe_scene = ExtResource("2_5wod2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1307871275]
 material_overlay = SubResource("StandardMaterial3D_duflq")
 mesh = SubResource("SphereMesh_kfiv0")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1880769084]
 wait_time = 1.5
 one_shot = true
 autostart = true

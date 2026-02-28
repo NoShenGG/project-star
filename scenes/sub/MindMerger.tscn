@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://jr71mbkvd0y7"]
+[gd_scene format=3 uid="uid://jr71mbkvd0y7"]
 
 [ext_resource type="Script" uid="uid://cqvnsb4oww5ln" path="res://scripts/entities/enemies/mind_merger.gd" id="1_wql7c"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_w4rfv"]
@@ -25,7 +25,7 @@ radius = 100.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_3c6eo"]
 viewport_path = NodePath("SubViewport")
 
-[node name="MindMerger" type="CharacterBody3D" node_paths=PackedStringArray("flee_state") groups=["Enemies"]]
+[node name="MindMerger" type="CharacterBody3D" unique_id=608434091 node_paths=PackedStringArray("flee_state") groups=["Enemies"]]
 collision_layer = 10
 collision_mask = 11
 script = ExtResource("1_wql7c")
@@ -40,82 +40,80 @@ _hp = 50.0
 _max_hp = 50.0
 _break_hits = 5
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=859372820 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_w4rfv")
 initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_close_state")]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=552137336 node_paths=PackedStringArray("player_close_state")]
 script = ExtResource("3_30ym2")
-wait_time = 2.0
-post_wait_state = NodePath("../Moving")
-max_player_distance = 2.0
+max_player_distance = 20.0
 player_close_state = NodePath("../Moving")
 
-[node name="Moving" type="Node" parent="StateMachine" node_paths=PackedStringArray("reached_enemy_state")]
+[node name="Moving" type="Node" parent="StateMachine" unique_id=1863406555 node_paths=PackedStringArray("enemy_far_state")]
 script = ExtResource("4_mxyim")
-reached_enemy_state = NodePath("../Idle")
+enemy_far_state = NodePath("../Idle")
 
-[node name="Fleeing" type="Node" parent="StateMachine"]
+[node name="Fleeing" type="Node" parent="StateMachine" unique_id=60286238]
 script = ExtResource("5_0h12a")
 
-[node name="Dead" type="Node" parent="StateMachine"]
+[node name="Dead" type="Node" parent="StateMachine" unique_id=20543737]
 script = ExtResource("6_paam0")
 snap_turn_to_player = true
 
-[node name="DeathSFX" type="FmodEventEmitter3D" parent="StateMachine/Dead"]
+[node name="DeathSFX" type="FmodEventEmitter3D" parent="StateMachine/Dead" unique_id=1802775071]
 event_name = "event:/Enemys/MindMerger/MindMerger Die"
 event_guid = "{d292bdea-6d42-49b6-80a9-efead1ea1399}"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1673376108]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("BoxShape3D_kpfxc")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=831455871]
 path_desired_distance = 0.25
 path_height_offset = -1.0
 
-[node name="Vision" type="Area3D" parent="."]
+[node name="Vision" type="Area3D" parent="." unique_id=1914102209]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 0
 collision_mask = 8
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Vision"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vision" unique_id=501515524]
 shape = SubResource("CylinderShape3D_r8l07")
 
-[node name="Damage" type="Area3D" parent="."]
+[node name="Damage" type="Area3D" parent="." unique_id=488710716]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 top_level = true
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Damage"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damage" unique_id=58632032]
 shape = SubResource("BoxShape3D_0h12a")
 
-[node name="StatusBars" parent="." instance=ExtResource("7_mxyim")]
+[node name="StatusBars" parent="." unique_id=855937752 instance=ExtResource("7_mxyim")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.69649, 0)
 texture = SubResource("ViewportTexture_3c6eo")
 
-[node name="SpawnSFX" type="FmodEventEmitter3D" parent="."]
+[node name="SpawnSFX" type="FmodEventEmitter3D" parent="." unique_id=119967072]
 event_name = "event:/Enemys/MindMerger/MindMerger Allie Gain"
 event_guid = "{3686e7b2-d6e3-4ac2-bed4-93c5db46c3d7}"
 
-[node name="MinionDeathSFX" type="FmodEventEmitter3D" parent="."]
+[node name="MinionDeathSFX" type="FmodEventEmitter3D" parent="." unique_id=15603777]
 event_name = "event:/Enemys/MindMerger/MindMerger Allie Lost"
 event_guid = "{1faca13b-0300-43f8-a5ae-5a96a60ea1e8}"
 
-[node name="HitSFX" type="FmodEventEmitter3D" parent="."]
+[node name="HitSFX" type="FmodEventEmitter3D" parent="." unique_id=1105684521]
 event_name = "event:/Enemys/MindMerger/MindMerger Hit"
 event_guid = "{25102f76-9e12-4e7e-acfe-2168f43df8fc}"
 
-[node name="HumSFX" type="FmodEventEmitter3D" parent="."]
+[node name="HumSFX" type="FmodEventEmitter3D" parent="." unique_id=1347463634]
 event_name = "event:/Enemys/MindMerger/MindMerger Hum"
 event_guid = "{96181245-cf7e-464a-a532-158335115486}"
 autoplay = true
 
-[node name="mind_merger2" parent="." instance=ExtResource("8_3c6eo")]
+[node name="mind_merger2" parent="." unique_id=816689523 instance=ExtResource("8_3c6eo")]
 transform = Transform3D(-1.3113417e-05, 0, 300, 0, 300, 0, -300, 0, -1.3113417e-05, 0, 0, 0)
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]

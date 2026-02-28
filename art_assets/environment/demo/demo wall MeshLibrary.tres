@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=29 format=4 uid="uid://bqgfknhap6fbf"]
+[gd_resource type="MeshLibrary" format=4 uid="uid://bqgfknhap6fbf"]
 
 [ext_resource type="Material" uid="uid://bpalo5rgcs0wl" path="res://art_assets/environment/demo/Models/stoneDemo.tres" id="1_mwl70"]
 

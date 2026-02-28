@@ -1,13 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6r4a47vanq2s"]
+[gd_scene format=3 uid="uid://b6r4a47vanq2s"]
 
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_wr5no"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="1_wr5no"]
 [ext_resource type="Shader" uid="uid://c1ejvl4y3cexw" path="res://shaders/UnshadedBloomBillboard.gdshader" id="2_4ebmc"]
 [ext_resource type="Shader" uid="uid://b07cyfbdytoe5" path="res://shaders/AxisBillboardUnshaded.gdshader" id="4_4ebmc"]
-[ext_resource type="Texture2D" uid="uid://bibdyfd6gy44q" path="res://vfx/Kenny Particle Pack/flame_06.png" id="5_rrsi3"]
+[ext_resource type="Texture2D" uid="uid://bibdyfd6gy44q" path="res://VFX/Kenny Particle Pack/flame_06.png" id="5_rrsi3"]
 [ext_resource type="Shader" uid="uid://d2y5522fpybtj" path="res://shaders/UnshadedBloom.gdshader" id="6_doeoh"]
-[ext_resource type="PackedScene" uid="uid://cofkapiydul1w" path="res://vfx/Demo Lazer.tscn" id="9_ys30r"]
+[ext_resource type="PackedScene" uid="uid://cofkapiydul1w" path="res://VFX/Demo Lazer.tscn" id="9_ys30r"]
 [ext_resource type="Shader" uid="uid://bs0wrr0s6gmor" path="res://shaders/AxisBillboardShaded.gdshader" id="10_ntm4i"]
-[ext_resource type="Texture2D" uid="uid://ltm5f8pc1b2f" path="res://vfx/Kenny Particle Pack/spark_06.png" id="11_77x43"]
+[ext_resource type="Texture2D" uid="uid://ltm5f8pc1b2f" path="res://VFX/Kenny Particle Pack/spark_06.png" id="11_77x43"]
 
 [sub_resource type="Curve" id="Curve_feigo"]
 _data = [Vector2(0, 0.49396), 0.0, 0.0, 0, 0, Vector2(0.141379, 1), 0.0, 0.0, 0, 0, Vector2(0.710345, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -33,6 +33,9 @@ alpha_curve = SubResource("CurveTexture_13a5t")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ys30r"]
 render_priority = 0
 shader = ExtResource("2_4ebmc")
+shader_parameter/basse_color = Color(1, 1, 1, 1)
+shader_parameter/emission_str = 0.0
+shader_parameter/emission_color = Color(1, 1, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ntm4i"]
 material = SubResource("ShaderMaterial_ys30r")
@@ -71,6 +74,9 @@ orientation = 2
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_13a5t"]
 render_priority = 0
 shader = ExtResource("6_doeoh")
+shader_parameter/basse_color = Color(1, 1, 1, 1)
+shader_parameter/emission_str = 0.0
+shader_parameter/emission_color = Color(1, 1, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_doeoh"]
 
@@ -78,7 +84,7 @@ shader = ExtResource("6_doeoh")
 size = Vector2(10.805, 1)
 center_offset = Vector3(0, -0.5, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3yuu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_doeoh"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("10_ntm4i")
@@ -90,32 +96,32 @@ shader_parameter/emission_energy = 1.0
 shader_parameter/uv1_scale = Vector3(1, 1.47895, 0)
 shader_parameter/uv1_offset = Vector3(0, 3972.83, 0)
 
-[node name="DemoVfx" type="Node3D" node_paths=PackedStringArray("flare", "particles")]
+[node name="DemoVfx" type="Node3D" unique_id=194386577 node_paths=PackedStringArray("flare", "particles")]
 script = ExtResource("1_wr5no")
 flare = NodePath("MeshInstance3D")
 particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D/GPUParticles3D"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D/GPUParticles3D")]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1602762036]
 emitting = false
 lifetime = 0.5
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_gvyfk")
 draw_pass_1 = SubResource("PlaneMesh_ntm4i")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="GPUParticles3D"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="GPUParticles3D" unique_id=935972042]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 lifetime = 0.4
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_13a5t")
 draw_pass_1 = SubResource("PlaneMesh_x3yuu")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=789125669]
 transform = Transform3D(3.61, 0, 0, 0, 3.61, 1.42109e-14, 0, 0, 3.61, 0, -7.45058e-09, -6.71646e-17)
 material_override = SubResource("ShaderMaterial_13a5t")
 mesh = SubResource("PlaneMesh_doeoh")
 
-[node name="CSGMesh3D3" parent="MeshInstance3D" instance=ExtResource("9_ys30r")]
+[node name="CSGMesh3D3" parent="MeshInstance3D" unique_id=1654099255 instance=ExtResource("9_ys30r")]
 transform = Transform3D(1.36233, 0, 0, 0, -3.90739e-08, 7.44874, 0, -0.893906, -3.25595e-07, -6.30947e-23, 0.0307147, -2.46033e-16)
 mesh = SubResource("QuadMesh_r5ysc")
-surface_material_override/0 = SubResource("ShaderMaterial_x3yuu")
-vfx_material = SubResource("ShaderMaterial_x3yuu")
+surface_material_override/0 = SubResource("ShaderMaterial_doeoh")
+vfx_material = SubResource("ShaderMaterial_doeoh")

@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://brpnsr644p7ds"]
+[gd_scene format=3 uid="uid://brpnsr644p7ds"]
 
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="1_rn6vt"]
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="2_wt6l6"]
-[ext_resource type="Script" uid="uid://40k4ubokarsh" path="res://austin_newby/menu/menu_button.gd" id="3_yrmn5"]
+[ext_resource type="Script" path="res://austin_newby/menu/menu_button.gd" id="3_yrmn5"]
 [ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://VFX/Kenny Particle Pack/star_06.png" id="4_88nh2"]
 
-[node name="testing" type="Control"]
+[node name="testing" type="Control" unique_id=1669065229]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="InitialMenu" type="PanelContainer" parent="." node_paths=PackedStringArray("focused_control")]
+[node name="InitialMenu" type="PanelContainer" parent="." unique_id=1479764662 node_paths=PackedStringArray("focused_control")]
 layout_mode = 1
 offset_right = 299.0
 offset_bottom = 178.0
@@ -21,13 +21,13 @@ open_animation_flags = 9
 close_time = 0.6
 close_animation_flags = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="InitialMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="InitialMenu" unique_id=1472624485]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 24
 
-[node name="Button2" type="Button" parent="InitialMenu/VBoxContainer"]
+[node name="Button2" type="Button" parent="InitialMenu/VBoxContainer" unique_id=1564870679]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Button")
 text = "dont press"
@@ -37,7 +37,7 @@ open_animation_flags = 1
 close_time = 0.5
 close_animation_flags = 5
 
-[node name="Button" type="Button" parent="InitialMenu/VBoxContainer"]
+[node name="Button" type="Button" parent="InitialMenu/VBoxContainer" unique_id=767010528]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Button2")
 text = "first menu"
@@ -47,13 +47,12 @@ open_animation_flags = 3
 close_time = 0.5
 close_animation_flags = 5
 
-[node name="MenuSwapButton" type="Node" parent="InitialMenu/VBoxContainer/Button" node_paths=PackedStringArray("button", "next_menu")]
+[node name="MenuSwapButton" type="Node" parent="InitialMenu/VBoxContainer/Button" unique_id=148543199 node_paths=PackedStringArray("button", "next_menu")]
 script = ExtResource("3_yrmn5")
 button = NodePath("..")
 next_menu = NodePath("../../../../SecondMenu")
-metadata/_custom_type_script = "uid://40k4ubokarsh"
 
-[node name="SecondMenu" type="Panel" parent="." node_paths=PackedStringArray("focused_control")]
+[node name="SecondMenu" type="Panel" parent="." unique_id=2036568891 node_paths=PackedStringArray("focused_control")]
 layout_mode = 1
 offset_left = 368.0
 offset_top = 170.0
@@ -66,7 +65,7 @@ open_animation_flags = 1
 close_time = 0.6
 close_animation_flags = 1
 
-[node name="Button" type="Button" parent="SecondMenu"]
+[node name="Button" type="Button" parent="SecondMenu" unique_id=1090446815]
 layout_mode = 0
 offset_left = 141.0
 offset_top = -9.0
@@ -77,13 +76,12 @@ text = "second menu"
 script = ExtResource("2_wt6l6")
 open_animation_flags = 136
 
-[node name="MenuSwapButton" type="Node" parent="SecondMenu/Button" node_paths=PackedStringArray("button", "next_menu")]
+[node name="MenuSwapButton" type="Node" parent="SecondMenu/Button" unique_id=1463928601 node_paths=PackedStringArray("button", "next_menu")]
 script = ExtResource("3_yrmn5")
 button = NodePath("..")
 next_menu = NodePath("../../../ThirdMenu")
-metadata/_custom_type_script = "uid://40k4ubokarsh"
 
-[node name="Sprite2D" type="Sprite2D" parent="SecondMenu"]
+[node name="Sprite2D" type="Sprite2D" parent="SecondMenu" unique_id=1124796302]
 scale = Vector2(0.36, 0.36)
 texture = ExtResource("4_88nh2")
 script = ExtResource("2_wt6l6")
@@ -92,7 +90,7 @@ open_animation_flags = 9
 close_time = 0.6
 close_animation_flags = 9
 
-[node name="Sprite2D2" type="Sprite2D" parent="SecondMenu"]
+[node name="Sprite2D2" type="Sprite2D" parent="SecondMenu" unique_id=968928272]
 self_modulate = Color(0.9921667, 1, 0.53, 1)
 position = Vector2(-9.999996, 80.00001)
 rotation = 0.58518136
@@ -106,7 +104,7 @@ open_animation_flags = 15
 close_time = 0.6
 close_animation_flags = 15
 
-[node name="Sprite2D3" type="Sprite2D" parent="SecondMenu"]
+[node name="Sprite2D3" type="Sprite2D" parent="SecondMenu" unique_id=142585152]
 self_modulate = Color(0.98333335, 1, 0, 1)
 position = Vector2(-60, 148)
 rotation = -2.032656
@@ -119,7 +117,7 @@ open_animation_flags = 15
 close_time = 0.6
 close_animation_flags = 15
 
-[node name="ThirdMenu" type="Control" parent="." node_paths=PackedStringArray("focused_control")]
+[node name="ThirdMenu" type="Control" parent="." unique_id=105545922 node_paths=PackedStringArray("focused_control")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -129,7 +127,7 @@ grow_vertical = 2
 script = ExtResource("1_rn6vt")
 focused_control = NodePath("Button")
 
-[node name="Button" type="Button" parent="ThirdMenu"]
+[node name="Button" type="Button" parent="ThirdMenu" unique_id=1808889011]
 layout_mode = 0
 offset_left = 637.0
 offset_top = 486.0
@@ -139,8 +137,7 @@ text = "third menu"
 script = ExtResource("2_wt6l6")
 open_animation_flags = 134
 
-[node name="MenuSwapButton" type="Node" parent="ThirdMenu/Button" node_paths=PackedStringArray("button", "next_menu")]
+[node name="MenuSwapButton" type="Node" parent="ThirdMenu/Button" unique_id=1660926228 node_paths=PackedStringArray("button", "next_menu")]
 script = ExtResource("3_yrmn5")
 button = NodePath("..")
 next_menu = NodePath("../../../InitialMenu")
-metadata/_custom_type_script = "uid://40k4ubokarsh"

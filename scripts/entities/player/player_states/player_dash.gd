@@ -22,7 +22,6 @@ func enter(_prev_state: String, _data := {}):
 	else:
 		anim_done = true
 	time = duration
-	player.collision_mask = 1
 	
 func anim_stop() -> void:
 	anim_done = true
@@ -42,7 +41,6 @@ func end() -> void:
 		
 func exit() -> void:
 	player.invincible = false
-	player.collision_mask = 3
 	if animation != null:
 		animation.stop.disconnect(anim_stop)
 	get_tree().create_timer(player.dash_cd).timeout.connect(player.give_dash)

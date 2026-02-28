@@ -1,16 +1,13 @@
 class_name LaserShroom extends Enemy
 
-var player_ref : Player
-var original_basis : Basis
+var player_ref : Player:
+	get():
+		return GameManager.curr_player
 
-@export var default_speed : float = 5.0
-
-func _ready() -> void:
-	player_ref = GameManager.curr_player
-	speed = default_speed
-	$Hitbox.set_disabled(false)
-	killed.connect(func(): state_machine.state.trigger_finished.emit("dead"))
-	super()
+@export var hide_speed : float = 7.0
+@export var aim_mesh: MeshInstance3D
+@export var fire_mesh: MeshInstance3D
+@export var warning_particles : GPUParticles3D
 	
 func _physics_process(_delta: float) -> void:
 	super(_delta)
@@ -19,20 +16,19 @@ func _physics_process(_delta: float) -> void:
 func switchMesh(status:int) -> void:
 	'''
 	status:
-		0 == meshes off
 		1 == aim mesh only
 		2 == fire mesh only
-		# == meshes off (default)
+		0 == meshes default
 	'''
-	if (status == 0):
-		$Hitbox/AimMesh.visible = false
-		$Hitbox/FireMesh.visible = false
-	elif (status == 1):
-		$Hitbox/AimMesh.visible = true
-		$Hitbox/FireMesh.visible = false
+	if (status == 1):
+		aim_mesh.visible = true
+		fire_mesh.visible = false
+		warning_particles.emitting = true
 	elif (status == 2):
-		$Hitbox/AimMesh.visible = false
-		$Hitbox/FireMesh.visible = true
+		aim_mesh.visible = false
+		fire_mesh.visible = true
+		warning_particles.emitting = false
 	else:
-		$Hitbox/AimMesh.visible = false
-		$Hitbox/FireMesh.visible = false
+		aim_mesh.visible = false
+		fire_mesh.visible = false
+		warning_particles.emitting = false

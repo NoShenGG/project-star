@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2c748wm51fs2"]
+[gd_scene format=3 uid="uid://c2c748wm51fs2"]
 
 [ext_resource type="Script" uid="uid://gywwwjadi67l" path="res://scripts/entities/enemies/tendril_enemy.gd" id="1_pjj4p"]
 
@@ -9,24 +9,23 @@ radius = 7.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_i3wst"]
 
-[node name="Tendril" type="CharacterBody3D"]
+[node name="Tendril" type="CharacterBody3D" unique_id=2000391648]
 script = ExtResource("1_pjj4p")
 attack_radius = 0.3
-_movement_speed = 3.0
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1179207671]
 path_desired_distance = 0.2
 target_desired_distance = 0.2
 
-[node name="AggroArea" type="Area3D" parent="."]
+[node name="AggroArea" type="Area3D" parent="." unique_id=1499983100]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea" unique_id=376739358]
 shape = SubResource("SphereShape3D_pjj4p")
 
-[node name="GrabCooldown" type="Timer" parent="."]
+[node name="GrabCooldown" type="Timer" parent="." unique_id=124622139]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1035063050]
 shape = SubResource("CapsuleShape3D_gbt7d")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1842549992]
 mesh = SubResource("CapsuleMesh_i3wst")

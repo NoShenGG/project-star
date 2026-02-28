@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://c2akhsyinel8t"]
+[gd_scene format=3 uid="uid://c2akhsyinel8t"]
 
 [ext_resource type="Script" uid="uid://ccrew8qivqlpt" path="res://scripts/entities/player/dawn/dawn.gd" id="1_m3k46"]
 [ext_resource type="Script" uid="uid://b5x83pb133x8d" path="res://scripts/entities/player/player_states/player_state_machine.gd" id="2_n7ie5"]
@@ -30,18 +30,20 @@
 [ext_resource type="Shader" uid="uid://bnancykekno2t" path="res://scenes/dev/chrizz/distortion.tres" id="24_cih63"]
 [ext_resource type="Texture2D" uid="uid://bfmq4qyv6hv0v" path="res://scenes/final/dawn/caustics.png" id="25_1i8fv"]
 [ext_resource type="PackedScene" uid="uid://crtpdqb2ymr2p" path="res://scenes/final/dawn/tone_slowwave.tscn" id="25_qnimx"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
 [ext_resource type="ArrayMesh" uid="uid://bd5wy4vqrfeld" path="res://scenes/dev/chrizz/prototyping/sound_blast_extra.obj" id="26_h3uuf"]
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="27_1i8fv"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="27_1i8fv"]
 [ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
 [ext_resource type="PackedScene" uid="uid://bdh4cmnftg18b" path="res://scenes/final/dawn/tone_wave.tscn" id="28_qntpm"]
 [ext_resource type="PackedScene" uid="uid://cein11fhbr6sp" path="res://scenes/final/dawn/tone_fish.tscn" id="28_wex2d"]
 [ext_resource type="PackedScene" uid="uid://btiyd8a5nuror" path="res://scenes/final/dawn/tone_stunwave.tscn" id="31_6x7f2"]
-[ext_resource type="PackedScene" uid="uid://b283w2r1qef60" path="res://art_assets/characters/Dawn/dawn_rig.glb" id="31_qntpm"]
 [ext_resource type="PackedScene" uid="uid://cl4unmlmmfvgl" path="res://scenes/final/dawn/tone_vortex.tscn" id="32_n6vc4"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="33_bxptc"]
 [ext_resource type="PackedScene" uid="uid://bndpka5pxyhx6" path="res://scenes/final/dawn/tone_ice.tscn" id="33_fgi08"]
 [ext_resource type="PackedScene" uid="uid://bt3ebb8eyl2c7" path="res://scenes/dev/arshiya_r/magic circle things/magic_circle_dawn.tscn" id="38_pk6rl"]
+[ext_resource type="PackedScene" uid="uid://coq5k0nj8a731" path="res://art_assets/characters/Dawn/dawn.glb" id="41_h3uuf"]
+[ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="42_xiq0h"]
+[ext_resource type="PackedScene" path="res://VFX/dashFX.tscn" id="44_xiq0h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
 
@@ -169,134 +171,6 @@ op_type = 1
 constant = Color(1, 0.3330468, 0.64088196, 1)
 
 [sub_resource type="VisualShader" id="VisualShader_5qctf"]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_disabled, unshaded;
-
-uniform vec4 ColorParameter : source_color = vec4(0.000008, 0.667188, 0.899800, 1.000000);
-uniform sampler2D tex_frg_35;
-
-
-// CartesianToPolar
-#include \"res://addons/shaderV/tools/transformCoordinates/cartesianToPolar.gdshaderinc\"
-// TwirlUV
-#include \"res://addons/shaderV/uv/twirl.gdshaderinc\"
-
-void fragment() {
-// ColorConstant:5
-	vec4 n_out5p0 = vec4(0.051628, 0.000000, 0.407949, 1.000000);
-
-
-// ColorParameter:2
-	vec4 n_out2p0 = ColorParameter;
-
-
-// Input:7
-	vec2 n_out7p0 = UV;
-
-
-// MultiplyAdd:8
-	vec2 n_in8p1 = vec2(1.00000, 1.00000);
-	vec2 n_in8p2 = vec2(-0.50000, -0.50000);
-	vec2 n_out8p0 = fma(n_out7p0, n_in8p1, n_in8p2);
-
-
-	vec3 n_out6p0;
-// CartesianToPolar:6
-	{
-		n_out6p0 = vec3(_cartesianToPolarFunc(vec3(n_out8p0, 0.0).xy), vec3(n_out8p0, 0.0).z);
-	}
-
-
-// Input:11
-	float n_out11p0 = TIME;
-
-
-// VectorOp:23
-	vec2 n_in23p1 = vec2(0.30000, 0.00000);
-	vec2 n_out23p0 = vec2(n_out11p0) * n_in23p1;
-
-
-// VectorOp:10
-	vec2 n_out10p0 = vec2(n_out6p0.xy) + n_out23p0;
-
-
-// MultiplyAdd:13
-	vec2 n_in13p1 = vec2(0.80000, 0.20000);
-	vec2 n_in13p2 = vec2(0.00000, 0.00000);
-	vec2 n_out13p0 = fma(n_out10p0, n_in13p1, n_in13p2);
-
-
-	vec3 n_out22p0;
-// TwirlUV:22
-	float n_in22p1 = 0.00100;
-	vec3 n_in22p2 = vec3(0.50000, 0.50000, 0.00000);
-	{
-		n_out22p0 = _twirlUVFunc(vec3(n_out13p0, 0.0).xy, n_in22p2.xy, n_in22p1);
-	}
-
-
-// Texture2D:35
-	vec4 n_out35p0 = texture(tex_frg_35, vec2(n_out22p0.xy));
-
-
-// FloatOp:34
-	float n_in34p1 = 1.00000;
-	float n_out34p0 = pow(n_out35p0.x, n_in34p1);
-
-
-// Mix:4
-	vec4 n_out4p0 = mix(n_out5p0, n_out2p0, vec4(n_out34p0));
-
-
-// Input:14
-	vec2 n_out14p0 = UV;
-
-
-// MultiplyAdd:17
-	vec2 n_in17p1 = vec2(1.00000, 1.00000);
-	vec2 n_in17p2 = vec2(-0.50000, -0.50000);
-	vec2 n_out17p0 = fma(n_out14p0, n_in17p1, n_in17p2);
-
-
-// VectorLen:15
-	float n_out15p0 = length(n_out17p0);
-
-
-// FloatFunc:42
-	float n_out42p0 = 1.0 - n_out15p0;
-
-
-// FloatFunc:43
-	float n_out43p0 = min(max(n_out42p0, 0.0), 1.0);
-
-
-// FloatOp:44
-	float n_in44p1 = 7.00000;
-	float n_out44p0 = pow(n_out43p0, n_in44p1);
-
-
-// Input:45
-	vec4 n_out45p0 = COLOR;
-
-
-// VectorDecompose:46
-	float n_out46p0 = n_out45p0.x;
-	float n_out46p1 = n_out45p0.y;
-	float n_out46p2 = n_out45p0.z;
-	float n_out46p3 = n_out45p0.w;
-
-
-// FloatOp:47
-	float n_out47p0 = n_out44p0 * n_out46p3;
-
-
-// Output:0
-	ALBEDO = vec3(n_out4p0.xyz);
-	ALPHA = n_out47p0;
-
-
-}
-"
 modes/cull = 2
 modes/specular = 2
 flags/unshaded = true
@@ -512,94 +386,220 @@ _limits = [0.0, 1.5, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7, 1.3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="Dawn" type="CharacterBody3D" node_paths=PackedStringArray("note_manager", "tone_emitter", "targetting_box")]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h166w"]
+animation = &"basic_attack_end"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iujmq"]
+animation = &"basic_attack_hold"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wau86"]
+animation = &"run"
+play_mode = 1
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_h3uuf"]
+filter_enabled = true
+filters = ["", "Skeleton3D:model_arm_L", "Skeleton3D:model_arm_R", "Skeleton3D:model_chest", "Skeleton3D:model_forearm_L", "Skeleton3D:model_forearm_R", "Skeleton3D:model_hand_L", "Skeleton3D:model_hand_R", "Skeleton3D:model_neck", "Skeleton3D:model_spine1"]
+sync = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_1rwg7"]
+graph_offset = Vector2(-363.51654, 90.17168)
+nodes/output/position = Vector2(500, 160)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_wau86")
+nodes/Animation/position = Vector2(-240, 80)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_iujmq")
+"nodes/Animation 2/position" = Vector2(-260, 260)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_h3uuf")
+nodes/Blend2/position = Vector2(140, 60)
+node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Animation", &"Blend2", 1, &"Animation 2"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_38vq8"]
+animation = &"basic_attack_start"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wqiyo"]
+animation = &"charged_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vh4ka"]
+animation = &"charged_special"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_waurf"]
+animation = &"charging_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bfon1"]
+animation = &"charging_special"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h8vcp"]
+animation = &"dodge"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h3uuf"]
+animation = &"charged_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xiq0h"]
+animation = &"charging_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jvydd"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1vh3g"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4daqb"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h3uuf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xiq0h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h166w"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iujmq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_38vq8"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wqiyo"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vh4ka"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_waurf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bfon1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h8vcp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jvydd"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1vh3g"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_wau86"]
+states/End/position = Vector2(1321, 94)
+states/basic_attack_end/node = SubResource("AnimationNodeAnimation_h166w")
+states/basic_attack_end/position = Vector2(742, 286)
+states/basic_attack_hold/node = SubResource("AnimationNodeBlendTree_1rwg7")
+states/basic_attack_hold/position = Vector2(507, 252)
+states/basic_attack_start/node = SubResource("AnimationNodeAnimation_38vq8")
+states/basic_attack_start/position = Vector2(652, 185)
+states/charged_attack/node = SubResource("AnimationNodeAnimation_wqiyo")
+states/charged_attack/position = Vector2(1122, 185)
+states/charged_special/node = SubResource("AnimationNodeAnimation_vh4ka")
+states/charged_special/position = Vector2(923, 177)
+states/charging_attack/node = SubResource("AnimationNodeAnimation_waurf")
+states/charging_attack/position = Vector2(1101, 66)
+states/charging_special/node = SubResource("AnimationNodeAnimation_bfon1")
+states/charging_special/position = Vector2(880, 66)
+states/dodge/node = SubResource("AnimationNodeAnimation_h8vcp")
+states/dodge/position = Vector2(224, -3)
+states/fish_1/node = SubResource("AnimationNodeAnimation_h3uuf")
+states/fish_1/position = Vector2(1089, 276)
+states/fish_2/node = SubResource("AnimationNodeAnimation_xiq0h")
+states/fish_2/position = Vector2(1089, 336)
+states/hurt/node = SubResource("AnimationNodeAnimation_jvydd")
+states/hurt/position = Vector2(570, 100)
+states/idle/node = SubResource("AnimationNodeAnimation_1vh3g")
+states/idle/position = Vector2(332, 100)
+states/run/node = SubResource("AnimationNodeAnimation_4daqb")
+states/run/position = Vector2(450, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_h3uuf"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_xiq0h"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_h166w"), "idle", "dodge", SubResource("AnimationNodeStateMachineTransition_iujmq"), "dodge", "idle", SubResource("AnimationNodeStateMachineTransition_38vq8"), "dodge", "run", SubResource("AnimationNodeStateMachineTransition_wqiyo"), "run", "dodge", SubResource("AnimationNodeStateMachineTransition_vh4ka"), "charging_special", "charged_special", SubResource("AnimationNodeStateMachineTransition_waurf"), "charging_attack", "charged_attack", SubResource("AnimationNodeStateMachineTransition_bfon1"), "fish_1", "fish_2", SubResource("AnimationNodeStateMachineTransition_h8vcp"), "run", "basic_attack_hold", SubResource("AnimationNodeStateMachineTransition_jvydd"), "basic_attack_hold", "run", SubResource("AnimationNodeStateMachineTransition_1vh3g")]
+graph_offset = Vector2(56, 90)
+
+[node name="Dawn" type="CharacterBody3D" unique_id=1567222694 node_paths=PackedStringArray("note_manager", "tone_emitter", "targetting_box")]
 collision_layer = 6
-collision_mask = 3
+collision_mask = 5
 script = ExtResource("1_m3k46")
 note_manager = NodePath("Notes")
 tone_emitter = NodePath("ToneEmitter")
 targetting_box = NodePath("Hitboxes/Vision")
+max_click_time = 0.3
+attack_charge_time = 0.8
 special_charge_time = 0.25
 max_special_charges = 2
-dash_cd = 2.0
-dash_distance = 6.0
-_base_speed = 4.0
+dash_distance = 7.0
 faction = 0
 _breakable = false
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." unique_id=1666687457 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_n7ie5")
+initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1548228576]
 script = ExtResource("3_qntpm")
 
-[node name="Moving" type="Node" parent="StateMachine"]
+[node name="Moving" type="Node" parent="StateMachine" unique_id=1659314599]
 script = ExtResource("4_wex2d")
 
-[node name="Footstep SFX" type="FmodEventEmitter3D" parent="StateMachine/Moving"]
+[node name="Footstep SFX" type="FmodEventEmitter3D" parent="StateMachine/Moving" unique_id=920361131]
 event_name = "event:/Player/Footsteps/Cave Footstep"
 event_guid = "{1786b3c0-0467-4017-8d6d-95457d0666de}"
 
-[node name="Attacking" type="Node" parent="StateMachine"]
+[node name="Attacking" type="Node" parent="StateMachine" unique_id=1784054362]
 script = ExtResource("5_548oj")
 
-[node name="Tone1" type="Node" parent="StateMachine/Attacking"]
+[node name="Tone1" type="Node" parent="StateMachine/Attacking" unique_id=2048321347 node_paths=PackedStringArray("animation")]
 script = ExtResource("6_n7ie5")
+animation = NodePath("../../../dawn/basic attack hold")
+duration = 0.75
 
-[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Tone1"]
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Tone1" unique_id=175969739]
 event_name = "event:/Player/Uniques/Base Attack/Dawn/Dawn Tone 1"
 event_guid = "{dd3d8c31-0929-48ce-8096-486b46e54a92}"
 
-[node name="Tone2" type="Node" parent="StateMachine/Attacking"]
+[node name="Tone2" type="Node" parent="StateMachine/Attacking" unique_id=161328354 node_paths=PackedStringArray("animation")]
 script = ExtResource("6_n7ie5")
+animation = NodePath("../../../dawn/basic attack hold")
+duration = 0.75
 
-[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Tone2"]
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Tone2" unique_id=1731272073]
 event_name = "event:/Player/Uniques/Base Attack/Dawn/Dawn Tone 2"
 event_guid = "{3d951a35-59bb-4268-942b-8586da6926e4}"
 
-[node name="Tone3" type="Node" parent="StateMachine/Attacking"]
+[node name="Tone3" type="Node" parent="StateMachine/Attacking" unique_id=1811988249 node_paths=PackedStringArray("animation")]
 script = ExtResource("6_n7ie5")
+animation = NodePath("../../../dawn/basic attack hold")
+duration = 0.75
 
-[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Tone3"]
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking/Tone3" unique_id=1063305385]
 event_name = "event:/Player/Uniques/Base Attack/Dawn/Dawn Tone 3"
 event_guid = "{538017aa-24da-4c8d-b28e-498aaefeff8a}"
 
-[node name="AltAttack" type="Node" parent="StateMachine" node_paths=PackedStringArray("finished_state")]
+[node name="AltAttack" type="Node" parent="StateMachine" unique_id=1506625152 node_paths=PackedStringArray("finished_state", "animation")]
 script = ExtResource("6_n7ie5")
 auto_aim = false
 finished_state = NodePath("../Moving")
+animation = NodePath("../../dawn/fish")
 
-[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/AltAttack"]
+[node name="Attack SFX" type="FmodEventEmitter3D" parent="StateMachine/AltAttack" unique_id=951127208]
 event_name = "event:/Player/Uniques/Base Attack/Dawn/Dawn Tone 3"
 event_guid = "{538017aa-24da-4c8d-b28e-498aaefeff8a}"
 
-[node name="Charging" type="Node" parent="StateMachine"]
+[node name="Charging" type="Node" parent="StateMachine" unique_id=88981070]
 script = ExtResource("6_qnimx")
 
-[node name="AttackingCharged" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox")]
+[node name="AttackingCharged" type="Node" parent="StateMachine" unique_id=553604566 node_paths=PackedStringArray("hitbox")]
 script = ExtResource("8_548oj")
 hitbox = NodePath("../../Hitboxes/Sing")
 
-[node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged"]
+[node name="AttackCharged SFX" type="FmodEventEmitter3D" parent="StateMachine/AttackingCharged" unique_id=756632883]
 event_name = "event:/Player/Uniques/Charged Attack/Dawn Charged Attack"
 event_guid = "{3d396b53-331a-4f8e-a86f-96dd517d7f72}"
 
-[node name="ChargingSpecial" type="Node" parent="StateMachine"]
+[node name="ChargingSpecial" type="Node" parent="StateMachine" unique_id=946923099]
 script = ExtResource("8_bbdqe")
 
-[node name="Dash SFX" type="FmodEventEmitter3D" parent="StateMachine/ChargingSpecial"]
+[node name="Dash SFX" type="FmodEventEmitter3D" parent="StateMachine/ChargingSpecial" unique_id=1665439092]
 event_name = "event:/Player/Uniques/Charging Specaial/Dawn Charging"
 event_guid = "{1512640b-1c69-4752-8f8f-5392dfe9ab12}"
 
-[node name="Special" type="Node" parent="StateMachine" node_paths=PackedStringArray("regular", "charged")]
+[node name="Special" type="Node" parent="StateMachine" unique_id=1182876500 node_paths=PackedStringArray("regular", "charged")]
 script = ExtResource("10_7cxsd")
 regular = NodePath("ToneSlowWave")
 charged = NodePath("SpecialAbility")
 
-[node name="ToneSlowWave" type="Node" parent="StateMachine/Special"]
+[node name="ToneSlowWave" type="Node" parent="StateMachine/Special" unique_id=297256888]
 script = ExtResource("6_n7ie5")
 
-[node name="SpecialAbility" type="Node" parent="StateMachine/Special" node_paths=PackedStringArray("wave", "forte", "stun_wave", "vortex", "ice", "fish_shield", "notes")]
+[node name="SpecialAbility" type="Node" parent="StateMachine/Special" unique_id=12474169 node_paths=PackedStringArray("wave", "forte", "stun_wave", "vortex", "ice", "fish_shield", "notes")]
 script = ExtResource("11_bbdqe")
 wave = NodePath("ToneWave")
 forte = NodePath("ToneForte")
@@ -609,76 +609,78 @@ ice = NodePath("ToneIce")
 fish_shield = NodePath("ToneFishShield")
 notes = NodePath("../../../Notes")
 
-[node name="ToneWave" type="Node" parent="StateMachine/Special/SpecialAbility"]
+[node name="ToneWave" type="Node" parent="StateMachine/Special/SpecialAbility" unique_id=892934678]
 script = ExtResource("6_n7ie5")
 
-[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneWave"]
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneWave" unique_id=1415856150]
 event_name = "event:/Player/Uniques/Special Attack/Dawn ToneWave"
 event_guid = "{8f4cc451-3cd2-44c2-ba34-c179df254639}"
 
-[node name="ToneForte" type="Node" parent="StateMachine/Special/SpecialAbility"]
+[node name="ToneForte" type="Node" parent="StateMachine/Special/SpecialAbility" unique_id=1072610949]
 script = ExtResource("12_bxptc")
 
-[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneForte"]
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneForte" unique_id=80195089]
 event_name = "event:/Player/Uniques/Special Attack/Dawn ToneForte"
 event_guid = "{f09c3467-0ef3-4537-94b1-5728b397f9e4}"
 
-[node name="ToneStunWave" type="Node" parent="StateMachine/Special/SpecialAbility"]
+[node name="ToneStunWave" type="Node" parent="StateMachine/Special/SpecialAbility" unique_id=1662893673]
 script = ExtResource("6_n7ie5")
 
-[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneStunWave"]
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneStunWave" unique_id=373940710]
 event_name = "event:/Player/Uniques/Special Attack/Dawn ToneStunWave"
 event_guid = "{c778ca84-7080-4fa1-b54d-6846f3ff0651}"
 
-[node name="ToneVortex" type="Node" parent="StateMachine/Special/SpecialAbility"]
+[node name="ToneVortex" type="Node" parent="StateMachine/Special/SpecialAbility" unique_id=223557376]
 script = ExtResource("6_n7ie5")
 
-[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneVortex"]
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneVortex" unique_id=1149351925]
 event_name = "event:/Player/Uniques/Special Attack/Dawn ToneVortex"
 event_guid = "{cb05b6db-887a-4072-a9e6-f0ee9dd499b7}"
 
-[node name="ToneIce" type="Node" parent="StateMachine/Special/SpecialAbility"]
+[node name="ToneIce" type="Node" parent="StateMachine/Special/SpecialAbility" unique_id=412822218]
 script = ExtResource("6_n7ie5")
 
-[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneIce"]
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneIce" unique_id=229038376]
 event_name = "event:/Player/Uniques/Special Attack/Dawn ToneIce"
 event_guid = "{acfbeb8c-9fb4-4f18-901a-ed9ec47ea92b}"
 
-[node name="ToneFishShield" type="Node" parent="StateMachine/Special/SpecialAbility" node_paths=PackedStringArray("shield_mesh", "shield")]
+[node name="ToneFishShield" type="Node" parent="StateMachine/Special/SpecialAbility" unique_id=1761859690 node_paths=PackedStringArray("shield_mesh", "shield")]
 script = ExtResource("13_e60w5")
 shield_mesh = NodePath("../../../../Effects/Shield")
 shield = NodePath("../../../../Hitboxes/FishShield")
 
-[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneFishShield"]
+[node name="SFX" type="FmodEventEmitter3D" parent="StateMachine/Special/SpecialAbility/ToneFishShield" unique_id=320848153]
 event_name = "event:/Player/Uniques/Special Attack/Dawn ToneWave"
 event_guid = "{8f4cc451-3cd2-44c2-ba34-c179df254639}"
 
-[node name="SwapIn" type="Node" parent="StateMachine"]
+[node name="SwapIn" type="Node" parent="StateMachine" unique_id=112198087]
 script = ExtResource("9_qntpm")
 
-[node name="SwapOut" type="Node" parent="StateMachine"]
+[node name="SwapOut" type="Node" parent="StateMachine" unique_id=1437125371]
 script = ExtResource("10_wex2d")
 
-[node name="Sleeping" type="Node" parent="StateMachine"]
+[node name="Sleeping" type="Node" parent="StateMachine" unique_id=2091241271]
 script = ExtResource("11_bxptc")
 
-[node name="HitStun" type="Node" parent="StateMachine"]
+[node name="HitStun" type="Node" parent="StateMachine" unique_id=1090768041]
 script = ExtResource("12_6x7f2")
 
-[node name="Dash" type="Node" parent="StateMachine"]
+[node name="Dash" type="Node" parent="StateMachine" unique_id=694292639 node_paths=PackedStringArray("animation")]
 script = ExtResource("18_wex2d")
+animation = NodePath("../../dawn/Dash")
+duration = 0.7
 
-[node name="Dead" type="Node" parent="StateMachine"]
+[node name="Dead" type="Node" parent="StateMachine" unique_id=2053472940]
 script = ExtResource("19_6x7f2")
 snap_turn_to_player = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=246914961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_21ndv")
 
-[node name="Effects" type="Node3D" parent="."]
+[node name="Effects" type="Node3D" parent="." unique_id=352519910]
 
-[node name="SingWave" type="GPUParticles3D" parent="Effects"]
+[node name="SingWave" type="GPUParticles3D" parent="Effects" unique_id=304307782]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2849052, 0)
 material_override = SubResource("ShaderMaterial_e60w5")
 emitting = false
@@ -688,16 +690,15 @@ one_shot = true
 process_material = SubResource("ParticleProcessMaterial_e60w5")
 draw_pass_1 = SubResource("TorusMesh_owh2v")
 
-[node name="Shield" type="MeshInstance3D" parent="Effects"]
+[node name="Shield" type="MeshInstance3D" parent="Effects" unique_id=288665944]
 visible = false
 mesh = SubResource("SphereMesh_pk6rl")
 
-[node name="DawnChargeVFX" parent="Effects" node_paths=PackedStringArray("particles") instance=ExtResource("20_n6vc4")]
+[node name="DawnChargeVFX" parent="Effects" unique_id=1925420706 instance=ExtResource("20_n6vc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4499373, 0)
 play_on_start = false
-particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX"), NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
 
-[node name="DistortionShader" type="GPUParticles3D" parent="Effects" node_paths=PackedStringArray("particles")]
+[node name="DistortionShader" type="GPUParticles3D" parent="Effects" unique_id=364399933 node_paths=PackedStringArray("particles")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 5, 0, 1.1635941, 0)
 material_override = SubResource("ShaderMaterial_cih63")
 emitting = false
@@ -712,19 +713,19 @@ play_on_start = false
 lifetime = 0.4
 particles = [NodePath("."), NodePath(".")]
 
-[node name="ForwardRay" type="ShapeCast3D" parent="."]
+[node name="ForwardRay" type="ShapeCast3D" parent="." unique_id=831019228]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_fstbi")
 target_position = Vector3(0, 0, -10)
 
-[node name="Notes" type="Node" parent="." node_paths=PackedStringArray("ui_note1", "ui_note2", "ui_note3")]
+[node name="Notes" type="Node" parent="." unique_id=987516001 node_paths=PackedStringArray("ui_note1", "ui_note2", "ui_note3")]
 script = ExtResource("21_h3uuf")
 ui_note1 = NodePath("../DawnUI/HBoxContainer/Center/Note1")
 ui_note2 = NodePath("../DawnUI/HBoxContainer/Center2/Note2")
 ui_note3 = NodePath("../DawnUI/HBoxContainer/Center3/Note3")
 metadata/_custom_type_script = "uid://dphi1qwayotd2"
 
-[node name="ToneEmitter" type="Node" parent="."]
+[node name="ToneEmitter" type="Node" parent="." unique_id=172643578]
 script = ExtResource("22_xiq0h")
 melody = ExtResource("23_n7ie5")
 slow_wave = ExtResource("25_qnimx")
@@ -735,56 +736,56 @@ vortex_note = ExtResource("32_n6vc4")
 ice_zone = ExtResource("33_fgi08")
 metadata/_custom_type_script = "uid://cfs2f64dnml45"
 
-[node name="Hitboxes" type="Node3D" parent="."]
+[node name="Hitboxes" type="Node3D" parent="." unique_id=1905210268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("23_h166w")
 
-[node name="FishShield" type="Area3D" parent="Hitboxes"]
+[node name="FishShield" type="Area3D" parent="Hitboxes" unique_id=2080328049]
 collision_layer = 0
 collision_mask = 8
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/FishShield"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/FishShield" unique_id=232923162]
 shape = SubResource("CylinderShape3D_shlot")
 debug_color = Color(0, 0.5950001, 0.7, 0)
 debug_fill = false
 
-[node name="Sing" type="Area3D" parent="Hitboxes"]
+[node name="Sing" type="Area3D" parent="Hitboxes" unique_id=1233928290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
 collision_layer = 0
 collision_mask = 8
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Sing"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Sing" unique_id=96037677]
 shape = SubResource("BoxShape3D_brwhy")
 debug_color = Color(0, 0.5950001, 0.7, 0)
 debug_fill = false
 
-[node name="Vision" type="Area3D" parent="Hitboxes"]
+[node name="Vision" type="Area3D" parent="Hitboxes" unique_id=1347213152]
 collision_layer = 0
 collision_mask = 8
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Vision"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Vision" unique_id=672814012]
 shape = SubResource("CylinderShape3D_n7ie5")
 debug_color = Color(0, 0.5950001, 0.7, 0)
 debug_fill = false
 
-[node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]
+[node name="Hurt SFX" type="FmodEventEmitter3D" parent="." unique_id=239244584]
 event_name = "event:/Player/Uniques/Hurt/Dawn Hurt"
 event_guid = "{9eaad691-c0ab-462f-8d77-923792c9e101}"
 
-[node name="Death SFX" type="FmodEventEmitter3D" parent="."]
+[node name="Death SFX" type="FmodEventEmitter3D" parent="." unique_id=451513823]
 event_name = "event:/Player/Uniques/Death/Dawn Death"
 event_guid = "{d6cce387-63c2-4835-bcbc-e221bc8ba892}"
 
-[node name="Dash SFX" type="FmodEventEmitter3D" parent="."]
+[node name="Dash SFX" type="FmodEventEmitter3D" parent="." unique_id=914517024]
 event_name = "event:/Player/Uniques/Dash/Dawn Dash"
 event_guid = "{eb59fec4-6a5a-4694-9f32-f43bc52d4469}"
 
-[node name="DawnUI" type="Control" parent="."]
+[node name="DawnUI" type="Control" parent="." unique_id=940404742]
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -796,7 +797,7 @@ offset_top = -64.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="DawnUI"]
+[node name="HBoxContainer" type="HBoxContainer" parent="DawnUI" unique_id=716709302]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -806,10 +807,10 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(32, 32)
 
-[node name="Center" type="CenterContainer" parent="DawnUI/HBoxContainer"]
+[node name="Center" type="CenterContainer" parent="DawnUI/HBoxContainer" unique_id=595697868]
 layout_mode = 2
 
-[node name="Note1" type="TextureRect" parent="DawnUI/HBoxContainer/Center"]
+[node name="Note1" type="TextureRect" parent="DawnUI/HBoxContainer/Center" unique_id=2021664995]
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -819,11 +820,11 @@ script = ExtResource("27_7cxsd")
 fade_in = SubResource("Curve_qnimx")
 fade_out = SubResource("Curve_7cxsd")
 
-[node name="Center2" type="CenterContainer" parent="DawnUI/HBoxContainer"]
+[node name="Center2" type="CenterContainer" parent="DawnUI/HBoxContainer" unique_id=1849525710]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="Note2" type="TextureRect" parent="DawnUI/HBoxContainer/Center2"]
+[node name="Note2" type="TextureRect" parent="DawnUI/HBoxContainer/Center2" unique_id=206104406]
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -833,11 +834,11 @@ script = ExtResource("27_7cxsd")
 fade_in = SubResource("Curve_548oj")
 fade_out = SubResource("Curve_bbdqe")
 
-[node name="Center3" type="CenterContainer" parent="DawnUI/HBoxContainer"]
+[node name="Center3" type="CenterContainer" parent="DawnUI/HBoxContainer" unique_id=1141051322]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="Note3" type="TextureRect" parent="DawnUI/HBoxContainer/Center3"]
+[node name="Note3" type="TextureRect" parent="DawnUI/HBoxContainer/Center3" unique_id=1595849587]
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -847,22 +848,140 @@ script = ExtResource("27_7cxsd")
 fade_in = SubResource("Curve_qntpm")
 fade_out = SubResource("Curve_wex2d")
 
-[node name="Dawn\'s Circle" parent="." instance=ExtResource("38_pk6rl")]
+[node name="Dawn\'s Circle" parent="." unique_id=2001956639 instance=ExtResource("38_pk6rl")]
 
-[node name="dawn_rig" parent="." instance=ExtResource("31_qntpm")]
-transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
+[node name="dawn" parent="." unique_id=1566855500 instance=ExtResource("41_h3uuf")]
+transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0.17825556)
 
-[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("33_bxptc")]
+[node name="Skeleton3D" parent="dawn" index="0" unique_id=146541413]
+bones/2/position = Vector3(0, 0.017364519, 0.0011158077)
+bones/2/rotation = Quaternion(0.050100666, -0.04995505, 0.7043077, 0.7063605)
+bones/3/rotation = Quaternion(0, 0, 0.0068312488, 0.99997675)
+bones/6/rotation = Quaternion(0, 0, -0.6878448, 0.72585785)
+bones/7/rotation = Quaternion(0.7087308, 0.705479, -3.3087225e-24, 7.33913e-25)
+bones/8/rotation = Quaternion(0.1148612, 0.69771546, 0.6933893, -0.13860488)
+bones/9/rotation = Quaternion(0, 0, 0.016648974, 0.9998614)
+bones/10/position = Vector3(0.006148092, -0.0004052415, 0)
+bones/10/rotation = Quaternion(0.9975918, -0.06935874, 4.135903e-25, 8.60583e-26)
+bones/11/position = Vector3(0.005535342, -5.0917533e-05, 0)
+bones/11/rotation = Quaternion(0, 0, 0.08164492, 0.9966615)
+bones/15/rotation = Quaternion(0.014830066, -0.11771324, -0.6655667, 0.7368478)
+bones/16/rotation = Quaternion(-0.038983528, 0.41585347, 0.105061695, 0.9025011)
+bones/17/rotation = Quaternion(0.190393, 0.10922723, -0.25595042, 0.94144)
+bones/23/rotation = Quaternion(-0.08048943, -0.08949076, -0.6843577, 0.7191435)
+bones/24/rotation = Quaternion(-0.030712064, 0.27523002, 0.12673321, 0.9524935)
+bones/25/rotation = Quaternion(0.003835544, 0.0837892, -0.17266566, 0.98140275)
+bones/30/rotation = Quaternion(0.010733871, 0.9659251, -0.2514993, -0.060180254)
+bones/31/rotation = Quaternion(0.99005884, -0.016491974, 0.13967185, 0.0018517524)
+bones/32/rotation = Quaternion(0.55190456, -0.39333403, 0.4405846, 0.58870625)
+bones/34/rotation = Quaternion(0.06163875, 0.18332843, 0.016179118, 0.98098403)
+bones/35/rotation = Quaternion(0.98079294, -0.01918618, 0.19408031, 0.003181451)
+bones/36/rotation = Quaternion(0.58783627, -0.37849215, 0.38620943, 0.60169315)
+
+[node name="AnimationPlayer" parent="dawn" index="1" unique_id=604818343]
+playback_auto_capture_ease_type = 2
+playback_default_blend_time = 0.1
+speed_scale = 1.3
+
+[node name="AnimationTree" type="AnimationTree" parent="dawn" unique_id=1276913699]
+deterministic = false
+tree_root = SubResource("AnimationNodeStateMachine_wau86")
+anim_player = NodePath("../AnimationPlayer")
+parameters/basic_attack_hold/Blend2/blend_amount = 1.2
+
+[node name="Idle" type="Node" parent="dawn" unique_id=636726215]
+script = ExtResource("42_xiq0h")
+state_name = "idle"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Move" type="Node" parent="dawn" unique_id=216360919]
+script = ExtResource("42_xiq0h")
+state_name = "run"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack start" type="Node" parent="dawn" unique_id=1398567198]
+script = ExtResource("42_xiq0h")
+state_name = "basic_attack_start"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack hold" type="Node" parent="dawn" unique_id=2059599407]
+script = ExtResource("42_xiq0h")
+state_name = "basic_attack_hold"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack end" type="Node" parent="dawn" unique_id=2127963097]
+script = ExtResource("42_xiq0h")
+state_name = "basic_attack_end"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="fish" type="Node" parent="dawn" unique_id=1943936372]
+script = ExtResource("42_xiq0h")
+state_name = "fish_1"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="ChargedAttack" type="Node" parent="dawn" unique_id=670848599]
+script = ExtResource("42_xiq0h")
+state_name = "charged_attack"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="ChargingAttack" type="Node" parent="dawn" unique_id=1168808960]
+script = ExtResource("42_xiq0h")
+state_name = "charging_attack"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Charging Special" type="Node" parent="dawn" unique_id=1249691474]
+script = ExtResource("42_xiq0h")
+state_name = "charging_special"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Special" type="Node" parent="dawn" unique_id=1108651509]
+script = ExtResource("42_xiq0h")
+state_name = "charged_special"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Dash" type="Node" parent="dawn" unique_id=221988257]
+script = ExtResource("42_xiq0h")
+state_name = "dodge"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Hurt" type="Node" parent="dawn" unique_id=318539843]
+script = ExtResource("42_xiq0h")
+state_name = "hurt"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Die" type="Node" parent="dawn" unique_id=2085062700]
+script = ExtResource("42_xiq0h")
+state_name = "die"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="DissolveFX" parent="." unique_id=859577097 node_paths=PackedStringArray("meshes") instance=ExtResource("33_bxptc")]
 unique_name_in_owner = true
 noiseScale = 7.885
 dissolveBegin = 0.3
 dissolveDuration = 1.0
-meshes = [NodePath("../dawn_rig/Skeleton3D/body"), NodePath("../dawn_rig/Skeleton3D/hair")]
+meshes = [null, null]
+
+[node name="dashFX" parent="." unique_id=357945637 instance=ExtResource("44_xiq0h")]
 
 [connection signal="hurt" from="." to="Hurt SFX" method="play" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play"]
 [connection signal="player_dashed" from="." to="Dash SFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/Idle" to="dawn/Idle" method="enter"]
 [connection signal="entered" from="StateMachine/Moving" to="StateMachine/Moving/Footstep SFX" method="play"]
+[connection signal="entered" from="StateMachine/Moving" to="dawn/Move" method="enter"]
 [connection signal="finished" from="StateMachine/Moving" to="StateMachine/Moving/Footstep SFX" method="stop"]
 [connection signal="fire" from="StateMachine/Attacking/Tone1" to="ToneEmitter" method="spawn_melody"]
 [connection signal="fire" from="StateMachine/Attacking/Tone1" to="StateMachine/Attacking/Tone1/Attack SFX" method="play" binds= [true]]
@@ -873,13 +992,17 @@ meshes = [NodePath("../dawn_rig/Skeleton3D/body"), NodePath("../dawn_rig/Skeleto
 [connection signal="fire" from="StateMachine/AltAttack" to="ToneEmitter" method="spawn_fish"]
 [connection signal="fire" from="StateMachine/AltAttack" to="StateMachine/AltAttack/Attack SFX" method="play" binds= [true]]
 [connection signal="entered" from="StateMachine/Charging" to="Effects/DawnChargeVFX" method="restart_particles"]
+[connection signal="entered" from="StateMachine/Charging" to="dawn/ChargingAttack" method="enter"]
 [connection signal="finished" from="StateMachine/Charging" to="Effects/DawnChargeVFX" method="stop_particles"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="Effects/DistortionShader" method="restart_particles"]
+[connection signal="entered" from="StateMachine/AttackingCharged" to="dawn/ChargedAttack" method="enter"]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="StateMachine/AttackingCharged/AttackCharged SFX" method="play" binds= [true]]
 [connection signal="entered" from="StateMachine/AttackingCharged" to="Effects/SingWave" method="set_emitting" binds= [true]]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="Dawn\'s Circle" method="restart_particles"]
+[connection signal="entered" from="StateMachine/ChargingSpecial" to="dawn/Charging Special" method="enter"]
 [connection signal="entered" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play" binds= [true]]
 [connection signal="finished" from="StateMachine/ChargingSpecial" to="Dawn\'s Circle" method="stop_particles"]
+[connection signal="entered" from="StateMachine/Special" to="dawn/Special" method="enter"]
 [connection signal="finished" from="StateMachine/Special/ToneSlowWave" to="." method="set_special_cd"]
 [connection signal="fire" from="StateMachine/Special/ToneSlowWave" to="ToneEmitter" method="spawn_slow_wave"]
 [connection signal="entered" from="StateMachine/Special/SpecialAbility/ToneWave" to="StateMachine/Special/SpecialAbility/ToneWave/SFX" method="play" binds= [true]]
@@ -892,6 +1015,8 @@ meshes = [NodePath("../dawn_rig/Skeleton3D/body"), NodePath("../dawn_rig/Skeleto
 [connection signal="entered" from="StateMachine/Special/SpecialAbility/ToneIce" to="StateMachine/Special/SpecialAbility/ToneIce/SFX" method="play" binds= [true]]
 [connection signal="fire" from="StateMachine/Special/SpecialAbility/ToneIce" to="ToneEmitter" method="spawn_ice_zone"]
 [connection signal="entered" from="StateMachine/Special/SpecialAbility/ToneFishShield" to="StateMachine/Special/SpecialAbility/ToneFishShield/SFX" method="play" binds= [true]]
+[connection signal="entered" from="StateMachine/Dash" to="dashFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="StateMachine/Dash" to="dashFX" method="set_emitting" binds= [false]]
 [connection signal="entered" from="StateMachine/Dead" to="DissolveFX" method="beginDissolve"]
 
-[editable path="dawn_rig"]
+[editable path="dawn"]

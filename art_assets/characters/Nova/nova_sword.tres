@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b3klh30dgc6q"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b3klh30dgc6q"]
 
 [ext_resource type="Texture2D" uid="uid://b2nts737xcuhj" path="res://art_assets/characters/Nova/nova_animations_mixamo_nova_sword_col.png" id="1_4tolu"]
 

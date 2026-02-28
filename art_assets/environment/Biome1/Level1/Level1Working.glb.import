@@ -34,9 +34,57 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-materials/extract=2
+materials/extract=0
 materials/extract_format=2
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"@MATERIAL:2": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/@MATERIAL_2.material",
+"use_external/path": "res://art_assets/environment/Biome1/Level1/@MATERIAL_2.material"
+},
+"@MATERIAL:3": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/@MATERIAL_3.material",
+"use_external/path": "res://art_assets/environment/Biome1/Level1/@MATERIAL_3.material"
+},
+"BackgroundGrass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/BackgroundGrass.material",
+"use_external/path": "uid://dyc1w60tbx3v8"
+},
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/Material.material",
+"use_external/path": "uid://blblakdtg1rou"
+},
+"Material.019": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/Material.019.material",
+"use_external/path": "uid://c3263s5n02ko4"
+},
+"Material.020": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/Material.020.material",
+"use_external/path": "uid://htndq7q7tle3"
+},
+"Top Grass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/Top Grass.material",
+"use_external/path": "uid://cy4p4w27mc885"
+},
+"side wall": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/side wall.material",
+"use_external/path": "uid://bda31s4lxr56b"
+},
+"top ground": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://art_assets/environment/Biome1/Level1/top ground.material",
+"use_external/path": "uid://bi5yol8kkn2rv"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

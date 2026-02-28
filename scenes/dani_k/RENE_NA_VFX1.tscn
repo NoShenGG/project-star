@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlremftvyygxb"]
+[gd_scene format=3 uid="uid://dlremftvyygxb"]
 
 [ext_resource type="Shader" uid="uid://0ag3db3c3fdf" path="res://scenes/dani_k/Rene_NA_spark.tres" id="4_7m61r"]
 [ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="5_e21q4"]
@@ -43,7 +43,7 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_itt4v")
 shader_parameter/tex = ExtResource("7_t5rcp")
-shader_parameter/uv_offset = Vector2(0.5981828, 0)
+shader_parameter/uv_offset = Vector2(0.27765706, 0)
 shader_parameter/color_ramp = SubResource("GradientTexture1D_2j36i")
 shader_parameter/curve = SubResource("CurveTexture_iq2hc")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
@@ -87,27 +87,27 @@ _data = {
 }
 point_count = 4
 
-[node name="NA" type="Node3D"]
+[node name="NA" type="Node3D" unique_id=1820669014]
 
-[node name="Combo0" type="Path3D" parent="."]
+[node name="Combo0" type="Path3D" parent="." unique_id=1569682884]
 transform = Transform3D(1, 0, 0, 0, 0.48132548, 0.8765421, 0, -0.8765421, 0.48132548, 0, 0, 0)
 visible = false
 curve = SubResource("Curve3D_e21q4")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Combo0"]
+[node name="PathFollow3D" type="PathFollow3D" parent="Combo0" unique_id=497817845]
 transform = Transform3D(4.021727e-08, -0.04799942, -1.1999851, -8.735292e-08, -1.1999851, 0.04799942, -1, 1.028918e-07, -5.2453018e-08, 9.316591, 0.027336324, 0)
 progress = 10.595015
 
-[node name="Rene_NA" type="Node3D" parent="Combo0/PathFollow3D"]
+[node name="Rene_NA" type="Node3D" parent="Combo0/PathFollow3D" unique_id=1783176599]
 transform = Transform3D(1.4901159e-08, 0.5640305, 0.82575387, -0.84131515, 0.44635704, -0.3048838, -0.54054487, -0.69471925, 0.47452742, 0.05913949, 0.016975284, -0.026420712)
 
-[node name="spark" type="MeshInstance3D" parent="Combo0/PathFollow3D/Rene_NA"]
+[node name="spark" type="MeshInstance3D" parent="Combo0/PathFollow3D/Rene_NA" unique_id=1708279749]
 transform = Transform3D(0.9999996, -0.12919985, 0.11494434, -9.126961e-08, 1.0222037, -0.20771831, 7.8231096e-08, 1.0430813e-07, 1.0273046, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_qprm4")
 transparency = 0.42
 mesh = SubResource("QuadMesh_8jpx8")
 
-[node name="Trail" type="GPUParticles3D" parent="Combo0/PathFollow3D/Rene_NA/spark"]
+[node name="Trail" type="GPUParticles3D" parent="Combo0/PathFollow3D/Rene_NA/spark" unique_id=93107009]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.010165632)
 ignore_occlusion_culling = true
 amount = 24
@@ -126,25 +126,25 @@ vertical_texture = true
 billboard = true
 _defaults_have_been_set = true
 
-[node name="Combo1" type="Path3D" parent="."]
+[node name="Combo1" type="Path3D" parent="." unique_id=844321108]
 transform = Transform3D(1, 0, 0, 0, 0.1327754, -0.9911462, 0, 0.9911462, 0.1327754, 0, 0, 0)
 visible = false
 curve = SubResource("Curve3D_wus65")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Combo1"]
+[node name="PathFollow3D" type="PathFollow3D" parent="Combo1" unique_id=1954498762]
 transform = Transform3D(7.541683e-08, 0.052222334, -1.199808, -1.8626451e-09, 1.199808, 0.052222334, 1, -1.7036261e-09, 9.0582986e-08, 10, 0, 0)
 progress = 11.33339
 
-[node name="Rene_NA" type="Node3D" parent="Combo1/PathFollow3D"]
+[node name="Rene_NA" type="Node3D" parent="Combo1/PathFollow3D" unique_id=342727598]
 transform = Transform3D(1.4901159e-08, 0.5640305, 0.82575387, -0.84131515, 0.44635704, -0.3048838, -0.54054487, -0.69471925, 0.47452742, 0.05913949, 0.016975284, -0.026420712)
 
-[node name="spark" type="MeshInstance3D" parent="Combo1/PathFollow3D/Rene_NA"]
+[node name="spark" type="MeshInstance3D" parent="Combo1/PathFollow3D/Rene_NA" unique_id=1105194526]
 transform = Transform3D(0.9999996, -0.12919985, 0.11494434, -9.126961e-08, 1.0222037, -0.20771831, 7.8231096e-08, 1.0430813e-07, 1.0273046, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_qprm4")
 transparency = 0.42
 mesh = SubResource("QuadMesh_8jpx8")
 
-[node name="Trail" type="GPUParticles3D" parent="Combo1/PathFollow3D/Rene_NA/spark"]
+[node name="Trail" type="GPUParticles3D" parent="Combo1/PathFollow3D/Rene_NA/spark" unique_id=770450999]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.010165632)
 ignore_occlusion_culling = true
 amount = 24
@@ -163,25 +163,25 @@ vertical_texture = true
 billboard = true
 _defaults_have_been_set = true
 
-[node name="Combo2" type="Path3D" parent="."]
+[node name="Combo2" type="Path3D" parent="." unique_id=522293199]
 transform = Transform3D(1, 0, 0, 0, 0.96964204, 0.24452904, 0, -0.24452904, 0.96964204, 0, 0, 0)
 visible = false
 curve = SubResource("Curve3D_elvi7")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Combo2"]
+[node name="PathFollow3D" type="PathFollow3D" parent="Combo2" unique_id=236399081]
 transform = Transform3D(4.371139e-08, -4.5892546e-15, -1.2009445, -8.742278e-08, -1.2009445, 0, -1, 1.0498991e-07, -5.2494954e-08, 10.000001, 7.275958e-12, 0)
 progress = 12.01949
 
-[node name="Rene_NA" type="Node3D" parent="Combo2/PathFollow3D"]
+[node name="Rene_NA" type="Node3D" parent="Combo2/PathFollow3D" unique_id=324029741]
 transform = Transform3D(1.4901159e-08, 0.5640305, 0.82575387, -0.84131515, 0.44635704, -0.3048838, -0.54054487, -0.69471925, 0.47452742, 0.05913949, 0.016975284, -0.026420712)
 
-[node name="spark" type="MeshInstance3D" parent="Combo2/PathFollow3D/Rene_NA"]
+[node name="spark" type="MeshInstance3D" parent="Combo2/PathFollow3D/Rene_NA" unique_id=1634067401]
 transform = Transform3D(0.9999996, -0.12919985, 0.11494434, -9.126961e-08, 1.0222037, -0.20771831, 7.8231096e-08, 1.0430813e-07, 1.0273046, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_qprm4")
 transparency = 0.42
 mesh = SubResource("QuadMesh_8jpx8")
 
-[node name="Trail" type="GPUParticles3D" parent="Combo2/PathFollow3D/Rene_NA/spark"]
+[node name="Trail" type="GPUParticles3D" parent="Combo2/PathFollow3D/Rene_NA/spark" unique_id=652242440]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.010165632)
 ignore_occlusion_culling = true
 amount = 24
@@ -200,26 +200,26 @@ vertical_texture = true
 billboard = true
 _defaults_have_been_set = true
 
-[node name="Combo3" type="Node" parent="."]
+[node name="Combo3" type="Node" parent="." unique_id=1452381961]
 
-[node name="Combo3-0" type="Path3D" parent="Combo3"]
+[node name="Combo3-0" type="Path3D" parent="Combo3" unique_id=772024794]
 transform = Transform3D(1, 0, 0, 0, 0.6215307, -0.78338987, 0, 0.78338987, 0.6215307, 0, 0, 0)
 curve = SubResource("Curve3D_u5eem")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Combo3/Combo3-0"]
+[node name="PathFollow3D" type="PathFollow3D" parent="Combo3/Combo3-0" unique_id=1259846214]
 transform = Transform3D(-7.86519e-08, -0.04332716, -1.2001622, -8.736586e-08, -1.2001622, 0.04332716, -1, 1.0826096e-07, 9.0609724e-08, 10.000001, -2.3283064e-10, 0)
 progress = 12.460039
 
-[node name="Rene_NA" type="Node3D" parent="Combo3/Combo3-0/PathFollow3D"]
+[node name="Rene_NA" type="Node3D" parent="Combo3/Combo3-0/PathFollow3D" unique_id=11375176]
 transform = Transform3D(-7.450581e-09, 0.2820153, 0.41287696, -0.42065758, 0.2231785, -0.15244193, -0.27027243, -0.34735966, 0.23726375, 0.05913949, 0.016975284, -0.026420712)
 
-[node name="spark" type="MeshInstance3D" parent="Combo3/Combo3-0/PathFollow3D/Rene_NA"]
+[node name="spark" type="MeshInstance3D" parent="Combo3/Combo3-0/PathFollow3D/Rene_NA" unique_id=1800325196]
 transform = Transform3D(0.9999996, -0.12919985, 0.11494434, -9.126961e-08, 1.0222037, -0.20771831, 7.8231096e-08, 1.0430813e-07, 1.0273046, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_qprm4")
 transparency = 0.42
 mesh = SubResource("QuadMesh_8jpx8")
 
-[node name="Trail" type="GPUParticles3D" parent="Combo3/Combo3-0/PathFollow3D/Rene_NA/spark"]
+[node name="Trail" type="GPUParticles3D" parent="Combo3/Combo3-0/PathFollow3D/Rene_NA/spark" unique_id=687478437]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.010165632)
 ignore_occlusion_culling = true
 amount = 24
@@ -238,23 +238,23 @@ vertical_texture = true
 billboard = true
 _defaults_have_been_set = true
 
-[node name="Combo3-1" type="Path3D" parent="Combo3"]
+[node name="Combo3-1" type="Path3D" parent="Combo3" unique_id=909201297]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, -5.2392483e-05, 0, 5.2392483e-05, 1.0000001, 0, 0, 0)
 curve = SubResource("Curve3D_4cap5")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Combo3/Combo3-1"]
+[node name="PathFollow3D" type="PathFollow3D" parent="Combo3/Combo3-1" unique_id=663905894]
 transform = Transform3D(-1.0107119e-08, 0.8985008, 0.79684544, 2.980232e-08, 0.79684544, -0.8985008, -1, 1.46665915e-08, -3.483122e-08, 0, 0, 0)
 
-[node name="Rene_NA" type="Node3D" parent="Combo3/Combo3-1/PathFollow3D"]
+[node name="Rene_NA" type="Node3D" parent="Combo3/Combo3-1/PathFollow3D" unique_id=589766787]
 transform = Transform3D(-7.450581e-09, 0.2820153, 0.41287696, -0.42065758, 0.2231785, -0.15244193, -0.27027243, -0.34735966, 0.23726375, 0.05913949, 0.016975284, -0.026420712)
 
-[node name="spark" type="MeshInstance3D" parent="Combo3/Combo3-1/PathFollow3D/Rene_NA"]
+[node name="spark" type="MeshInstance3D" parent="Combo3/Combo3-1/PathFollow3D/Rene_NA" unique_id=1816257678]
 transform = Transform3D(0.9999996, -0.12919985, 0.11494434, -9.126961e-08, 1.0222037, -0.20771831, 7.8231096e-08, 1.0430813e-07, 1.0273046, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_qprm4")
 transparency = 0.42
 mesh = SubResource("QuadMesh_8jpx8")
 
-[node name="Trail" type="GPUParticles3D" parent="Combo3/Combo3-1/PathFollow3D/Rene_NA/spark"]
+[node name="Trail" type="GPUParticles3D" parent="Combo3/Combo3-1/PathFollow3D/Rene_NA/spark" unique_id=1411793118]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.010165632)
 ignore_occlusion_culling = true
 amount = 24
@@ -273,23 +273,23 @@ vertical_texture = true
 billboard = true
 _defaults_have_been_set = true
 
-[node name="Combo3-2" type="Path3D" parent="Combo3"]
+[node name="Combo3-2" type="Path3D" parent="Combo3" unique_id=1108503281]
 transform = Transform3D(1, 0, 0, 0, 0.52851254, 0.8489258, 0, -0.8489258, 0.52851254, 0, 0, 0)
 curve = SubResource("Curve3D_ggod1")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Combo3/Combo3-2"]
+[node name="PathFollow3D" type="PathFollow3D" parent="Combo3/Combo3-2" unique_id=2052333589]
 transform = Transform3D(-1.05770354e-07, 1.0825833, 0.5198844, -2.9802314e-08, 0.5198844, -1.0825833, -1, -1.2999897e-07, -2.2724869e-08, 0, 0, 0)
 
-[node name="Rene_NA" type="Node3D" parent="Combo3/Combo3-2/PathFollow3D"]
+[node name="Rene_NA" type="Node3D" parent="Combo3/Combo3-2/PathFollow3D" unique_id=374213443]
 transform = Transform3D(-7.450581e-09, 0.2820153, 0.41287696, -0.42065758, 0.2231785, -0.15244193, -0.27027243, -0.34735966, 0.23726375, 0.05913949, 0.016975284, -0.026420712)
 
-[node name="spark" type="MeshInstance3D" parent="Combo3/Combo3-2/PathFollow3D/Rene_NA"]
+[node name="spark" type="MeshInstance3D" parent="Combo3/Combo3-2/PathFollow3D/Rene_NA" unique_id=63182656]
 transform = Transform3D(0.9999996, -0.12919985, 0.11494434, -9.126961e-08, 1.0222037, -0.20771831, 7.8231096e-08, 1.0430813e-07, 1.0273046, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_qprm4")
 transparency = 0.42
 mesh = SubResource("QuadMesh_8jpx8")
 
-[node name="Trail" type="GPUParticles3D" parent="Combo3/Combo3-2/PathFollow3D/Rene_NA/spark"]
+[node name="Trail" type="GPUParticles3D" parent="Combo3/Combo3-2/PathFollow3D/Rene_NA/spark" unique_id=1164788207]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.010165632)
 ignore_occlusion_culling = true
 amount = 24

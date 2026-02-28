@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://8cqwu6d7hdaw"]
+[gd_resource type="VisualShader" format=3 uid="uid://8cqwu6d7hdaw"]
 
 [ext_resource type="Script" uid="uid://c5htaqrg6esp3" path="res://addons/shaderV/uv/scaleUV.gd" id="2_6yark"]
 [ext_resource type="Texture2D" uid="uid://bxp5vij0wughf" path="res://VFX/Kenny Particle Pack/trace_02.png" id="3_6yark"]
@@ -24,51 +24,6 @@ texture = ExtResource("3_6yark")
 billboard_type = 3
 
 [resource]
-code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded, shadows_disabled;
-
-uniform sampler2D tex_frg_8;
-
-
-// ScaleUV
-#include \"res://addons/shaderV/uv/scaleUV.gdshaderinc\"
-
-void fragment() {
-// Input:4
-	vec4 n_out4p0 = COLOR;
-	float n_out4p4 = n_out4p0.a;
-
-
-	vec3 n_out7p0;
-// ScaleUV:7
-	vec3 n_in7p1 = vec3(1.00000, 1.00000, 0.00000);
-	vec3 n_in7p2 = vec3(0.50000, 0.50000, 0.00000);
-	{
-		n_out7p0.xy = _scaleUV(UV.xy, n_in7p1.xy, n_in7p2.xy);
-	}
-
-
-// Texture2D:8
-	vec4 n_out8p0 = texture(tex_frg_8, vec2(n_out7p0.xy));
-
-
-// VectorDecompose:3
-	float n_out3p0 = vec3(n_out8p0.xyz).x;
-	float n_out3p1 = vec3(n_out8p0.xyz).y;
-	float n_out3p2 = vec3(n_out8p0.xyz).z;
-
-
-// FloatOp:5
-	float n_out5p0 = n_out4p4 * n_out3p0;
-
-
-// Output:0
-	ALBEDO = vec3(n_out4p0.xyz);
-	ALPHA = n_out5p0;
-
-
-}
-"
 modes/cull = 2
 flags/unshaded = true
 flags/shadows_disabled = true

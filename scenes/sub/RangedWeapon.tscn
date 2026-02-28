@@ -1,34 +1,170 @@
-[gd_scene load_steps=6 format=3 uid="uid://crqwkpb2jn8fq"]
+[gd_scene format=3 uid="uid://crqwkpb2jn8fq"]
 
 [ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="1_6v43l"]
 [ext_resource type="Script" uid="uid://dbgqvlk72h7l" path="res://scripts/entities/enemies/attacks/ranged_weapon.gd" id="1_duflq"]
+[ext_resource type="Shader" uid="uid://cnufkqrd0wvae" path="res://VFX/MiteExplosionCloud.gdshader" id="2_1glqb"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duflq"]
-albedo_color = Color(1, 0, 0, 1)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1glqb"]
+noise_type = 3
+frequency = 0.0088
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0wux2"]
+noise = SubResource("FastNoiseLite_1glqb")
+
+[sub_resource type="Gradient" id="Gradient_yt8jq"]
+offsets = PackedFloat32Array(0.5409836, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_184e1"]
+gradient = SubResource("Gradient_yt8jq")
+
+[sub_resource type="Gradient" id="Gradient_x71ii"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a5nme"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c8nun"]
+noise = SubResource("FastNoiseLite_a5nme")
+color_ramp = SubResource("Gradient_x71ii")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0wux2"]
+noise_type = 3
+frequency = 0.001
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4ds6s"]
+noise = SubResource("FastNoiseLite_0wux2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6bwp"]
+render_priority = 0
+shader = ExtResource("2_1glqb")
+shader_parameter/cloud_noise = SubResource("NoiseTexture2D_0wux2")
+shader_parameter/fireball_noise = SubResource("NoiseTexture2D_4ds6s")
+shader_parameter/explosion_noise = SubResource("NoiseTexture2D_c8nun")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_184e1")
+shader_parameter/explosion_color = Color(1, 0.33333334, 0, 1)
+shader_parameter/explosion_amount = 1.0
+shader_parameter/radius_scale = 0.05
+shader_parameter/cloud_scale = 50.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1glqb"]
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_kfiv0"]
+material = SubResource("StandardMaterial3D_1glqb")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pcnfp"]
 
-[node name="RangedWeapon" type="Node3D" groups=["Enemies"]]
+[sub_resource type="Curve" id="Curve_1glqb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8604651, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0wux2"]
+curve = SubResource("Curve_1glqb")
+
+[sub_resource type="Gradient" id="Gradient_184e1"]
+offsets = PackedFloat32Array(0.15086207, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x71ii"]
+gradient = SubResource("Gradient_184e1")
+
+[sub_resource type="Gradient" id="Gradient_a5nme"]
+offsets = PackedFloat32Array(0.51724136, 0.7586207)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c8nun"]
+gradient = SubResource("Gradient_a5nme")
+
+[sub_resource type="Curve" id="Curve_4ds6s"]
+_limits = [0.0, 20.0, 0.0, 1.0]
+_data = [Vector2(0.4534884, 8.123981), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.3632255, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_q6bwp"]
+curve = SubResource("Curve_4ds6s")
+
+[sub_resource type="Curve" id="Curve_cpj05"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.875969, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.8405383, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pnmx6"]
+curve = SubResource("Curve_cpj05")
+
+[sub_resource type="Curve" id="Curve_0wux2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_yt8jq"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1.3458402), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_184e1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_x71ii"]
+curve_x = SubResource("Curve_0wux2")
+curve_y = SubResource("Curve_yt8jq")
+curve_z = SubResource("Curve_184e1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nhhqj"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 60.0
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+scale_min = 0.25
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_pnmx6")
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 1.0
+scale_over_velocity_curve = SubResource("CurveXYZTexture_x71ii")
+color = Color(1, 0.62352943, 0, 1)
+color_ramp = SubResource("GradientTexture1D_c8nun")
+color_initial_ramp = SubResource("GradientTexture1D_x71ii")
+alpha_curve = SubResource("CurveTexture_0wux2")
+emission_curve = SubResource("CurveTexture_q6bwp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubgso"]
+transparency = 1
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_kw7gg"]
+material = SubResource("StandardMaterial3D_ubgso")
+radius = 0.25
+height = 0.6
+
+[node name="RangedWeapon" type="Node3D" unique_id=773822131 groups=["Enemies"]]
 script = ExtResource("1_duflq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_overlay = SubResource("StandardMaterial3D_duflq")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=186764661]
+material_overlay = SubResource("ShaderMaterial_q6bwp")
 mesh = SubResource("SphereMesh_kfiv0")
 
-[node name="Hitbox" type="Area3D" parent="."]
+[node name="Hitbox" type="Area3D" parent="." unique_id=1377018701]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 collision_mask = 3
 script = ExtResource("1_6v43l")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=880851270]
 shape = SubResource("SphereShape3D_pcnfp")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1225829807]
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1068466444]
+process_material = SubResource("ParticleProcessMaterial_nhhqj")
+draw_pass_1 = SubResource("SphereMesh_kw7gg")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

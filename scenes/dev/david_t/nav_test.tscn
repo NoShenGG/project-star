@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://iuute4j4oyys"]
+[gd_scene format=3 uid="uid://iuute4j4oyys"]
 
 [ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="2_odfjc"]
 
@@ -20,34 +20,34 @@ size = Vector3(60, 2, 60)
 [sub_resource type="BoxMesh" id="BoxMesh_1m1m0"]
 size = Vector3(60, 2, 60)
 
-[node name="Nav Test" type="Node3D"]
+[node name="Nav Test" type="Node3D" unique_id=1356739301]
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1019589043]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=2123539414]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=1657923404]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("ShaderMaterial_05f11")
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1054735971]
 transform = Transform3D(1, 0, 0, 0, 0.770402, -0.637558, 0, 0.637558, 0.770402, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=1200256455]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -19)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1947818212]
 transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=513362495]
 navigation_mesh = SubResource("NavigationMesh_8inxv")
 
-[node name="Ground" type="StaticBody3D" parent="NavigationRegion3D"]
+[node name="Ground" type="StaticBody3D" parent="NavigationRegion3D" unique_id=855745302]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground" unique_id=754010937]
 shape = SubResource("BoxShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground" unique_id=1357350403]
 mesh = SubResource("BoxMesh_1m1m0")

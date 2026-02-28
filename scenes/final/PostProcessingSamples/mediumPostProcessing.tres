@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bm2jj6hjfrn45"]
+
+[ext_resource type="Shader" uid="uid://d27ndcngym04q" path="res://shaders/post-processing - klaktus1901/PosterizeScreenEffect.gdshader" id="1_5wgji"]
+
+[resource]
+shader = ExtResource("1_5wgji")
+shader_parameter/exposure = 1.150000030875
+shader_parameter/contrast = 0.8250000154375
+shader_parameter/saturation = 1.19600005681
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 1.1250000296875
+shader_parameter/enable_posterize = false
+shader_parameter/color_levels = 21.090000906775
+shader_parameter/dither_strength = 1.0
+shader_parameter/chrom_aberration = 0.030000001425
+shader_parameter/vignette_strength = 0.4490000213275
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Vector3(1, 1, 1.44)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)

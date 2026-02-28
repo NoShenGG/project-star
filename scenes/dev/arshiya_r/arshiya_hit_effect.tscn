@@ -1,6 +1,5 @@
-[gd_scene load_steps=27 format=3 uid="uid://cwgk6ss6abnab"]
+[gd_scene format=3 uid="uid://cwgk6ss6abnab"]
 
-[ext_resource type="Script" uid="uid://cx0wca3wtcorv" path="res://scripts/entities/player/player.gd" id="1_jbkjt"]
 [ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="2_m5tuo"]
 [ext_resource type="Shader" uid="uid://ceom5ccl0m02y" path="res://shaders/main_hit.tres" id="3_3gad6"]
 [ext_resource type="Script" uid="uid://bjbekw5kfq6a7" path="res://scripts/entities/enemies/attacks/hit_trigger.gd" id="3_m5tuo"]
@@ -90,41 +89,40 @@ alpha_curve = SubResource("CurveTexture_kl767")
 [sub_resource type="QuadMesh" id="QuadMesh_h64g4"]
 size = Vector2(0.1, 0.5)
 
-[node name="Prototype" type="Node3D"]
+[node name="Prototype" type="Node3D" unique_id=1072484963]
 
-[node name="Ground" type="StaticBody3D" parent="."]
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1939069378]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=171175716]
 shape = SubResource("BoxShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=256450433]
 mesh = SubResource("BoxMesh_1m1m0")
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1518764968]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
-script = ExtResource("1_jbkjt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1618749012]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=1546514840]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("ShaderMaterial_05f11")
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="Marker3D" type="Marker3D" parent="." unique_id=2092472701]
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=394795834]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.11198, 2.32754, -2.16414)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=314048548]
 transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)
 
-[node name="HIT" type="Node3D" parent="."]
+[node name="HIT" type="Node3D" parent="." unique_id=1001052525]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.11444, 2.321, 0)
 script = ExtResource("3_m5tuo")
 timeLimit = 1.2
 
-[node name="main" type="GPUParticles3D" parent="HIT"]
+[node name="main" type="GPUParticles3D" parent="HIT" unique_id=861851225]
 material_override = SubResource("ShaderMaterial_m5tuo")
 emitting = false
 amount = 1
@@ -134,7 +132,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_t8jt2")
 draw_pass_1 = SubResource("QuadMesh_y262s")
 
-[node name="sparks" type="GPUParticles3D" parent="HIT"]
+[node name="sparks" type="GPUParticles3D" parent="HIT" unique_id=532885740]
 material_override = SubResource("ShaderMaterial_b0p27")
 emitting = false
 lifetime = 0.9

@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbkk3i87qar5s"]
+[gd_scene format=3 uid="uid://cbkk3i87qar5s"]
 
 [ext_resource type="PackedScene" uid="uid://bglkvqjeppdbu" path="res://art_assets/environment/demo/Models/Demo Background.glb" id="1_ackcx"]
 
-[node name="DemoOrnamentAssetScene" type="Node3D"]
+[node name="DemoOrnamentAssetScene" type="Node3D" unique_id=465474093]
 
-[node name="Demo Background" parent="." instance=ExtResource("1_ackcx")]
+[node name="Demo Background" parent="." unique_id=956897504 instance=ExtResource("1_ackcx")]

@@ -35,8 +35,6 @@ func physics_update(delta: float) -> void:
 	elif not Input.is_action_pressed("basic_attack"):
 		if time_active > player.attack_charge_time:
 			trigger_finished.emit(ATTACKING_CHARGED, {"charges": charges, "charge_time": time_active})
-		else:
-			trigger_finished.emit(ATTACKING)
 		
 func end() -> void:
 	pass
