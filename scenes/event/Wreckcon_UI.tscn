@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ji1gqhm8wexx"]
+
+[ext_resource type="Texture2D" uid="uid://den4qvhi4e7kd" path="res://art_assets/Wreckcon_Task_Sheet.png" id="1_0bax6"]
+[ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="1_4mpem"]
+
+[node name="WreckconUi" type="Control" unique_id=1818324671 node_paths=PackedStringArray("focused_control")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4mpem")
+focused_control = NodePath(".")
+open_alpha_effects_all = true
+open_animation_flags = 1
+close_alpha_effects_all = true
+close_animation_flags = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=325584194]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1139299255]
+layout_mode = 2
+texture = ExtResource("1_0bax6")
+expand_mode = 3
+stretch_mode = 5
