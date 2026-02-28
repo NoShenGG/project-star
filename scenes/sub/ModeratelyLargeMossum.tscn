@@ -1,42 +1,46 @@
-[gd_scene format=3 uid="uid://d30qvxvgmp1bf"]
+[gd_scene format=3 uid="uid://t5j2q1f4n7kj"]
 
-[ext_resource type="Script" uid="uid://meavewo15aog" path="res://scripts/entities/enemies/enemy.gd" id="1_ryfo6"]
-[ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="2_l26uf"]
-[ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_sm1im"]
-[ext_resource type="Script" uid="uid://by26cigx6ba0v" path="res://VFX/wool_shell_texturing_tool.gd" id="3_3yrp7"]
-[ext_resource type="Script" uid="uid://b2t1awuy1mis7" path="res://scripts/entities/enemies/states/move_to_player.gd" id="3_8o5ev"]
-[ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="4_6lb2m"]
-[ext_resource type="PackedScene" uid="uid://bsj840u5pk7r8" path="res://art_assets/enemies/mossum/mossum_anims.glb" id="4_dd6ky"]
-[ext_resource type="Script" uid="uid://becnk6gd1e51o" path="res://scripts/entities/player/melee_attack.gd" id="5_jekpj"]
-[ext_resource type="ArrayMesh" uid="uid://bypccelfa5tm" path="res://art_assets/enemies/mossum/body.res" id="5_jimdk"]
-[ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="6_0fapi"]
-[ext_resource type="Shader" uid="uid://bvi3yis7lfg51" path="res://shaders/wool_shell_texturing.gdshader" id="6_jl60r"]
-[ext_resource type="Texture2D" uid="uid://c03u082aeesl3" path="res://art_assets/textures/wool_albedo.jpg" id="7_mdqfx"]
-[ext_resource type="Texture2D" uid="uid://d4cvc3dpy6lgc" path="res://art_assets/textures/wool_height.jpg" id="8_5ws1j"]
-[ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="10_2pn82"]
-[ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="11_ye2ne"]
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="12_s7jtx"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="13_7hj6e"]
-[ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="13_jekpj"]
-[ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="14_0fapi"]
-[ext_resource type="Script" uid="uid://b7pj5dra8sjgx" path="res://scripts/entities/DeathVFX.gd" id="14_qshis"]
-[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrails/defaults/texture.tres" id="15_18w0e"]
-[ext_resource type="Script" uid="uid://dxy6p70rncayl" path="res://scripts/entities/SpawnVFX.gd" id="15_oxgda"]
-[ext_resource type="Script" uid="uid://drugjbbmd0wed" path="res://scripts/entities/SlashVFX.gd" id="16_axb4w"]
-[ext_resource type="PackedScene" uid="uid://dtrpcl1nasika" path="res://VFX/enemySummonFX.tscn" id="16_ryfo6"]
-[ext_resource type="Script" uid="uid://dqkj3m2abvuwx" path="res://scripts/entities/HurtNode3D.gd" id="20_ryfo6"]
+[ext_resource type="Script" uid="uid://meavewo15aog" path="res://scripts/entities/enemies/enemy.gd" id="1_v2wbi"]
+[ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_efqdf"]
+[ext_resource type="Script" uid="uid://b2t1awuy1mis7" path="res://scripts/entities/enemies/states/move_to_player.gd" id="3_jf3l3"]
+[ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="4_ddhr7"]
+[ext_resource type="Script" uid="uid://becnk6gd1e51o" path="res://scripts/entities/player/melee_attack.gd" id="5_1rpqf"]
+[ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="6_6654o"]
+[ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="7_r26gw"]
+[ext_resource type="PackedScene" uid="uid://bsj840u5pk7r8" path="res://art_assets/enemies/mossum/mossum_anims.glb" id="9_1o7cq"]
+[ext_resource type="Script" uid="uid://by26cigx6ba0v" path="res://VFX/wool_shell_texturing_tool.gd" id="10_b2xku"]
+[ext_resource type="ArrayMesh" uid="uid://bypccelfa5tm" path="res://art_assets/enemies/mossum/body.res" id="11_41ax5"]
+[ext_resource type="Shader" uid="uid://bvi3yis7lfg51" path="res://shaders/wool_shell_texturing.gdshader" id="12_ymtjq"]
+[ext_resource type="Texture2D" uid="uid://c03u082aeesl3" path="res://art_assets/textures/wool_albedo.jpg" id="13_6unue"]
+[ext_resource type="Texture2D" uid="uid://d4cvc3dpy6lgc" path="res://art_assets/textures/wool_height.jpg" id="14_d00jb"]
+[ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="14_ddhr7"]
+[ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="15_1rpqf"]
+[ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="15_f2mnk"]
+[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrails/defaults/texture.tres" id="16_6654o"]
+[ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="16_gsemf"]
+[ext_resource type="Script" uid="uid://drugjbbmd0wed" path="res://scripts/entities/SlashVFX.gd" id="17_r26gw"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="17_tngdw"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="18_d17wn"]
+[ext_resource type="Script" uid="uid://b7pj5dra8sjgx" path="res://scripts/entities/DeathVFX.gd" id="19_6x2fr"]
+[ext_resource type="Script" uid="uid://dxy6p70rncayl" path="res://scripts/entities/SpawnVFX.gd" id="20_qix3h"]
+[ext_resource type="PackedScene" uid="uid://dtrpcl1nasika" path="res://VFX/enemySummonFX.tscn" id="21_2bjxl"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l26uf"]
-size = Vector3(0.805, 1.005, 1.61)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8l553"]
+radius = 1.9853516
+height = 6.392578
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ryfo6"]
-radius = 1.5
+height = 2.8735352
+radius = 10.02002
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sm1im"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_v2wbi"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efqdf"]
 render_priority = 0
-shader = ExtResource("6_jl60r")
-shader_parameter/albedo = ExtResource("7_mdqfx")
-shader_parameter/height_map = ExtResource("8_5ws1j")
+shader = ExtResource("12_ymtjq")
+shader_parameter/albedo = ExtResource("13_6unue")
+shader_parameter/height_map = ExtResource("14_d00jb")
 shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
@@ -44,11 +48,11 @@ shader_parameter/shell_idx = 0
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8o5ev"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jf3l3"]
 render_priority = 0
-shader = ExtResource("6_jl60r")
-shader_parameter/albedo = ExtResource("7_mdqfx")
-shader_parameter/height_map = ExtResource("8_5ws1j")
+shader = ExtResource("12_ymtjq")
+shader_parameter/albedo = ExtResource("13_6unue")
+shader_parameter/height_map = ExtResource("14_d00jb")
 shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
@@ -56,11 +60,11 @@ shader_parameter/shell_idx = 1
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6lb2m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ddhr7"]
 render_priority = 0
-shader = ExtResource("6_jl60r")
-shader_parameter/albedo = ExtResource("7_mdqfx")
-shader_parameter/height_map = ExtResource("8_5ws1j")
+shader = ExtResource("12_ymtjq")
+shader_parameter/albedo = ExtResource("13_6unue")
+shader_parameter/height_map = ExtResource("14_d00jb")
 shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
@@ -68,11 +72,11 @@ shader_parameter/shell_idx = 2
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jekpj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1rpqf"]
 render_priority = 0
-shader = ExtResource("6_jl60r")
-shader_parameter/albedo = ExtResource("7_mdqfx")
-shader_parameter/height_map = ExtResource("8_5ws1j")
+shader = ExtResource("12_ymtjq")
+shader_parameter/albedo = ExtResource("13_6unue")
+shader_parameter/height_map = ExtResource("14_d00jb")
 shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
@@ -80,11 +84,11 @@ shader_parameter/shell_idx = 3
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fapi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6654o"]
 render_priority = 0
-shader = ExtResource("6_jl60r")
-shader_parameter/albedo = ExtResource("7_mdqfx")
-shader_parameter/height_map = ExtResource("8_5ws1j")
+shader = ExtResource("12_ymtjq")
+shader_parameter/albedo = ExtResource("13_6unue")
+shader_parameter/height_map = ExtResource("14_d00jb")
 shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
@@ -92,11 +96,11 @@ shader_parameter/shell_idx = 4
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_18w0e"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r26gw"]
 render_priority = 0
-shader = ExtResource("6_jl60r")
-shader_parameter/albedo = ExtResource("7_mdqfx")
-shader_parameter/height_map = ExtResource("8_5ws1j")
+shader = ExtResource("12_ymtjq")
+shader_parameter/albedo = ExtResource("13_6unue")
+shader_parameter/height_map = ExtResource("14_d00jb")
 shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
@@ -104,11 +108,11 @@ shader_parameter/shell_idx = 5
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_axb4w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2qck"]
 render_priority = 0
-shader = ExtResource("6_jl60r")
-shader_parameter/albedo = ExtResource("7_mdqfx")
-shader_parameter/height_map = ExtResource("8_5ws1j")
+shader = ExtResource("12_ymtjq")
+shader_parameter/albedo = ExtResource("13_6unue")
+shader_parameter/height_map = ExtResource("14_d00jb")
 shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
@@ -116,11 +120,11 @@ shader_parameter/shell_idx = 6
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ae5rv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1o7cq"]
 render_priority = 0
-shader = ExtResource("6_jl60r")
-shader_parameter/albedo = ExtResource("7_mdqfx")
-shader_parameter/height_map = ExtResource("8_5ws1j")
+shader = ExtResource("12_ymtjq")
+shader_parameter/albedo = ExtResource("13_6unue")
+shader_parameter/height_map = ExtResource("14_d00jb")
 shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
@@ -128,11 +132,11 @@ shader_parameter/shell_idx = 7
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wgn6f"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2xku"]
 render_priority = 0
-shader = ExtResource("6_jl60r")
-shader_parameter/albedo = ExtResource("7_mdqfx")
-shader_parameter/height_map = ExtResource("8_5ws1j")
+shader = ExtResource("12_ymtjq")
+shader_parameter/albedo = ExtResource("13_6unue")
+shader_parameter/height_map = ExtResource("14_d00jb")
 shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
@@ -140,11 +144,11 @@ shader_parameter/shell_idx = 8
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ao0xf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41ax5"]
 render_priority = 0
-shader = ExtResource("6_jl60r")
-shader_parameter/albedo = ExtResource("7_mdqfx")
-shader_parameter/height_map = ExtResource("8_5ws1j")
+shader = ExtResource("12_ymtjq")
+shader_parameter/albedo = ExtResource("13_6unue")
+shader_parameter/height_map = ExtResource("14_d00jb")
 shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
@@ -152,42 +156,42 @@ shader_parameter/shell_idx = 9
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryfo6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efqdf"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_color = Color(1, 1, 1, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wyl3q"]
-shader = ExtResource("13_jekpj")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ymtjq"]
+shader = ExtResource("14_ddhr7")
 
-[sub_resource type="Gradient" id="Gradient_6unue"]
+[sub_resource type="Gradient" id="Gradient_ddhr7"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_dpclm"]
-gradient = SubResource("Gradient_6unue")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d00jb"]
+gradient = SubResource("Gradient_ddhr7")
 
-[sub_resource type="Curve" id="Curve_f2mnk"]
+[sub_resource type="Curve" id="Curve_1rpqf"]
 bake_resolution = 16
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_wmyt3"]
-curve = SubResource("Curve_f2mnk")
+[sub_resource type="CurveTexture" id="CurveTexture_gsemf"]
+curve = SubResource("Curve_1rpqf")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tngdw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6unue"]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("14_0fapi")
-shader_parameter/tex = ExtResource("15_18w0e")
+shader = ExtResource("15_1rpqf")
+shader_parameter/tex = ExtResource("16_6654o")
 shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/color_ramp = SubResource("GradientTexture1D_dpclm")
-shader_parameter/curve = SubResource("CurveTexture_wmyt3")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_d00jb")
+shader_parameter/curve = SubResource("CurveTexture_gsemf")
 shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
 shader_parameter/flags = 40
 
-[sub_resource type="QuadMesh" id="QuadMesh_7yyyg"]
-material = SubResource("ShaderMaterial_tngdw")
+[sub_resource type="QuadMesh" id="QuadMesh_d17wn"]
+material = SubResource("ShaderMaterial_6unue")
 
 [sub_resource type="Animation" id="Animation_ryfo6"]
 resource_name = "attack"
@@ -384,11 +388,11 @@ tracks/25/keys = {
 tracks/26/type = "method"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("Skeleton3D/BoneAttachment3D/SlashVFX")
+tracks/26/path = NodePath("%SlashVFX")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
-"times": PackedFloat32Array(0.5, 0.8),
+"times": PackedFloat32Array(0.3, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -951,6 +955,11 @@ animation = &"attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6lb2m"]
 animation = &"hurt"
+use_custom_timeline = true
+timeline_length = 2.03
+stretch_time_scale = true
+start_offset = 0.9600000000000009
+loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jekpj"]
 animation = &"idle"
@@ -958,22 +967,45 @@ animation = &"idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0fapi"]
 animation = &"run"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8l553"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v2wbi"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_efqdf"]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jf3l3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ddhr7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1rpqf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6654o"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r26gw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h2qck"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1o7cq"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_18w0e"]
 states/attack/node = SubResource("AnimationNodeAnimation_8o5ev")
-states/attack/position = Vector2(603, 100)
+states/attack/position = Vector2(391, 199)
 states/hurt/node = SubResource("AnimationNodeAnimation_6lb2m")
-states/hurt/position = Vector2(491, 103)
+states/hurt/position = Vector2(489, 92)
 states/idle/node = SubResource("AnimationNodeAnimation_jekpj")
 states/idle/position = Vector2(312, 100)
 states/run/node = SubResource("AnimationNodeAnimation_0fapi")
-states/run/position = Vector2(396, 99)
-graph_offset = Vector2(-97, 4)
+states/run/position = Vector2(391, 51)
+transitions = ["idle", "attack", SubResource("AnimationNodeStateMachineTransition_8l553"), "attack", "hurt", SubResource("AnimationNodeStateMachineTransition_v2wbi"), "hurt", "attack", SubResource("AnimationNodeStateMachineTransition_efqdf"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_jf3l3"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_ddhr7"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_1rpqf"), "hurt", "run", SubResource("AnimationNodeStateMachineTransition_6654o"), "run", "hurt", SubResource("AnimationNodeStateMachineTransition_r26gw"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_h2qck"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_1o7cq")]
+graph_offset = Vector2(-11, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sm1im"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2wbi"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
-albedo_color = Color(1, 1, 1, 0.59607846)
+albedo_color = Color(1, 1, 1, 0.80784315)
 
 [sub_resource type="Curve" id="Curve_8o5ev"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -1010,7 +1042,7 @@ emission_curve = SubResource("CurveTexture_sm1im")
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("13_7hj6e")
+albedo_texture = ExtResource("18_d17wn")
 billboard_mode = 3
 billboard_keep_scale = true
 particles_anim_h_frames = 1
@@ -1019,6 +1051,12 @@ particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_18w0e"]
 material = SubResource("StandardMaterial3D_6lb2m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sm1im"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.6)
 
 [sub_resource type="Curve" id="Curve_axb4w"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
@@ -1030,55 +1068,54 @@ curve = SubResource("Curve_axb4w")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ae5rv"]
 direction = Vector3(0, 1, 0)
 spread = 85.0
-initial_velocity_min = 6.0
-initial_velocity_max = 10.0
+initial_velocity_min = 10.76
+initial_velocity_max = 14.759999
 scale_min = 0.79999995
 scale_max = 1.3
 scale_curve = SubResource("CurveTexture_jekpj")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jekpj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddhr7"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 0)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ryfo6"]
-viewport_path = NodePath("SubViewport")
-
 [node name="Mossum" type="CharacterBody3D" unique_id=122916008]
 collision_layer = 10
 collision_mask = 3
-script = ExtResource("1_ryfo6")
+script = ExtResource("1_v2wbi")
+_hp = 50.0
+_max_hp = 50.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1952739372]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
-shape = SubResource("BoxShape3D_l26uf")
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.9760938, 0)
+shape = SubResource("CapsuleShape3D_8l553")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1422233390 node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_sm1im")
+script = ExtResource("2_efqdf")
 initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=624811352 node_paths=PackedStringArray("reached_enemy_state")]
-script = ExtResource("3_8o5ev")
+script = ExtResource("3_jf3l3")
 attack_distance = 1.5
 reached_enemy_state = NodePath("../Attack")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=234960577 node_paths=PackedStringArray("post_wait_state", "player_far_state")]
-script = ExtResource("4_6lb2m")
+script = ExtResource("4_ddhr7")
 post_wait_state = NodePath("../Walk")
 max_player_distance = 1.5
 player_far_state = NodePath(".")
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=759393333 node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
 unique_name_in_owner = true
-script = ExtResource("5_jekpj")
+script = ExtResource("5_1rpqf")
 hitbox = NodePath("../../HitBoxes/Hitbox")
 finished_state = NodePath("../Idle")
 animation = NodePath("../../mossum_anims/attack")
 duration = 1.0
 
 [node name="Dead" type="Node" parent="StateMachine" unique_id=816722056 node_paths=PackedStringArray("animation")]
-script = ExtResource("6_0fapi")
+script = ExtResource("6_6654o")
 snap_turn_to_player = true
 animation = NodePath("../../mossum_anims/hurt")
 
@@ -1095,42 +1132,45 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxes/Hitbox" unique_id=1817794365]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4367676, -0.5)
 shape = SubResource("CylinderShape3D_ryfo6")
 debug_color = Color(1, 0, 0, 1)
 
-[node name="mossum_anims" parent="." unique_id=656823653 instance=ExtResource("4_dd6ky")]
-transform = Transform3D(3.23, 0, 0, 0, 3.23, 0, 0, 0, 3.23, 0, 0, 0)
+[node name="StatusBars" parent="." unique_id=1198223398 instance=ExtResource("7_r26gw")]
+transform = Transform3D(1.2056171, -0.6915136, 0.98758376, 0, 1.3966542, 0.9779479, -1.2056171, -0.6915136, 0.98758376, 0, 6.6202793, 0)
+texture = SubResource("ViewportTexture_v2wbi")
+
+[node name="mossum_anims" parent="." unique_id=656823653 instance=ExtResource("9_1o7cq")]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 0, 0, 0)
 
 [node name="Skeleton3D" parent="mossum_anims" index="0" unique_id=13124971]
-bones/2/position = Vector3(0.00492789, 0.17467648, 0.009353126)
-bones/2/rotation = Quaternion(-0.13450806, -0.14935522, 0.97835827, 0.04915142)
-bones/3/rotation = Quaternion(0, 0.101026125, 0, 0.99488384)
-bones/4/rotation = Quaternion(0.1337645, -0.08734395, 0.0038594534, 0.98714906)
-bones/5/rotation = Quaternion(0.003566401, -0.122037485, -0.098040625, 0.98766506)
-bones/6/rotation = Quaternion(0.020175247, -0.0703868, 0.0745844, 0.9945229)
-bones/7/rotation = Quaternion(0.16925804, -0.08346273, -0.60596734, 0.77278024)
-bones/14/rotation = Quaternion(0.9941848, -0.028083924, 0.10314487, -0.013000586)
-bones/15/rotation = Quaternion(0.14067969, 0.10125258, -0.014464653, 0.9847578)
-bones/16/rotation = Quaternion(0.10047244, 0.21402226, -0.10586521, 0.9658635)
-bones/17/rotation = Quaternion(-0.36494172, 0.068945356, -0.010040927, 0.9284198)
-bones/19/rotation = Quaternion(0.81571823, -0.28409156, 0.07626644, 0.4980756)
-bones/20/rotation = Quaternion(-0.35696018, -0.00047132204, -0.00484715, 0.934107)
-bones/21/rotation = Quaternion(0.79573345, 0.13709189, -0.19876756, 0.555433)
-bones/23/rotation = Quaternion(0.8151459, -0.03312745, -0.1441322, 0.56005853)
-bones/24/rotation = Quaternion(0.55761355, 0.004396579, 0.0062770024, 0.83006525)
-bones/25/rotation = Quaternion(-0.0045965128, 0.09376431, -0.18795435, 0.9776811)
-bones/27/rotation = Quaternion(0.60411924, -0.24940094, 0.49534473, 0.57225245)
-bones/28/rotation = Quaternion(0.010439024, -1.6476258e-06, -0.00012950161, 0.9999455)
-bones/29/rotation = Quaternion(0.5337911, -0.06753985, 0.31459856, 0.78200585)
-bones/31/rotation = Quaternion(0.6508392, 0.30178726, 0.5564581, 0.41915062)
-bones/32/rotation = Quaternion(0.11269373, -0.0009350829, -0.0013436811, 0.99362844)
-bones/33/rotation = Quaternion(0.14645095, -0.19507746, 0.51950926, 0.818906)
-bones/35/position = Vector3(0.06436893, 0.24478404, -0.33288902)
-bones/35/rotation = Quaternion(0.0906244, -0.9491712, 0.015549703, 0.3010307)
+bones/2/position = Vector3(0.00019545385, 0.17574205, 0.00048574712)
+bones/2/rotation = Quaternion(0.70516247, -0.052402657, 0.70516235, 0.052402653)
+bones/4/rotation = Quaternion(0.13635477, -0.10856266, 0.0011535331, 0.98469293)
+bones/5/rotation = Quaternion(0.039256014, -0.16462146, -0.1956295, 0.96596473)
+bones/6/rotation = Quaternion(0, 0.33857578, -4.440892e-16, 0.9409391)
+bones/7/rotation = Quaternion(-0.05298553, 0.01972855, -0.7402244, 0.66997856)
+bones/14/rotation = Quaternion(1, 0, -7.5497894e-08, 1.5987302e-29)
+bones/15/rotation = Quaternion(0.14142136, 0, -5.651627e-16, 0.9899495)
+bones/16/rotation = Quaternion(0.11740456, -7.67093e-08, -5.992843e-16, 0.9930842)
+bones/17/rotation = Quaternion(-0.36583066, -3.8835932e-08, 9.879948e-08, 0.93068147)
+bones/19/rotation = Quaternion(0.6914346, -0.063467264, -0.016118076, 0.7194654)
+bones/20/rotation = Quaternion(0.32699507, 0.0014813325, 0.004053237, 0.9450162)
+bones/21/rotation = Quaternion(0.39575613, 0.00084040314, -0.06489602, 0.9160595)
+bones/23/rotation = Quaternion(0.85338587, 0.026758112, 0.006158799, 0.5205562)
+bones/24/rotation = Quaternion(0.57896984, 0.004743381, 0.006441132, 0.81530976)
+bones/25/rotation = Quaternion(-0.13458456, 0.008027741, 0.021635143, 0.9906334)
+bones/27/rotation = Quaternion(0.81537133, 0.24127057, 0.008464874, 0.52620023)
+bones/28/rotation = Quaternion(0.18143775, -0.00046927226, -0.002316417, 0.9833997)
+bones/29/rotation = Quaternion(0.31221795, 0.015411146, 0.24032408, 0.9189814)
+bones/31/rotation = Quaternion(0.47895187, 0.047985237, 0.03474383, 0.8758399)
+bones/32/rotation = Quaternion(0.7633025, -0.00871383, -0.0071164994, 0.6459434)
+bones/33/rotation = Quaternion(0.13726087, 0.0146759115, 0.053889446, 0.9889591)
+bones/35/position = Vector3(-0.3734652, 0.16234113, 0.036524925)
+bones/35/rotation = Quaternion(0.029325617, -0.7416563, 0.22527182, 0.6311407)
 
 [node name="model_mossum" parent="mossum_anims/Skeleton3D" index="0" unique_id=880995083]
-transform = Transform3D(-0.037107483, 0.28900725, -0.9566072, 0.13184616, 0.95031434, 0.2819915, 0.99057543, -0.11566103, -0.07336819, 0.009353119, 0.17467648, -0.00492789)
+transform = Transform3D(1, -5.068186e-08, 8.09618e-08, 4.367828e-08, 0.98901606, 0.14780952, 8.973258e-08, -0.14780954, 0.9890158, 0.00048573944, 0.17574205, -0.00019545385)
 bone_name = "model_spine_001"
 bone_idx = 14
 
@@ -1139,78 +1179,78 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
 
 [node name="wool_shell_texturing_tool" type="Node3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo" index="0" unique_id=938286358]
 transform = Transform3D(1.0015479, 0, 0, 0, 1.0015479, 0, 0, 0, 1.0015479, 0, -0.03028558, 0)
-script = ExtResource("3_3yrp7")
-mesh = ExtResource("5_jimdk")
-shader = ExtResource("6_jl60r")
-albedo = ExtResource("7_mdqfx")
-height_map = ExtResource("8_5ws1j")
+script = ExtResource("10_b2xku")
+mesh = ExtResource("11_41ax5")
+shader = ExtResource("12_ymtjq")
+albedo = ExtResource("13_6unue")
+height_map = ExtResource("14_d00jb")
 tint = Color(0.5529412, 0.8156863, 0.49411765, 1)
 shell_displacement = 0.08
 min_ambient_occlusion = 0.4
 
-[node name="Shell_0" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=756874575]
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_sm1im")
+[node name="Shell_0" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1453456972]
+mesh = ExtResource("11_41ax5")
+surface_material_override/0 = SubResource("ShaderMaterial_efqdf")
 
-[node name="Shell_1" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=77019099]
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_8o5ev")
+[node name="Shell_1" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=128000709]
+mesh = ExtResource("11_41ax5")
+surface_material_override/0 = SubResource("ShaderMaterial_jf3l3")
 
-[node name="Shell_2" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=526940778]
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_6lb2m")
+[node name="Shell_2" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=177963917]
+mesh = ExtResource("11_41ax5")
+surface_material_override/0 = SubResource("ShaderMaterial_ddhr7")
 
-[node name="Shell_3" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=2056728594]
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_jekpj")
+[node name="Shell_3" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=123071312]
+mesh = ExtResource("11_41ax5")
+surface_material_override/0 = SubResource("ShaderMaterial_1rpqf")
 
-[node name="Shell_4" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=902686799]
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_0fapi")
+[node name="Shell_4" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=238062584]
+mesh = ExtResource("11_41ax5")
+surface_material_override/0 = SubResource("ShaderMaterial_6654o")
 
-[node name="Shell_5" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1504450370]
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_18w0e")
+[node name="Shell_5" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1768196888]
+mesh = ExtResource("11_41ax5")
+surface_material_override/0 = SubResource("ShaderMaterial_r26gw")
 
-[node name="Shell_6" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1739087572]
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_axb4w")
+[node name="Shell_6" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1023043321]
+mesh = ExtResource("11_41ax5")
+surface_material_override/0 = SubResource("ShaderMaterial_h2qck")
 
-[node name="Shell_7" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=988868970]
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_ae5rv")
+[node name="Shell_7" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=2137170939]
+mesh = ExtResource("11_41ax5")
+surface_material_override/0 = SubResource("ShaderMaterial_1o7cq")
 
-[node name="Shell_8" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=788355793]
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_wgn6f")
+[node name="Shell_8" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1262442996]
+mesh = ExtResource("11_41ax5")
+surface_material_override/0 = SubResource("ShaderMaterial_b2xku")
 
-[node name="Shell_9" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=73756745]
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_ao0xf")
+[node name="Shell_9" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=197331370]
+mesh = ExtResource("11_41ax5")
+surface_material_override/0 = SubResource("ShaderMaterial_41ax5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo" index="1" unique_id=198883634]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo" index="1" unique_id=675370024]
 transform = Transform3D(1.4, 1.2434496e-14, -2.842171e-14, -1.2434498e-14, 1.4, -5.960463e-08, 2.842171e-14, 5.960463e-08, 1.4, -0.0068546603, -0.08632959, 0.02274945)
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("StandardMaterial3D_ryfo6")
+mesh = ExtResource("11_41ax5")
+surface_material_override/0 = SubResource("StandardMaterial3D_efqdf")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="mossum_anims/Skeleton3D" index="4" unique_id=1271133025]
-transform = Transform3D(0.57427764, 0.025042748, -0.8182774, -0.16267422, 0.9830909, -0.084080145, 0.80233544, 0.18139802, 0.56864095, -0.33288902, 0.24478403, -0.06436893)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="mossum_anims/Skeleton3D" index="4" unique_id=1322407014]
+transform = Transform3D(0.94939137, -0.2971314, -0.101828076, 0.24085742, 0.89678526, -0.37116566, 0.20160292, 0.3278555, 0.9229665, 0.036524918, 0.16234113, 0.3734652)
 bone_name = "model_sword_joint"
 bone_idx = 35
 
-[node name="SlashVFX" parent="mossum_anims/Skeleton3D/BoneAttachment3D" index="0"]
+[node name="SlashVFX" type="GPUParticles3D" parent="mossum_anims/Skeleton3D/BoneAttachment3D" unique_id=764559659]
 unique_name_in_owner = true
-transform = Transform3D(-0.12310471, -0.14522445, -0.094108306, 0.9923255, -0.018177062, -3.7252903e-09, -0.011636817, -0.013727754, 0.99556196, -0.21346533, -0.022430344, -0.02476922)
+transform = Transform3D(-0.15723316, -0.1445109, -0.09410832, 0.98744965, -0.023216309, -2.7939677e-09, -0.014862906, -0.013660301, 0.99556196, -0.23351572, -0.027300516, -0.043276247)
 amount = 100
 lifetime = 100.0
 explosiveness = 1.0
 fixed_fps = 60
-process_material = SubResource("ShaderMaterial_wyl3q")
-draw_pass_1 = SubResource("QuadMesh_7yyyg")
-script = ExtResource("16_axb4w")
+process_material = SubResource("ShaderMaterial_ymtjq")
+draw_pass_1 = SubResource("QuadMesh_d17wn")
+script = ExtResource("17_r26gw")
 length_seconds = 1.6666666666666667
-color_ramp = SubResource("GradientTexture1D_dpclm")
-curve = SubResource("CurveTexture_wmyt3")
+color_ramp = SubResource("GradientTexture1D_d00jb")
+curve = SubResource("CurveTexture_gsemf")
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://drugjbbmd0wed"
 
@@ -1222,103 +1262,103 @@ tree_root = SubResource("AnimationNodeStateMachine_18w0e")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="idle" type="Node" parent="mossum_anims" unique_id=10127540]
-script = ExtResource("10_2pn82")
+script = ExtResource("15_f2mnk")
 state_name = "idle"
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_18w0e"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
 [node name="move" type="Node" parent="mossum_anims" unique_id=2078383858]
-script = ExtResource("10_2pn82")
+script = ExtResource("15_f2mnk")
 state_name = "run"
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_18w0e"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
 [node name="attack" type="Node" parent="mossum_anims" unique_id=1912514129]
-script = ExtResource("10_2pn82")
+script = ExtResource("15_f2mnk")
 state_name = "attack"
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_18w0e"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
 [node name="hurt" type="Node" parent="mossum_anims" unique_id=1679472516]
-script = ExtResource("10_2pn82")
+script = ExtResource("15_f2mnk")
 state_name = "hurt"
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_18w0e"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
 [node name="Hurt" type="Node3D" parent="." unique_id=1618875532 node_paths=PackedStringArray("vfx", "meshes_root")]
-script = ExtResource("11_ye2ne")
+script = ExtResource("16_gsemf")
 vfx = NodePath("Hurt VFX")
 meshes_root = NodePath("../mossum_anims")
-hurt_overlay = SubResource("StandardMaterial3D_sm1im")
-flash_duration = 0.5
+hurt_overlay = SubResource("StandardMaterial3D_v2wbi")
+flash_duration = 2.0
 
 [node name="Hurt VFX" type="Node3D" parent="Hurt" unique_id=928780216 node_paths=PackedStringArray("particles")]
-script = ExtResource("12_s7jtx")
+script = ExtResource("17_tngdw")
 particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX" unique_id=1565272980]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
+transform = Transform3D(1, 0, 0, 0, 0.8578587, 0.5138856, 0, -0.5138856, 0.8578587, 0, 3.0748668, 0.10318844)
 emitting = false
-lifetime = 0.5
+amount = 16
 one_shot = true
+speed_scale = 2.0
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_0fapi")
 draw_pass_1 = SubResource("QuadMesh_18w0e")
 
 [node name="Death" type="Node3D" parent="." unique_id=1239320720 node_paths=PackedStringArray("vfx", "meshes_root")]
-script = ExtResource("14_qshis")
+script = ExtResource("19_6x2fr")
 vfx = NodePath("Death VFX")
 meshes_root = NodePath("../mossum_anims")
 hurt_overlay = SubResource("StandardMaterial3D_sm1im")
-flash_duration = 3.0
+flash_duration = 4.0
 death_delay = 2.0
 death_time = 2.0
 fade_out = false
 
 [node name="Death VFX" type="Node3D" parent="Death" unique_id=1930049692 node_paths=PackedStringArray("particles")]
-script = ExtResource("12_s7jtx")
+script = ExtResource("17_tngdw")
 particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Death/Death VFX" unique_id=1019584761]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
 emitting = false
-amount = 17
-lifetime = 0.5
+amount = 32
+lifetime = 2.0
 one_shot = true
+speed_scale = 1.7
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ae5rv")
 draw_pass_1 = SubResource("QuadMesh_18w0e")
 
 [node name="Spawned" type="Node3D" parent="." unique_id=1301438144 node_paths=PackedStringArray("vfx", "meshes_root", "_meshes")]
 process_mode = 3
-script = ExtResource("15_oxgda")
+script = ExtResource("20_qix3h")
 vfx = NodePath("enemySummonFX")
 meshes_root = NodePath("../mossum_anims")
 _meshes = [NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_0"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_1"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_2"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_3"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_4"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_5"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_6"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_7"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_8"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_9"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/MeshInstance3D"), NodePath("../mossum_anims/Skeleton3D/model_body"), NodePath("../mossum_anims/Skeleton3D/model_everything_else"), NodePath("../mossum_anims/Skeleton3D/model_sword_geo")]
-hurt_overlay = SubResource("StandardMaterial3D_jekpj")
-flash_duration = 0.75
+hurt_overlay = SubResource("StandardMaterial3D_ddhr7")
+flash_duration = 2.0
 
-[node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("16_ryfo6")]
+[node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("21_2bjxl")]
 lifetime = 1.25
 
-[node name="StatusBar HurtNode" type="Node3D" parent="." unique_id=1847142305]
-script = ExtResource("20_ryfo6")
-duration = 3.0
+[node name="GPUParticles3D" parent="Spawned/enemySummonFX" index="0" unique_id=797663744]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+lifetime = 2.0
 
-[node name="StatusBars" parent="StatusBar HurtNode" unique_id=1198223398 instance=ExtResource("2_l26uf")]
-transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.035, 0)
-texture = SubResource("ViewportTexture_ryfo6")
+[node name="GPUParticles3D2" parent="Spawned/enemySummonFX" index="1" unique_id=726252779]
+lifetime = 3.0
 
-[connection signal="break_update" from="." to="StatusBar HurtNode/StatusBars" method="update_break"]
-[connection signal="health_update" from="." to="StatusBar HurtNode/StatusBars" method="update_health"]
+[connection signal="break_update" from="." to="StatusBars" method="update_break"]
+[connection signal="health_update" from="." to="StatusBars" method="update_health"]
 [connection signal="hurt" from="." to="Hurt" method="hurt"]
-[connection signal="hurt" from="." to="mossum_anims/hurt" method="enter" unbinds=1]
 [connection signal="killed" from="." to="Death" method="death"]
 [connection signal="spawned" from="." to="Spawned" method="spawned"]
 [connection signal="entered" from="StateMachine/Walk" to="mossum_anims/move" method="enter"]
