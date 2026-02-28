@@ -7,16 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://cwo7k5blghvxp" path="res://scripts/dev/Throttle/FrameLimiter.tscn" id="4_g0vyw"]
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="4_m3a5u"]
 [ext_resource type="PackedScene" uid="uid://cuq57gnl0xn2m" path="res://scenes/sub/LaserShroom.tscn" id="7_0tppj"]
-[ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://vfx/Kenny Particle Pack/circle_01.png" id="9_pc856"]
+[ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://VFX/Kenny Particle Pack/circle_01.png" id="9_pc856"]
 [ext_resource type="Script" uid="uid://13uw6pe5u3b0" path="res://scripts/utility/spawn_area.gd" id="10_ahgbm"]
 [ext_resource type="Texture2D" uid="uid://vqml4pj02ucs" path="res://shaders/grass - Dylearn/Textures and Materials/Albedo2Noise.tres" id="13_i26vs"]
 [ext_resource type="Shader" uid="uid://bvjdruuput33e" path="res://shaders/grass - Dylearn/Shaders/Grass.gdshader" id="14_u2m4g"]
-[ext_resource type="Texture2D" uid="uid://cq6u5wnqjtakw" path="res://shaders/grass - Dylearn/Textures and Materials/grassleaf.png" id="15_u5mrw"]
-[ext_resource type="Texture2D" uid="uid://dh4pg8soqy7s6" path="res://shaders/grass - Dylearn/Textures and Materials/accentleaf.png" id="16_powbk"]
+[ext_resource type="Texture2D" uid="uid://cqgqycukx0rde" path="res://shaders/grass - Dylearn/Textures and Materials/grassleaf.png" id="15_u5mrw"]
+[ext_resource type="Texture2D" uid="uid://c6mr82xyarp16" path="res://shaders/grass - Dylearn/Textures and Materials/accentleaf.png" id="16_powbk"]
 [ext_resource type="Texture2D" uid="uid://c52v6tkx73uro" path="res://shaders/grass - Dylearn/Textures and Materials/Albedo3Noise.tres" id="17_iai7k"]
 [ext_resource type="Texture2D" uid="uid://b6fhxncxd7b1t" path="res://shaders/grass - Dylearn/Textures and Materials/WindNoise.tres" id="18_8xc2l"]
-[ext_resource type="Texture2D" uid="uid://bdx26auducwvl" path="res://shaders/grass - Dylearn/Textures and Materials/RockAccent.png" id="19_g0gj1"]
-[ext_resource type="Texture2D" uid="uid://omg8autugcnl" path="res://shaders/grass - Dylearn/Textures and Materials/Rock.png" id="20_rky6c"]
+[ext_resource type="Texture2D" uid="uid://wqdllhnecuw2" path="res://shaders/grass - Dylearn/Textures and Materials/RockAccent.png" id="19_g0gj1"]
+[ext_resource type="Texture2D" uid="uid://vlpruqfbtgwv" path="res://shaders/grass - Dylearn/Textures and Materials/Rock.png" id="20_rky6c"]
+[ext_resource type="PackedScene" uid="uid://bdydypuhg67jk" path="res://scenes/sub/DinoSkeleton.tscn" id="21_i26vs"]
 [ext_resource type="Script" uid="uid://be4lu3ug8donp" path="res://addons/mm_plus_editor/nodes/mm_plus_3d.gd" id="22_powbk"]
 [ext_resource type="Script" uid="uid://ntw5ubccc2qm" path="res://addons/mm_plus_editor/resources/mm_plus_data.gd" id="23_iai7k"]
 [ext_resource type="Script" uid="uid://dre8v2iurryb6" path="res://addons/mm_plus_editor/resources/mm_plus_mesh.gd" id="24_8xc2l"]
@@ -393,6 +394,9 @@ script = ExtResource("22_powbk")
 data = Array[ExtResource("23_iai7k")]([SubResource("Resource_8xc2l"), SubResource("Resource_ld6fp"), SubResource("Resource_8pu6t"), SubResource("Resource_g0gj1")])
 metadata/_custom_type_script = "uid://be4lu3ug8donp"
 metadata/_edit_lock_ = true
+
+[node name="DinoSkeleton" parent="." unique_id=1314292794 instance=ExtResource("21_i26vs")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 9.326719, 0.03077773, 9.683715)
 
 [connection signal="fight_ended" from="WaveManager" to="WaveManager/End" method="play_one_shot"]
 [connection signal="fight_started" from="WaveManager" to="WaveManager/Start" method="play_one_shot"]
