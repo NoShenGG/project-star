@@ -11,6 +11,8 @@ albedo_texture = ExtResource("4_7xhem")
 emission_enabled = true
 emission = Color(0.98600024, 0.16000003, 1, 1)
 emission_texture = ExtResource("4_7xhem")
+billboard_mode = 2
+billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_7haj0"]
 
@@ -20,7 +22,7 @@ projectile_node = NodePath("MeshInstance3D")
 aoe_scene = ExtResource("2_5wod2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1307871275]
-transform = Transform3D(2.614809, 0, 0, 0, 3.3045356, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(2.0012186, 0, 0, 0, 3.3045356, 0, 0, 0, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_5wod2")
 mesh = SubResource("QuadMesh_7haj0")
 
