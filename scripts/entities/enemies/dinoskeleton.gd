@@ -19,7 +19,7 @@ signal fire_commit
 @onready var player_ref = GameManager.curr_player
 
 func _ready():
-	target_node = null;
+	target_node = GameManager.curr_player;
 	navigation_agent.target_desired_distance = spit_distance
 	super()
 

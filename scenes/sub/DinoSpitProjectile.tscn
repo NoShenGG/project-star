@@ -2,11 +2,17 @@
 
 [ext_resource type="Script" path="res://scripts/entities/enemies/attacks/dinoskeleton_spit_projectile_controller.gd" id="1_3md0x"]
 [ext_resource type="PackedScene" uid="uid://co7hni4fhm5tu" path="res://scenes/sub/DinoSpitAOE.tscn" id="2_5wod2"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="4_7xhem"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duflq"]
-albedo_color = Color(1, 0, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wod2"]
+transparency = 1
+albedo_color = Color(1, 0.25, 0.93750024, 1)
+albedo_texture = ExtResource("4_7xhem")
+emission_enabled = true
+emission = Color(0.98600024, 0.16000003, 1, 1)
+emission_texture = ExtResource("4_7xhem")
 
-[sub_resource type="SphereMesh" id="SphereMesh_kfiv0"]
+[sub_resource type="QuadMesh" id="QuadMesh_7haj0"]
 
 [node name="DinoSpitProjectile" type="Node3D" unique_id=1277012728 node_paths=PackedStringArray("projectile_node") groups=["Enemies"]]
 script = ExtResource("1_3md0x")
@@ -14,8 +20,9 @@ projectile_node = NodePath("MeshInstance3D")
 aoe_scene = ExtResource("2_5wod2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1307871275]
-material_overlay = SubResource("StandardMaterial3D_duflq")
-mesh = SubResource("SphereMesh_kfiv0")
+transform = Transform3D(2.614809, 0, 0, 0, 3.3045356, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_5wod2")
+mesh = SubResource("QuadMesh_7haj0")
 
 [node name="Timer" type="Timer" parent="." unique_id=1880769084]
 wait_time = 1.5
