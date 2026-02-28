@@ -619,7 +619,6 @@ shader_parameter/explosion_color = Color(0, 0, 0, 1)
 shader_parameter/explosion_amount = 0.999999977648
 shader_parameter/radius_scale = -3.0
 shader_parameter/cloud_scale = -7.0
-shader_parameter/speed_multiplier = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_spsc7"]
 
