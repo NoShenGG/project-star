@@ -3,6 +3,9 @@ extends Node3D
 @export var camera: Camera3D
 @export var game_camera: Camera3D
 @export var player_manager: PlayerManager
+@export var sound: FmodEventEmitter3D
+@export var vfx: AnimationPlayer
+@export var white: Control
 
 @export var pan_dur: float = 3.0
 @export var boom_dur: float = 7.0
@@ -10,10 +13,11 @@ extends Node3D
 var playing : bool = false
 
 signal scene_done
+
+func _ready() -> void:
+	vfx.play("RESET")
 	
 func start() -> void:
-	for i in range(120):
-		await get_tree().process_frame
 	player_manager.players[0].global_position = Vector3(70.23958, 8.44173, -148.463)
 	player_manager.players[0].rotation_degrees = Vector3(0.0, 0.0, 0.0)
 	player_manager.players[0].show()
@@ -34,8 +38,15 @@ func start() -> void:
 	nova_boom()
 
 func nova_boom() -> void:
+	
+	vfx.play("explosion")
+	var len = vfx.current_animation_length
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(camera, "fov", camera.fov+30, boom_dur)
+	tween.tween_property(camera, "fov", camera.fov+30, len)
+	tween.parallel().tween_property(white, "modulate", Color("ffffffff"), 1) \
+			.set_delay(len - 2)
+	await get_tree().create_timer(2).timeout
+	sound.play_one_shot()
 	await tween.finished
 	scene_done.emit()
