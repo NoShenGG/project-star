@@ -9,4 +9,5 @@ name = &"Evil Weeds"
 mesh = ExtResource("1_cotxy")
 cast_shadow = 0
 spacing = 2.0
+align_on_surface_normal = false
 metadata/_custom_type_script = "uid://dre8v2iurryb6"

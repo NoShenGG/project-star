@@ -2,6 +2,9 @@
 extends Control
 class_name Menu
 
+## will get closed by other menus
+@export var affected_by_menus : bool = true
+## will close other menus
 @export var affects_other_menus : bool = true
 
 @export var open_on_start : bool
@@ -46,10 +49,10 @@ signal menu_shown
 signal menu_transition_finished
 
 func _enter_tree() -> void:
-	if (affects_other_menus ): MenuManager.menus[self.name] = self
+	if (affected_by_menus ): MenuManager.menus[self.name] = self
 
 func _exit_tree() -> void:
-	if (affects_other_menus ): MenuManager.menus.erase(self.name)
+	if (affected_by_menus): MenuManager.menus.erase(self.name)
 
 func _ready() -> void:
 	print(size)

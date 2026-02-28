@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdydypuhg67jk"]
 
-[ext_resource type="Script" path="res://scripts/entities/enemies/dinoskeleton.gd" id="1_vw6fa"]
+[ext_resource type="Script" uid="uid://vvrq4bl2oey7" path="res://scripts/entities/enemies/dinoskeleton.gd" id="1_vw6fa"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_8j2wv"]
 [ext_resource type="PackedScene" uid="uid://54ykpkl5wkh3" path="res://scenes/sub/DinoSpitProjectile.tscn" id="2_vpanr"]
 [ext_resource type="Script" uid="uid://cj56h6cxt3f17" path="res://scripts/entities/enemies/states/dinoskeleton/dinoskeleton_idle.gd" id="3_8j2wv"]
@@ -11,19 +11,119 @@
 [ext_resource type="Script" uid="uid://bfs0bu2rrif0m" path="res://scripts/entities/enemies/states/dinoskeleton/dinoskeleton_fire_attack_prepare.gd" id="6_qoxk8"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="6_vsguo"]
 [ext_resource type="Script" uid="uid://v72xfcwohkl2" path="res://scripts/entities/enemies/states/dinoskeleton/dinoskeleton_fire_attack_commit.gd" id="8_y1oru"]
-[ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="9_qoxk8"]
-[ext_resource type="Material" uid="uid://dw31m2n5avju1" path="res://art_assets/enemies/skele_dino/Hair.material" id="12_y1oru"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="13_03yme"]
+[ext_resource type="PackedScene" uid="uid://b1fwencxis8oc" path="res://art_assets/enemies/skele_dino/DragoSkele_anims.glb" id="13_tg7wx"]
+[ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="14_aa3j0"]
+[ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="15_17fpb"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="16_0ieej"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="17_nq551"]
+[ext_resource type="Script" uid="uid://b7pj5dra8sjgx" path="res://scripts/entities/DeathVFX.gd" id="18_3b74m"]
+[ext_resource type="Script" uid="uid://dxy6p70rncayl" path="res://scripts/entities/SpawnVFX.gd" id="19_y1o2c"]
+[ext_resource type="PackedScene" uid="uid://dtrpcl1nasika" path="res://vfx/enemySummonFX.tscn" id="20_o1740"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2l4st"]
-size = Vector3(6.165, 9.61, 9.4)
+size = Vector3(2.775, 4.92, 7.18)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vl86s"]
 height = 1.15
 radius = 3.357
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_03yme"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_f6mqq"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6fl8d"]
+animation = &"close_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_57i2e"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8xo6d"]
+animation = &"ranged_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o788n"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hu1os"]
+states/close_attack/node = SubResource("AnimationNodeAnimation_6fl8d")
+states/close_attack/position = Vector2(541, 100)
+states/idle/node = SubResource("AnimationNodeAnimation_57i2e")
+states/idle/position = Vector2(322, 100)
+states/ranged_attack/node = SubResource("AnimationNodeAnimation_8xo6d")
+states/ranged_attack/position = Vector2(692, 100)
+states/run/node = SubResource("AnimationNodeAnimation_o788n")
+states/run/position = Vector2(422, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p48to"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.59607846)
+
+[sub_resource type="Curve" id="Curve_wck7g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m4apj"]
+curve = SubResource("Curve_wck7g")
+
+[sub_resource type="Curve" id="Curve_jkxgp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7659185, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n7xiu"]
+curve = SubResource("Curve_jkxgp")
+
+[sub_resource type="Curve" id="Curve_r1a6y"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bn177"]
+curve = SubResource("Curve_r1a6y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s2645"]
+direction = Vector3(0, 0.5, 1)
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_bn177")
+alpha_curve = SubResource("CurveTexture_m4apj")
+emission_curve = SubResource("CurveTexture_n7xiu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4u8kd"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("17_nq551")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_oy62l"]
+material = SubResource("StandardMaterial3D_4u8kd")
+
+[sub_resource type="Curve" id="Curve_2m62g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cqf5t"]
+curve = SubResource("Curve_2m62g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_08nob"]
+direction = Vector3(0, 1, 0)
+spread = 85.0
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_cqf5t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tg7wx"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 0)
 
 [node name="DinoSkeleton" type="CharacterBody3D" unique_id=1314292794 node_paths=PackedStringArray("spit_source_node") groups=["Enemies"]]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
@@ -87,14 +187,8 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 [node name="SpitSource" type="Node3D" parent="." unique_id=2138848776]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.65, -7.6)
 
-[node name="DragoSkele" parent="." unique_id=353612333 instance=ExtResource("9_qoxk8")]
-
-[node name="Plane_016" parent="DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_003" parent_id_path=PackedInt32Array(353612333, 1258224230) index="0" unique_id=938370383]
-material_override = ExtResource("12_y1oru")
-surface_material_override/0 = ExtResource("12_y1oru")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2078861050]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.82, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
 shape = SubResource("BoxShape3D_2l4st")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1450249211]
@@ -111,7 +205,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.845, 0)
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea/Area3D" unique_id=1019673813]
-transform = Transform3D(1, 0, 0, 0, 11.895866, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.5763784, 0, 0, 0, 5, 0, 0, 0, 0.57780135, 0, -3.82369, 0)
 shape = SubResource("CylinderShape3D_vl86s")
 debug_color = Color(1, 0, 0, 1)
 
@@ -121,15 +215,15 @@ one_shot = true
 
 [node name="DissolveFX" parent="." unique_id=1569578791 node_paths=PackedStringArray("meshes") instance=ExtResource("13_03yme")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
-meshes = [NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_003/Plane_016"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_001/Plane_015"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck/Plane_014"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine_002/Plane_005"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine_020"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_008"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_007"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_006"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_012"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_011"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_010"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_009"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_008"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_007"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_006"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_005"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine/Plane_007")]
+meshes = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
 
 [node name="FireCooldown" type="Timer" parent="." unique_id=1266963370]
-wait_time = 6.0
+wait_time = 3.0
 one_shot = true
 
 [node name="StatusBars" parent="." unique_id=941635898 instance=ExtResource("6_vsguo")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 8.55703, 0)
-texture = SubResource("ViewportTexture_03yme")
+texture = SubResource("ViewportTexture_f6mqq")
 
 [node name="DeathSFX" type="FmodEventEmitter3D" parent="." unique_id=1902034223]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
@@ -139,14 +233,165 @@ event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 event_name = "event:/Enemys/DracoSkele/DracoSkele Hit"
 event_guid = "{25833449-1b73-413e-9b21-c678c12fee73}"
 
+[node name="DragoSkele_anims" parent="." unique_id=1913096735 instance=ExtResource("13_tg7wx")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="DragoSkele_anims/Dinosaur Skeleton_001" parent_id_path=PackedInt32Array(1913096735, 1716832538) index="0" unique_id=675159774]
+bones/0/position = Vector3(0, 4.5608406, 2.8)
+bones/0/rotation = Quaternion(-0.42697197, 0.009703699, -0.0009474404, 0.90421224)
+bones/1/rotation = Quaternion(-0.10943395, -6.295296e-10, -2.649026e-08, 0.99399406)
+bones/2/rotation = Quaternion(-0.17872627, -9.123283e-10, -4.2634323e-08, 0.9838988)
+bones/3/rotation = Quaternion(0.0011356324, -3.546745e-10, 1.4312713e-09, 0.99999934)
+bones/4/rotation = Quaternion(0.17805976, 0.002267173, -0.0050001545, 0.9840044)
+bones/5/rotation = Quaternion(0.09566903, 0.0004904148, -0.0037600829, 0.995406)
+bones/6/rotation = Quaternion(0.14665069, -0.0005887548, -0.0020711827, 0.989186)
+bones/7/rotation = Quaternion(0.05106506, -0.0010453382, -0.00040146237, 0.9986947)
+bones/8/rotation = Quaternion(-0.035248715, -0.0011252059, 0.0010616446, 0.9993774)
+bones/9/rotation = Quaternion(-0.12189382, -0.0016126655, 0.00216347, 0.99253947)
+bones/10/rotation = Quaternion(-0.29681447, -0.0030436725, 0.0022396075, 0.9549277)
+bones/11/rotation = Quaternion(-0.26602858, -0.004128735, 0.0006184052, 0.9639561)
+bones/12/rotation = Quaternion(-0.46115628, 0.42559665, -0.2833356, 0.7252057)
+bones/16/rotation = Quaternion(-0.47642866, -0.6925686, 0.24623641, 0.4824231)
+bones/17/rotation = Quaternion(0.14882495, -0.00014501587, -0.0003448703, 0.98886347)
+bones/18/rotation = Quaternion(0.74022895, 0.017138895, -0.0077532707, 0.6720917)
+bones/20/rotation = Quaternion(-0.476422, 0.6847132, -0.2705671, 0.4806074)
+bones/21/rotation = Quaternion(0.123591155, 0.0077325916, -0.001274875, 0.99230236)
+bones/22/rotation = Quaternion(0.74537635, -0.0041838773, 0.011395808, 0.66653335)
+bones/23/rotation = Quaternion(-0.6844556, 0.04048405, -0.15297751, 0.7116738)
+bones/24/rotation = Quaternion(-0.9360877, -0.08681938, -0.09151483, 0.32837066)
+bones/25/rotation = Quaternion(0.79912347, -0.08670313, -0.02802392, 0.59422135)
+bones/26/rotation = Quaternion(0.58767724, 0.19392234, -0.23941465, 0.7481379)
+bones/27/rotation = Quaternion(-0.68321735, -0.0508332, 0.16334094, 0.70989424)
+bones/28/rotation = Quaternion(-0.9346823, 0.07605676, 0.08169127, 0.33750695)
+bones/29/rotation = Quaternion(0.7981786, 0.080140345, 0.020249045, 0.5967231)
+bones/30/rotation = Quaternion(0.58967894, -0.15549977, 0.20684849, 0.76505715)
+bones/31/rotation = Quaternion(-0.002810642, -0.06440429, 0.99791676, 0.0025138268)
+bones/31/scale = Vector3(1, 0.99999624, 0.99994963)
+bones/32/rotation = Quaternion(0.072950006, 0.0024442507, -0.0020990514, 0.9973304)
+bones/33/rotation = Quaternion(0.20153198, 0.0023343726, -0.00063543534, 0.979479)
+bones/34/rotation = Quaternion(0.1972897, 0.0024754652, 0.00037268823, 0.9803421)
+bones/35/position = Vector3(2.704081e-06, 1.4032838, 9.915201)
+bones/35/rotation = Quaternion(9.1393133e-07, 0.7521239, 0.65902174, 1.0430459e-06)
+bones/36/position = Vector3(2.676621e-05, 8.823438, -7.757449)
+bones/36/rotation = Quaternion(-0.83298993, 0, 0, 0.55328816)
+bones/37/position = Vector3(-1.9, 0.10000001, -2.4255273)
+bones/38/position = Vector3(-2.1138163, 0.10000002, 0.5773961)
+bones/39/position = Vector3(1.9, 0.10000001, -2.4255273)
+bones/40/position = Vector3(2.1138163, 0.10000002, 0.5773961)
+
+[node name="AnimationPlayer" parent="DragoSkele_anims" index="1" unique_id=1500772091]
+speed_scale = 0.4
+
+[node name="AnimationTree" type="AnimationTree" parent="DragoSkele_anims" unique_id=1753978833]
+tree_root = SubResource("AnimationNodeStateMachine_hu1os")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="idle" type="Node" parent="DragoSkele_anims" unique_id=2013651206]
+script = ExtResource("14_aa3j0")
+state_name = "idle"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hu1os"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="move" type="Node" parent="DragoSkele_anims" unique_id=1137108513]
+script = ExtResource("14_aa3j0")
+state_name = "run"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hu1os"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="hurt" type="Node" parent="DragoSkele_anims" unique_id=77093982]
+script = ExtResource("14_aa3j0")
+state_name = "hurt"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hu1os"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="attack_close" type="Node" parent="DragoSkele_anims" unique_id=1514714684]
+script = ExtResource("14_aa3j0")
+state_name = "close_attack"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hu1os"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="attack_ranged" type="Node" parent="DragoSkele_anims" unique_id=69509568]
+script = ExtResource("14_aa3j0")
+state_name = "ranged_attack"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hu1os"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="Hurt" type="Node3D" parent="." unique_id=495719376 node_paths=PackedStringArray("vfx", "meshes_root")]
+script = ExtResource("15_17fpb")
+vfx = NodePath("Hurt VFX")
+meshes_root = NodePath("../DragoSkele_anims")
+hurt_overlay = SubResource("StandardMaterial3D_p48to")
+flash_duration = 0.5
+
+[node name="Hurt VFX" type="Node3D" parent="Hurt" unique_id=1002424449 node_paths=PackedStringArray("particles")]
+script = ExtResource("16_0ieej")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
+metadata/_custom_type_script = "uid://hrugoc51xhma"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX" unique_id=1012984441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_s2645")
+draw_pass_1 = SubResource("QuadMesh_oy62l")
+
+[node name="Death" type="Node3D" parent="." unique_id=316970556 node_paths=PackedStringArray("vfx", "meshes_root")]
+script = ExtResource("18_3b74m")
+vfx = NodePath("Death VFX")
+meshes_root = NodePath("../DragoSkele_anims")
+hurt_overlay = SubResource("StandardMaterial3D_p48to")
+flash_duration = 3.0
+death_delay = 2.0
+death_time = 2.0
+fade_out = false
+
+[node name="Death VFX" type="Node3D" parent="Death" unique_id=1030884974 node_paths=PackedStringArray("particles")]
+script = ExtResource("16_0ieej")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
+metadata/_custom_type_script = "uid://hrugoc51xhma"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Death/Death VFX" unique_id=1908718533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
+emitting = false
+amount = 17
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_08nob")
+draw_pass_1 = SubResource("QuadMesh_oy62l")
+
+[node name="Spawned" type="Node3D" parent="." unique_id=2114082452 node_paths=PackedStringArray("vfx", "meshes_root", "_meshes")]
+process_mode = 3
+script = ExtResource("19_y1o2c")
+vfx = NodePath("enemySummonFX")
+meshes_root = NodePath("../DragoSkele_anims")
+_meshes = [NodePath("../DragoSkele_anims/Dinosaur Skeleton_001/Skeleton3D/Cube_002"), NodePath("../DragoSkele_anims/Dinosaur Skeleton_001/Skeleton3D/Plane_008"), NodePath("../DragoSkele_anims/Dinosaur Skeleton_001/Skeleton3D/Plane_010"), NodePath("../DragoSkele_anims/Dinosaur Skeleton_001/Skeleton3D/Plane_011")]
+hurt_overlay = SubResource("StandardMaterial3D_tg7wx")
+flash_duration = 0.75
+
+[node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("20_o1740")]
+lifetime = 1.25
+
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
 [connection signal="hurt" from="." to="HitSFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="DissolveFX" method="beginDissolve"]
 [connection signal="killed" from="." to="DeathSFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/idle" to="DragoSkele_anims/idle" method="enter"]
 [connection signal="entered" from="StateMachine/chase" to="StateMachine/chase/WalkSFX" method="play"]
+[connection signal="entered" from="StateMachine/chase" to="DragoSkele_anims/move" method="enter"]
 [connection signal="finished" from="StateMachine/chase" to="StateMachine/chase/WalkSFX" method="stop"]
 [connection signal="entered" from="StateMachine/spit_attack_commit" to="StateMachine/spit_attack_commit/AttackSFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/spit_attack_commit" to="DragoSkele_anims/attack_ranged" method="enter"]
+[connection signal="entered" from="StateMachine/fire_attack_prepare" to="DragoSkele_anims/attack_close" method="enter"]
 [connection signal="entered" from="StateMachine/fire_attack_commit" to="StateMachine/spit_attack_commit/AttackSFX" method="play_one_shot"]
 
-[editable path="DragoSkele"]
+[editable path="DragoSkele_anims"]
+[editable path="Spawned/enemySummonFX"]
