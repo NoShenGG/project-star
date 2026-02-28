@@ -8,4 +8,6 @@ script = ExtResource("2_svj8u")
 name = &"Evil Rock"
 mesh = ExtResource("1_852i0")
 cast_shadow = 0
+align_on_surface_normal = false
+rotation_mode = 1
 metadata/_custom_type_script = "uid://dre8v2iurryb6"
