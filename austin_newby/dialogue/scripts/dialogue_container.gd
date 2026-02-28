@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Menu
 
 const dialogue_scene = preload("uid://df2acff0x2cqk")
 var active_json : Dictionary # prevents repeatedly loading a json
@@ -10,6 +10,11 @@ signal main_dialogue_sfx(image : Texture2D)
 signal sub_dialogue_called
 signal sub_dialogue_sfx(image : Texture2D)
 
+signal dialogue_finished
+
+func _enter_tree() -> void:
+	hide()
+
 func read(dialogue_array:Array[DialogueResource]):
 	kill_dialogue()
 	await get_tree().create_timer(0.01).timeout # allows time for dialogues to be freed
@@ -18,6 +23,11 @@ func read(dialogue_array:Array[DialogueResource]):
 
 # Instantiates new dialogue scene with message_array
 func instantiate_dialogue(dialogue_array:Array[DialogueResource]):
+	if (GameMenu.game_menu): GameMenu.game_menu.add_menu(self)
+	await get_tree().create_timer(0.5).timeout
+	if (!self): 
+		if (GameMenu.game_menu): GameMenu.game_menu.remove_menu(self)
+		return
 	var d = dialogue_scene.instantiate()
 	d.speaker_image = %SpeakerImage
 	d.name_label = %NameLabel
@@ -30,6 +40,28 @@ func instantiate_dialogue(dialogue_array:Array[DialogueResource]):
 	d.main_dialogue_sfx.connect(main_dialogue_image_recieved)
 	d.sub_dialogue_called.connect(sub_dialogue_recieved)
 	d.sub_dialogue_sfx.connect(sub_dialogue_image_recieved)
+	
+	check_scene_change()
+	
+	await open()
+	
+	await d.dialogue_finished
+	await close()
+	dialogue_finished.emit()
+	if (GameMenu.game_menu): GameMenu.game_menu.remove_menu(self)
+
+func check_scene_change():
+	## getting child because we have one scene tree instead of swapping it out
+	var scene_root : Node = get_tree().current_scene.get_child(0)
+	await get_tree().process_frame
+	while is_open:
+		if (!scene_root):
+			close()
+			hide()
+			break
+		## could do it when heirarchy changed, but it would be much harder to stop
+		await get_tree().process_frame
+		
 
 func main_dialogue_recieved():
 	main_dialogue_called.emit()
@@ -64,5 +96,10 @@ func update_talk_sprite(image : Texture2D):
 	%SpeakerImage.texture = image
 
 func _ready():
+	#super()
+	hide()
 	modulate = Color.TRANSPARENT
 	z_index = 1
+	
+	var magnitude = scale.x if scale.x > scale.y else scale.y
+	scale_magnitude = magnitude

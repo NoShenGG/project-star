@@ -13,11 +13,13 @@ var shield = false
 func enter(_previous_state_path: String, _data := {}) -> void:
 	entered.emit()
 	fortifier.velocity = Vector3.ZERO
+	print("SHIELDING RN")
 	await get_tree().create_timer(cast_time).timeout
 	if not fortifier.shield():
 		get_tree().create_timer(retry_time).timeout.connect(
 			trigger_finished.emit.bind(get_path()))
-	good.emit()
+	else:
+		good.emit()
 	trigger_finished.emit(next_state.get_path())
 
 func update(_delta: float) -> void:

@@ -40,10 +40,14 @@ func do_damage() -> void:
 	if not hitbox.monitoring or dawn.death:
 		return
 	
+	var hit = false
 	for node in hitbox.get_overlapping_bodies():
 		if node is Entity and (node as Entity).faction != dawn.faction:
 			if (node as Entity).try_damage(damage):
 				dawn.note_manager.add_white()
+				hit = true
+	if hit:
+		dawn.enemy_hit.emit()
 			
 
 func exit() -> void:

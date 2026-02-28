@@ -6,8 +6,6 @@ class_name Wave
 
 @export var enemies: Array[PackedScene]
 
-var summonFX: PackedScene = preload("res://VFX/enemySummonFX.tscn")
-
 # Elimination-based wave progression, could also implement time-based
 # @export_category("Wave Type")
 # @export var isEliminationBased = true
@@ -76,9 +74,10 @@ func start():
 		else:
 			instance.global_position = area.get_rand_point()
 			
-		var instanceFX : Node3D = summonFX.instantiate()
-		add_child(instanceFX)
-		instanceFX.global_position = instance.global_position
+		#var instanceFX : Node3D = summonFX.instantiate()
+		#add_child(instanceFX)
+		#instanceFX.global_position = instance.global_position
+		instance.spawned.emit.call_deferred()
 	started.emit()
 	
 # TODO: func start_staggered()

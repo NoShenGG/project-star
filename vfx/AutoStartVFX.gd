@@ -22,7 +22,7 @@ class_name AutoStartVFX
 @export var light : Light3D
 @export var flare : Node3D
 @export var particles : Array[GPUParticles3D]
-@export var audio : AudioStreamPlayer3D
+@export var audio : FmodEventEmitter3D
 
 signal start
 signal finished
@@ -76,8 +76,6 @@ func _ready():
 func spawn():
 	if (play_on_start and on_stop != 1):
 		restart_particles()
-		if (audio):
-			audio.play()
 	super()
 
 func get_particles():
@@ -97,6 +95,8 @@ func remove_particle(node : Node):
 		particles.remove_at(particles.find(node))
 
 func restart_particles():
+	if (audio):
+		audio.play()
 	for particle in particles:
 		particle.restart()
 	## redundant code cause yall dont have quality vary much (yet?)

@@ -80,6 +80,7 @@ particle_flag_rotate_y = true
 angle_min = 1.0728835e-05
 angle_max = 360.00003
 direction = Vector3(0, 1, 0)
+spread = 15.0
 initial_velocity_min = 4.0
 initial_velocity_max = 7.0
 angular_velocity_min = -1440.0
@@ -160,17 +161,19 @@ albedo_texture = ExtResource("3_gpwvx")
 material = SubResource("StandardMaterial3D_e4h2j")
 size = Vector2(1, 1)
 
-[node name="enemySummonFX" type="Node3D" unique_id=352876712 node_paths=PackedStringArray("particles")]
+[node name="enemySummonFX" type="Node3D" unique_id=352876712 node_paths=PackedStringArray("particles", "audio")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_n2lyf")
-on_stop = 1
+play_on_start = false
 lifetime = 1.0
 particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D3")]
+audio = NodePath("FmodEventEmitter3D")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=797663744]
 emitting = false
 amount = 2
 one_shot = true
+speed_scale = 1.5
 explosiveness = 0.6
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_gpwvx")
@@ -179,6 +182,7 @@ draw_pass_1 = SubResource("PlaneMesh_e4h2j")
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=726252779]
 emitting = false
 one_shot = true
+speed_scale = 1.5
 explosiveness = 0.6
 local_coords = true
 trail_enabled = true
@@ -189,6 +193,11 @@ draw_pass_1 = SubResource("RibbonTrailMesh_yqu8b")
 emitting = false
 amount = 1
 one_shot = true
+speed_scale = 1.5
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_yqu8b")
 draw_pass_1 = SubResource("PlaneMesh_315wx")
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="." unique_id=1296561884]
+event_name = "event:/Enemys/Spawned Small"
+event_guid = "{a43f1c4e-bf40-4b03-b473-19f12619fa9b}"

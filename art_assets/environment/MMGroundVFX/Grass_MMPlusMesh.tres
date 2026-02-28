@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MMPlusMesh" format=3 uid="uid://ci4ow6new6i3d"]
+
+[ext_resource type="QuadMesh" uid="uid://dreolnmdlxar7" path="res://art_assets/environment/MMGroundVFX/Grass_Mesh.tres" id="1_qa3hd"]
+[ext_resource type="Script" uid="uid://dre8v2iurryb6" path="res://addons/mm_plus_editor/resources/mm_plus_mesh.gd" id="7_lst42"]
+
+[resource]
+script = ExtResource("7_lst42")
+name = &"Grass"
+mesh = ExtResource("1_qa3hd")
+cast_shadow = 0
+spacing = 0.15
+metadata/_custom_type_script = "uid://dre8v2iurryb6"

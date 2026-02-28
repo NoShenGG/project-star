@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MMPlusMesh" format=3 uid="uid://cky5di637u8im"]
+
+[ext_resource type="QuadMesh" uid="uid://dp1c0ppauyfja" path="res://art_assets/environment/MMGroundVFX/Weed_Mesh.tres" id="1_8dr45"]
+[ext_resource type="Script" uid="uid://dre8v2iurryb6" path="res://addons/mm_plus_editor/resources/mm_plus_mesh.gd" id="2_x7dpu"]
+
+[resource]
+script = ExtResource("2_x7dpu")
+name = &"Weeds"
+mesh = ExtResource("1_8dr45")
+cast_shadow = 0
+spacing = 2.0
+metadata/_custom_type_script = "uid://dre8v2iurryb6"

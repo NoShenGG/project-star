@@ -10,15 +10,17 @@ func _ready() -> void:
 	super()
 	await get_tree().process_frame
 	await get_tree().process_frame
-	shield()
+	reset_shield()
 		
 func shield() -> bool:
 	var enemy = vision.get_overlapping_bodies().filter(
-		func(a): return a is Enemy and not a is Fortifier).pick_random()
+		func(a): return a is Enemy and not a is Fortifier \
+			and not a._status_effects.has(EntityEffect.EffectID.INVINCIBLE) \
+			and not a._stopped_effects.has(EntityEffect.EffectID.INVINCIBLE)).pick_random()
 	if enemy == null:
 		return false
 	enemy.apply_effect(FortifierInvincible.new(self))
 	return true
 		
 func reset_shield():
-	state_machine.state.trigger_finished.emit("Shielding")
+	state_machine.state.trigger_finished.emit.call_deferred("Shielding")

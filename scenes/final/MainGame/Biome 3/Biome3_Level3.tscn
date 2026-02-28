@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="15_3nrg2"]
 [ext_resource type="Texture2D" uid="uid://d0np8pel0cm26" path="res://art_assets/Ui/FinalPortraits/dawnCLEAR.png" id="16_30m0f"]
 [ext_resource type="Shader" uid="uid://c77hfyht2fpxt" path="res://shaders/Fog/lightbeam.gdshader" id="18_i6srs"]
+[ext_resource type="Script" uid="uid://ba0ksa5mw76m4" path="res://scripts/utility/end_cutscene.gd" id="21_ic5nq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3nrg2"]
 sky_top_color = Color(0.8235294, 0, 0.45882353, 1)
@@ -141,6 +142,7 @@ noise = SubResource("FastNoiseLite_fcfpd")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ic5nq"]
 render_priority = 0
 shader = ExtResource("18_i6srs")
+shader_parameter/transparency = 0.0
 shader_parameter/color = Color(1, 0.8, 1, 1)
 shader_parameter/use_second_color = true
 shader_parameter/second_color = Color(1, 0.26, 1, 1)
@@ -174,6 +176,7 @@ size = Vector2(60.605, 150)
 [node name="LevelEnder" parent="." unique_id=1537754185 instance=ExtResource("7_1123x")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 70.61142, 7.9651995, -154.31766)
 next_level = "credits/credits"
+trigger_end = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1250259073]
 environment = SubResource("Environment_enm0d")
@@ -189,178 +192,372 @@ shadow_enabled = true
 [node name="PlayerManager" parent="." unique_id=1690189146 instance=ExtResource("6_k5jyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
 
+[node name="Nova" parent="PlayerManager" index="0" unique_id=1837126418]
+transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 3.947483)
+
+[node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="0" unique_id=2111668813]
+bones/14/rotation = Quaternion(-0.07552517, 0.5265305, -0.50680804, 0.6783858)
+bones/15/rotation = Quaternion(-0.15377523, 0.5418204, 0.22938666, 0.79382974)
+bones/16/rotation = Quaternion(-0.5159857, -0.4669963, -0.2285386, 0.6807667)
+bones/21/rotation = Quaternion(-0.13017024, 0.40291533, -0.47376198, 0.77218163)
+bones/22/rotation = Quaternion(-0.055281237, 0.32225087, 0.1677542, 0.9300306)
+bones/23/rotation = Quaternion(0.10817544, 0.1325744, -0.07483152, 0.9824065)
+bones/38/rotation = Quaternion(-0.35026494, 0.70630217, 0.061422188, 0.6121104)
+
+[node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
+transform = Transform3D(-0.0042194407, -0.5699887, 0.8216416, -0.42096874, 0.74630827, 0.5155668, -0.9070652, -0.34371006, -0.24309647, 0.00603536, 0.007201207, -0.013197057)
+
+[node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="3" unique_id=1649251518]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Move" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="4" unique_id=1674795872]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="5" unique_id=1029051473]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash2" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="6" unique_id=467086926]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash3" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="7" unique_id=961566355]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash4" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="8" unique_id=1701571526]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash5" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="9" unique_id=1779999045]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="ChargedSlash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="10" unique_id=62004012]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="ChargingSlash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="11" unique_id=2013996429]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Charging Special" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="12" unique_id=830214116]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Special" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="13" unique_id=1806959467]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Dash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="14" unique_id=1170297168]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Hurt" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="15" unique_id=677616342]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Die" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1690189146, 1837126418, 1395090033) index="16" unique_id=852275494]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Idle" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="3" unique_id=1766965671]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Move" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="4" unique_id=430131360]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack1" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="5" unique_id=207814382]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack2" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="6" unique_id=973975926]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack3" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="7" unique_id=434901014]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack4" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="8" unique_id=1443796247]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charging attack" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="9" unique_id=2114657163]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charged attack" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="10" unique_id=606465513]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charging special" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="11" unique_id=1086055220]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charged special" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="12" unique_id=1719295273]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Special" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="13" unique_id=99131050]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Dash" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="14" unique_id=501049339]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Hurt" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="15" unique_id=1346543891]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Die" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1690189146, 1678208346, 1073875666) index="16" unique_id=1741788305]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="0" unique_id=115013727]
+bones/2/rotation = Quaternion(0.051968545, -0.051817507, 0.7041731, 0.7062256)
+bones/15/rotation = Quaternion(0.014112014, -0.119556345, -0.665319, 0.7367889)
+bones/16/rotation = Quaternion(-0.039439015, 0.41871652, 0.10521084, 0.90113914)
+bones/17/rotation = Quaternion(0.19156747, 0.11055743, -0.2560437, 0.9410211)
+bones/23/rotation = Quaternion(-0.08082465, -0.090343736, -0.68429834, 0.7190557)
+bones/24/rotation = Quaternion(-0.030825874, 0.27591187, 0.12685083, 0.9522769)
+bones/25/rotation = Quaternion(0.0046352614, 0.08572967, -0.17237025, 0.9812836)
+bones/30/rotation = Quaternion(0.011605348, 0.9654067, -0.2516732, -0.06720003)
+bones/31/rotation = Quaternion(0.9888366, -0.01699307, 0.14801767, 0.0020406998)
+bones/32/rotation = Quaternion(0.5502071, -0.39560536, 0.44253644, 0.58730745)
+bones/34/rotation = Quaternion(0.06171719, 0.19007479, 0.016472822, 0.97968936)
+bones/35/rotation = Quaternion(0.97934556, -0.019586353, 0.20121472, 0.0033879245)
+bones/36/rotation = Quaternion(0.586689, -0.3804762, 0.38782725, 0.6005198)
+
+[node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="3" unique_id=636726215]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Move" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="4" unique_id=216360919]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack start" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="5" unique_id=1398567198]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack hold" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="6" unique_id=2059599407]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack end" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="7" unique_id=2127963097]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="fish" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="8" unique_id=1943936372]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="ChargedAttack" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="9" unique_id=670848599]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="ChargingAttack" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="10" unique_id=1168808960]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Charging Special" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="11" unique_id=1249691474]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Special" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="12" unique_id=1108651509]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Dash" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="13" unique_id=221988257]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Hurt" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="14" unique_id=318539843]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Die" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1690189146, 618181988, 1566855500) index="15" unique_id=2085062700]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
 [node name="NavMesh" type="NavigationRegion3D" parent="." unique_id=1876695167]
 transform = Transform3D(0.9556895, 0, 0, 0, 0.9556895, 0, 0, 0, 0.9556895, 0.18879128, 0.041381836, -0.1295929)
 navigation_mesh = SubResource("NavigationMesh_n0jqv")
 
 [node name="3-3-DK-ModApplied" parent="NavMesh" unique_id=1198827781 instance=ExtResource("3_30m0f")]
 
-[node name="Tile_001" parent="NavMesh/3-3-DK-ModApplied" index="0" unique_id=121789753]
+[node name="Tile_001" parent="NavMesh/3-3-DK-ModApplied" index="0" unique_id=1177989928]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_002" parent="NavMesh/3-3-DK-ModApplied" index="1" unique_id=695269328]
+[node name="Tile_002" parent="NavMesh/3-3-DK-ModApplied" index="1" unique_id=1646131613]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_003" parent="NavMesh/3-3-DK-ModApplied" index="2" unique_id=863433929]
+[node name="Tile_003" parent="NavMesh/3-3-DK-ModApplied" index="2" unique_id=759764339]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_004" parent="NavMesh/3-3-DK-ModApplied" index="3" unique_id=263111212]
+[node name="Tile_004" parent="NavMesh/3-3-DK-ModApplied" index="3" unique_id=85541350]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_005" parent="NavMesh/3-3-DK-ModApplied" index="4" unique_id=97402500]
+[node name="Tile_005" parent="NavMesh/3-3-DK-ModApplied" index="4" unique_id=1783435449]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_006" parent="NavMesh/3-3-DK-ModApplied" index="5" unique_id=571381974]
+[node name="Tile_006" parent="NavMesh/3-3-DK-ModApplied" index="5" unique_id=909640338]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_007" parent="NavMesh/3-3-DK-ModApplied" index="6" unique_id=1660391370]
+[node name="Tile_007" parent="NavMesh/3-3-DK-ModApplied" index="6" unique_id=182396743]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_008" parent="NavMesh/3-3-DK-ModApplied" index="7" unique_id=389485194]
+[node name="Tile_008" parent="NavMesh/3-3-DK-ModApplied" index="7" unique_id=889961295]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_009" parent="NavMesh/3-3-DK-ModApplied" index="8" unique_id=1108629858]
+[node name="Tile_009" parent="NavMesh/3-3-DK-ModApplied" index="8" unique_id=1931022779]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_010" parent="NavMesh/3-3-DK-ModApplied" index="9" unique_id=1352526220]
+[node name="Tile_010" parent="NavMesh/3-3-DK-ModApplied" index="9" unique_id=233834410]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_011" parent="NavMesh/3-3-DK-ModApplied" index="10" unique_id=1529157460]
+[node name="Tile_011" parent="NavMesh/3-3-DK-ModApplied" index="10" unique_id=1031837847]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_012" parent="NavMesh/3-3-DK-ModApplied" index="11" unique_id=1180575975]
+[node name="Tile_012" parent="NavMesh/3-3-DK-ModApplied" index="11" unique_id=967342477]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_013" parent="NavMesh/3-3-DK-ModApplied" index="12" unique_id=1492381167]
+[node name="Tile_013" parent="NavMesh/3-3-DK-ModApplied" index="12" unique_id=704897454]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_014" parent="NavMesh/3-3-DK-ModApplied" index="13" unique_id=399827174]
+[node name="Tile_014" parent="NavMesh/3-3-DK-ModApplied" index="13" unique_id=2144799247]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_015" parent="NavMesh/3-3-DK-ModApplied" index="14" unique_id=964106165]
+[node name="Tile_015" parent="NavMesh/3-3-DK-ModApplied" index="14" unique_id=237616142]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_016" parent="NavMesh/3-3-DK-ModApplied" index="15" unique_id=911571490]
+[node name="Tile_016" parent="NavMesh/3-3-DK-ModApplied" index="15" unique_id=470394782]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_017" parent="NavMesh/3-3-DK-ModApplied" index="16" unique_id=948248099]
+[node name="Tile_017" parent="NavMesh/3-3-DK-ModApplied" index="16" unique_id=1995915586]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_018" parent="NavMesh/3-3-DK-ModApplied" index="17" unique_id=97310280]
+[node name="Tile_018" parent="NavMesh/3-3-DK-ModApplied" index="17" unique_id=452973815]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_019" parent="NavMesh/3-3-DK-ModApplied" index="18" unique_id=254629444]
+[node name="Tile_019" parent="NavMesh/3-3-DK-ModApplied" index="18" unique_id=988072432]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_020" parent="NavMesh/3-3-DK-ModApplied" index="19" unique_id=885734053]
+[node name="Tile_020" parent="NavMesh/3-3-DK-ModApplied" index="19" unique_id=1658255826]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="RIm" parent="NavMesh/3-3-DK-ModApplied" index="20" unique_id=4993844]
+[node name="RIm" parent="NavMesh/3-3-DK-ModApplied" index="20" unique_id=243880064]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_001" parent="NavMesh/3-3-DK-ModApplied" index="21" unique_id=276214770]
+[node name="RIm_001" parent="NavMesh/3-3-DK-ModApplied" index="21" unique_id=43711571]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_001" parent="NavMesh/3-3-DK-ModApplied" index="22" unique_id=1870461506]
+[node name="Rim_001" parent="NavMesh/3-3-DK-ModApplied" index="22" unique_id=1142480561]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_002" parent="NavMesh/3-3-DK-ModApplied" index="23" unique_id=299490675]
+[node name="RIm_002" parent="NavMesh/3-3-DK-ModApplied" index="23" unique_id=1734698918]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_002" parent="NavMesh/3-3-DK-ModApplied" index="24" unique_id=333115560]
+[node name="Rim_002" parent="NavMesh/3-3-DK-ModApplied" index="24" unique_id=1719882942]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_003" parent="NavMesh/3-3-DK-ModApplied" index="25" unique_id=1985621483]
+[node name="RIm_003" parent="NavMesh/3-3-DK-ModApplied" index="25" unique_id=694142086]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_003" parent="NavMesh/3-3-DK-ModApplied" index="26" unique_id=227749053]
+[node name="Rim_003" parent="NavMesh/3-3-DK-ModApplied" index="26" unique_id=1665687272]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_004" parent="NavMesh/3-3-DK-ModApplied" index="27" unique_id=1503192358]
+[node name="RIm_004" parent="NavMesh/3-3-DK-ModApplied" index="27" unique_id=1934238753]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_004" parent="NavMesh/3-3-DK-ModApplied" index="28" unique_id=1985531475]
+[node name="Rim_004" parent="NavMesh/3-3-DK-ModApplied" index="28" unique_id=466277434]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_005" parent="NavMesh/3-3-DK-ModApplied" index="29" unique_id=120967740]
+[node name="RIm_005" parent="NavMesh/3-3-DK-ModApplied" index="29" unique_id=1531365356]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_005" parent="NavMesh/3-3-DK-ModApplied" index="30" unique_id=1916735232]
+[node name="Rim_005" parent="NavMesh/3-3-DK-ModApplied" index="30" unique_id=721073774]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_006" parent="NavMesh/3-3-DK-ModApplied" index="31" unique_id=1854752339]
+[node name="RIm_006" parent="NavMesh/3-3-DK-ModApplied" index="31" unique_id=905374156]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_006" parent="NavMesh/3-3-DK-ModApplied" index="32" unique_id=1171782879]
+[node name="Rim_006" parent="NavMesh/3-3-DK-ModApplied" index="32" unique_id=873173159]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_007" parent="NavMesh/3-3-DK-ModApplied" index="33" unique_id=406434397]
+[node name="RIm_007" parent="NavMesh/3-3-DK-ModApplied" index="33" unique_id=2066149518]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_007" parent="NavMesh/3-3-DK-ModApplied" index="34" unique_id=534416355]
+[node name="Rim_007" parent="NavMesh/3-3-DK-ModApplied" index="34" unique_id=290655391]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_008" parent="NavMesh/3-3-DK-ModApplied" index="35" unique_id=979228395]
+[node name="RIm_008" parent="NavMesh/3-3-DK-ModApplied" index="35" unique_id=634878476]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_008" parent="NavMesh/3-3-DK-ModApplied" index="36" unique_id=570435979]
+[node name="Rim_008" parent="NavMesh/3-3-DK-ModApplied" index="36" unique_id=343091467]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_009" parent="NavMesh/3-3-DK-ModApplied" index="37" unique_id=2034778849]
+[node name="RIm_009" parent="NavMesh/3-3-DK-ModApplied" index="37" unique_id=79791087]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_009" parent="NavMesh/3-3-DK-ModApplied" index="38" unique_id=432639904]
+[node name="Rim_009" parent="NavMesh/3-3-DK-ModApplied" index="38" unique_id=608801021]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_010" parent="NavMesh/3-3-DK-ModApplied" index="39" unique_id=1997523603]
+[node name="RIm_010" parent="NavMesh/3-3-DK-ModApplied" index="39" unique_id=1077898876]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_010" parent="NavMesh/3-3-DK-ModApplied" index="40" unique_id=1927836620]
+[node name="Rim_010" parent="NavMesh/3-3-DK-ModApplied" index="40" unique_id=781562397]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_011" parent="NavMesh/3-3-DK-ModApplied" index="41" unique_id=252213044]
+[node name="RIm_011" parent="NavMesh/3-3-DK-ModApplied" index="41" unique_id=1368744835]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_011" parent="NavMesh/3-3-DK-ModApplied" index="42" unique_id=826582491]
+[node name="Rim_011" parent="NavMesh/3-3-DK-ModApplied" index="42" unique_id=661646462]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_012" parent="NavMesh/3-3-DK-ModApplied" index="43" unique_id=1318657307]
+[node name="RIm_012" parent="NavMesh/3-3-DK-ModApplied" index="43" unique_id=341101171]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim" parent="NavMesh/3-3-DK-ModApplied" index="44" unique_id=588766258]
+[node name="Rim" parent="NavMesh/3-3-DK-ModApplied" index="44" unique_id=1500100865]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_012" parent="NavMesh/3-3-DK-ModApplied" index="45" unique_id=218291394]
+[node name="Rim_012" parent="NavMesh/3-3-DK-ModApplied" index="45" unique_id=1103968804]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_013" parent="NavMesh/3-3-DK-ModApplied" index="46" unique_id=1448020553]
+[node name="RIm_013" parent="NavMesh/3-3-DK-ModApplied" index="46" unique_id=1548094669]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_013" parent="NavMesh/3-3-DK-ModApplied" index="47" unique_id=115610391]
+[node name="Rim_013" parent="NavMesh/3-3-DK-ModApplied" index="47" unique_id=2127495721]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_014" parent="NavMesh/3-3-DK-ModApplied" index="48" unique_id=1584914399]
+[node name="RIm_014" parent="NavMesh/3-3-DK-ModApplied" index="48" unique_id=1131721288]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_014" parent="NavMesh/3-3-DK-ModApplied" index="49" unique_id=1177903518]
+[node name="Rim_014" parent="NavMesh/3-3-DK-ModApplied" index="49" unique_id=1783106410]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_015" parent="NavMesh/3-3-DK-ModApplied" index="50" unique_id=710885204]
+[node name="RIm_015" parent="NavMesh/3-3-DK-ModApplied" index="50" unique_id=1072070353]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_015" parent="NavMesh/3-3-DK-ModApplied" index="51" unique_id=846984862]
+[node name="Rim_015" parent="NavMesh/3-3-DK-ModApplied" index="51" unique_id=574817143]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_016" parent="NavMesh/3-3-DK-ModApplied" index="52" unique_id=2003223870]
+[node name="Rim_016" parent="NavMesh/3-3-DK-ModApplied" index="52" unique_id=781834352]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_017" parent="NavMesh/3-3-DK-ModApplied" index="53" unique_id=557154786]
+[node name="Rim_017" parent="NavMesh/3-3-DK-ModApplied" index="53" unique_id=1407122040]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_018" parent="NavMesh/3-3-DK-ModApplied" index="54" unique_id=355104615]
+[node name="Rim_018" parent="NavMesh/3-3-DK-ModApplied" index="54" unique_id=1546441976]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="NewBase_001" parent="NavMesh/3-3-DK-ModApplied" index="90" unique_id=1765392864]
+[node name="NewBase_001" parent="NavMesh/3-3-DK-ModApplied" index="90" unique_id=498642435]
 surface_material_override/0 = SubResource("ShaderMaterial_rtlmi")
 
 [node name="WaveManager" type="Node3D" parent="." unique_id=917111061]
@@ -406,6 +603,8 @@ metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 script = ExtResource("2_mvyfq")
 enemies = Array[PackedScene]([ExtResource("5_enm0d"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("6_n0jqv"), ExtResource("7_ggxbb"), ExtResource("5_enm0d"), ExtResource("6_ggxbb")])
 spawn_areas = [NodePath("../SpawnArea9"), NodePath("../SpawnArea12"), NodePath("../SpawnArea13")]
+setSpawnAreas = true
+spawnAreaIndices = Array[int]([0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2])
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
 [node name="Wave_Starter" type="Area3D" parent="WaveManager" unique_id=1661694353]
@@ -444,7 +643,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter4" unique_id=906750356]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.410263, 0, -14.176788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.394867, 0, 5.2484436)
 shape = SubResource("BoxShape3D_ggxbb")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
@@ -471,7 +670,7 @@ transform = Transform3D(13.377548, 0, 0, 0, 1, 0, 0, 0, 12.002695, -93.9838, -1.
 transform = Transform3D(10.28, 0, 0, 0, 1, 0, 0, 0, 8.185, -77.96726, -1.9073486e-06, -119.74324)
 
 [node name="SpawnArea7" parent="WaveManager" unique_id=1291138850 instance=ExtResource("6_p3r0m")]
-transform = Transform3D(12.911812, 0, 0.017461196, 0, 0.9999999, 0, -0.011042369, 0, 20.417511, -26.449572, -1.9073486e-06, -141.74063)
+transform = Transform3D(12.911995, 0, 0.011972999, 0, 1, 0, -0.011042525, 0, 13.999995, -26.449572, -1.9073486e-06, -137.6633)
 
 [node name="SpawnArea9" parent="WaveManager" unique_id=1608393486 instance=ExtResource("6_p3r0m")]
 transform = Transform3D(14.996553, 0, 0, 0, 1, 0, 0, 0, 13.429203, -21.707869, -1.9073486e-06, -75.51022)
@@ -483,10 +682,11 @@ transform = Transform3D(13.261096, 0, 0, 0, 1, 0, 0, 0, 10.96858, -6.096262, -1.
 transform = Transform3D(11.409352, 0, 0, 0, 1, 0, 0, 0, 11.618183, -37.060963, -1.9073486e-06, -59.519768)
 
 [node name="Gate" parent="." unique_id=950639005 instance=ExtResource("11_ggxbb")]
-transform = Transform3D(-7.649493e-08, 0, 1.75, 0, 1.75, 0, -1.75, 0, -7.649493e-08, 30.088423, 1.0413802, -115.05538)
+transform = Transform3D(-7.649493e-08, 0, 1.75, 0, 1.75, 0, -1.75, 0, -7.649493e-08, 30.088423, 1.0413802, -115.8997)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=950944550]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 73.016464, 17.540577, -207.76659)
+visible = false
 mesh = SubResource("SphereMesh_ggxbb")
 surface_material_override/0 = SubResource("StandardMaterial3D_k5jyb")
 
@@ -645,6 +845,26 @@ shape = SubResource("BoxShape3D_i6srs")
 transform = Transform3D(1.3113416e-07, 0, 0.25903922, 0, 1, 0, -1, 0, 3.3968895e-08, 79.09078, 0, -119.54611)
 shape = SubResource("BoxShape3D_i6srs")
 
+[node name="CollisionShape3D50" type="CollisionShape3D" parent="collisions" unique_id=808794795]
+transform = Transform3D(1.3113417e-07, 0, 0.42987123, 0, 1, 0, -1.0000001, 0, 5.6370812e-08, 70.6152, 10.942476, -154.95232)
+shape = SubResource("BoxShape3D_i6srs")
+
+[node name="CollisionShape3D51" type="CollisionShape3D" parent="collisions" unique_id=854573101]
+transform = Transform3D(-1, 0, 3.7580538e-08, 0, 1, 0, -8.742278e-08, 0, -0.42987123, 64.96309, 10.942476, -148.07297)
+shape = SubResource("BoxShape3D_i6srs")
+
+[node name="CollisionShape3D52" type="CollisionShape3D" parent="collisions" unique_id=2074923934]
+transform = Transform3D(-1, 0, 3.7580538e-08, 0, 1, 0, -8.742278e-08, 0, -0.42987123, 76.26331, 10.942476, -148.07297)
+shape = SubResource("BoxShape3D_i6srs")
+
+[node name="CollisionShape3D53" type="CollisionShape3D" parent="collisions" unique_id=1910579468]
+transform = Transform3D(-1, 0, 6.3966e-08, 0, 7.038914, 0, -8.742278e-08, 0, -0.7316857, 75.90824, 3.5813322, -130.71951)
+shape = SubResource("BoxShape3D_i6srs")
+
+[node name="CollisionShape3D54" type="CollisionShape3D" parent="collisions" unique_id=1640942909]
+transform = Transform3D(-1, 0, 6.3966e-08, 0, 7.038914, 0, -8.742278e-08, 0, -0.7316857, 67.97964, 3.5813322, -130.71951)
+shape = SubResource("BoxShape3D_i6srs")
+
 [node name="CollisionShape3D47" type="CollisionShape3D" parent="collisions" unique_id=888067597]
 transform = Transform3D(1, 0, -8.217009e-08, 0, 1, 0, 1.7484555e-07, 0, 0.46995807, 80.226944, 0, -115.71609)
 shape = SubResource("BoxShape3D_i6srs")
@@ -774,11 +994,34 @@ transform = Transform3D(0.1358712, 0.72747755, -0.6725441, 1.0557427e-07, -0.678
 mesh = SubResource("PlaneMesh_ms5vr")
 surface_material_override/0 = SubResource("ShaderMaterial_ic5nq")
 
+[node name="EndCutscene" type="Node3D" parent="." unique_id=390111224 node_paths=PackedStringArray("camera", "game_camera", "player_manager")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.1468, 6.5796986, -118.476425)
+script = ExtResource("21_ic5nq")
+camera = NodePath("EndCutsceneCam")
+game_camera = NodePath("../PlayerManager/CameraTarget/Camera3D")
+player_manager = NodePath("../PlayerManager")
+
+[node name="EndCutsceneCam" type="Camera3D" parent="EndCutscene" unique_id=553291249]
+transform = Transform3D(0.9877129, 0.028179217, 0.15371777, 0, 0.98360926, -0.18031318, -0.15627931, 0.17809765, 0.9715236, -43.88806, 3.3012762, -24.502289)
+fov = 60.0
+size = 25.0
+
+[connection signal="area_entered" from="LevelEnder" to="EndCutscene" method="start"]
 [connection signal="ended" from="WaveManager/Wave6" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
 [connection signal="body_entered" from="WaveManager/Wave_Starter2" to="WaveManager/Wave2" method="validate_condition"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter3" to="WaveManager/Wave3" method="validate_condition"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter4" to="WaveManager/Wave4" method="validate_condition"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter5" to="WaveManager/Wave5" method="validate_condition"]
+[connection signal="scene_done" from="EndCutscene" to="LevelEnder" method="end_level_man"]
 
+[editable path="PlayerManager"]
+[editable path="PlayerManager/Nova"]
+[editable path="PlayerManager/Nova/nova"]
+[editable path="PlayerManager/Rene"]
+[editable path="PlayerManager/Rene/rene"]
+[editable path="PlayerManager/Dawn"]
+[editable path="PlayerManager/Dawn/dawn"]
+[editable path="PlayerManager/Game Menu/GameUi"]
+[editable path="PlayerManager/SettingScene"]
 [editable path="NavMesh/3-3-DK-ModApplied"]

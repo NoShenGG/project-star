@@ -3,13 +3,15 @@
 [ext_resource type="Script" uid="uid://dt6gotxl8mucy" path="res://scripts/utility/main_menu.gd" id="1_i0wvf"]
 [ext_resource type="Texture2D" uid="uid://bsj2h2rq3i4s5" path="res://art_assets/Ui/jtas_splash_background.png" id="2_lvhxv"]
 [ext_resource type="Texture2D" uid="uid://dpjigmqvpv8os" path="res://art_assets/Ui/jtas_splash_midground.png" id="3_gqoms"]
-[ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_p0ndc"]
 [ext_resource type="Texture2D" uid="uid://b3fpe4gi6v2wl" path="res://art_assets/Ui/jtas_splash_foreground.png" id="4_lovrv"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="4_u1nrr"]
 [ext_resource type="Texture2D" uid="uid://fbvnsmo83d2x" path="res://art_assets/Ui/jtas_splash_nova.png" id="5_61c46"]
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="5_lovrv"]
 [ext_resource type="Texture2D" uid="uid://b2fmtv8m321h1" path="res://art_assets/Ui/main_menu_logo.png" id="6_bx8yj"]
+[ext_resource type="FontFile" uid="uid://oaj414shae28" path="res://art_assets/Ui/Kenny Input Prompts/Generic/Fonts/HFPoet.ttf" id="9_61c46"]
 [ext_resource type="Script" uid="uid://diaap70c4mvfb" path="res://scripts/utility/menu_sfx.gd" id="9_gqoms"]
+[ext_resource type="Texture2D" uid="uid://ck3fdxisvd6q3" path="res://art_assets/Ui/New Text Boxes/Untitled1310_20260107201514.png" id="10_bx8yj"]
+[ext_resource type="Texture2D" uid="uid://dwfwwl7smcddh" path="res://art_assets/Ui/New Text Boxes/Untitled1310_20260107201525.png" id="11_k4mix"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lovrv"]
 content_margin_left = 0.0
@@ -112,9 +114,25 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lvhxv"]
 animation = &"main_menu_idle"
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k4mix"]
+texture = ExtResource("10_bx8yj")
+expand_margin_left = 223.0
+expand_margin_top = 15.0
+expand_margin_right = 52.0
+expand_margin_bottom = 220.0
+modulate_color = Color(0, 0, 0, 0.39215687)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_638d5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0ndc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ea7bv"]
+texture = ExtResource("11_k4mix")
+expand_margin_left = 11.0
+expand_margin_top = 65.0
+expand_margin_right = 210.0
+expand_margin_bottom = 185.0
+modulate_color = Color(0, 0, 0, 0.39215687)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iv24n"]
 
@@ -127,6 +145,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_i0wvf")
 load_delay = 0.5
 quit_delay = 1.0
@@ -163,6 +182,7 @@ offset_right = -6.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("4_u1nrr")
 open_on_start = true
 focused_control = NodePath("VBoxContainer/StartButton")
@@ -307,15 +327,18 @@ offset_right = 175.0
 offset_bottom = -166.0
 grow_vertical = 0
 scale = Vector2(1.5, 1.5)
+theme_override_constants/separation = -4
 
 [node name="StartButton" type="Button" parent="Menu/VBoxContainer" unique_id=1468803949]
 layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
 theme_override_colors/font_focus_color = Color(0.6509804, 0.43137255, 0.6, 1)
 theme_override_colors/font_hover_color = Color(0.8392157, 0.5529412, 0.77254903, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
-theme_override_fonts/font = ExtResource("3_p0ndc")
+theme_override_fonts/font = ExtResource("9_61c46")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_k4mix")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_638d5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_p0ndc")
 text = "Start"
@@ -326,8 +349,9 @@ focus_neighbor_bottom = NodePath("../StartButton")
 theme_override_colors/font_focus_color = Color(0.6509804, 0.43137255, 0.6, 1)
 theme_override_colors/font_hover_color = Color(0.8392157, 0.5529412, 0.77254903, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
-theme_override_fonts/font = ExtResource("3_p0ndc")
+theme_override_fonts/font = ExtResource("9_61c46")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_ea7bv")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_iv24n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u7n6r")
 text = "Quit"

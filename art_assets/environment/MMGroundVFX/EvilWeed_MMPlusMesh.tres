@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MMPlusMesh" format=3 uid="uid://bkunuagwbsm8c"]
+
+[ext_resource type="QuadMesh" uid="uid://si2pkj3iq0vg" path="res://art_assets/environment/MMGroundVFX/EvilWeed_Mesh.tres" id="1_cotxy"]
+[ext_resource type="Script" uid="uid://dre8v2iurryb6" path="res://addons/mm_plus_editor/resources/mm_plus_mesh.gd" id="2_t0g0f"]
+
+[resource]
+script = ExtResource("2_t0g0f")
+name = &"Evil Weeds"
+mesh = ExtResource("1_cotxy")
+cast_shadow = 0
+spacing = 2.0
+align_on_surface_normal = false
+metadata/_custom_type_script = "uid://dre8v2iurryb6"

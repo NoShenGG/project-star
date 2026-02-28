@@ -26,41 +26,48 @@ func _ready() -> void:
 func spawn_melody() -> void:
 	var temp: Tone = melody.instantiate()
 	add_child(temp)
+	temp.hit_enemy.connect(dawn.enemy_hit.emit)
 	temp.setup(dawn)
 	temp.start()
 
 func spawn_slow_wave() -> void:
 	var temp: Tone = slow_wave.instantiate()
 	add_child(temp)
+	temp.hit_enemy.connect(dawn.enemy_hit.emit)
 	temp.setup(dawn)
 	temp.start()
 
 func spawn_fish() -> void:
 	var temp: Tone = fish.instantiate()
 	add_child(temp)
+	temp.hit_enemy.connect(dawn.enemy_hit.emit)
 	temp.setup(dawn)
 	temp.start()
 
 func spawn_wave() -> void:
 	var temp: Tone = wave.instantiate()
 	add_child(temp)
+	temp.hit_enemy.connect(dawn.enemy_hit.emit)
 	temp.setup(dawn)
 	temp.start()
 
 func spawn_stun_wave() -> void:
 	var temp: Tone = stun_wave.instantiate()
 	add_child(temp)
+	temp.hit_enemy.connect(dawn.enemy_hit.emit)
 	temp.setup(dawn)
 	temp.start()
 
 func spawn_vortex_note() -> void:
 	var temp: Tone = vortex_note.instantiate()
 	add_child(temp)
+	temp.hit_enemy.connect(dawn.enemy_hit.emit)
 	temp.setup(dawn)
 	temp.start()
 
 func spawn_ice_zone() -> void:
 	var temp: Tone = ice_zone.instantiate()
 	add_child(temp)
+	temp.hit_enemy.connect(dawn.enemy_hit.emit)
 	temp.setup(dawn)
 	temp.start()

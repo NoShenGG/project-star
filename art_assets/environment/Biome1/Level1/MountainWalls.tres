@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://8jreytrlne5r"]
+
+[ext_resource type="Shader" uid="uid://8aqwdc6v08ve" path="res://shaders/grass - Dylearn/Shaders/ToonShaderTriplanar.gdshader" id="1_2iwg5"]
+
+[sub_resource type="Gradient" id="Gradient_5ytjf"]
+colors = PackedColorArray(0.65, 0.65, 0.65, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_33iv1"]
+frequency = 0.0503
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rquws"]
+noise = SubResource("FastNoiseLite_33iv1")
+color_ramp = SubResource("Gradient_5ytjf")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2iwg5")
+shader_parameter/albedo = Color(0.53, 0.43989998, 0.50897664, 1)
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_rquws")
+shader_parameter/cuts = 6
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 2.7610000836475
+shader_parameter/uv1_blend_sharpness = 0.0
+shader_parameter/uv1_scale = 0.0
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(0, 0, 0)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/modulate_r = Color(1, 1, 1, 1)

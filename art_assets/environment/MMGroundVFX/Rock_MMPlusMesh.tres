@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MMPlusMesh" format=3 uid="uid://o6jwi5rg0jim"]
+
+[ext_resource type="QuadMesh" uid="uid://dx8css25f5jr5" path="res://art_assets/environment/MMGroundVFX/Rock_Mesh.tres" id="1_kselu"]
+[ext_resource type="Script" uid="uid://dre8v2iurryb6" path="res://addons/mm_plus_editor/resources/mm_plus_mesh.gd" id="2_gvn1q"]
+
+[resource]
+script = ExtResource("2_gvn1q")
+name = &"Rock"
+mesh = ExtResource("1_kselu")
+cast_shadow = 0
+spacing = 0.3
+metadata/_custom_type_script = "uid://dre8v2iurryb6"

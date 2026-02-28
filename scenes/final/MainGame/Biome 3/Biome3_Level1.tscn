@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgdpkq36jujfn"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_8jmja"]
+[ext_resource type="Shader" uid="uid://d27ndcngym04q" path="res://shaders/post-processing - klaktus1901/PosterizeScreenEffect.gdshader" id="2_b6nq8"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_jhliq"]
 [ext_resource type="PackedScene" uid="uid://cbpjsg3mnhu1r" path="res://art_assets/environment/Biome3/Level1/Level3-1_layout.glb" id="3_mq6a5"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="3_qeh4q"]
@@ -9,18 +10,53 @@
 [ext_resource type="PackedScene" uid="uid://cv7a8503lutop" path="res://scenes/sub/DifficultKoboldEnemy.tscn" id="6_qeh4q"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="7_10abd"]
 [ext_resource type="PackedScene" uid="uid://bo8i2glbe0u23" path="res://scenes/sub/fortifier.tscn" id="7_t5tva"]
-[ext_resource type="PackedScene" uid="uid://7e32g1yd24m8" path="res://art_assets/environment/Biome3/Level1/Level3-1-Chipped.glb" id="8_jhliq"]
 [ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="10_t5tva"]
 [ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="11_240as"]
+[ext_resource type="PackedScene" uid="uid://cn47dmhkkl6ke" path="res://art_assets/environment/Biome3/Level1/Level3-1-Perspective (1).glb" id="11_b6nq8"]
 [ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="12_buk6j"]
 [ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="13_caww3"]
 [ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="14_6scqm"]
 [ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="15_f30ws"]
 [ext_resource type="Texture2D" uid="uid://d0np8pel0cm26" path="res://art_assets/Ui/FinalPortraits/dawnCLEAR.png" id="16_mq6a5"]
-[ext_resource type="Script" path="res://scripts/utility/menu_area.gd" id="17_6scqm"]
+[ext_resource type="Script" uid="uid://knd2e7gdbpfb" path="res://scripts/utility/menu_area.gd" id="17_6scqm"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="18_f30ws"]
 [ext_resource type="Texture2D" uid="uid://baw1g0c8nn8qt" path="res://art_assets/Ui/TextboxLarge.png" id="19_mq6a5"]
 [ext_resource type="Script" uid="uid://diaap70c4mvfb" path="res://scripts/utility/menu_sfx.gd" id="20_f30ws"]
+[ext_resource type="Texture2D" uid="uid://c8e5lknibprin" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Double/xbox_rb.png" id="21_qwi08"]
+[ext_resource type="Script" uid="uid://dlb7i27u8fcw1" path="res://scripts/InputIconSwapper.gd" id="22_1oxav"]
+[ext_resource type="Script" uid="uid://dvsf3dgfmvi38" path="res://scripts/InputIconInfo.gd" id="23_f513e"]
+[ext_resource type="Texture2D" uid="uid://xl5rlie6hlgw" path="res://art_assets/Ui/Kenny Input Prompts/Keyboard & Mouse/Vector/keyboard_2_outline.svg" id="24_pigmn"]
+[ext_resource type="Texture2D" uid="uid://dwm0i1avhw86r" path="res://art_assets/Ui/Kenny Input Prompts/Keyboard & Mouse/Vector/keyboard_2.svg" id="25_5bkx6"]
+[ext_resource type="Texture2D" uid="uid://byjmhmesit5up" path="res://art_assets/Ui/Kenny Input Prompts/Nintendo Switch/Vector/switch_button_a_outline.svg" id="26_hokkd"]
+[ext_resource type="Texture2D" uid="uid://cqoh1hx4f6imb" path="res://art_assets/Ui/Kenny Input Prompts/Nintendo Switch/Vector/switch_button_a.svg" id="27_ryj80"]
+[ext_resource type="Texture2D" uid="uid://cmry0s7xbcgwi" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Double/xbox_rb_outline.png" id="28_1oxav"]
+[ext_resource type="Texture2D" uid="uid://fnpoipr8inu2" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Double/xbox_button_menu_outline.png" id="28_hnskj"]
+[ext_resource type="Texture2D" uid="uid://civbgldrjkacy" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Double/xbox_button_menu.png" id="29_b6nq8"]
+[ext_resource type="Texture2D" uid="uid://crftfesvfawj5" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_trigger_r1_alternative_outline.svg" id="30_h3hhl"]
+[ext_resource type="Texture2D" uid="uid://ccdigbg8l6cn7" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_trigger_r1_alternative.svg" id="31_srvbj"]
+[ext_resource type="Shader" uid="uid://cqwuclyvv1bu1" path="res://shaders/fog_particle_alpha_clip.tres" id="34_hokkd"]
+[ext_resource type="Texture2D" uid="uid://c7pey3cvnmqef" path="res://vfx/Kenny Particle Pack/light_01.png" id="35_ryj80"]
+[ext_resource type="Texture2D" uid="uid://deidc1m8sqrh" path="res://vfx/Kenny Particle Pack/flame_04.png" id="36_hnskj"]
+[ext_resource type="Shader" uid="uid://1ko4io3ntcb" path="res://shaders/non_billboard_particle_alpha_clip.tres" id="37_hnskj"]
+[ext_resource type="Texture2D" uid="uid://dwbiubl2ivhhw" path="res://vfx/Kenny Particle Pack/dirt_03.png" id="38_b6nq8"]
+[ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://vfx/Kenny Particle Pack/circle_01.png" id="39_h3hhl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3hhl"]
+shader = ExtResource("2_b6nq8")
+shader_parameter/exposure = 1.150000030875
+shader_parameter/contrast = 0.8250000154375
+shader_parameter/saturation = 1.19600005681
+shader_parameter/enable_pixelate = true
+shader_parameter/pixel_factor = 1.1250000296875
+shader_parameter/enable_posterize = false
+shader_parameter/color_levels = 21.090000906775
+shader_parameter/dither_strength = 1.0
+shader_parameter/chrom_aberration = 0.030000001425
+shader_parameter/vignette_strength = 0.9200000437
+shader_parameter/grain_strength = 0.2
+shader_parameter/tint_color = Vector3(1, 1, 1.44)
+shader_parameter/tint_strength = 0.15
+shader_parameter/viewport_size_override = Vector2(0, 0)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8o628"]
 vertices = PackedVector3Array(134.49998, 5.164694, -199.99998, 147.74998, 5.164694, -199.99998, 151.74998, 5.164694, -200.24998, 151.74998, 5.164694, -205.49998, 130.49998, 5.164694, -205.49998, 130.49998, 5.164694, -200.24998, 134.49998, -18.585306, -167.74998, 147.74998, -18.585306, -167.74998, 147.99998, -19.835306, -165.74998, 134.24998, -19.835306, -165.74998, 121.499985, -19.835306, -99.999985, 161.49998, -19.835306, -99.999985, 121.499985, -19.835306, -165.74998, 161.49998, -19.835306, -165.74998, 21.499987, -19.835306, -71.249985, 47.749985, -19.835306, -71.249985, 47.499985, -19.835306, -81.499985, 47.999985, -19.585306, -81.499985, 47.999985, -19.835306, -114.749985, 21.499987, -19.835306, -114.749985, 48.499985, -19.585306, -81.499985, 48.499985, -18.585306, -79.749985, 62.749985, -18.585306, -79.749985, 62.749985, -19.585306, -81.499985, 63.249985, -19.835306, -114.749985, 63.249985, -19.585306, -81.499985, 63.499985, -19.835306, -81.499985, 93.749985, -19.835306, -97.999985, 93.749985, -19.835306, -114.749985, 94.249985, -19.835306, -97.749985, 121.249985, -19.835306, -97.749985, 119.249985, -19.835306, -97.749985, 119.249985, -19.835306, -82.249985, 121.499985, -19.835306, -81.999985, 121.499985, -19.835306, -66.999985, 161.49998, -19.835306, -66.999985, 95.999985, -19.835306, -82.249985, 95.999985, -19.835306, -97.749985, 93.749985, -19.835306, -81.999985, 63.499985, -19.835306, -71.249985, 93.749985, -19.835306, -71.249985, 48.499985, 0.41469383, -44.999985, 62.749985, 0.41469383, -44.749985, 22.249987, 1.1646938, -29.999985, 24.499987, 1.1646938, -30.249985, 24.499987, 1.1646938, -43.249985, 22.249987, 1.1646938, -43.499985, 11.999987, 1.1646938, -11.249985, 22.249987, 1.1646938, -11.249985, -11.500013, 1.1646938, -9.249985, 11.749987, 1.1646938, -9.249985, -11.750013, 1.1646938, -11.249985, -22.000013, 1.1646938, -48.749985, -22.000013, 1.1646938, -11.249985, 22.249987, 1.1646938, -48.749985, 37.249985, 1.1646938, -43.249985, 37.249985, 1.1646938, -30.249985, 39.249985, 1.1646938, -30.249985, 48.249985, 1.1646938, -43.249985, 39.499985, 1.1646938, -28.499985, 62.749985, 1.1646938, -28.749985, 62.749985, 1.1646938, -43.29544, 39.499985, 1.1646938, -12.249985, 62.749985, 1.1646938, -12.249985, -11.500013, 1.1646938, 12.250015, 11.749987, 1.1646938, 12.250015)
@@ -63,6 +99,40 @@ size = Vector3(6, 2, 6)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r5ew7"]
 
+[sub_resource type="Resource" id="Resource_11igq"]
+script = ExtResource("23_f513e")
+unpressed_icon = ExtResource("25_5bkx6")
+pressed_icon = ExtResource("24_pigmn")
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
+[sub_resource type="Resource" id="Resource_aiqxw"]
+script = ExtResource("23_f513e")
+input_type = 4
+unpressed_icon = ExtResource("27_ryj80")
+pressed_icon = ExtResource("26_hokkd")
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
+[sub_resource type="Resource" id="Resource_f513e"]
+script = ExtResource("23_f513e")
+input_type = 2
+unpressed_icon = ExtResource("21_qwi08")
+pressed_icon = ExtResource("28_1oxav")
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
+[sub_resource type="Resource" id="Resource_yccyq"]
+script = ExtResource("23_f513e")
+input_type = 3
+unpressed_icon = ExtResource("31_srvbj")
+pressed_icon = ExtResource("30_h3hhl")
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
+[sub_resource type="Resource" id="Resource_1ubc1"]
+script = ExtResource("23_f513e")
+input_type = 2
+unpressed_icon = ExtResource("29_b6nq8")
+pressed_icon = ExtResource("28_hnskj")
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6scqm"]
 sky_top_color = Color(0.7868003, 0.8044158, 0.90088457, 1)
 sky_horizon_color = Color(0.59996814, 0.48462427, 0.7608906, 1)
@@ -74,37 +144,306 @@ sky_material = SubResource("ProceduralSkyMaterial_6scqm")
 
 [sub_resource type="Environment" id="Environment_f30ws"]
 background_color = Color(0.94874364, 0.49866366, 0.59142554, 1)
-background_energy_multiplier = 2.37
+background_energy_multiplier = 2.04
 sky = SubResource("Sky_7a44i")
 ambient_light_source = 2
-ambient_light_color = Color(0.69779664, 0.45408309, 0.652757, 1)
-ambient_light_energy = 1.13
+ambient_light_color = Color(0.98, 0.8624, 0.95844, 1)
+ambient_light_energy = 1.06
 tonemap_mode = 2
-tonemap_exposure = 0.5
+tonemap_exposure = 0.4
 ssao_enabled = true
 ssil_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0108
-volumetric_fog_albedo = Color(0.66656035, 0.968713, 0.730658, 1)
+volumetric_fog_albedo = Color(0.9249901, 0.859418, 0.9252085, 1)
 volumetric_fog_detail_spread = 0.5
 adjustment_enabled = true
-adjustment_brightness = 1.17
-adjustment_contrast = 1.24
-adjustment_saturation = 0.9
-
-[sub_resource type="FogMaterial" id="FogMaterial_mq6a5"]
-density = 0.1025
-albedo = Color(1.1076987, 1.4687854, 1.1257529, 1)
-height_falloff = 1e-05
-edge_fade = 7.1012325
+adjustment_brightness = 1.09
+adjustment_contrast = 1.215
+adjustment_saturation = 0.8
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mq6a5"]
 size = Vector3(1, 4.745, 24)
 
-[node name="Level1" type="Node3D" unique_id=1915545367]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b6nq8"]
+emission_shape = 3
+emission_box_extents = Vector3(95, 35, 95)
+direction = Vector3(0, 0, 1)
+spread = 12.391
+flatness = 1.0
+initial_velocity_min = 34.1
+initial_velocity_max = 75.84
+gravity = Vector3(0, 0, 0)
+scale_min = 31.519999
+scale_max = 45.27
+color = Color(1.4958686, 0.88480234, 1.4958686, 0.3529412)
+hue_variation_min = -0.020000022
+hue_variation_max = 0.019999977
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u1p3j"]
+render_priority = 0
+shader = ExtResource("34_hokkd")
+shader_parameter/Albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_main = ExtResource("36_hnskj")
+shader_parameter/TimeScale = 0.345
+shader_parameter/alpha_2 = ExtResource("35_ryj80")
+shader_parameter/proximity = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_h3hhl"]
+material = SubResource("ShaderMaterial_u1p3j")
+
+[sub_resource type="Gradient" id="Gradient_srvbj"]
+colors = PackedColorArray(0.9515795, 0.95157963, 0.9515795, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1ubc1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l0vgp"]
+noise = SubResource("FastNoiseLite_1ubc1")
+color_ramp = SubResource("Gradient_srvbj")
+seamless = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pu7jo"]
+shading_mode = 0
+disable_fog = true
+albedo_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
+albedo_texture = SubResource("NoiseTexture2D_l0vgp")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t62eb"]
+size = Vector2(190, 225.33)
+center_offset = Vector3(0, 0, -47.805)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ybqkw"]
+emission_shape = 3
+emission_box_extents = Vector3(95, 9.925, 95)
+direction = Vector3(0, 0, 1)
+spread = 12.391
+flatness = 1.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 0, 0)
+scale_min = 94.02
+scale_max = 107.77
+color = Color(1, 1, 1, 0.3529412)
+hue_variation_min = -0.020000022
+hue_variation_max = 0.019999977
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0b1bm"]
+render_priority = 0
+shader = ExtResource("37_hnskj")
+shader_parameter/Albedo = Color(1.1136936, 1.380357, 0.99940926, 1)
+shader_parameter/alpha_main = ExtResource("39_h3hhl")
+shader_parameter/TimeScale = 0.005
+shader_parameter/alpha_2 = ExtResource("38_b6nq8")
+shader_parameter/proximity = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_xbk8p"]
+material = SubResource("ShaderMaterial_0b1bm")
+orientation = 1
+
+[node name="Level2" type="Node3D" unique_id=1915545367]
 
 [node name="PlayerManager" parent="." unique_id=1115147818 instance=ExtResource("1_8jmja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, -2.052517)
+
+[node name="Nova" parent="PlayerManager" index="0" unique_id=1837126418]
+transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, -2.052517)
+
+[node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="0" unique_id=1280032861]
+bones/14/rotation = Quaternion(-0.07379366, 0.52513826, -0.5069036, 0.679583)
+bones/15/rotation = Quaternion(-0.15995562, 0.5518581, 0.23135488, 0.78507435)
+bones/16/rotation = Quaternion(-0.51142037, -0.47350925, -0.23892315, 0.67613167)
+bones/21/rotation = Quaternion(-0.12684874, 0.3877674, -0.47928765, 0.7770645)
+bones/22/rotation = Quaternion(-0.06124431, 0.3404104, 0.173802, 0.92204267)
+bones/23/rotation = Quaternion(0.10706538, 0.12850414, -0.08297044, 0.98241526)
+bones/38/rotation = Quaternion(-0.35175705, 0.70556355, 0.06012662, 0.61223525)
+
+[node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
+transform = Transform3D(-0.0018187771, -0.5700014, 0.82164174, -0.42412463, 0.7445224, 0.5155624, -0.905602, -0.34754086, -0.24310577, 0.006072864, 0.00715184, -0.013174335)
+
+[node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="3" unique_id=1649251518]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Move" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="4" unique_id=1674795872]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="5" unique_id=1029051473]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash2" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="6" unique_id=467086926]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash3" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="7" unique_id=961566355]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash4" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="8" unique_id=1701571526]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Slash5" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="9" unique_id=1779999045]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="ChargedSlash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="10" unique_id=62004012]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="ChargingSlash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="11" unique_id=2013996429]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Charging Special" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="12" unique_id=830214116]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Special" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="13" unique_id=1806959467]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Dash" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="14" unique_id=1170297168]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Hurt" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="15" unique_id=677616342]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Die" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="16" unique_id=852275494]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Idle" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="3" unique_id=1766965671]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Move" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="4" unique_id=430131360]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack1" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="5" unique_id=207814382]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack2" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="6" unique_id=973975926]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack3" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="7" unique_id=434901014]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="attack4" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="8" unique_id=1443796247]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charging attack" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="9" unique_id=2114657163]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charged attack" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="10" unique_id=606465513]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charging special" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="11" unique_id=1086055220]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="charged special" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="12" unique_id=1719295273]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Special" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="13" unique_id=99131050]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Dash" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="14" unique_id=501049339]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Hurt" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="15" unique_id=1346543891]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Die" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="16" unique_id=1741788305]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+
+[node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="0" unique_id=1529346309]
+bones/2/rotation = Quaternion(0.05829968, -0.058130223, 0.70368004, 0.7057312)
+bones/15/rotation = Quaternion(0.013032128, -0.1231651, -0.6649486, 0.7365487)
+bones/16/rotation = Quaternion(-0.040429547, 0.42487863, 0.105523154, 0.89816946)
+bones/17/rotation = Quaternion(0.19410816, 0.116086304, -0.25627905, 0.93976974)
+bones/23/rotation = Quaternion(-0.0806169, -0.09000938, -0.68433404, 0.719087)
+bones/24/rotation = Quaternion(-0.030769207, 0.27557245, 0.12679231, 0.9523849)
+bones/25/rotation = Quaternion(0.006151285, 0.094363056, -0.17068303, 0.98077786)
+bones/30/rotation = Quaternion(0.013755452, 0.9634043, -0.25225613, -0.08960881)
+bones/31/rotation = Quaternion(0.98479444, -0.018462235, 0.17271987, 0.002650581)
+bones/32/rotation = Quaternion(0.54541916, -0.4019235, 0.44798437, 0.58334)
+bones/34/rotation = Quaternion(0.0619905, 0.2119013, 0.017236637, 0.9751708)
+bones/35/rotation = Quaternion(0.9746657, -0.020776998, 0.22266297, 0.0040462893)
+bones/36/rotation = Quaternion(0.58342856, -0.3860789, 0.39238295, 0.59715146)
+
+[node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="3" unique_id=636726215]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Move" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="4" unique_id=216360919]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack start" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="5" unique_id=1398567198]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack hold" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="6" unique_id=2059599407]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="basic attack end" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="7" unique_id=2127963097]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="fish" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="8" unique_id=1943936372]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="ChargedAttack" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="9" unique_id=670848599]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="ChargingAttack" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="10" unique_id=1168808960]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Charging Special" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="11" unique_id=1249691474]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Special" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="12" unique_id=1108651509]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Dash" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="13" unique_id=221988257]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Hurt" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="14" unique_id=318539843]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Die" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="15" unique_id=2085062700]
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
+
+
+[node name="Medium PostProcessing" parent="PlayerManager" index="6" unique_id=931899977]
+material = SubResource("ShaderMaterial_h3hhl")
 
 [node name="LevelEnder" parent="." unique_id=1071735144 instance=ExtResource("7_10abd")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 141.14204, 4.1178856, -202.57288)
@@ -152,7 +491,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter" unique_id=1354741016]
-transform = Transform3D(1.6000001, 0, 0, 0, 1, 0, 0, 0, 1, -0.015526245, 0, -18)
+transform = Transform3D(2.339848, 0, 0, 0, 1, 0, 0, 0, 1, -0.015526245, 0, -18)
 shape = SubResource("BoxShape3D_8mtqa")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
@@ -168,7 +507,7 @@ transform = Transform3D(19.929756, 0, 0, 0, 1, 0, 0, 0, 18.712498, 40.554512, -1
 [node name="SpawnArea4" parent="WaveManager" unique_id=1870747652 instance=ExtResource("6_8jmja")]
 transform = Transform3D(19.929756, 0, 0, 0, 1, 0, 0, 0, 70.04599, 121.79181, -19.614016, -67.47702)
 
-[node name="Level3-1-Chipped" parent="." unique_id=1662257343 instance=ExtResource("8_jhliq")]
+[node name="Level3-1-Perspective (1)" parent="." unique_id=1061952069 instance=ExtResource("11_b6nq8")]
 
 [node name="Gate" parent="." unique_id=23676353 instance=ExtResource("10_t5tva")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 141.32158, -19.366611, -167.0379)
@@ -242,11 +581,37 @@ offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.65, 1.65)
-text = "Switch to Dawn by pressing [3]
+text = "Switch to Dawn by pressing 
 Dawn excels at debuffing groups of enemies and
 buffing her allies
-Press [ESC] to see her "
+Press           to see her abilities"
 horizontal_alignment = 1
+
+[node name="InputIconSwapper" type="TextureRect" parent="Tutorial2/Menu2/TextureRect" unique_id=1776296889]
+layout_mode = 0
+offset_left = 593.3333
+offset_top = 91.66669
+offset_right = 648.3333
+offset_bottom = 146.66672
+texture = ExtResource("21_qwi08")
+expand_mode = 1
+script = ExtResource("22_1oxav")
+icons = Array[ExtResource("23_f513e")]([SubResource("Resource_11igq"), SubResource("Resource_aiqxw"), SubResource("Resource_f513e"), SubResource("Resource_yccyq")])
+input_name = "basic_attack"
+metadata/_custom_type_script = "uid://dlb7i27u8fcw1"
+
+[node name="InputIconSwapper2" type="TextureRect" parent="Tutorial2/Menu2/TextureRect" unique_id=619294768]
+layout_mode = 0
+offset_left = 306.66666
+offset_top = 218.33334
+offset_right = 361.66666
+offset_bottom = 273.33337
+texture = ExtResource("29_b6nq8")
+expand_mode = 1
+script = ExtResource("22_1oxav")
+icons = Array[ExtResource("23_f513e")]([SubResource("Resource_11igq"), SubResource("Resource_aiqxw"), SubResource("Resource_1ubc1"), SubResource("Resource_yccyq")])
+input_name = "basic_attack"
+metadata/_custom_type_script = "uid://dlb7i27u8fcw1"
 
 [node name="Menu SFX" type="Node" parent="Tutorial2/Menu2" unique_id=1503016704 node_paths=PackedStringArray("open_sfx", "close_sfx")]
 script = ExtResource("20_f30ws")
@@ -263,17 +628,12 @@ event_guid = "{da7d3195-919c-42e3-b5d5-9070fe6b450b}"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=704945126]
 transform = Transform3D(-0.5219336, -0.61917514, 0.58669204, 0.061710697, 0.65859747, 0.74996084, -0.850751, 0.42763487, -0.3055344, 0, 22.456, 0)
-light_energy = 1.5
+light_energy = 1.194
 shadow_enabled = true
 sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D" unique_id=822873196]
 environment = SubResource("Environment_f30ws")
-
-[node name="FogVolume" type="FogVolume" parent="DirectionalLight3D" unique_id=904638722]
-transform = Transform3D(-0.89542913, 0.49204978, -1.6037996, -1.0622574, 5.251317, 0.8061593, 1.0065293, 5.9798083, -0.57598037, -2.5909271, -62.65957, -19.99566)
-size = Vector3(165.4, 9.7, 233.25)
-material = SubResource("FogMaterial_mq6a5")
 
 [node name="Ambiance SFX" type="FmodEventEmitter3D" parent="." unique_id=39610549]
 event_name = "event:/Levels/GrassLand/Cave Ambiance"
@@ -415,5 +775,52 @@ shape = SubResource("BoxShape3D_mq6a5")
 transform = Transform3D(-1, 0, -7.1117846e-08, 0, 17.784, 0, 8.742278e-08, 0, -0.8134934, 11.3468275, -21, 1.0023813)
 shape = SubResource("BoxShape3D_mq6a5")
 
+[node name="Fog" type="GPUParticles3D" parent="." unique_id=1762225657]
+transform = Transform3D(1.8774936, 0, 0, 0, 1.9076482, 0, 0, 0, 1.4397829, 29.237839, 10.248835, -282.56708)
+cast_shadow = 0
+amount = 229
+lifetime = 15.0
+preprocess = 15.0
+speed_scale = 0.15
+visibility_aabb = AABB(-75, -10, -75, 150, 20, 150)
+process_material = SubResource("ParticleProcessMaterial_b6nq8")
+draw_pass_1 = SubResource("QuadMesh_h3hhl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1194092773]
+transform = Transform3D(4.5568395, 0, 0, 0, 1, 0, 0, 0, 3.7286663, 57.803085, -90.53896, -61.36843)
+material_override = SubResource("StandardMaterial3D_pu7jo")
+mesh = SubResource("PlaneMesh_t62eb")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="MeshInstance3D" unique_id=1457568394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.337957, -22.952152)
+cast_shadow = 0
+amount = 250
+lifetime = 15.0
+preprocess = 15.0
+speed_scale = 0.15
+visibility_aabb = AABB(-77.5, -4, -77.5, 155, 8, 155)
+process_material = SubResource("ParticleProcessMaterial_ybqkw")
+draw_pass_1 = SubResource("QuadMesh_xbk8p")
+
+[connection signal="entered" from="PlayerManager/Nova/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Nova/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Nova/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Rene/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Rene/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Rene/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Dawn/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Dawn/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Dawn/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
 [connection signal="ended" from="WaveManager/Wave4" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
+
+[editable path="PlayerManager"]
+[editable path="PlayerManager/Nova"]
+[editable path="PlayerManager/Nova/nova"]
+[editable path="PlayerManager/Rene"]
+[editable path="PlayerManager/Rene/rene"]
+[editable path="PlayerManager/Dawn"]
+[editable path="PlayerManager/Dawn/dawn"]
+[editable path="PlayerManager/Game Menu/GameUi"]
+[editable path="PlayerManager/SettingScene"]

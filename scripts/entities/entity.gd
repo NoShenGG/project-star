@@ -8,6 +8,8 @@ signal hurt(damage : float)
 signal health_update(percent: float)
 signal broken
 signal break_update(percent: float)
+## called when WaveManager is the one spawning in the enemy. if it was 
+signal spawned()
 
 @export var _base_speed: float = 5.0
 @export var faction: Faction = Faction.NEUTRAL
@@ -60,9 +62,9 @@ func _process(delta: float) -> void:
 		var effect = _status_effects.get(id)
 		if not effect.process(delta):
 			effect.stop()
+			effect.queue_free()
 			_stopped_effects.append(id)
 	for id: EntityEffect.EffectID in _stopped_effects:
-		_status_effects.get(id).queue_free()
 		_status_effects.erase(id)
 	_stopped_effects.clear()
 	if _breakable:

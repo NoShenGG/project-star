@@ -39,7 +39,16 @@ func end() -> void:
 	finished.emit()
 		
 func exit() -> void:
-	do_damage()
+	# Do Damage
+	if not hitbox.monitoring or not active or entity.death:
+		return
+	var hit = false
+	for node in hitbox.get_overlapping_bodies():
+		if node is Entity and (node as Entity).faction != entity.faction:
+			if (node as Entity).try_damage(damage * entity.damage_mult):
+				hit = true
+	if hit:
+		nova.enemy_hit.emit()
 	nova.collision_mask = 3
 	active = false
 	hitbox.monitoring = false

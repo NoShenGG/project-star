@@ -8,14 +8,22 @@
 [ext_resource type="Script" uid="uid://bopvog2l4xqc" path="res://scenes/dev/ZXue/LaserShroom/state_lockon.gd" id="5_s1jrn"]
 [ext_resource type="Script" uid="uid://dfduxqv1wui16" path="res://scenes/dev/ZXue/LaserShroom/state_fire.gd" id="6_sbhox"]
 [ext_resource type="Script" uid="uid://dtitauqx0skm" path="res://scenes/dev/ZXue/LaserShroom/state_hide.gd" id="7_eqsdo"]
+[ext_resource type="Script" uid="uid://812k18g6fo3h" path="res://scripts/entities/player/haptic/StateHapticCaller.gd" id="7_fl1jj"]
 [ext_resource type="Material" uid="uid://eaw3fdki5ha1" path="res://art_assets/environment/demo/Models/goldDemo.tres" id="7_iil6r"]
 [ext_resource type="Material" uid="uid://dpp3p3xiu4weh" path="res://art_assets/environment/demo/Models/glowDemo.tres" id="8_27v6w"]
 [ext_resource type="Script" uid="uid://bkgp46pi8byeg" path="res://scenes/dev/ZXue/LaserShroom/state_broken.gd" id="8_arhvd"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="9_arhvd"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="13_g51g3"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="14_js430"]
-[ext_resource type="PackedScene" uid="uid://cf5t6lmcuvytc" path="res://art_assets/enemies/shrooms/laser_shroom.glb" id="15_1eeap"]
-[ext_resource type="PackedScene" uid="uid://bxf0bqm6vq8x4" path="res://VFX/laserAttackFX.tscn" id="16_6ayco"]
+[ext_resource type="PackedScene" uid="uid://bxf0bqm6vq8x4" path="res://vfx/laserAttackFX.tscn" id="16_6ayco"]
+[ext_resource type="PackedScene" uid="uid://dddwhsdairgjn" path="res://art_assets/enemies/shrooms/lasershroom_anims.glb" id="17_5ofen"]
+[ext_resource type="Script" uid="uid://dxy6p70rncayl" path="res://scripts/entities/SpawnVFX.gd" id="17_rmnni"]
+[ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="18_00n1l"]
+[ext_resource type="PackedScene" uid="uid://dtrpcl1nasika" path="res://vfx/enemySummonFX.tscn" id="18_cjmyr"]
+[ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="19_5xcys"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="20_ln7ek"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="21_fl1jj"]
+[ext_resource type="Script" uid="uid://b7pj5dra8sjgx" path="res://scripts/entities/DeathVFX.gd" id="22_ln7ek"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_js430"]
 size = Vector3(1, 2, 1)
@@ -89,8 +97,133 @@ vertex_color_is_srgb = true
 [sub_resource type="SphereMesh" id="SphereMesh_pqvp8"]
 material = SubResource("StandardMaterial3D_6ayco")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6ayco"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_s5l70"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_txu5v"]
+animation = &"attack_start"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wmxoo"]
+animation = &"attack_hold"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wr5yb"]
+animation = &"attack_start"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gjst3"]
+animation = &"hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tjcfc"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uh6tf"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6qwa8"]
+states/End/position = Vector2(1058, 100)
+states/attack_end/node = SubResource("AnimationNodeAnimation_txu5v")
+states/attack_end/position = Vector2(928, 100)
+states/attack_hold/node = SubResource("AnimationNodeAnimation_wmxoo")
+states/attack_hold/position = Vector2(786, 100)
+states/attack_start/node = SubResource("AnimationNodeAnimation_wr5yb")
+states/attack_start/position = Vector2(646, 100)
+states/hurt/node = SubResource("AnimationNodeAnimation_gjst3")
+states/hurt/position = Vector2(524, 100)
+states/idle/node = SubResource("AnimationNodeAnimation_tjcfc")
+states/idle/position = Vector2(416, 100)
+states/run/node = SubResource("AnimationNodeAnimation_uh6tf")
+states/run/position = Vector2(313, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5l70"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00n1l"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.24705882)
+
+[sub_resource type="Curve" id="Curve_s5l70"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0gpj1"]
+curve = SubResource("Curve_s5l70")
+
+[sub_resource type="Curve" id="Curve_txu5v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7659185, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4u8kd"]
+curve = SubResource("Curve_txu5v")
+
+[sub_resource type="Curve" id="Curve_wmxoo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m4apj"]
+curve = SubResource("Curve_wmxoo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wr5yb"]
+direction = Vector3(0, 0.5, 1)
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_m4apj")
+alpha_curve = SubResource("CurveTexture_0gpj1")
+emission_curve = SubResource("CurveTexture_4u8kd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3cu5"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("21_fl1jj")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_gjst3"]
+material = SubResource("StandardMaterial3D_k3cu5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ofen"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.59607846)
+
+[sub_resource type="Curve" id="Curve_00n1l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cqf5t"]
+curve = SubResource("Curve_00n1l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s5l70"]
+direction = Vector3(0, 1, 0)
+spread = 85.0
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_cqf5t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4u8kd"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("21_fl1jj")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_txu5v"]
+material = SubResource("StandardMaterial3D_4u8kd")
 
 [node name="LaserShroom" type="CharacterBody3D" unique_id=1537587731 node_paths=PackedStringArray("aim_mesh", "fire_mesh", "warning_particles")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -101,18 +234,21 @@ fire_mesh = NodePath("Hitbox/FireMesh")
 warning_particles = NodePath("Hitbox/GPUParticles3D")
 _hp = 45.0
 _max_hp = 45.0
+passive_death_time = 3.0
 metadata/_custom_type_script = "uid://b0ikb4va3mlaf"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1243199418]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_js430")
 
-[node name="StateMachine" type="Node" parent="." unique_id=1882667308]
+[node name="StateMachine" type="Node" parent="." unique_id=1882667308 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_pxf1l")
+initial_state = NodePath("idle")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
 [node name="idle" type="Node" parent="StateMachine" unique_id=390490985 node_paths=PackedStringArray("post_wait_state", "player_far_state")]
 script = ExtResource("3_arhvd")
+wait_time = 2.0
 post_wait_state = NodePath("../approach")
 max_player_distance = 20.0
 player_far_state = NodePath(".")
@@ -147,6 +283,15 @@ post_fire_state = NodePath("../hide")
 [node name="FireSFX" type="FmodEventEmitter3D" parent="StateMachine/fire" unique_id=2015271058]
 event_name = "event:/Enemys/LaserShroom/LaserShroom Lasering"
 event_guid = "{2d32b878-96cf-485a-a96d-4a58bf1cd91d}"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3116798, -10.158032)
+
+[node name="StateHapticCaller" type="Node3D" parent="StateMachine/fire" unique_id=600642629]
+script = ExtResource("7_fl1jj")
+small_motor = 0.2
+large_motor = 0.5
+duration_sec = 0.7
+delay_sec = 0.05
+metadata/_custom_type_script = "uid://812k18g6fo3h"
 
 [node name="hide" type="Node" parent="StateMachine" unique_id=532918790 node_paths=PackedStringArray("post_hide_state")]
 script = ExtResource("7_eqsdo")
@@ -201,7 +346,7 @@ draw_pass_1 = SubResource("SphereMesh_pqvp8")
 
 [node name="StatusBars" parent="." unique_id=765670220 instance=ExtResource("13_g51g3")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.6692805, 0)
-texture = SubResource("ViewportTexture_6ayco")
+texture = SubResource("ViewportTexture_s5l70")
 
 [node name="DissolveFX" parent="." unique_id=1938342030 node_paths=PackedStringArray("meshes") instance=ExtResource("14_js430")]
 meshes = [null]
@@ -210,14 +355,144 @@ meshes = [null]
 event_name = "event:/Enemys/LaserShroom/LaserShroom Hurt"
 event_guid = "{e14c303d-57b7-41df-84cc-cb781342b0d6}"
 
-[node name="laser_shroom" parent="." unique_id=1383525887 instance=ExtResource("15_1eeap")]
+[node name="lasershroom_anims" parent="." unique_id=960759085 instance=ExtResource("17_5ofen")]
+transform = Transform3D(-4.3248046e-06, 0, -98.94, 0, 98.94, 0, 98.94, 0, -4.3248046e-06, 0, 0, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="lasershroom_anims" unique_id=442439066]
+tree_root = SubResource("AnimationNodeStateMachine_6qwa8")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="idle" type="Node" parent="lasershroom_anims" unique_id=855191]
+script = ExtResource("18_00n1l")
+state_name = "idle"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_6qwa8"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="move" type="Node" parent="lasershroom_anims" unique_id=968698340]
+script = ExtResource("18_00n1l")
+state_name = "run"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_6qwa8"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="attack_start" type="Node" parent="lasershroom_anims" unique_id=2144352542]
+script = ExtResource("18_00n1l")
+state_name = "attack_start"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_6qwa8"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="attack_hold" type="Node" parent="lasershroom_anims" unique_id=1354697255]
+script = ExtResource("18_00n1l")
+state_name = "attack_hold"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_6qwa8"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="attack_end" type="Node" parent="lasershroom_anims" unique_id=880571117]
+script = ExtResource("18_00n1l")
+state_name = "attack_end"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_6qwa8"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="hurt" type="Node" parent="lasershroom_anims" unique_id=1420033031]
+script = ExtResource("18_00n1l")
+state_name = "hurt"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_6qwa8"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="Spawned" type="Node3D" parent="." unique_id=612545252 node_paths=PackedStringArray("vfx", "meshes_root", "_meshes")]
+process_mode = 3
+script = ExtResource("17_rmnni")
+vfx = NodePath("enemySummonFX")
+meshes_root = NodePath("../lasershroom_anims")
+_meshes = [NodePath("../lasershroom_anims/Skeleton3D/model_body"), NodePath("../lasershroom_anims/Skeleton3D/model_helmet")]
+hurt_overlay = SubResource("StandardMaterial3D_s5l70")
+flash_duration = 2.0
+
+[node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("18_cjmyr")]
+lifetime = 1.25
+
+[node name="GPUParticles3D" parent="Spawned/enemySummonFX" index="0" unique_id=797663744]
+lifetime = 1.88
+
+[node name="GPUParticles3D2" parent="Spawned/enemySummonFX" index="1" unique_id=726252779]
+lifetime = 1.88
+
+[node name="GPUParticles3D3" parent="Spawned/enemySummonFX" index="2" unique_id=2013747253]
+lifetime = 1.88
+
+[node name="FmodEventEmitter3D" parent="Spawned/enemySummonFX" index="3" unique_id=1296561884]
+event_name = "event:/Enemys/Spawned Big"
+event_guid = "{b13abeb7-996a-4897-8d5e-c45d0100a03e}"
+
+[node name="Hurt" type="Node3D" parent="." unique_id=1605215439 node_paths=PackedStringArray("vfx", "meshes_root")]
+script = ExtResource("19_5xcys")
+vfx = NodePath("Hurt VFX")
+meshes_root = NodePath("../lasershroom_anims")
+hurt_overlay = SubResource("StandardMaterial3D_00n1l")
+flash_duration = 1.3
+
+[node name="Hurt VFX" type="Node3D" parent="Hurt" unique_id=1500193820 node_paths=PackedStringArray("particles")]
+script = ExtResource("20_ln7ek")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
+metadata/_custom_type_script = "uid://hrugoc51xhma"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX" unique_id=1292279385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8882818, 0.050730154)
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_wr5yb")
+draw_pass_1 = SubResource("QuadMesh_gjst3")
+
+[node name="Death" type="Node3D" parent="." unique_id=1417365512 node_paths=PackedStringArray("vfx", "meshes_root")]
+script = ExtResource("22_ln7ek")
+vfx = NodePath("Death VFX")
+meshes_root = NodePath("../lasershroom_anims")
+hurt_overlay = SubResource("StandardMaterial3D_5ofen")
+flash_duration = 3.0
+death_delay = 0.3
+death_time = 3.0
+fade_out = false
+sink_depth = 5.0
+
+[node name="Death VFX" type="Node3D" parent="Death" unique_id=990056038 node_paths=PackedStringArray("particles")]
+script = ExtResource("20_ln7ek")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
+metadata/_custom_type_script = "uid://hrugoc51xhma"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Death/Death VFX" unique_id=1917957440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
+emitting = false
+amount = 17
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_s5l70")
+draw_pass_1 = SubResource("QuadMesh_txu5v")
 
 [connection signal="hurt" from="." to="HurtSFX" method="play_one_shot" unbinds=1]
+[connection signal="hurt" from="." to="lasershroom_anims/hurt" method="enter" unbinds=1]
 [connection signal="killed" from="." to="DissolveFX" method="beginDissolve"]
+[connection signal="entered" from="StateMachine/idle" to="lasershroom_anims/idle" method="enter"]
+[connection signal="entered" from="StateMachine/approach" to="lasershroom_anims/move" method="enter"]
 [connection signal="entered" from="StateMachine/lockon" to="StateMachine/lockon/ChargeSFX" method="play_one_shot"]
+[connection signal="entered" from="StateMachine/lockon" to="lasershroom_anims/attack_start" method="enter"]
 [connection signal="timeout" from="StateMachine/lockon/LockTimer" to="StateMachine/lockon" method="_on_lock_timer_timeout"]
 [connection signal="entered" from="StateMachine/fire" to="StateMachine/fire/FireSFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/fire" to="Hitbox/laserAttackFX" method="restart_particles"]
+[connection signal="entered" from="StateMachine/fire" to="lasershroom_anims/attack_hold" method="enter"]
 [connection signal="finished" from="StateMachine/fire" to="Hitbox/laserAttackFX" method="stop_particles"]
+[connection signal="finished" from="StateMachine/fire" to="lasershroom_anims/attack_end" method="enter"]
+[connection signal="entered" from="StateMachine/hide" to="lasershroom_anims/move" method="enter"]
 [connection signal="timeout" from="StateMachine/hide/HideTimer" to="StateMachine/hide" method="_on_hide_timer_timeout"]
 [connection signal="entered" from="StateMachine/dead" to="StateMachine/dead/DeathSFX" method="play_one_shot"]
+
+[editable path="lasershroom_anims"]
+[editable path="Spawned/enemySummonFX"]
