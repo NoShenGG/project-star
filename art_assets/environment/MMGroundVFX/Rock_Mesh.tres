@@ -1,8 +1,8 @@
 [gd_resource type="QuadMesh" format=3 uid="uid://dx8css25f5jr5"]
 
 [ext_resource type="Shader" uid="uid://bvjdruuput33e" path="res://shaders/grass - Dylearn/Shaders/Grass.gdshader" id="1_btmd3"]
-[ext_resource type="Texture2D" uid="uid://bdx26auducwvl" path="res://shaders/grass - Dylearn/Textures and Materials/RockAccent.png" id="2_0pxxf"]
-[ext_resource type="Texture2D" uid="uid://omg8autugcnl" path="res://shaders/grass - Dylearn/Textures and Materials/Rock.png" id="3_w2jpr"]
+[ext_resource type="Texture2D" uid="uid://wqdllhnecuw2" path="res://shaders/grass - Dylearn/Textures and Materials/RockAccent.png" id="2_0pxxf"]
+[ext_resource type="Texture2D" uid="uid://vlpruqfbtgwv" path="res://shaders/grass - Dylearn/Textures and Materials/Rock.png" id="3_w2jpr"]
 [ext_resource type="Texture2D" uid="uid://b6fhxncxd7b1t" path="res://shaders/grass - Dylearn/Textures and Materials/WindNoise.tres" id="4_fssv4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_bj2ow"]
