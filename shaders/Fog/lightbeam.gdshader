@@ -1,6 +1,7 @@
 shader_type spatial;
 render_mode unshaded, blend_add;
 
+uniform float transparency = 0;
 uniform vec4 color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform bool use_second_color = false;
 uniform vec4 second_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
@@ -101,4 +102,5 @@ void fragment() {
 	vec4 proximity_view_pos = INV_PROJECTION_MATRIX * vec4(SCREEN_UV * 2.0 - 1.0, proximity_depth_tex, 1.0);
 	proximity_view_pos.xyz /= proximity_view_pos.w;
 	ALPHA *= clamp(1.0 - smoothstep(proximity_view_pos.z + proximity_fade_distance, proximity_view_pos.z, VERTEX.z), 0.0, 1.0);
+	ALPHA = ALPHA * (1.0 - transparency);
 }

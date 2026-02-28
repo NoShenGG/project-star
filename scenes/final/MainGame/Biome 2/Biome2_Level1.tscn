@@ -51,6 +51,7 @@
 [ext_resource type="Script" uid="uid://ntw5ubccc2qm" path="res://addons/mm_plus_editor/resources/mm_plus_data.gd" id="31_e004x"]
 [ext_resource type="Resource" uid="uid://csugxoxv862ai" path="res://art_assets/environment/MMGroundVFX/EvilRock_MMPlusMesh.tres" id="32_lpepu"]
 [ext_resource type="Resource" uid="uid://bkunuagwbsm8c" path="res://art_assets/environment/MMGroundVFX/EvilWeed_MMPlusMesh.tres" id="33_udfk2"]
+[ext_resource type="Script" uid="uid://iuqt6rl11mn4" path="res://scripts/FadeInGodray.gd" id="39_8fbmy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_smqis"]
 size = Vector3(15, 3, 15)
@@ -198,18 +199,48 @@ adjustment_brightness = 1.17
 adjustment_contrast = 1.24
 adjustment_saturation = 0.9
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_uyvo7"]
-size = Vector2(5, 20)
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ul114"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xo2ee"]
 height = 1
 noise = SubResource("FastNoiseLite_ul114")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8fbmy"]
+render_priority = 0
+shader = ExtResource("21_luo6j")
+shader_parameter/transparency = 0.0
+shader_parameter/color = Color(0.69, 1, 0.9225, 1)
+shader_parameter/use_second_color = true
+shader_parameter/second_color = Color(0, 0.506, 0.69, 1)
+shader_parameter/cone_start_width = 0.35999999195328
+shader_parameter/cone_curve = 0.72999998368304
+shader_parameter/beam_sharpness = 0.25
+shader_parameter/beam_fade = 0.70000001043084
+shader_parameter/use_gradient = false
+shader_parameter/proximity_fade_distance = 8.5499998088904
+shader_parameter/z_fade_start = 0.0
+shader_parameter/z_fade_end = 0.0
+shader_parameter/use_noise = true
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_xo2ee")
+shader_parameter/noise_scale = 2.30000003427276
+shader_parameter/noise_intensity = 0.999999977648
+shader_parameter/noise_scroll_speed = Vector2(0.265, 0.01)
+shader_parameter/noise_distortion_intensity = 0.01
+shader_parameter/noise_distortion_scroll_speed = Vector2(-0.02, -0.01)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uyvo7"]
+size = Vector2(5, 20)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y6c07"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7ark0"]
+height = 1
+noise = SubResource("FastNoiseLite_y6c07")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uyvo7"]
 render_priority = 0
 shader = ExtResource("21_luo6j")
+shader_parameter/transparency = 0.0
 shader_parameter/color = Color(0.6901961, 1, 0.92156863, 0.73333335)
 shader_parameter/use_second_color = true
 shader_parameter/second_color = Color(0, 0.5058824, 0.6901961, 0.53333336)
@@ -222,7 +253,7 @@ shader_parameter/proximity_fade_distance = 8.5499998088904
 shader_parameter/z_fade_start = 0.0
 shader_parameter/z_fade_end = 0.0
 shader_parameter/use_noise = true
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_xo2ee")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_7ark0")
 shader_parameter/noise_scale = 2.30000003427276
 shader_parameter/noise_intensity = 0.999999977648
 shader_parameter/noise_scroll_speed = Vector2(0.265, 0.01)
@@ -282,7 +313,7 @@ colors = PackedColorArray(0.9515795, 0.95157963, 0.9515795, 1, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_e004x"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l0vgp"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y6c07"]
 noise = SubResource("FastNoiseLite_e004x")
 color_ramp = SubResource("Gradient_q0o07")
 seamless = true
@@ -290,7 +321,7 @@ seamless = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpepu"]
 shading_mode = 0
 albedo_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
-albedo_texture = SubResource("NoiseTexture2D_l0vgp")
+albedo_texture = SubResource("NoiseTexture2D_y6c07")
 uv1_scale = Vector3(0.025, 0.025, 0.025)
 uv1_triplanar = true
 uv1_world_triplanar = true
@@ -314,7 +345,7 @@ color = Color(1, 1, 1, 0.3529412)
 hue_variation_min = -0.020000022
 hue_variation_max = 0.019999977
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5jkrf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ark0"]
 render_priority = 0
 shader = ExtResource("22_ah10j")
 shader_parameter/Albedo = Color(0.39083344, 0, 0.67, 1)
@@ -324,7 +355,7 @@ shader_parameter/alpha_2 = ExtResource("25_luo6j")
 shader_parameter/proximity = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_n51o1"]
-material = SubResource("ShaderMaterial_5jkrf")
+material = SubResource("ShaderMaterial_7ark0")
 orientation = 1
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_68bi4"]
@@ -471,16 +502,16 @@ max_click_time = 0.25
 attack_charge_time = 0.5
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1510266777, 1837126418, 1395090033) index="0" unique_id=1156861599]
-bones/14/rotation = Quaternion(-0.075687915, 0.5265865, -0.50682026, 0.678315)
-bones/15/rotation = Quaternion(-0.15368345, 0.54166925, 0.22935621, 0.7939595)
-bones/16/rotation = Quaternion(-0.51605904, -0.46709755, -0.2282254, 0.68074673)
-bones/21/rotation = Quaternion(-0.12962796, 0.40295908, -0.47424313, 0.7719547)
-bones/22/rotation = Quaternion(-0.05509348, 0.32166258, 0.16755629, 0.93028104)
-bones/23/rotation = Quaternion(0.10731062, 0.13302507, -0.07498823, 0.9824285)
-bones/38/rotation = Quaternion(-0.3503343, 0.70626795, 0.06136205, 0.6121163)
+bones/14/rotation = Quaternion(-0.06609536, 0.5227114, -0.50635225, 0.6826504)
+bones/15/rotation = Quaternion(-0.16448605, 0.5590465, 0.23270357, 0.7786272)
+bones/16/rotation = Quaternion(-0.5075587, -0.4695164, -0.25355044, 0.6764989)
+bones/21/rotation = Quaternion(-0.14899276, 0.3848719, -0.45763576, 0.78755593)
+bones/22/rotation = Quaternion(-0.07003385, 0.36556727, 0.18197975, 0.91013145)
+bones/23/rotation = Quaternion(0.14492773, 0.10943418, -0.0759637, 0.98043346)
+bones/38/rotation = Quaternion(-0.34890494, 0.7069719, 0.06260157, 0.6119945)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0041079787, -0.5699896, 0.8216417, -0.42111546, 0.7462256, 0.5155667, -0.9069977, -0.34388813, -0.24309695, 0.0060371016, 0.0071989116, -0.013196008)
+transform = Transform3D(-0.006404946, -0.5699682, 0.82164174, -0.4180886, 0.74792284, 0.5155709, -0.90838367, -0.34021688, -0.24308765, 0.0060012178, 0.00724626, -0.01321753)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1510266777, 1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -598,19 +629,19 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 max_click_time = 0.3
 
 [node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1510266777, 618181988, 1566855500) index="0" unique_id=581899794]
-bones/2/rotation = Quaternion(0.03182961, -0.031737097, 0.7053633, 0.70741946)
-bones/15/rotation = Quaternion(0.019612478, -0.10310825, -0.6669629, 0.7376616)
-bones/16/rotation = Quaternion(-0.03569752, 0.3945858, 0.10387316, 0.91227084)
-bones/17/rotation = Quaternion(0.1816998, 0.09301186, -0.25498718, 0.94515365)
-bones/23/rotation = Quaternion(-0.0814719, -0.08675062, -0.6842141, 0.7195053)
-bones/24/rotation = Quaternion(-0.030535996, 0.27417204, 0.12655039, 0.9528286)
-bones/25/rotation = Quaternion(-0.0009251135, 0.059853524, -0.17715086, 0.98236156)
-bones/30/rotation = Quaternion(0.0013873972, 0.96820515, -0.24991792, 0.010865811)
-bones/31/rotation = Quaternion(0.9984914, -0.011209504, 0.05375165, 0.00043732187)
-bones/32/rotation = Quaternion(0.5689443, -0.37000838, 0.42031264, 0.60227364)
-bones/34/rotation = Quaternion(0.060957763, 0.11782897, 0.0131887, 0.9910735)
-bones/35/rotation = Quaternion(0.992035, -0.015213284, 0.12503187, 0.0015240996)
-bones/36/rotation = Quaternion(0.59884864, -0.3592635, 0.37027934, 0.61253834)
+bones/2/rotation = Quaternion(0.05751299, -0.05734583, 0.7037444, 0.70579565)
+bones/15/rotation = Quaternion(0.012827417, -0.12375414, -0.66487455, 0.73652035)
+bones/16/rotation = Quaternion(-0.04034992, 0.42438626, 0.10549862, 0.8984087)
+bones/17/rotation = Quaternion(0.19403787, 0.11580597, -0.25627068, 0.9398211)
+bones/23/rotation = Quaternion(-0.080674216, -0.09024254, -0.6843234, 0.7190616)
+bones/24/rotation = Quaternion(-0.03079491, 0.27572635, 0.12681885, 0.95233595)
+bones/25/rotation = Quaternion(0.0059826374, 0.09325519, -0.17090452, 0.9808462)
+bones/30/rotation = Quaternion(0.013400423, 0.9637943, -0.2521509, -0.08567979)
+bones/31/rotation = Quaternion(0.9855381, -0.01821013, 0.16845392, 0.0025395504)
+bones/32/rotation = Quaternion(0.5459943, -0.40116966, 0.4473348, 0.58381915)
+bones/34/rotation = Quaternion(0.06194076, 0.20805235, 0.017109113, 0.9760046)
+bones/35/rotation = Quaternion(0.97551656, -0.020571033, 0.21892695, 0.0039273235)
+bones/36/rotation = Quaternion(0.58381623, -0.3854146, 0.39184445, 0.59755516)
 
 [node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1510266777, 618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -1055,13 +1086,20 @@ autoplay = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=693722063]
 environment = SubResource("Environment_smqis")
 
-[node name="Node3D" parent="WorldEnvironment" unique_id=2005364247 instance=ExtResource("20_tadat")]
+[node name="Node3D" parent="WorldEnvironment" unique_id=2005364247 node_paths=PackedStringArray("mesh") instance=ExtResource("20_tadat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4030733, 3.8334064, 45.921333)
+script = ExtResource("39_8fbmy")
+mesh = NodePath("Node3D2/MeshInstance3D")
+duration = 2.0
+fade_in_on_start = true
 
 [node name="Node3D2" parent="WorldEnvironment/Node3D" index="0" unique_id=1037208363]
 light_energy = 10.586
 spot_range = 50.54196
 spot_angle = 15.81
+
+[node name="MeshInstance3D" parent="WorldEnvironment/Node3D/Node3D2" index="0" unique_id=1254127541]
+surface_material_override/0 = SubResource("ShaderMaterial_8fbmy")
 
 [node name="Fog" type="SpotLight3D" parent="WorldEnvironment" unique_id=1888748673]
 transform = Transform3D(1, 0, 0, 0, 0.12640674, 0.99197847, 0, -0.99197847, 0.12640674, 8.317905, 28.644228, 3.9360285)

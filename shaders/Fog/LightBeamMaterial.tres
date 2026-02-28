@@ -11,6 +11,7 @@ noise = SubResource("FastNoiseLite_ul114")
 [resource]
 render_priority = 0
 shader = ExtResource("1_ul114")
+shader_parameter/transparency = 0.0
 shader_parameter/color = Color(0.69, 1, 0.9225, 1)
 shader_parameter/use_second_color = true
 shader_parameter/second_color = Color(0, 0.506, 0.69, 1)
