@@ -7,8 +7,13 @@
 [ext_resource type="Script" uid="uid://14v6se6ehp7y" path="res://scripts/entities/enemies/states/enemy_wait.gd" id="3_vv04i"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="4_35qt8"]
 [ext_resource type="Script" uid="uid://wjug80utd1ei" path="res://scripts/entities/enemies/mossypede/mossypede_attack.gd" id="4_vv04i"]
-[ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="8_2xbfi"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="8_35qt8"]
+[ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="9_y5q3u"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="10_5ax67"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="11_susbl"]
+[ext_resource type="Script" uid="uid://b7pj5dra8sjgx" path="res://scripts/entities/DeathVFX.gd" id="12_n5wuq"]
+[ext_resource type="Script" uid="uid://dxy6p70rncayl" path="res://scripts/entities/SpawnVFX.gd" id="13_r6f51"]
+[ext_resource type="PackedScene" uid="uid://dtrpcl1nasika" path="res://vfx/enemySummonFX.tscn" id="14_8wr4x"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vv04i"]
 radius = 0.25
@@ -16,7 +21,7 @@ radius = 0.25
 [sub_resource type="BoxShape3D" id="BoxShape3D_l26uf"]
 size = Vector3(1.435, 1, 1.72)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2xbfi"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_i1plq"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2xbfi"]
@@ -56,6 +61,78 @@ states/walk/node = SubResource("AnimationNodeAnimation_qufj0")
 states/walk/position = Vector2(372, 110)
 transitions = ["end_roll", "walk", SubResource("AnimationNodeStateMachineTransition_8wr4x"), "start_roll", "rolling", SubResource("AnimationNodeStateMachineTransition_1e61x")]
 graph_offset = Vector2(142.71394, -2.0384636)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v61s5"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.59607846)
+
+[sub_resource type="Curve" id="Curve_mea5v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m4apj"]
+curve = SubResource("Curve_mea5v")
+
+[sub_resource type="Curve" id="Curve_xga3k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7659185, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n7xiu"]
+curve = SubResource("Curve_xga3k")
+
+[sub_resource type="Curve" id="Curve_8ms2u"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bn177"]
+curve = SubResource("Curve_8ms2u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k0vju"]
+direction = Vector3(0, 0.5, 1)
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_bn177")
+alpha_curve = SubResource("CurveTexture_m4apj")
+emission_curve = SubResource("CurveTexture_n7xiu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4u8kd"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("11_susbl")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_xo2t7"]
+material = SubResource("StandardMaterial3D_4u8kd")
+
+[sub_resource type="Curve" id="Curve_7tk13"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cqf5t"]
+curve = SubResource("Curve_7tk13")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_irvss"]
+direction = Vector3(0, 1, 0)
+spread = 85.0
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_cqf5t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyyx5"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 0)
 
 [node name="Mossypede" type="CharacterBody3D" unique_id=1040683952]
 collision_layer = 10
@@ -104,29 +181,6 @@ collide_with_areas = true
 [node name="mossypede" parent="." unique_id=2071207216 instance=ExtResource("2_sxa4w")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 
-[node name="Skeleton3D" parent="mossypede" index="0" unique_id=884959604]
-bones/2/rotation = Quaternion(-0.008669642, 0.70705366, -0.008669642, 0.7070536)
-bones/3/position = Vector3(0.004338014, 0, 0)
-bones/3/rotation = Quaternion(0.00037973217, 0.017682701, -0.021466475, 0.99961317)
-bones/4/position = Vector3(0.0039445297, 0, 0)
-bones/4/rotation = Quaternion(-0.00041943238, -0.029815754, -0.0140598295, 0.9994565)
-bones/5/position = Vector3(0.0039001813, 0, 0)
-bones/5/rotation = Quaternion(-0.00024917937, -0.006101909, -0.040801547, 0.99914867)
-bones/6/position = Vector3(0.0036199747, 0, 0)
-bones/6/rotation = Quaternion(2.4528063e-05, -0.019213678, 0.0012763571, 0.99981457)
-bones/9/position = Vector3(0.0046078106, 2.1878208e-05, 3.3017855e-05)
-bones/9/rotation = Quaternion(-0.043773424, 0.053647902, -0.2493595, 0.96593255)
-bones/10/position = Vector3(0.0032920872, 1.2404124e-05, 2.2668677e-05)
-bones/10/rotation = Quaternion(-0.006280834, 0.12930293, -0.006016448, 0.9915671)
-bones/12/position = Vector3(-0.003318063, -0.00018778043, 0)
-bones/12/rotation = Quaternion(-0.05710878, 0.99836355, -0.00017144416, -0.0029971504)
-bones/13/position = Vector3(0.005339815, 0, 0)
-bones/13/rotation = Quaternion(0.0010022807, 0.021267435, -0.047064576, 0.998665)
-bones/14/position = Vector3(0.0046522375, 0, 0)
-bones/14/rotation = Quaternion(0.0019819331, -0.039664958, -0.049865223, 0.9979661)
-bones/15/position = Vector3(0.0039887396, 0, 0)
-bones/15/rotation = Quaternion(0.0007011907, 0.04123781, -0.016986664, 0.9990048)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=932990000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_l26uf")
@@ -136,12 +190,7 @@ debug_path_custom_color = Color(0, 1, 0, 1)
 
 [node name="StatusBars" parent="." unique_id=230721279 instance=ExtResource("2_qufj0")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.035, 0)
-texture = SubResource("ViewportTexture_2xbfi")
-
-[node name="DissolveFX" parent="." unique_id=1444122639 node_paths=PackedStringArray("meshes") instance=ExtResource("8_2xbfi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-dissolveDuration = 1.0
-meshes = [NodePath("../mossypede/Skeleton3D/model_Back"), NodePath("../mossypede/Skeleton3D/model_Body")]
+texture = SubResource("ViewportTexture_i1plq")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=981870473]
 root_node = NodePath("../mossypede")
@@ -186,6 +235,64 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 event_name = "event:/Enemys/RollyPolly/RollyPolly hurt"
 event_guid = "{b2e2dc76-1032-46f7-bd6e-bad6813cc497}"
 
+[node name="Hurt" type="Node3D" parent="." unique_id=1527455768 node_paths=PackedStringArray("vfx", "meshes_root")]
+script = ExtResource("9_y5q3u")
+vfx = NodePath("Hurt VFX")
+meshes_root = NodePath("../mossypede")
+hurt_overlay = SubResource("StandardMaterial3D_v61s5")
+flash_duration = 0.5
+
+[node name="Hurt VFX" type="Node3D" parent="Hurt" unique_id=559643387 node_paths=PackedStringArray("particles")]
+script = ExtResource("10_5ax67")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
+metadata/_custom_type_script = "uid://hrugoc51xhma"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX" unique_id=837050648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_k0vju")
+draw_pass_1 = SubResource("QuadMesh_xo2t7")
+
+[node name="Death" type="Node3D" parent="." unique_id=558960281 node_paths=PackedStringArray("vfx", "meshes_root")]
+script = ExtResource("12_n5wuq")
+vfx = NodePath("Death VFX")
+meshes_root = NodePath("../mossypede")
+hurt_overlay = SubResource("StandardMaterial3D_v61s5")
+flash_duration = 3.0
+death_delay = 2.0
+death_time = 2.0
+fade_out = false
+
+[node name="Death VFX" type="Node3D" parent="Death" unique_id=2011334205 node_paths=PackedStringArray("particles")]
+script = ExtResource("10_5ax67")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
+metadata/_custom_type_script = "uid://hrugoc51xhma"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Death/Death VFX" unique_id=1453088375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
+emitting = false
+amount = 17
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_irvss")
+draw_pass_1 = SubResource("QuadMesh_xo2t7")
+
+[node name="Spawned" type="Node3D" parent="." unique_id=2113684327 node_paths=PackedStringArray("vfx", "meshes_root", "_meshes")]
+process_mode = 3
+script = ExtResource("13_r6f51")
+vfx = NodePath("enemySummonFX")
+meshes_root = NodePath("../mossypede")
+_meshes = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+hurt_overlay = SubResource("StandardMaterial3D_lyyx5")
+flash_duration = 0.75
+
+[node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("14_8wr4x")]
+lifetime = 1.25
+
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]
 [connection signal="hurt" from="." to="HurtSFX" method="play_one_shot" unbinds=1]
@@ -194,8 +301,8 @@ event_guid = "{b2e2dc76-1032-46f7-bd6e-bad6813cc497}"
 [connection signal="entered" from="StateMachine/Attacking" to="StateMachine/Attacking/RollingSFX" method="play" binds= [true]]
 [connection signal="finished" from="StateMachine/Attacking" to="StateMachine/Attacking/RollingSFX" method="stop"]
 [connection signal="finished" from="StateMachine/Attacking" to="AnimationTree/end_roll" method="enter"]
-[connection signal="entered" from="StateMachine/Dead" to="DissolveFX" method="beginDissolve"]
 [connection signal="start" from="AnimationTree/walk" to="AnimationTree/walk/WalkSFX" method="play" binds= [true]]
 [connection signal="stop" from="AnimationTree/walk" to="AnimationTree/walk/WalkSFX" method="stop"]
 
 [editable path="mossypede"]
+[editable path="Spawned/enemySummonFX"]

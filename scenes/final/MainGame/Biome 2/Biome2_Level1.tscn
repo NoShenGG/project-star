@@ -13,37 +13,32 @@
 [ext_resource type="Texture2D" uid="uid://bfq2lq4t3785h" path="res://art_assets/Ui/TextboxSmall.png" id="10_1cga5"]
 [ext_resource type="Script" uid="uid://diaap70c4mvfb" path="res://scripts/utility/menu_sfx.gd" id="11_dbcvv"]
 [ext_resource type="Texture2D" uid="uid://baw1g0c8nn8qt" path="res://art_assets/Ui/TextboxLarge.png" id="11_lurfs"]
-[ext_resource type="Texture2D" uid="uid://bpmomb27ut7u2" path="res://art_assets/Ui/Kenny Input Prompts/Generic/Default/generic_button_circle_fill.png" id="12_6ngug"]
 [ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="12_ylyoc"]
 [ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="13_1cga5"]
 [ext_resource type="Script" uid="uid://dlb7i27u8fcw1" path="res://scripts/InputIconSwapper.gd" id="13_7nk2b"]
 [ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="14_lurfs"]
 [ext_resource type="Script" uid="uid://dvsf3dgfmvi38" path="res://scripts/InputIconInfo.gd" id="14_oliu0"]
 [ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="15_dbcvv"]
-[ext_resource type="Texture2D" uid="uid://dryll0vcooqsp" path="res://art_assets/Ui/Kenny Input Prompts/Keyboard & Mouse/Vector/keyboard_j_outline.svg" id="15_gjtcd"]
-[ext_resource type="Texture2D" uid="uid://86ypf5u4cmac" path="res://art_assets/Ui/Kenny Input Prompts/Keyboard & Mouse/Vector/keyboard_j.svg" id="16_1rijc"]
 [ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="16_tadat"]
 [ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="17_6uhty"]
 [ext_resource type="Texture2D" uid="uid://byjmhmesit5up" path="res://art_assets/Ui/Kenny Input Prompts/Nintendo Switch/Vector/switch_button_a_outline.svg" id="17_7ckgu"]
 [ext_resource type="Texture2D" uid="uid://cqoh1hx4f6imb" path="res://art_assets/Ui/Kenny Input Prompts/Nintendo Switch/Vector/switch_button_a.svg" id="18_ugejb"]
-[ext_resource type="Texture2D" uid="uid://c802uxctal02d" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Vector/xbox_button_a_outline.svg" id="19_8fbmy"]
+[ext_resource type="Texture2D" uid="uid://c8e5lknibprin" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Double/xbox_rb.png" id="19_oliu0"]
+[ext_resource type="Texture2D" uid="uid://fnpoipr8inu2" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Double/xbox_button_menu_outline.png" id="20_7nk2b"]
+[ext_resource type="Texture2D" uid="uid://cmry0s7xbcgwi" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Double/xbox_rb_outline.png" id="20_gjtcd"]
 [ext_resource type="PackedScene" uid="uid://cpmbed4mvwiwk" path="res://shaders/Fog/Biome2_level1_Godray.tscn" id="20_tadat"]
-[ext_resource type="Texture2D" uid="uid://dojp7mylityup" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Vector/xbox_button_a.svg" id="20_y6c07"]
 [ext_resource type="Shader" uid="uid://014ry7cx8mxw" path="res://shaders/water.gdshader" id="21_6uhty"]
-[ext_resource type="Texture2D" uid="uid://wf636d7cdrs7" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_button_square_outline.svg" id="21_7ark0"]
 [ext_resource type="Shader" uid="uid://c77hfyht2fpxt" path="res://shaders/Fog/lightbeam.gdshader" id="21_luo6j"]
 [ext_resource type="Shader" uid="uid://1ko4io3ntcb" path="res://shaders/non_billboard_particle_alpha_clip.tres" id="22_ah10j"]
-[ext_resource type="Texture2D" uid="uid://ddg5q5f0u2h6d" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_button_square.svg" id="22_bb1x2"]
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="24_yxgjp"]
-[ext_resource type="Texture2D" uid="uid://y1qhqa7r2qkm" path="res://VFX/Kenny Particle Pack/flame_03.png" id="25_luo6j"]
+[ext_resource type="Texture2D" uid="uid://y1qhqa7r2qkm" path="res://vfx/Kenny Particle Pack/flame_03.png" id="25_luo6j"]
 [ext_resource type="Texture2D" uid="uid://xl5rlie6hlgw" path="res://art_assets/Ui/Kenny Input Prompts/Keyboard & Mouse/Vector/keyboard_2_outline.svg" id="25_ugejb"]
 [ext_resource type="Shader" uid="uid://cqwuclyvv1bu1" path="res://shaders/fog_particle_alpha_clip.tres" id="25_uyvo7"]
 [ext_resource type="Texture2D" uid="uid://dwm0i1avhw86r" path="res://art_assets/Ui/Kenny Input Prompts/Keyboard & Mouse/Vector/keyboard_2.svg" id="26_8fbmy"]
-[ext_resource type="Texture2D" uid="uid://c7pey3cvnmqef" path="res://VFX/Kenny Particle Pack/light_01.png" id="26_hh7f4"]
-[ext_resource type="Texture2D" uid="uid://cpu5nbemi61ar" path="res://VFX/Kenny Particle Pack/fire_02.png" id="26_uyvo7"]
-[ext_resource type="Texture2D" uid="uid://deidc1m8sqrh" path="res://VFX/Kenny Particle Pack/flame_04.png" id="27_g6h04"]
-[ext_resource type="Texture2D" uid="uid://d4migsg58q17p" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Vector/xbox_rb_outline.svg" id="27_y6c07"]
-[ext_resource type="Texture2D" uid="uid://c7p8gfr8ybax4" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Vector/xbox_rb.svg" id="28_7ark0"]
+[ext_resource type="Texture2D" uid="uid://c7pey3cvnmqef" path="res://vfx/Kenny Particle Pack/light_01.png" id="26_hh7f4"]
+[ext_resource type="Texture2D" uid="uid://civbgldrjkacy" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Double/xbox_button_menu.png" id="26_oliu0"]
+[ext_resource type="Texture2D" uid="uid://cpu5nbemi61ar" path="res://vfx/Kenny Particle Pack/fire_02.png" id="26_uyvo7"]
+[ext_resource type="Texture2D" uid="uid://deidc1m8sqrh" path="res://vfx/Kenny Particle Pack/flame_04.png" id="27_g6h04"]
 [ext_resource type="PackedScene" uid="uid://81qoovusaho7" path="res://RainVFX.tscn" id="28_yvnfd"]
 [ext_resource type="Texture2D" uid="uid://crftfesvfawj5" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_trigger_r1_alternative_outline.svg" id="29_bb1x2"]
 [ext_resource type="Script" uid="uid://be4lu3ug8donp" path="res://addons/mm_plus_editor/nodes/mm_plus_3d.gd" id="30_q0o07"]
@@ -51,7 +46,7 @@
 [ext_resource type="Script" uid="uid://ntw5ubccc2qm" path="res://addons/mm_plus_editor/resources/mm_plus_data.gd" id="31_e004x"]
 [ext_resource type="Resource" uid="uid://csugxoxv862ai" path="res://art_assets/environment/MMGroundVFX/EvilRock_MMPlusMesh.tres" id="32_lpepu"]
 [ext_resource type="Resource" uid="uid://bkunuagwbsm8c" path="res://art_assets/environment/MMGroundVFX/EvilWeed_MMPlusMesh.tres" id="33_udfk2"]
-[ext_resource type="Script" uid="uid://iuqt6rl11mn4" path="res://scripts/FadeInGodray.gd" id="39_8fbmy"]
+[ext_resource type="Script" path="res://scripts/FadeInGodray.gd" id="39_8fbmy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_smqis"]
 size = Vector3(15, 3, 15)
@@ -64,40 +59,12 @@ cell_height = 0.1
 [sub_resource type="BoxShape3D" id="BoxShape3D_c25a2"]
 size = Vector3(6, 2, 6)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dbcvv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tadat"]
-
-[sub_resource type="Resource" id="Resource_6scd3"]
-script = ExtResource("14_oliu0")
-unpressed_icon = ExtResource("16_1rijc")
-pressed_icon = ExtResource("15_gjtcd")
-metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
-
-[sub_resource type="Resource" id="Resource_5pp6f"]
-script = ExtResource("14_oliu0")
-input_type = 4
-unpressed_icon = ExtResource("18_ugejb")
-pressed_icon = ExtResource("17_7ckgu")
-metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
-
-[sub_resource type="Resource" id="Resource_flrcs"]
-script = ExtResource("14_oliu0")
-input_type = 2
-unpressed_icon = ExtResource("20_y6c07")
-pressed_icon = ExtResource("19_8fbmy")
-metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
-
-[sub_resource type="Resource" id="Resource_2ugvq"]
-script = ExtResource("14_oliu0")
-input_type = 3
-unpressed_icon = ExtResource("22_bb1x2")
-pressed_icon = ExtResource("21_7ark0")
-metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xgfov"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4wq1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1rijc"]
+load_path = "res://.godot/imported/generic_button_circle_fill.png-4aea79052d6c5125a9d1de73e7ce5be5.ctex"
 
 [sub_resource type="Resource" id="Resource_11igq"]
 script = ExtResource("14_oliu0")
@@ -115,8 +82,8 @@ metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
 [sub_resource type="Resource" id="Resource_e4is5"]
 script = ExtResource("14_oliu0")
 input_type = 2
-unpressed_icon = ExtResource("28_7ark0")
-pressed_icon = ExtResource("27_y6c07")
+unpressed_icon = ExtResource("20_gjtcd")
+pressed_icon = ExtResource("19_oliu0")
 metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
 
 [sub_resource type="Resource" id="Resource_yccyq"]
@@ -124,6 +91,20 @@ script = ExtResource("14_oliu0")
 input_type = 3
 unpressed_icon = ExtResource("30_yxgjp")
 pressed_icon = ExtResource("29_bb1x2")
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dbcvv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tadat"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ckgu"]
+load_path = "res://.godot/imported/xbox_button_menu.png-57d638b6e466e708403cfb60ef5c3ee5.ctex"
+
+[sub_resource type="Resource" id="Resource_ugejb"]
+script = ExtResource("14_oliu0")
+input_type = 2
+unpressed_icon = ExtResource("26_oliu0")
+pressed_icon = ExtResource("20_7nk2b")
 metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5v5at"]
@@ -501,17 +482,17 @@ transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 
 max_click_time = 0.25
 attack_charge_time = 0.5
 
-[node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1510266777, 1837126418, 1395090033) index="0" unique_id=1156861599]
-bones/14/rotation = Quaternion(-0.06609536, 0.5227114, -0.50635225, 0.6826504)
-bones/15/rotation = Quaternion(-0.16448605, 0.5590465, 0.23270357, 0.7786272)
-bones/16/rotation = Quaternion(-0.5075587, -0.4695164, -0.25355044, 0.6764989)
-bones/21/rotation = Quaternion(-0.14899276, 0.3848719, -0.45763576, 0.78755593)
-bones/22/rotation = Quaternion(-0.07003385, 0.36556727, 0.18197975, 0.91013145)
-bones/23/rotation = Quaternion(0.14492773, 0.10943418, -0.0759637, 0.98043346)
-bones/38/rotation = Quaternion(-0.34890494, 0.7069719, 0.06260157, 0.6119945)
+[node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1510266777, 1837126418, 1395090033) index="0" unique_id=1280032861]
+bones/14/rotation = Quaternion(-0.075977065, 0.52630746, -0.50692296, 0.6784225)
+bones/15/rotation = Quaternion(-0.15571997, 0.5450131, 0.23002478, 0.79107565)
+bones/16/rotation = Quaternion(-0.51458853, -0.47042614, -0.2307096, 0.6787275)
+bones/21/rotation = Quaternion(-0.12519547, 0.3968617, -0.47935203, 0.7726892)
+bones/22/rotation = Quaternion(-0.056474727, 0.32598367, 0.16900878, 0.92842954)
+bones/23/rotation = Quaternion(0.10180402, 0.13384971, -0.07929157, 0.98256457)
+bones/38/rotation = Quaternion(-0.35129717, 0.70579153, 0.06052612, 0.612197)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.006404946, -0.5699682, 0.82164174, -0.4180886, 0.74792284, 0.5155709, -0.90838367, -0.34021688, -0.24308765, 0.0060012178, 0.00724626, -0.01321753)
+transform = Transform3D(-0.0025587152, -0.56999856, 0.8216416, -0.42315236, 0.74507445, 0.5155638, -0.9060548, -0.34636036, -0.24310279, 0.006061305, 0.007167049, -0.013181366)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1510266777, 1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -628,20 +609,20 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 [node name="Dawn" parent="PlayerManager" index="2" unique_id=618181988]
 max_click_time = 0.3
 
-[node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1510266777, 618181988, 1566855500) index="0" unique_id=581899794]
-bones/2/rotation = Quaternion(0.05751299, -0.05734583, 0.7037444, 0.70579565)
-bones/15/rotation = Quaternion(0.012827417, -0.12375414, -0.66487455, 0.73652035)
-bones/16/rotation = Quaternion(-0.04034992, 0.42438626, 0.10549862, 0.8984087)
-bones/17/rotation = Quaternion(0.19403787, 0.11580597, -0.25627068, 0.9398211)
-bones/23/rotation = Quaternion(-0.080674216, -0.09024254, -0.6843234, 0.7190616)
-bones/24/rotation = Quaternion(-0.03079491, 0.27572635, 0.12681885, 0.95233595)
-bones/25/rotation = Quaternion(0.0059826374, 0.09325519, -0.17090452, 0.9808462)
-bones/30/rotation = Quaternion(0.013400423, 0.9637943, -0.2521509, -0.08567979)
-bones/31/rotation = Quaternion(0.9855381, -0.01821013, 0.16845392, 0.0025395504)
-bones/32/rotation = Quaternion(0.5459943, -0.40116966, 0.4473348, 0.58381915)
-bones/34/rotation = Quaternion(0.06194076, 0.20805235, 0.017109113, 0.9760046)
-bones/35/rotation = Quaternion(0.97551656, -0.020571033, 0.21892695, 0.0039273235)
-bones/36/rotation = Quaternion(0.58381623, -0.3854146, 0.39184445, 0.59755516)
+[node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1510266777, 618181988, 1566855500) index="0" unique_id=1529346309]
+bones/2/rotation = Quaternion(0.04802821, -0.04788862, 0.70445114, 0.70650446)
+bones/15/rotation = Quaternion(0.015378002, -0.11604878, -0.66574484, 0.7369397)
+bones/16/rotation = Quaternion(-0.038605396, 0.41345713, 0.10493444, 0.90363246)
+bones/17/rotation = Quaternion(0.18936196, 0.10732554, -0.25584972, 0.94189394)
+bones/23/rotation = Quaternion(-0.08057042, -0.08911867, -0.6843469, 0.719191)
+bones/24/rotation = Quaternion(-0.030696342, 0.27513573, 0.12671694, 0.95252347)
+bones/25/rotation = Quaternion(0.0032644204, 0.08111491, -0.17316628, 0.9815413)
+bones/30/rotation = Quaternion(0.009906277, 0.96641064, -0.25132048, -0.05282498)
+bones/31/rotation = Quaternion(0.9912261, -0.015980596, 0.13119707, 0.0016698122)
+bones/32/rotation = Quaternion(0.55362445, -0.39102927, 0.4385933, 0.5901119)
+bones/34/rotation = Quaternion(0.06155734, 0.17628421, 0.015895374, 0.98228407)
+bones/35/rotation = Quaternion(0.982196, -0.018780926, 0.18689467, 0.0029805885)
+bones/36/rotation = Quaternion(0.5889932, -0.37649053, 0.38457, 0.6028664)
 
 [node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1510266777, 618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -765,83 +746,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3991232, 0, -3.0875406)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_b1jqb")
-menu = NodePath("Menu2")
+menu = NodePath("Menu")
 
 [node name="Tutorial Collision Box" type="CollisionShape3D" parent="Tutorial1" unique_id=962908085]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_c25a2")
 debug_color = Color(0, 11.618606, 13.50434, 0.8509804)
-
-[node name="Menu2" type="Panel" parent="Tutorial1" unique_id=259780360 node_paths=PackedStringArray("focused_control")]
-visible = false
-material = SubResource("ShaderMaterial_dbcvv")
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -171.0
-offset_top = -140.0
-offset_right = 171.0
-offset_bottom = 140.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_tadat")
-script = ExtResource("9_ylyoc")
-focused_control = NodePath("TextureRect/Label")
-open_time = 0.5
-open_animation_flags = 1
-close_time = 0.5
-close_animation_flags = 1
-
-[node name="TextureRect" type="TextureRect" parent="Tutorial1/Menu2" unique_id=2270332]
-layout_mode = 0
-offset_left = -24.0
-offset_top = 202.0
-offset_right = 625.0
-offset_bottom = 393.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("10_1cga5")
-
-[node name="Label" type="Label" parent="Tutorial1/Menu2/TextureRect" unique_id=928076357]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -178.33328
-offset_top = 65.00001
-offset_right = -218.33328
-offset_bottom = -94.68685
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.65, 1.65)
-text = "Switch to Rene by pressing [2]"
-horizontal_alignment = 1
-
-[node name="InputIconSwapper2" type="TextureRect" parent="Tutorial1/Menu2/TextureRect" unique_id=1938999937]
-layout_mode = 0
-offset_left = 223.66663
-offset_top = 46.333263
-offset_right = 303.6667
-offset_bottom = 126.33336
-texture = ExtResource("12_6ngug")
-script = ExtResource("13_7nk2b")
-icons = Array[ExtResource("14_oliu0")]([SubResource("Resource_6scd3"), SubResource("Resource_5pp6f"), SubResource("Resource_flrcs"), SubResource("Resource_2ugvq")])
-input_name = "basic_attack"
-metadata/_custom_type_script = "uid://dlb7i27u8fcw1"
-
-[node name="Menu SFX" type="Node" parent="Tutorial1/Menu2" unique_id=977703185 node_paths=PackedStringArray("open_sfx", "close_sfx")]
-script = ExtResource("11_dbcvv")
-open_sfx = NodePath("Open SFX")
-close_sfx = NodePath("Close SFX")
-
-[node name="Open SFX" type="FmodEventEmitter3D" parent="Tutorial1/Menu2/Menu SFX" unique_id=1725668081]
-event_name = "event:/UI/InGame TooltIp Open"
-event_guid = "{435f6fe1-3836-4580-a0ba-81b0b8c30108}"
-
-[node name="Close SFX" type="FmodEventEmitter3D" parent="Tutorial1/Menu2/Menu SFX" unique_id=1205252648]
-event_name = "event:/UI/InGame TooltIp Close"
-event_guid = "{da7d3195-919c-42e3-b5d5-9070fe6b450b}"
 
 [node name="Menu" type="Panel" parent="Tutorial1" unique_id=174262995 node_paths=PackedStringArray("focused_control")]
 material = SubResource("ShaderMaterial_xgfov")
@@ -896,11 +806,11 @@ text = "Switch to Rene"
 
 [node name="InputIconSwapper" type="TextureRect" parent="Tutorial1/Menu/TextureRect" unique_id=301617873]
 layout_mode = 0
-offset_left = 367.0
-offset_top = 49.66665
-offset_right = 447.00006
-offset_bottom = 129.66675
-texture = ExtResource("12_6ngug")
+offset_left = 371.667
+offset_top = 17.502
+offset_right = 435.667
+offset_bottom = 81.50203
+texture = SubResource("CompressedTexture2D_1rijc")
 script = ExtResource("13_7nk2b")
 icons = Array[ExtResource("14_oliu0")]([SubResource("Resource_11igq"), SubResource("Resource_aiqxw"), SubResource("Resource_e4is5"), SubResource("Resource_yccyq")])
 input_name = "basic_attack"
@@ -932,7 +842,6 @@ shape = SubResource("BoxShape3D_c25a2")
 debug_color = Color(0, 11.618606, 13.50434, 0.8509804)
 
 [node name="Menu2" type="Panel" parent="Tutorial2" unique_id=1263885701 node_paths=PackedStringArray("focused_control")]
-visible = false
 material = SubResource("ShaderMaterial_dbcvv")
 anchors_preset = 8
 anchor_left = 0.5
@@ -976,8 +885,21 @@ grow_vertical = 2
 scale = Vector2(1.65, 1.65)
 text = "Rene can heal the party with his charged
 attack, special, or charged special. Press
-[ESC] to see more details"
+      to see more details"
 horizontal_alignment = 1
+
+[node name="InputIconSwapper" type="TextureRect" parent="Tutorial2/Menu2/TextureRect" unique_id=1902086261]
+layout_mode = 0
+offset_left = 253.3333
+offset_top = 175.00002
+offset_right = 308.3333
+offset_bottom = 230.00005
+texture = SubResource("CompressedTexture2D_7ckgu")
+expand_mode = 1
+script = ExtResource("13_7nk2b")
+icons = Array[ExtResource("14_oliu0")]([SubResource("Resource_11igq"), SubResource("Resource_aiqxw"), SubResource("Resource_ugejb"), SubResource("Resource_yccyq")])
+input_name = "basic_attack"
+metadata/_custom_type_script = "uid://dlb7i27u8fcw1"
 
 [node name="Menu SFX" type="Node" parent="Tutorial2/Menu2" unique_id=118474548 node_paths=PackedStringArray("open_sfx", "close_sfx")]
 script = ExtResource("11_dbcvv")
@@ -1331,6 +1253,16 @@ collision_mask = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1801453, 1.4424438)
 shape = SubResource("BoxShape3D_udfk2")
 
+[connection signal="entered" from="PlayerManager/Nova/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Nova/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Nova/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Rene/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Rene/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Rene/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Dawn/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Dawn/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Dawn/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
 [connection signal="ended" from="WaveManager/Wave3" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
 
