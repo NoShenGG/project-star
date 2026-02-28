@@ -6,8 +6,6 @@ class_name Wave
 
 @export var enemies: Array[PackedScene]
 
-var summonFX: PackedScene = preload("res://VFX/enemySummonFX.tscn")
-
 # Elimination-based wave progression, could also implement time-based
 # @export_category("Wave Type")
 # @export var isEliminationBased = true
