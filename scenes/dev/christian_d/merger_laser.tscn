@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bh8tyimxp62r8"]
+[gd_scene load_steps=5 format=3 uid="uid://bh8tyimxp62r8"]
 
-[ext_resource type="Shader" path="res://scenes/dev/christian_d/merger_laser.gdshader" id="1_4rxh6"]
+[ext_resource type="Shader" uid="uid://5yi6qx61uqgl" path="res://scenes/dev/christian_d/merger_laser.gdshader" id="1_4rxh6"]
 [ext_resource type="Script" uid="uid://blctca3nk270i" path="res://scripts/entities/enemies/mindmerger/merger_laser.gd" id="1_ieiv7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rxh6"]
@@ -25,7 +25,7 @@ shader_parameter/noise_scale = Vector2(1, 1)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_ieiv7"]
 
-[node name="MergerLaser" type="MeshInstance3D" unique_id=639829864]
+[node name="MergerLaser" type="MeshInstance3D"]
 top_level = true
 material_override = SubResource("ShaderMaterial_4rxh6")
 cast_shadow = 0

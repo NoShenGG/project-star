@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dh5bw2xp7cnnm"]
+[gd_scene load_steps=34 format=3 uid="uid://dh5bw2xp7cnnm"]
 
 [ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="1_3kx71"]
-[ext_resource type="Shader" uid="uid://b07cyfbdytoe5" path="res://shaders/AxisBillboardUnshaded.gdshader" id="2_64rgy"]
+[ext_resource type="Shader" uid="uid://b07cyfbdytoe5" path="res://Shaders/AxisBillboardUnshaded.gdshader" id="2_64rgy"]
 
 [sub_resource type="Gradient" id="Gradient_x5tqh"]
 offsets = PackedFloat32Array(0.54386, 1)
@@ -187,11 +187,11 @@ lightmap_size_hint = Vector2i(12, 12)
 material = SubResource("ShaderMaterial_l6dmw")
 orientation = 2
 
-[node name="MagicSwirlVFX" type="Node3D" unique_id=1137298466 node_paths=PackedStringArray("particles")]
+[node name="MagicSwirlVFX" type="Node3D" node_paths=PackedStringArray("particles")]
 script = ExtResource("1_3kx71")
-particles = [NodePath("GPUParticles3D3"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D2"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D2")]
+particles = [NodePath("GPUParticles3D3"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D2")]
 
-[node name="GPUParticles3D3" type="GPUParticles3D" parent="." unique_id=865550586]
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 emitting = false
 amount = 16
@@ -204,7 +204,7 @@ trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_x5tqh")
 draw_pass_1 = SubResource("PlaneMesh_id0vw")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=2061603911]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 5
 one_shot = true
@@ -215,7 +215,7 @@ trail_lifetime = 0.4
 process_material = SubResource("ParticleProcessMaterial_6avhe")
 draw_pass_1 = SubResource("TubeTrailMesh_3h7j6")
 
-[node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=850640318]
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
 local_coords = true
 transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_64rgy")

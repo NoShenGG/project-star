@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d30qvxvgmp1bf"]
+[gd_scene load_steps=24 format=3 uid="uid://d30qvxvgmp1bf"]
 
 [ext_resource type="Script" uid="uid://b4yuuj85lxdw8" path="res://scripts/entities/enemies/mossum/Mossum.gd" id="1_ecso2"]
 [ext_resource type="PackedScene" uid="uid://ddx34kp4dcdqk" path="res://art_assets/enemies/mossum/mossum_rig.gltf" id="2_g0rg0"]
@@ -138,10 +138,10 @@ size = Vector3(0.805, 1.005, 1.61)
 height = 0.1
 radius = 10.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_oxgda"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_g0rg0"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Mossum" type="CharacterBody3D" unique_id=122916008]
+[node name="Mossum" type="CharacterBody3D"]
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_ecso2")
@@ -149,10 +149,10 @@ attack_cd = 3.0
 attack_radius = 3.0
 passive_death_time = 1.0
 
-[node name="mossum_rig" parent="." unique_id=6688666 instance=ExtResource("2_g0rg0")]
+[node name="mossum_rig" parent="." instance=ExtResource("2_g0rg0")]
 transform = Transform3D(3.235, 0, 0, 0, 3.235, 0, 0, 0, 3.235, 0, 0.060000002, 0)
 
-[node name="wool_shell_texturing_tool" type="Node3D" parent="mossum_rig" unique_id=938286358]
+[node name="wool_shell_texturing_tool" type="Node3D" parent="mossum_rig"]
 script = ExtResource("3_3yrp7")
 mesh = ExtResource("5_jimdk")
 shader = ExtResource("6_jl60r")
@@ -162,76 +162,76 @@ tint = Color(0.5529412, 0.8156863, 0.49411765, 1)
 shell_displacement = 0.08
 min_ambient_occlusion = 0.4
 
-[node name="Shell_0" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool" unique_id=1759898129]
+[node name="Shell_0" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_dd6ky")
 
-[node name="Shell_1" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool" unique_id=413076131]
+[node name="Shell_1" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_2pn82")
 
-[node name="Shell_2" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool" unique_id=686095358]
+[node name="Shell_2" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_jimdk")
 
-[node name="Shell_3" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool" unique_id=1709128123]
+[node name="Shell_3" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_jl60r")
 
-[node name="Shell_4" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool" unique_id=2032863958]
+[node name="Shell_4" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_mdqfx")
 
-[node name="Shell_5" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool" unique_id=583802154]
+[node name="Shell_5" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_5ws1j")
 
-[node name="Shell_6" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool" unique_id=1055673677]
+[node name="Shell_6" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_ye2ne")
 
-[node name="Shell_7" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool" unique_id=554593199]
+[node name="Shell_7" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_s7jtx")
 
-[node name="Shell_8" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool" unique_id=1701527310]
+[node name="Shell_8" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_7hj6e")
 
-[node name="Shell_9" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool" unique_id=609617689]
+[node name="Shell_9" type="MeshInstance3D" parent="mossum_rig/wool_shell_texturing_tool"]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_qshis")
 
-[node name="SwordBase" parent="mossum_rig" unique_id=698850902 instance=ExtResource("9_ye2ne")]
+[node name="SwordBase" parent="mossum_rig" instance=ExtResource("9_ye2ne")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.205, 0.565)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1952739372]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 shape = SubResource("BoxShape3D_l26uf")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1901331788]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 10.0
 target_desired_distance = 2.0
 path_max_distance = 100.01
 debug_path_custom_color = Color(0, 1, 0, 1)
 
-[node name="HitBoxes" type="Node3D" parent="." unique_id=456475273]
+[node name="HitBoxes" type="Node3D" parent="."]
 
-[node name="Aggro" type="Area3D" parent="HitBoxes" unique_id=1375190947]
+[node name="Aggro" type="Area3D" parent="HitBoxes"]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxes/Aggro" unique_id=1817794365]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBoxes/Aggro"]
 shape = SubResource("CylinderShape3D_g0rg0")
 debug_color = Color(1, 0, 0, 1)
 
-[node name="StatusBars" parent="." unique_id=1198223398 instance=ExtResource("2_l26uf")]
+[node name="StatusBars" parent="." instance=ExtResource("2_l26uf")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.035, 0)
-texture = SubResource("ViewportTexture_oxgda")
+texture = SubResource("ViewportTexture_g0rg0")
 
-[node name="DissolveFX" parent="." unique_id=151184771 node_paths=PackedStringArray("meshes") instance=ExtResource("10_dd6ky")]
+[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("10_dd6ky")]
 dissolveDuration = 1.0
-meshes = [NodePath("../mossum_rig/Skeleton3D/body"), NodePath("../mossum_rig/Skeleton3D/everything_else"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_4"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_2"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_6"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_0"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_9"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_8"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_7"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_5"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_3"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_1"), NodePath("../mossum_rig/SwordBase/Cube_001")]
+meshes = [NodePath("../mossum_rig/Skeleton3D/body"), NodePath("../mossum_rig/Skeleton3D/everything_else"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_8"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_6"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_3"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_9"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_1"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_0"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_7"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_4"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_2"), NodePath("../mossum_rig/wool_shell_texturing_tool/Shell_5"), NodePath("../mossum_rig/SwordBase/Cube_001")]
 
 [connection signal="break_update" from="." to="StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBars" method="update_health"]

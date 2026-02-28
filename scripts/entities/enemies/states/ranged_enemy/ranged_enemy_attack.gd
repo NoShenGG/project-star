@@ -2,9 +2,6 @@ extends State
 
 var parent_enemy : RangedEnemy
 
-## called when firing with aiming direction
-signal firing(direction:Vector3)
-
 func update(_delta: float) -> void:
 	if (parent_enemy.target_node) and not parent_enemy.death:
 		parent_enemy.set_movement_target(parent_enemy.target_node.global_position)
@@ -24,8 +21,6 @@ func shoot(projectile: PackedScene) -> void:
 		var dir : Vector3 = parent_enemy.global_position.direction_to(parent_enemy.target_node.global_position)
 		dir.y = 0
 		projectile_instance.direction = dir
-		firing.emit(dir)
-		await get_tree().create_timer(0.6).timeout
 		parent_enemy.add_child(projectile_instance)
 		parent_enemy.cooldown.start()
 

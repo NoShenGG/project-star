@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://df2acff0x2cqk"]
+[gd_scene load_steps=4 format=3 uid="uid://df2acff0x2cqk"]
 
 [ext_resource type="Script" uid="uid://cwi1wowj1oa8t" path="res://austin_newby/dialogue/scripts/dialogue.gd" id="1_b4u21"]
 [ext_resource type="Texture2D" uid="uid://b23jk7qpglhje" path="res://icon.png" id="2_uh380"]
 [ext_resource type="FontFile" uid="uid://cw34jy0ta14yg" path="res://scenes/dev/rachael_s/EastSeaDokdo-Regular.ttf" id="3_1np70"]
 
-[node name="dialogue" type="Control" unique_id=631545926]
+[node name="dialogue" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,13 +13,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b4u21")
 
-[node name="next_char" type="Timer" parent="." unique_id=1643775000]
+[node name="next_char" type="Timer" parent="."]
 wait_time = 0.2
 
-[node name="next_message" type="Timer" parent="." unique_id=1895990473]
+[node name="next_message" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="SmallTextSpeakerSeperator" type="HBoxContainer" parent="." unique_id=1078298088]
+[node name="SmallTextSpeakerSeperator" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
@@ -34,7 +34,7 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 10
 
-[node name="SmallTextLabel" type="RichTextLabel" parent="SmallTextSpeakerSeperator" unique_id=1876597327]
+[node name="SmallTextLabel" type="RichTextLabel" parent="SmallTextSpeakerSeperator"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -47,14 +47,14 @@ fit_content = true
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="SmallSpeakerImage" type="TextureRect" parent="SmallTextSpeakerSeperator" unique_id=2055544658]
+[node name="SmallSpeakerImage" type="TextureRect" parent="SmallTextSpeakerSeperator"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 texture = ExtResource("2_uh380")
 expand_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=224534804]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,7 +62,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1597497561]
+[node name="TextLabel" type="RichTextLabel" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3

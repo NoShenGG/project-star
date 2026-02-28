@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b4n8c4v5ybq3d"]
+[gd_scene load_steps=10 format=3 uid="uid://b4n8c4v5ybq3d"]
 
 [ext_resource type="PackedScene" uid="uid://81qoovusaho7" path="res://RainVFX.tscn" id="1_pcexx"]
 
@@ -41,26 +41,26 @@ size = Vector3(20, 1, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pcexx"]
 size = Vector3(20, 1, 20)
 
-[node name="Node3D" type="Node3D" unique_id=10213729]
+[node name="Node3D" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1457719630]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ywgyh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1116909]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.1509967, -10.640327)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=406740278]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_bh3vb")
 skeleton = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1754307539]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_pcexx")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=418945060]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9017722, 0.43221167, 0, -0.43221167, 0.9017722, 0, -1.2052604, -6.3422036)
 
-[node name="RainVFX" parent="Camera3D" unique_id=760369614 instance=ExtResource("1_pcexx")]
+[node name="RainVFX" parent="Camera3D" instance=ExtResource("1_pcexx")]
 transform = Transform3D(0.9470142, -0.2983698, -0.11891627, 0.22742173, 0.884329, -0.40772897, 0.2268149, 0.35908085, 0.9053277, 0.16941655, -1.1520501, -0.5521679)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=115463852]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.52080107, 0.85367805, 0, -0.85367805, 0.52080107, 0, 0, 0)

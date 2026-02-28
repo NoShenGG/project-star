@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" format=3 uid="uid://dillia83vrbde"]
+[gd_resource type="VisualShader" load_steps=18 format=3 uid="uid://dillia83vrbde"]
 
 [ext_resource type="Texture2D" uid="uid://c2y5cil38y6n" path="res://scenes/dani_k/Super Perlin 11 - 256x256.png" id="1_t2mua"]
 [ext_resource type="Texture2D" uid="uid://dxsil2d1usgth" path="res://scenes/dani_k/Turbulence 3 - 256x256.png" id="2_cpop3"]
@@ -52,6 +52,67 @@ op_type = 0
 input_name = "time"
 
 [resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
+
+uniform sampler2D tex_frg_4;
+uniform sampler2D tex_frg_3;
+uniform sampler2D tex_frg_11;
+
+
+
+void fragment() {
+// Input:5
+	vec4 n_out5p0 = COLOR;
+	float n_out5p4 = n_out5p0.a;
+
+
+// Input:9
+	float n_out9p0 = TIME;
+
+
+// FloatOp:10
+	float n_in10p1 = 1.50000;
+	float n_out10p0 = n_out9p0 * n_in10p1;
+
+
+// VectorCompose:8
+	float n_in8p0 = 0.00000;
+	vec2 n_out8p0 = vec2(n_in8p0, n_out10p0);
+
+
+// UVFunc:7
+	vec2 n_in7p1 = vec2(1.00000, 1.00000);
+	vec2 n_out7p0 = n_out8p0 * n_in7p1 + UV;
+
+
+// Texture2D:4
+	vec4 n_out4p0 = texture(tex_frg_4, n_out7p0);
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, vec2(n_out4p0.xy));
+
+
+// Texture2D:11
+	vec4 n_out11p0 = texture(tex_frg_11, UV);
+
+
+// FloatOp:12
+	float n_out12p0 = n_out3p0.x * n_out11p0.x;
+
+
+// FloatOp:6
+	float n_out6p0 = n_out5p4 * n_out12p0;
+
+
+// Output:0
+	ALBEDO = vec3(n_out5p0.xyz);
+	ALPHA = n_out6p0;
+
+
+}
+"
 modes/cull = 2
 flags/unshaded = true
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_cpop3")

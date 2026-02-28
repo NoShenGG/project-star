@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bdydypuhg67jk"]
+[gd_scene load_steps=18 format=3 uid="uid://bdydypuhg67jk"]
 
-[ext_resource type="Script" path="res://scripts/entities/enemies/dinoskeleton.gd" id="1_vw6fa"]
+[ext_resource type="Script" uid="uid://vvrq4bl2oey7" path="res://scripts/entities/enemies/dinoskeleton.gd" id="1_vw6fa"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_8j2wv"]
 [ext_resource type="PackedScene" uid="uid://54ykpkl5wkh3" path="res://scenes/sub/DinoSpitProjectile.tscn" id="2_vpanr"]
 [ext_resource type="Script" uid="uid://cj56h6cxt3f17" path="res://scripts/entities/enemies/states/dinoskeleton/dinoskeleton_idle.gd" id="3_8j2wv"]
@@ -22,10 +22,10 @@ size = Vector3(6.165, 9.61, 9.4)
 height = 1.15
 radius = 3.357
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_03yme"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_45tao"]
 viewport_path = NodePath("SubViewport")
 
-[node name="DinoSkeleton" type="CharacterBody3D" unique_id=1314292794 node_paths=PackedStringArray("spit_source_node") groups=["Enemies"]]
+[node name="DinoSkeleton" type="CharacterBody3D" node_paths=PackedStringArray("spit_source_node") groups=["Enemies"]]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 collision_layer = 10
 collision_mask = 3
@@ -44,98 +44,98 @@ _base_speed = 1.0
 _hp = 25.0
 _max_hp = 25.0
 
-[node name="StateMachine" type="Node" parent="." unique_id=1714766841]
+[node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_8j2wv")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
-[node name="idle" type="Node" parent="StateMachine" unique_id=1040150148]
+[node name="idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_8j2wv")
 metadata/_custom_type_script = "uid://cplhuefak4xe6"
 
-[node name="chase" type="Node" parent="StateMachine" unique_id=1353191101]
+[node name="chase" type="Node" parent="StateMachine"]
 script = ExtResource("4_khv8b")
 
-[node name="WalkSFX" type="FmodEventEmitter3D" parent="StateMachine/chase" unique_id=595873487]
+[node name="WalkSFX" type="FmodEventEmitter3D" parent="StateMachine/chase"]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Footstep"
 event_guid = "{f3bc6994-eb69-4860-8ab1-6a5865c314f2}"
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
-[node name="spit_attack_commit" type="Node" parent="StateMachine" unique_id=2104444311]
+[node name="spit_attack_commit" type="Node" parent="StateMachine"]
 script = ExtResource("5_m0ebu")
 
-[node name="SpitAnimationTimer" type="Timer" parent="StateMachine/spit_attack_commit" unique_id=1263652434]
+[node name="SpitAnimationTimer" type="Timer" parent="StateMachine/spit_attack_commit"]
 
-[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/spit_attack_commit" unique_id=1347316858]
+[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/spit_attack_commit"]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Attack"
 event_guid = "{ede9e9e8-cae4-493a-81a8-8349bc4c9525}"
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
-[node name="fire_attack_prepare" type="Node" parent="StateMachine" unique_id=867714140]
+[node name="fire_attack_prepare" type="Node" parent="StateMachine"]
 script = ExtResource("6_qoxk8")
 
-[node name="FireAnticipationTimer" type="Timer" parent="StateMachine/fire_attack_prepare" unique_id=1076753070]
+[node name="FireAnticipationTimer" type="Timer" parent="StateMachine/fire_attack_prepare"]
 wait_time = 2.0
 
-[node name="fire_attack_commit" type="Node" parent="StateMachine" unique_id=1243697495]
+[node name="fire_attack_commit" type="Node" parent="StateMachine"]
 script = ExtResource("8_y1oru")
 
-[node name="RoarSFX" type="FmodEventEmitter3D" parent="StateMachine/fire_attack_commit" unique_id=954890498]
+[node name="RoarSFX" type="FmodEventEmitter3D" parent="StateMachine/fire_attack_commit"]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Roar"
 event_guid = "{d1bd0ac7-4220-45b1-9253-b6b75fec434f}"
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
-[node name="SpitSource" type="Node3D" parent="." unique_id=2138848776]
+[node name="SpitSource" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.65, -7.6)
 
-[node name="DragoSkele" parent="." unique_id=353612333 instance=ExtResource("9_qoxk8")]
+[node name="DragoSkele" parent="." instance=ExtResource("9_qoxk8")]
 
-[node name="Plane_016" parent="DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_003" parent_id_path=PackedInt32Array(353612333, 1258224230) index="0" unique_id=938370383]
+[node name="Plane_016" parent="DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_003" index="0"]
 material_override = ExtResource("12_y1oru")
 surface_material_override/0 = ExtResource("12_y1oru")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2078861050]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.82, 0)
 shape = SubResource("BoxShape3D_2l4st")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1450249211]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_desired_distance = 10.0
 target_desired_distance = 2.0
 path_max_distance = 100.01
 debug_path_custom_color = Color(0, 1, 0, 1)
 
-[node name="AggroArea" type="Node3D" parent="." unique_id=706485565]
+[node name="AggroArea" type="Node3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
 
-[node name="Area3D" type="Area3D" parent="AggroArea" unique_id=1345877799]
+[node name="Area3D" type="Area3D" parent="AggroArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.845, 0)
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea/Area3D" unique_id=1019673813]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AggroArea/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 11.895866, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_vl86s")
 debug_color = Color(1, 0, 0, 1)
 
-[node name="SpitCooldown" type="Timer" parent="." unique_id=1324958002]
+[node name="SpitCooldown" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
-[node name="DissolveFX" parent="." unique_id=1569578791 node_paths=PackedStringArray("meshes") instance=ExtResource("13_03yme")]
+[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("13_03yme")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
 meshes = [NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_003/Plane_016"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck_001/Plane_015"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Neck/Plane_014"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine_002/Plane_005"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine_020"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Plane_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_008"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_007"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_006"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cylinder"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_012"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_011"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_010"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_009"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_008"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_007"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_006"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_005"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_004"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_003"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_002"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Cube_001"), NodePath("../DragoSkele/Dinosaur Skeleton/Skeleton3D/Spine/Plane_007")]
 
-[node name="FireCooldown" type="Timer" parent="." unique_id=1266963370]
+[node name="FireCooldown" type="Timer" parent="."]
 wait_time = 6.0
 one_shot = true
 
-[node name="StatusBars" parent="." unique_id=941635898 instance=ExtResource("6_vsguo")]
+[node name="StatusBars" parent="." instance=ExtResource("6_vsguo")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 8.55703, 0)
-texture = SubResource("ViewportTexture_03yme")
+texture = SubResource("ViewportTexture_45tao")
 
-[node name="DeathSFX" type="FmodEventEmitter3D" parent="." unique_id=1902034223]
+[node name="DeathSFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
 event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 
-[node name="HitSFX" type="FmodEventEmitter3D" parent="." unique_id=1517076996]
+[node name="HitSFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Hit"
 event_guid = "{25833449-1b73-413e-9b21-c678c12fee73}"
 

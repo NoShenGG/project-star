@@ -1,50 +1,50 @@
-[gd_scene format=3 uid="uid://ck01ccnup06bb"]
+[gd_scene load_steps=24 format=3 uid="uid://ck01ccnup06bb"]
 
-[ext_resource type="Texture2D" uid="uid://5c11ubkkuqjc" path="res://scenes/dev/ZXue/SettingScene/Assets/General/GeneralSettingScene.png" id="1_2uunf"]
+[ext_resource type="Texture2D" uid="uid://c1q710xdlpnp0" path="res://scenes/dev/ZXue/SettingScene/Assets/General/GeneralSettingScene.png" id="1_2uunf"]
 [ext_resource type="Script" uid="uid://ci2p324tsrsjb" path="res://scenes/dev/ZXue/SettingScene/setting_scene.gd" id="1_tgnwa"]
-[ext_resource type="Texture2D" uid="uid://c8uyked1cda1x" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GenericMenu.png" id="2_uxu67"]
-[ext_resource type="Texture2D" uid="uid://dxwru8irnemnn" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/WindowSettingIcon.png" id="3_hax4q"]
-[ext_resource type="Texture2D" uid="uid://dgwnbyp0861ua" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GraphicsSettingIcon.png" id="4_2lid6"]
-[ext_resource type="Texture2D" uid="uid://dl3viapaqfoi3" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/WindowSettingText.png" id="4_18hri"]
-[ext_resource type="Texture2D" uid="uid://bqwoxxb223gf" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GenericMenuSelected.png" id="4_u1f7d"]
-[ext_resource type="Texture2D" uid="uid://85fg01aig1og" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GameplaySettingIcon.png" id="5_18hri"]
-[ext_resource type="Texture2D" uid="uid://d0uqa2q2ei5bp" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/AudioSettingIcon.png" id="6_2lid6"]
-[ext_resource type="Texture2D" uid="uid://dmvynuneadrvi" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GraphicsSettingText.png" id="6_fquxc"]
-[ext_resource type="Texture2D" uid="uid://cqswmekuku270" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GameplaySettingText.png" id="8_ry1th"]
-[ext_resource type="Texture2D" uid="uid://tf15uqsm25ra" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/AudioSettingText.png" id="10_fn1va"]
-[ext_resource type="Texture2D" uid="uid://dawdfgge61voh" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/SettingTopic1.png" id="12_t7jqd"]
+[ext_resource type="Texture2D" uid="uid://bm4pvdhu8mxw8" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GenericMenu.png" id="2_uxu67"]
+[ext_resource type="Texture2D" uid="uid://dv0x6nvc7tr14" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/WindowSettingIcon.png" id="3_hax4q"]
+[ext_resource type="Texture2D" uid="uid://dekhtnc6duqyb" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GraphicsSettingIcon.png" id="4_2lid6"]
+[ext_resource type="Texture2D" uid="uid://bu785lwf2x6cs" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/WindowSettingText.png" id="4_18hri"]
+[ext_resource type="Texture2D" uid="uid://c223wvbfvl8yy" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GenericMenuSelected.png" id="4_u1f7d"]
+[ext_resource type="Texture2D" uid="uid://bs6ccq2ui2wt6" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GameplaySettingIcon.png" id="5_18hri"]
+[ext_resource type="Texture2D" uid="uid://c487i41aku4lw" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/AudioSettingIcon.png" id="6_2lid6"]
+[ext_resource type="Texture2D" uid="uid://bvmtlclovt6wr" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GraphicsSettingText.png" id="6_fquxc"]
+[ext_resource type="Texture2D" uid="uid://dforvmpmi2fpp" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GameplaySettingText.png" id="8_ry1th"]
+[ext_resource type="Texture2D" uid="uid://dbwnhba4c02ea" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/AudioSettingText.png" id="10_fn1va"]
+[ext_resource type="Texture2D" uid="uid://dartot8vj286h" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/SettingTopic1.png" id="12_t7jqd"]
 [ext_resource type="Texture2D" uid="uid://cd1s3dd7whtgk" path="res://scenes/dev/ZXue/SettingScene/Assets/General/return.png" id="13_1o6il"]
 [ext_resource type="Texture2D" uid="uid://bvdkq7a5qtx0v" path="res://scenes/dev/ZXue/SettingScene/Assets/Level_Window/topic.png" id="13_wbd35"]
 [ext_resource type="Texture2D" uid="uid://dntp4jcct5liw" path="res://scenes/dev/ZXue/SettingScene/Assets/General/return_selected.png" id="14_6h68p"]
 [ext_resource type="Texture2D" uid="uid://dt6wde017dub4" path="res://scenes/dev/ZXue/SettingScene/Assets/Level_Graphics/topic.png" id="16_6h68p"]
-[ext_resource type="Script" path="res://scenes/dev/ZXue/SettingScene/window_settings.gd" id="16_epc3r"]
+[ext_resource type="Script" uid="uid://nocjrdv2fm21" path="res://scenes/dev/ZXue/SettingScene/window_settings.gd" id="16_epc3r"]
 [ext_resource type="Texture2D" uid="uid://cyx46jj0ui4vi" path="res://scenes/dev/ZXue/SettingScene/Assets/Level_Gameplay/topic.png" id="17_rpud5"]
 [ext_resource type="Texture2D" uid="uid://djmb4u34fsbar" path="res://scenes/dev/ZXue/SettingScene/Assets/Level_Audio/topic.png" id="18_5jfjw"]
-[ext_resource type="Script" path="res://scenes/dev/ZXue/SettingScene/graphics_settings.gd" id="18_dmd27"]
-[ext_resource type="Script" path="res://scenes/dev/ZXue/SettingScene/gameplay_settings.gd" id="20_j03ew"]
-[ext_resource type="Script" path="res://scenes/dev/ZXue/SettingScene/audio_settings.gd" id="22_6rfyv"]
+[ext_resource type="Script" uid="uid://dp1ra0ifr2lit" path="res://scenes/dev/ZXue/SettingScene/graphics_settings.gd" id="18_dmd27"]
+[ext_resource type="Script" uid="uid://y3c6l82qw7k8" path="res://scenes/dev/ZXue/SettingScene/gameplay_settings.gd" id="20_j03ew"]
+[ext_resource type="Script" uid="uid://b10gncecdyqs7" path="res://scenes/dev/ZXue/SettingScene/audio_settings.gd" id="22_6rfyv"]
 
-[node name="SettingScene" type="Node" unique_id=471912490]
+[node name="SettingScene" type="Node"]
 script = ExtResource("1_tgnwa")
 
-[node name="GeneralBacklay" type="TextureRect" parent="." unique_id=1854766615]
+[node name="GeneralBacklay" type="TextureRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_2uunf")
 
-[node name="Level1Control" type="Control" parent="." unique_id=1549812447]
+[node name="Level1Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Topic" type="TextureRect" parent="Level1Control" unique_id=14968623]
+[node name="Topic" type="TextureRect" parent="Level1Control"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("12_t7jqd")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Level1Control" unique_id=1135294638]
+[node name="HBoxContainer" type="HBoxContainer" parent="Level1Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,75 +60,75 @@ grow_vertical = 2
 theme_override_constants/separation = 39
 alignment = 1
 
-[node name="OP1Button" type="TextureButton" parent="Level1Control/HBoxContainer" unique_id=970517522]
+[node name="OP1Button" type="TextureButton" parent="Level1Control/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_uxu67")
 texture_hover = ExtResource("4_u1f7d")
 
-[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP1Button" unique_id=1594993134]
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP1Button"]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_hax4q")
 
-[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP1Button" unique_id=1073532128]
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP1Button"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("4_18hri")
 
-[node name="OP2Button" type="TextureButton" parent="Level1Control/HBoxContainer" unique_id=315892566]
+[node name="OP2Button" type="TextureButton" parent="Level1Control/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_uxu67")
 texture_hover = ExtResource("4_u1f7d")
 
-[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP2Button" unique_id=2034150282]
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP2Button"]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("4_2lid6")
 
-[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP2Button" unique_id=2041152352]
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP2Button"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("6_fquxc")
 
-[node name="OP3Button" type="TextureButton" parent="Level1Control/HBoxContainer" unique_id=1341863835]
+[node name="OP3Button" type="TextureButton" parent="Level1Control/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_uxu67")
 texture_hover = ExtResource("4_u1f7d")
 
-[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP3Button" unique_id=268930274]
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP3Button"]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("5_18hri")
 
-[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP3Button" unique_id=1931261464]
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP3Button"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("8_ry1th")
 
-[node name="OP4Button" type="TextureButton" parent="Level1Control/HBoxContainer" unique_id=634873252]
+[node name="OP4Button" type="TextureButton" parent="Level1Control/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_uxu67")
 texture_hover = ExtResource("4_u1f7d")
 
-[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP4Button" unique_id=547913671]
+[node name="Icon" type="TextureRect" parent="Level1Control/HBoxContainer/OP4Button"]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("6_2lid6")
 
-[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP4Button" unique_id=1517595762]
+[node name="Text" type="TextureRect" parent="Level1Control/HBoxContainer/OP4Button"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("10_fn1va")
 
-[node name="ReturnButton" type="TextureButton" parent="Level1Control" unique_id=1362273157]
+[node name="ReturnButton" type="TextureButton" parent="Level1Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.85600007
@@ -144,7 +144,7 @@ grow_vertical = 0
 texture_normal = ExtResource("13_1o6il")
 texture_hover = ExtResource("14_6h68p")
 
-[node name="WindowSettings" type="Control" parent="." unique_id=235709573]
+[node name="WindowSettings" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -154,7 +154,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_epc3r")
 
-[node name="TextureRect" type="TextureRect" parent="WindowSettings" unique_id=2065206213]
+[node name="TextureRect" type="TextureRect" parent="WindowSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.23700002
@@ -168,13 +168,13 @@ offset_bottom = 463.432
 grow_horizontal = 0
 texture = ExtResource("3_hax4q")
 
-[node name="Topic" type="TextureRect" parent="WindowSettings" unique_id=1254776204]
+[node name="Topic" type="TextureRect" parent="WindowSettings"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("13_wbd35")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WindowSettings" unique_id=2005749480]
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -189,7 +189,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="WindowedOptionButton" type="OptionButton" parent="WindowSettings/VBoxContainer" unique_id=1771154081]
+[node name="WindowedOptionButton" type="OptionButton" parent="WindowSettings/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 selected = 0
@@ -199,7 +199,7 @@ popup/item_0/id = 0
 popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
 
-[node name="ResolutionOptionButton" type="OptionButton" parent="WindowSettings/VBoxContainer" unique_id=955655065]
+[node name="ResolutionOptionButton" type="OptionButton" parent="WindowSettings/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 selected = 0
@@ -209,11 +209,11 @@ popup/item_0/id = 0
 popup/item_1/text = "1280*720"
 popup/item_1/id = 1
 
-[node name="BrightnessBar" type="HSlider" parent="WindowSettings/VBoxContainer" unique_id=897537489]
+[node name="BrightnessBar" type="HSlider" parent="WindowSettings/VBoxContainer"]
 layout_mode = 2
 value = 50.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="WindowSettings" unique_id=1129414715]
+[node name="VBoxContainer2" type="VBoxContainer" parent="WindowSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -227,22 +227,22 @@ offset_bottom = 155.0
 grow_vertical = 2
 theme_override_constants/separation = 12
 
-[node name="WindowModeLabel" type="Label" parent="WindowSettings/VBoxContainer2" unique_id=1431785240]
+[node name="WindowModeLabel" type="Label" parent="WindowSettings/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Window Mode"
 
-[node name="ResolutionLabel" type="Label" parent="WindowSettings/VBoxContainer2" unique_id=752950247]
+[node name="ResolutionLabel" type="Label" parent="WindowSettings/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Resolution"
 
-[node name="BrightnessLabel" type="Label" parent="WindowSettings/VBoxContainer2" unique_id=2082901000]
+[node name="BrightnessLabel" type="Label" parent="WindowSettings/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Brightness"
 
-[node name="ReturnButton" type="TextureButton" parent="WindowSettings" unique_id=1291953840]
+[node name="ReturnButton" type="TextureButton" parent="WindowSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.85600007
@@ -258,7 +258,7 @@ grow_vertical = 0
 texture_normal = ExtResource("13_1o6il")
 texture_hover = ExtResource("14_6h68p")
 
-[node name="GraphicsSettings" type="Control" parent="." unique_id=1552536816]
+[node name="GraphicsSettings" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -268,7 +268,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("18_dmd27")
 
-[node name="TextureRect" type="TextureRect" parent="GraphicsSettings" unique_id=1919612570]
+[node name="TextureRect" type="TextureRect" parent="GraphicsSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.23700002
@@ -282,13 +282,13 @@ offset_bottom = 463.432
 grow_horizontal = 0
 texture = ExtResource("4_2lid6")
 
-[node name="Topic" type="TextureRect" parent="GraphicsSettings" unique_id=701442228]
+[node name="Topic" type="TextureRect" parent="GraphicsSettings"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("16_6h68p")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GraphicsSettings" unique_id=1476789321]
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphicsSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -303,7 +303,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="FPSLimitButton" type="OptionButton" parent="GraphicsSettings/VBoxContainer" unique_id=518587731]
+[node name="FPSLimitButton" type="OptionButton" parent="GraphicsSettings/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 selected = 0
@@ -313,18 +313,18 @@ popup/item_0/id = 0
 popup/item_1/text = "Yes"
 popup/item_1/id = 1
 
-[node name="FPSLimitSlider" type="HSlider" parent="GraphicsSettings/VBoxContainer" unique_id=1376511328 groups=["FPS Limit"]]
+[node name="FPSLimitSlider" type="HSlider" parent="GraphicsSettings/VBoxContainer" groups=["FPS Limit"]]
 visible = false
 layout_mode = 2
 min_value = 30.0
 max_value = 240.0
 value = 30.0
 
-[node name="FPSLimitManifest" type="Label" parent="GraphicsSettings/VBoxContainer" unique_id=743818889 groups=["FPS Limit"]]
+[node name="FPSLimitManifest" type="Label" parent="GraphicsSettings/VBoxContainer" groups=["FPS Limit"]]
 visible = false
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="GraphicsSettings" unique_id=1314495171]
+[node name="VBoxContainer2" type="VBoxContainer" parent="GraphicsSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -338,18 +338,18 @@ offset_bottom = 155.0
 grow_vertical = 2
 theme_override_constants/separation = 12
 
-[node name="FPSLockLabel" type="Label" parent="GraphicsSettings/VBoxContainer2" unique_id=1521216421]
+[node name="FPSLockLabel" type="Label" parent="GraphicsSettings/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "FPS Lock"
 
-[node name="FPSSliderLabel" type="Label" parent="GraphicsSettings/VBoxContainer2" unique_id=301042361 groups=["FPS Limit"]]
+[node name="FPSSliderLabel" type="Label" parent="GraphicsSettings/VBoxContainer2" groups=["FPS Limit"]]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "FPS Limit"
 
-[node name="ReturnButton" type="TextureButton" parent="GraphicsSettings" unique_id=853427739]
+[node name="ReturnButton" type="TextureButton" parent="GraphicsSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.85600007
@@ -365,7 +365,7 @@ grow_vertical = 0
 texture_normal = ExtResource("13_1o6il")
 texture_hover = ExtResource("14_6h68p")
 
-[node name="GameplaySettings" type="Control" parent="." unique_id=1597664533]
+[node name="GameplaySettings" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -375,7 +375,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("20_j03ew")
 
-[node name="TextureRect" type="TextureRect" parent="GameplaySettings" unique_id=1097382993]
+[node name="TextureRect" type="TextureRect" parent="GameplaySettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.23700002
@@ -389,13 +389,13 @@ offset_bottom = 463.432
 grow_horizontal = 0
 texture = ExtResource("5_18hri")
 
-[node name="Topic" type="TextureRect" parent="GameplaySettings" unique_id=51781846]
+[node name="Topic" type="TextureRect" parent="GameplaySettings"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("17_rpud5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameplaySettings" unique_id=2018533084]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameplaySettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -410,17 +410,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="RookieHatButton" type="CheckBox" parent="GameplaySettings/VBoxContainer" unique_id=530122423]
+[node name="RookieHatButton" type="CheckBox" parent="GameplaySettings/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = " "
 
-[node name="ReverseControlButton" type="CheckBox" parent="GameplaySettings/VBoxContainer" unique_id=908210295]
+[node name="ReverseControlButton" type="CheckBox" parent="GameplaySettings/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = " "
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="GameplaySettings" unique_id=558982311]
+[node name="VBoxContainer2" type="VBoxContainer" parent="GameplaySettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -434,17 +434,17 @@ offset_bottom = 155.0
 grow_vertical = 2
 theme_override_constants/separation = 12
 
-[node name="RookieHatLabel" type="Label" parent="GameplaySettings/VBoxContainer2" unique_id=828633756]
+[node name="RookieHatLabel" type="Label" parent="GameplaySettings/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Rookie Hat (Just a placeholder :) )"
 
-[node name="ReverseControlLabel" type="Label" parent="GameplaySettings/VBoxContainer2" unique_id=1128125540]
+[node name="ReverseControlLabel" type="Label" parent="GameplaySettings/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Reverse Control"
 
-[node name="ReturnButton" type="TextureButton" parent="GameplaySettings" unique_id=58530358]
+[node name="ReturnButton" type="TextureButton" parent="GameplaySettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.85600007
@@ -460,7 +460,7 @@ grow_vertical = 0
 texture_normal = ExtResource("13_1o6il")
 texture_hover = ExtResource("14_6h68p")
 
-[node name="AudioSettings" type="Control" parent="." unique_id=1612344645]
+[node name="AudioSettings" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -470,7 +470,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("22_6rfyv")
 
-[node name="TextureRect" type="TextureRect" parent="AudioSettings" unique_id=201050061]
+[node name="TextureRect" type="TextureRect" parent="AudioSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.23700002
@@ -484,13 +484,13 @@ offset_bottom = 463.432
 grow_horizontal = 0
 texture = ExtResource("6_2lid6")
 
-[node name="Topic" type="TextureRect" parent="AudioSettings" unique_id=539121339]
+[node name="Topic" type="TextureRect" parent="AudioSettings"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("18_5jfjw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AudioSettings" unique_id=2002738606]
+[node name="VBoxContainer" type="VBoxContainer" parent="AudioSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -505,19 +505,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 41
 
-[node name="MasterVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer" unique_id=852513899]
+[node name="MasterVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer"]
 layout_mode = 2
 value = 50.0
 
-[node name="MusicVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer" unique_id=1409788484]
+[node name="MusicVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer"]
 layout_mode = 2
 value = 50.0
 
-[node name="SFXVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer" unique_id=1909823284]
+[node name="SFXVolumeBar" type="HSlider" parent="AudioSettings/VBoxContainer"]
 layout_mode = 2
 value = 50.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="AudioSettings" unique_id=1220627602]
+[node name="VBoxContainer2" type="VBoxContainer" parent="AudioSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.74500006
@@ -531,22 +531,22 @@ offset_bottom = 155.0
 grow_vertical = 2
 theme_override_constants/separation = 12
 
-[node name="MasterVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2" unique_id=2110600960]
+[node name="MasterVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Master Volume"
 
-[node name="MusicVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2" unique_id=834292920]
+[node name="MusicVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Music Volume"
 
-[node name="SFXVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2" unique_id=990908362]
+[node name="SFXVolumeLabel" type="Label" parent="AudioSettings/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "SFX Volume"
 
-[node name="ReturnButton" type="TextureButton" parent="AudioSettings" unique_id=740586911]
+[node name="ReturnButton" type="TextureButton" parent="AudioSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.85600007

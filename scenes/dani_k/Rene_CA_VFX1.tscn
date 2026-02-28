@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bvkaxwwm5i0da"]
+[gd_scene load_steps=36 format=3 uid="uid://bvkaxwwm5i0da"]
 
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="1_t22lq"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_t22lq"]
 [ext_resource type="Shader" uid="uid://uu1u6uc6ajag" path="res://scenes/dani_k/Rene_CA_beamshader.tres" id="2_882mb"]
 [ext_resource type="Curve" uid="uid://1ebfgkl7sdm7" path="res://scenes/dani_k/Rene_CA_speedCurve.tres" id="3_qqpec"]
 [ext_resource type="ArrayMesh" uid="uid://be30yeg54t5bx" path="res://scenes/dani_k/JTAS_ReneVFX_Mesh_beam.obj" id="4_xwwy0"]
@@ -14,18 +14,8 @@
 render_priority = 0
 shader = ExtResource("2_882mb")
 
-[sub_resource type="Curve" id="Curve_31706"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_xjmxi"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ik5b8"]
-curve_x = SubResource("Curve_31706")
 curve_y = ExtResource("3_qqpec")
-curve_z = SubResource("Curve_xjmxi")
 
 [sub_resource type="Curve" id="Curve_218og"]
 _data = [Vector2(0.65, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.9, 0.0, 0, 0]
@@ -74,18 +64,8 @@ color = Color(1.4164544, 1.2674794, 0.8802462, 1)
 render_priority = 0
 shader = ExtResource("7_eu55r")
 
-[sub_resource type="Curve" id="Curve_p4br4"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Curve" id="Curve_ydq0w"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_gejmv"]
-curve_x = SubResource("Curve_p4br4")
 curve_y = ExtResource("3_qqpec")
-curve_z = SubResource("Curve_ydq0w")
 
 [sub_resource type="Curve" id="Curve_ado8y"]
 _data = [Vector2(0, 0.57303375), 0.0, 0.0, 0, 0, Vector2(0.6, 0.562), 0.75911415, 0.75911415, 0, 0, Vector2(1, 0), 0.9, 0.0, 0, 0]
@@ -161,7 +141,7 @@ scale_curve = SubResource("CurveXYZTexture_4flcn")
 color = Color(5.912981, 5.912981, 3.4088943, 0.503)
 alpha_curve = SubResource("CurveTexture_0i6t6")
 
-[node name="AutoStartVFX" type="Node3D" unique_id=1332785880 node_paths=PackedStringArray("particles")]
+[node name="AutoStartVFX" type="Node3D" node_paths=PackedStringArray("particles")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.1525574e-07, 0)
 script = ExtResource("1_t22lq")
 on_stop = 1
@@ -169,7 +149,7 @@ lifetime = 0.1
 particles = [NodePath("OuterBeam"), NodePath("Splash"), NodePath("InnerBeam"), NodePath("smallParticles"), NodePath("OuterBeam"), NodePath("Splash"), NodePath("InnerBeam"), NodePath("smallParticles")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
-[node name="OuterBeam" type="GPUParticles3D" parent="." unique_id=53326167]
+[node name="OuterBeam" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 3.364, 0, 0, 0, 0.4, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_2lhqc")
 cast_shadow = 0
@@ -181,7 +161,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_7hx78")
 draw_pass_1 = ExtResource("4_xwwy0")
 
-[node name="Splash" type="GPUParticles3D" parent="." unique_id=1014904247]
+[node name="Splash" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.35355338, 0, 0.35355338, 0, 0.3, 0, -0.35355338, 0, 0.35355338, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_gejmv")
 emitting = false
@@ -192,7 +172,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_cibnl")
 draw_pass_1 = ExtResource("6_kuajf")
 
-[node name="InnerBeam" type="GPUParticles3D" parent="." unique_id=954262163]
+[node name="InnerBeam" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 3.364, 0, 0, 0, 0.4, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_ado8y")
 emitting = false
@@ -203,7 +183,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_0i6t6")
 draw_pass_1 = ExtResource("4_xwwy0")
 
-[node name="smallParticles" type="GPUParticles3D" parent="." unique_id=2073688142]
+[node name="smallParticles" type="GPUParticles3D" parent="."]
 material_override = SubResource("ShaderMaterial_bw7jq")
 emitting = false
 amount = 35

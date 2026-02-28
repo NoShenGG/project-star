@@ -5,13 +5,10 @@ extends Control
 ## how long the bounce animation will last
 @export var lifetime : float = 1
 var _bounce_call_count : int
-var og_scale : Vector2
-
-func _ready() -> void:
-	og_scale = scale
 
 func bounce():
 	print("bouncing!")
+	var og_scale : Vector2 = scale
 	var time = 0
 	
 	_bounce_call_count += 1

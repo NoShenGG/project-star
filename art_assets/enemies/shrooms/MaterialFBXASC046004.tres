@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://b5km37w8s807i"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b5km37w8s807i"]
 
 [ext_resource type="Texture2D" uid="uid://cx4nhpdcxq4f1" path="res://art_assets/enemies/shrooms/rocket_shroom_0.png" id="1_hucqg"]
 

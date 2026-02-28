@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://cpmbed4mvwiwk"]
+[gd_scene load_steps=3 format=3 uid="uid://cpmbed4mvwiwk"]
 
 [ext_resource type="Material" uid="uid://n4gsimn17mbj" path="res://shaders/Fog/LightBeamMaterial.tres" id="1_8phbk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5ssdn"]
 size = Vector2(20, 35)
 
-[node name="Node3D" type="Node3D" unique_id=1541953829]
+[node name="Node3D" type="Node3D"]
 
-[node name="Node3D2" type="SpotLight3D" parent="." unique_id=1037208363]
+[node name="Node3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.26097628, 0.96534514, 0, -0.96534514, -0.26097628, -1.4400749, 28.644228, -40.880478)
 light_energy = 9.091
 distance_fade_enabled = true
@@ -15,7 +15,7 @@ spot_range = 44.842
 spot_attenuation = 0.2
 spot_angle = 33.13
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2" unique_id=1254127541]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5674891, -2.0115223, -19.043804)
 mesh = SubResource("PlaneMesh_5ssdn")
 surface_material_override/0 = ExtResource("1_8phbk")

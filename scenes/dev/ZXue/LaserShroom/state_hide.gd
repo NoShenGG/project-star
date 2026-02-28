@@ -3,11 +3,11 @@ extends EnemyState
 @export_category("Properties")
 @export var hide_range : float = 25.0
 @export var hidetime : float = 5.0
+@export var speed : float = 7.0
 @export_category("Next States")
 @export var post_hide_state : State
 
 var _running : bool
-var original_speed: float
 
 ## Called on state machine process
 func update(_delta: float) -> void:
@@ -15,6 +15,8 @@ func update(_delta: float) -> void:
 
 ## Called on state machine physics process
 func physics_update(_delta: float) -> void:
+	
+	
 	var distanceToPlayer:float = enemy.global_position.distance_to(enemy.player_ref.global_position)
 	if(distanceToPlayer < hide_range):
 		#calculate the imaginary safe position
@@ -25,8 +27,7 @@ func physics_update(_delta: float) -> void:
 ## Called on state enter. Make sure to emit entered.
 func enter(_prev_state: String, _data := {}) -> void:
 	print("[LaserShroom]Entering state: HIDE")
-	original_speed = enemy.speed
-	enemy._base_speed = enemy.hide_speed
+	enemy._base_speed = speed
 	enemy.switchMesh(0)
 	$HideTimer.start(hidetime)
 	entered.emit()
@@ -39,7 +40,6 @@ func end() -> void:
 	
 ## Called on state exit
 func exit() -> void:
-	enemy._base_speed = original_speed
 	_running = false
 
 #when timer is out lasershroom should recover to approach state.

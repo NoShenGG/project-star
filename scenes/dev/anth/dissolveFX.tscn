@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c3hpdu6n1fa6d"]
+[gd_scene load_steps=7 format=3 uid="uid://c3hpdu6n1fa6d"]
 
 [ext_resource type="Script" uid="uid://cmpxn2vqj7d5r" path="res://scenes/dev/anth/dissolve_controller.gd" id="1_1qgo0"]
 [ext_resource type="Shader" uid="uid://dwo71heopas5i" path="res://scenes/dev/anth/dissolveTest.tres" id="2_2wsou"]
@@ -29,13 +29,13 @@ shader_parameter/Pixelate = 8.0
 shader_parameter/Speed = -1.0
 shader_parameter/NoiseScale = 5.0
 
-[node name="DissolveFX" type="Node3D" unique_id=215178078]
+[node name="DissolveFX" type="Node3D"]
 script = ExtResource("1_1qgo0")
 dissolveColor = Color(0.5924106, 1.1458224, 1.3431084, 1)
 animCurve = SubResource("Curve_mnq68")
 material = SubResource("ShaderMaterial_fkohf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=364017683]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025938928, 0, 0.07640791)
 visible = false
 mesh = SubResource("SphereMesh_ydmgi")

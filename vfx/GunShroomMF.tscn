@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dc8fnedufu358"]
+[gd_scene load_steps=28 format=3 uid="uid://dc8fnedufu358"]
 
 [ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="1_wkigm"]
 
@@ -160,11 +160,11 @@ use_particle_trails = true
 material = SubResource("StandardMaterial3D_lceis")
 radius = 0.025
 
-[node name="GunShroomMuzzleFlash" type="Node3D" unique_id=530600277 node_paths=PackedStringArray("particles")]
+[node name="GunShroomMuzzleFlash" type="Node3D" node_paths=PackedStringArray("particles")]
 script = ExtResource("1_wkigm")
-particles = [NodePath("GPUParticles3D3"), NodePath("GPUParticles3D"), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D")]
+particles = [NodePath(""), NodePath("GPUParticles3D3"), NodePath("GPUParticles3D")]
 
-[node name="GPUParticles3D3" type="GPUParticles3D" parent="." unique_id=921190735]
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 emitting = false
 amount = 16
@@ -177,7 +177,7 @@ trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_x5tqh")
 draw_pass_1 = SubResource("PlaneMesh_id0vw")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1718359322]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 5
 one_shot = true

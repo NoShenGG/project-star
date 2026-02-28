@@ -48,12 +48,5 @@ func start():
 
 func stop():
 	if (!_running): return
+	_entity.grass_displacement_size = _default_grass_size
 	_running = false
-	if (tween and !timer):
-		var tween = _entity.create_tween()
-		tween.set_trans(tween_transition)
-		var end_size : float = _default_grass_size if return_to_default else 0.0
-		tween.tween_property(_entity, "grass_displacement_size", end_size, duration)
-		tween.tween_callback(stop)
-	else:
-		_entity.grass_displacement_size = _default_grass_size

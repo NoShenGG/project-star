@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" format=4 uid="uid://b88u34a3ref8h"]
+[gd_resource type="MeshLibrary" load_steps=36 format=4 uid="uid://b88u34a3ref8h"]
 
 [ext_resource type="Material" uid="uid://bjywo5ra6p13l" path="res://art_assets/environment/level_1/tiles/mountain_grass.tres" id="1_1kcmp"]
 [ext_resource type="Material" uid="uid://et88inwch673" path="res://art_assets/environment/level_1/tiles/mountain_wall.tres" id="2_x2nab"]

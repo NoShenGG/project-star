@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://jxmplun4khxm"]
+[gd_scene load_steps=80 format=3 uid="uid://jxmplun4khxm"]
 
 [ext_resource type="Script" uid="uid://meavewo15aog" path="res://scripts/entities/enemies/enemy.gd" id="1_bfl6e"]
 [ext_resource type="PackedScene" uid="uid://cj1dreixyrara" path="res://art_assets/enemies/kobold/Kobold.glb" id="2_10dep"]
@@ -1203,7 +1203,7 @@ scale_min = 0.79999995
 scale_max = 1.3
 scale_curve = SubResource("CurveTexture_cqf5t")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3cu5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fawd"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -1215,31 +1215,30 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_jbtjh"]
-material = SubResource("StandardMaterial3D_k3cu5")
+material = SubResource("StandardMaterial3D_0fawd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pa7ii"]
 transparency = 1
-shading_mode = 0
 
 [sub_resource type="Curve" id="Curve_ydysj"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_0gpj1"]
+[sub_resource type="CurveTexture" id="CurveTexture_5xf2e"]
 curve = SubResource("Curve_ydysj")
 
 [sub_resource type="Curve" id="Curve_jbtjh"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7659185, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_4u8kd"]
+[sub_resource type="CurveTexture" id="CurveTexture_77gr8"]
 curve = SubResource("Curve_jbtjh")
 
 [sub_resource type="Curve" id="Curve_0fawd"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_m4apj"]
+[sub_resource type="CurveTexture" id="CurveTexture_ydysj"]
 curve = SubResource("Curve_0fawd")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ydysj"]
@@ -1248,14 +1247,14 @@ initial_velocity_min = 6.0
 initial_velocity_max = 10.0
 scale_min = 0.79999995
 scale_max = 1.3
-scale_curve = SubResource("CurveTexture_m4apj")
-alpha_curve = SubResource("CurveTexture_0gpj1")
-emission_curve = SubResource("CurveTexture_4u8kd")
+scale_curve = SubResource("CurveTexture_ydysj")
+alpha_curve = SubResource("CurveTexture_5xf2e")
+emission_curve = SubResource("CurveTexture_77gr8")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_k3cu5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_uisve"]
 viewport_path = NodePath("SubViewport")
 
-[node name="KoboldEnemy" type="CharacterBody3D" unique_id=688179897 groups=["characters"]]
+[node name="KoboldEnemy" type="CharacterBody3D" groups=["characters"]]
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_bfl6e")
@@ -1265,28 +1264,28 @@ _max_hp = 15.0
 grass_displacement_size = 1.6
 metadata/_custom_type_script = "uid://meavewo15aog"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1894086266]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_1ibp7")
 debug_fill = false
 
-[node name="StateMachine" type="Node" parent="." unique_id=888062825 node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("11_uisve")
 initial_state = NodePath("Walk")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
-[node name="Walk" type="Node" parent="StateMachine" unique_id=1514673066 node_paths=PackedStringArray("reached_enemy_state")]
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("reached_enemy_state")]
 script = ExtResource("12_bwcbt")
 attack_distance = 1.5
 reached_enemy_state = NodePath("../Attack")
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=1993304537 node_paths=PackedStringArray("post_wait_state", "player_far_state")]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_far_state")]
 script = ExtResource("13_bfl6e")
 post_wait_state = NodePath("../Attack")
 max_player_distance = 5.0
 player_far_state = NodePath("../Walk")
 
-[node name="Attack" type="Node" parent="StateMachine" unique_id=144123967 node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
 unique_name_in_owner = true
 script = ExtResource("12_sqo6n")
 hitbox = NodePath("../../Hitbox")
@@ -1294,32 +1293,32 @@ finished_state = NodePath("../Idle")
 animation = NodePath("../../Kobold/Slash")
 duration = 1.0
 
-[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/Attack" unique_id=364552889]
+[node name="AttackSFX" type="FmodEventEmitter3D" parent="StateMachine/Attack"]
 event_name = "event:/Enemys/Kobold/Kobold Attack"
 event_guid = "{dfbdbb2a-8d75-45fc-b546-cbbe19d39792}"
 
-[node name="Dead" type="Node" parent="StateMachine" unique_id=695309590 node_paths=PackedStringArray("animation")]
+[node name="Dead" type="Node" parent="StateMachine" node_paths=PackedStringArray("animation")]
 script = ExtResource("15_1ibp7")
 snap_turn_to_player = true
 animation = NodePath("../../Kobold/Die")
 
-[node name="Kobold" parent="." unique_id=581412608 instance=ExtResource("2_10dep")]
+[node name="Kobold" parent="." instance=ExtResource("2_10dep")]
 
-[node name="Armature" parent="Kobold" index="0" unique_id=2094599677]
+[node name="Armature" parent="Kobold" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
-[node name="GeneralSkeleton" parent="Kobold/Armature" index="0" unique_id=1728353589]
+[node name="GeneralSkeleton" parent="Kobold/Armature" index="0"]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-4.7204947e-09, 0.99676955, 0.08031602, 7.535017e-08)
-bones/1/rotation = Quaternion(0.09027854, 0.0034385668, -0.00022268537, 0.9959106)
-bones/2/rotation = Quaternion(0.09320808, -0.0037808025, -0.0002447447, 0.99563944)
-bones/4/rotation = Quaternion(0.2893938, 0.010836718, -0.5636668, 0.77357197)
+bones/0/rotation = Quaternion(-3.9203223e-09, 0.997566, 0.06972993, 7.539605e-08)
+bones/1/rotation = Quaternion(0.100840375, 0.003440738, -0.00018618874, 0.9948967)
+bones/2/rotation = Quaternion(0.10376684, -0.003760014, -0.00021396973, 0.9945945)
+bones/4/rotation = Quaternion(0.3039518, 0.00018947195, -0.563771, 0.7679684)
 bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.043196995, 0.98099875)
 bones/6/rotation = Quaternion(0.054868486, 0.74948096, 0.015322978, 0.6595702)
-bones/7/rotation = Quaternion(0.10320748, -0.00029823536, -0.0007200023, 0.99465954)
-bones/8/rotation = Quaternion(-0.07784638, -0.00035167093, -0.0004935774, 0.9969652)
+bones/7/rotation = Quaternion(0.08955365, -0.00028833046, -0.0007240257, 0.99598175)
+bones/8/rotation = Quaternion(-0.09151483, -0.00035840835, -0.00048870704, 0.99580353)
 bones/9/rotation = Quaternion(-0.09260436, -0.17117505, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.25375476, -0.03194654, 0.54209304, 0.8004519)
+bones/10/rotation = Quaternion(0.21551056, -0.057617545, 0.5399682, 0.81158483)
 bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.0123480745, 0.97225493)
 bones/12/rotation = Quaternion(-5.8199273e-08, -0.751264, -5.181667e-08, 0.66000193)
 bones/13/rotation = Quaternion(0.10849718, -0.08205278, 0.9894506, -0.04983335)
@@ -1331,31 +1330,31 @@ bones/18/rotation = Quaternion(0.59676915, 0.0027265504, 0.0129355155, 0.8023041
 bones/20/rotation = Quaternion(0.13317142, 7.493918e-11, 0.0009177519, 0.9910927)
 bones/21/rotation = Quaternion(0.13793416, -4.2176818e-10, 0.0009505738, 0.99044096)
 
-[node name="Cube" parent="Kobold/Armature/GeneralSkeleton" index="0" unique_id=515638321]
+[node name="Cube" parent="Kobold/Armature/GeneralSkeleton" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_4u8kd")
 surface_material_override/1 = SubResource("ShaderMaterial_m4apj")
 
-[node name="Cube_004" parent="Kobold/Armature/GeneralSkeleton" index="1" unique_id=1253150401]
+[node name="Cube_004" parent="Kobold/Armature/GeneralSkeleton" index="1"]
 surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 
-[node name="Cube_006" parent="Kobold/Armature/GeneralSkeleton" index="2" unique_id=288908053]
+[node name="Cube_006" parent="Kobold/Armature/GeneralSkeleton" index="2"]
 surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 
-[node name="Plane_003" parent="Kobold/Armature/GeneralSkeleton" index="3" unique_id=1228206522]
+[node name="Plane_003" parent="Kobold/Armature/GeneralSkeleton" index="3"]
 surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4" unique_id=1537493509]
-transform = Transform3D(-0.3964033, -0.27470207, 0.8760153, -0.36880958, -0.8261597, -0.4259573, 0.84073955, -0.49193382, 0.22617969, -0.5595738, 0.84363747, -0.1524315)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4"]
+transform = Transform3D(-0.4057123, -0.26433638, 0.87494206, -0.34665906, -0.84124017, -0.41490075, 0.8457095, -0.47163707, 0.24966705, -0.5546711, 0.8359095, -0.16920376)
 bone_name = "Hand.L"
 bone_idx = 6
 
-[node name="SwordBase" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D" unique_id=891136934 instance=ExtResource("3_nnkb1")]
+[node name="SwordBase" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D" instance=ExtResource("3_nnkb1")]
 transform = Transform3D(5.021584e-09, -0.33646473, -1.2557036, -1.3, -5.6824803e-08, 1.0027433e-08, -5.7483835e-08, 1.2557036, -0.33646473, -0.006293071, 0.09777588, 0.023486042)
 
-[node name="Cube_001" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase" index="0" unique_id=670293446]
+[node name="Cube_001" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase" index="0"]
 surface_material_override/0 = SubResource("ShaderMaterial_n7xiu")
 
-[node name="SlashVFX" type="GPUParticles3D" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase" unique_id=377232094]
+[node name="SlashVFX" type="GPUParticles3D" parent="Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -1.3429347e-08, 1, 0, -0.30722767, -4.371139e-08, 3.7252903e-09, 2.0188354e-08, 0.4618557)
 visible = false
@@ -1374,50 +1373,52 @@ snap_to_transform = true
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://bx10tuy8s55pq"
 
-[node name="AnimationPlayer" parent="Kobold" index="1" unique_id=729487273]
-libraries/ = SubResource("AnimationLibrary_booda")
-libraries/KoboldAttackLibrary = ExtResource("3_awt5f")
+[node name="AnimationPlayer" parent="Kobold" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_booda"),
+&"KoboldAttackLibrary": ExtResource("3_awt5f")
+}
 
-[node name="AnimationTree" type="AnimationTree" parent="Kobold" unique_id=1661689861]
+[node name="AnimationTree" type="AnimationTree" parent="Kobold"]
 tree_root = SubResource("AnimationNodeStateMachine_hskl7")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="Idle" type="Node" parent="Kobold" unique_id=1559307664]
+[node name="Idle" type="Node" parent="Kobold"]
 script = ExtResource("10_xgdxt")
 state_name = "Idle"
-animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hskl7"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hskl7"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Move" type="Node" parent="Kobold" unique_id=827311647]
+[node name="Move" type="Node" parent="Kobold"]
 script = ExtResource("10_xgdxt")
 state_name = "Walk Forward"
-animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hskl7"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hskl7"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Slash" type="Node" parent="Kobold" unique_id=310785259]
+[node name="Slash" type="Node" parent="Kobold"]
 script = ExtResource("10_xgdxt")
 state_name = "Slash"
-animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hskl7"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hskl7"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Hurt" type="Node" parent="Kobold" unique_id=1894851245]
+[node name="Hurt" type="Node" parent="Kobold"]
 script = ExtResource("10_xgdxt")
 state_name = "Hurt"
-animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hskl7"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hskl7"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Die" type="Node" parent="Kobold" unique_id=478431907]
+[node name="Die" type="Node" parent="Kobold"]
 script = ExtResource("10_xgdxt")
 state_name = "Death"
-animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hskl7"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_hskl7"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 
-[node name="Grass Change" type="Node" parent="Kobold/Die" unique_id=103147861]
+[node name="Grass Change" type="Node" parent="Kobold/Die"]
 script = ExtResource("15_ydysj")
 return_to_default = false
 delay = 0.5
@@ -1426,35 +1427,35 @@ tween_transition = 1
 timer = true
 duration = 3.0
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=693865641]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="Hurt SFX" type="FmodEventEmitter3D" parent="." unique_id=1353661286]
+[node name="Hurt SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Hit"
 event_guid = "{25833449-1b73-413e-9b21-c678c12fee73}"
 
-[node name="Death SFX" type="FmodEventEmitter3D" parent="." unique_id=418792291]
+[node name="Death SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Enemys/DracoSkele/DracoSkele Die"
 event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 
-[node name="DissolveFX" parent="." unique_id=527486689 node_paths=PackedStringArray("meshes") instance=ExtResource("16_6vm5w")]
+[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("16_6vm5w")]
 meshes = [NodePath("../Kobold/Armature/GeneralSkeleton/Cube"), NodePath("../Kobold/Armature/GeneralSkeleton/Cube_004"), NodePath("../Kobold/Armature/GeneralSkeleton/Cube_006"), NodePath("../Kobold/Armature/GeneralSkeleton/Plane_003"), NodePath("../Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase/Cube_001")]
 
-[node name="Hitbox" type="Area3D" parent="." unique_id=1435984182]
+[node name="Hitbox" type="Area3D" parent="."]
 collision_mask = 2
 monitorable = false
 script = ExtResource("12_xgdxt")
 metadata/_custom_type_script = "uid://c1iptw5vqre6f"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=2143610111]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1.3)
 shape = SubResource("BoxShape3D_sqo6n")
 
-[node name="Death VFX" type="Node3D" parent="." unique_id=1869114871 node_paths=PackedStringArray("particles")]
+[node name="Death VFX" type="Node3D" parent="." node_paths=PackedStringArray("particles")]
 script = ExtResource("19_hskl7")
 particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Death VFX" unique_id=1186561081]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Death VFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
 emitting = false
 amount = 17
@@ -1464,18 +1465,18 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_0fawd")
 draw_pass_1 = SubResource("QuadMesh_jbtjh")
 
-[node name="Hurt" type="Node3D" parent="." unique_id=1077162023 node_paths=PackedStringArray("vfx", "meshes_root")]
+[node name="Hurt" type="Node3D" parent="." node_paths=PackedStringArray("vfx", "meshes_root")]
 script = ExtResource("18_pa7ii")
 vfx = NodePath("Hurt VFX")
 meshes_root = NodePath("../Kobold")
 hurt_overlay = SubResource("StandardMaterial3D_pa7ii")
 
-[node name="Hurt VFX" type="Node3D" parent="Hurt" unique_id=834447818 node_paths=PackedStringArray("particles")]
+[node name="Hurt VFX" type="Node3D" parent="Hurt" node_paths=PackedStringArray("particles")]
 script = ExtResource("19_hskl7")
 particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
 metadata/_custom_type_script = "uid://hrugoc51xhma"
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX" unique_id=1016230507]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
 emitting = false
 lifetime = 0.5
@@ -1484,12 +1485,12 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ydysj")
 draw_pass_1 = SubResource("QuadMesh_jbtjh")
 
-[node name="Status Bar" type="Node3D" parent="." unique_id=1461350747]
+[node name="Status Bar" type="Node3D" parent="."]
 script = ExtResource("20_cqf5t")
 
-[node name="StatusBars" parent="Status Bar" unique_id=1781642703 instance=ExtResource("10_lq1ky")]
+[node name="StatusBars" parent="Status Bar" instance=ExtResource("10_lq1ky")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 4.336514, 0)
-texture = SubResource("ViewportTexture_k3cu5")
+texture = SubResource("ViewportTexture_uisve")
 
 [connection signal="break_update" from="." to="Status Bar/StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="Status Bar/StatusBars" method="update_health"]

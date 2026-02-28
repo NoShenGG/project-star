@@ -1,4 +1,4 @@
-[gd_resource type="BoneMap" format=3 uid="uid://dm4nn4gi7noub"]
+[gd_resource type="BoneMap" load_steps=2 format=3 uid="uid://dm4nn4gi7noub"]
 
 [ext_resource type="SkeletonProfile" uid="uid://c73ee2wittajb" path="res://art_assets/enemies/kobold/KoboldSkeletonProfile.tres" id="1_5ofmp"]
 

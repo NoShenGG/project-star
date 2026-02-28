@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://celvhgttbuade"]
+[gd_scene load_steps=21 format=3 uid="uid://celvhgttbuade"]
 
 [ext_resource type="Script" uid="uid://b3r7iadvf8jmk" path="res://scripts/entities/enemies/mossypede/Mossypede.gd" id="1_wqp5f"]
 [ext_resource type="Script" uid="uid://dcfoaiv83pvo4" path="res://scripts/utility/states/state_machine.gd" id="2_kejld"]
@@ -16,7 +16,7 @@ radius = 0.25
 [sub_resource type="BoxShape3D" id="BoxShape3D_l26uf"]
 size = Vector3(1.435, 1, 1.72)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2xbfi"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_g0rg0"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2xbfi"]
@@ -57,7 +57,7 @@ states/walk/position = Vector2(372, 110)
 transitions = ["end_roll", "walk", SubResource("AnimationNodeStateMachineTransition_8wr4x"), "start_roll", "rolling", SubResource("AnimationNodeStateMachineTransition_1e61x")]
 graph_offset = Vector2(142.71394, -2.0384636)
 
-[node name="Mossypede" type="CharacterBody3D" unique_id=1040683952]
+[node name="Mossypede" type="CharacterBody3D"]
 collision_layer = 10
 collision_mask = 3
 script = ExtResource("1_wqp5f")
@@ -66,45 +66,45 @@ hit_dmg = 0.5
 attack_radius = 2.0
 _base_speed = 10.0
 
-[node name="StateMachine" type="Node" parent="." unique_id=814444490 node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_kejld")
 initial_state = NodePath("Cooldown")
 metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 
-[node name="Cooldown" type="Node" parent="StateMachine" unique_id=1187835387 node_paths=PackedStringArray("post_wait_state", "player_far_state")]
+[node name="Cooldown" type="Node" parent="StateMachine" node_paths=PackedStringArray("post_wait_state", "player_far_state")]
 script = ExtResource("3_vv04i")
 wait_time = 2.0
 post_wait_state = NodePath("../Attacking")
 max_player_distance = 16.0
 player_far_state = NodePath("../WaitForPlayer")
 
-[node name="WaitForPlayer" type="Node" parent="StateMachine" unique_id=2144065659 node_paths=PackedStringArray("player_close_state")]
+[node name="WaitForPlayer" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_close_state")]
 script = ExtResource("3_vv04i")
 rotate_to_player = false
 max_player_distance = 15.0
 player_close_state = NodePath("../Cooldown")
 
-[node name="Attacking" type="Node" parent="StateMachine" unique_id=1901971670 node_paths=PackedStringArray("reached_state")]
+[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("reached_state")]
 script = ExtResource("4_vv04i")
 reached_state = NodePath("../Cooldown")
 
-[node name="RollingSFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking" unique_id=1215464848]
+[node name="RollingSFX" type="FmodEventEmitter3D" parent="StateMachine/Attacking"]
 event_name = "event:/Enemys/RollyPolly/RollyPolly Roll"
 event_guid = "{8b99d305-3830-47f0-b782-ff00bbd394da}"
 
-[node name="Dead" type="Node" parent="StateMachine" unique_id=1487674572]
+[node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("4_35qt8")
 
-[node name="Cast" type="ShapeCast3D" parent="." unique_id=796131452]
+[node name="Cast" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 shape = SubResource("SphereShape3D_vv04i")
 target_position = Vector3(0, 0, -10)
 collide_with_areas = true
 
-[node name="mossypede" parent="." unique_id=2071207216 instance=ExtResource("2_sxa4w")]
+[node name="mossypede" parent="." instance=ExtResource("2_sxa4w")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 
-[node name="Skeleton3D" parent="mossypede" index="0" unique_id=884959604]
+[node name="Skeleton3D" parent="mossypede" index="0"]
 bones/2/rotation = Quaternion(-0.008669642, 0.70705366, -0.008669642, 0.7070536)
 bones/3/position = Vector3(0.004338014, 0, 0)
 bones/3/rotation = Quaternion(0.00037973217, 0.017682701, -0.021466475, 0.99961317)
@@ -127,62 +127,62 @@ bones/14/rotation = Quaternion(0.0019819331, -0.039664958, -0.049865223, 0.99796
 bones/15/position = Vector3(0.0039887396, 0, 0)
 bones/15/rotation = Quaternion(0.0007011907, 0.04123781, -0.016986664, 0.9990048)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=932990000]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_l26uf")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1790809301]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_path_custom_color = Color(0, 1, 0, 1)
 
-[node name="StatusBars" parent="." unique_id=230721279 instance=ExtResource("2_qufj0")]
+[node name="StatusBars" parent="." instance=ExtResource("2_qufj0")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.035, 0)
-texture = SubResource("ViewportTexture_2xbfi")
+texture = SubResource("ViewportTexture_g0rg0")
 
-[node name="DissolveFX" parent="." unique_id=1444122639 node_paths=PackedStringArray("meshes") instance=ExtResource("8_2xbfi")]
+[node name="DissolveFX" parent="." node_paths=PackedStringArray("meshes") instance=ExtResource("8_2xbfi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 dissolveDuration = 1.0
 meshes = [NodePath("../mossypede/Skeleton3D/model_Back"), NodePath("../mossypede/Skeleton3D/model_Body")]
 
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=981870473]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../mossypede")
 tree_root = SubResource("AnimationNodeStateMachine_kejld")
 anim_player = NodePath("../mossypede/AnimationPlayer")
 
-[node name="idle" type="Node" parent="AnimationTree" unique_id=156636396]
+[node name="idle" type="Node" parent="AnimationTree"]
 script = ExtResource("8_35qt8")
 state_name = "idle"
-animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
 
 
-[node name="walk" type="Node" parent="AnimationTree" unique_id=192471825]
+[node name="walk" type="Node" parent="AnimationTree"]
 script = ExtResource("8_35qt8")
 state_name = "walk"
-animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
 
 
-[node name="WalkSFX" type="FmodEventEmitter3D" parent="AnimationTree/walk" unique_id=2099378401]
+[node name="WalkSFX" type="FmodEventEmitter3D" parent="AnimationTree/walk"]
 event_name = "event:/Enemys/RollyPolly/RollyPolly Crawl"
 event_guid = "{59579045-d71f-4fed-bd9d-bc55d6b799f7}"
 
-[node name="start_roll" type="Node" parent="AnimationTree" unique_id=308604984]
+[node name="start_roll" type="Node" parent="AnimationTree"]
 script = ExtResource("8_35qt8")
 state_name = "start_roll"
-animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
 
 
-[node name="roll" type="Node" parent="AnimationTree" unique_id=1240589243]
+[node name="roll" type="Node" parent="AnimationTree"]
 script = ExtResource("8_35qt8")
 state_name = "rolling"
-animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
 
 
-[node name="end_roll" type="Node" parent="AnimationTree" unique_id=1710289086]
+[node name="end_roll" type="Node" parent="AnimationTree"]
 script = ExtResource("8_35qt8")
 state_name = "end_roll"
-animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
+animation_tree = Object(AnimationTree,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath("../mossypede"),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_kejld"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../mossypede/AnimationPlayer"),"script":null)
 
 
-[node name="HurtSFX" type="FmodEventEmitter3D" parent="." unique_id=388266820]
+[node name="HurtSFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Enemys/RollyPolly/RollyPolly hurt"
 event_guid = "{b2e2dc76-1032-46f7-bd6e-bad6813cc497}"
 

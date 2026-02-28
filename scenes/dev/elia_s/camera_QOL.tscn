@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ds85ycos0dnwo"]
+[gd_scene load_steps=14 format=3 uid="uid://ds85ycos0dnwo"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_srenp"]
 [ext_resource type="Script" uid="uid://727asywd4f55" path="res://scripts/entities/player/debug_player.gd" id="2_ls5hk"]
@@ -26,69 +26,72 @@ albedo_color = Color(0, 1, 1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3r3p"]
 albedo_color = Color(1, 0, 1, 1)
 
-[node name="Prototype" type="Node3D" unique_id=1739633292]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vows3"]
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=1850140128]
+[node name="Prototype" type="Node3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=189492250]
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1776762387]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("BoxMesh_1m1m0")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=832474928]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)
 
-[node name="PlayerManager" type="Node3D" parent="." unique_id=800717759]
+[node name="PlayerManager" type="Node3D" parent="."]
 script = ExtResource("1_srenp")
 
-[node name="Player" type="CharacterBody3D" parent="PlayerManager" unique_id=201653595]
+[node name="Player" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 top_level = true
 script = ExtResource("2_ls5hk")
 _movement_speed = 14.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player" unique_id=201646274]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player" unique_id=381502657]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("ShaderMaterial_05f11")
 
-[node name="Player2" type="CharacterBody3D" parent="PlayerManager" unique_id=1973939426]
+[node name="Player2" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 top_level = true
 script = ExtResource("2_ls5hk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2" unique_id=372904876]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2" unique_id=1452162977]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_8jnod")
 
-[node name="Player3" type="CharacterBody3D" parent="PlayerManager" unique_id=1382443648]
+[node name="Player3" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 top_level = true
 script = ExtResource("2_ls5hk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3" unique_id=2024606906]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3" unique_id=1100835881]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_s3r3p")
 
-[node name="CameraTarget" type="Node3D" parent="." unique_id=753765099]
+[node name="CameraTarget" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3226013, 0)
 top_level = true
 script = ExtResource("4_kctyc")
 metadata/_custom_type_script = "uid://br0axf7abuchp"
 
-[node name="CameraPivot" type="Node3D" parent="CameraTarget" unique_id=2118620933]
+[node name="CameraPivot" type="Node3D" parent="CameraTarget"]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0, 0)
 script = ExtResource("5_iy8fa")
+noise = SubResource("FastNoiseLite_vows3")
 metadata/_custom_type_script = "uid://djfekv55fum3x"
 
-[node name="Camera3D" type="Camera3D" parent="CameraTarget/CameraPivot" unique_id=1709883755]
+[node name="Camera3D" type="Camera3D" parent="CameraTarget/CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)

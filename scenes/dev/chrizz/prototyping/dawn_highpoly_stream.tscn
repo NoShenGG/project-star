@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bdvaavhiddrt0"]
+[gd_scene load_steps=4 format=3 uid="uid://bdvaavhiddrt0"]
 
 [ext_resource type="PackedScene" uid="uid://ba6r1sb6c56ma" path="res://scenes/dev/chrizz/prototyping/waves.fbx" id="1_pmf51"]
 [ext_resource type="Shader" uid="uid://bj0houc6tnfxa" path="res://scenes/dev/chrizz/prototyping/dawnstream.tres" id="2_uopyr"]
@@ -7,7 +7,7 @@
 render_priority = 0
 shader = ExtResource("2_uopyr")
 
-[node name="waves" unique_id=899626411 instance=ExtResource("1_pmf51")]
+[node name="waves" instance=ExtResource("1_pmf51")]
 
-[node name="BezierCurve_004" parent="." index="0" unique_id=261041073]
+[node name="BezierCurve_004" parent="." index="0"]
 material_override = SubResource("ShaderMaterial_l6fa4")

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://crpmhw6uqsw8b"]
+[gd_scene load_steps=8 format=3 uid="uid://crpmhw6uqsw8b"]
 
 [ext_resource type="Script" uid="uid://inipqrdna6cg" path="res://scenes/dev/sricharan_a/scripts/playerButTheyCanLeftClick.gd" id="1_r5ynn"]
 [ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="2_r5ynn"]
@@ -15,28 +15,28 @@ shader = ExtResource("2_r5ynn")
 [sub_resource type="ViewportTexture" id="ViewportTexture_b1rjn"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Enemy" type="CharacterBody3D" unique_id=571191438]
+[node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_r5ynn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=42697199]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1020014379]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("ShaderMaterial_05f11")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1532560531]
+[node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51435, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_b1rjn")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=54266586]
+[node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
 transparent_bg = true
 
-[node name="StunMeter" parent="SubViewport" unique_id=1818336709 instance=ExtResource("3_r5ynn")]
+[node name="StunMeter" parent="SubViewport" instance=ExtResource("3_r5ynn")]
 
-[node name="StunTimer" type="Timer" parent="." unique_id=795016543]
+[node name="StunTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]

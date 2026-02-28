@@ -1,4 +1,5 @@
-[gd_scene format=3 uid="uid://brbcjtd5exjx1"]
+
+[gd_scene load_steps=76 format=3 uid="uid://brbcjtd5exjx1"]
 
 [ext_resource type="Texture2D" uid="uid://cmyxdu36ksne7" path="res://scenes/dev/chrizz/prototyping/dirty-flat-stonework_albedo.png" id="1_dvq0k"]
 [ext_resource type="Texture2D" uid="uid://ceuuk6c873lb2" path="res://scenes/dev/chrizz/prototyping/dirty-flat-stonework_ao.png" id="2_7hj2w"]
@@ -14,7 +15,7 @@
 [ext_resource type="Script" uid="uid://bu4eh5nf0nj1j" path="res://addons/shaderV/tools/transformCoordinates/cartesianToPolar.gd" id="13_gm6e8"]
 [ext_resource type="PackedScene" uid="uid://d1h7wbn4on4cj" path="res://scenes/dev/chrizz/prototyping/Final Effects/dawn_single_projectile.tscn" id="14_h84bc"]
 [ext_resource type="PackedScene" uid="uid://c4numrguhjb63" path="res://scenes/dev/chrizz/prototyping/Final Effects/dawn_charge_vfx.tscn" id="14_xmoco"]
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="15_cg3pb"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="15_cg3pb"]
 [ext_resource type="ArrayMesh" uid="uid://c8m6cejgd3b32" path="res://scenes/dev/chrizz/prototyping/staff.obj" id="15_h84bc"]
 [ext_resource type="Shader" uid="uid://mvtw1fwnpewq" path="res://scenes/dev/chrizz/prototyping/musicstaff.tres" id="16_xmoco"]
 [ext_resource type="PackedScene" uid="uid://g6y2tu7g3vmy" path="res://scenes/dev/chrizz/prototyping/Final Effects/dawn_fish.tscn" id="18_xmoco"]
@@ -230,6 +231,134 @@ op_type = 1
 constant = Color(1, 0.3330468, 0.64088196, 1)
 
 [sub_resource type="VisualShader" id="VisualShader_djn2r"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_disabled, unshaded;
+
+uniform vec4 ColorParameter : source_color = vec4(0.000008, 0.667188, 0.899800, 1.000000);
+uniform sampler2D tex_frg_35;
+
+
+// CartesianToPolar
+#include \"res://addons/shaderV/tools/transformCoordinates/cartesianToPolar.gdshaderinc\"
+// TwirlUV
+#include \"res://addons/shaderV/uv/twirl.gdshaderinc\"
+
+void fragment() {
+// ColorConstant:5
+	vec4 n_out5p0 = vec4(0.051628, 0.000000, 0.407949, 1.000000);
+
+
+// ColorParameter:2
+	vec4 n_out2p0 = ColorParameter;
+
+
+// Input:7
+	vec2 n_out7p0 = UV;
+
+
+// MultiplyAdd:8
+	vec2 n_in8p1 = vec2(1.00000, 1.00000);
+	vec2 n_in8p2 = vec2(-0.50000, -0.50000);
+	vec2 n_out8p0 = fma(n_out7p0, n_in8p1, n_in8p2);
+
+
+	vec3 n_out6p0;
+// CartesianToPolar:6
+	{
+		n_out6p0 = vec3(_cartesianToPolarFunc(vec3(n_out8p0, 0.0).xy), vec3(n_out8p0, 0.0).z);
+	}
+
+
+// Input:11
+	float n_out11p0 = TIME;
+
+
+// VectorOp:23
+	vec2 n_in23p1 = vec2(0.30000, 0.00000);
+	vec2 n_out23p0 = vec2(n_out11p0) * n_in23p1;
+
+
+// VectorOp:10
+	vec2 n_out10p0 = vec2(n_out6p0.xy) + n_out23p0;
+
+
+// MultiplyAdd:13
+	vec2 n_in13p1 = vec2(0.80000, 0.20000);
+	vec2 n_in13p2 = vec2(0.00000, 0.00000);
+	vec2 n_out13p0 = fma(n_out10p0, n_in13p1, n_in13p2);
+
+
+	vec3 n_out22p0;
+// TwirlUV:22
+	float n_in22p1 = 0.00100;
+	vec3 n_in22p2 = vec3(0.50000, 0.50000, 0.00000);
+	{
+		n_out22p0 = _twirlUVFunc(vec3(n_out13p0, 0.0).xy, n_in22p2.xy, n_in22p1);
+	}
+
+
+// Texture2D:35
+	vec4 n_out35p0 = texture(tex_frg_35, vec2(n_out22p0.xy));
+
+
+// FloatOp:34
+	float n_in34p1 = 1.00000;
+	float n_out34p0 = pow(n_out35p0.x, n_in34p1);
+
+
+// Mix:4
+	vec4 n_out4p0 = mix(n_out5p0, n_out2p0, vec4(n_out34p0));
+
+
+// Input:14
+	vec2 n_out14p0 = UV;
+
+
+// MultiplyAdd:17
+	vec2 n_in17p1 = vec2(1.00000, 1.00000);
+	vec2 n_in17p2 = vec2(-0.50000, -0.50000);
+	vec2 n_out17p0 = fma(n_out14p0, n_in17p1, n_in17p2);
+
+
+// VectorLen:15
+	float n_out15p0 = length(n_out17p0);
+
+
+// FloatFunc:42
+	float n_out42p0 = 1.0 - n_out15p0;
+
+
+// FloatFunc:43
+	float n_out43p0 = min(max(n_out42p0, 0.0), 1.0);
+
+
+// FloatOp:44
+	float n_in44p1 = 7.00000;
+	float n_out44p0 = pow(n_out43p0, n_in44p1);
+
+
+// Input:45
+	vec4 n_out45p0 = COLOR;
+
+
+// VectorDecompose:46
+	float n_out46p0 = n_out45p0.x;
+	float n_out46p1 = n_out45p0.y;
+	float n_out46p2 = n_out45p0.z;
+	float n_out46p3 = n_out45p0.w;
+
+
+// FloatOp:47
+	float n_out47p0 = n_out44p0 * n_out46p3;
+
+
+// Output:0
+	ALBEDO = vec3(n_out4p0.xyz);
+	ALPHA = n_out47p0;
+
+
+}
+"
 modes/cull = 2
 modes/specular = 2
 flags/unshaded = true
@@ -327,30 +456,30 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("6_utv2o")
 
-[node name="Prototype" type="Node3D" unique_id=690715341]
+[node name="Prototype" type="Node3D"]
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=1006484926]
+[node name="Ground" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1557076845]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 visible = false
 shape = SubResource("BoxShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1413143864]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 material_override = SubResource("StandardMaterial3D_8j6ge")
 mesh = SubResource("BoxMesh_1m1m0")
 
-[node name="Marker3D" type="Marker3D" parent="." unique_id=1358226942]
+[node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.770402, -0.637558, 0, 0.637558, 0.770402, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=93470352]
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
 transform = Transform3D(0.66478705, -0.47627696, 0.57551587, -0.47627714, 0.32329676, 0.8177041, -0.5755161, -0.817704, -0.011916399, 16.498007, 16.190092, 0.56352186)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2106320452]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)
 light_color = Color(0.5985807, 0.6926415, 0.606171, 1)
 light_energy = 0.088
 
-[node name="DawnSlowWaveFX" type="Node3D" parent="." unique_id=1606060171 node_paths=PackedStringArray("light", "particles")]
+[node name="DawnSlowWaveFX" type="Node3D" parent="." node_paths=PackedStringArray("light", "particles")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2651176, 0)
 visible = false
 script = ExtResource("15_cg3pb")
@@ -358,7 +487,7 @@ lifetime = 2.0
 light = NodePath("OmniLight3D")
 particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX"), NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
 
-[node name="MusicNotes" type="GPUParticles3D" parent="DawnSlowWaveFX" unique_id=1088805471]
+[node name="MusicNotes" type="GPUParticles3D" parent="DawnSlowWaveFX"]
 material_override = SubResource("StandardMaterial3D_45ydp")
 emitting = false
 amount = 16
@@ -366,7 +495,7 @@ lifetime = 0.7
 process_material = SubResource("ParticleProcessMaterial_v7g43")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="StaffRing" type="GPUParticles3D" parent="DawnSlowWaveFX" unique_id=1655624022]
+[node name="StaffRing" type="GPUParticles3D" parent="DawnSlowWaveFX"]
 material_override = SubResource("ShaderMaterial_7wd4a")
 emitting = false
 amount = 1
@@ -374,7 +503,7 @@ lifetime = 1.49
 process_material = SubResource("ParticleProcessMaterial_ag0r6")
 draw_pass_1 = ExtResource("15_h84bc")
 
-[node name="StreamCaustics" type="GPUParticles3D" parent="DawnSlowWaveFX" unique_id=1449120229]
+[node name="StreamCaustics" type="GPUParticles3D" parent="DawnSlowWaveFX"]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -0.107, 0, 1.657)
 material_override = SubResource("ShaderMaterial_v7g43")
 emitting = false
@@ -383,7 +512,7 @@ one_shot = true
 process_material = SubResource("ParticleProcessMaterial_ag0r6")
 draw_pass_1 = ExtResource("12_3f055")
 
-[node name="FloorCaustics" type="GPUParticles3D" parent="DawnSlowWaveFX" unique_id=202713133]
+[node name="FloorCaustics" type="GPUParticles3D" parent="DawnSlowWaveFX"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -1.109957, 0)
 material_override = SubResource("ShaderMaterial_0mmn4")
 amount = 2
@@ -392,7 +521,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_h84bc")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="AuraCaustics" type="GPUParticles3D" parent="DawnSlowWaveFX" unique_id=988274388]
+[node name="AuraCaustics" type="GPUParticles3D" parent="DawnSlowWaveFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107, 0, -0.439)
 material_override = SubResource("ShaderMaterial_eb3x3")
 emitting = false
@@ -402,7 +531,7 @@ one_shot = true
 process_material = SubResource("ParticleProcessMaterial_ag0r6")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="ChargeVFX" type="GPUParticles3D" parent="DawnSlowWaveFX" unique_id=1309250523]
+[node name="ChargeVFX" type="GPUParticles3D" parent="DawnSlowWaveFX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107, 0, -0.439)
 material_override = SubResource("ShaderMaterial_ehjd0")
 emitting = false
@@ -411,7 +540,7 @@ one_shot = true
 process_material = SubResource("ParticleProcessMaterial_ag0r6")
 draw_pass_1 = SubResource("QuadMesh_dvq0k")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="DawnSlowWaveFX" unique_id=872546683]
+[node name="OmniLight3D" type="OmniLight3D" parent="DawnSlowWaveFX"]
 light_color = Color(0.44584835, 0.7245143, 0.8957288, 1)
 light_energy = 3.84
 light_indirect_energy = 5.974
@@ -419,15 +548,15 @@ light_volumetric_fog_energy = 4.731
 light_specular = 0.666
 omni_range = 14.686
 
-[node name="DawnChargeVFX" parent="." unique_id=1940686964 node_paths=PackedStringArray("particles") instance=ExtResource("14_xmoco")]
+[node name="DawnChargeVFX" parent="." node_paths=PackedStringArray("particles") instance=ExtResource("14_xmoco")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.602483, -3.643968)
 particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX"), NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
 
-[node name="BasicProjectileFX" parent="." unique_id=1704034922 instance=ExtResource("14_h84bc")]
+[node name="BasicProjectileFX" parent="." instance=ExtResource("14_h84bc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.842362, -6.431506)
 visible = false
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=462497138]
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.723076, 0)
 light_color = Color(0.44584835, 0.7245143, 0.8957288, 1)
 light_energy = 3.84
@@ -436,7 +565,7 @@ light_volumetric_fog_energy = 4.731
 light_specular = 0.666
 omni_range = 14.686
 
-[node name="DawnFish" parent="." unique_id=115175057 instance=ExtResource("18_xmoco")]
+[node name="DawnFish" parent="." instance=ExtResource("18_xmoco")]
 
-[node name="Dawn" parent="." unique_id=1149285664 instance=ExtResource("19_v7g43")]
+[node name="Dawn" parent="." instance=ExtResource("19_v7g43")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7962496, 0)

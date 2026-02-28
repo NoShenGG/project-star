@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bsc42v81y6tc3"]
+[gd_scene load_steps=14 format=3 uid="uid://bsc42v81y6tc3"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_c3gbp"]
 [ext_resource type="Script" uid="uid://cs72ukacrgd4g" path="res://scripts/utility/wave_manager.gd" id="2_e85ix"]
@@ -46,168 +46,168 @@ adjustment_saturation = 0.9
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e85ix"]
 
-[node name="Level2" type="Node3D" unique_id=2087154032]
+[node name="Level2" type="Node3D"]
 
-[node name="PlayerManager" parent="." unique_id=1745201303 instance=ExtResource("1_c3gbp")]
+[node name="PlayerManager" parent="." instance=ExtResource("1_c3gbp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 3.947483)
 stage = 0
 
-[node name="LevelEnder" parent="." unique_id=2142877169 instance=ExtResource("6_3wmx4")]
+[node name="LevelEnder" parent="." instance=ExtResource("6_3wmx4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.776691, 2.08103, -49.769444)
 next_level = "MainGame/Biome 1/Biome1_Level3"
 
-[node name="WaveManager" type="Node3D" parent="." unique_id=1355957516]
+[node name="WaveManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
 script = ExtResource("2_e85ix")
 metadata/_custom_type_script = "uid://cs72ukacrgd4g"
 
-[node name="Wave1" type="Node3D" parent="WaveManager" unique_id=36207889 node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave1" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("3_igsq4")
 enemies = Array[PackedScene]([ExtResource("6_e85ix"), ExtResource("6_e85ix")])
 spawn_areas = [NodePath("../SpawnArea3")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="Wave2" type="Node3D" parent="WaveManager" unique_id=1487635325 node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave2" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("3_igsq4")
 enemies = Array[PackedScene]([ExtResource("4_e85ix"), ExtResource("4_e85ix"), ExtResource("4_e85ix")])
 spawn_areas = [NodePath("../SpawnArea3"), NodePath("../SpawnArea2")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="Wave3" type="Node3D" parent="WaveManager" unique_id=1866663868 node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave3" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("3_igsq4")
 enemies = Array[PackedScene]([ExtResource("4_e85ix"), ExtResource("6_e85ix"), ExtResource("6_e85ix"), ExtResource("4_e85ix")])
 spawn_areas = [NodePath("../SpawnArea1"), NodePath("../SpawnArea3"), NodePath("../SpawnArea2")]
 metadata/_custom_type_script = "uid://dr7x5nckg7bcr"
 
-[node name="Wave_Starter" type="Area3D" parent="WaveManager" unique_id=1716920919]
+[node name="Wave_Starter" type="Area3D" parent="WaveManager"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -23.284367, 0, 42.94423)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter" unique_id=1125305176]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave_Starter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5015373, -1.4844837, 0, 16.595528)
 shape = SubResource("BoxShape3D_c3gbp")
 debug_color = Color(0, 7.095753, 8.250874, 1)
 
-[node name="SpawnArea1" parent="WaveManager" unique_id=699366656 instance=ExtResource("5_igsq4")]
+[node name="SpawnArea1" parent="WaveManager" instance=ExtResource("5_igsq4")]
 transform = Transform3D(6.9954877, 0, 0, 0, 1, 0, 0, 0, 6.973015, -12.74322, -1.9073486e-06, 23.589195)
 
-[node name="SpawnArea2" parent="WaveManager" unique_id=1806488353 instance=ExtResource("5_igsq4")]
+[node name="SpawnArea2" parent="WaveManager" instance=ExtResource("5_igsq4")]
 transform = Transform3D(6.9954877, 0, 0, 0, 1, 0, 0, 0, 6.973015, -25.710854, -1.9073486e-06, 25.900215)
 
-[node name="SpawnArea3" parent="WaveManager" unique_id=1786698344 instance=ExtResource("5_igsq4")]
+[node name="SpawnArea3" parent="WaveManager" instance=ExtResource("5_igsq4")]
 transform = Transform3D(6.9954877, 0, 0, 0, 1, 0, 0, 0, 6.973015, -12.211233, -1.9073486e-06, 35.15052)
 
-[node name="Navmesh" type="NavigationRegion3D" parent="." unique_id=1251427664]
+[node name="Navmesh" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_e85ix")
 
-[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="Navmesh" unique_id=292836977]
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="Navmesh"]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2" unique_id=735666607]
+[node name="CSGBox3D" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2"]
 transform = Transform3D(1.8351959, 0, 0, 0, 1, 0, 0, 0, 0.7874009, 0, -0.516, 0.4014883)
 use_collision = true
 size = Vector3(5, 1, 22.198734)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2" unique_id=897739340]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2"]
 transform = Transform3D(2.7395766, 0, 0, 0, 1, 0, 0, 0, 4.820099, 4.6549187, -0.516, -19.855461)
 use_collision = true
 size = Vector3(9.113159, 1, 5)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2" unique_id=100763647]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2"]
 transform = Transform3D(1.0283937, 0, 0, 0, 1, 0, 0, 0, 1.8512225, 11.986427, 1.8413618, -45.423016)
 use_collision = true
 size = Vector3(9.113159, 1, 5)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2" unique_id=525758215]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2"]
 transform = Transform3D(0.75872743, 0, 0, 0, 0.9676651, -0.66163623, 0, 0.25223824, 2.5382447, 11.812649, 0.2048276, -34.649994)
 use_collision = true
 size = Vector3(9.113159, 1, 5)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2" unique_id=1860034957]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2"]
 transform = Transform3D(6.963255, 0, 5.0079813, 0, 4.3364415, 0, -5.3095737, 0, 6.5677304, -6.9653034, 1.0383105, -31.074982)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2" unique_id=1546080276]
+[node name="CSGBox3D6" type="CSGBox3D" parent="Navmesh/CSGCombiner3D2"]
 transform = Transform3D(3.6651103, 0, 0.3945074, 0, 4.3364415, 0, -0.38088584, 0, 3.7961855, 5.7677193, -0.02850008, -18.320839)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=662534163]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.5219336, -0.61917514, 0.58669204, 0.061710697, 0.65859747, 0.74996084, -0.850751, 0.42763487, -0.3055344, 0, 22.456, 0)
 shadow_enabled = true
 sky_mode = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D" unique_id=708015014]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
 environment = SubResource("Environment_igsq4")
 
-[node name="walls" type="Node" parent="." unique_id=1864705041]
+[node name="walls" type="Node" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="walls" unique_id=1618231910]
+[node name="StaticBody3D" type="StaticBody3D" parent="walls"]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=536893230]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(-3.419081, 0, 2.4134365e-06, 0, 14.486825, 0, -2.9890558e-07, 0, -27.606499, 18.816595, 0.8949719, -19.861813)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=978700325]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(-2.9352174, 0, 2.4134365e-06, 0, 14.486825, 0, -2.5660486e-07, 0, -27.606499, -9.183405, 0.8949719, -19.861813)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=1520150292]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(-3.2287393, 0, 2.4134365e-06, 0, 14.486825, 0, -2.8226535e-07, 0, -27.606499, -6.2345767, 0.8949719, 5.559206)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=39750722]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(-3.2287393, 0, 2.4134365e-06, 0, 14.486825, 0, -2.8226535e-07, 0, -27.606499, 5.7205863, 0.8949719, 5.9622974)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D14" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=543921042]
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(4.23398e-07, 0, 16.5639, 0, 14.486825, 0, -3.228739, 0, 2.172093e-06, 13.328737, 0.8949719, -6.7189064)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D15" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=2035764196]
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(4.23398e-07, 0, 16.5639, 0, 14.486825, 0, -3.228739, 0, 2.172093e-06, -0.67126274, 0.8949719, 10.281094)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=924104088]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(3.4641656e-07, 0, 18.220291, 0, 14.486827, 0, -2.6416953, 0, 2.3893024e-06, -0.18340492, 0.8949719, -32.861813)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=511785012]
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(-3.4870377, 0, 7.9643394e-07, 0, 14.486827, 0, -3.0484657e-07, 0, -9.110145, 6.816595, 0.8949719, -36.861813)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=2145194372]
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(-3.4870377, 0, 7.9643394e-07, 0, 14.486827, 0, -3.0484657e-07, 0, -9.110145, 5.816595, 0.8949719, -45.861813)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=1773529351]
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(5.0299684e-07, 0, 10.932174, 0, 14.486829, 0, -3.8357415, 0, 1.4335812e-06, 11.816595, 0.8949719, -51.861813)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=38723483]
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(-2.685019, 0, 9.557207e-07, 0, 14.486829, 0, -2.3473189e-07, 0, -10.932174, 17.816595, 0.8949719, -45.861813)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="CollisionShape3D13" type="CollisionShape3D" parent="walls/StaticBody3D" unique_id=1472095430]
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="walls/StaticBody3D"]
 transform = Transform3D(-3.4368246, 0, 8.284238e-07, 0, 14.486829, 0, -3.0045683e-07, 0, -9.476068, 16.816595, 0.8949719, -36.43228)
 shape = SubResource("BoxShape3D_e85ix")
 debug_color = Color(0, 11.578043, 13.506168, 1)
 
-[node name="Ambiance SFX" type="FmodEventEmitter3D" parent="." unique_id=579891632]
+[node name="Ambiance SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Levels/GrassLand/Background Ambiance"
 event_guid = "{fbb12ac9-23d2-4ea8-a105-cdd7402e8bca}"
 autoplay = true
 
-[node name="Music SFX" type="FmodEventEmitter3D" parent="." unique_id=1524694025]
+[node name="Music SFX" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Music/Biome1_Level2"
 event_guid = "{ba64ba0b-3c9f-4aad-8d17-8e79c74d08a5}"
 autoplay = true

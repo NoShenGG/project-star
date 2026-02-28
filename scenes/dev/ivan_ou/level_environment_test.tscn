@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bbqj80fslreqc"]
+[gd_scene load_steps=15 format=3 uid="uid://bbqj80fslreqc"]
 
 [ext_resource type="Script" uid="uid://c74o40qwxv1la" path="res://scripts/utility/player_manager.gd" id="1_me4kw"]
 [ext_resource type="Script" uid="uid://727asywd4f55" path="res://scripts/entities/player/debug_player.gd" id="2_dy2bm"]
-[ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://shaders/prototype.tres" id="3_ewca5"]
+[ext_resource type="Shader" uid="uid://bj52sv4noi8eh" path="res://Shaders/prototype.tres" id="3_ewca5"]
 [ext_resource type="MeshLibrary" uid="uid://b88u34a3ref8h" path="res://art_assets/environment/level_1/level1tiles.tres" id="4_q28ci"]
 [ext_resource type="PackedScene" uid="uid://c2c748wm51fs2" path="res://scenes/sub/Tendril.tscn" id="5_dy2bm"]
 
@@ -40,64 +40,64 @@ albedo_color = Color(0.16739999, 0.40878665, 0.62, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0lut4"]
 
-[node name="Prototype" type="Node3D" unique_id=1820337500]
+[node name="Prototype" type="Node3D"]
 
-[node name="Marker3D" type="Marker3D" parent="." unique_id=1570185156]
+[node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 44.902454, 29.529377, 30.247894)
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=2030785859]
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
 transform = Transform3D(0.70710695, -0.40557995, 0.5792281, 0, 0.81915236, 0.57357657, -0.70710695, -0.40557995, 0.5792281, 0, 0, 0)
 keep_aspect = 0
 projection = 1
 size = 56.098
 near = 0.012
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1987197235]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.996632, 0, 0.0820081, 0.0619636, 0.655057, 0.753034, -0.05372, 0.755579, -0.652851, 0, 22.456, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D" unique_id=290833428]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
 environment = SubResource("Environment_bly0l")
 
-[node name="PlayerManager" type="Node3D" parent="." unique_id=84998195]
+[node name="PlayerManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6510315, 0, 2.2056503)
 script = ExtResource("1_me4kw")
 
-[node name="Player" type="CharacterBody3D" parent="PlayerManager" unique_id=479986333]
+[node name="Player" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 script = ExtResource("2_dy2bm")
 _movement_speed = 14.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player" unique_id=704513952]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player" unique_id=288058316]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("ShaderMaterial_05f11")
 
-[node name="Player2" type="CharacterBody3D" parent="PlayerManager" unique_id=89369]
+[node name="Player2" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2" unique_id=90547861]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player2"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2" unique_id=201687034]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player2"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_8jnod")
 
-[node name="Player3" type="CharacterBody3D" parent="PlayerManager" unique_id=175335621]
+[node name="Player3" type="CharacterBody3D" parent="PlayerManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.32074, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3" unique_id=863954650]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerManager/Player3"]
 shape = SubResource("CapsuleShape3D_1m1m0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3" unique_id=450823878]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerManager/Player3"]
 mesh = SubResource("CapsuleMesh_ggon3")
 surface_material_override/0 = SubResource("StandardMaterial3D_s3r3p")
 
-[node name="geo" type="NavigationRegion3D" parent="." unique_id=932984028]
+[node name="geo" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ewca5")
 
-[node name="GridMap" type="GridMap" parent="geo" unique_id=1207635011]
+[node name="GridMap" type="GridMap" parent="geo"]
 mesh_library = ExtResource("4_q28ci")
 cell_center_y = false
 data = {
@@ -105,12 +105,12 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -2, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="geo" unique_id=1742308723]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="geo"]
 transform = Transform3D(105.69242, 0, 0, 0, 1, 0, 0, 0, 71.13601, 0, -17, 0)
 material_override = SubResource("StandardMaterial3D_bly0l")
 mesh = SubResource("PlaneMesh_0lut4")
 skeleton = NodePath("../..")
 
-[node name="Tendril" parent="geo" unique_id=1578579640 instance=ExtResource("5_dy2bm")]
+[node name="Tendril" parent="geo" instance=ExtResource("5_dy2bm")]
 grab_range = 5.0
 pull_strength = 5.0

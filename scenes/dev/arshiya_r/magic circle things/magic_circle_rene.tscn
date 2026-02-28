@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://dfidn58xx6ouo"]
+[gd_scene load_steps=37 format=3 uid="uid://dfidn58xx6ouo"]
 
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="1_gacpw"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="1_gacpw"]
 [ext_resource type="Shader" uid="uid://c1v1c0dkkcm60" path="res://scenes/dev/arshiya_r/magic circle things/gear.tres" id="2_ngxdi"]
 [ext_resource type="Texture2D" uid="uid://cdy5v0ta7xgjd" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/clock_ring.png" id="2_skxqc"]
 [ext_resource type="Texture2D" uid="uid://b35nfo1co7vyb" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/hour_hand.png" id="4_gacpw"]
 [ext_resource type="Texture2D" uid="uid://d312hvdi25o6b" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/gear.png" id="4_skxqc"]
 [ext_resource type="Texture2D" uid="uid://b6wy6n6i60so4" path="res://scenes/dev/arshiya_r/magic circle things/rene_circle_textures/minute_hand.png" id="5_x7sj1"]
 [ext_resource type="Shader" uid="uid://bmehl0dpwsgwr" path="res://scenes/dev/arshiya_r/magic circle things/circle_particles.tres" id="6_8bnff"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="7_skxqc"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="7_skxqc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nrx7a"]
 resource_local_to_scene = true
@@ -191,89 +191,89 @@ _data = {
 &"RESET": SubResource("Animation_nrx7a")
 }
 
-[node name="Rene\'s Circle" type="Node3D" unique_id=1212489977 node_paths=PackedStringArray("particles")]
+[node name="Rene\'s Circle" type="Node3D" node_paths=PackedStringArray("particles")]
 script = ExtResource("1_gacpw")
 play_on_start = false
 particles = [NodePath("sparks"), NodePath("sparks")]
 
-[node name="inner ring" type="Node3D" parent="." unique_id=1514072502]
+[node name="inner ring" type="Node3D" parent="."]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[node name="gears" type="Node3D" parent="inner ring" unique_id=661877351]
+[node name="gears" type="Node3D" parent="inner ring"]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="inner ring/gears" unique_id=55711889]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="inner ring/gears"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.5513908, 0, -0.54608333)
 material_override = SubResource("ShaderMaterial_nrx7a")
 mesh = SubResource("PlaneMesh_pu525")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="inner ring/gears" unique_id=926451687]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="inner ring/gears"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.6140336, 0, 0.11276007)
 material_override = SubResource("ShaderMaterial_8bnff")
 mesh = SubResource("PlaneMesh_13oan")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="inner ring/gears" unique_id=306630795]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="inner ring/gears"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.080309555, 0, -0.44384667)
 material_override = SubResource("ShaderMaterial_1eo5o")
 mesh = SubResource("PlaneMesh_l3il5")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="inner ring/gears" unique_id=1687621126]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="inner ring/gears"]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0.5807878, 0, -0.37566146)
 material_override = SubResource("ShaderMaterial_7xus5")
 mesh = SubResource("PlaneMesh_ua6st")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="inner ring/gears" unique_id=358247038]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="inner ring/gears"]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.9560274, 0, -0.0014855862)
 material_override = SubResource("ShaderMaterial_ufeqw")
 mesh = SubResource("PlaneMesh_26ymb")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="inner ring/gears" unique_id=1754625484]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="inner ring/gears"]
 transform = Transform3D(0.40000004, 0, 0, 0, 0.40000004, 0, 0, 0, 0.40000004, 0.5165962, 0, 0.39235234)
 material_override = SubResource("ShaderMaterial_tqqes")
 mesh = SubResource("PlaneMesh_ka5bj")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="inner ring/gears" unique_id=1110844509]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="inner ring/gears"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.057691097, 0, 0.50243706)
 material_override = SubResource("ShaderMaterial_xma0o")
 mesh = SubResource("PlaneMesh_c3v7f")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="inner ring/gears" unique_id=2074494213]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="inner ring/gears"]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.30539307, 0, -0.8200073)
 material_override = SubResource("ShaderMaterial_ufeqw")
 mesh = SubResource("PlaneMesh_26ymb")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="inner ring/gears" unique_id=335249113]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="inner ring/gears"]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.15993103, 0, 0.8170365)
 material_override = SubResource("ShaderMaterial_ufeqw")
 mesh = SubResource("PlaneMesh_26ymb")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="inner ring/gears" unique_id=318610207]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="inner ring/gears"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.0606486, 0, 0.034115314)
 material_override = SubResource("ShaderMaterial_nrx7a")
 mesh = SubResource("PlaneMesh_pu525")
 
-[node name="hands" type="Node3D" parent="inner ring" unique_id=1763731307]
+[node name="hands" type="Node3D" parent="inner ring"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 
-[node name="hour hand" type="MeshInstance3D" parent="inner ring/hands" unique_id=1271376796]
+[node name="hour hand" type="MeshInstance3D" parent="inner ring/hands"]
 material_override = SubResource("ShaderMaterial_53p8o")
 cast_shadow = 0
 gi_lightmap_texel_scale = 0.01
 mesh = SubResource("PlaneMesh_skxqc")
 
-[node name="minute hand" type="MeshInstance3D" parent="inner ring/hands" unique_id=2145350988]
+[node name="minute hand" type="MeshInstance3D" parent="inner ring/hands"]
 material_override = SubResource("ShaderMaterial_qhm8h")
 mesh = SubResource("PlaneMesh_vm21y")
 
-[node name="outer ring parent" type="Node3D" parent="." unique_id=1425980032]
+[node name="outer ring parent" type="Node3D" parent="."]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[node name="outer ring" type="MeshInstance3D" parent="outer ring parent" unique_id=1934549845]
+[node name="outer ring" type="MeshInstance3D" parent="outer ring parent"]
 material_override = SubResource("ShaderMaterial_gfcmf")
 mesh = SubResource("PlaneMesh_a0i5e")
 skeleton = NodePath("../..")
 
-[node name="sparks" type="GPUParticles3D" parent="." unique_id=229443384]
+[node name="sparks" type="GPUParticles3D" parent="."]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0)
 material_override = SubResource("ShaderMaterial_ippvo")
 emitting = false
@@ -284,9 +284,11 @@ visibility_aabb = AABB(-4, -4, -4, 1, 1, 1)
 process_material = SubResource("ParticleProcessMaterial_xscg6")
 draw_pass_1 = SubResource("QuadMesh_gajvk")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1119657704]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
-libraries/ = SubResource("AnimationLibrary_pu525")
+libraries = {
+&"": SubResource("AnimationLibrary_pu525")
+}
 
 [connection signal="finished" from="." to="AnimationPlayer" method="play_backwards" binds= ["OpenRene"]]
 [connection signal="start" from="." to="AnimationPlayer" method="play" binds= ["OpenRene"]]

@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" format=3 uid="uid://5llgqabmefnw"]
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://5llgqabmefnw"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_isyeb"]
 expanded_output_ports = [0]
@@ -21,6 +21,41 @@ billboard_type = 0
 keep_scale = true
 
 [resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
+
+uniform sampler2D hit_texture : source_color;
+
+
+
+void vertex() {
+// GetBillboardMatrix:2
+	// Node is disabled and code is not generated.
+}
+
+void fragment() {
+// Input:2
+	vec4 n_out2p0 = COLOR;
+	float n_out2p4 = n_out2p0.a;
+
+
+	vec4 n_out4p0;
+// Texture2D:4
+	n_out4p0 = texture(hit_texture, UV);
+	float n_out4p1 = n_out4p0.r;
+
+
+// FloatOp:5
+	float n_out5p0 = n_out4p1 * n_out2p4;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out5p0;
+
+
+}
+"
 modes/cull = 2
 flags/unshaded = true
 nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_x81bc")

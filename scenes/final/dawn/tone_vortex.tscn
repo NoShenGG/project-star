@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cl4unmlmmfvgl"]
+[gd_scene load_steps=11 format=3 uid="uid://cl4unmlmmfvgl"]
 
 [ext_resource type="Script" uid="uid://dxv5sbe5r57wh" path="res://scripts/entities/player/dawn/notes/tone_vortex.gd" id="1_4ldgq"]
 [ext_resource type="PackedScene" uid="uid://cinm7g4smtma2" path="res://scenes/dev/chrizz/prototyping/Final Effects/whirlpool.tscn" id="2_exp3l"]
@@ -46,7 +46,7 @@ material = SubResource("StandardMaterial3D_4ldgq")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ldgq"]
 
-[node name="ToneVortex" type="Node3D" unique_id=1871221503 node_paths=PackedStringArray("projectile_mesh", "effect_hitbox", "particles", "hitbox")]
+[node name="ToneVortex" type="Node3D" node_paths=PackedStringArray("projectile_mesh", "effect_hitbox", "particles", "hitbox")]
 top_level = true
 script = ExtResource("1_4ldgq")
 projectile_mesh = NodePath("Projectile")
@@ -57,16 +57,16 @@ max_duration = 5.0
 speed = 5.0
 damage = 0.0
 
-[node name="Zone" type="Area3D" parent="." unique_id=1114314732]
+[node name="Zone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 0
 collision_mask = 8
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Zone" unique_id=700000276]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zone"]
 shape = SubResource("CylinderShape3D_4ldgq")
 
-[node name="Particles" type="GPUParticles3D" parent="." unique_id=1624931954]
+[node name="Particles" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 emitting = false
 amount = 100
@@ -77,21 +77,22 @@ trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_4ldgq")
 draw_pass_1 = SubResource("RibbonTrailMesh_jn1jo")
 
-[node name="Projectile" type="MeshInstance3D" parent="." unique_id=1353439064]
+[node name="Projectile" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
 mesh = SubResource("SphereMesh_exp3l")
 
-[node name="ProjectileArea" type="Area3D" parent="." unique_id=1165163080]
+[node name="ProjectileArea" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 9
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ProjectileArea" unique_id=1984029076]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ProjectileArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("SphereShape3D_4ldgq")
 
-[node name="DawnPondVFX" parent="." unique_id=1691294127 instance=ExtResource("2_exp3l")]
+[node name="DawnPondVFX" parent="." node_paths=PackedStringArray("particles") instance=ExtResource("2_exp3l")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+particles = [NodePath("FloorCaustics2"), NodePath("FloorCaustics"), NodePath("Droplets"), NodePath("StreamCaustics"), NodePath("FloorCaustics2"), NodePath("FloorCaustics"), NodePath("Droplets"), NodePath("StreamCaustics")]
 
 [connection signal="start" from="DawnPondVFX" to="DawnPondVFX" method="restart_particles"]

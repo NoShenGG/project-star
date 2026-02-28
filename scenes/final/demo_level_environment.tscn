@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bfkrvdwb04r0u"]
+[gd_scene load_steps=33 format=3 uid="uid://bfkrvdwb04r0u"]
 
 [ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="1_kaa7a"]
 [ext_resource type="Script" uid="uid://bnlbf0esux7lk" path="res://scripts/utility/states/state_label.gd" id="2_0tv2d"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c1ujvuwjyhhn" path="res://scenes/tool/spawn_area.tscn" id="15_0xxlr"]
 [ext_resource type="Script" uid="uid://dr7x5nckg7bcr" path="res://scripts/utility/wave.gd" id="16_aynb2"]
 [ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="17_ek652"]
-[ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://VFX/Kenny Particle Pack/circle_01.png" id="18_wel6h"]
+[ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://vfx/Kenny Particle Pack/circle_01.png" id="18_wel6h"]
 [ext_resource type="Script" uid="uid://0dst74xe1xdr" path="res://scenes/dev/diemmy_d/restart.gd" id="22_aynb2"]
 [ext_resource type="PackedScene" uid="uid://dmob0laukrlcr" path="res://art_assets/enemies/skele_dino/DragoSkele.glb" id="23_m6d5a"]
 [ext_resource type="Shader" uid="uid://cylk6ffp5hsy4" path="res://shaders/screen_space.gdshader" id="24_wel6h"]
@@ -89,14 +89,14 @@ albedo_texture = ExtResource("18_wel6h")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wel6h"]
 
-[node name="Prototype" type="Node3D" unique_id=1213775122]
+[node name="Prototype" type="Node3D"]
 
-[node name="screen_modification" type="Node" parent="." unique_id=1042880422]
+[node name="screen_modification" type="Node" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="screen_modification" unique_id=1553125827]
+[node name="CanvasLayer" type="CanvasLayer" parent="screen_modification"]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="screen_modification/CanvasLayer" unique_id=1211120804]
+[node name="ColorRect" type="ColorRect" parent="screen_modification/CanvasLayer"]
 visible = false
 material = SubResource("ShaderMaterial_jci3v")
 anchors_preset = 15
@@ -105,24 +105,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="screen_modification" unique_id=1700233134]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="screen_modification"]
 transform = Transform3D(-0.5219336, -0.61917514, 0.58669204, 0.061710697, 0.65859747, 0.74996084, -0.850751, 0.42763487, -0.3055344, 0, 22.456, 0)
 shadow_enabled = true
 sky_mode = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="screen_modification/DirectionalLight3D" unique_id=673381537]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="screen_modification/DirectionalLight3D"]
 environment = SubResource("Environment_bly0l")
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=501447892]
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://sounds/banks/Enemys.bank", "res://sounds/banks/Ambiance.bank", "res://sounds/banks/Music.bank"]
 
-[node name="PlayerManager" parent="." unique_id=2111630166 instance=ExtResource("1_kaa7a")]
+[node name="PlayerManager" parent="." instance=ExtResource("1_kaa7a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.768749, 7.6293945e-06, 9.060539)
 
-[node name="Node2" type="Node" parent="PlayerManager" unique_id=1124587741]
+[node name="Node" type="Node" parent="PlayerManager"]
 script = ExtResource("2_0tv2d")
 
-[node name="GridMap Wall" type="GridMap" parent="." unique_id=1955520990]
+[node name="GridMap Wall" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -1, -88.14087)
 mesh_library = ExtResource("6_c4lms")
 data = {
@@ -130,7 +130,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="invisible walls" type="GridMap" parent="." unique_id=322516349]
+[node name="invisible walls" type="GridMap" parent="."]
 visible = false
 mesh_library = ExtResource("9_c4lms")
 cell_size = Vector3(1, 1, 1)
@@ -138,7 +138,7 @@ data = {
 "cells": PackedInt32Array(65494, 16, 0, 65495, 16, 0, 65496, 16, 0, 65497, 16, 0, 65498, 16, 0, 65499, 16, 0, 65500, 16, 0, 65501, 16, 0, 65502, 16, 0, 65503, 16, 0, 65504, 16, 0, 65505, 16, 0, 65506, 16, 0, 65507, 16, 0, 65508, 16, 0, 65509, 16, 0, 65510, 16, 0, 65511, 16, 0, 65512, 16, 0, 65513, 16, 0, 65514, 16, 0, 65515, 16, 0, 65516, 16, 0, 65517, 16, 0, 65518, 16, 0, 65519, 16, 0, 65520, 16, 0, 65521, 16, 0, 65522, 16, 0, 65523, 16, 0, 65524, 16, 0, 65525, 16, 0, 65526, 16, 0, 65527, 16, 0, 65528, 16, 0, 65529, 16, 0, 65530, 16, 0, 65531, 16, 0, 65532, 16, 0, 65533, 16, 0, 65534, 16, 0, 65535, 16, 0, 0, 16, 0, 1, 16, 0, 2, 16, 0, 3, 16, 0, 4, 16, 0, 5, 16, 0, 6, 16, 0, 7, 16, 0, 8, 16, 0, 9, 16, 0, 10, 16, 0, 11, 16, 0, 12, 16, 0, 13, 16, 0, 14, 16, 0, 15, 16, 0, 16, 16, 0, 17, 16, 0, 18, 16, 0, 19, 16, 0, 20, 16, 0, 21, 16, 0, 22, 16, 0, 23, 16, 0, 24, 16, 0, 25, 16, 0, 26, 16, 0, 27, 16, 0, 28, 16, 0, 29, 16, 0, 30, 16, 0, 31, 16, 0, 32, 65524, 0, 32, 65525, 0, 32, 65526, 0, 32, 65527, 0, 32, 65528, 0, 32, 65529, 0, 32, 65530, 0, 32, 65531, 0, 32, 65532, 0, 32, 65533, 0, 32, 65534, 0, 32, 65535, 0, 32, 0, 0, 32, 1, 0, 32, 2, 0, 32, 3, 0, 32, 4, 0, 32, 5, 0, 32, 6, 0, 32, 7, 0, 32, 8, 0, 32, 9, 0, 32, 10, 0, 32, 11, 0, 32, 12, 0, 32, 13, 0, 32, 14, 0, 32, 15, 0, 32, 16, 0, 22, 65523, 0, 23, 65523, 0, 24, 65523, 0, 25, 65523, 0, 26, 65523, 0, 27, 65523, 0, 28, 65523, 0, 29, 65523, 0, 30, 65523, 0, 31, 65523, 0, 32, 65523, 0, 21, 65524, 0, 21, 65525, 0, 20, 65525, 0, 14, 65526, 0, 14, 65527, 0, 15, 65526, 0, 15, 65527, 0, 16, 65526, 0, 16, 65527, 0, 17, 65526, 0, 17, 65527, 0, 18, 65526, 0, 18, 65527, 0, 19, 65526, 0, 19, 65527, 0, 10, 65524, 0, 10, 65525, 0, 11, 65524, 0, 11, 65525, 0, 12, 65524, 0, 12, 65525, 0, 13, 65524, 0, 13, 65525, 0, 65530, 65524, 0, 65530, 65525, 0, 65531, 65524, 0, 65531, 65525, 0, 65532, 65524, 0, 65532, 65525, 0, 65533, 65524, 0, 65533, 65525, 0, 65534, 65524, 0, 65534, 65525, 0, 65535, 65524, 0, 65535, 65525, 0, 0, 65524, 0, 0, 65525, 0, 1, 65524, 0, 1, 65525, 0, 2, 65524, 0, 2, 65525, 0, 3, 65524, 0, 3, 65525, 0, 65518, 15, 0, 65519, 15, 0, 65520, 15, 0, 65521, 15, 0, 65522, 15, 0, 65523, 15, 0, 65524, 15, 0, 65525, 15, 0, 65526, 15, 0, 65527, 15, 0, 65526, 14, 0, 65525, 14, 0, 65525, 13, 0, 65525, 12, 0, 65525, 11, 0, 65524, 11, 0, 65524, 12, 0, 65523, 13, 0, 65522, 13, 0, 65521, 13, 0, 65521, 12, 0, 65521, 11, 0, 65521, 10, 0, 65521, 14, 0, 65506, 65523, 0, 65507, 65523, 0, 65508, 65523, 0, 65509, 65523, 0, 65510, 65523, 0, 65511, 65523, 0, 65512, 65523, 0, 65513, 65523, 0, 65514, 65523, 0, 65515, 65523, 0, 65516, 65523, 0, 65517, 65523, 0, 65518, 65523, 0, 65519, 65523, 0, 65520, 65523, 0, 65521, 65523, 0, 65522, 65523, 0, 65523, 65523, 0, 65524, 65523, 0, 65525, 65523, 0, 65526, 65523, 0, 65527, 65523, 0, 65528, 65523, 0, 65529, 65523, 0, 65530, 65523, 0, 65531, 65523, 0, 65532, 65523, 0, 65533, 65523, 0, 65534, 65523, 0, 65535, 65523, 0, 0, 65523, 0, 1, 65523, 0, 2, 65523, 0, 3, 65523, 0, 4, 65523, 0, 5, 65523, 0, 6, 65523, 0, 7, 65523, 0, 8, 65523, 0, 9, 65523, 0, 10, 65523, 0, 11, 65523, 0, 12, 65523, 0, 13, 65523, 0, 14, 65523, 0, 15, 65523, 0, 16, 65523, 0, 17, 65523, 0, 18, 65523, 0, 19, 65523, 0, 20, 65523, 0, 21, 65523, 0, 65493, 65523, 0, 65494, 65523, 0, 65495, 65523, 0, 65496, 65523, 0, 65497, 65523, 0, 65498, 65523, 0, 65499, 65523, 0, 65500, 65523, 0, 65501, 65523, 0, 65493, 65524, 0, 65493, 65525, 0, 65493, 65526, 0, 65493, 65527, 0, 65493, 65528, 0, 65493, 65529, 0, 65493, 65530, 0, 65493, 65531, 0, 65493, 65532, 0, 65493, 65533, 0, 65493, 65534, 0, 65493, 65535, 0, 65493, 0, 0, 65493, 1, 0, 65493, 2, 0, 65493, 3, 0, 65493, 4, 0, 65493, 5, 0, 65493, 6, 0, 65493, 7, 0, 65493, 8, 0, 65493, 9, 0, 65493, 10, 0, 65493, 11, 0, 65493, 12, 0, 65493, 13, 0, 65493, 14, 0, 65493, 15, 0, 65493, 16, 0, 65501, 65510, 0, 65501, 65511, 0, 65501, 65512, 0, 65501, 65513, 0, 65501, 65514, 0, 65501, 65515, 0, 65501, 65516, 0, 65501, 65517, 0, 65501, 65518, 0, 65501, 65519, 0, 65501, 65520, 0, 65501, 65521, 0, 65501, 65522, 0, 65506, 65510, 0, 65506, 65511, 0, 65506, 65512, 0, 65506, 65513, 0, 65506, 65514, 0, 65506, 65515, 0, 65506, 65516, 0, 65506, 65517, 0, 65506, 65518, 0, 65506, 65519, 0, 65506, 65520, 0, 65506, 65521, 0, 65506, 65522, 0, 65507, 65510, 0, 65508, 65510, 0, 65509, 65510, 0, 65510, 65510, 0, 65511, 65510, 0, 65512, 65510, 0, 65513, 65510, 0, 65514, 65510, 0, 65515, 65510, 0, 65493, 65510, 0, 65494, 65510, 0, 65495, 65510, 0, 65496, 65510, 0, 65497, 65510, 0, 65498, 65510, 0, 65499, 65510, 0, 65500, 65510, 0, 65493, 65472, 0, 65493, 65473, 0, 65493, 65474, 0, 65493, 65475, 0, 65493, 65476, 0, 65493, 65477, 0, 65493, 65478, 0, 65493, 65479, 0, 65493, 65480, 0, 65493, 65481, 0, 65493, 65482, 0, 65493, 65483, 0, 65493, 65484, 0, 65493, 65485, 0, 65493, 65486, 0, 65493, 65487, 0, 65493, 65488, 0, 65493, 65489, 0, 65493, 65490, 0, 65493, 65491, 0, 65493, 65492, 0, 65493, 65493, 0, 65493, 65494, 0, 65493, 65495, 0, 65493, 65496, 0, 65493, 65497, 0, 65493, 65498, 0, 65493, 65499, 0, 65493, 65500, 0, 65493, 65501, 0, 65493, 65502, 0, 65493, 65503, 0, 65493, 65504, 0, 65493, 65505, 0, 65493, 65506, 0, 65493, 65507, 0, 65493, 65508, 0, 65493, 65509, 0, 65492, 65472, 0, 65491, 65467, 0, 65491, 65468, 0, 65491, 65469, 0, 65491, 65470, 0, 65491, 65471, 0, 65491, 65472, 0, 65492, 65467, 0, 65493, 65467, 0, 65494, 65467, 0, 65495, 65467, 0, 65496, 65467, 0, 65497, 65467, 0, 65498, 65467, 0, 65499, 65467, 0, 65500, 65467, 0, 65501, 65467, 0, 65502, 65467, 0, 65503, 65467, 0, 65504, 65467, 0, 65505, 65467, 0, 65506, 65467, 0, 65507, 65467, 0, 65508, 65467, 0, 65509, 65467, 0, 65510, 65467, 0, 65511, 65467, 0, 65512, 65467, 0, 65513, 65467, 0, 65514, 65467, 0, 65515, 65467, 0, 65516, 65467, 0, 65517, 65467, 0, 65518, 65467, 0, 65519, 65467, 0, 65520, 65467, 0, 65521, 65467, 0, 65522, 65467, 0, 65523, 65467, 0, 65522, 65468, 0, 65522, 65469, 0, 65522, 65470, 0, 65522, 65471, 0, 65522, 65472, 0, 65522, 65473, 0, 65522, 65474, 0, 65522, 65475, 0, 65523, 65475, 0, 65524, 65475, 0, 65525, 65475, 0, 65526, 65475, 0, 65527, 65475, 0, 65528, 65475, 0, 65529, 65475, 0, 65530, 65475, 0, 65531, 65475, 0, 65532, 65475, 0, 65533, 65475, 0, 65516, 65498, 0, 65516, 65499, 0, 65516, 65500, 0, 65516, 65501, 0, 65516, 65502, 0, 65516, 65503, 0, 65516, 65504, 0, 65516, 65505, 0, 65516, 65506, 0, 65516, 65507, 0, 65516, 65508, 0, 65516, 65509, 0, 65517, 65498, 0, 65518, 65498, 0, 65518, 65492, 0, 65518, 65493, 0, 65518, 65494, 0, 65518, 65495, 0, 65518, 65496, 0, 65518, 65497, 0, 65518, 65487, 0, 65518, 65488, 0, 65518, 65489, 0, 65518, 65490, 0, 65518, 65491, 0, 65518, 65486, 0, 65519, 65486, 0, 65520, 65486, 0, 65521, 65486, 0, 65522, 65486, 0, 65523, 65486, 0, 65524, 65486, 0, 65525, 65486, 0, 65526, 65486, 0, 65527, 65486, 0, 65528, 65486, 0, 65529, 65486, 0, 65530, 65486, 0, 65531, 65486, 0, 65532, 65486, 0, 65533, 65486, 0, 65534, 65486, 0, 65535, 65486, 0, 0, 65486, 0, 1, 65486, 0, 2, 65486, 0, 3, 65486, 0, 4, 65486, 0, 5, 65486, 0, 6, 65486, 0, 7, 65486, 0, 8, 65486, 0, 9, 65486, 0, 10, 65486, 0, 10, 65478, 0, 10, 65479, 0, 10, 65480, 0, 10, 65481, 0, 10, 65482, 0, 10, 65483, 0, 10, 65484, 0, 10, 65485, 0, 11, 65478, 0, 12, 65478, 0, 13, 65478, 0, 14, 65478, 0, 15, 65478, 0, 16, 65478, 0, 16, 65469, 0, 16, 65470, 0, 16, 65471, 0, 16, 65472, 0, 16, 65473, 0, 16, 65474, 0, 16, 65475, 0, 16, 65476, 0, 16, 65477, 0, 3, 65469, 0, 4, 65469, 0, 5, 65469, 0, 6, 65469, 0, 7, 65469, 0, 8, 65469, 0, 9, 65469, 0, 10, 65469, 0, 11, 65469, 0, 12, 65469, 0, 13, 65469, 0, 14, 65469, 0, 15, 65469, 0, 3, 65470, 0, 3, 65471, 0, 3, 65472, 0, 3, 65473, 0, 3, 65474, 0, 3, 65475, 0, 2, 65475, 0, 2, 65463, 0, 2, 65464, 0, 2, 65465, 0, 2, 65466, 0, 2, 65467, 0, 2, 65468, 0, 2, 65469, 0, 2, 65470, 0, 2, 65471, 0, 2, 65472, 0, 2, 65473, 0, 2, 65474, 0, 2, 65462, 0, 65533, 65462, 0, 65533, 65463, 0, 65533, 65464, 0, 65533, 65465, 0, 65533, 65466, 0, 65533, 65467, 0, 65533, 65468, 0, 65533, 65469, 0, 65533, 65470, 0, 65533, 65471, 0, 65533, 65472, 0, 65533, 65473, 0, 65533, 65474, 0, 65512, 65462, 0, 65513, 65462, 0, 65514, 65462, 0, 65515, 65462, 0, 65516, 65462, 0, 65517, 65462, 0, 65518, 65462, 0, 65519, 65462, 0, 65520, 65462, 0, 65521, 65462, 0, 65522, 65462, 0, 65523, 65462, 0, 65524, 65462, 0, 65525, 65462, 0, 65526, 65462, 0, 65527, 65462, 0, 65528, 65462, 0, 65529, 65462, 0, 65530, 65462, 0, 65531, 65462, 0, 65532, 65462, 0, 65511, 65462, 0, 65511, 65447, 0, 65511, 65448, 0, 65511, 65449, 0, 65511, 65450, 0, 65511, 65451, 0, 65511, 65452, 0, 65511, 65453, 0, 65511, 65454, 0, 65511, 65455, 0, 65511, 65456, 0, 65511, 65457, 0, 65511, 65458, 0, 65511, 65459, 0, 65511, 65460, 0, 65511, 65461, 0, 65511, 65445, 0, 65511, 65446, 0, 65512, 65445, 0, 65513, 65445, 0, 65514, 65445, 0, 65515, 65445, 0, 65516, 65445, 0, 65517, 65445, 0, 65518, 65445, 0, 65519, 65445, 0, 65520, 65445, 0, 65521, 65445, 0, 65522, 65445, 0, 65523, 65445, 0, 65524, 65445, 0, 65525, 65445, 0, 65526, 65445, 0, 65527, 65445, 0, 65528, 65445, 0, 65529, 65445, 0, 65530, 65445, 0, 65531, 65445, 0, 65532, 65445, 0, 65533, 65445, 0, 65534, 65445, 0, 65535, 65445, 0, 0, 65445, 0, 1, 65445, 0, 2, 65445, 0, 3, 65445, 0, 4, 65445, 0, 5, 65445, 0, 6, 65445, 0, 7, 65445, 0, 8, 65445, 0, 9, 65445, 0, 10, 65445, 0, 11, 65445, 0, 12, 65445, 0, 13, 65445, 0, 14, 65445, 0, 14, 65446, 0, 14, 65447, 0, 14, 65448, 0, 14, 65449, 0, 14, 65450, 0, 14, 65451, 0, 14, 65452, 0, 14, 65453, 0, 14, 65454, 0, 14, 65455, 0, 14, 65456, 0, 14, 65457, 0, 14, 65458, 0, 14, 65459, 0, 14, 65460, 0, 14, 65461, 0, 14, 65462, 0, 3, 65462, 0, 4, 65462, 0, 5, 65462, 0, 6, 65462, 0, 7, 65462, 0, 8, 65462, 0, 9, 65462, 0, 10, 65462, 0, 11, 65462, 0, 12, 65462, 0, 13, 65462, 0)
 }
 
-[node name="GridMap Decor" type="GridMap" parent="." unique_id=1966228611]
+[node name="GridMap Decor" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -1, -88.14087)
 mesh_library = ExtResource("7_1a2iv")
 data = {
@@ -146,7 +146,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="GridMap Background" type="GridMap" parent="." unique_id=1375403243]
+[node name="GridMap Background" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -1, -88.14087)
 mesh_library = ExtResource("5_wpi1y")
 data = {
@@ -154,10 +154,10 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="geo" type="NavigationRegion3D" parent="." unique_id=625816339]
+[node name="geo" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_v2ad8")
 
-[node name="GridMap" type="GridMap" parent="geo" unique_id=655315592]
+[node name="GridMap" type="GridMap" parent="geo"]
 mesh_library = ExtResource("3_wg1h0")
 cell_center_y = false
 bake_navigation = true
@@ -166,13 +166,13 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -8, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="geo" unique_id=2077162536]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="geo"]
 transform = Transform3D(105.69242, 0, 0, 0, 1, 0, 0, 0, 149.38562, -3, -14.759684, -47)
 material_override = SubResource("ShaderMaterial_a886n")
 mesh = SubResource("PlaneMesh_0lut4")
 skeleton = NodePath("../..")
 
-[node name="GridMap Ground" type="GridMap" parent="geo" unique_id=1543542421]
+[node name="GridMap Ground" type="GridMap" parent="geo"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -1, -88.14087)
 mesh_library = ExtResource("8_80vh4")
 data = {
@@ -180,7 +180,7 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="FrameLimiter" parent="." unique_id=1781868117 instance=ExtResource("5_v8q31")]
+[node name="FrameLimiter" parent="." instance=ExtResource("5_v8q31")]
 visible = false
 offset_left = -228.99994
 offset_top = 14.0
@@ -188,80 +188,82 @@ offset_right = 180.0
 offset_bottom = 300.0
 scale = Vector2(0.52616984, 0.52616984)
 
-[node name="Ambiance" type="FmodEventEmitter3D" parent="." unique_id=384305407]
+[node name="Ambiance" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Levels/GrassLand/Background Ambiance"
 event_guid = "{fbb12ac9-23d2-4ea8-a105-cdd7402e8bca}"
 autoplay = true
 
-[node name="Music" type="FmodEventEmitter3D" parent="." unique_id=1494895344]
+[node name="Music" type="FmodEventEmitter3D" parent="."]
 event_name = "event:/Music/Game Music"
 event_guid = "{5b2682d3-d1f8-41c2-89c6-d1d077472eb1}"
 autoplay = true
 volume = 0.3
 
-[node name="Corruption_Base" parent="." unique_id=1179022132 instance=ExtResource("9_wpi1y")]
+[node name="Corruption_Base" parent="." instance=ExtResource("9_wpi1y")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -13.942497, 0.20783043, -83.29157)
 
-[node name="Corruption_Base2" parent="." unique_id=149647292 instance=ExtResource("9_wpi1y")]
+[node name="Corruption_Base2" parent="." instance=ExtResource("9_wpi1y")]
 transform = Transform3D(0.265, 0, 0, 0, 0.265, 0, 0, 0, 0.265, 6.590581, 0.20783043, -53.864254)
 
-[node name="WaveManager" type="Node3D" parent="." unique_id=121002431]
+[node name="WaveManager" type="Node3D" parent="."]
 script = ExtResource("14_vslm2")
 
-[node name="SpawnArea" parent="WaveManager" unique_id=1695356408 instance=ExtResource("15_0xxlr")]
+[node name="SpawnArea" parent="WaveManager" instance=ExtResource("15_0xxlr")]
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 10, -20.576777, -1.9073486e-06, 0.33212662)
 
-[node name="SpawnArea2" parent="WaveManager" unique_id=1046766023 instance=ExtResource("15_0xxlr")]
+[node name="SpawnArea2" parent="WaveManager" instance=ExtResource("15_0xxlr")]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 8, -32.337517, 0, -46.716003)
 
-[node name="SpawnArea3" parent="WaveManager" unique_id=1474500509 instance=ExtResource("15_0xxlr")]
+[node name="SpawnArea3" parent="WaveManager" instance=ExtResource("15_0xxlr")]
 transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 5, 4.47313, 0, -81.64082)
 
-[node name="Wave" type="Node3D" parent="WaveManager" unique_id=32588440 node_paths=PackedStringArray("spawn_areas")]
+[node name="Wave" type="Node3D" parent="WaveManager" node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("16_aynb2")
 enemies = Array[PackedScene]([ExtResource("4_0tv2d"), ExtResource("17_ek652"), ExtResource("4_0tv2d"), ExtResource("17_ek652"), ExtResource("17_ek652")])
 spawn_areas = [NodePath("../SpawnArea")]
 
-[node name="Start" type="FmodEventEmitter3D" parent="WaveManager" unique_id=1321063578]
+[node name="Start" type="FmodEventEmitter3D" parent="WaveManager"]
+event_name = "event:/UI/Back"
 event_guid = "{e0b49aba-ee10-44ce-86fd-a6253bb589f0}"
 
-[node name="End" type="FmodEventEmitter3D" parent="WaveManager" unique_id=655871209]
+[node name="End" type="FmodEventEmitter3D" parent="WaveManager"]
+event_name = "event:/UI/Back"
 event_guid = "{e0b49aba-ee10-44ce-86fd-a6253bb589f0}"
 
-[node name="Wave Start Enter" type="Area3D" parent="WaveManager" unique_id=692701078]
+[node name="Wave Start Enter" type="Area3D" parent="WaveManager"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 9.55)
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave Start Enter" unique_id=1959578458]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaveManager/Wave Start Enter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("BoxShape3D_k5bu6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="WaveManager/Wave Start Enter" unique_id=1587059625]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WaveManager/Wave Start Enter"]
 transform = Transform3D(4.0714345, 0, 0, 0, 1, 0, 0, 0, 4.0714345, 0, 0.14234209, 0)
 material_override = SubResource("StandardMaterial3D_j3k2j")
 mesh = SubResource("PlaneMesh_gwpen")
 
-[node name="RestartCylinder" type="Node3D" parent="." unique_id=1162402376]
+[node name="RestartCylinder" type="Node3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 8.566677, 1, -77.64229)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RestartCylinder" unique_id=1668906453]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RestartCylinder"]
 mesh = SubResource("CylinderMesh_m6d5a")
 
-[node name="Area3D" type="Area3D" parent="RestartCylinder" unique_id=1645341587]
+[node name="Area3D" type="Area3D" parent="RestartCylinder"]
 collision_mask = 4
 monitoring = false
 script = ExtResource("22_aynb2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RestartCylinder/Area3D" unique_id=1967506246]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RestartCylinder/Area3D"]
 shape = SubResource("CylinderShape3D_wel6h")
 
-[node name="Skeleton Decor" type="Node3D" parent="." unique_id=1963357885]
+[node name="Skeleton Decor" type="Node3D" parent="."]
 
-[node name="DragoSkele" parent="Skeleton Decor" unique_id=1038239577 instance=ExtResource("23_m6d5a")]
+[node name="DragoSkele" parent="Skeleton Decor" instance=ExtResource("23_m6d5a")]
 transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, -11.246961, 0, -82.24695)
 
-[node name="Skeleton3D" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton" parent_id_path=PackedInt32Array(1038239577, 1877120884) index="0" unique_id=901258233]
+[node name="Skeleton3D" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton" index="0"]
 bones/0/position = Vector3(-0.10932353, 1.5005627, 3.2791145)
 bones/0/rotation = Quaternion(-0.42010704, 9.980329e-08, -6.5193206e-08, 0.9074747)
 bones/1/rotation = Quaternion(-0.12411662, 3.857256e-10, -2.6088243e-08, 0.9922677)
@@ -317,46 +319,46 @@ bones/39/rotation = Quaternion(-0.8038892, 0.11621763, 0.16717722, 0.5588448)
 bones/40/position = Vector3(4.344636, 0.2649141, -3.0229976)
 bones/40/rotation = Quaternion(-0.7024843, -0.17356768, -0.18759434, 0.6642277)
 
-[node name="Neck_003" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="0" unique_id=1258224230]
+[node name="Neck_003" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="0"]
 transform = Transform3D(0.8523686, -0.11979011, 0.50903636, -0.48683703, 0.17364246, 0.8560593, -0.1909379, -0.9774958, 0.08968932, -0.75269616, 1.9754815, -3.5233443)
 visible = false
 
-[node name="Neck_001" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="1" unique_id=2060459615]
+[node name="Neck_001" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="1"]
 transform = Transform3D(0.8695408, -0.26645434, -0.41581345, 0.06518214, -0.77267843, 0.63144183, -0.48954055, -0.5761683, -0.6545072, -0.1882892, 2.7808886, -2.4624383)
 visible = false
 
-[node name="Neck" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="2" unique_id=818270933]
+[node name="Neck" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="2"]
 transform = Transform3D(0.9646454, -0.12079856, -0.234237, 0.11699404, -0.6001273, 0.79130214, -0.23616017, -0.7907305, -0.56477714, -0.10932342, 3.1731904, -1.9455396)
 visible = false
 
-[node name="Spine_002" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="3" unique_id=86472515]
+[node name="Spine_002" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="3"]
 transform = Transform3D(1, 6.884818e-09, 2.4925666e-07, -2.4935062e-07, 0.024546027, 0.99969846, 7.644484e-10, -0.9996985, 0.024546206, -0.109323435, 3.1299787, -0.18561566)
 visible = false
 
-[node name="Spine_001" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="4" unique_id=536689032]
+[node name="Spine_001" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="4"]
 transform = Transform3D(1, 1.556731e-08, 2.493134e-07, -2.4746944e-07, 0.19772385, 0.9802577, -3.4035263e-08, -0.98025763, 0.19772404, -0.10932345, 2.9028802, 0.9402735)
 visible = false
 
-[node name="Spine" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="5" unique_id=1536290258]
+[node name="Spine" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="5"]
 transform = Transform3D(1, 2.6972703e-08, 2.443766e-07, -2.3138452e-07, 0.4392779, 0.8983512, -8.31183e-08, -0.898351, 0.43927804, -0.1093235, 2.1109605, 2.559799)
 visible = false
 
-[node name="Plane_001" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="26" unique_id=1142095565]
+[node name="Plane_001" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="26"]
 visible = false
 
-[node name="Plane_002" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="27" unique_id=1597283313]
+[node name="Plane_002" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="27"]
 visible = false
 
-[node name="Plane_003" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="28" unique_id=811029430]
+[node name="Plane_003" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="28"]
 visible = false
 
-[node name="Plane_004" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="29" unique_id=864905160]
+[node name="Plane_004" parent="Skeleton Decor/DragoSkele/Dinosaur Skeleton/Skeleton3D" index="29"]
 visible = false
 
-[node name="DragoSkele2" parent="Skeleton Decor" unique_id=948739336 instance=ExtResource("23_m6d5a")]
+[node name="DragoSkele2" parent="Skeleton Decor" instance=ExtResource("23_m6d5a")]
 transform = Transform3D(-0.93028414, 0.35961756, 0.072434835, 0.34984764, 0.9291251, -0.11972239, -0.11035537, -0.086034626, -0.9901615, 1.634966, -15.970484, -39.50522)
 
-[node name="Skeleton3D" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton" parent_id_path=PackedInt32Array(948739336, 1877120884) index="0" unique_id=901258233]
+[node name="Skeleton3D" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton" index="0"]
 bones/0/position = Vector3(-0.10932353, 1.5005627, 3.2791145)
 bones/0/rotation = Quaternion(-0.42010704, 9.980329e-08, -6.5193206e-08, 0.9074747)
 bones/1/rotation = Quaternion(-0.12411662, 3.857256e-10, -2.6088243e-08, 0.9922677)
@@ -412,46 +414,46 @@ bones/39/rotation = Quaternion(-0.8038892, 0.11621763, 0.16717722, 0.5588448)
 bones/40/position = Vector3(4.344636, 0.2649141, -3.0229976)
 bones/40/rotation = Quaternion(-0.7024843, -0.17356768, -0.18759434, 0.6642277)
 
-[node name="Neck_003" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="0" unique_id=1258224230]
+[node name="Neck_003" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="0"]
 transform = Transform3D(0.8523686, -0.11979011, 0.50903636, -0.48683703, 0.17364246, 0.8560593, -0.1909379, -0.9774958, 0.08968932, -0.75269616, 1.9754815, -3.5233443)
 visible = false
 
-[node name="Neck_001" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="1" unique_id=2060459615]
+[node name="Neck_001" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="1"]
 transform = Transform3D(0.8695408, -0.26645434, -0.41581345, 0.06518214, -0.77267843, 0.63144183, -0.48954055, -0.5761683, -0.6545072, -0.1882892, 2.7808886, -2.4624383)
 visible = false
 
-[node name="Neck" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="2" unique_id=818270933]
+[node name="Neck" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="2"]
 transform = Transform3D(0.9646454, -0.12079856, -0.234237, 0.11699404, -0.6001273, 0.79130214, -0.23616017, -0.7907305, -0.56477714, -0.10932342, 3.1731904, -1.9455396)
 visible = false
 
-[node name="Spine_002" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="3" unique_id=86472515]
+[node name="Spine_002" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="3"]
 transform = Transform3D(1, 6.884818e-09, 2.4925666e-07, -2.4935062e-07, 0.024546027, 0.99969846, 7.644484e-10, -0.9996985, 0.024546206, -0.109323435, 3.1299787, -0.18561566)
 visible = false
 
-[node name="Spine_001" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="4" unique_id=536689032]
+[node name="Spine_001" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="4"]
 transform = Transform3D(1, 1.556731e-08, 2.493134e-07, -2.4746944e-07, 0.19772385, 0.9802577, -3.4035263e-08, -0.98025763, 0.19772404, -0.10932345, 2.9028802, 0.9402735)
 visible = false
 
-[node name="Spine" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="5" unique_id=1536290258]
+[node name="Spine" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="5"]
 transform = Transform3D(1, 2.6972703e-08, 2.443766e-07, -2.3138452e-07, 0.4392779, 0.8983512, -8.31183e-08, -0.898351, 0.43927804, -0.1093235, 2.1109605, 2.559799)
 visible = false
 
-[node name="Plane_001" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="26" unique_id=1142095565]
+[node name="Plane_001" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="26"]
 visible = false
 
-[node name="Plane_002" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="27" unique_id=1597283313]
+[node name="Plane_002" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="27"]
 visible = false
 
-[node name="Plane_003" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="28" unique_id=811029430]
+[node name="Plane_003" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="28"]
 visible = false
 
-[node name="Plane_004" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="29" unique_id=864905160]
+[node name="Plane_004" parent="Skeleton Decor/DragoSkele2/Dinosaur Skeleton/Skeleton3D" index="29"]
 visible = false
 
-[node name="DragoSkele3" parent="Skeleton Decor" unique_id=1602841630 instance=ExtResource("23_m6d5a")]
+[node name="DragoSkele3" parent="Skeleton Decor" instance=ExtResource("23_m6d5a")]
 transform = Transform3D(-0.6882074, 0.7074442, 0.16091609, 0.45411724, 0.5930118, -0.6649171, -0.56581706, -0.3845259, -0.72937727, -17.927618, -15.970484, -46.021694)
 
-[node name="Skeleton3D" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton" parent_id_path=PackedInt32Array(1602841630, 1877120884) index="0" unique_id=901258233]
+[node name="Skeleton3D" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton" index="0"]
 bones/0/position = Vector3(-0.10932353, 1.5005627, 3.2791145)
 bones/0/rotation = Quaternion(-0.42010704, 9.980329e-08, -6.5193206e-08, 0.9074747)
 bones/1/rotation = Quaternion(-0.12411662, 3.857256e-10, -2.6088243e-08, 0.9922677)
@@ -507,40 +509,40 @@ bones/39/rotation = Quaternion(-0.8038892, 0.11621763, 0.16717722, 0.5588448)
 bones/40/position = Vector3(4.344636, 0.2649141, -3.0229976)
 bones/40/rotation = Quaternion(-0.7024843, -0.17356768, -0.18759434, 0.6642277)
 
-[node name="Neck_003" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="0" unique_id=1258224230]
+[node name="Neck_003" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="0"]
 transform = Transform3D(0.8523686, -0.11979011, 0.50903636, -0.48683703, 0.17364246, 0.8560593, -0.1909379, -0.9774958, 0.08968932, -0.75269616, 1.9754815, -3.5233443)
 visible = false
 
-[node name="Neck_001" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="1" unique_id=2060459615]
+[node name="Neck_001" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="1"]
 transform = Transform3D(0.8695408, -0.26645434, -0.41581345, 0.06518214, -0.77267843, 0.63144183, -0.48954055, -0.5761683, -0.6545072, -0.1882892, 2.7808886, -2.4624383)
 visible = false
 
-[node name="Neck" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="2" unique_id=818270933]
+[node name="Neck" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="2"]
 transform = Transform3D(0.9646454, -0.12079856, -0.234237, 0.11699404, -0.6001273, 0.79130214, -0.23616017, -0.7907305, -0.56477714, -0.10932342, 3.1731904, -1.9455396)
 visible = false
 
-[node name="Spine_002" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="3" unique_id=86472515]
+[node name="Spine_002" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="3"]
 transform = Transform3D(1, 6.884818e-09, 2.4925666e-07, -2.4935062e-07, 0.024546027, 0.99969846, 7.644484e-10, -0.9996985, 0.024546206, -0.109323435, 3.1299787, -0.18561566)
 visible = false
 
-[node name="Spine_001" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="4" unique_id=536689032]
+[node name="Spine_001" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="4"]
 transform = Transform3D(1, 1.556731e-08, 2.493134e-07, -2.4746944e-07, 0.19772385, 0.9802577, -3.4035263e-08, -0.98025763, 0.19772404, -0.10932345, 2.9028802, 0.9402735)
 visible = false
 
-[node name="Spine" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="5" unique_id=1536290258]
+[node name="Spine" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="5"]
 transform = Transform3D(1, 2.6972703e-08, 2.443766e-07, -2.3138452e-07, 0.4392779, 0.8983512, -8.31183e-08, -0.898351, 0.43927804, -0.1093235, 2.1109605, 2.559799)
 visible = false
 
-[node name="Plane_001" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="26" unique_id=1142095565]
+[node name="Plane_001" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="26"]
 visible = false
 
-[node name="Plane_002" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="27" unique_id=1597283313]
+[node name="Plane_002" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="27"]
 visible = false
 
-[node name="Plane_003" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="28" unique_id=811029430]
+[node name="Plane_003" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="28"]
 visible = false
 
-[node name="Plane_004" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="29" unique_id=864905160]
+[node name="Plane_004" parent="Skeleton Decor/DragoSkele3/Dinosaur Skeleton/Skeleton3D" index="29"]
 visible = false
 
 [connection signal="fight_ended" from="WaveManager" to="WaveManager/End" method="play_one_shot"]

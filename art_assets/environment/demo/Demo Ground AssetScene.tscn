@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b3pcslirh076w"]
+[gd_scene load_steps=6 format=3 uid="uid://b3pcslirh076w"]
 
 [ext_resource type="PackedScene" uid="uid://brm5pex5efdsp" path="res://art_assets/environment/demo/Models/Demo Ground.glb" id="1_jden2"]
 
@@ -14,28 +14,28 @@ points = PackedVector3Array(1, 0, 1, 1, 0.8670713, -0.080070496, -1, 0, 1, 1, 2,
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r6opp"]
 points = PackedVector3Array(1, 0.035438538, 0.9847107, -3, 0.035438538, 0.9847107, 0.90485525, -0.08440255, 1.0459023, 1, -0.24961555, 0.8908844, 1, 0.6126155, -0.7857599, -3, -0.24961555, 0.8908844, -2.9052467, -0.08440255, 1.0459023, -3, 0.6126155, -0.7857599, 0.90485525, -0.18879086, 1.0105476, 1, -0.24961555, -12.692245, 1, 0.68050903, -1.010128, -2.9052467, -0.18879086, 1.0105476, -3, -0.24961555, -12.692245, -3, 0.68050903, -1.010128, 0.90485525, -0.18879086, -12.813267, 1, 0.035602927, -12.786071, 1, 0.8965188, -1.790658, -3, 0.035602927, -12.786071, -2.9052467, -0.18879086, -12.813267, -3, 0.8965188, -1.790658, 0.90485525, -0.08423816, -12.845902, 1, 0.28662807, -12.016419, 1, 1.173189, -2.7914772, -3, 0.28662807, -12.016419, -2.9052467, -0.08423816, -12.845902, -3, 1.173189, -2.7914772, 1, 0.6126155, -11.0156, 1, 1.2144512, -2.998169, -3, 0.6126155, -11.0156, -3, 1.2144512, -2.998169, 1, 0.68050903, -10.791231, 1, 1.3275522, -3.9976282, -3, 0.68050903, -10.791231, -3, 1.3275522, -3.9976282, 1, 0.9571792, -9.791773, 1, 1.4186249, -4.8026342, -3, 0.9571792, -9.791773, -3, 1.4186249, -4.8026342, 1, 1.173189, -9.009882, 1, 1.429639, -4.9957275, -3, 1.173189, -9.009882, -3, 1.429639, -4.9957275, 1, 1.2144512, -8.803192, 1, 1.4298034, -5.8061733, -3, 1.2144512, -8.803192, -3, 1.4298034, -5.8061733, 1, 1.3275522, -7.803732, 1, 1.429639, -6.8056326, -3, 1.3275522, -7.803732, -3, 1.429639, -6.8056326, 1, 1.4186249, -6.9987254, -3, 1.4186249, -6.9987254)
 
-[node name="DemoGroundAssetScene" type="Node3D" unique_id=1528568132]
+[node name="DemoGroundAssetScene" type="Node3D"]
 
-[node name="Demo Ground" parent="." unique_id=1455358323 instance=ExtResource("1_jden2")]
+[node name="Demo Ground" parent="." instance=ExtResource("1_jden2")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Demo Ground/Floor" parent_id_path=PackedInt32Array(1455358323, 1038006808) index="0" unique_id=1648593236]
+[node name="StaticBody3D" type="StaticBody3D" parent="Demo Ground/Floor" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Ground/Floor/StaticBody3D" unique_id=1392974170]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Ground/Floor/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_jden2")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Demo Ground/Floor_001" parent_id_path=PackedInt32Array(1455358323, 1649268673) index="0" unique_id=64788438]
+[node name="StaticBody3D" type="StaticBody3D" parent="Demo Ground/Floor_001" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Ground/Floor_001/StaticBody3D" unique_id=1708340414]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Ground/Floor_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ymx7u")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Demo Ground/Ramp" parent_id_path=PackedInt32Array(1455358323, 1359607621) index="0" unique_id=388368857]
+[node name="StaticBody3D" type="StaticBody3D" parent="Demo Ground/Ramp" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Ground/Ramp/StaticBody3D" unique_id=1219718756]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Ground/Ramp/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_foy76")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Demo Ground/Planck Instancer_015" parent_id_path=PackedInt32Array(1455358323, 1338512607) index="0" unique_id=1407557176]
+[node name="StaticBody3D" type="StaticBody3D" parent="Demo Ground/Planck Instancer_015" index="0"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Ground/Planck Instancer_015/StaticBody3D" unique_id=1076177211]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Demo Ground/Planck Instancer_015/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_r6opp")
 
 [editable path="Demo Ground"]
