@@ -1,10 +1,13 @@
 @tool
 extends EnemyState
 
+@export var normal_animation : AnimationState
+
 ## when idling, should we rotate towards player
 @export var rotate_to_player : bool = true
 @export var rotate_speed : float = 5
-
+@export var rotate_animation : AnimationState
+var _turning : bool = false
 
 @export_category("Wait")
 @export var wait_time : float = 1
@@ -50,10 +53,12 @@ func end() -> void:
 	timer = null
 	finished.emit()
 	_running = false
+	_turning = false
 
 func exit() -> void:
 	timer = null
 	_running = false
+	_turning = false
 
 func update(_delta: float) -> void:
 	if (Engine.is_editor_hint()): return
@@ -67,6 +72,20 @@ func update(_delta: float) -> void:
 		return
 	
 	var dir : Vector3 = (enemy.global_position - GameManager.curr_player.global_position).normalized().slide(Vector3.UP)
+	var new_turning : bool = true
+	if (absf(enemy.global_basis.z.signed_angle_to(dir, Vector3.UP)) > 0.03):
+		new_turning = true
+	else:
+		new_turning = false
+	
+	if (_turning != new_turning):
+		if (new_turning and rotate_animation):
+			rotate_animation.enter()
+			print("turning")
+		elif(!new_turning and normal_animation):
+			normal_animation.enter()
+			print("not  turning")
+	_turning = new_turning
 	enemy.rotate_y(enemy.global_basis.z.signed_angle_to(dir, Vector3.UP) * _delta * rotate_speed)
 
 func physics_update(_delta: float) -> void:

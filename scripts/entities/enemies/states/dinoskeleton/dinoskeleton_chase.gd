@@ -3,12 +3,11 @@ extends State
 var parent_enemy : DinoSkeleton
 
 func update(_delta: float) -> void:
-	if parent_enemy.death:
-		return
 	
 	var target := parent_enemy.target_node
 	if target == null:
 		trigger_finished.emit("idle")
+		return
 	
 	var distanceToPlayer := parent_enemy.global_position.distance_to(target.global_position)
 	
