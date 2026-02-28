@@ -5,6 +5,9 @@ class_name MergerFleeState extends EnemyState
 func enter(_prev_state: String, _data := {}) -> void:
 	# Cut speed since its injured
 	enemy._base_speed /= 1.5
+	# Cut to 10% hp
+	if enemy._hp > 0.1 * enemy._max_hp:
+		enemy._hp = 0.1 * enemy._max_hp
 	entered.emit()
 
 func end() -> void:
