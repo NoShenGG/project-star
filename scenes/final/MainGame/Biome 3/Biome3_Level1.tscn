@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cv7a8503lutop" path="res://scenes/sub/DifficultKoboldEnemy.tscn" id="6_qeh4q"]
 [ext_resource type="PackedScene" uid="uid://4k1on6ftdobj" path="res://scenes/final/MainGame/Prefabs/LevelEnder.tscn" id="7_10abd"]
 [ext_resource type="PackedScene" uid="uid://bo8i2glbe0u23" path="res://scenes/sub/fortifier.tscn" id="7_t5tva"]
-[ext_resource type="PackedScene" uid="uid://boleswuc4csak" path="res://art_assets/environment/Biome3/Level1/Level3-1-Perspective.glb" id="10_5bkx6"]
 [ext_resource type="PackedScene" uid="uid://dssh8iaq3ldy5" path="res://scenes/final/MainGame/Prefabs/Gate.tscn" id="10_t5tva"]
 [ext_resource type="Script" uid="uid://dn1pm1qlsm08j" path="res://scripts/utility/DialogueCollisionCaller.gd" id="11_240as"]
+[ext_resource type="PackedScene" uid="uid://cn47dmhkkl6ke" path="res://art_assets/environment/Biome3/Level1/Level3-1-Perspective (1).glb" id="11_b6nq8"]
 [ext_resource type="Script" uid="uid://dp3mgj1n5ewhs" path="res://austin_newby/dialogue/scripts/dialogue_caller.gd" id="12_buk6j"]
 [ext_resource type="Script" uid="uid://ehvcmont8xvr" path="res://austin_newby/dialogue/resources/dialogue_resource.gd" id="13_caww3"]
 [ext_resource type="Texture2D" uid="uid://bpkv1mg8teq11" path="res://art_assets/Ui/FinalPortraits/novaportaraitCLEAR.png" id="14_6scqm"]
@@ -243,7 +243,7 @@ shader_parameter/proximity = 1.0
 material = SubResource("ShaderMaterial_0b1bm")
 orientation = 1
 
-[node name="Level1" type="Node3D" unique_id=1915545367]
+[node name="Level2" type="Node3D" unique_id=1915545367]
 
 [node name="PlayerManager" parent="." unique_id=1115147818 instance=ExtResource("1_8jmja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, -2.052517)
@@ -252,16 +252,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, -2.052517)
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, -2.052517)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="0" unique_id=1280032861]
-bones/14/rotation = Quaternion(-0.0706511, 0.5245709, -0.50650334, 0.6806528)
-bones/15/rotation = Quaternion(-0.15860452, 0.5496955, 0.23094197, 0.78698486)
-bones/16/rotation = Quaternion(-0.51218724, -0.46705538, -0.24070494, 0.67940027)
-bones/21/rotation = Quaternion(-0.14234355, 0.39572975, -0.46341345, 0.77998984)
-bones/22/rotation = Quaternion(-0.0624773, 0.3440904, 0.17501752, 0.92036253)
-bones/23/rotation = Quaternion(0.12975879, 0.1196548, -0.07387745, 0.9815231)
-bones/38/rotation = Quaternion(-0.3491122, 0.7068699, 0.06242185, 0.6120123)
+bones/14/rotation = Quaternion(-0.07379366, 0.52513826, -0.5069036, 0.679583)
+bones/15/rotation = Quaternion(-0.15995562, 0.5518581, 0.23135488, 0.78507435)
+bones/16/rotation = Quaternion(-0.51142037, -0.47350925, -0.23892315, 0.67613167)
+bones/21/rotation = Quaternion(-0.12684874, 0.3877674, -0.47928765, 0.7770645)
+bones/22/rotation = Quaternion(-0.06124431, 0.3404104, 0.173802, 0.92204267)
+bones/23/rotation = Quaternion(0.10706538, 0.12850414, -0.08297044, 0.98241526)
+bones/38/rotation = Quaternion(-0.35175705, 0.70556355, 0.06012662, 0.61223525)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0060718684, -0.56997186, 0.8216418, -0.4185278, 0.74767756, 0.5155703, -0.90818363, -0.3407495, -0.24308896, 0.006006421, 0.007239389, -0.013214424)
+transform = Transform3D(-0.0018187771, -0.5700014, 0.82164174, -0.42412463, 0.7445224, 0.5155624, -0.905602, -0.34754086, -0.24310577, 0.006072864, 0.00715184, -0.013174335)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -376,19 +376,19 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 
 
 [node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="0" unique_id=1529346309]
-bones/2/rotation = Quaternion(0.04477832, -0.044648178, 0.70466393, 0.7067179)
-bones/15/rotation = Quaternion(0.01583904, -0.11402934, -0.6658751, 0.7371274)
-bones/16/rotation = Quaternion(-0.03821597, 0.41096672, 0.10479951, 0.90480006)
-bones/17/rotation = Quaternion(0.18827546, 0.10382074, -0.25571182, 0.9425419)
-bones/23/rotation = Quaternion(-0.081379525, -0.08951601, -0.68421346, 0.7191774)
-bones/24/rotation = Quaternion(-0.030854313, 0.27608216, 0.12688023, 0.9522227)
-bones/25/rotation = Quaternion(0.0028733772, 0.07602734, -0.17424452, 0.9817589)
-bones/30/rotation = Quaternion(0.008824731, 0.9670239, -0.25106138, -0.041894823)
-bones/31/rotation = Quaternion(0.99276763, -0.015244708, 0.11907177, 0.00142681)
-bones/32/rotation = Quaternion(0.55607885, -0.3877346, 0.43572715, 0.59209806)
-bones/34/rotation = Quaternion(0.061437834, 0.16586126, 0.015516221, 0.98411113)
-bones/35/rotation = Quaternion(0.984088, -0.01820379, 0.17672597, 0.0027084155)
-bones/36/rotation = Quaternion(0.590633, -0.37365195, 0.38223264, 0.60451245)
+bones/2/rotation = Quaternion(0.05829968, -0.058130223, 0.70368004, 0.7057312)
+bones/15/rotation = Quaternion(0.013032128, -0.1231651, -0.6649486, 0.7365487)
+bones/16/rotation = Quaternion(-0.040429547, 0.42487863, 0.105523154, 0.89816946)
+bones/17/rotation = Quaternion(0.19410816, 0.116086304, -0.25627905, 0.93976974)
+bones/23/rotation = Quaternion(-0.0806169, -0.09000938, -0.68433404, 0.719087)
+bones/24/rotation = Quaternion(-0.030769207, 0.27557245, 0.12679231, 0.9523849)
+bones/25/rotation = Quaternion(0.006151285, 0.094363056, -0.17068303, 0.98077786)
+bones/30/rotation = Quaternion(0.013755452, 0.9634043, -0.25225613, -0.08960881)
+bones/31/rotation = Quaternion(0.98479444, -0.018462235, 0.17271987, 0.002650581)
+bones/32/rotation = Quaternion(0.54541916, -0.4019235, 0.44798437, 0.58334)
+bones/34/rotation = Quaternion(0.0619905, 0.2119013, 0.017236637, 0.9751708)
+bones/35/rotation = Quaternion(0.9746657, -0.020776998, 0.22266297, 0.0040462893)
+bones/36/rotation = Quaternion(0.58342856, -0.3860789, 0.39238295, 0.59715146)
 
 [node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -507,7 +507,7 @@ transform = Transform3D(19.929756, 0, 0, 0, 1, 0, 0, 0, 18.712498, 40.554512, -1
 [node name="SpawnArea4" parent="WaveManager" unique_id=1870747652 instance=ExtResource("6_8jmja")]
 transform = Transform3D(19.929756, 0, 0, 0, 1, 0, 0, 0, 70.04599, 121.79181, -19.614016, -67.47702)
 
-[node name="Level3-1-Perspective" parent="." unique_id=448520940 instance=ExtResource("10_5bkx6")]
+[node name="Level3-1-Perspective (1)" parent="." unique_id=1061952069 instance=ExtResource("11_b6nq8")]
 
 [node name="Gate" parent="." unique_id=23676353 instance=ExtResource("10_t5tva")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 141.32158, -19.366611, -167.0379)
@@ -802,6 +802,16 @@ visibility_aabb = AABB(-77.5, -4, -77.5, 155, 8, 155)
 process_material = SubResource("ParticleProcessMaterial_ybqkw")
 draw_pass_1 = SubResource("QuadMesh_xbk8p")
 
+[connection signal="entered" from="PlayerManager/Nova/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Nova/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Nova/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Rene/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Rene/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Rene/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Dawn/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="entered" from="PlayerManager/Dawn/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
+[connection signal="finished" from="PlayerManager/Dawn/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
+[connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
 [connection signal="ended" from="WaveManager/Wave4" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
 
