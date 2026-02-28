@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://den4qvhi4e7kd" path="res://art_assets/Wreckcon_Task_Sheet.png" id="1_0bax6"]
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="1_4mpem"]
 [ext_resource type="Texture2D" uid="uid://bjfyh4eqtc0tn" path="res://art_assets/Ui/nova_portrait.png" id="3_rhiti"]
+[ext_resource type="FontFile" uid="uid://v0vlhe88ltqm" path="res://art_assets/Ui/Squared Display.ttf" id="4_yfvtt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhiti"]
 content_margin_left = 0.0
@@ -15,6 +16,17 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+
+[sub_resource type="Gradient" id="Gradient_ueis1"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lddcw"]
+gradient = SubResource("Gradient_ueis1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_es0mp"]
+font = ExtResource("4_yfvtt")
+font_size = 30
+outline_size = 3
 
 [node name="WreckconUI" type="MarginContainer" unique_id=325584194]
 z_index = 10
@@ -203,3 +215,27 @@ grow_vertical = 2
 texture = ExtResource("3_rhiti")
 expand_mode = 5
 stretch_mode = 5
+
+[node name="Control" type="Control" parent="." unique_id=412680958]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=11350159]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 0
+offset_top = 450.0
+offset_right = 345.0
+offset_bottom = 500.0
+size_flags_vertical = 8
+texture = SubResource("GradientTexture1D_lddcw")
+
+[node name="Label" type="Label" parent="Control/TextureRect2" unique_id=621639628]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10:00"
+label_settings = SubResource("LabelSettings_es0mp")
+horizontal_alignment = 1
+vertical_alignment = 1

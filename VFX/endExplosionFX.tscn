@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cy67kcror1354"]
 
-[ext_resource type="Texture2D" uid="uid://corvuvsyo5xdh" path="res://VFX/Kenny Particle Pack/star_08.png" id="1_iqdi5"]
-[ext_resource type="Texture2D" uid="uid://2vos3jdea3n7" path="res://VFX/Kenny Particle Pack/magic_04.png" id="2_7jg55"]
-[ext_resource type="Shader" uid="uid://cnufkqrd0wvae" path="res://VFX/MiteExplosionCloud.gdshader" id="3_0ongy"]
-[ext_resource type="Texture2D" uid="uid://c87luii1whawe" path="res://VFX/Kenny Particle Pack/star_07.png" id="4_vvxfx"]
+[ext_resource type="Texture2D" uid="uid://corvuvsyo5xdh" path="res://vfx/Kenny Particle Pack/star_08.png" id="1_iqdi5"]
+[ext_resource type="Texture2D" uid="uid://2vos3jdea3n7" path="res://vfx/Kenny Particle Pack/magic_04.png" id="2_7jg55"]
+[ext_resource type="Shader" uid="uid://cnufkqrd0wvae" path="res://vfx/MiteExplosionCloud.gdshader" id="3_0ongy"]
+[ext_resource type="Texture2D" uid="uid://c87luii1whawe" path="res://vfx/Kenny Particle Pack/star_07.png" id="4_vvxfx"]
 
 [sub_resource type="Gradient" id="Gradient_vvxfx"]
 
@@ -765,9 +765,6 @@ albedo_texture = ExtResource("4_vvxfx")
 material = SubResource("StandardMaterial3D_i24tg")
 size = Vector2(1.5, 1.5)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vvxfx"]
-load_path = "res://.godot/imported/star_07.png-5d454318530563cf2ea9bc2e46e6ebed.s3tc.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spsc7"]
 transparency = 1
 cull_mode = 2
@@ -778,7 +775,7 @@ disable_specular_occlusion = true
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
 albedo_color = Color(0, 0, 0, 1)
-albedo_texture = SubResource("CompressedTexture2D_vvxfx")
+albedo_texture = ExtResource("4_vvxfx")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ljcc8"]
 material = SubResource("StandardMaterial3D_spsc7")
@@ -874,6 +871,7 @@ point_count = 17
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljcc8"]
 transparency = 1
+cull_mode = 2
 shading_mode = 0
 disable_ambient_light = true
 disable_fog = true

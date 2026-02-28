@@ -38,6 +38,7 @@ var is_level = false
 var ui: Menu
 var menu_open = false
 var stars: Array[Control] = []
+var time_display: Label
 
 
 # Loads todo array with all tasks
@@ -50,6 +51,7 @@ func _ready() -> void:
 		var star = child.get_children()[0]
 		star.hide()
 		stars.append(star)
+	time_display = ui.get_children()[1].get_children()[0].get_children()[0] as Label
 
 # Calls processors and updates task statuses
 func _process(_delta: float) -> void:
@@ -60,6 +62,9 @@ func _process(_delta: float) -> void:
 		else:
 			menu_open = true
 			ui.open()
+	if timer != null:
+		var left = timer.time_left
+		time_display.text = ("%02d" % floor(left/60)) + (":%02d" % ((round(left) as int) % 60))
 	if (GameManager.current_level == null):
 		return
 	is_level = (GameManager.current_level.name as String).contains("Level")
