@@ -74,8 +74,9 @@ func start_dialogue():
 
 func stop_dialogue():
 	print_rich("[color=turquoise]Dialogue complete.")
-	for player in GameManager.player_manager.players:
-		player.process_mode = Node.PROCESS_MODE_INHERIT
+	if (GameManager.player_manager):
+		for player in GameManager.player_manager.players:
+			player.process_mode = Node.PROCESS_MODE_INHERIT
 	queue_free()
 	dialogue_finished.emit()
 

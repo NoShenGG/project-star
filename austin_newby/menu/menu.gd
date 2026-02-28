@@ -2,6 +2,7 @@
 extends Control
 class_name Menu
 
+@export var affects_other_menus : bool = true
 
 @export var open_on_start : bool
 @export var focused_control : Control
@@ -45,10 +46,10 @@ signal menu_shown
 signal menu_transition_finished
 
 func _enter_tree() -> void:
-	MenuManager.menus[self.name] = self
+	if (affects_other_menus ): MenuManager.menus[self.name] = self
 
 func _exit_tree() -> void:
-	MenuManager.menus.erase(self.name)
+	if (affects_other_menus ): MenuManager.menus.erase(self.name)
 
 func _ready() -> void:
 	print(size)

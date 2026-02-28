@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="17_6uhty"]
 [ext_resource type="PackedScene" uid="uid://cpmbed4mvwiwk" path="res://shaders/Fog/Biome2_level1_Godray.tscn" id="20_tadat"]
 [ext_resource type="Shader" uid="uid://014ry7cx8mxw" path="res://shaders/water.gdshader" id="21_6uhty"]
+[ext_resource type="Shader" uid="uid://c77hfyht2fpxt" path="res://shaders/Fog/lightbeam.gdshader" id="21_luo6j"]
 [ext_resource type="Shader" uid="uid://1ko4io3ntcb" path="res://shaders/non_billboard_particle_alpha_clip.tres" id="22_ah10j"]
 [ext_resource type="Texture2D" uid="uid://dwbiubl2ivhhw" path="res://VFX/Kenny Particle Pack/dirt_03.png" id="23_yvnfd"]
 [ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://VFX/Kenny Particle Pack/circle_01.png" id="24_luo6j"]
@@ -114,6 +115,74 @@ albedo = Color(0, 0, 0, 1)
 height_falloff = 1e-05
 edge_fade = 2.2627397
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_uyvo7"]
+size = Vector2(3, 20)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ul114"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xo2ee"]
+height = 1
+noise = SubResource("FastNoiseLite_ul114")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uyvo7"]
+render_priority = 0
+shader = ExtResource("21_luo6j")
+shader_parameter/color = Color(0.6901961, 1, 0.92156863, 0.73333335)
+shader_parameter/use_second_color = true
+shader_parameter/second_color = Color(0, 0.5058824, 0.6901961, 0.53333336)
+shader_parameter/cone_start_width = 0.35999999195328
+shader_parameter/cone_curve = 0.72999998368304
+shader_parameter/beam_sharpness = 0.25
+shader_parameter/beam_fade = 0.70000001043084
+shader_parameter/use_gradient = false
+shader_parameter/proximity_fade_distance = 8.5499998088904
+shader_parameter/z_fade_start = 0.0
+shader_parameter/z_fade_end = 0.0
+shader_parameter/use_noise = true
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_xo2ee")
+shader_parameter/noise_scale = 2.30000003427276
+shader_parameter/noise_intensity = 0.999999977648
+shader_parameter/noise_scroll_speed = Vector2(0.265, 0.01)
+shader_parameter/noise_distortion_intensity = 0.01
+shader_parameter/noise_distortion_scroll_speed = Vector2(-0.02, -0.01)
+
+[sub_resource type="Curve" id="Curve_sgfw8"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(0.1885522, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_iqfp5"]
+curve = SubResource("Curve_sgfw8")
+
+[sub_resource type="Curve" id="Curve_iqfp5"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.006734006, 3), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n4k8m"]
+curve = SubResource("Curve_iqfp5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yvnfd"]
+particle_flag_rotate_y = true
+emission_shape_offset = Vector3(0, 10, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0728835e-05
+angle_max = 720.0
+direction = Vector3(0, -1, 0)
+spread = 5.0
+initial_velocity_min = 15.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, -1, 0)
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 1.0
+scale_over_velocity_curve = SubResource("CurveTexture_n4k8m")
+color = Color(0.8787568, 0.8968862, 0.9241, 1)
+alpha_curve = SubResource("CurveTexture_iqfp5")
+collision_mode = 2
+collision_use_scale = true
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5v5at"]
 render_priority = -1
 shader = ExtResource("21_6uhty")
@@ -201,43 +270,6 @@ shader_parameter/proximity = 1.0
 [sub_resource type="QuadMesh" id="QuadMesh_1qbji"]
 material = SubResource("ShaderMaterial_u1p3j")
 
-[sub_resource type="Curve" id="Curve_sgfw8"]
-_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(0.1885522, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_iqfp5"]
-curve = SubResource("Curve_sgfw8")
-
-[sub_resource type="Curve" id="Curve_iqfp5"]
-_limits = [0.0, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.006734006, 3), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_n4k8m"]
-curve = SubResource("Curve_iqfp5")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yvnfd"]
-particle_flag_rotate_y = true
-emission_shape_offset = Vector3(0, 10, 0)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-angle_min = 1.0728835e-05
-angle_max = 720.0
-direction = Vector3(0, -1, 0)
-spread = 5.0
-initial_velocity_min = 15.0
-initial_velocity_max = 20.0
-gravity = Vector3(0, -1, 0)
-scale_over_velocity_min = 1.0
-scale_over_velocity_max = 1.0
-scale_over_velocity_curve = SubResource("CurveTexture_n4k8m")
-color = Color(0.8787568, 0.8968862, 0.9241, 1)
-alpha_curve = SubResource("CurveTexture_iqfp5")
-collision_mode = 2
-collision_use_scale = true
-sub_emitter_mode = 3
-sub_emitter_amount_at_collision = 1
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_luo6j"]
 particle_flag_rotate_y = true
 emission_shape_offset = Vector3(0, 10, 0)
@@ -271,17 +303,17 @@ transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 
 max_click_time = 0.25
 attack_charge_time = 0.5
 
-[node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1510266777, 1837126418, 1395090033) index="0" unique_id=1156861599]
-bones/14/rotation = Quaternion(-0.06576612, 0.52208143, -0.5067631, 0.6828594)
-bones/15/rotation = Quaternion(-0.17055209, 0.5684286, 0.2343737, 0.7699805)
-bones/16/rotation = Quaternion(-0.5032242, -0.4783016, -0.26168862, 0.6704567)
-bones/21/rotation = Quaternion(-0.13696401, 0.36781016, -0.47104737, 0.78998166)
-bones/22/rotation = Quaternion(-0.07460475, 0.37791428, 0.1858936, 0.9039129)
-bones/23/rotation = Quaternion(0.1318699, 0.11146958, -0.08798881, 0.9810418)
-bones/38/rotation = Quaternion(-0.35094783, 0.70596457, 0.060829453, 0.61216784)
+[node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1510266777, 1837126418, 1395090033) index="0" unique_id=255868393]
+bones/14/rotation = Quaternion(-0.06522584, 0.522076, -0.50661355, 0.6830263)
+bones/15/rotation = Quaternion(-0.16969536, 0.56711763, 0.23414579, 0.7712049)
+bones/16/rotation = Quaternion(-0.50376076, -0.47572473, -0.26160368, 0.6719185)
+bones/21/rotation = Quaternion(-0.14248288, 0.3715061, -0.4650878, 0.7908066)
+bones/22/rotation = Quaternion(-0.074638225, 0.37799856, 0.18591954, 0.9038696)
+bones/23/rotation = Quaternion(0.13970628, 0.108678855, -0.08415733, 0.98060626)
+bones/38/rotation = Quaternion(-0.35050943, 0.7061813, 0.061209943, 0.61213106)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0031209127, -0.5699958, 0.8216417, -0.42241362, 0.7454928, 0.5155648, -0.90639776, -0.34546357, -0.24310064, 0.006052522, 0.0071786046, -0.013186692)
+transform = Transform3D(-0.003826045, -0.56999147, 0.82164174, -0.4214862, 0.7460166, 0.5155661, -0.9068267, -0.34433815, -0.2430979, 0.0060415063, 0.007193112, -0.013193353)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1510266777, 1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -398,20 +430,20 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 [node name="Dawn" parent="PlayerManager" index="2" unique_id=618181988]
 max_click_time = 0.3
 
-[node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1510266777, 618181988, 1566855500) index="0" unique_id=581899794]
-bones/2/rotation = Quaternion(0.03330199, -0.0332052, 0.7052958, 0.7073517)
-bones/15/rotation = Quaternion(0.01875678, -0.10499976, -0.66671395, 0.737642)
-bones/16/rotation = Quaternion(-0.036191393, 0.3978517, 0.10406458, 0.91081005)
-bones/17/rotation = Quaternion(0.18291669, 0.09351002, -0.25510198, 0.9448389)
-bones/23/rotation = Quaternion(-0.082101755, -0.08787503, -0.68410546, 0.7194005)
-bones/24/rotation = Quaternion(-0.030800767, 0.2757615, 0.12682492, 0.95232475)
-bones/25/rotation = Quaternion(3.391063e-06, 0.060798995, -0.17712837, 0.98230803)
-bones/30/rotation = Quaternion(0.0028190345, 0.96821654, -0.2500786, 0.0031174098)
-bones/31/rotation = Quaternion(0.9978541, -0.011873961, 0.06439034, 0.0005627091)
-bones/32/rotation = Quaternion(0.56689054, -0.37289396, 0.4228167, 0.6006757)
-bones/34/rotation = Quaternion(0.061016962, 0.124534376, 0.013602758, 0.99024403)
-bones/35/rotation = Quaternion(0.9909861, -0.01568188, 0.13303357, 0.0016861563)
-bones/36/rotation = Quaternion(0.59759206, -0.36148402, 0.37213355, 0.6113343)
+[node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1510266777, 618181988, 1566855500) index="0" unique_id=1201434841]
+bones/2/rotation = Quaternion(0.044601057, -0.044471428, 0.70467514, 0.7067291)
+bones/15/rotation = Quaternion(0.015882388, -0.11389199, -0.66588855, 0.7371356)
+bones/16/rotation = Quaternion(-0.03818547, 0.41077057, 0.10478875, 0.90489155)
+bones/17/rotation = Quaternion(0.18819356, 0.10365827, -0.25570303, 0.94257843)
+bones/23/rotation = Quaternion(-0.08139248, -0.089496665, -0.6842115, 0.7191803)
+bones/24/rotation = Quaternion(-0.030854978, 0.27608615, 0.12688093, 0.9522215)
+bones/25/rotation = Quaternion(0.002829515, 0.0757887, -0.17429031, 0.9817693)
+bones/30/rotation = Quaternion(0.008749746, 0.9670562, -0.25104597, -0.04125133)
+bones/31/rotation = Quaternion(0.9928579, -0.015199155, 0.11832273, 0.0014121152)
+bones/32/rotation = Quaternion(0.5562294, -0.387531, 0.4355507, 0.59221977)
+bones/34/rotation = Quaternion(0.061430987, 0.16525139, 0.015490856, 0.9842146)
+bones/35/rotation = Quaternion(0.98420084, -0.018168233, 0.17610088, 0.0026919055)
+bones/36/rotation = Quaternion(0.59073305, -0.37347773, 0.3820893, 0.6046129)
 
 [node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1510266777, 618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -797,18 +829,45 @@ light_size = 5.25
 [node name="Node3D" parent="WorldEnvironment" unique_id=2005364247 instance=ExtResource("20_tadat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4030733, 3.8334064, 45.921333)
 
+[node name="Fog" type="SpotLight3D" parent="WorldEnvironment" unique_id=1888748673]
+transform = Transform3D(1, 0, 0, 0, 0.12640674, 0.99197847, 0, -0.99197847, 0.12640674, 10.742493, 28.644228, 3.9360285)
+light_energy = 9.091
+distance_fade_enabled = true
+spot_range = 44.842
+spot_attenuation = 0.2
+spot_angle = 33.13
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/Fog" unique_id=443962839]
+transform = Transform3D(-0.98176676, 0, 0.19008929, 0, 1, 0, -0.19008929, 0, -0.98176676, -1.429677, 0, -8.452828)
+mesh = SubResource("PlaneMesh_uyvo7")
+surface_material_override/0 = SubResource("ShaderMaterial_uyvo7")
+
+[node name="RainVFX" parent="WorldEnvironment/Fog" unique_id=164417071 instance=ExtResource("28_yvnfd")]
+transform = Transform3D(0.9943846, -0.1057926, -0.002699248, -0.00817455, -0.051355727, -0.998647, 0.10551083, 0.99306107, -0.05193211, -2.100318, 0.93539083, -9.2903385)
+amount = 2048
+amount_ratio = 0.128
+process_material = SubResource("ParticleProcessMaterial_yvnfd")
+
+[node name="GPUParticles3D" parent="WorldEnvironment/Fog/RainVFX" index="0" unique_id=189637146]
+visible = false
+emitting = true
+
+[node name="GPUParticlesCollisionHeightField3D" parent="WorldEnvironment/Fog/RainVFX" index="1" unique_id=151085106]
+transform = Transform3D(1, 8.1490725e-09, -1.8626451e-09, 2.3283064e-10, 1, -4.4703484e-08, 0, 1.4901161e-08, 1, 1, -4.2080803, 9.35359)
+visible = false
+
 [node name="Water Mesh" type="MeshInstance3D" parent="." unique_id=1495741413]
 transform = Transform3D(105.69242, 0, 0, 0, 1, 0, 0, 0, 149.38562, -3, -20.356636, -47)
 material_override = SubResource("ShaderMaterial_5v5at")
 mesh = SubResource("PlaneMesh_72i70")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1902816896]
+[node name="Dust Floor" type="MeshInstance3D" parent="." unique_id=1902816896]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26.439651, 0)
 material_override = SubResource("StandardMaterial3D_lpepu")
 mesh = SubResource("PlaneMesh_udfk2")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="MeshInstance3D" unique_id=241282534]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Dust Floor" unique_id=241282534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.337957, -22.952152)
 cast_shadow = 0
 amount = 250
@@ -831,20 +890,6 @@ process_material = SubResource("ParticleProcessMaterial_68bi4")
 draw_pass_1 = SubResource("QuadMesh_1qbji")
 
 [node name="Rain" type="Node3D" parent="." unique_id=761350224]
-
-[node name="RainVFX" parent="Rain" unique_id=164417071 instance=ExtResource("28_yvnfd")]
-transform = Transform3D(0.9998847, 0.013802662, -0.006327221, -0.01518378, 0.90893507, -0.41666117, 0, 0.4167092, 0.90903986, 11.247993, 14.004724, 0)
-amount = 2048
-amount_ratio = 0.128
-process_material = SubResource("ParticleProcessMaterial_yvnfd")
-
-[node name="GPUParticles3D" parent="Rain/RainVFX" index="0" unique_id=189637146]
-visible = false
-emitting = true
-
-[node name="GPUParticlesCollisionHeightField3D" parent="Rain/RainVFX" index="1" unique_id=151085106]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.000001, -4.2080812, 9.353592)
-visible = false
 
 [node name="RainVFX2" parent="Rain" unique_id=860711223 instance=ExtResource("28_yvnfd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.450678, 13.896767, 25.368725)
@@ -873,5 +918,5 @@ visible = false
 [editable path="PlayerManager/Game Menu/GameUi"]
 [editable path="PlayerManager/SettingScene"]
 [editable path="WorldEnvironment/Node3D"]
-[editable path="Rain/RainVFX"]
+[editable path="WorldEnvironment/Fog/RainVFX"]
 [editable path="Rain/RainVFX2"]
