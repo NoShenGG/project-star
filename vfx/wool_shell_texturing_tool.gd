@@ -50,7 +50,7 @@ extends Node3D
 @export_tool_button("Recreate Meshes", "Callable") var recreate_button = recreate_meshes
 
 func _ready():
-	recreate_meshes()
+	if (Engine.is_editor_hint()): recreate_meshes()
 
 func recreate_meshes():
 	if not mesh:
