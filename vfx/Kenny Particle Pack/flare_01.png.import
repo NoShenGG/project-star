@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c33gyhkq5ywxo"
-path.s3tc="res://.godot/imported/flare_01.png-70bda05131058af2389fc4ac188f4c82.s3tc.ctex"
+path.s3tc="res://.godot/imported/flare_01.png-d8abf409d798ab28834315559227ab9d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://VFX/Kenny Particle Pack/flare_01.png"
-dest_files=["res://.godot/imported/flare_01.png-70bda05131058af2389fc4ac188f4c82.s3tc.ctex"]
+source_file="res://vfx/Kenny Particle Pack/flare_01.png"
+dest_files=["res://.godot/imported/flare_01.png-d8abf409d798ab28834315559227ab9d.s3tc.ctex"]
 
 [params]
 

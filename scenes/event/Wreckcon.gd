@@ -37,7 +37,7 @@ var is_level = false
 # UI
 var ui: Menu
 var menu_open = false
-var stars: Array[TextureRect] = []
+var stars: Array[Control] = []
 
 
 # Loads todo array with all tasks
@@ -47,7 +47,7 @@ func _ready() -> void:
 	ui = preload("res://scenes/event/Wreckcon_UI.tscn").instantiate()
 	add_child(ui)
 	for child in ui.get_children()[0].get_children()[0].get_children()[0].get_children():
-		var star = child.get_children()[0] as TextureRect
+		var star = child.get_children()[0]
 		star.hide()
 		stars.append(star)
 
