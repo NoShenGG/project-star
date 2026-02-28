@@ -17,11 +17,16 @@ void vertex() {
 }
 
 void fragment() {
-	vec2 base_uv = UV;
-	vec4 albedo_tex = texture(texture_albedo,base_uv);
-	ALBEDO = albedo.rgb * albedo_tex.rgb;
-	EMISSION = emission_color.rgb * emission_amount;
-	float NdotV = dot(NORMAL, VIEW);
-	float rim_light = pow(1.0 - NdotV, rim_steepness);
-	ALPHA = rim_light * emission_color.a / PI;
+    vec2 base_uv = UV;
+    vec4 albedo_tex = texture(texture_albedo,base_uv);
+    ALBEDO = albedo.rgb * albedo_tex.rgb;
+    EMISSION = emission_color.rgb * emission_amount;
+    
+    // Clamp the dot product
+    float NdotV = clamp(dot(NORMAL, VIEW), 0.0, 1.0);
+    
+    // Clamp the base to ensure it never dips below 0.0
+    float rim_light = pow(clamp(1.0 - NdotV, 0.0, 1.0), rim_steepness);
+    
+    ALPHA = rim_light * emission_color.a / PI;
 }

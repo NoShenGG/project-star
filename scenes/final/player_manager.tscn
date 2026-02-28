@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://c4lk3o8cr5585" path="res://art_assets/Ui/ControlPanels/Nova/Reload Button.png" id="17_k852m"]
 [ext_resource type="Texture2D" uid="uid://oov1kn7x7w44" path="res://art_assets/Ui/ControlPanels/Nova/Main Menu Button.png" id="18_3wvx5"]
 [ext_resource type="Texture2D" uid="uid://bbvfl0w3ies1t" path="res://art_assets/Ui/ControlPanels/Nova/NOVA.png" id="18_elt32"]
+[ext_resource type="Texture2D" uid="uid://dwfwwl7smcddh" path="res://art_assets/Ui/New Text Boxes/Untitled1310_20260107201525.png" id="18_xujl7"]
 [ext_resource type="Texture2D" uid="uid://bccrr20ihn4no" path="res://art_assets/Ui/ControlPanels/new_wreckcon_control_panels/Nova Controls Panel.svg" id="22_h7dy6"]
 [ext_resource type="Texture2D" uid="uid://dgca7rw8ve58r" path="res://art_assets/Ui/ControlPanels/Rene/Rene Corner Portrait.png" id="24_3h4bm"]
 [ext_resource type="Texture2D" uid="uid://b8a50abxuvdck" path="res://art_assets/Ui/ControlPanels/Rene/RENE.png" id="25_w6fg2"]
@@ -71,6 +72,24 @@ point_count = 3
 [sub_resource type="Curve" id="Curve_wmnvy"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50545454, 0.5084282), 2.0432801, 2.0432801, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce2ov"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_guacr"]
+texture = ExtResource("18_xujl7")
+expand_margin_top = 35.0
+expand_margin_right = 120.0
+expand_margin_bottom = 110.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27jnq"]
 
@@ -372,16 +391,16 @@ floor_snap_length = 5.0
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="0" unique_id=1280032861]
-bones/14/rotation = Quaternion(-0.07127256, 0.52404207, -0.5068698, 0.6807226)
-bones/15/rotation = Quaternion(-0.16386548, 0.5580571, 0.2325164, 0.77952325)
-bones/16/rotation = Quaternion(-0.5084506, -0.4757891, -0.24693279, 0.6738894)
-bones/21/rotation = Quaternion(-0.12950514, 0.37992433, -0.47770432, 0.78146315)
-bones/22/rotation = Quaternion(-0.06592234, 0.353967, 0.17823264, 0.9157482)
-bones/23/rotation = Quaternion(0.11415089, 0.12289129, -0.08558508, 0.9821113)
-bones/38/rotation = Quaternion(-0.3515368, 0.70567274, 0.060317934, 0.612217)
+bones/14/rotation = Quaternion(-0.06556268, 0.5223338, -0.5064978, 0.6828828)
+bones/15/rotation = Quaternion(-0.16774815, 0.56412077, 0.23361802, 0.7739839)
+bones/16/rotation = Quaternion(-0.50517184, -0.47315636, -0.25879067, 0.6737596)
+bones/21/rotation = Quaternion(-0.14568248, 0.37675172, -0.46151426, 0.78983504)
+bones/22/rotation = Quaternion(-0.07304425, 0.37373817, 0.18457589, 0.90604424)
+bones/23/rotation = Quaternion(0.1428096, 0.10845667, -0.08066518, 0.9804774)
+bones/38/rotation = Quaternion(-0.3498286, 0.70651734, 0.061800666, 0.6120735)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0021730703, -0.5700001, 0.8216418, -0.42365906, 0.7447869, 0.5155631, -0.9058191, -0.34697565, -0.24310422, 0.006067329, 0.0071591227, -0.013177706)
+transform = Transform3D(-0.004920642, -0.569983, 0.8216417, -0.4200451, 0.74682766, 0.5155681, -0.90748984, -0.34258962, -0.24309349, 0.0060244063, 0.0072156545, -0.013203651)
 
 [node name="Idle" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -521,19 +540,19 @@ interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpe
 material_override = null
 
 [node name="Skeleton3D" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="0" unique_id=1529346309]
-bones/2/rotation = Quaternion(0.044449914, -0.04432072, 0.70468456, 0.70673865)
-bones/15/rotation = Quaternion(0.01591964, -0.113774315, -0.6659001, 0.73714256)
-bones/16/rotation = Quaternion(-0.03815948, 0.4106035, 0.10477961, 0.90496963)
-bones/17/rotation = Quaternion(0.18812376, 0.10351976, -0.25569558, 0.9426096)
-bones/23/rotation = Quaternion(-0.08140321, -0.0894784, -0.6842099, 0.7191829)
-bones/24/rotation = Quaternion(-0.030855542, 0.27608952, 0.1268815, 0.9522204)
-bones/25/rotation = Quaternion(0.0027921163, 0.07558523, -0.17432936, 0.98177814)
-bones/30/rotation = Quaternion(0.00868395, 0.9670837, -0.25103316, -0.040696252)
-bones/31/rotation = Quaternion(0.9929357, -0.015159605, 0.11767341, 0.0013996805)
-bones/32/rotation = Quaternion(0.5563598, -0.38735458, 0.43539774, 0.5923251)
-bones/34/rotation = Quaternion(0.061425384, 0.16472615, 0.0154684, 0.98430336)
-bones/35/rotation = Quaternion(0.98429775, -0.018137505, 0.17556153, 0.0026778644)
-bones/36/rotation = Quaternion(0.59081954, -0.37332746, 0.3819655, 0.60469943)
+bones/2/rotation = Quaternion(0.03138663, -0.031295396, 0.705383, 0.7074393)
+bones/15/rotation = Quaternion(0.0197063, -0.10279516, -0.66698605, 0.7376818)
+bones/16/rotation = Quaternion(-0.035623133, 0.39409083, 0.10384382, 0.9124911)
+bones/17/rotation = Quaternion(0.18150601, 0.092612125, -0.25495985, 0.94523764)
+bones/23/rotation = Quaternion(-0.081518725, -0.086698085, -0.6842069, 0.7195132)
+bones/24/rotation = Quaternion(-0.030535676, 0.27417004, 0.12655006, 0.9528292)
+bones/25/rotation = Quaternion(-0.0010197803, 0.059248388, -0.17726612, 0.98237747)
+bones/30/rotation = Quaternion(0.0010917243, 0.96819174, -0.24987972, 0.01279378)
+bones/31/rotation = Quaternion(0.99862236, -0.011055522, 0.05129414, 0.00041157161)
+bones/32/rotation = Quaternion(0.5694198, -0.36934274, 0.4197296, 0.60263926)
+bones/34/rotation = Quaternion(0.060942695, 0.1161631, 0.013103734, 0.99127215)
+bones/35/rotation = Quaternion(0.99226296, -0.015106952, 0.12322284, 0.0014891997)
+bones/36/rotation = Quaternion(0.59913456, -0.3587597, 0.36985618, 0.6128098)
 
 [node name="Idle" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -749,12 +768,13 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 432.0
-offset_top = 72.0
+offset_top = 260.54
 offset_right = -432.0
-offset_bottom = -384.0
+offset_bottom = -260.90503
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(144, 96)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ce2ov")
 script = ExtResource("9_41j18")
 time_to_die = 2.0
 focused_control = NodePath("Reload Button")
@@ -772,6 +792,7 @@ offset_right = 61.0
 offset_bottom = 92.0
 grow_horizontal = 2
 pivot_offset = Vector2(61, 27)
+theme_override_styles/normal = SubResource("StyleBoxTexture_guacr")
 text = "RELOAD"
 script = ExtResource("9_0dwuh")
 open_animation_flags = 5

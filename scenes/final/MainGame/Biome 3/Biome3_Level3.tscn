@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://d1x0hrjurlj0a" path="res://art_assets/Ui/FinalPortraits/rene_transparent_no_weapon.png" id="15_3nrg2"]
 [ext_resource type="Texture2D" uid="uid://d0np8pel0cm26" path="res://art_assets/Ui/FinalPortraits/dawnCLEAR.png" id="16_30m0f"]
 [ext_resource type="Shader" uid="uid://c77hfyht2fpxt" path="res://shaders/Fog/lightbeam.gdshader" id="18_i6srs"]
-[ext_resource type="Script" uid="uid://ba0ksa5mw76m4" path="res://scripts/utility/end_cutscene.gd" id="21_ic5nq"]
+[ext_resource type="Script" path="res://scripts/utility/end_cutscene.gd" id="21_ic5nq"]
 [ext_resource type="PackedScene" uid="uid://cod3je274l3of" path="res://art_assets/characters/Nova/nova.glb" id="22_h3nj5"]
 [ext_resource type="Shader" uid="uid://crwsrlgfy4fjb" path="res://shaders/grass - Dylearn/Shaders/Outline.gdshader" id="23_h445l"]
 [ext_resource type="Texture2D" uid="uid://eigm3rxkvtcq" path="res://art_assets/characters/Nova/nova_0.png" id="24_j1slo"]
@@ -150,6 +150,7 @@ noise = SubResource("FastNoiseLite_fcfpd")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ic5nq"]
 render_priority = 0
 shader = ExtResource("18_i6srs")
+shader_parameter/transparency = 0.0
 shader_parameter/color = Color(1, 0.8, 1, 1)
 shader_parameter/use_second_color = true
 shader_parameter/second_color = Color(1, 0.26, 1, 1)
@@ -7456,172 +7457,172 @@ navigation_mesh = SubResource("NavigationMesh_n0jqv")
 
 [node name="3-3-DK-ModApplied" parent="NavMesh" unique_id=1198827781 instance=ExtResource("3_30m0f")]
 
-[node name="Tile_001" parent="NavMesh/3-3-DK-ModApplied" index="0" unique_id=1664327597]
+[node name="Tile_001" parent="NavMesh/3-3-DK-ModApplied" index="0" unique_id=1177989928]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_002" parent="NavMesh/3-3-DK-ModApplied" index="1" unique_id=1078606777]
+[node name="Tile_002" parent="NavMesh/3-3-DK-ModApplied" index="1" unique_id=1646131613]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_003" parent="NavMesh/3-3-DK-ModApplied" index="2" unique_id=1502005719]
+[node name="Tile_003" parent="NavMesh/3-3-DK-ModApplied" index="2" unique_id=759764339]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_004" parent="NavMesh/3-3-DK-ModApplied" index="3" unique_id=717367312]
+[node name="Tile_004" parent="NavMesh/3-3-DK-ModApplied" index="3" unique_id=85541350]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_005" parent="NavMesh/3-3-DK-ModApplied" index="4" unique_id=1681742663]
+[node name="Tile_005" parent="NavMesh/3-3-DK-ModApplied" index="4" unique_id=1783435449]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_006" parent="NavMesh/3-3-DK-ModApplied" index="5" unique_id=1613150779]
+[node name="Tile_006" parent="NavMesh/3-3-DK-ModApplied" index="5" unique_id=909640338]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_007" parent="NavMesh/3-3-DK-ModApplied" index="6" unique_id=721063981]
+[node name="Tile_007" parent="NavMesh/3-3-DK-ModApplied" index="6" unique_id=182396743]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_008" parent="NavMesh/3-3-DK-ModApplied" index="7" unique_id=1565013930]
+[node name="Tile_008" parent="NavMesh/3-3-DK-ModApplied" index="7" unique_id=889961295]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_009" parent="NavMesh/3-3-DK-ModApplied" index="8" unique_id=907802467]
+[node name="Tile_009" parent="NavMesh/3-3-DK-ModApplied" index="8" unique_id=1931022779]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_010" parent="NavMesh/3-3-DK-ModApplied" index="9" unique_id=555750470]
+[node name="Tile_010" parent="NavMesh/3-3-DK-ModApplied" index="9" unique_id=233834410]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_011" parent="NavMesh/3-3-DK-ModApplied" index="10" unique_id=402860323]
+[node name="Tile_011" parent="NavMesh/3-3-DK-ModApplied" index="10" unique_id=1031837847]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_012" parent="NavMesh/3-3-DK-ModApplied" index="11" unique_id=1489857405]
+[node name="Tile_012" parent="NavMesh/3-3-DK-ModApplied" index="11" unique_id=967342477]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_013" parent="NavMesh/3-3-DK-ModApplied" index="12" unique_id=1292642770]
+[node name="Tile_013" parent="NavMesh/3-3-DK-ModApplied" index="12" unique_id=704897454]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_014" parent="NavMesh/3-3-DK-ModApplied" index="13" unique_id=661568883]
+[node name="Tile_014" parent="NavMesh/3-3-DK-ModApplied" index="13" unique_id=2144799247]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_015" parent="NavMesh/3-3-DK-ModApplied" index="14" unique_id=1664561312]
+[node name="Tile_015" parent="NavMesh/3-3-DK-ModApplied" index="14" unique_id=237616142]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_016" parent="NavMesh/3-3-DK-ModApplied" index="15" unique_id=165941205]
+[node name="Tile_016" parent="NavMesh/3-3-DK-ModApplied" index="15" unique_id=470394782]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_017" parent="NavMesh/3-3-DK-ModApplied" index="16" unique_id=1896088434]
+[node name="Tile_017" parent="NavMesh/3-3-DK-ModApplied" index="16" unique_id=1995915586]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_018" parent="NavMesh/3-3-DK-ModApplied" index="17" unique_id=1874169870]
+[node name="Tile_018" parent="NavMesh/3-3-DK-ModApplied" index="17" unique_id=452973815]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_019" parent="NavMesh/3-3-DK-ModApplied" index="18" unique_id=947805463]
+[node name="Tile_019" parent="NavMesh/3-3-DK-ModApplied" index="18" unique_id=988072432]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="Tile_020" parent="NavMesh/3-3-DK-ModApplied" index="19" unique_id=1637141937]
+[node name="Tile_020" parent="NavMesh/3-3-DK-ModApplied" index="19" unique_id=1658255826]
 surface_material_override/0 = SubResource("ShaderMaterial_1q2o5")
 
-[node name="RIm" parent="NavMesh/3-3-DK-ModApplied" index="20" unique_id=702937412]
+[node name="RIm" parent="NavMesh/3-3-DK-ModApplied" index="20" unique_id=243880064]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_001" parent="NavMesh/3-3-DK-ModApplied" index="21" unique_id=679765023]
+[node name="RIm_001" parent="NavMesh/3-3-DK-ModApplied" index="21" unique_id=43711571]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_001" parent="NavMesh/3-3-DK-ModApplied" index="22" unique_id=314519351]
+[node name="Rim_001" parent="NavMesh/3-3-DK-ModApplied" index="22" unique_id=1142480561]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_002" parent="NavMesh/3-3-DK-ModApplied" index="23" unique_id=1540635149]
+[node name="RIm_002" parent="NavMesh/3-3-DK-ModApplied" index="23" unique_id=1734698918]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_002" parent="NavMesh/3-3-DK-ModApplied" index="24" unique_id=683934814]
+[node name="Rim_002" parent="NavMesh/3-3-DK-ModApplied" index="24" unique_id=1719882942]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_003" parent="NavMesh/3-3-DK-ModApplied" index="25" unique_id=1842801685]
+[node name="RIm_003" parent="NavMesh/3-3-DK-ModApplied" index="25" unique_id=694142086]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_003" parent="NavMesh/3-3-DK-ModApplied" index="26" unique_id=1824243156]
+[node name="Rim_003" parent="NavMesh/3-3-DK-ModApplied" index="26" unique_id=1665687272]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_004" parent="NavMesh/3-3-DK-ModApplied" index="27" unique_id=1738019962]
+[node name="RIm_004" parent="NavMesh/3-3-DK-ModApplied" index="27" unique_id=1934238753]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_004" parent="NavMesh/3-3-DK-ModApplied" index="28" unique_id=1251631634]
+[node name="Rim_004" parent="NavMesh/3-3-DK-ModApplied" index="28" unique_id=466277434]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_005" parent="NavMesh/3-3-DK-ModApplied" index="29" unique_id=211022636]
+[node name="RIm_005" parent="NavMesh/3-3-DK-ModApplied" index="29" unique_id=1531365356]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_005" parent="NavMesh/3-3-DK-ModApplied" index="30" unique_id=100697734]
+[node name="Rim_005" parent="NavMesh/3-3-DK-ModApplied" index="30" unique_id=721073774]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_006" parent="NavMesh/3-3-DK-ModApplied" index="31" unique_id=261701876]
+[node name="RIm_006" parent="NavMesh/3-3-DK-ModApplied" index="31" unique_id=905374156]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_006" parent="NavMesh/3-3-DK-ModApplied" index="32" unique_id=304969690]
+[node name="Rim_006" parent="NavMesh/3-3-DK-ModApplied" index="32" unique_id=873173159]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_007" parent="NavMesh/3-3-DK-ModApplied" index="33" unique_id=1068440254]
+[node name="RIm_007" parent="NavMesh/3-3-DK-ModApplied" index="33" unique_id=2066149518]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_007" parent="NavMesh/3-3-DK-ModApplied" index="34" unique_id=1017008840]
+[node name="Rim_007" parent="NavMesh/3-3-DK-ModApplied" index="34" unique_id=290655391]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_008" parent="NavMesh/3-3-DK-ModApplied" index="35" unique_id=1993997387]
+[node name="RIm_008" parent="NavMesh/3-3-DK-ModApplied" index="35" unique_id=634878476]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_008" parent="NavMesh/3-3-DK-ModApplied" index="36" unique_id=394610431]
+[node name="Rim_008" parent="NavMesh/3-3-DK-ModApplied" index="36" unique_id=343091467]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_009" parent="NavMesh/3-3-DK-ModApplied" index="37" unique_id=360497174]
+[node name="RIm_009" parent="NavMesh/3-3-DK-ModApplied" index="37" unique_id=79791087]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_009" parent="NavMesh/3-3-DK-ModApplied" index="38" unique_id=266448513]
+[node name="Rim_009" parent="NavMesh/3-3-DK-ModApplied" index="38" unique_id=608801021]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_010" parent="NavMesh/3-3-DK-ModApplied" index="39" unique_id=1250847561]
+[node name="RIm_010" parent="NavMesh/3-3-DK-ModApplied" index="39" unique_id=1077898876]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_010" parent="NavMesh/3-3-DK-ModApplied" index="40" unique_id=146976817]
+[node name="Rim_010" parent="NavMesh/3-3-DK-ModApplied" index="40" unique_id=781562397]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_011" parent="NavMesh/3-3-DK-ModApplied" index="41" unique_id=882868533]
+[node name="RIm_011" parent="NavMesh/3-3-DK-ModApplied" index="41" unique_id=1368744835]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_011" parent="NavMesh/3-3-DK-ModApplied" index="42" unique_id=430745985]
+[node name="Rim_011" parent="NavMesh/3-3-DK-ModApplied" index="42" unique_id=661646462]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_012" parent="NavMesh/3-3-DK-ModApplied" index="43" unique_id=1454985977]
+[node name="RIm_012" parent="NavMesh/3-3-DK-ModApplied" index="43" unique_id=341101171]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim" parent="NavMesh/3-3-DK-ModApplied" index="44" unique_id=236722849]
+[node name="Rim" parent="NavMesh/3-3-DK-ModApplied" index="44" unique_id=1500100865]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_012" parent="NavMesh/3-3-DK-ModApplied" index="45" unique_id=275089401]
+[node name="Rim_012" parent="NavMesh/3-3-DK-ModApplied" index="45" unique_id=1103968804]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_013" parent="NavMesh/3-3-DK-ModApplied" index="46" unique_id=1240900789]
+[node name="RIm_013" parent="NavMesh/3-3-DK-ModApplied" index="46" unique_id=1548094669]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_013" parent="NavMesh/3-3-DK-ModApplied" index="47" unique_id=894306220]
+[node name="Rim_013" parent="NavMesh/3-3-DK-ModApplied" index="47" unique_id=2127495721]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_014" parent="NavMesh/3-3-DK-ModApplied" index="48" unique_id=379535655]
+[node name="RIm_014" parent="NavMesh/3-3-DK-ModApplied" index="48" unique_id=1131721288]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_014" parent="NavMesh/3-3-DK-ModApplied" index="49" unique_id=1224115407]
+[node name="Rim_014" parent="NavMesh/3-3-DK-ModApplied" index="49" unique_id=1783106410]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="RIm_015" parent="NavMesh/3-3-DK-ModApplied" index="50" unique_id=766297666]
+[node name="RIm_015" parent="NavMesh/3-3-DK-ModApplied" index="50" unique_id=1072070353]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_015" parent="NavMesh/3-3-DK-ModApplied" index="51" unique_id=1599981851]
+[node name="Rim_015" parent="NavMesh/3-3-DK-ModApplied" index="51" unique_id=574817143]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_016" parent="NavMesh/3-3-DK-ModApplied" index="52" unique_id=914187092]
+[node name="Rim_016" parent="NavMesh/3-3-DK-ModApplied" index="52" unique_id=781834352]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_017" parent="NavMesh/3-3-DK-ModApplied" index="53" unique_id=1823241753]
+[node name="Rim_017" parent="NavMesh/3-3-DK-ModApplied" index="53" unique_id=1407122040]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="Rim_018" parent="NavMesh/3-3-DK-ModApplied" index="54" unique_id=1203106887]
+[node name="Rim_018" parent="NavMesh/3-3-DK-ModApplied" index="54" unique_id=1546441976]
 surface_material_override/0 = SubResource("ShaderMaterial_ms5vr")
 
-[node name="NewBase_001" parent="NavMesh/3-3-DK-ModApplied" index="90" unique_id=1126943422]
+[node name="NewBase_001" parent="NavMesh/3-3-DK-ModApplied" index="90" unique_id=498642435]
 surface_material_override/0 = SubResource("ShaderMaterial_rtlmi")
 
 [node name="WaveManager" type="Node3D" parent="." unique_id=917111061]
@@ -7746,10 +7747,11 @@ transform = Transform3D(13.261096, 0, 0, 0, 1, 0, 0, 0, 10.96858, -6.096262, -1.
 transform = Transform3D(11.409352, 0, 0, 0, 1, 0, 0, 0, 11.618183, -37.060963, -1.9073486e-06, -59.519768)
 
 [node name="Gate" parent="." unique_id=950639005 instance=ExtResource("11_ggxbb")]
-transform = Transform3D(-7.649493e-08, 0, 1.75, 0, 1.75, 0, -1.75, 0, -7.649493e-08, 30.088423, 1.0413802, -115.05538)
+transform = Transform3D(-7.649493e-08, 0, 1.75, 0, 1.75, 0, -1.75, 0, -7.649493e-08, 30.088423, 1.0413802, -115.8997)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=950944550]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 73.016464, 17.540577, -207.76659)
+visible = false
 mesh = SubResource("SphereMesh_ggxbb")
 surface_material_override/0 = SubResource("StandardMaterial3D_k5jyb")
 
@@ -7908,6 +7910,26 @@ shape = SubResource("BoxShape3D_i6srs")
 transform = Transform3D(1.3113416e-07, 0, 0.25903922, 0, 1, 0, -1, 0, 3.3968895e-08, 79.09078, 0, -119.54611)
 shape = SubResource("BoxShape3D_i6srs")
 
+[node name="CollisionShape3D50" type="CollisionShape3D" parent="collisions" unique_id=808794795]
+transform = Transform3D(1.3113417e-07, 0, 0.42987123, 0, 1, 0, -1.0000001, 0, 5.6370812e-08, 70.6152, 10.942476, -154.95232)
+shape = SubResource("BoxShape3D_i6srs")
+
+[node name="CollisionShape3D51" type="CollisionShape3D" parent="collisions" unique_id=854573101]
+transform = Transform3D(-1, 0, 3.7580538e-08, 0, 1, 0, -8.742278e-08, 0, -0.42987123, 64.96309, 10.942476, -148.07297)
+shape = SubResource("BoxShape3D_i6srs")
+
+[node name="CollisionShape3D52" type="CollisionShape3D" parent="collisions" unique_id=2074923934]
+transform = Transform3D(-1, 0, 3.7580538e-08, 0, 1, 0, -8.742278e-08, 0, -0.42987123, 76.26331, 10.942476, -148.07297)
+shape = SubResource("BoxShape3D_i6srs")
+
+[node name="CollisionShape3D53" type="CollisionShape3D" parent="collisions" unique_id=1910579468]
+transform = Transform3D(-1, 0, 6.3966e-08, 0, 7.038914, 0, -8.742278e-08, 0, -0.7316857, 75.90824, 3.5813322, -130.71951)
+shape = SubResource("BoxShape3D_i6srs")
+
+[node name="CollisionShape3D54" type="CollisionShape3D" parent="collisions" unique_id=1640942909]
+transform = Transform3D(-1, 0, 6.3966e-08, 0, 7.038914, 0, -8.742278e-08, 0, -0.7316857, 67.97964, 3.5813322, -130.71951)
+shape = SubResource("BoxShape3D_i6srs")
+
 [node name="CollisionShape3D47" type="CollisionShape3D" parent="collisions" unique_id=888067597]
 transform = Transform3D(1, 0, -8.217009e-08, 0, 1, 0, 1.7484555e-07, 0, 0.46995807, 80.226944, 0, -115.71609)
 shape = SubResource("BoxShape3D_i6srs")
@@ -8051,7 +8073,7 @@ size = 25.0
 [node name="nova" parent="EndCutscene" unique_id=90507243 instance=ExtResource("22_h3nj5")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, -43.83127, 1.862031, -23.687057)
 
-[node name="Skeleton3D" parent="EndCutscene/nova" index="0" unique_id=2111668813]
+[node name="Skeleton3D" parent="EndCutscene/nova" index="0" unique_id=1280032861]
 bones/2/rotation = Quaternion(0.39593133, 0.24977413, 0.68152446, 0.56247294)
 bones/3/rotation = Quaternion(-0.00029652417, -0.0756327, 0.0068116817, 0.99711245)
 bones/5/position = Vector3(0.0025945704, -0.00054700946, 0.00058215286)
@@ -8064,12 +8086,12 @@ bones/10/position = Vector3(0.007249624, 0, 0)
 bones/10/rotation = Quaternion(1.6763805e-08, -1.664739e-08, -0.12919243, 0.9916195)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.9975918, -0.06935873, -7.450581e-09, -3.0267984e-09)
-bones/14/rotation = Quaternion(-0.070867226, 0.5246555, -0.5065167, 0.68055516)
-bones/15/rotation = Quaternion(-0.15837722, 0.5493291, 0.23087105, 0.7873073)
-bones/16/rotation = Quaternion(-0.51236904, -0.46702746, -0.24015245, 0.6794778)
-bones/21/rotation = Quaternion(-0.14186691, 0.39608857, -0.463838, 0.77964216)
-bones/22/rotation = Quaternion(-0.062150676, 0.34313178, 0.17470264, 0.9208023)
-bones/23/rotation = Quaternion(0.12885904, 0.12019759, -0.07389433, 0.981574)
+bones/14/rotation = Quaternion(-0.067167774, 0.52331173, -0.50624347, 0.6821663)
+bones/15/rotation = Quaternion(-0.16186833, 0.5549214, 0.23193991, 0.7823458)
+bones/16/rotation = Quaternion(-0.509432, -0.46695852, -0.24922298, 0.67846644)
+bones/21/rotation = Quaternion(-0.15059039, 0.39092448, -0.45556897, 0.78546655)
+bones/22/rotation = Quaternion(-0.067531556, 0.35863328, 0.17975558, 0.91351503)
+bones/23/rotation = Quaternion(0.1451815, 0.11086018, -0.07282066, 0.98047423)
 bones/28/rotation = Quaternion(0.13792598, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
@@ -8077,15 +8099,15 @@ bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.0075479914, 0.9397019)
 bones/34/rotation = Quaternion(0.987799, -0.013653895, 0.15512724, 0.0015065806)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
 bones/38/position = Vector3(0.0061216066, 0.013751204, 0.0009858904)
-bones/38/rotation = Quaternion(-0.34915754, 0.70684767, 0.062382545, 0.61201614)
+bones/38/rotation = Quaternion(-0.34831518, 0.70726126, 0.063112505, 0.6119435)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
-[node name="nova_rig_jacket" parent="EndCutscene/nova/Skeleton3D" index="1" unique_id=2112781152]
+[node name="nova_rig_jacket" parent="EndCutscene/nova/Skeleton3D" index="1" unique_id=1692562190]
 surface_material_override/0 = SubResource("ShaderMaterial_u3w65")
 surface_material_override/1 = SubResource("ShaderMaterial_u3w65")
 
-[node name="nova_rig_body" parent="EndCutscene/nova/Skeleton3D" index="2" unique_id=1244459437]
+[node name="nova_rig_body" parent="EndCutscene/nova/Skeleton3D" index="2" unique_id=1131215316]
 surface_material_override/0 = SubResource("ShaderMaterial_8nudn")
 surface_material_override/1 = SubResource("ShaderMaterial_bh2oh")
 surface_material_override/2 = SubResource("ShaderMaterial_un2n6")
@@ -8094,14 +8116,14 @@ surface_material_override/4 = SubResource("ShaderMaterial_0060v")
 surface_material_override/5 = SubResource("ShaderMaterial_3ss4d")
 surface_material_override/6 = SubResource("ShaderMaterial_7de5j")
 
-[node name="nova_rig_pauldrons" parent="EndCutscene/nova/Skeleton3D" index="3" unique_id=1042602821]
+[node name="nova_rig_pauldrons" parent="EndCutscene/nova/Skeleton3D" index="3" unique_id=994411477]
 surface_material_override/0 = SubResource("ShaderMaterial_7de5j")
 
-[node name="nova_rig_sword" parent="EndCutscene/nova/Skeleton3D" index="4" unique_id=1379769998]
+[node name="nova_rig_sword" parent="EndCutscene/nova/Skeleton3D" index="4" unique_id=209854670]
 surface_material_override/0 = SubResource("ShaderMaterial_eolt2")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="EndCutscene/nova/Skeleton3D" index="5" unique_id=826414712]
-transform = Transform3D(-0.005999149, -0.5699727, 0.8216418, -0.4186239, 0.74762386, 0.51557004, -0.9081398, -0.3408659, -0.24308932, 0.0060075573, 0.0072378856, -0.013213744)
+transform = Transform3D(-0.0073520862, -0.5699567, 0.82164174, -0.4168387, 0.74861896, 0.5155725, -0.9089507, -0.33870158, -0.24308395, 0.0059864214, 0.0072658113, -0.013226334)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 
@@ -8122,7 +8144,7 @@ curve = SubResource("CurveTexture_8a6q6")
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://bx10tuy8s55pq"
 
-[node name="AnimationPlayer" parent="EndCutscene/nova" index="1" unique_id=350352020]
+[node name="AnimationPlayer" parent="EndCutscene/nova" index="1" unique_id=468448629]
 deterministic = true
 libraries/ = SubResource("AnimationLibrary_yrwam")
 libraries/nova_animation_library = SubResource("AnimationLibrary_duquv")
