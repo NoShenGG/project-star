@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="25_xphuo"]
 [ext_resource type="ArrayMesh" uid="uid://bd5wy4vqrfeld" path="res://scenes/dev/chrizz/prototyping/sound_blast_extra.obj" id="26_h3uuf"]
 [ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="27_1i8fv"]
-[ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
+[ext_resource type="Script" path="res://scripts/utility/ui_consumable.gd" id="27_7cxsd"]
 [ext_resource type="PackedScene" uid="uid://bdh4cmnftg18b" path="res://scenes/final/dawn/tone_wave.tscn" id="28_qntpm"]
 [ext_resource type="PackedScene" uid="uid://cein11fhbr6sp" path="res://scenes/final/dawn/tone_fish.tscn" id="28_wex2d"]
 [ext_resource type="PackedScene" uid="uid://btiyd8a5nuror" path="res://scenes/final/dawn/tone_stunwave.tscn" id="31_6x7f2"]
@@ -639,7 +639,7 @@ states/idle/position = Vector2(332, 100)
 states/run/node = SubResource("AnimationNodeAnimation_4daqb")
 states/run/position = Vector2(450, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_h3uuf"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_xiq0h"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_h166w"), "idle", "dodge", SubResource("AnimationNodeStateMachineTransition_iujmq"), "dodge", "idle", SubResource("AnimationNodeStateMachineTransition_38vq8"), "dodge", "run", SubResource("AnimationNodeStateMachineTransition_wqiyo"), "run", "dodge", SubResource("AnimationNodeStateMachineTransition_vh4ka"), "charging_special", "charged_special", SubResource("AnimationNodeStateMachineTransition_waurf"), "charging_attack", "charged_attack", SubResource("AnimationNodeStateMachineTransition_bfon1"), "fish_1", "fish_2", SubResource("AnimationNodeStateMachineTransition_h8vcp"), "run", "basic_attack_hold", SubResource("AnimationNodeStateMachineTransition_jvydd"), "basic_attack_hold", "run", SubResource("AnimationNodeStateMachineTransition_1vh3g")]
-graph_offset = Vector2(99, -45)
+graph_offset = Vector2(91, 51)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh4ka"]
 transparency = 1
@@ -1122,9 +1122,9 @@ fade_out = SubResource("Curve_wex2d")
 [node name="dawn" parent="." unique_id=1566855500 instance=ExtResource("41_h3uuf")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0.17825556)
 
-[node name="Skeleton3D" parent="dawn" index="0" unique_id=1201434841]
+[node name="Skeleton3D" parent="dawn" index="0" unique_id=581899794]
 bones/2/position = Vector3(0, 0.017364519, 0.0011158077)
-bones/2/rotation = Quaternion(0.028168626, -0.028086755, 0.70551807, 0.70757467)
+bones/2/rotation = Quaternion(0.028937606, -0.0288535, 0.7054872, 0.7075437)
 bones/3/rotation = Quaternion(0, 0, 0.0068312488, 0.99997675)
 bones/6/rotation = Quaternion(0, 0, -0.6878448, 0.72585785)
 bones/7/rotation = Quaternion(0.7087308, 0.705479, -3.3087225e-24, 7.33913e-25)
@@ -1134,20 +1134,20 @@ bones/10/position = Vector3(0.006148092, -0.0004052415, 0)
 bones/10/rotation = Quaternion(0.9975918, -0.06935874, 4.135903e-25, 8.60583e-26)
 bones/11/position = Vector3(0.005535342, -5.0917533e-05, 0)
 bones/11/rotation = Quaternion(0, 0, 0.08164492, 0.9966615)
-bones/15/rotation = Quaternion(0.020304263, -0.10045831, -0.667123, 0.7378637)
-bones/16/rotation = Quaternion(-0.03514888, 0.39092475, 0.103654586, 0.91389173)
-bones/17/rotation = Quaternion(0.18029311, 0.089498654, -0.25474414, 0.94582754)
-bones/23/rotation = Quaternion(-0.082114965, -0.08645773, -0.68411183, 0.7195647)
-bones/24/rotation = Quaternion(-0.030531786, 0.27414665, 0.12654603, 0.95283663)
-bones/25/rotation = Quaternion(-0.0014887054, 0.05456412, -0.17818397, 0.98248214)
-bones/30/rotation = Quaternion(-0.0008744438, 0.96799034, -0.24960876, 0.026255662)
-bones/31/rotation = Quaternion(0.9993567, -0.009996776, 0.034442183, 0.00025009076)
-bones/32/rotation = Quaternion(0.57266957, -0.3647768, 0.4157147, 0.6051189)
-bones/34/rotation = Quaternion(0.06083693, 0.1046196, 0.012547802, 0.99257046)
-bones/35/rotation = Quaternion(0.9937119, -0.014388353, 0.11103178, 0.0012617848)
-bones/36/rotation = Quaternion(0.6010601, -0.35535875, 0.3669908, 0.61462575)
+bones/15/rotation = Quaternion(0.020031046, -0.10122919, -0.66705006, 0.73783165)
+bones/16/rotation = Quaternion(-0.03530022, 0.39193752, 0.103715435, 0.9134451)
+bones/17/rotation = Quaternion(0.18073371, 0.08999288, -0.2548116, 0.9456784)
+bones/23/rotation = Quaternion(-0.0821493, -0.08683413, -0.68410397, 0.7195229)
+bones/24/rotation = Quaternion(-0.03061684, 0.27465773, 0.12663434, 0.952675)
+bones/25/rotation = Quaternion(-0.0012182571, 0.055373713, -0.1780758, 0.9824568)
+bones/30/rotation = Quaternion(-0.0004498858, 0.9680429, -0.2496593, 0.023729738)
+bones/31/rotation = Quaternion(0.99923414, -0.010206701, 0.03777636, 0.00027929252)
+bones/32/rotation = Quaternion(0.57203084, -0.36568016, 0.41650662, 0.6046329)
+bones/34/rotation = Quaternion(0.0608554, 0.10673458, 0.012663849, 0.9923427)
+bones/35/rotation = Quaternion(0.9934427, -0.014528123, 0.1133973, 0.0013045135)
+bones/36/rotation = Quaternion(0.600668, -0.35605338, 0.36757594, 0.6142572)
 
-[node name="model_body" parent="dawn/Skeleton3D" index="1" unique_id=821048216]
+[node name="model_body" parent="dawn/Skeleton3D" index="1" unique_id=1519538712]
 surface_material_override/0 = SubResource("ShaderMaterial_jvydd")
 surface_material_override/1 = SubResource("ShaderMaterial_4daqb")
 surface_material_override/2 = SubResource("ShaderMaterial_m0w6t")
@@ -1158,12 +1158,12 @@ surface_material_override/6 = SubResource("ShaderMaterial_ejcdu")
 surface_material_override/7 = SubResource("ShaderMaterial_cc0cp")
 surface_material_override/8 = SubResource("ShaderMaterial_5iwdu")
 
-[node name="model_hair" parent="dawn/Skeleton3D" index="2" unique_id=241323201]
+[node name="model_hair" parent="dawn/Skeleton3D" index="2" unique_id=2017485707]
 surface_material_override/0 = SubResource("ShaderMaterial_1vh3g")
 surface_material_override/1 = SubResource("ShaderMaterial_wau86")
 surface_material_override/2 = SubResource("ShaderMaterial_1rwg7")
 
-[node name="AnimationPlayer" parent="dawn" index="1" unique_id=1012931437]
+[node name="AnimationPlayer" parent="dawn" index="1" unique_id=1155193471]
 playback_auto_capture_ease_type = 2
 playback_default_blend_time = 0.1
 speed_scale = 1.3
@@ -1242,7 +1242,7 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 
 [node name="Hurt" type="Node" parent="dawn" unique_id=318539843]
 script = ExtResource("42_xiq0h")
-state_name = "hurt"
+state_name = "basic_attack_hold"
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_wau86"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
 
 

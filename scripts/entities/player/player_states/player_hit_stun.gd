@@ -1,6 +1,6 @@
 extends PlayerState
 
-@export var stun_duration: float = 0.1
+@export var stun_duration: float = 0.5
 @export var stun_cooldown: float = 1.0
 @export_category("Interruptible States")
 @export var interruptible_states: Array[String] = [PlayerState.IDLE, PlayerState.MOVING, PlayerState.CHARGING,

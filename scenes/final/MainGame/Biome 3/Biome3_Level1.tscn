@@ -252,17 +252,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, -2.052517)
 [node name="Nova" parent="PlayerManager" index="0" unique_id=1837126418]
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, -2.052517)
 
-[node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="0" unique_id=255868393]
-bones/14/rotation = Quaternion(-0.07499803, 0.5263353, -0.50677097, 0.6786235)
-bones/15/rotation = Quaternion(-0.15415816, 0.54245055, 0.22951308, 0.79328847)
-bones/16/rotation = Quaternion(-0.5156846, -0.4667927, -0.22967045, 0.6807536)
-bones/21/rotation = Quaternion(-0.13178134, 0.40253386, -0.47236595, 0.77296215)
-bones/22/rotation = Quaternion(-0.055955816, 0.32435274, 0.16845998, 0.92913157)
-bones/23/rotation = Quaternion(0.110816896, 0.13112321, -0.07447694, 0.9823338)
-bones/38/rotation = Quaternion(-0.35007665, 0.7063951, 0.061585568, 0.6120945)
+[node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="0" unique_id=1156861599]
+bones/14/rotation = Quaternion(-0.06820363, 0.5236565, -0.5063356, 0.68173045)
+bones/15/rotation = Quaternion(-0.16103265, 0.5535908, 0.23168853, 0.7835344)
+bones/16/rotation = Quaternion(-0.5102086, -0.4671826, -0.24674658, 0.67863375)
+bones/21/rotation = Quaternion(-0.1478239, 0.39204875, -0.45832348, 0.78382754)
+bones/22/rotation = Quaternion(-0.066055894, 0.35445097, 0.17840144, 0.91551846)
+bones/23/rotation = Quaternion(0.14010844, 0.11359883, -0.07341776, 0.9808541)
+bones/38/rotation = Quaternion(-0.34870812, 0.70706844, 0.06277206, 0.6119776)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0045219986, -0.5699863, 0.8216416, -0.42057005, 0.7465326, 0.5155673, -0.9072486, -0.34322646, -0.24309504, 0.006030634, 0.007207443, -0.013199905)
+transform = Transform3D(-0.0067208586, -0.5699645, 0.8216418, -0.4176716, 0.7481554, 0.5155714, -0.90857315, -0.33971134, -0.24308634, 0.0059962827, 0.007252782, -0.013220472)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -320,50 +320,6 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Skeleton3D" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="0" unique_id=1016576353]
-bones/2/position = Vector3(-0.00048374574, 0.0153010115, -0.0011631509)
-bones/2/rotation = Quaternion(0.018430147, -0.018376587, 0.7058377, 0.7078953)
-bones/3/rotation = Quaternion(0, 0, 0.0068312488, 0.99997663)
-bones/5/rotation = Quaternion(0.0002769403, -0.12937072, -0.01278383, 0.99151385)
-bones/7/rotation = Quaternion(0.7057198, 0.70248187, -0.067438774, 0.06269555)
-bones/10/rotation = Quaternion(-0.12016356, 0.45460087, -0.5424176, 0.696191)
-bones/11/rotation = Quaternion(-0.029113108, 0.5583652, 0.045110933, 0.8278561)
-bones/12/rotation = Quaternion(-0.07583242, 0.025066635, -0.033660546, 0.996237)
-bones/19/rotation = Quaternion(-0.21518028, 0.06228493, -0.5889167, 0.77652764)
-bones/20/rotation = Quaternion(-0.049694713, 0.8316741, 0.03074594, 0.5521805)
-bones/21/rotation = Quaternion(0.37886226, 0.28131926, 0.2762043, 0.83727777)
-bones/27/position = Vector3(0.005858415, 2.220446e-18, 3.6082247e-18)
-bones/27/rotation = Quaternion(0, 0, -0.045059975, 0.9989843)
-bones/28/position = Vector3(0.0051753446, 3.330669e-18, 2.9837242e-18)
-bones/28/rotation = Quaternion(0, 0, -0.028824663, 0.9995845)
-bones/29/position = Vector3(0.0046479213, 2.5794162e-11, 2.8449465e-18)
-bones/29/rotation = Quaternion(0, 0, 0.08367997, 0.9964927)
-bones/31/rotation = Quaternion(-0.007998254, -0.06510978, -0.005959493, 0.99782825)
-bones/32/position = Vector3(0.0051753446, 2.220446e-18, 0)
-bones/32/rotation = Quaternion(0, 0, -0.028824663, 0.9995845)
-bones/33/position = Vector3(0.0046479213, 3.330669e-18, 0)
-bones/33/rotation = Quaternion(0, 0, 0.011081111, 0.9999386)
-bones/35/position = Vector3(0.0019021159, -0.0011497504, -0.0037815245)
-bones/35/rotation = Quaternion(0.12110399, 0.008848013, 0.9887331, 0.08753536)
-bones/36/position = Vector3(-0.005175306, -1.1119962e-09, -1.8150454e-08)
-bones/36/rotation = Quaternion(-0.33545947, -0.007531031, 0.16333342, 0.92775667)
-bones/37/position = Vector3(-0.0046478976, 3.1681417e-09, -4.5807864e-09)
-bones/37/rotation = Quaternion(0, 0, 0.011081111, 0.9999386)
-bones/39/rotation = Quaternion(-0.014321454, 0.9974153, 0.049073316, -0.050491363)
-bones/40/rotation = Quaternion(0.9953477, -0.011055938, 0.095709525, 0.00066123763)
-bones/41/rotation = Quaternion(0.029837726, -0.07132071, -0.021702385, 0.99677086)
-bones/44/rotation = Quaternion(0.00024500114, 0.12384611, 0.024326308, 0.9920032)
-bones/45/rotation = Quaternion(0.9986342, -0.009046117, 0.05145694, 0.00024816874)
-bones/46/rotation = Quaternion(-0.020922972, 0.046347305, 0.015104643, 0.998592)
-bones/49/position = Vector3(-0.004661922, 0.010273972, 0.005810315)
-bones/49/rotation = Quaternion(0.22722664, 0.91744006, -0.17050594, 0.2785669)
-bones/51/position = Vector3(-1.6653345e-18, -1.110223e-18, 0)
-bones/52/position = Vector3(0.009964881, -5.5511148e-18, -2.220446e-18)
-bones/53/position = Vector3(0.008668151, -1.2712053e-15, 0)
-bones/53/rotation = Quaternion(0, 0, 0.0016023001, 0.9999987)
-bones/54/position = Vector3(0.0065154396, 1.4654943e-16, 2.220446e-18)
-bones/54/rotation = Quaternion(0.9999707, 0.007653769, 4.6865825e-19, 6.123054e-17)
-
 [node name="Idle" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(1115147818, 1678208346, 1073875666) index="3" unique_id=1766965671]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
@@ -420,20 +376,20 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="0" unique_id=1201434841]
-bones/2/rotation = Quaternion(0.029566173, -0.02948024, 0.7054612, 0.7075177)
-bones/15/rotation = Quaternion(0.01981081, -0.10185436, -0.66699135, 0.7378047)
-bones/16/rotation = Quaternion(-0.035480577, 0.39314145, 0.10378738, 0.91291255)
-bones/17/rotation = Quaternion(0.18108776, 0.09041006, -0.2548649, 0.9455565)
-bones/23/rotation = Quaternion(-0.08217536, -0.08711991, -0.68409806, 0.719491)
-bones/24/rotation = Quaternion(-0.030681416, 0.27504575, 0.12670137, 0.952552)
-bones/25/rotation = Quaternion(-0.0010031599, 0.056051213, -0.17798093, 0.98243576)
-bones/30/rotation = Quaternion(0.00021763725, 0.9681125, -0.2497404, 0.019697402)
-bones/31/rotation = Quaternion(0.99901646, -0.010539406, 0.043067936, 0.0003285545)
-bones/32/rotation = Quaternion(0.57101476, -0.36711422, 0.41776282, 0.60385734)
-bones/34/rotation = Quaternion(0.06088549, 0.11014328, 0.012849133, 0.99196595)
-bones/35/rotation = Quaternion(0.9929981, -0.014752331, 0.11719783, 0.0013746448)
-bones/36/rotation = Quaternion(0.60009056, -0.3570753, 0.36843598, 0.6137129)
+[node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="0" unique_id=581899794]
+bones/2/rotation = Quaternion(0.050448336, -0.0503017, 0.70428294, 0.70633584)
+bones/15/rotation = Quaternion(0.014471465, -0.118394956, -0.6654387, 0.73686135)
+bones/16/rotation = Quaternion(-0.039182704, 0.4171075, 0.10512733, 0.901906)
+bones/17/rotation = Quaternion(0.1908753, 0.10911326, -0.25597692, 0.9413485)
+bones/23/rotation = Quaternion(-0.08095084, -0.09015551, -0.6842792, 0.7190834)
+bones/24/rotation = Quaternion(-0.030832343, 0.27595058, 0.12685755, 0.9522646)
+bones/25/rotation = Quaternion(0.0042645894, 0.083672814, -0.17276916, 0.9813927)
+bones/30/rotation = Quaternion(0.011064846, 0.9657954, -0.25154313, -0.061991)
+bones/31/rotation = Quaternion(0.98970276, -0.016641194, 0.14215456, 0.0019074879)
+bones/32/rotation = Quaternion(0.55140525, -0.3940101, 0.44115844, 0.58829206)
+bones/34/rotation = Quaternion(0.061657093, 0.18504784, 0.016283877, 0.9806583)
+bones/35/rotation = Quaternion(0.9803699, -0.019304816, 0.19619304, 0.0032422529)
+bones/36/rotation = Quaternion(0.5875003, -0.37907657, 0.3866839, 0.6013486)
 
 [node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -500,7 +456,7 @@ navigation_mesh = SubResource("NavigationMesh_8o628")
 [node name="Level3-1_layout" parent="NavigationRegion3D" unique_id=1543321608 instance=ExtResource("3_mq6a5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.068837166, 0)
 
-[node name="CollisionShape3D" parent="NavigationRegion3D/Level3-1_layout/Layout/StaticBody3D" parent_id_path=PackedInt32Array(1543321608, 192365862) index="0" unique_id=2130713213]
+[node name="CollisionShape3D" parent="NavigationRegion3D/Level3-1_layout/Layout/StaticBody3D" parent_id_path=PackedInt32Array(1543321608, 867012533) index="0" unique_id=408165901]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
 
 [node name="WaveManager" type="Node3D" parent="." unique_id=2063554087]
@@ -849,16 +805,6 @@ visibility_aabb = AABB(-77.5, -4, -77.5, 155, 8, 155)
 process_material = SubResource("ParticleProcessMaterial_ybqkw")
 draw_pass_1 = SubResource("QuadMesh_xbk8p")
 
-[connection signal="entered" from="PlayerManager/Nova/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
-[connection signal="entered" from="PlayerManager/Nova/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
-[connection signal="finished" from="PlayerManager/Nova/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
-[connection signal="entered" from="PlayerManager/Rene/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
-[connection signal="entered" from="PlayerManager/Rene/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
-[connection signal="finished" from="PlayerManager/Rene/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
-[connection signal="entered" from="PlayerManager/Dawn/StateMachine/Idle" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
-[connection signal="entered" from="PlayerManager/Dawn/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [true]]
-[connection signal="finished" from="PlayerManager/Dawn/StateMachine/Moving" to="PlayerManager/footprintsFX" method="set_emitting" binds= [false]]
-[connection signal="pressed" from="PlayerManager/Pause Menu/VBoxContainer/Settings Button" to="PlayerManager/SettingScene/Level1Control" method="open"]
 [connection signal="ended" from="WaveManager/Wave4" to="Gate" method="open"]
 [connection signal="body_entered" from="WaveManager/Wave_Starter" to="WaveManager" method="_on_start" unbinds=1]
 
