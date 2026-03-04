@@ -179,7 +179,7 @@ point_count = 2
 curve = SubResource("Curve_mjy71")
 
 [sub_resource type="Curve" id="Curve_8dq6x"]
-_data = [Vector2(0, 0), 0.0, 8.805598, 0, 0, Vector2(0.42825112, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.6629858, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 8.805598, 0, 0, Vector2(0.42825112, 1), 0.0, 0.0, 0, 0, Vector2(0.813492, 0), -3.6629858, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_7uvhg"]
@@ -218,7 +218,7 @@ alpha_curve = SubResource("CurveTexture_8dq6x")
 emission_curve = SubResource("CurveTexture_updxl")
 
 [sub_resource type="Curve" id="Curve_agq66"]
-_data = [Vector2(0, 0), 0.0, 13.544494, 0, 0, Vector2(0.13598326, 1), 0.0, 0.0, 0, 0, Vector2(0.4539749, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -5.036756, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 13.544494, 0, 0, Vector2(0.13598326, 1), 0.0, 0.0, 0, 0, Vector2(0.45890415, 0.5912603), -1.1920751, -1.1920751, 0, 0, Vector2(1, 0), -0.64324325, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swxg6"]
@@ -243,6 +243,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5293534, 0)
 emitting = false
 amount = 40
 one_shot = true
+explosiveness = 0.8
 fixed_fps = 60
 local_coords = true
 transform_align = 1
@@ -250,10 +251,13 @@ process_material = SubResource("ParticleProcessMaterial_oemsd")
 draw_pass_1 = SubResource("PlaneMesh_gvrsu")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=280844189]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.965356, 0)
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, -0.03464389, 0)
 emitting = false
-amount = 12
+amount = 20
+lifetime = 0.8
 one_shot = true
+speed_scale = 1.5
+explosiveness = 0.6
 fixed_fps = 60
 local_coords = true
 trail_enabled = true

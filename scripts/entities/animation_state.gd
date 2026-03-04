@@ -44,6 +44,8 @@ func _enter_tree() -> void:
 
 @onready var playback : AnimationNodeStateMachinePlayback = (animation_tree["parameters/playback"])
 func enter():
+	if (name == "Hurt"):
+		print("entering hurt state")
 	#print(owner.name + " is swapping to "+ state_name + "!")
 	start.emit()
 	

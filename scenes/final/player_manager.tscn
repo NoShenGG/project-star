@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bq7t53o2llxr4" path="res://scenes/final/rene/Rene.tscn" id="3_q78nk"]
 [ext_resource type="Script" uid="uid://djfekv55fum3x" path="res://scripts/pitch_pivot.gd" id="4_mbt4c"]
 [ext_resource type="PackedScene" uid="uid://b8wp31vm3qtbx" path="res://scenes/dev/raymond_b/game_ui.tscn" id="7_q78nk"]
-[ext_resource type="Texture2D" uid="uid://byhsbr64tgbkf" path="res://vfx/Kenny Particle Pack/magic_03.png" id="8_3wvx5"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="8_elt32"]
+[ext_resource type="Texture2D" uid="uid://byhsbr64tgbkf" path="res://VFX/Kenny Particle Pack/magic_03.png" id="8_3wvx5"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="8_elt32"]
 [ext_resource type="Material" uid="uid://bm2jj6hjfrn45" path="res://scenes/final/PostProcessingSamples/mediumPostProcessing.tres" id="8_w6fg2"]
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="9_0dwuh"]
 [ext_resource type="Script" uid="uid://43igx2jhor0s" path="res://scripts/utility/death_menu.gd" id="9_41j18"]
@@ -39,11 +39,12 @@
 [ext_resource type="Texture2D" uid="uid://dlh5u2ssoc1sd" path="res://art_assets/Ui/ControlPanels/new_wreckcon_control_panels/Dawn Full Control Panel.svg" id="30_7i07u"]
 [ext_resource type="Shader" uid="uid://d27ndcngym04q" path="res://shaders/post-processing - klaktus1901/PosterizeScreenEffect.gdshader" id="33_3h4bm"]
 [ext_resource type="Texture2D" uid="uid://cqlv7nqlkjrwx" path="res://art_assets/Ui/TextboxMedium.png" id="36_f620v"]
-[ext_resource type="PackedScene" uid="uid://bmtsybcr7qvm1" path="res://vfx/characterSwapFX.tscn" id="36_lwj1m"]
+[ext_resource type="PackedScene" uid="uid://bmtsybcr7qvm1" path="res://VFX/characterSwapFX.tscn" id="36_lwj1m"]
 [ext_resource type="Script" uid="uid://cuq1pc0a5b0g" path="res://scripts/combo_counter.gd" id="36_p704c"]
 [ext_resource type="Texture2D" uid="uid://cb8cc520htami" path="res://art_assets/Ui/fire_fx_v1.0/png/white/loops/burning_loop_1.png" id="37_p704c"]
-[ext_resource type="PackedScene" uid="uid://dwun8m67rc0fn" path="res://vfx/footprintsFX.tscn" id="38_djt8t"]
+[ext_resource type="PackedScene" uid="uid://dwun8m67rc0fn" path="res://VFX/footprintsFX.tscn" id="38_djt8t"]
 [ext_resource type="Script" uid="uid://cyx7gn0ite8b1" path="res://scripts/entities/player/haptic/DesktopHapticHandler.gd" id="38_p704c"]
+[ext_resource type="Script" uid="uid://c8gyo4rwt03k5" path="res://scripts/entities/SwapVFX.gd" id="45_guacr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lwj1m"]
 shader = ExtResource("33_3h4bm")
@@ -376,6 +377,11 @@ font = SubResource("FontFile_a2sxn")
 font_size = 48
 outline_size = 5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_guacr"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.74, 0.97400004, 1, 1)
+
 [node name="PlayerManager" type="Node3D" unique_id=584625856 node_paths=PackedStringArray("combo_counter")]
 script = ExtResource("1_lyudl")
 saving_grace_delay = 2.0
@@ -390,17 +396,17 @@ floor_snap_length = 5.0
 [node name="HitStun" parent="Nova/StateMachine" parent_id_path=PackedInt32Array(1837126418, 104146512) index="11" unique_id=1389929998]
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
-[node name="Skeleton3D" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="0" unique_id=1280032861]
-bones/14/rotation = Quaternion(-0.06556268, 0.5223338, -0.5064978, 0.6828828)
-bones/15/rotation = Quaternion(-0.16774815, 0.56412077, 0.23361802, 0.7739839)
-bones/16/rotation = Quaternion(-0.50517184, -0.47315636, -0.25879067, 0.6737596)
-bones/21/rotation = Quaternion(-0.14568248, 0.37675172, -0.46151426, 0.78983504)
-bones/22/rotation = Quaternion(-0.07304425, 0.37373817, 0.18457589, 0.90604424)
-bones/23/rotation = Quaternion(0.1428096, 0.10845667, -0.08066518, 0.9804774)
-bones/38/rotation = Quaternion(-0.3498286, 0.70651734, 0.061800666, 0.6120735)
+[node name="Skeleton3D" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="0" unique_id=255868393]
+bones/14/rotation = Quaternion(-0.07406035, 0.52595586, -0.5067114, 0.6790649)
+bones/15/rotation = Quaternion(-0.15503745, 0.5438947, 0.22980197, 0.7920437)
+bones/16/rotation = Quaternion(-0.5149999, -0.46671718, -0.23195533, 0.68054897)
+bones/21/rotation = Quaternion(-0.13430876, 0.40129837, -0.4702588, 0.7744529)
+bones/22/rotation = Quaternion(-0.057308882, 0.32854256, 0.16986354, 0.92731977)
+bones/23/rotation = Quaternion(0.115143456, 0.12856123, -0.07420066, 0.9821957)
+bones/38/rotation = Quaternion(-0.34982565, 0.70651895, 0.061803292, 0.6120731)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.004920642, -0.569983, 0.8216417, -0.4200451, 0.74682766, 0.5155681, -0.90748984, -0.34258962, -0.24309349, 0.0060244063, 0.0072156545, -0.013203651)
+transform = Transform3D(-0.0049258866, -0.5699831, 0.82164174, -0.42003885, 0.7468311, 0.5155681, -0.90749276, -0.34258187, -0.24309397, 0.006024324, 0.0072157523, -0.013203695)
 
 [node name="Idle" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -539,20 +545,20 @@ interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpe
 [node name="SingWave" parent="Dawn/Effects" parent_id_path=PackedInt32Array(618181988, 352519910) index="0" unique_id=304307782]
 material_override = null
 
-[node name="Skeleton3D" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="0" unique_id=1529346309]
-bones/2/rotation = Quaternion(0.03138663, -0.031295396, 0.705383, 0.7074393)
-bones/15/rotation = Quaternion(0.0197063, -0.10279516, -0.66698605, 0.7376818)
-bones/16/rotation = Quaternion(-0.035623133, 0.39409083, 0.10384382, 0.9124911)
-bones/17/rotation = Quaternion(0.18150601, 0.092612125, -0.25495985, 0.94523764)
-bones/23/rotation = Quaternion(-0.081518725, -0.086698085, -0.6842069, 0.7195132)
-bones/24/rotation = Quaternion(-0.030535676, 0.27417004, 0.12655006, 0.9528292)
-bones/25/rotation = Quaternion(-0.0010197803, 0.059248388, -0.17726612, 0.98237747)
-bones/30/rotation = Quaternion(0.0010917243, 0.96819174, -0.24987972, 0.01279378)
-bones/31/rotation = Quaternion(0.99862236, -0.011055522, 0.05129414, 0.00041157161)
-bones/32/rotation = Quaternion(0.5694198, -0.36934274, 0.4197296, 0.60263926)
-bones/34/rotation = Quaternion(0.060942695, 0.1161631, 0.013103734, 0.99127215)
-bones/35/rotation = Quaternion(0.99226296, -0.015106952, 0.12322284, 0.0014891997)
-bones/36/rotation = Quaternion(0.59913456, -0.3587597, 0.36985618, 0.6128098)
+[node name="Skeleton3D" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="0" unique_id=1201434841]
+bones/2/rotation = Quaternion(0.05245973, -0.052307256, 0.7041368, 0.70618933)
+bones/15/rotation = Quaternion(0.014205669, -0.11961482, -0.66535777, 0.73674244)
+bones/16/rotation = Quaternion(-0.039414894, 0.41856506, 0.105202965, 0.90121144)
+bones/17/rotation = Quaternion(0.19154485, 0.111360036, -0.25605687, 0.9409275)
+bones/23/rotation = Quaternion(-0.08051236, -0.089584105, -0.6843535, 0.7191333)
+bones/24/rotation = Quaternion(-0.03072235, 0.27529165, 0.12674387, 0.952474)
+bones/25/rotation = Quaternion(0.004493746, 0.08683842, -0.17209439, 0.98123515)
+bones/30/rotation = Quaternion(0.01162235, 0.9653129, -0.25170562, -0.06841235)
+bones/31/rotation = Quaternion(0.9886812, -0.017054584, 0.14904493, 0.0020645733)
+bones/32/rotation = Quaternion(0.5499916, -0.39588457, 0.44278538, 0.5871335)
+bones/34/rotation = Quaternion(0.061733406, 0.19126613, 0.016487086, 0.97945625)
+bones/35/rotation = Quaternion(0.979161, -0.019636143, 0.20210491, 0.003414139)
+bones/36/rotation = Quaternion(0.58654165, -0.38072783, 0.3880349, 0.6003701)
 
 [node name="Idle" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -1232,8 +1238,6 @@ vertical_alignment = 1
 wait_time = 3.0
 one_shot = true
 
-[node name="characterSwapFX" parent="." unique_id=5389629 instance=ExtResource("36_lwj1m")]
-
 [node name="footprintsFX" parent="." unique_id=872051141 instance=ExtResource("38_djt8t")]
 
 [node name="HapticHandler" type="Node3D" parent="." unique_id=670474153]
@@ -1241,8 +1245,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("38_p704c")
 metadata/_custom_type_script = "uid://gb7ck1liqiox"
 
+[node name="Swap VFX" type="Node3D" parent="." unique_id=1634736576 node_paths=PackedStringArray("vfx", "meshes_root")]
+script = ExtResource("45_guacr")
+vfx = NodePath("characterSwapFX")
+meshes_root = [NodePath("../Nova/nova"), NodePath("../Rene/rene"), NodePath("../Dawn/dawn")]
+swap_overlay = SubResource("StandardMaterial3D_guacr")
+flash_duration = 1.0
+
+[node name="characterSwapFX" parent="Swap VFX" unique_id=5389629 instance=ExtResource("36_lwj1m")]
+play_on_start = false
+
 [connection signal="new_player" from="." to="Game Menu/GameUi" method="on_player_switch"]
-[connection signal="new_player" from="." to="characterSwapFX" method="restart_particles"]
+[connection signal="new_player" from="." to="Swap VFX/characterSwapFX" method="restart_particles"]
 [connection signal="player_hp_update" from="." to="Game Menu/GameUi" method="on_player_health_update"]
 [connection signal="player_sp_update" from="." to="Game Menu/GameUi" method="on_player_sp_update"]
 [connection signal="enemy_hit" from="Nova" to="ComboCounter" method="combo_inc"]

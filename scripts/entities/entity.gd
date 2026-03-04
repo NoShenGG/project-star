@@ -10,6 +10,8 @@ signal broken
 signal break_update(percent: float)
 ## called when WaveManager is the one spawning in the enemy. if it was 
 signal spawned()
+signal invincibility_gained
+signal invincibility_lost
 
 @export var _base_speed: float = 5.0
 @export var faction: Faction = Faction.NEUTRAL
@@ -46,7 +48,17 @@ var speed:
 	get():
 		return _base_speed * _buffs[StatMod.Stat.SPD].reduce(
 			func(acc: float, stat: StatMod): return acc * pow(1.2, stat.poll()), 1.0)
-var invincible: bool = false
+var invincible: bool = false :
+	set(value):
+		if (invincible != value):
+			if (value):
+				print("invincibility gained")
+				invincibility_gained.emit()
+			else:
+				print("invincibility lost")
+				invincibility_lost.emit()
+		
+		invincible = value
 
 @onready var death: bool = false
 

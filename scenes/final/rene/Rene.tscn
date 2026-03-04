@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://clwu1a1we224o" path="res://scripts/entities/player/player_states/player_attacking.gd" id="5_t5f0y"]
 [ext_resource type="Script" uid="uid://d2q0nmenf1x0p" path="res://scripts/entities/player/rene/states/rene_attack.gd" id="6_u7juv"]
 [ext_resource type="Script" uid="uid://812k18g6fo3h" path="res://scripts/entities/player/haptic/StateHapticCaller.gd" id="6_v1pct"]
+[ext_resource type="Script" uid="uid://c0eebsm43ubud" path="res://scripts/entities/player/StateVFX.gd" id="7_cjioh"]
 [ext_resource type="Script" uid="uid://dbibjhk11ovnr" path="res://scripts/entities/player/player_states/player_charge.gd" id="7_f5lgv"]
 [ext_resource type="PackedScene" uid="uid://ca5osqv2xr25p" path="res://scenes/final/rene/rene_shot.tscn" id="7_qbxrk"]
 [ext_resource type="Script" uid="uid://bht7ur6aqu5my" path="res://scripts/entities/player/player_states/player_charge_special.gd" id="8_iytmq"]
@@ -21,23 +22,26 @@
 [ext_resource type="Script" uid="uid://d3pkbl7ownr11" path="res://scripts/entities/player/player_states/player_hit_stun.gd" id="15_wck6d"]
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="19_66khj"]
 [ext_resource type="PackedScene" uid="uid://dfidn58xx6ouo" path="res://scenes/dev/arshiya_r/magic circle things/magic_circle_rene.tscn" id="23_um3o4"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="24_rij6b"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="24_rij6b"]
 [ext_resource type="Script" uid="uid://cvw6ajdumfkos" path="res://scripts/entities/player/nova/nova_dummy_anim.gd" id="24_svdc4"]
 [ext_resource type="Script" uid="uid://bfrtyltb7er5j" path="res://scripts/utility/ui_consumable.gd" id="25_66khj"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="25_qvekr"]
 [ext_resource type="PackedScene" uid="uid://cjsubaculljwy" path="res://art_assets/characters/Rene/rene.glb" id="26_27ayv"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="26_66khj"]
-[ext_resource type="Material" uid="uid://dfvd7g0nn1ams" path="res://art_assets/characters/Rene/model_reneFBXASC032skinFBXASC046001.material" id="27_2qu1h"]
 [ext_resource type="Script" uid="uid://frt2deamdebe" path="res://scripts/entities/player/rene/rene_construct.gd" id="27_6n52q"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="27_ohtv4"]
-[ext_resource type="Material" uid="uid://bh58wcr5r8ee4" path="res://art_assets/characters/Rene/model_pantFBXASC046001.material" id="28_o1ymb"]
-[ext_resource type="Material" uid="uid://eermcimgxasc" path="res://art_assets/characters/Rene/model_undershirt.material" id="29_v1pct"]
-[ext_resource type="Material" uid="uid://caf5m8vnwqsq3" path="res://art_assets/characters/Rene/model_pants.material" id="30_ffpnw"]
-[ext_resource type="Material" uid="uid://bpstb2no5fe5x" path="res://art_assets/characters/Rene/model_belt.material" id="31_pgxqw"]
-[ext_resource type="Material" uid="uid://b63soivu73rcy" path="res://art_assets/characters/Rene/model_cloak.material" id="32_wjvim"]
-[ext_resource type="Material" uid="uid://dmxs1gpt55tsj" path="res://art_assets/characters/Rene/model_reneFBXASC032hairFBXASC046001.material" id="33_cjioh"]
-[ext_resource type="Material" uid="uid://c1823ynnjpdvi" path="res://art_assets/characters/Rene/model_Material.material" id="34_py2kl"]
-[ext_resource type="PackedScene" uid="uid://bj2tgvkpsohid" path="res://vfx/dashFX.tscn" id="37_o1ymb"]
+[ext_resource type="Shader" uid="uid://cw2eeqmautiwo" path="res://shaders/grass - Dylearn/Shaders/ToonShader.gdshader" id="29_v1pct"]
+[ext_resource type="Shader" uid="uid://crwsrlgfy4fjb" path="res://shaders/grass - Dylearn/Shaders/Outline.gdshader" id="30_2qu1h"]
+[ext_resource type="PackedScene" uid="uid://bj2tgvkpsohid" path="res://VFX/dashFX.tscn" id="37_o1ymb"]
+[ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="39_wjvim"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="40_cjioh"]
+[ext_resource type="Script" uid="uid://bcubk2sk2mcrl" path="res://scripts/entities/player/IFrameFlash.gd" id="41_py2kl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_py2kl"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.14117648)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_21ndv"]
 
@@ -118,6 +122,89 @@ _limits = [0.0, 1.5, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7, 1.3), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ffpnw"]
+resource_name = "model:reneFBXASC032skinFBXASC046001"
+render_priority = 0
+shader = ExtResource("29_v1pct")
+shader_parameter/albedo = Color(0.9411713, 0.87059516, 0.6705858, 1)
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pgxqw"]
+resource_name = "model:pantFBXASC046001"
+render_priority = 0
+shader = ExtResource("29_v1pct")
+shader_parameter/albedo = Color(0.2705914, 0.2627479, 0.22744876, 1)
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wjvim"]
+resource_name = "model:undershirt"
+render_priority = 0
+shader = ExtResource("29_v1pct")
+shader_parameter/albedo = Color(0.80784696, 0.80784696, 0.70979863, 1)
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjioh"]
+resource_name = "model:pants"
+render_priority = 0
+shader = ExtResource("29_v1pct")
+shader_parameter/albedo = Color(0.80784696, 0.80784696, 0.69803447, 1)
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_py2kl"]
+resource_name = "model:belt"
+render_priority = 0
+shader = ExtResource("29_v1pct")
+shader_parameter/albedo = Color(0.4352936, 0.3607832, 0.2705914, 1)
+shader_parameter/cuts = 2
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4s5qs"]
+resource_name = "model:cloak"
+render_priority = 0
+shader = ExtResource("29_v1pct")
+shader_parameter/albedo = Color(0.2325, 0.28804168, 0.31, 1)
+shader_parameter/cuts = 2
+shader_parameter/wrap = 0.5850001227875001
+shader_parameter/steepness = 2.6430000780425003
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1pct"]
+render_priority = 0
+shader = ExtResource("30_2qu1h")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 0.5499999877064
+shader_parameter/highlight_strength = 0.46999998949456
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/shadow_color = Color(0.19, 0.19, 0.19, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2qu1h"]
+resource_name = "model:reneFBXASC032hairFBXASC046001"
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_v1pct")
+shader = ExtResource("29_v1pct")
+shader_parameter/albedo = Color(0.9215674, 0.9137256, 0.83137983, 1)
+shader_parameter/cuts = 2
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1ymb"]
+resource_name = "model:Material"
+render_priority = 0
+shader = ExtResource("29_v1pct")
+shader_parameter/albedo = Color(0.51, 0.33430502, 0.3111, 1)
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ovtx8"]
 animation = &"basic1"
 
@@ -141,6 +228,14 @@ animation = &"charging_attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v1pct"]
 animation = &"charging_special"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jhnot"]
+animation = &"hurt"
+use_custom_timeline = true
+timeline_length = 0.145
+stretch_time_scale = false
+start_offset = 0.0
+loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ffpnw"]
 animation = &"dodge"
@@ -179,6 +274,10 @@ animation = &"special"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c2ev5"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2qu1h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o1ymb"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mt7ty"]
 states/End/position = Vector2(1051, 100)
 states/basic1/node = SubResource("AnimationNodeAnimation_ovtx8")
@@ -190,13 +289,15 @@ states/basic3/position = Vector2(543, 207)
 states/basic4/node = SubResource("AnimationNodeAnimation_tg6fe")
 states/basic4/position = Vector2(660, 207)
 states/charged_attack/node = SubResource("AnimationNodeAnimation_4s5qs")
-states/charged_attack/position = Vector2(619, 95)
+states/charged_attack/position = Vector2(619, 97.4)
 states/charged_special/node = SubResource("AnimationNodeAnimation_2qu1h")
 states/charged_special/position = Vector2(808, 98)
 states/charging_attack/node = SubResource("AnimationNodeAnimation_o1ymb")
 states/charging_attack/position = Vector2(619, 34)
 states/charging_special/node = SubResource("AnimationNodeAnimation_v1pct")
 states/charging_special/position = Vector2(808, 34)
+states/death/node = SubResource("AnimationNodeAnimation_jhnot")
+states/death/position = Vector2(213.00005, 173.8)
 states/dodge/node = SubResource("AnimationNodeAnimation_ffpnw")
 states/dodge/position = Vector2(934, 207)
 states/hurt/node = SubResource("AnimationNodeAnimation_pgxqw")
@@ -206,13 +307,70 @@ states/idle/position = Vector2(331, 100)
 states/run/node = SubResource("AnimationNodeAnimation_cjioh")
 states/run/position = Vector2(435, 99)
 states/special/node = SubResource("AnimationNodeAnimation_py2kl")
-states/special/position = Vector2(976, 34)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jhnot"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_nbu67"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_hhn71"), "run", "basic1", SubResource("AnimationNodeStateMachineTransition_2nnna"), "hurt", "run", SubResource("AnimationNodeStateMachineTransition_k76t5"), "run", "hurt", SubResource("AnimationNodeStateMachineTransition_oktbc"), "run", "charging_attack", SubResource("AnimationNodeStateMachineTransition_lcr6p"), "charging_attack", "run", SubResource("AnimationNodeStateMachineTransition_sk8gi"), "run", "charging_special", SubResource("AnimationNodeStateMachineTransition_4djcj"), "charging_special", "run", SubResource("AnimationNodeStateMachineTransition_4onpj"), "run", "special", SubResource("AnimationNodeStateMachineTransition_c2ev5")]
-graph_offset = Vector2(91, 25)
+states/special/position = Vector2(979.2, 71.6)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jhnot"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_nbu67"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_hhn71"), "run", "basic1", SubResource("AnimationNodeStateMachineTransition_2nnna"), "hurt", "run", SubResource("AnimationNodeStateMachineTransition_k76t5"), "run", "hurt", SubResource("AnimationNodeStateMachineTransition_oktbc"), "run", "charging_attack", SubResource("AnimationNodeStateMachineTransition_lcr6p"), "charging_attack", "run", SubResource("AnimationNodeStateMachineTransition_sk8gi"), "run", "charging_special", SubResource("AnimationNodeStateMachineTransition_4djcj"), "charging_special", "run", SubResource("AnimationNodeStateMachineTransition_4onpj"), "run", "special", SubResource("AnimationNodeStateMachineTransition_c2ev5"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_2qu1h"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_o1ymb")]
+graph_offset = Vector2(224, 25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhnot"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.59607846)
+
+[sub_resource type="Curve" id="Curve_nbu67"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m4apj"]
+curve = SubResource("Curve_nbu67")
+
+[sub_resource type="Curve" id="Curve_hhn71"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7659185, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n7xiu"]
+curve = SubResource("Curve_hhn71")
+
+[sub_resource type="Curve" id="Curve_2nnna"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.057878, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bn177"]
+curve = SubResource("Curve_2nnna")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k76t5"]
+direction = Vector3(0, 0.5, 1)
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_min = 0.79999995
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_bn177")
+alpha_curve = SubResource("CurveTexture_m4apj")
+emission_curve = SubResource("CurveTexture_n7xiu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4u8kd"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("24_rij6b")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_oktbc"]
+material = SubResource("StandardMaterial3D_4u8kd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcr6p"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.697, 0.73270005, 0.85, 0.078431375)
 
 [node name="Rene" type="CharacterBody3D" unique_id=504927273 node_paths=PackedStringArray("ui_counters", "construct", "targetting_box")]
 collision_layer = 6
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_njlal")
 ui_counters = [NodePath("ReneUI/HBoxContainer/Center/Charge1"), NodePath("ReneUI/HBoxContainer/Center2/Charge2"), NodePath("ReneUI/HBoxContainer/Center3/Charge3"), NodePath("ReneUI/HBoxContainer/Center4/Charge4")]
 construct = NodePath("Hitboxes/Construct")
@@ -224,14 +382,7 @@ special_cd = 10.0
 dash_distance = 7.0
 _base_speed = -0.5
 faction = 0
-_hp = null
-_max_hp = null
 _breakable = false
-_break_percent = null
-_break_hits = null
-_break_drain_rate = null
-_break_cooldown = null
-passive_death_time = null
 
 [node name="StateMachine" type="Node" parent="." unique_id=1366798692 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_yooho")
@@ -256,6 +407,12 @@ script = ExtResource("6_v1pct")
 large_motor = 0.0
 duration_sec = 0.1
 metadata/_custom_type_script = "uid://812k18g6fo3h"
+
+[node name="StateVFX" type="Node3D" parent="StateMachine/Dash" unique_id=243872048 node_paths=PackedStringArray("meshes_root")]
+script = ExtResource("7_cjioh")
+meshes_root = NodePath("../../../rene")
+state_overlay = SubResource("StandardMaterial3D_py2kl")
+flash_duration = 1.0
 
 [node name="Attacking" type="Node" parent="StateMachine" unique_id=362550249]
 script = ExtResource("5_t5f0y")
@@ -406,9 +563,9 @@ script = ExtResource("14_durvm")
 [node name="HitStun" type="Node" parent="StateMachine" unique_id=485156446]
 script = ExtResource("15_wck6d")
 
-[node name="Dead" type="Node" parent="StateMachine" unique_id=1169891586]
+[node name="Dead" type="Node" parent="StateMachine" unique_id=1169891586 node_paths=PackedStringArray("animation")]
 script = ExtResource("19_66khj")
-snap_turn_to_player = true
+animation = NodePath("../../rene/Die")
 
 [node name="StateHapticCaller" type="Node3D" parent="StateMachine/Dead" unique_id=1206589433]
 script = ExtResource("6_v1pct")
@@ -591,21 +748,65 @@ fade_out = SubResource("Curve_r8iwf")
 [node name="rene" parent="." unique_id=1073875666 instance=ExtResource("26_27ayv")]
 transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0, 0, 0)
 
-[node name="model_body" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1411570402) index="1" unique_id=579657671]
-surface_material_override/0 = ExtResource("27_2qu1h")
-surface_material_override/1 = ExtResource("28_o1ymb")
-surface_material_override/2 = ExtResource("29_v1pct")
-surface_material_override/3 = ExtResource("30_ffpnw")
-surface_material_override/4 = ExtResource("31_pgxqw")
+[node name="Skeleton3D" parent="rene" index="0" unique_id=1016576353]
+bones/2/position = Vector3(-0.00063517067, 0.012100838, -0.0074756444)
+bones/2/rotation = Quaternion(0.08773906, 0.07251549, 0.71228534, 0.69259876)
+bones/3/rotation = Quaternion(-0.0007935851, -0.20241512, 0.0066898363, 0.97927666)
+bones/5/rotation = Quaternion(0.11234042, -0.3509946, -0.07258717, 0.926776)
+bones/7/rotation = Quaternion(0.70571977, 0.7024819, -0.067438774, 0.06269555)
+bones/10/rotation = Quaternion(0.27808022, 0.48556423, -0.49507537, 0.6646797)
+bones/11/rotation = Quaternion(-0.028865866, 0.55446374, 0.04521612, 0.8304771)
+bones/12/rotation = Quaternion(-0.37254706, -0.0011011988, 0.050500493, 0.92663753)
+bones/19/rotation = Quaternion(0.17884661, 0.5353363, -0.34312797, 0.75079435)
+bones/20/rotation = Quaternion(-0.022123475, 0.44104752, 0.047528498, 0.89595133)
+bones/21/rotation = Quaternion(0.5359645, 0.62370306, 0.12413192, 0.5552728)
+bones/27/position = Vector3(0.0053246096, -0.0015070627, -6.4857913e-06)
+bones/27/rotation = Quaternion(0, 0, -0.31424522, 0.94934183)
+bones/28/position = Vector3(0.006798577, -0.0019404163, -0.0005546603)
+bones/28/rotation = Quaternion(0, 0, -0.25025308, 0.9681804)
+bones/29/position = Vector3(0.004861981, -2.9245124e-05, -6.011154e-06)
+bones/29/rotation = Quaternion(-0.08948011, 0.001576839, 0.08602984, 0.992265)
+bones/31/rotation = Quaternion(0.015725197, -0.39904752, -0.58842206, 0.70304585)
+bones/32/position = Vector3(0.005614514, -0.00029380654, -0.00014026927)
+bones/32/rotation = Quaternion(0.016161047, 0.004677354, -0.37260485, 0.92783755)
+bones/33/position = Vector3(0.0046479213, 0, 0)
+bones/33/rotation = Quaternion(-0.03462997, -0.00040412907, 0.10430976, 0.9939418)
+bones/35/position = Vector3(0.0019021148, -0.0011497501, -0.00378152)
+bones/35/rotation = Quaternion(0.38854733, -0.39918154, 0.5474201, 0.6245129)
+bones/36/position = Vector3(-0.005175306, 0, 0)
+bones/36/rotation = Quaternion(-0.57858205, 0.20905489, -0.003545064, 0.7883694)
+bones/37/position = Vector3(-0.00527397, 0.00022640267, 0.0008220376)
+bones/37/rotation = Quaternion(-0.006168217, 0.17951787, -0.00837198, 0.98369974)
+bones/39/rotation = Quaternion(0.06234131, 0.8612277, -0.20901632, -0.4590344)
+bones/40/rotation = Quaternion(0.88296413, -0.024912912, 0.46861777, 0.012292067)
+bones/41/rotation = Quaternion(-0.09908489, -0.011962764, -0.07578537, 0.99211675)
+bones/44/rotation = Quaternion(0.066573545, 0.5618936, -0.03895725, 0.8236054)
+bones/45/rotation = Quaternion(0.8151244, -0.026796982, 0.5783421, 0.01935671)
+bones/46/rotation = Quaternion(-0.13388026, -0.014829932, -0.07183045, 0.9882796)
+bones/49/position = Vector3(-0.004213532, 0.00798822, 0.005575649)
+bones/49/rotation = Quaternion(0.2808384, 0.86497784, -0.3470034, 0.22919819)
+bones/51/position = Vector3(0, 0, 0)
+bones/52/position = Vector3(0.009964881, 0, 0)
+bones/53/position = Vector3(0.008668151, 0, 0)
+bones/53/rotation = Quaternion(0, 0, 0.0016023, 0.99999875)
+bones/54/position = Vector3(0.0065154396, 0, 0)
+bones/54/rotation = Quaternion(0.9999708, 0.007653769, 0, 7.5059985e-28)
 
-[node name="model_coat" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1411570402) index="2" unique_id=1210077208]
-surface_material_override/0 = ExtResource("32_wjvim")
+[node name="model_body" parent="rene/Skeleton3D" index="1" unique_id=2036841570]
+surface_material_override/0 = SubResource("ShaderMaterial_ffpnw")
+surface_material_override/1 = SubResource("ShaderMaterial_pgxqw")
+surface_material_override/2 = SubResource("ShaderMaterial_wjvim")
+surface_material_override/3 = SubResource("ShaderMaterial_cjioh")
+surface_material_override/4 = SubResource("ShaderMaterial_py2kl")
 
-[node name="model_hair" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1411570402) index="3" unique_id=342271995]
-surface_material_override/0 = ExtResource("33_cjioh")
+[node name="model_coat" parent="rene/Skeleton3D" index="2" unique_id=1467437204]
+surface_material_override/0 = SubResource("ShaderMaterial_4s5qs")
 
-[node name="model_staff" parent="rene/Skeleton3D" parent_id_path=PackedInt32Array(1073875666, 1411570402) index="4" unique_id=1243858030]
-surface_material_override/0 = ExtResource("34_py2kl")
+[node name="model_hair" parent="rene/Skeleton3D" index="3" unique_id=514530449]
+surface_material_override/0 = SubResource("ShaderMaterial_2qu1h")
+
+[node name="model_staff" parent="rene/Skeleton3D" index="4" unique_id=1983392465]
+surface_material_override/0 = SubResource("ShaderMaterial_o1ymb")
 
 [node name="AnimationTree" type="AnimationTree" parent="rene" unique_id=333013972]
 tree_root = SubResource("AnimationNodeStateMachine_mt7ty")
@@ -691,7 +892,7 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 
 [node name="Die" type="Node" parent="rene" unique_id=1741788305]
 script = ExtResource("27_ohtv4")
-state_name = "die"
+state_name = "death"
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_mt7ty"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
@@ -700,9 +901,44 @@ unique_name_in_owner = true
 noiseScale = 7.885
 dissolveBegin = 0.3
 dissolveDuration = 1.0
-meshes = [null, null, null, null]
+meshes = [NodePath("../rene/Skeleton3D/model_body"), NodePath("../rene/Skeleton3D/model_coat"), NodePath("../rene/Skeleton3D/model_hair"), NodePath("../rene/Skeleton3D/model_staff")]
 
 [node name="dashFX" parent="." unique_id=987713212 instance=ExtResource("37_o1ymb")]
+
+[node name="Hurt" type="Node3D" parent="." unique_id=1701802945 node_paths=PackedStringArray("vfx", "light", "meshes_root")]
+script = ExtResource("39_wjvim")
+vfx = NodePath("Hurt VFX")
+light = NodePath("OmniLight3D")
+meshes_root = NodePath("../rene")
+hurt_overlay = SubResource("StandardMaterial3D_jhnot")
+flash_duration = 0.5
+
+[node name="Hurt VFX" type="Node3D" parent="Hurt" unique_id=53827056 node_paths=PackedStringArray("particles")]
+script = ExtResource("40_cjioh")
+particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D")]
+metadata/_custom_type_script = "uid://hrugoc51xhma"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Hurt/Hurt VFX" unique_id=1731977387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0.050730154)
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_k76t5")
+draw_pass_1 = SubResource("QuadMesh_oktbc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hurt" unique_id=726620724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.78385305, 0)
+visible = false
+light_energy = 2.0
+omni_range = 7.0
+
+[node name="I-Frame Flash" type="Node3D" parent="." unique_id=2008500952 node_paths=PackedStringArray("meshes_root")]
+script = ExtResource("41_py2kl")
+meshes_root = NodePath("../rene")
+flash_overlay = SubResource("StandardMaterial3D_lcr6p")
+flash_speed = 15.0
+min_a = 10
 
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
@@ -725,6 +961,7 @@ meshes = [null, null, null, null]
 [connection signal="max_charge_count" from="StateMachine/ChargingSpecial" to="StateMachine/ChargingSpecial/Dash SFX" method="play_one_shot"]
 [connection signal="entered" from="StateMachine/Special/RegularSpecial" to="StateMachine/Special/RegularSpecial/AttackCharged SFX" method="play" binds= [true]]
 [connection signal="entered" from="StateMachine/Special/ChargedSpecial" to="StateMachine/Special/ChargedSpecial/AttackCharged SFX" method="play" binds= [true]]
+[connection signal="entered" from="StateMachine/HitStun" to="rene/Hurt" method="enter"]
 [connection signal="entered" from="StateMachine/Dead" to="DissolveFX" method="beginDissolve"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slash0" method="do_damage"]
 [connection signal="attack_hit" from="DummyAnimation" to="StateMachine/Attacking/Slash1" method="do_damage"]
