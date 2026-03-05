@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ugct5707ax0u"]
+
+[ext_resource type="Shader" uid="uid://cw2eeqmautiwo" path="res://shaders/grass - Dylearn/Shaders/ToonShader.gdshader" id="1_3r1gh"]
+[ext_resource type="Texture2D" uid="uid://ddhg6uhcij6l2" path="res://art_assets/environment/Biome3/Level1/Level3-1-Perspective (1)_PillarsBack-Tex.png" id="1_tsn1a"]
+
+[resource]
+resource_name = "Pillars"
+render_priority = 0
+shader = ExtResource("1_3r1gh")
+shader_parameter/albedo = Color(0.728822, 0.728822, 0.728822, 1)
+shader_parameter/texture_albedo = ExtResource("1_tsn1a")
+shader_parameter/cuts = 8
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 3.77600013186
