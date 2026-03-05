@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bdm7ism3eyt1e"]
+
+[ext_resource type="Shader" uid="uid://cw2eeqmautiwo" path="res://shaders/grass - Dylearn/Shaders/ToonShader.gdshader" id="1_d4yag"]
+
+[resource]
+resource_name = "Material.008"
+render_priority = 0
+shader = ExtResource("1_d4yag")
+shader_parameter/albedo = Color(0.163694, 0.12886974, 0.15663993, 1)
+shader_parameter/cuts = 8
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 3.77600013186
