@@ -17,12 +17,8 @@
 [ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="11_ye2ne"]
 [ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="12_s7jtx"]
 [ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="13_7hj6e"]
-[ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="13_jekpj"]
-[ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="14_0fapi"]
 [ext_resource type="Script" uid="uid://b7pj5dra8sjgx" path="res://scripts/entities/DeathVFX.gd" id="14_qshis"]
-[ext_resource type="Texture2D" uid="uid://crk6pkb7e5rwc" path="res://addons/GPUTrails/defaults/texture.tres" id="15_18w0e"]
 [ext_resource type="Script" uid="uid://dxy6p70rncayl" path="res://scripts/entities/SpawnVFX.gd" id="15_oxgda"]
-[ext_resource type="Script" uid="uid://drugjbbmd0wed" path="res://scripts/entities/SlashVFX.gd" id="16_axb4w"]
 [ext_resource type="PackedScene" uid="uid://dtrpcl1nasika" path="res://VFX/enemySummonFX.tscn" id="16_ryfo6"]
 [ext_resource type="Script" uid="uid://dqkj3m2abvuwx" path="res://scripts/entities/HurtNode3D.gd" id="20_ryfo6"]
 
@@ -32,7 +28,7 @@ size = Vector3(0.805, 1.005, 1.61)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ryfo6"]
 radius = 1.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sm1im"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ryfo6"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -44,7 +40,7 @@ shader_parameter/shell_idx = 0
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8o5ev"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sm1im"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -56,7 +52,7 @@ shader_parameter/shell_idx = 1
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6lb2m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8o5ev"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -68,7 +64,7 @@ shader_parameter/shell_idx = 2
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jekpj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6lb2m"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -80,7 +76,7 @@ shader_parameter/shell_idx = 3
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fapi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jekpj"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -92,7 +88,7 @@ shader_parameter/shell_idx = 4
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_18w0e"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fapi"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -104,7 +100,7 @@ shader_parameter/shell_idx = 5
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_axb4w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_18w0e"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -116,7 +112,7 @@ shader_parameter/shell_idx = 6
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ae5rv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axb4w"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -128,7 +124,7 @@ shader_parameter/shell_idx = 7
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wgn6f"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ae5rv"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -140,7 +136,7 @@ shader_parameter/shell_idx = 8
 shader_parameter/shell_displacement = 0.08
 shader_parameter/min_ambient_occlusion = 0.4
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ao0xf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wgn6f"]
 render_priority = 0
 shader = ExtResource("6_jl60r")
 shader_parameter/albedo = ExtResource("7_mdqfx")
@@ -157,37 +153,6 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_color = Color(1, 1, 1, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wyl3q"]
-shader = ExtResource("13_jekpj")
-
-[sub_resource type="Gradient" id="Gradient_6unue"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_dpclm"]
-gradient = SubResource("Gradient_6unue")
-
-[sub_resource type="Curve" id="Curve_f2mnk"]
-bake_resolution = 16
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_wmyt3"]
-curve = SubResource("Curve_f2mnk")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tngdw"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("14_0fapi")
-shader_parameter/tex = ExtResource("15_18w0e")
-shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/color_ramp = SubResource("GradientTexture1D_dpclm")
-shader_parameter/curve = SubResource("CurveTexture_wmyt3")
-shader_parameter/emmission_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
-shader_parameter/flags = 40
-
-[sub_resource type="QuadMesh" id="QuadMesh_7yyyg"]
-material = SubResource("ShaderMaterial_tngdw")
 
 [sub_resource type="Animation" id="Animation_ryfo6"]
 resource_name = "attack"
@@ -1036,18 +1001,20 @@ scale_min = 0.79999995
 scale_max = 1.3
 scale_curve = SubResource("CurveTexture_jekpj")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jekpj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ao0xf"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 0)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ryfo6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wyl3q"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Mossum" type="CharacterBody3D" unique_id=122916008]
 collision_layer = 10
-collision_mask = 3
+collision_mask = 9
 script = ExtResource("1_ryfo6")
+metadata/collision_preset_name = &"Small Enemy"
+metadata/collision_preset_id = &"5356314881523628266"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1952739372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
@@ -1102,35 +1069,8 @@ debug_color = Color(1, 0, 0, 1)
 [node name="mossum_anims" parent="." unique_id=656823653 instance=ExtResource("4_dd6ky")]
 transform = Transform3D(3.23, 0, 0, 0, 3.23, 0, 0, 0, 3.23, 0, 0, 0)
 
-[node name="Skeleton3D" parent="mossum_anims" index="0" unique_id=13124971]
-bones/2/position = Vector3(0.00492789, 0.17467648, 0.009353126)
-bones/2/rotation = Quaternion(-0.13450806, -0.14935522, 0.97835827, 0.04915142)
-bones/3/rotation = Quaternion(0, 0.101026125, 0, 0.99488384)
-bones/4/rotation = Quaternion(0.1337645, -0.08734395, 0.0038594534, 0.98714906)
-bones/5/rotation = Quaternion(0.003566401, -0.122037485, -0.098040625, 0.98766506)
-bones/6/rotation = Quaternion(0.020175247, -0.0703868, 0.0745844, 0.9945229)
-bones/7/rotation = Quaternion(0.16925804, -0.08346273, -0.60596734, 0.77278024)
-bones/14/rotation = Quaternion(0.9941848, -0.028083924, 0.10314487, -0.013000586)
-bones/15/rotation = Quaternion(0.14067969, 0.10125258, -0.014464653, 0.9847578)
-bones/16/rotation = Quaternion(0.10047244, 0.21402226, -0.10586521, 0.9658635)
-bones/17/rotation = Quaternion(-0.36494172, 0.068945356, -0.010040927, 0.9284198)
-bones/19/rotation = Quaternion(0.81571823, -0.28409156, 0.07626644, 0.4980756)
-bones/20/rotation = Quaternion(-0.35696018, -0.00047132204, -0.00484715, 0.934107)
-bones/21/rotation = Quaternion(0.79573345, 0.13709189, -0.19876756, 0.555433)
-bones/23/rotation = Quaternion(0.8151459, -0.03312745, -0.1441322, 0.56005853)
-bones/24/rotation = Quaternion(0.55761355, 0.004396579, 0.0062770024, 0.83006525)
-bones/25/rotation = Quaternion(-0.0045965128, 0.09376431, -0.18795435, 0.9776811)
-bones/27/rotation = Quaternion(0.60411924, -0.24940094, 0.49534473, 0.57225245)
-bones/28/rotation = Quaternion(0.010439024, -1.6476258e-06, -0.00012950161, 0.9999455)
-bones/29/rotation = Quaternion(0.5337911, -0.06753985, 0.31459856, 0.78200585)
-bones/31/rotation = Quaternion(0.6508392, 0.30178726, 0.5564581, 0.41915062)
-bones/32/rotation = Quaternion(0.11269373, -0.0009350829, -0.0013436811, 0.99362844)
-bones/33/rotation = Quaternion(0.14645095, -0.19507746, 0.51950926, 0.818906)
-bones/35/position = Vector3(0.06436893, 0.24478404, -0.33288902)
-bones/35/rotation = Quaternion(0.0906244, -0.9491712, 0.015549703, 0.3010307)
-
-[node name="model_mossum" parent="mossum_anims/Skeleton3D" index="0" unique_id=880995083]
-transform = Transform3D(-0.037107483, 0.28900725, -0.9566072, 0.13184616, 0.95031434, 0.2819915, 0.99057543, -0.11566103, -0.07336819, 0.009353119, 0.17467648, -0.00492789)
+[node name="model_mossum" parent="mossum_anims/Skeleton3D" parent_id_path=PackedInt32Array(656823653, 13124971) index="0" unique_id=880995083]
+transform = Transform3D(0.99999994, -6.558302e-08, 8.096181e-08, 5.857943e-08, 0.98901594, 0.14780958, 3.012793e-08, -0.1478096, 0.98901576, -0.0028036484, 0.18634897, -0.00019545358)
 bone_name = "model_spine_001"
 bone_idx = 14
 
@@ -1148,71 +1088,55 @@ tint = Color(0.5529412, 0.8156863, 0.49411765, 1)
 shell_displacement = 0.08
 min_ambient_occlusion = 0.4
 
-[node name="Shell_0" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=756874575]
+[node name="Shell_0" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1460516554]
+mesh = ExtResource("5_jimdk")
+surface_material_override/0 = SubResource("ShaderMaterial_ryfo6")
+
+[node name="Shell_1" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1874022686]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_sm1im")
 
-[node name="Shell_1" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=77019099]
+[node name="Shell_2" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=735468481]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_8o5ev")
 
-[node name="Shell_2" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=526940778]
+[node name="Shell_3" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=871993793]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_6lb2m")
 
-[node name="Shell_3" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=2056728594]
+[node name="Shell_4" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=192751291]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_jekpj")
 
-[node name="Shell_4" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=902686799]
+[node name="Shell_5" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1638356151]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_0fapi")
 
-[node name="Shell_5" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1504450370]
+[node name="Shell_6" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1079308023]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_18w0e")
 
-[node name="Shell_6" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1739087572]
+[node name="Shell_7" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1931506053]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_axb4w")
 
-[node name="Shell_7" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=988868970]
+[node name="Shell_8" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1648280835]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_ae5rv")
 
-[node name="Shell_8" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=788355793]
+[node name="Shell_9" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1550444746]
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("ShaderMaterial_wgn6f")
-
-[node name="Shell_9" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=73756745]
-mesh = ExtResource("5_jimdk")
-surface_material_override/0 = SubResource("ShaderMaterial_ao0xf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo" index="1" unique_id=198883634]
 transform = Transform3D(1.4, 1.2434496e-14, -2.842171e-14, -1.2434498e-14, 1.4, -5.960463e-08, 2.842171e-14, 5.960463e-08, 1.4, -0.0068546603, -0.08632959, 0.02274945)
 mesh = ExtResource("5_jimdk")
 surface_material_override/0 = SubResource("StandardMaterial3D_ryfo6")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="mossum_anims/Skeleton3D" index="4" unique_id=1271133025]
-transform = Transform3D(0.57427764, 0.025042748, -0.8182774, -0.16267422, 0.9830909, -0.084080145, 0.80233544, 0.18139802, 0.56864095, -0.33288902, 0.24478403, -0.06436893)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="mossum_anims/Skeleton3D" parent_id_path=PackedInt32Array(656823653, 13124971) index="4" unique_id=1271133025]
+transform = Transform3D(0.94898474, -0.24243517, -0.20162556, 0.12907803, 0.88207483, -0.4530815, 0.28769168, 0.40394208, 0.8683686, 0.020074364, 0.15620366, 0.37153015)
 bone_name = "model_sword_joint"
 bone_idx = 35
-
-[node name="SlashVFX" parent="mossum_anims/Skeleton3D/BoneAttachment3D" index="0"]
-unique_name_in_owner = true
-transform = Transform3D(-0.12310471, -0.14522445, -0.094108306, 0.9923255, -0.018177062, -3.7252903e-09, -0.011636817, -0.013727754, 0.99556196, -0.21346533, -0.022430344, -0.02476922)
-amount = 100
-lifetime = 100.0
-explosiveness = 1.0
-fixed_fps = 60
-process_material = SubResource("ShaderMaterial_wyl3q")
-draw_pass_1 = SubResource("QuadMesh_7yyyg")
-script = ExtResource("16_axb4w")
-length_seconds = 1.6666666666666667
-color_ramp = SubResource("GradientTexture1D_dpclm")
-curve = SubResource("CurveTexture_wmyt3")
-_defaults_have_been_set = true
-metadata/_custom_type_script = "uid://drugjbbmd0wed"
 
 [node name="AnimationPlayer" parent="mossum_anims" index="1" unique_id=1885628729]
 libraries/ = SubResource("AnimationLibrary_jekpj")
@@ -1300,8 +1224,8 @@ process_mode = 3
 script = ExtResource("15_oxgda")
 vfx = NodePath("enemySummonFX")
 meshes_root = NodePath("../mossum_anims")
-_meshes = [NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_0"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_1"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_2"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_3"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_4"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_5"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_6"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_7"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_8"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_9"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/MeshInstance3D"), NodePath("../mossum_anims/Skeleton3D/model_body"), NodePath("../mossum_anims/Skeleton3D/model_everything_else"), NodePath("../mossum_anims/Skeleton3D/model_sword_geo")]
-hurt_overlay = SubResource("StandardMaterial3D_jekpj")
+_meshes = [NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_5"), null, NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_7"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_8"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_4"), null, NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_9"), null, null, null, NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/MeshInstance3D"), NodePath("../mossum_anims/Skeleton3D/model_body"), NodePath("../mossum_anims/Skeleton3D/model_everything_else"), NodePath("../mossum_anims/Skeleton3D/model_sword_geo")]
+hurt_overlay = SubResource("StandardMaterial3D_ao0xf")
 flash_duration = 0.75
 
 [node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("16_ryfo6")]
@@ -1313,7 +1237,7 @@ duration = 3.0
 
 [node name="StatusBars" parent="StatusBar HurtNode" unique_id=1198223398 instance=ExtResource("2_l26uf")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.035, 0)
-texture = SubResource("ViewportTexture_ryfo6")
+texture = SubResource("ViewportTexture_wyl3q")
 
 [connection signal="break_update" from="." to="StatusBar HurtNode/StatusBars" method="update_break"]
 [connection signal="health_update" from="." to="StatusBar HurtNode/StatusBars" method="update_health"]

@@ -15,14 +15,14 @@
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="9_arhvd"]
 [ext_resource type="PackedScene" uid="uid://pv4ghgiiejhk" path="res://scenes/dev/christian_d/enemy_status_bar.tscn" id="13_g51g3"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="14_js430"]
-[ext_resource type="PackedScene" uid="uid://bxf0bqm6vq8x4" path="res://vfx/laserAttackFX.tscn" id="16_6ayco"]
+[ext_resource type="PackedScene" uid="uid://bxf0bqm6vq8x4" path="res://VFX/laserAttackFX.tscn" id="16_6ayco"]
 [ext_resource type="PackedScene" uid="uid://dddwhsdairgjn" path="res://art_assets/enemies/shrooms/lasershroom_anims.glb" id="17_5ofen"]
 [ext_resource type="Script" uid="uid://dxy6p70rncayl" path="res://scripts/entities/SpawnVFX.gd" id="17_rmnni"]
 [ext_resource type="Script" uid="uid://bjlnudp8j65ma" path="res://scripts/entities/animation_state.gd" id="18_00n1l"]
-[ext_resource type="PackedScene" uid="uid://dtrpcl1nasika" path="res://vfx/enemySummonFX.tscn" id="18_cjmyr"]
+[ext_resource type="PackedScene" uid="uid://dtrpcl1nasika" path="res://VFX/enemySummonFX.tscn" id="18_cjmyr"]
 [ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="19_5xcys"]
-[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://vfx/AutoStartVFX.gd" id="20_ln7ek"]
-[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://vfx/Kenny Particle Pack/circle_05.png" id="21_fl1jj"]
+[ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="20_ln7ek"]
+[ext_resource type="Texture2D" uid="uid://qj1lsmefhhje" path="res://VFX/Kenny Particle Pack/circle_05.png" id="21_fl1jj"]
 [ext_resource type="Script" uid="uid://b7pj5dra8sjgx" path="res://scripts/entities/DeathVFX.gd" id="22_ln7ek"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_js430"]
@@ -97,7 +97,7 @@ vertex_color_is_srgb = true
 [sub_resource type="SphereMesh" id="SphereMesh_pqvp8"]
 material = SubResource("StandardMaterial3D_6ayco")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_s5l70"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5ofen"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_txu5v"]
@@ -228,6 +228,7 @@ material = SubResource("StandardMaterial3D_4u8kd")
 [node name="LaserShroom" type="CharacterBody3D" unique_id=1537587731 node_paths=PackedStringArray("aim_mesh", "fire_mesh", "warning_particles")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 collision_layer = 10
+collision_mask = 9
 script = ExtResource("1_6e0eo")
 aim_mesh = NodePath("Hitbox/AimMesh")
 fire_mesh = NodePath("Hitbox/FireMesh")
@@ -236,6 +237,8 @@ _hp = 45.0
 _max_hp = 45.0
 passive_death_time = 3.0
 metadata/_custom_type_script = "uid://b0ikb4va3mlaf"
+metadata/collision_preset_name = &"Large Enemy"
+metadata/collision_preset_id = &"3120852393106399397"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1243199418]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -346,7 +349,7 @@ draw_pass_1 = SubResource("SphereMesh_pqvp8")
 
 [node name="StatusBars" parent="." unique_id=765670220 instance=ExtResource("13_g51g3")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 2.6692805, 0)
-texture = SubResource("ViewportTexture_s5l70")
+texture = SubResource("ViewportTexture_5ofen")
 
 [node name="DissolveFX" parent="." unique_id=1938342030 node_paths=PackedStringArray("meshes") instance=ExtResource("14_js430")]
 meshes = [null]

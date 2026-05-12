@@ -1365,7 +1365,7 @@ radius = 2.3
 [node name="DinoSkeleton" type="CharacterBody3D" unique_id=1314292794 node_paths=PackedStringArray("spit_source_node") groups=["Enemies"]]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 collision_layer = 10
-collision_mask = 3
+collision_mask = 9
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_vw6fa")
@@ -1380,6 +1380,8 @@ attack_radius = 10.0
 _base_speed = 2.0
 _hp = 25.0
 _max_hp = 25.0
+metadata/collision_preset_name = &"Large Enemy"
+metadata/collision_preset_id = &"3120852393106399397"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1714766841 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_8j2wv")

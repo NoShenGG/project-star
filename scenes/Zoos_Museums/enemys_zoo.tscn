@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://b4luuatoyyjjx"]
+
+[ext_resource type="PackedScene" uid="uid://cv7a8503lutop" path="res://scenes/sub/DifficultKoboldEnemy.tscn" id="1_8cd1k"]
+[ext_resource type="PackedScene" uid="uid://bdydypuhg67jk" path="res://scenes/sub/DinoSkeleton.tscn" id="2_bduoe"]
+[ext_resource type="PackedScene" uid="uid://dikwtund4a5xs" path="res://scenes/sub/DynaMite.tscn" id="3_00xca"]
+[ext_resource type="PackedScene" uid="uid://jxmplun4khxm" path="res://scenes/sub/KoboldEnemy.tscn" id="4_wp74c"]
+[ext_resource type="PackedScene" uid="uid://cuq57gnl0xn2m" path="res://scenes/sub/LaserShroom.tscn" id="5_cjq7f"]
+[ext_resource type="PackedScene" uid="uid://jr71mbkvd0y7" path="res://scenes/sub/MindMerger.tscn" id="6_l3bjn"]
+[ext_resource type="PackedScene" uid="uid://t5j2q1f4n7kj" path="res://scenes/sub/ModeratelyLargeMossum.tscn" id="7_mivnr"]
+[ext_resource type="PackedScene" uid="uid://d30qvxvgmp1bf" path="res://scenes/sub/Mossum.tscn" id="8_swdc7"]
+[ext_resource type="PackedScene" uid="uid://celvhgttbuade" path="res://scenes/sub/Mossypede.tscn" id="9_4ryxi"]
+[ext_resource type="PackedScene" uid="uid://cipc0pee6kke6" path="res://scenes/sub/Slime.tscn" id="10_qfpyl"]
+[ext_resource type="PackedScene" uid="uid://cw87q52v3jxf0" path="res://scenes/sub/RangedEnemy.tscn" id="11_05bvj"]
+[ext_resource type="Material" uid="uid://dyc1w60tbx3v8" path="res://art_assets/environment/Biome1/Level1/BackgroundGrass.material" id="12_bduoe"]
+[ext_resource type="PackedScene" uid="uid://brmdsiu0kp6ca" path="res://scenes/final/player_manager.tscn" id="13_00xca"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_00xca"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_wp74c"]
+sky_material = SubResource("ProceduralSkyMaterial_00xca")
+
+[sub_resource type="Environment" id="Environment_cjq7f"]
+background_mode = 2
+sky = SubResource("Sky_wp74c")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Enemys Zoo" type="Node3D" unique_id=931970831]
+
+[node name="All Enemys" type="Node3D" parent="." unique_id=157579558]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14, 0, -5)
+
+[node name="KoboldEnemy" parent="All Enemys" unique_id=807260650 instance=ExtResource("1_8cd1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+
+[node name="DinoSkeleton" parent="All Enemys" unique_id=1314292794 instance=ExtResource("2_bduoe")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 4.7683716e-07, 0, 23)
+
+[node name="DynaMite" parent="All Enemys" unique_id=661467667 instance=ExtResource("3_00xca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
+
+[node name="KoboldEnemy2" parent="All Enemys" unique_id=688179897 instance=ExtResource("4_wp74c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="LaserShroom" parent="All Enemys" unique_id=1537587731 instance=ExtResource("5_cjq7f")]
+
+[node name="MindMerger" parent="All Enemys" unique_id=608434091 instance=ExtResource("6_l3bjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="Mossum" parent="All Enemys" unique_id=122916008 instance=ExtResource("7_mivnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+
+[node name="Mossum2" parent="All Enemys" unique_id=218795840 instance=ExtResource("8_swdc7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
+
+[node name="Mossypede" parent="All Enemys" unique_id=1040683952 instance=ExtResource("9_4ryxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35.516872)
+
+[node name="Slime" parent="All Enemys" unique_id=1139207953 instance=ExtResource("10_qfpyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 0, -47)
+
+[node name="RangedEnemy" parent="All Enemys" unique_id=2104037228 instance=ExtResource("11_05bvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9073486e-06, 0, -42)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1559777710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = ExtResource("12_bduoe")
+use_collision = true
+size = Vector3(84.2522, 1, 64)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CSGBox3D" unique_id=434147977]
+environment = SubResource("Environment_cjq7f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CSGBox3D" unique_id=1442918836]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0.5, 0)
+shadow_enabled = true
+
+[node name="PlayerManager" parent="." unique_id=584625856 instance=ExtResource("13_00xca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)

@@ -712,6 +712,8 @@ max_special_charges = 2
 dash_distance = 7.0
 faction = 0
 _breakable = false
+metadata/collision_preset_name = &"Player"
+metadata/collision_preset_id = &"2047292062806659354"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1666687457 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_n7ie5")
@@ -1124,7 +1126,7 @@ transform = Transform3D(-50, 0, -4.371139e-06, 0, 50, 0, 4.371139e-06, 0, -50, 0
 
 [node name="Skeleton3D" parent="dawn" index="0" unique_id=581899794]
 bones/2/position = Vector3(0, 0.017364519, 0.0011158077)
-bones/2/rotation = Quaternion(0.028937606, -0.0288535, 0.7054872, 0.7075437)
+bones/2/rotation = Quaternion(0.045687567, -0.045554783, 0.7046059, 0.7066598)
 bones/3/rotation = Quaternion(0, 0, 0.0068312488, 0.99997675)
 bones/6/rotation = Quaternion(0, 0, -0.6878448, 0.72585785)
 bones/7/rotation = Quaternion(0.7087308, 0.705479, -3.3087225e-24, 7.33913e-25)
@@ -1134,18 +1136,18 @@ bones/10/position = Vector3(0.006148092, -0.0004052415, 0)
 bones/10/rotation = Quaternion(0.9975918, -0.06935874, 4.135903e-25, 8.60583e-26)
 bones/11/position = Vector3(0.005535342, -5.0917533e-05, 0)
 bones/11/rotation = Quaternion(0, 0, 0.08164492, 0.9966615)
-bones/15/rotation = Quaternion(0.020031046, -0.10122919, -0.66705006, 0.73783165)
-bones/16/rotation = Quaternion(-0.03530022, 0.39193752, 0.103715435, 0.9134451)
-bones/17/rotation = Quaternion(0.18073371, 0.08999288, -0.2548116, 0.9456784)
-bones/23/rotation = Quaternion(-0.0821493, -0.08683413, -0.68410397, 0.7195229)
-bones/24/rotation = Quaternion(-0.03061684, 0.27465773, 0.12663434, 0.952675)
-bones/25/rotation = Quaternion(-0.0012182571, 0.055373713, -0.1780758, 0.9824568)
-bones/30/rotation = Quaternion(-0.0004498858, 0.9680429, -0.2496593, 0.023729738)
-bones/31/rotation = Quaternion(0.99923414, -0.010206701, 0.03777636, 0.00027929252)
-bones/32/rotation = Quaternion(0.57203084, -0.36568016, 0.41650662, 0.6046329)
-bones/34/rotation = Quaternion(0.0608554, 0.10673458, 0.012663849, 0.9923427)
-bones/35/rotation = Quaternion(0.9934427, -0.014528123, 0.1133973, 0.0013045135)
-bones/36/rotation = Quaternion(0.600668, -0.35605338, 0.36757594, 0.6142572)
+bones/15/rotation = Quaternion(0.01561664, -0.11473391, -0.6658061, 0.73708516)
+bones/16/rotation = Quaternion(-0.03837233, 0.41197205, 0.10485456, 0.9043297)
+bones/17/rotation = Quaternion(0.18869533, 0.104654014, -0.25575665, 0.94235355)
+bones/23/rotation = Quaternion(-0.08131303, -0.08961525, -0.6842237, 0.71916294)
+bones/24/rotation = Quaternion(-0.030850908, 0.27606174, 0.1268767, 0.9522292)
+bones/25/rotation = Quaternion(0.0030983712, 0.07725135, -0.17400923, 0.9817044)
+bones/30/rotation = Quaternion(0.009209307, 0.96685165, -0.25113884, -0.045195263)
+bones/31/rotation = Quaternion(0.9922957, -0.015478245, 0.12291283, 0.0015021742)
+bones/32/rotation = Quaternion(0.5553059, -0.3887785, 0.4366318, 0.59147227)
+bones/34/rotation = Quaternion(0.0614726, 0.16898881, 0.015646243, 0.9835747)
+bones/35/rotation = Quaternion(0.98350346, -0.018386068, 0.17993128, 0.002793086)
+bones/36/rotation = Quaternion(0.59011847, -0.374545, 0.38296753, 0.6039968)
 
 [node name="model_body" parent="dawn/Skeleton3D" index="1" unique_id=1519538712]
 surface_material_override/0 = SubResource("ShaderMaterial_jvydd")

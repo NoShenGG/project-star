@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://irxuylaptnty" path="res://scripts/entities/enemies/states/dead.gd" id="6_n5mpu"]
 [ext_resource type="PackedScene" uid="uid://cj1dreixyrara" path="res://art_assets/enemies/kobold/Kobold.glb" id="7_hmh7o"]
 [ext_resource type="PackedScene" uid="uid://di4qml3bmbcmh" path="res://art_assets/enemies/Weapons/SwordBase.glb" id="8_hyoos"]
-[ext_resource type="Texture2D" uid="uid://umb363uqrtl4" path="res://art_assets/enemies/kobold/Heavy_Body_BaseColor.png" id="8_o3trl"]
+[ext_resource type="Texture2D" uid="uid://2r15bxw7nkju" path="res://art_assets/enemies/kobold/Heavy_Body_BaseColor.png" id="8_o3trl"]
 [ext_resource type="Shader" uid="uid://cw2eeqmautiwo" path="res://shaders/grass - Dylearn/Shaders/ToonShader.gdshader" id="9_6rlsh"]
 [ext_resource type="Shader" uid="uid://dk7uhwse27msj" path="res://addons/GPUTrails/shaders/trail.gdshader" id="9_k5lyv"]
 [ext_resource type="Shader" uid="uid://cwtpog285648p" path="res://addons/GPUTrails/shaders/trail_draw_pass.gdshader" id="10_qncd1"]
@@ -1186,7 +1186,7 @@ states/Start/position = Vector2(73, 166)
 transitions = ["Walk Forward", "Hurt", SubResource("AnimationNodeStateMachineTransition_sqo6n"), "Hurt", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_bwcbt"), "Walk Forward", "Slash", SubResource("AnimationNodeStateMachineTransition_bfl6e"), "Slash", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_1ibp7"), "Slash", "Death", SubResource("AnimationNodeStateMachineTransition_6vm5w"), "Walk Forward", "Death", SubResource("AnimationNodeStateMachineTransition_pa7ii"), "Slash", "Idle", SubResource("AnimationNodeStateMachineTransition_hskl7"), "Walk Forward", "Idle", SubResource("AnimationNodeStateMachineTransition_0fawd"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_cqf5t"), "Idle", "Walk Forward", SubResource("AnimationNodeStateMachineTransition_ydysj"), "Idle", "Slash", SubResource("AnimationNodeStateMachineTransition_5xf2e"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_jbtjh"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_nnkb1")]
 graph_offset = Vector2(-44, -106)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_xmj46"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6rlsh"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sqo6n"]
@@ -1262,19 +1262,21 @@ scale_min = 0.79999995
 scale_max = 1.3
 scale_curve = SubResource("CurveTexture_cqf5t")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm2ua"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jaab8"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 0)
 
 [node name="KoboldEnemy" type="CharacterBody3D" unique_id=807260650]
 collision_layer = 10
-collision_mask = 3
+collision_mask = 9
 script = ExtResource("1_gavg2")
 faction = 2
 _hp = 25.0
 _max_hp = 25.0
 metadata/_custom_type_script = "uid://meavewo15aog"
+metadata/collision_preset_name = &"Small Enemy"
+metadata/collision_preset_id = &"5356314881523628266"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=264369508]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
@@ -1373,21 +1375,21 @@ event_guid = "{dfbdbb2a-8d75-45fc-b546-cbbe19d39792}"
 [node name="Kobold" parent="." unique_id=1486501648 instance=ExtResource("7_hmh7o")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
 
-[node name="Armature" parent="Kobold" index="0" unique_id=1024524970]
+[node name="Armature" parent="Kobold" index="0" unique_id=2094599677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
-[node name="GeneralSkeleton" parent="Kobold/Armature" index="0" unique_id=979890959]
+[node name="GeneralSkeleton" parent="Kobold/Armature" index="0" unique_id=1728353589]
 bones/0/position = Vector3(2.2204459e-16, 0.70892143, -1.0631079e-09)
-bones/0/rotation = Quaternion(-4.5816675e-09, 0.99691576, 0.07847952, 7.535875e-08)
-bones/1/rotation = Quaternion(0.09211317, 0.0034389726, -0.00021635015, 0.9957427)
-bones/2/rotation = Quaternion(0.09505259, -0.0037772032, -0.00023937272, 0.9954651)
-bones/4/rotation = Quaternion(0.30349877, 0.00052200997, -0.56377065, 0.76814777)
+bones/0/rotation = Quaternion(-3.685565e-09, 0.9977782, 0.06662376, 7.540789e-08)
+bones/1/rotation = Quaternion(0.10360489, 0.003441241, -0.00017662585, 0.9946126)
+bones/2/rotation = Quaternion(0.106868476, -0.003753823, -0.00020491856, 0.9942661)
+bones/4/rotation = Quaternion(0.25130796, 0.038324162, -0.5624669, 0.7867698)
 bones/5/rotation = Quaternion(0.18909508, -0.004318771, 0.043196995, 0.98099875)
 bones/6/rotation = Quaternion(0.054868486, 0.74948096, 0.015322978, 0.6595702)
-bones/7/rotation = Quaternion(0.10070278, -0.00029642147, -0.00072075106, 0.9949163)
-bones/8/rotation = Quaternion(-0.080356345, -0.00035291238, -0.0004926902, 0.99676603)
+bones/7/rotation = Quaternion(0.086022675, -0.00028576233, -0.0007250433, 0.99629295)
+bones/8/rotation = Quaternion(-0.09504404, -0.00036013848, -0.0004874336, 0.9954729)
 bones/9/rotation = Quaternion(-0.09260436, -0.17117505, 0.68309855, 0.70391756)
-bones/10/rotation = Quaternion(0.2274959, -0.049621385, 0.54076153, 0.80830705)
+bones/10/rotation = Quaternion(0.26994184, -0.02094218, 0.54262954, 0.795139)
 bones/11/rotation = Quaternion(0.23334913, 0.010773989, 0.0123480745, 0.97225493)
 bones/12/rotation = Quaternion(-5.8199273e-08, -0.751264, -5.181667e-08, 0.66000193)
 bones/13/rotation = Quaternion(0.10849718, -0.08205278, 0.9894506, -0.04983335)
@@ -1399,21 +1401,21 @@ bones/18/rotation = Quaternion(0.59676915, 0.0027265504, 0.0129355155, 0.8023041
 bones/20/rotation = Quaternion(0.13317142, 7.493918e-11, 0.0009177519, 0.9910927)
 bones/21/rotation = Quaternion(0.13793416, -4.2176818e-10, 0.0009505738, 0.99044096)
 
-[node name="Cube" parent="Kobold/Armature/GeneralSkeleton" index="0" unique_id=2119726710]
+[node name="Cube" parent="Kobold/Armature/GeneralSkeleton" index="0" unique_id=515638321]
 surface_material_override/0 = SubResource("ShaderMaterial_2hkfm")
 surface_material_override/1 = SubResource("ShaderMaterial_5n8xg")
 
-[node name="Cube_004" parent="Kobold/Armature/GeneralSkeleton" index="1" unique_id=1416599279]
+[node name="Cube_004" parent="Kobold/Armature/GeneralSkeleton" index="1" unique_id=1253150401]
 surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 
-[node name="Cube_006" parent="Kobold/Armature/GeneralSkeleton" index="2" unique_id=1961284289]
+[node name="Cube_006" parent="Kobold/Armature/GeneralSkeleton" index="2" unique_id=288908053]
 surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 
-[node name="Plane_003" parent="Kobold/Armature/GeneralSkeleton" index="3" unique_id=89121792]
+[node name="Plane_003" parent="Kobold/Armature/GeneralSkeleton" index="3" unique_id=1228206522]
 surface_material_override/0 = SubResource("ShaderMaterial_0gpj1")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Kobold/Armature/GeneralSkeleton" index="4" unique_id=1617574229]
-transform = Transform3D(-0.4054277, -0.26466563, 0.87497437, -0.3896787, -0.81580675, -0.42732957, 0.82690895, -0.5142101, 0.22761604, -0.55482894, 0.8460533, -0.17476559)
+transform = Transform3D(-0.37062165, -0.29978186, 0.8790736, -0.21308973, -0.8937862, -0.39463854, 0.90400887, -0.33358306, 0.2673761, -0.57081604, 0.8265948, -0.07791498)
 bone_name = "Hand.L"
 bone_idx = 6
 
@@ -1438,7 +1440,7 @@ snap_to_transform = true
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://bx10tuy8s55pq"
 
-[node name="AnimationPlayer" parent="Kobold" index="1" unique_id=2081271394]
+[node name="AnimationPlayer" parent="Kobold" index="1" unique_id=729487273]
 libraries/ = SubResource("AnimationLibrary_booda")
 libraries/KoboldAdvancedAttackLibrary = ExtResource("13_6ppla")
 libraries/KoboldAttackLibrary = ExtResource("13_6rlsh")
@@ -1527,7 +1529,7 @@ event_guid = "{d2f4bf3a-af7c-4209-aa30-7072c04bcd69}"
 
 [node name="StatusBars" parent="." unique_id=769480112 instance=ExtResource("15_2hkfm")]
 transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 0, 4.336514, 0)
-texture = SubResource("ViewportTexture_xmj46")
+texture = SubResource("ViewportTexture_6rlsh")
 
 [node name="Hitbox" type="Area3D" parent="." unique_id=612576580]
 collision_mask = 2
@@ -1601,7 +1603,7 @@ script = ExtResource("26_6rlsh")
 vfx = NodePath("enemySummonFX")
 meshes_root = NodePath("../Kobold")
 _meshes = [NodePath("../Kobold/Armature/GeneralSkeleton/Cube"), NodePath("../Kobold/Armature/GeneralSkeleton/Cube_004"), NodePath("../Kobold/Armature/GeneralSkeleton/Cube_006"), NodePath("../Kobold/Armature/GeneralSkeleton/Plane_003"), NodePath("../Kobold/Armature/GeneralSkeleton/BoneAttachment3D/SwordBase/Cube_001")]
-hurt_overlay = SubResource("StandardMaterial3D_qm2ua")
+hurt_overlay = SubResource("StandardMaterial3D_jaab8")
 flash_duration = 0.75
 
 [node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("27_jaab8")]

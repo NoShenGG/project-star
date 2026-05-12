@@ -28,6 +28,7 @@ MasterBankLoader="*res://sounds/MasterBankLoader.tscn"
 DialogueContainer="*res://austin_newby/dialogue/scenes/dialogue_container.tscn"
 MenuManager="*res://austin_newby/menu/menu_manager.gd"
 Wreckcon="*uid://bdjo2hbinyu3l"
+CollisionPresetRuntime="*uid://u810pt6u5apa"
 
 [display]
 
@@ -39,7 +40,7 @@ project/assembly_name="Project Star"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GPUTrails/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/mm_plus_editor/plugin.cfg", "res://addons/ninepatch_margin_visualizer/plugin.cfg")
+enabled=PackedStringArray("res://addons/GPUTrails/plugin.cfg", "res://addons/collision_presets/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/mm_plus_editor/plugin.cfg", "res://addons/ninepatch_margin_visualizer/plugin.cfg")
 
 [global_group]
 

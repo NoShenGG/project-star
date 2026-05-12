@@ -383,6 +383,8 @@ dash_distance = 7.0
 _base_speed = -0.5
 faction = 0
 _breakable = false
+metadata/collision_preset_name = &"Player"
+metadata/collision_preset_id = &"2047292062806659354"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1366798692 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_yooho")

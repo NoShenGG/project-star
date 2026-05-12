@@ -36,6 +36,8 @@ func _get_input_port_name(port: int):
 			return "scale"
 		3:
 			return "period"
+		_:
+			return "period"
 
 func _get_input_port_type(port: int):
 	match port:
@@ -47,6 +49,8 @@ func _get_input_port_type(port: int):
 			return VisualShaderNode.PORT_TYPE_SCALAR
 		3:
 			return VisualShaderNode.PORT_TYPE_VECTOR_3D
+		_:
+			return VisualShaderNode.PORT_TYPE_VECTOR_3D
 
 func _get_output_port_count() -> int:
 	return 1
@@ -55,10 +59,14 @@ func _get_output_port_name(port: int):
 	match port:
 		0:
 			return "result"
+		_:
+			return "result"
 
 func _get_output_port_type(port: int):
 	match port:
 		0:
+			return VisualShaderNode.PORT_TYPE_SCALAR
+		_:
 			return VisualShaderNode.PORT_TYPE_SCALAR
 
 func _get_global_code(mode):

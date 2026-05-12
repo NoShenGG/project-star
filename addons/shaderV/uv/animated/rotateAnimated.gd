@@ -34,6 +34,8 @@ func _get_input_port_name(port: int):
 			return "pivot"
 		3:
 			return "time"
+		_:
+			return "time"
 
 func _get_input_port_type(port: int):
 	match port:
@@ -44,6 +46,8 @@ func _get_input_port_type(port: int):
 		2:
 			return VisualShaderNode.PORT_TYPE_VECTOR_3D
 		3:
+			return VisualShaderNode.PORT_TYPE_SCALAR
+		_:
 			return VisualShaderNode.PORT_TYPE_SCALAR
 		
 
