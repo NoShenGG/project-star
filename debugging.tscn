@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://6lpxyw2h5ngx"]
+
+[sub_resource type="GDScript" id="GDScript_y42x8"]
+resource_name = "drtawsrfhg"
+script/source = "@tool
+extends Node
+
+@export var curve : Curve :
+	set(value):
+		curve = convert_curve_to_hit_domain(value)
+
+func _enter_tree() -> void:
+	if (Engine.is_editor_hint() and !curve):
+		curve = Curve.new()
+		curve.add_point(Vector2(0,1), -10, -10,Curve.TANGENT_FREE,Curve.TANGENT_FREE)
+
+func _process(delta: float) -> void:
+	if (Engine.is_editor_hint()):
+		curve = convert_curve_to_hit_domain(curve)
+
+func convert_curve_to_hit_domain(value : Curve) -> Curve:
+	if (value):
+			value.max_domain = 1
+			value.min_domain = 0
+			value.max_value = 1
+			value.min_value = 0
+			for i in value.point_count:
+				value.set_point_left_tangent(i, 10)
+				value.set_point_right_tangent(i, -10)
+				value.set_point_left_mode(i, Curve.TANGENT_FREE)
+				value.set_point_right_mode(i, Curve.TANGENT_FREE)
+				value.set_point_value(i,1)
+	
+	return value
+"
+
+[sub_resource type="Curve" id="Curve_y42x8"]
+_data = [Vector2(0, 1), 10.0, -10.0, 0, 0]
+point_count = 1
+
+[node name="Node3D" type="Node3D" unique_id=1549191776]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1871257689]
+
+[node name="Test" type="Node" parent="." unique_id=738804955]
+script = SubResource("GDScript_y42x8")
+curve = SubResource("Curve_y42x8")

@@ -36,9 +36,9 @@ var is_open := false
 @export_subgroup("Animation Flags")
 @export_flags("Alpha", "Scale X", "Scale Y", "Size X", "Size Y", "Rotate 180") var close_animation_flags : int
 
-@onready var scale_magnitude : float = scale.length()
-@onready var default_pos : Vector2 = position
-@onready var default_rotation : float = rotation
+@onready var scale_magnitude : float = 1#scale.length()
+@onready var default_pos : Vector2 = Vector2.ZERO #position
+@onready var default_rotation : float = 0#rotation
 @onready var default_size : Vector2 = size
 
 var transitioning : bool
@@ -61,11 +61,20 @@ func _ready() -> void:
 		close()
 		hide()
 	
+	#offset_transform_enabled = true
+	
 	var magnitude = scale.x if scale.x > scale.y else scale.y
-	scale_magnitude = magnitude
+	## 4.7 visual transform makes custom magnitude reduandant
+	#scale_magnitude = magnitude
+	scale_magnitude = 1
+	
 	#menu_hidden.emit()
 
+var _active_event_count : int = 0
+
 func open() -> void:
+	_active_event_count += 1
+	var events_index : int = _active_event_count
 	if (affects_other_menus ): MenuManager.force_close()
 	is_open = true
 	print_rich("[color=spring_green]Opening menu: ", self)
@@ -77,7 +86,25 @@ func open() -> void:
 	
 	menu_shown.emit()
 	
-	await _visuals_open()
+	
+	focus_mode = Control.FOCUS_ALL #makes focusable/selectable
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	show()
+	
+	if (open_animation_flags & 1 == 1):
+		self_modulate = Color.TRANSPARENT
+	if (open_animation_flags & 4 == 4 or open_animation_flags & 2 == 2):
+		offset_transform_scale = Vector2.ONE * scale_magnitude
+	if (open_animation_flags & 8 != 8 and open_animation_flags & 16 != 16):
+		size = default_size
+	if (size_pivot_centered):
+		offset_transform_position = default_pos
+	
+	if (open_animation_delay > 0): 
+		await get_tree().create_timer(open_animation_delay).timeout
+		if (!get_tree()): return
+	if (_active_event_count != events_index): return
+	animate(open_animation_flags, open_time, false)
 
 func control_grab_focus():
 	if (focused_control and !focused_control.has_focus()):
@@ -89,47 +116,23 @@ func control_grab_focus():
 		print("focusing")
 		focused_control.grab_focus.call_deferred()
 
-func _visuals_open():
-	focus_mode = Control.FOCUS_ALL #makes focusable/selectable
-	mouse_filter = Control.MOUSE_FILTER_STOP
-	show()
-	if (open_animation_flags & 1 == 1):
-		self_modulate = Color.TRANSPARENT
-	
-	if (open_animation_flags & 4 == 4 or open_animation_flags & 2 == 2):
-		scale = Vector2.ONE * scale_magnitude
-	if (open_animation_flags & 8 != 8 and open_animation_flags & 16 != 16):
-		size = default_size
-	if (size_pivot_centered):
-		position = default_pos
-	
-	if (open_animation_delay > 0): 
-		await get_tree().create_timer(open_animation_delay).timeout
-		if (!get_tree()): return
-	animate(open_animation_flags, open_time, false)
-	#modulate = Color.TRANSPARENT
-	#await get_tree().create_tween().tween_property(self, "modulate", Color.WHITE, open_time).finished # ANIMATION IN FUTURE
-
 func close() -> void:
+	_active_event_count += 1
+	var events_index : int = _active_event_count
 	is_open = false
 	print_rich("[color=dark_sea_green]Closing menu: ", self)
 	
 	menu_closed.emit()
 	
-	_visuals_close()
-	
-
-func _visuals_close():
-	focus_mode = Control.FOCUS_NONE #makes unfocusable/unselectable
-	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
 	if (close_animation_delay > 0): 
 		await get_tree().create_timer(close_animation_delay).timeout
-		if (!get_tree()): return
+		if (!get_tree() and events_index != _active_event_count): 
+			return
 	await animate(close_animation_flags, close_time, true)
 	
 	#await get_tree().create_tween().tween_property(self, "modulate", Color.TRANSPARENT, close_time).finished # ANIMATION IN FUTURE
-	hide()
+	if (events_index == _active_event_count):
+		hide()
 
 var tween : Tween
 
@@ -137,9 +140,8 @@ var tween : Tween
 ## "Alpha", "Scale X", "Scale Y", "Size X", "Size Y", "Rotate 180"
 func animate(flags : int, time : float, closing : bool = false):
 	if (tween): 
-		tween.stop()
+		tween.kill()
 		tween = null
-	
 	
 	transitioning = true
 	tween = create_tween()
@@ -155,6 +157,7 @@ func animate(flags : int, time : float, closing : bool = false):
 		else:
 			self_modulate = self_modulate if closing else Color.TRANSPARENT
 			var color : Color = Color.TRANSPARENT if closing else Color.WHITE
+			if (tween.has_tweeners()): tween.parallel()
 			tween.tween_property(self, "self_modulate", color, time).set_trans(tween_transition)
 	
 	if (flags & 2 == 2 or flags & 4 == 4):
@@ -165,9 +168,10 @@ func animate(flags : int, time : float, closing : bool = false):
 		print(" scaling x?  " + str(scale_x) + "   Scaling y? " + str(scale_y))
 		var open_scale : Vector2 = Vector2.ONE * scale_magnitude
 		var close_scale : Vector2 = Vector2(0 if scale_x else 1, 0 if scale_y else 1) * scale_magnitude
-		scale = scale if closing else Vector2(0 if scale_x else 1, 0 if scale_y else 1) * scale_magnitude
+		offset_transform_scale = offset_transform_scale if closing else Vector2(0 if scale_x else 1, 0 if scale_y else 1) * scale_magnitude
 		
-		tween.tween_property(self, "scale", close_scale if closing else open_scale, time).set_trans(tween_transition)
+		if (tween.has_tweeners()): tween.parallel()
+		tween.tween_property(self, "offset_transform_scale", close_scale if closing else open_scale, time).set_trans(tween_transition)
 	
 	if (flags & 8 == 8 or flags & 16 == 16):
 		print("animate size")
@@ -178,14 +182,20 @@ func animate(flags : int, time : float, closing : bool = false):
 		var close_size : Vector2 = Vector2(0 if size_x else default_size.x, 0 if size_y else default_size.y)
 		size = size if closing else Vector2(0 if size_x else default_size.x, 0 if size_y else default_size.y)
 		
+		if (tween.has_tweeners()): tween.parallel()
 		tween.tween_property(self, "size", close_size if closing else open_size, time).set_trans(tween_transition)
 	
 	if (flags & 32 == 32):
-		var current_rotation : float = rotation
+		var current_rotation : float = offset_transform_rotation
 		var final_rotation : float = 2*PI if closing else default_rotation
-		rotation = rotation if closing else 2*PI
-		tween.tween_property(self, "rotation", final_rotation, time).set_trans(tween_transition)
+		offset_transform_rotation = offset_transform_rotation if closing else 2*PI
+		if (tween.has_tweeners()): tween.parallel()
+		tween.tween_property(self, "offset_transform_rotation", final_rotation, time).set_trans(tween_transition)
 	
-	await tween.finished
+	if (tween.has_tweeners()):
+		await tween.finished
+	else:
+		tween.kill()
+		await get_tree().create_timer(time).timeout
 	menu_transition_finished.emit()
 	transitioning = false

@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://oaj414shae28" path="res://art_assets/Ui/Kenny Input Prompts/Generic/Fonts/HFPoet.ttf" id="9_61c46"]
 [ext_resource type="Script" uid="uid://diaap70c4mvfb" path="res://scripts/utility/menu_sfx.gd" id="9_gqoms"]
 [ext_resource type="Texture2D" uid="uid://ck3fdxisvd6q3" path="res://art_assets/Ui/New Text Boxes/Untitled1310_20260107201514.png" id="10_bx8yj"]
+[ext_resource type="Script" uid="uid://d046k2vsvof3g" path="res://austin_newby/menu/menu_button.gd" id="11_ea7bv"]
 [ext_resource type="Texture2D" uid="uid://dwfwwl7smcddh" path="res://art_assets/Ui/New Text Boxes/Untitled1310_20260107201525.png" id="11_k4mix"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lovrv"]
@@ -114,17 +115,37 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lvhxv"]
 animation = &"main_menu_idle"
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6wl6j"]
+texture = ExtResource("10_bx8yj")
+expand_margin_left = 223.0
+expand_margin_top = 15.0
+expand_margin_right = 52.0
+expand_margin_bottom = 220.0
+modulate_color = Color(0.33, 0.33, 0.33, 0.5254902)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tn1lv"]
+texture = ExtResource("10_bx8yj")
+expand_margin_left = 223.0
+expand_margin_top = 15.0
+expand_margin_right = 52.0
+expand_margin_bottom = 220.0
+modulate_color = Color(1, 0.64, 0.81400007, 0.9607843)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k4mix"]
 texture = ExtResource("10_bx8yj")
 expand_margin_left = 223.0
 expand_margin_top = 15.0
 expand_margin_right = 52.0
 expand_margin_bottom = 220.0
-modulate_color = Color(0, 0, 0, 0.39215687)
+modulate_color = Color(1.0996364, 0.5914629, 0.83708024, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_638d5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0ndc"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4d070"]
+texture = ExtResource("11_k4mix")
+expand_margin_left = 11.0
+expand_margin_top = 65.0
+expand_margin_right = 210.0
+expand_margin_bottom = 185.0
+modulate_color = Color(0.33, 0.33, 0.33, 0.5254902)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ea7bv"]
 texture = ExtResource("11_k4mix")
@@ -132,11 +153,7 @@ expand_margin_left = 11.0
 expand_margin_top = 65.0
 expand_margin_right = 210.0
 expand_margin_bottom = 185.0
-modulate_color = Color(0, 0, 0, 0.39215687)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iv24n"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u7n6r"]
+modulate_color = Color(1.0996364, 0.5914629, 0.83708024, 1)
 
 [node name="MainMenu" type="Control" unique_id=124409210]
 layout_mode = 3
@@ -331,34 +348,39 @@ theme_override_constants/separation = -4
 
 [node name="StartButton" type="Button" parent="Menu/VBoxContainer" unique_id=1468803949]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2.55, 2.55)
 focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
-theme_override_colors/font_focus_color = Color(0.6509804, 0.43137255, 0.6, 1)
+theme_override_colors/font_focus_color = Color(1.286514, 0.9314467, 1.1208159, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.65, 0.7958333, 0.5019608)
 theme_override_colors/font_hover_color = Color(0.8392157, 0.5529412, 0.77254903, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
 theme_override_fonts/font = ExtResource("9_61c46")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxTexture_k4mix")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_638d5")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p0ndc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6wl6j")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tn1lv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_k4mix")
+theme_override_styles/focus = SubResource("StyleBoxTexture_k4mix")
 text = "Start"
+script = ExtResource("11_ea7bv")
 
 [node name="QuitButton" type="Button" parent="Menu/VBoxContainer" unique_id=1396519484]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
-theme_override_colors/font_focus_color = Color(0.6509804, 0.43137255, 0.6, 1)
+theme_override_colors/font_focus_color = Color(1.286514, 0.9314467, 1.1208159, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.65, 0.7958333, 0.5019608)
 theme_override_colors/font_hover_color = Color(0.8392157, 0.5529412, 0.77254903, 1)
-theme_override_colors/font_hover_pressed_color = Color(0.65098, 0.431373, 0.6, 1)
 theme_override_fonts/font = ExtResource("9_61c46")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxTexture_ea7bv")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_iv24n")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_u7n6r")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4d070")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ea7bv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ea7bv")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ea7bv")
 text = "Quit"
+script = ExtResource("11_ea7bv")
 
-[node name="Menu SFX" type="Node" parent="Menu" unique_id=1919800879 node_paths=PackedStringArray("close_sfx")]
+[node name="Menu SFX" type="Node" parent="Menu" unique_id=1919800879]
 script = ExtResource("9_gqoms")
-close_sfx = NodePath("Close SFX")
 
 [node name="Open SFX" type="FmodEventEmitter3D" parent="Menu/Menu SFX" unique_id=1808007299]
 event_name = "event:/UI/Menu Open"
@@ -367,6 +389,18 @@ event_guid = "{4a1bcb6d-acb5-431a-8121-9f9f6b8a0b3b}"
 [node name="Close SFX" type="FmodEventEmitter3D" parent="Menu/Menu SFX" unique_id=792514354]
 event_name = "event:/UI/Button"
 event_guid = "{70d41cbd-8ac8-4096-876f-5f73c04bb7e5}"
+
+[node name="Button Press SFX" type="FmodEventEmitter3D" parent="." unique_id=1248022177]
+event_name = "event:/UI/Button"
+event_guid = "{70d41cbd-8ac8-4096-876f-5f73c04bb7e5}"
+unique_name_in_owner = true
+process_mode = 3
+
+[node name="Button Hover SFX" type="FmodEventEmitter3D" parent="." unique_id=1161541089]
+event_name = "event:/UI/Button Hover Changed"
+event_guid = "{a5017cf6-6c6e-4afe-83b0-4cbb6d60ce43}"
+unique_name_in_owner = true
+process_mode = 3
 
 [connection signal="menu_closed" from="Menu" to="FmodEventEmitter2D" method="stop"]
 [connection signal="pressed" from="Menu/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

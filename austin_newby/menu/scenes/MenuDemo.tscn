@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="1_rn6vt"]
 [ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="2_wt6l6"]
-[ext_resource type="Script" path="res://austin_newby/menu/menu_button.gd" id="3_yrmn5"]
+[ext_resource type="Script" uid="uid://40k4ubokarsh" path="res://austin_newby/menu/menu_swap_button.gd" id="3_yrmn5"]
 [ext_resource type="Texture2D" uid="uid://8plbnp3usoev" path="res://VFX/Kenny Particle Pack/star_06.png" id="4_88nh2"]
 
 [node name="testing" type="Control" unique_id=1669065229]

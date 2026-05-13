@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxwru8irnemnn" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/WindowSettingIcon.png" id="6_d1cul"]
 [ext_resource type="Texture2D" uid="uid://dl3viapaqfoi3" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/WindowSettingText.png" id="7_3fgnr"]
 [ext_resource type="Texture2D" uid="uid://dgwnbyp0861ua" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GraphicsSettingIcon.png" id="8_lg51d"]
-[ext_resource type="Script" path="res://austin_newby/menu/menu_button.gd" id="8_pq8it"]
+[ext_resource type="Script" uid="uid://40k4ubokarsh" path="res://austin_newby/menu/menu_swap_button.gd" id="8_pq8it"]
 [ext_resource type="Texture2D" uid="uid://dmvynuneadrvi" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GraphicsSettingText.png" id="9_uk6ft"]
 [ext_resource type="Texture2D" uid="uid://85fg01aig1og" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GameplaySettingIcon.png" id="10_j5b4e"]
 [ext_resource type="Texture2D" uid="uid://cqswmekuku270" path="res://scenes/dev/ZXue/SettingScene/Assets/Level1/GameplaySettingText.png" id="11_nxmo5"]

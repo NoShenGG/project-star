@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://c66y8x2ip4vdm" path="res://art_assets/Ui/ControlPanels/Dawn/DAWN.png" id="28_p704c"]
 [ext_resource type="Texture2D" uid="uid://dlh5u2ssoc1sd" path="res://art_assets/Ui/ControlPanels/new_wreckcon_control_panels/Dawn Full Control Panel.svg" id="30_7i07u"]
 [ext_resource type="Shader" uid="uid://d27ndcngym04q" path="res://shaders/post-processing - klaktus1901/PosterizeScreenEffect.gdshader" id="33_3h4bm"]
+[ext_resource type="Script" uid="uid://d046k2vsvof3g" path="res://austin_newby/menu/menu_button.gd" id="35_guacr"]
 [ext_resource type="Texture2D" uid="uid://cqlv7nqlkjrwx" path="res://art_assets/Ui/TextboxMedium.png" id="36_f620v"]
 [ext_resource type="PackedScene" uid="uid://bmtsybcr7qvm1" path="res://VFX/characterSwapFX.tscn" id="36_lwj1m"]
 [ext_resource type="Script" uid="uid://cuq1pc0a5b0g" path="res://scripts/combo_counter.gd" id="36_p704c"]
@@ -114,6 +115,8 @@ colors = PackedColorArray(0.04800001, 0.2958001, 0.3, 0.3019608, 0.72, 0.3744, 0
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ripws"]
 gradient = SubResource("Gradient_27jnq")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_guacr"]
 
 [sub_resource type="Curve" id="Curve_p704c"]
 _limits = [1.0, 2.0, 0.0, 1.0]
@@ -397,16 +400,16 @@ floor_snap_length = 5.0
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="0" unique_id=1156861599]
-bones/14/rotation = Quaternion(-0.074066445, 0.52595836, -0.5067118, 0.679062)
-bones/15/rotation = Quaternion(-0.15503168, 0.5438852, 0.22980006, 0.79205185)
-bones/16/rotation = Quaternion(-0.5150044, -0.4667177, -0.23194034, 0.6805504)
-bones/21/rotation = Quaternion(-0.13429217, 0.40130648, -0.47027266, 0.7744432)
-bones/22/rotation = Quaternion(-0.05730001, 0.32851505, 0.16985433, 0.92733175)
-bones/23/rotation = Quaternion(0.1151151, 0.12857807, -0.0742025, 0.9821967)
-bones/38/rotation = Quaternion(-0.34982732, 0.7065181, 0.061801866, 0.61207324)
+bones/14/rotation = Quaternion(-0.07592218, 0.52666724, -0.50683796, 0.678213)
+bones/15/rotation = Quaternion(-0.1535513, 0.5414514, 0.22931238, 0.79414624)
+bones/16/rotation = Quaternion(-0.5161643, -0.46724316, -0.22777447, 0.680718)
+bones/21/rotation = Quaternion(-0.12884696, 0.4030217, -0.47493553, 0.77162707)
+bones/22/rotation = Quaternion(-0.05482311, 0.32081532, 0.16727121, 0.9306408)
+bones/23/rotation = Quaternion(0.10606517, 0.13367368, -0.07521374, 0.9824584)
+bones/38/rotation = Quaternion(-0.350434, 0.7062186, 0.061275467, 0.61212474)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0049231453, -0.5699832, 0.8216416, -0.42004237, 0.74682915, 0.51556814, -0.9074911, -0.34258613, -0.24309385, 0.0060243667, 0.0072156973, -0.013203669)
+transform = Transform3D(-0.003947282, -0.56999063, 0.8216417, -0.42132646, 0.74610674, 0.51556635, -0.9069003, -0.3441443, -0.2430973, 0.006039612, 0.0071956106, -0.013194496)
 
 [node name="Idle" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -540,19 +543,19 @@ interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpe
 material_override = null
 
 [node name="Skeleton3D" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="0" unique_id=581899794]
-bones/2/rotation = Quaternion(0.0293771, -0.02929171, 0.70546913, 0.70752555)
-bones/15/rotation = Quaternion(0.020123009, -0.1013438, -0.6670862, 0.7377808)
-bones/16/rotation = Quaternion(-0.03530899, 0.39199597, 0.103718914, 0.9134193)
-bones/17/rotation = Quaternion(0.18069132, 0.09079961, -0.25483474, 0.94560325)
-bones/23/rotation = Quaternion(-0.081771895, -0.08641406, -0.6841673, 0.71955615)
-bones/24/rotation = Quaternion(-0.030533887, 0.27415934, 0.1265482, 0.95283264)
-bones/25/rotation = Quaternion(-0.0014062453, 0.05644703, -0.17780444, 0.9824446)
-bones/30/rotation = Quaternion(-0.00023942749, 0.96808326, -0.24970393, 0.021509172)
-bones/31/rotation = Quaternion(0.9991378, -0.010359273, 0.040202122, 0.000301594)
-bones/32/rotation = Quaternion(0.57155913, -0.36633715, 0.41709295, 0.60427696)
-bones/34/rotation = Quaternion(0.06087471, 0.1086835, 0.01272594, 0.99212915)
-bones/35/rotation = Quaternion(0.99323976, -0.014631431, 0.115147784, 0.0013366714)
-bones/36/rotation = Quaternion(0.60040885, -0.35650924, 0.36796293, 0.61401445)
+bones/2/rotation = Quaternion(0.030261226, -0.030173272, 0.70543194, 0.7074883)
+bones/15/rotation = Quaternion(0.019958584, -0.10194964, -0.6670477, 0.7377367)
+bones/16/rotation = Quaternion(-0.035437204, 0.3928521, 0.10377011, 0.9130407)
+bones/17/rotation = Quaternion(0.18104623, 0.0916226, -0.2548918, 0.94544053)
+bones/23/rotation = Quaternion(-0.08164739, -0.08655374, -0.68418676, 0.71953505)
+bones/24/rotation = Quaternion(-0.030534765, 0.27416462, 0.12654911, 0.952831)
+bones/25/rotation = Quaternion(-0.001249914, 0.05769752, -0.17756255, 0.9824159)
+bones/30/rotation = Quaternion(0.00034008804, 0.9681407, -0.249781, 0.01769305)
+bones/31/rotation = Quaternion(0.9989279, -0.010663749, 0.045048147, 0.0003480077)
+bones/32/rotation = Quaternion(0.57062584, -0.36765027, 0.418246, 0.6035642)
+bones/34/rotation = Quaternion(0.060904346, 0.11194563, 0.012889177, 0.99176246)
+bones/35/rotation = Quaternion(0.99282414, -0.01483799, 0.11865188, 0.0014020093)
+bones/36/rotation = Quaternion(0.599856, -0.35748613, 0.36878562, 0.61349297)
 
 [node name="Idle" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -817,39 +820,40 @@ script = ExtResource("14_fop7g")
 ui = NodePath("../3D Special UI")
 
 [node name="Pause Menu" type="Panel" parent="." unique_id=1394924557 node_paths=PackedStringArray("nova_menu", "rene_menu", "dawn_menu", "focused_control")]
-visible = false
 z_index = 15
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 332.0
-offset_top = 88.0
-offset_right = -332.0
-offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxEmpty_27jnq")
 script = ExtResource("15_rkpjn")
 nova_menu = NodePath("nova_control")
 rene_menu = NodePath("rene_control")
 dawn_menu = NodePath("dawn_control")
 focused_control = NodePath("VBoxContainer/Resume Button")
-close_animation_flags = 1
+open_time = 1.0
+close_time = 0.5
+close_animation_delay = 0.3
 
 [node name="nova_control" type="Control" parent="Pause Menu" unique_id=642816585]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Pause Menu/nova_control" unique_id=1544761983]
-layout_mode = 0
-offset_left = 819.0
-offset_top = -92.00001
-offset_right = 893.875
-offset_bottom = 39.009987
-rotation = 1.5707964
-scale = Vector2(8.76, 8.76)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+offset_transform_enabled = true
 texture = SubResource("GradientTexture2D_ko4b2")
 script = ExtResource("9_0dwuh")
 open_animation_flags = 5
@@ -858,10 +862,10 @@ close_animation_flags = 5
 
 [node name="Nova_Controls" type="TextureRect" parent="Pause Menu/nova_control" unique_id=1906121385]
 layout_mode = 0
-offset_left = 8.0
-offset_top = -67.0
-offset_right = 1386.0
-offset_bottom = 992.0
+offset_left = 337.00006
+offset_top = 25.000008
+offset_right = 1715.0
+offset_bottom = 1084.0
 scale = Vector2(0.57, 0.57)
 texture = ExtResource("22_h7dy6")
 script = ExtResource("9_0dwuh")
@@ -870,10 +874,10 @@ close_animation_flags = 1
 
 [node name="Nova_Portrait" type="TextureRect" parent="Pause Menu/nova_control" unique_id=429359075]
 layout_mode = 0
-offset_left = -289.00003
-offset_top = -80.0
-offset_right = 78.99997
-offset_bottom = 455.0
+offset_left = 40.0
+offset_top = 12.0
+offset_right = 408.0
+offset_bottom = 547.0
 scale = Vector2(0.63, 0.63)
 texture = ExtResource("17_3wvx5")
 script = ExtResource("9_0dwuh")
@@ -886,10 +890,10 @@ close_animation_flags = 1
 
 [node name="Nova_Name" type="TextureRect" parent="Pause Menu/nova_control" unique_id=1743390306]
 layout_mode = 0
-offset_left = -253.00003
-offset_top = 252.0
-offset_right = 9.9999695
-offset_bottom = 319.0
+offset_left = 76.0
+offset_top = 344.0
+offset_right = 339.0
+offset_bottom = 411.0
 scale = Vector2(0.63, 0.63)
 texture = ExtResource("18_elt32")
 script = ExtResource("9_0dwuh")
@@ -898,35 +902,42 @@ open_animation_flags = 5
 close_animation_flags = 5
 
 [node name="XboxButtonA" type="Sprite2D" parent="Pause Menu/nova_control" unique_id=1921125794]
-position = Vector2(480, 123)
+position = Vector2(809, 215)
 texture = ExtResource("25_xujl7")
+script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonA2" type="Sprite2D" parent="Pause Menu/nova_control" unique_id=150796008]
-position = Vector2(479, 237)
+position = Vector2(808, 329)
 texture = ExtResource("25_xujl7")
+script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonB" type="Sprite2D" parent="Pause Menu/nova_control" unique_id=1445945114]
-position = Vector2(480, 344)
+position = Vector2(809, 436)
 texture = ExtResource("26_ce2ov")
+script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonB2" type="Sprite2D" parent="Pause Menu/nova_control" unique_id=211760497]
-position = Vector2(480, 456)
+position = Vector2(809, 548)
 texture = ExtResource("26_ce2ov")
+script = ExtResource("9_0dwuh")
 
 [node name="rene_control" type="Control" parent="Pause Menu" unique_id=449681494]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Pause Menu/rene_control" unique_id=2095550914]
-layout_mode = 0
-offset_left = 819.0
-offset_top = -92.00001
-offset_right = 893.875
-offset_bottom = 39.009987
-rotation = 1.5707964
-scale = Vector2(8.76, 8.76)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(1, 0.5)
 texture = SubResource("GradientTexture2D_a2sxn")
 script = ExtResource("9_0dwuh")
 open_animation_flags = 3
@@ -935,20 +946,20 @@ close_animation_flags = 3
 
 [node name="rene_controls" type="TextureRect" parent="Pause Menu/rene_control" unique_id=1417508243]
 layout_mode = 0
-offset_left = 8.0
-offset_top = -67.0
-offset_right = 1386.0
-offset_bottom = 992.0
+offset_left = 337.00006
+offset_top = 25.000008
+offset_right = 1715.0
+offset_bottom = 1084.0
 scale = Vector2(0.57, 0.57)
 texture = ExtResource("27_guacr")
 script = ExtResource("9_0dwuh")
 
 [node name="rene_portrait" type="TextureRect" parent="Pause Menu/rene_control" unique_id=1494172272]
 layout_mode = 0
-offset_left = -289.00003
-offset_top = -80.0
-offset_right = 78.99997
-offset_bottom = 455.0
+offset_left = 40.0
+offset_top = 12.0
+offset_right = 435.0
+offset_bottom = 547.0
 scale = Vector2(0.63, 0.63)
 texture = ExtResource("24_3h4bm")
 script = ExtResource("9_0dwuh")
@@ -961,44 +972,50 @@ close_animation_flags = 1
 
 [node name="rene_name" type="TextureRect" parent="Pause Menu/rene_control" unique_id=1079678198]
 layout_mode = 0
-offset_left = -253.00003
-offset_top = 252.0
-offset_right = 9.9999695
-offset_bottom = 319.0
+offset_left = 76.0
+offset_top = 344.0
+offset_right = 339.0
+offset_bottom = 411.0
 scale = Vector2(0.63, 0.63)
 texture = ExtResource("25_w6fg2")
 script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonA" type="Sprite2D" parent="Pause Menu/rene_control" unique_id=1278692818]
-position = Vector2(480, 123)
+position = Vector2(809, 215)
 texture = ExtResource("25_xujl7")
+script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonA2" type="Sprite2D" parent="Pause Menu/rene_control" unique_id=1543812622]
-position = Vector2(479, 237)
+position = Vector2(808, 329)
 texture = ExtResource("25_xujl7")
+script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonB" type="Sprite2D" parent="Pause Menu/rene_control" unique_id=106700652]
-position = Vector2(480, 344)
+position = Vector2(809, 436)
 texture = ExtResource("26_ce2ov")
+script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonB2" type="Sprite2D" parent="Pause Menu/rene_control" unique_id=358706432]
-position = Vector2(480, 456)
+position = Vector2(809, 548)
 texture = ExtResource("26_ce2ov")
+script = ExtResource("9_0dwuh")
 
 [node name="dawn_control" type="Control" parent="Pause Menu" unique_id=1293898452]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="Pause Menu/dawn_control" unique_id=195356916]
-layout_mode = 0
-offset_left = 819.0
-offset_top = -92.00001
-offset_right = 893.875
-offset_bottom = 39.009987
-rotation = 1.5707964
-scale = Vector2(8.76, 8.76)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0, 1)
 texture = SubResource("GradientTexture2D_ripws")
 script = ExtResource("9_0dwuh")
 open_animation_flags = 7
@@ -1007,20 +1024,20 @@ close_animation_flags = 7
 
 [node name="dawn_controls" type="TextureRect" parent="Pause Menu/dawn_control" unique_id=27835387]
 layout_mode = 0
-offset_left = 8.0
-offset_top = -67.0
-offset_right = 1386.0
-offset_bottom = 992.0
+offset_left = 337.00006
+offset_top = 25.000008
+offset_right = 1719.0
+offset_bottom = 1084.0
 scale = Vector2(0.57, 0.57)
 texture = ExtResource("30_7i07u")
 script = ExtResource("9_0dwuh")
 
 [node name="dawn_portrait" type="TextureRect" parent="Pause Menu/dawn_control" unique_id=166905207]
 layout_mode = 0
-offset_left = -289.00003
-offset_top = -80.0
-offset_right = 78.99997
-offset_bottom = 455.0
+offset_left = 40.0
+offset_top = 12.0
+offset_right = 408.0
+offset_bottom = 547.0
 scale = Vector2(0.63, 0.63)
 texture = ExtResource("27_f620v")
 script = ExtResource("9_0dwuh")
@@ -1033,94 +1050,116 @@ close_animation_flags = 1
 
 [node name="dawn_name" type="TextureRect" parent="Pause Menu/dawn_control" unique_id=1825686634]
 layout_mode = 0
-offset_left = -253.00003
-offset_top = 252.0
-offset_right = 9.9999695
-offset_bottom = 319.0
+offset_left = 76.0
+offset_top = 344.0
+offset_right = 366.0
+offset_bottom = 411.0
 scale = Vector2(0.63, 0.63)
 texture = ExtResource("28_p704c")
 script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonA" type="Sprite2D" parent="Pause Menu/dawn_control" unique_id=477788703]
-position = Vector2(463, 62.999996)
+position = Vector2(792.00006, 155.00002)
 scale = Vector2(0.484375, 0.484375)
 texture = ExtResource("25_xujl7")
+script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonA2" type="Sprite2D" parent="Pause Menu/dawn_control" unique_id=1385944621]
-position = Vector2(463, 120)
+position = Vector2(792.00006, 212.00002)
 scale = Vector2(0.484375, 0.484375)
 texture = ExtResource("25_xujl7")
+script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonB" type="Sprite2D" parent="Pause Menu/dawn_control" unique_id=1376263138]
-position = Vector2(465, 178)
+position = Vector2(794, 270)
 scale = Vector2(0.5078126, 0.5078126)
 texture = ExtResource("26_ce2ov")
+script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonB2" type="Sprite2D" parent="Pause Menu/dawn_control" unique_id=1354868291]
-position = Vector2(503, 235)
+position = Vector2(832, 327)
 scale = Vector2(0.5078126, 0.5078126)
 texture = ExtResource("26_ce2ov")
+script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonA3" type="Sprite2D" parent="Pause Menu/dawn_control" unique_id=1604583119]
-position = Vector2(427, 234.00002)
+position = Vector2(756.00006, 326.00003)
 scale = Vector2(0.484375, 0.484375)
 texture = ExtResource("25_xujl7")
+script = ExtResource("9_0dwuh")
 
 [node name="XboxButtonB3" type="Sprite2D" parent="Pause Menu/dawn_control" unique_id=601247391]
-position = Vector2(464, 296)
+position = Vector2(793, 388)
 scale = Vector2(0.5078126, 0.5078126)
 texture = ExtResource("26_ce2ov")
+script = ExtResource("9_0dwuh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Pause Menu" unique_id=507698086]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_top = 0.614
 anchor_bottom = 1.0
-offset_left = -279.0
-offset_top = 324.0
-offset_right = -275.0
-offset_bottom = 387.0
-grow_horizontal = 2
+offset_left = 25.0
+offset_top = 29.12799
+offset_right = 517.0
+offset_bottom = 184.0
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_constants/separation = -1
 script = ExtResource("9_0dwuh")
-open_animation_delay = 0.4
 open_time = 0.2
 open_animation_flags = 1
 close_animation_flags = 1
 
 [node name="Resume Button" type="Button" parent="Pause Menu/VBoxContainer" unique_id=1541207991]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../Settings Button")
-theme_override_colors/icon_pressed_color = Color(0.044309556, 0.044309556, 0.044309556, 1)
-theme_override_colors/icon_hover_color = Color(0.5176471, 0.5176471, 0.5176471, 1)
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0, 0.5)
+theme_override_colors/icon_focus_color = Color(2.454227, 2.454227, 2.454227, 1)
+theme_override_colors/icon_pressed_color = Color(3.2944162, 3.2944162, 3.2944162, 1)
+theme_override_colors/icon_hover_color = Color(2.454227, 2.454227, 2.454227, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_guacr")
 icon = ExtResource("16_w3iyl")
 flat = true
-
-[node name="Settings Button" type="Button" parent="Pause Menu/VBoxContainer" unique_id=1262723561]
-visible = false
-layout_mode = 2
-focus_neighbor_top = NodePath("../Resume Button")
-focus_neighbor_bottom = NodePath("../Reload Button")
-text = "Settings"
+script = ExtResource("35_guacr")
 
 [node name="Reload Button" type="Button" parent="Pause Menu/VBoxContainer" unique_id=222735106]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Settings Button")
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0, 0.5)
 focus_neighbor_bottom = NodePath("../Quit Button")
-theme_override_colors/icon_pressed_color = Color(0.043137256, 0.043137256, 0.043137256, 1)
-theme_override_colors/icon_hover_color = Color(0.5165994, 0.5165994, 0.5165994, 1)
+theme_override_colors/icon_focus_color = Color(2.454227, 2.454227, 2.454227, 1)
+theme_override_colors/icon_pressed_color = Color(3.2944162, 3.2944162, 3.2944162, 1)
+theme_override_colors/icon_hover_color = Color(2.454227, 2.454227, 2.454227, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_guacr")
 icon = ExtResource("17_k852m")
 flat = true
+script = ExtResource("35_guacr")
 
 [node name="Quit Button" type="Button" parent="Pause Menu/VBoxContainer" unique_id=886120763]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0, 0.5)
 focus_neighbor_top = NodePath("../Reload Button")
-theme_override_colors/icon_pressed_color = Color(0.043137256, 0.043137256, 0.043137256, 1)
-theme_override_colors/icon_hover_color = Color(0.5176471, 0.5176471, 0.5176471, 1)
+theme_override_colors/icon_focus_color = Color(2.454227, 2.454227, 2.454227, 1)
+theme_override_colors/icon_pressed_color = Color(3.2944162, 3.2944162, 3.2944162, 1)
+theme_override_colors/icon_hover_color = Color(2.454227, 2.454227, 2.454227, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_guacr")
 icon = ExtResource("18_3wvx5")
 flat = true
+script = ExtResource("35_guacr")
 
 [node name="Menu SFX" type="Node" parent="Pause Menu" unique_id=176605533 node_paths=PackedStringArray("open_sfx", "close_sfx")]
 script = ExtResource("15_27jnq")
@@ -1249,6 +1288,18 @@ flash_duration = 1.0
 [node name="characterSwapFX" parent="Swap VFX" unique_id=5389629 instance=ExtResource("36_lwj1m")]
 play_on_start = false
 
+[node name="Button Press SFX" type="FmodEventEmitter3D" parent="." unique_id=1696270863]
+event_name = "event:/UI/Button"
+event_guid = "{70d41cbd-8ac8-4096-876f-5f73c04bb7e5}"
+unique_name_in_owner = true
+process_mode = 3
+
+[node name="Button Hover SFX" type="FmodEventEmitter3D" parent="." unique_id=2078380003]
+event_name = "event:/UI/Button Hover Changed"
+event_guid = "{a5017cf6-6c6e-4afe-83b0-4cbb6d60ce43}"
+unique_name_in_owner = true
+process_mode = 3
+
 [connection signal="new_player" from="." to="Game Menu/GameUi" method="on_player_switch"]
 [connection signal="new_player" from="." to="Swap VFX/characterSwapFX" method="restart_particles"]
 [connection signal="player_hp_update" from="." to="Game Menu/GameUi" method="on_player_health_update"]
@@ -1277,7 +1328,6 @@ play_on_start = false
 [connection signal="pressed" from="Death Menu/Reload Button" to="Death Menu" method="restart_game"]
 [connection signal="menu_swapped" from="Pause Menu" to="Pause Menu/Menu SFX/Background Swapped SFX" method="play"]
 [connection signal="pressed" from="Pause Menu/VBoxContainer/Resume Button" to="Pause Menu" method="close"]
-[connection signal="pressed" from="Pause Menu/VBoxContainer/Settings Button" to="SettingScene/Level1Control" method="open"]
 [connection signal="pressed" from="Pause Menu/VBoxContainer/Reload Button" to="Pause Menu" method="restart_game"]
 [connection signal="pressed" from="Pause Menu/VBoxContainer/Quit Button" to="Pause Menu" method="quit_to_main"]
 

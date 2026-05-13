@@ -20,6 +20,8 @@ func _ready() -> void:
 	
 	## annoying race condition stops from more customizable behaviour
 	nova_menu.visible = true
+	rene_menu.visible = false
+	dawn_menu.visible = false
 
 func _process(delta: float) -> void:
 	
