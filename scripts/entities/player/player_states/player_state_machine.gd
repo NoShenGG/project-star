@@ -6,7 +6,7 @@ var player: Player
 func _ready() -> void:
 	super()
 	player = owner as Player
-	
+	player.apply_floor_snap()
 func swap_out() -> void:
 	state.trigger_finished.emit(PlayerState.SWAP_OUT)
 	
