@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://bbvfl0w3ies1t" path="res://art_assets/Ui/ControlPanels/Nova/NOVA.png" id="18_elt32"]
 [ext_resource type="Texture2D" uid="uid://dwfwwl7smcddh" path="res://art_assets/Ui/New Text Boxes/Untitled1310_20260107201525.png" id="18_xujl7"]
 [ext_resource type="Texture2D" uid="uid://bccrr20ihn4no" path="res://art_assets/Ui/ControlPanels/new_wreckcon_control_panels/Nova Controls Panel.svg" id="22_h7dy6"]
+[ext_resource type="Texture2D" uid="uid://dpjigmqvpv8os" path="res://art_assets/Ui/jtas_splash_midground.png" id="23_8uge0"]
 [ext_resource type="Texture2D" uid="uid://dgca7rw8ve58r" path="res://art_assets/Ui/ControlPanels/Rene/Rene Corner Portrait.png" id="24_3h4bm"]
 [ext_resource type="Texture2D" uid="uid://b8a50abxuvdck" path="res://art_assets/Ui/ControlPanels/Rene/RENE.png" id="25_w6fg2"]
 [ext_resource type="Texture2D" uid="uid://dojp7mylityup" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Vector/xbox_button_a.svg" id="25_xujl7"]
@@ -42,10 +43,19 @@
 [ext_resource type="Texture2D" uid="uid://cqlv7nqlkjrwx" path="res://art_assets/Ui/TextboxMedium.png" id="36_f620v"]
 [ext_resource type="PackedScene" uid="uid://bmtsybcr7qvm1" path="res://VFX/characterSwapFX.tscn" id="36_lwj1m"]
 [ext_resource type="Script" uid="uid://cuq1pc0a5b0g" path="res://scripts/combo_counter.gd" id="36_p704c"]
+[ext_resource type="Texture2D" uid="uid://bha45dlbyqtre" path="res://art_assets/Ui/ControlPanels/Dawn/Options Button.png" id="37_is64h"]
 [ext_resource type="Texture2D" uid="uid://cb8cc520htami" path="res://art_assets/Ui/fire_fx_v1.0/png/white/loops/burning_loop_1.png" id="37_p704c"]
 [ext_resource type="PackedScene" uid="uid://dwun8m67rc0fn" path="res://VFX/footprintsFX.tscn" id="38_djt8t"]
 [ext_resource type="Script" uid="uid://cyx7gn0ite8b1" path="res://scripts/entities/player/haptic/DesktopHapticHandler.gd" id="38_p704c"]
+[ext_resource type="Script" uid="uid://iopn2ymsvuny" path="res://austin_newby/menu/menu.gd" id="39_yk230"]
+[ext_resource type="Texture2D" uid="uid://baw1g0c8nn8qt" path="res://art_assets/Ui/TextboxLarge.png" id="40_eyjel"]
+[ext_resource type="Script" uid="uid://haxq1sq43jo5" path="res://scripts/utility/Grants Settings/VolumeSliderManager.gd" id="41_eyjel"]
+[ext_resource type="LabelSettings" uid="uid://cnxf4lu3op5dh" path="res://scenes/final/credits/names.tres" id="41_s6mdf"]
+[ext_resource type="Texture2D" uid="uid://c5mjae3ue7uq" path="res://art_assets/Ui/Kenny Input Prompts/Generic/Vector/generic_button_square_fill.svg" id="42_8uge0"]
+[ext_resource type="Texture2D" uid="uid://bsrqbrv7dtgjd" path="res://art_assets/Ui/Kenny Input Prompts/Generic/Vector/generic_button_square_outline.svg" id="43_scrd3"]
+[ext_resource type="Script" uid="uid://bel564rpe3hpc" path="res://scripts/utility/Grants Settings/SettingsMenu.gd" id="44_yk230"]
 [ext_resource type="Script" uid="uid://c8gyo4rwt03k5" path="res://scripts/entities/SwapVFX.gd" id="45_guacr"]
+[ext_resource type="Script" uid="uid://c7ibgp0yr55lv" path="res://scripts/utility/Grants Settings/WindowModeDropdown.gd" id="45_s6mdf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lwj1m"]
 shader = ExtResource("33_3h4bm")
@@ -92,6 +102,36 @@ texture = ExtResource("18_xujl7")
 expand_margin_top = 35.0
 expand_margin_right = 120.0
 expand_margin_bottom = 110.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkub8"]
+texture = ExtResource("40_eyjel")
+texture_margin_left = 150.0
+texture_margin_top = 60.0
+texture_margin_right = 170.0
+texture_margin_bottom = 185.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scrd3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7708395, 0.77083945, 0.77083945, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fk4lq"]
+texture = ExtResource("42_8uge0")
+modulate_color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_27jnq"]
 
@@ -399,16 +439,16 @@ floor_snap_length = 5.0
 interruptible_states = Array[String](["Idle", "Moving", "Charging", "ChargingSpecial", "Attacking"])
 
 [node name="Skeleton3D" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="0" unique_id=344550742]
-bones/14/rotation = Quaternion(-0.07183286, 0.5242826, -0.50687766, 0.68047255)
-bones/15/rotation = Quaternion(-0.1630095, 0.55670375, 0.23226433, 0.7807446)
-bones/16/rotation = Quaternion(-0.50910515, -0.4753003, -0.2451725, 0.6743827)
-bones/21/rotation = Quaternion(-0.12890886, 0.3816376, -0.47807643, 0.78049874)
-bones/22/rotation = Quaternion(-0.064894214, 0.35100046, 0.17726554, 0.91715014)
-bones/23/rotation = Quaternion(0.11256692, 0.124130934, -0.085024066, 0.982187)
-bones/38/rotation = Quaternion(-0.35159934, 0.7056417, 0.060263615, 0.61222214)
+bones/14/rotation = Quaternion(-0.07618684, 0.5265304, -0.5069041, 0.67824006)
+bones/15/rotation = Quaternion(-0.15442404, 0.54288864, 0.22960119, 0.79291147)
+bones/16/rotation = Quaternion(-0.5155461, -0.46913543, -0.22846757, 0.67965204)
+bones/21/rotation = Quaternion(-0.12558681, 0.39997965, -0.47842717, 0.7715904)
+bones/22/rotation = Quaternion(-0.055183973, 0.3219534, 0.16765481, 0.93015736)
+bones/23/rotation = Quaternion(0.10165711, 0.13491772, -0.07769687, 0.9825611)
+bones/38/rotation = Quaternion(-0.35107163, 0.7059033, 0.06072199, 0.61217815)
 
 [node name="BoneAttachment3D" parent="Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0020724568, -0.5700004, 0.8216416, -0.42379126, 0.74471176, 0.51556283, -0.9057574, -0.34713608, -0.24310468, 0.006068901, 0.0071570543, -0.0131767485)
+transform = Transform3D(-0.0029218304, -0.56999683, 0.8216415, -0.4226754, 0.7453446, 0.5155644, -0.9062763, -0.34578133, -0.24310146, 0.0060556317, 0.007174509, -0.013184805)
 
 [node name="Idle" parent="Nova/nova" parent_id_path=PackedInt32Array(1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -568,19 +608,19 @@ visible = false
 visible = false
 
 [node name="Skeleton3D" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="0" unique_id=581899794]
-bones/2/rotation = Quaternion(0.058401454, -0.058231708, 0.70367163, 0.7057228)
-bones/15/rotation = Quaternion(0.013006403, -0.123240605, -0.66493934, 0.7365449)
-bones/16/rotation = Quaternion(-0.04043926, 0.42493853, 0.105526134, 0.89814043)
-bones/17/rotation = Quaternion(0.19415648, 0.11617126, -0.25628296, 0.9397482)
-bones/23/rotation = Quaternion(-0.08062287, -0.09003361, -0.684333, 0.7190844)
-bones/24/rotation = Quaternion(-0.030771885, 0.27558842, 0.12679504, 0.9523798)
-bones/25/rotation = Quaternion(0.0061811972, 0.09449277, -0.17065877, 0.98076934)
-bones/30/rotation = Quaternion(0.013755968, 0.9634044, -0.25225613, -0.08960782)
-bones/31/rotation = Quaternion(0.9847943, -0.018462282, 0.17272066, 0.0026506023)
-bones/32/rotation = Quaternion(0.54541886, -0.4019238, 0.4479846, 0.5833398)
-bones/34/rotation = Quaternion(0.06199047, 0.21190019, 0.017236765, 0.9751709)
-bones/35/rotation = Quaternion(0.9746656, -0.020777034, 0.22266364, 0.0040463116)
-bones/36/rotation = Quaternion(0.5833751, -0.3861705, 0.39245713, 0.5970957)
+bones/2/rotation = Quaternion(0.058262475, -0.058093123, 0.7036831, 0.70573425)
+bones/15/rotation = Quaternion(0.012869966, -0.12364104, -0.6648902, 0.73652446)
+bones/16/rotation = Quaternion(-0.040490687, 0.42525616, 0.10554192, 0.8979858)
+bones/17/rotation = Quaternion(0.19441263, 0.116621666, -0.2563037, 0.9396338)
+bones/23/rotation = Quaternion(-0.08065443, -0.09016205, -0.684327, 0.7190703)
+bones/24/rotation = Quaternion(-0.03078604, 0.27567318, 0.12680967, 0.9523528)
+bones/25/rotation = Quaternion(0.006164087, 0.09427571, -0.170705, 0.9807824)
+bones/30/rotation = Quaternion(0.013652132, 0.9635225, -0.25222456, -0.088436164)
+bones/31/rotation = Quaternion(0.985017, -0.018387541, 0.17145468, 0.0026173983)
+bones/32/rotation = Quaternion(0.54541767, -0.4019258, 0.4479859, 0.58333856)
+bones/34/rotation = Quaternion(0.06197553, 0.21075137, 0.017199326, 0.9754215)
+bones/35/rotation = Quaternion(0.97492, -0.020715896, 0.2215535, 0.0040107686)
+bones/36/rotation = Quaternion(0.58343834, -0.38606235, 0.39236936, 0.59716153)
 
 [node name="Idle" parent="Dawn/dawn" parent_id_path=PackedInt32Array(618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -751,7 +791,7 @@ offset_top = -289.0
 offset_right = 306.0
 grow_vertical = 0
 script = ExtResource("10_d11v8")
-overridable_menus = [NodePath("../Death Menu"), NodePath("../Pause Menu"), NodePath("../SettingScene/Level1Control"), NodePath("../SettingScene/WindowSettings"), NodePath("../SettingScene/GraphicsSettings"), NodePath("../SettingScene/GameplaySettings"), NodePath("../SettingScene/AudioSettings")]
+overridable_menus = [NodePath("../Death Menu"), NodePath("../Pause Menu"), NodePath("../Settings Menu"), NodePath("../SettingScene/Level1Control"), NodePath("../SettingScene/WindowSettings"), NodePath("../SettingScene/GraphicsSettings"), NodePath("../SettingScene/GameplaySettings"), NodePath("../SettingScene/AudioSettings")]
 open_on_start = true
 open_alpha_effects_all = true
 open_animation_flags = 1
@@ -844,8 +884,271 @@ visible = false
 script = ExtResource("14_fop7g")
 ui = NodePath("../3D Special UI")
 
+[node name="Settings Menu" type="Control" parent="." unique_id=856073991 node_paths=PackedStringArray("focused_control")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 7.0
+offset_right = 1.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_right = NodePath("Panel/Back Button")
+script = ExtResource("39_yk230")
+focused_control = NodePath("Panel/OptionButton")
+close_time = 1.0
+metadata/_custom_type_script = "uid://iopn2ymsvuny"
+
+[node name="TextureRect" type="TextureRect" parent="Settings Menu" unique_id=2134480617]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0.5, 1)
+texture = ExtResource("23_8uge0")
+expand_mode = 2
+script = ExtResource("9_0dwuh")
+open_animation_flags = 1
+close_time = 0.4
+close_animation_flags = 1
+
+[node name="Panel" type="Panel" parent="Settings Menu" unique_id=495601503]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 260.0
+offset_top = -3.0
+offset_right = -258.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nkub8")
+script = ExtResource("9_0dwuh")
+open_animation_flags = 3
+close_animation_flags = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu/Panel" unique_id=1170164952 node_paths=PackedStringArray("SFX_slider", "music_slider", "UI_slider", "ambiance_slider")]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 169.0
+offset_right = 364.0
+offset_bottom = 377.0
+script = ExtResource("41_eyjel")
+SFX_slider = NodePath("Container2/SFX")
+music_slider = NodePath("Container/Music Slider")
+UI_slider = NodePath("Container3/UI")
+ambiance_slider = NodePath("Container4/Ambiance")
+
+[node name="Container" type="Control" parent="Settings Menu/Panel/VBoxContainer" unique_id=1731670552]
+custom_minimum_size = Vector2(0, 49.19)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Settings Menu/Panel/VBoxContainer/Container" unique_id=488386446]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -24.189999
+grow_horizontal = 2
+grow_vertical = 2
+text = "Music"
+label_settings = ExtResource("41_s6mdf")
+horizontal_alignment = 1
+
+[node name="Music Slider" type="HSlider" parent="Settings Menu/Panel/VBoxContainer/Container" unique_id=104972325]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+focus_neighbor_left = NodePath("../../../Back Button")
+focus_neighbor_top = NodePath("../../../OptionButton")
+focus_neighbor_right = NodePath("../../../Back Button")
+focus_neighbor_bottom = NodePath("../../Container2/SFX")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_scrd3")
+step = 10.0
+value = 100.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Container2" type="Control" parent="Settings Menu/Panel/VBoxContainer" unique_id=2142156994]
+custom_minimum_size = Vector2(0, 49.19)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Settings Menu/Panel/VBoxContainer/Container2" unique_id=1696873415]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -24.189999
+grow_horizontal = 2
+grow_vertical = 2
+text = "SFX"
+label_settings = ExtResource("41_s6mdf")
+horizontal_alignment = 1
+
+[node name="SFX" type="HSlider" parent="Settings Menu/Panel/VBoxContainer/Container2" unique_id=279894623]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../../../Back Button")
+focus_neighbor_top = NodePath("../../Container/Music Slider")
+focus_neighbor_right = NodePath("../../../Back Button")
+focus_neighbor_bottom = NodePath("../../Container3/UI")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_scrd3")
+step = 10.0
+value = 100.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Container3" type="Control" parent="Settings Menu/Panel/VBoxContainer" unique_id=1176014347]
+custom_minimum_size = Vector2(0, 49.19)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Settings Menu/Panel/VBoxContainer/Container3" unique_id=1658772728]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -24.189999
+grow_horizontal = 2
+grow_vertical = 2
+text = "UI"
+label_settings = ExtResource("41_s6mdf")
+horizontal_alignment = 1
+
+[node name="UI" type="HSlider" parent="Settings Menu/Panel/VBoxContainer/Container3" unique_id=11759195]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../../../Back Button")
+focus_neighbor_top = NodePath("../../Container2/SFX")
+focus_neighbor_right = NodePath("../../../Back Button")
+focus_neighbor_bottom = NodePath("../../Container4/Ambiance")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_scrd3")
+step = 10.0
+value = 100.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Container4" type="Control" parent="Settings Menu/Panel/VBoxContainer" unique_id=881502008]
+custom_minimum_size = Vector2(0, 49.19)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Settings Menu/Panel/VBoxContainer/Container4" unique_id=1516756589]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -24.189999
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ambiance"
+label_settings = ExtResource("41_s6mdf")
+horizontal_alignment = 1
+
+[node name="Ambiance" type="HSlider" parent="Settings Menu/Panel/VBoxContainer/Container4" unique_id=355956321]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../../../Back Button")
+focus_neighbor_top = NodePath("../../Container3/UI")
+focus_neighbor_right = NodePath("../../../Back Button")
+focus_neighbor_bottom = NodePath("../../../Back Button")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_scrd3")
+step = 10.0
+value = 100.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="OptionButton" type="OptionButton" parent="Settings Menu/Panel" unique_id=1916134844]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 100.0
+offset_right = 256.32257
+offset_bottom = 138.0
+focus_neighbor_left = NodePath("../Back Button")
+focus_neighbor_bottom = NodePath("../VBoxContainer/Container/Music Slider")
+expand_icon = true
+selected = 0
+item_count = 2
+popup/item_0/text = "FullScreen"
+popup/item_0/icon = ExtResource("43_scrd3")
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/icon = ExtResource("42_8uge0")
+popup/item_1/id = 1
+script = ExtResource("45_s6mdf")
+
+[node name="Back Button" type="Button" parent="Settings Menu/Panel" unique_id=812677267]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 387.0
+offset_right = 539.0
+offset_bottom = 470.0
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0, 0.5)
+focus_neighbor_left = NodePath("../VBoxContainer/Container4/Ambiance")
+focus_neighbor_top = NodePath("../VBoxContainer/Container4/Ambiance")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+theme_override_colors/icon_focus_color = Color(2.454227, 2.454227, 2.454227, 1)
+theme_override_colors/icon_pressed_color = Color(3.2944162, 3.2944162, 3.2944162, 1)
+theme_override_colors/icon_hover_color = Color(2.454227, 2.454227, 2.454227, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_fk4lq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fk4lq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fk4lq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_fk4lq")
+theme_override_styles/focus = SubResource("StyleBoxTexture_fk4lq")
+text = "BACK"
+script = ExtResource("35_guacr")
+
+[node name="Label" type="Label" parent="Settings Menu/Panel" unique_id=1197775585]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 47.0
+offset_right = 521.0
+offset_bottom = 89.0
+text = "SETTINGS"
+label_settings = ExtResource("41_s6mdf")
+
+[node name="Settings" type="Node" parent="Settings Menu" unique_id=492563357]
+unique_name_in_owner = true
+script = ExtResource("44_yk230")
+
 [node name="Pause Menu" type="Panel" parent="." unique_id=1394924557 node_paths=PackedStringArray("nova_menu", "rene_menu", "dawn_menu", "focused_control")]
-visible = false
+process_mode = 3
 z_index = 15
 anchors_preset = 15
 anchor_right = 1.0
@@ -860,8 +1163,7 @@ rene_menu = NodePath("rene_control")
 dawn_menu = NodePath("dawn_control")
 focused_control = NodePath("VBoxContainer/Resume Button")
 open_time = 1.0
-close_time = 0.5
-close_animation_delay = 0.3
+close_time = 0.4
 
 [node name="nova_control" type="Control" parent="Pause Menu" unique_id=642816585]
 layout_mode = 1
@@ -1126,9 +1428,9 @@ anchors_preset = -1
 anchor_top = 0.614
 anchor_bottom = 1.0
 offset_left = 25.0
-offset_top = 29.12799
+offset_top = -2.8720093
 offset_right = 517.0
-offset_bottom = 184.0
+offset_bottom = 239.0
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_constants/separation = -1
@@ -1153,11 +1455,12 @@ icon = ExtResource("16_w3iyl")
 flat = true
 script = ExtResource("35_guacr")
 
-[node name="Reload Button" type="Button" parent="Pause Menu/VBoxContainer" unique_id=222735106]
+[node name="Reload Button" type="Button" parent="Pause Menu/VBoxContainer" unique_id=478636664]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_pivot_ratio = Vector2(0, 0.5)
-focus_neighbor_bottom = NodePath("../Quit Button")
+focus_neighbor_top = NodePath("../Resume Button")
+focus_neighbor_bottom = NodePath("../Options Button")
 theme_override_colors/icon_focus_color = Color(2.454227, 2.454227, 2.454227, 1)
 theme_override_colors/icon_pressed_color = Color(3.2944162, 3.2944162, 3.2944162, 1)
 theme_override_colors/icon_hover_color = Color(2.454227, 2.454227, 2.454227, 1)
@@ -1170,11 +1473,29 @@ icon = ExtResource("17_k852m")
 flat = true
 script = ExtResource("35_guacr")
 
-[node name="Quit Button" type="Button" parent="Pause Menu/VBoxContainer" unique_id=886120763]
+[node name="Options Button" type="Button" parent="Pause Menu/VBoxContainer" unique_id=222735106]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_pivot_ratio = Vector2(0, 0.5)
 focus_neighbor_top = NodePath("../Reload Button")
+focus_neighbor_bottom = NodePath("../Quit Button")
+theme_override_colors/icon_focus_color = Color(2.454227, 2.454227, 2.454227, 1)
+theme_override_colors/icon_pressed_color = Color(3.2944162, 3.2944162, 3.2944162, 1)
+theme_override_colors/icon_hover_color = Color(2.454227, 2.454227, 2.454227, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_guacr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_guacr")
+icon = ExtResource("37_is64h")
+flat = true
+script = ExtResource("35_guacr")
+
+[node name="Quit Button" type="Button" parent="Pause Menu/VBoxContainer" unique_id=886120763]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0, 0.5)
+focus_neighbor_top = NodePath("../Options Button")
 theme_override_colors/icon_focus_color = Color(2.454227, 2.454227, 2.454227, 1)
 theme_override_colors/icon_pressed_color = Color(3.2944162, 3.2944162, 3.2944162, 1)
 theme_override_colors/icon_hover_color = Color(2.454227, 2.454227, 2.454227, 1)
@@ -1352,9 +1673,12 @@ process_mode = 3
 [connection signal="finished" from="Dawn/StateMachine/Moving" to="footprintsFX" method="set_emitting" binds= [false]]
 [connection signal="entered" from="Dawn/StateMachine/HitStun" to="CameraTarget/Camera3D/Shake" method="shake"]
 [connection signal="pressed" from="Death Menu/Reload Button" to="Death Menu" method="restart_game"]
+[connection signal="pressed" from="Settings Menu/Panel/Back Button" to="Pause Menu" method="open"]
+[connection signal="menu_shown" from="Pause Menu" to="Settings Menu" method="close"]
 [connection signal="menu_swapped" from="Pause Menu" to="Pause Menu/Menu SFX/Background Swapped SFX" method="play"]
-[connection signal="pressed" from="Pause Menu/VBoxContainer/Resume Button" to="Pause Menu" method="close"]
+[connection signal="pressed" from="Pause Menu/VBoxContainer/Resume Button" to="Pause Menu" method="pause_closed"]
 [connection signal="pressed" from="Pause Menu/VBoxContainer/Reload Button" to="Pause Menu" method="restart_game"]
+[connection signal="button_up" from="Pause Menu/VBoxContainer/Options Button" to="Settings Menu" method="open"]
 [connection signal="pressed" from="Pause Menu/VBoxContainer/Quit Button" to="Pause Menu" method="quit_to_main"]
 
 [editable path="Nova"]

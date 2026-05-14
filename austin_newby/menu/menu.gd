@@ -74,7 +74,9 @@ var _active_event_count : int = 0
 
 func open() -> void:
 	_active_event_count += 1
+	show()
 	var events_index : int = _active_event_count
+	transitioning = true
 	if (affects_other_menus ): MenuManager.force_close()
 	is_open = true
 	print_rich("[color=spring_green]Opening menu: ", self)
@@ -89,7 +91,6 @@ func open() -> void:
 	
 	focus_mode = Control.FOCUS_ALL #makes focusable/selectable
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	show()
 	
 	if (open_animation_flags & 1 == 1):
 		self_modulate = Color.TRANSPARENT
@@ -119,8 +120,9 @@ func control_grab_focus():
 func close() -> void:
 	_active_event_count += 1
 	var events_index : int = _active_event_count
-	is_open = false
 	print_rich("[color=dark_sea_green]Closing menu: ", self)
+	is_open = false
+	
 	
 	menu_closed.emit()
 	

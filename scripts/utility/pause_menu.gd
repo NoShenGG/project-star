@@ -14,9 +14,11 @@ func _ready() -> void:
 	super()
 	(owner as PlayerManager).new_player.connect(swap_menu_background)
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	menu_shown.connect(pause_opened)
-	menu_hidden.connect(pause_closed)
-	menu_closed.connect(pause_closed)
+	
+	## we dont do this since we dont know if were in a sub menu
+	#menu_shown.connect(pause_opened)
+	#menu_hidden.connect(pause_closed)
+	#menu_closed.connect(pause_closed)
 	
 	## annoying race condition stops from more customizable behaviour
 	nova_menu.visible = true
@@ -27,9 +29,9 @@ func _process(delta: float) -> void:
 	
 	if (Input.is_action_just_pressed("pause_game")):
 		if (is_open):
-			close()
+			pause_closed()
 		else:
-			open()
+			pause_opened()
 	
 	if (is_visible_in_tree() and visible):
 		if (Input.is_action_just_pressed("move_right")):
@@ -64,9 +66,11 @@ func _exit_tree() -> void:
 func pause_opened():
 	print("test opened")
 	get_tree().paused = true
+	open()
 func pause_closed():
 	print("test closed")
 	get_tree().paused = false
+	close()
 
 func restart_game():
 	GameManager.reload_level()
