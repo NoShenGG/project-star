@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1iptw5vqre6f" path="res://scripts/entities/enemies/attacks/hitbox.gd" id="1_6v43l"]
 [ext_resource type="Script" uid="uid://dbgqvlk72h7l" path="res://scripts/entities/enemies/attacks/ranged_weapon.gd" id="1_duflq"]
-[ext_resource type="Shader" uid="uid://cnufkqrd0wvae" path="res://VFX/MiteExplosionCloud.gdshader" id="2_1glqb"]
+[ext_resource type="Shader" uid="uid://cnufkqrd0wvae" path="res://vfx/MiteExplosionCloud.gdshader" id="2_1glqb"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1glqb"]
 noise_type = 3
@@ -143,6 +143,7 @@ radius = 0.25
 height = 0.6
 
 [node name="RangedWeapon" type="Node3D" unique_id=773822131 groups=["Enemies"]]
+top_level = true
 script = ExtResource("1_duflq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=186764661]

@@ -75,3 +75,7 @@ func state_finished(name : String):
 func _ready() -> void:
 	if (play_on_start):
 		enter()
+
+
+func _on_attack_cd_entered() -> void:
+	pass # Replace with function body.
