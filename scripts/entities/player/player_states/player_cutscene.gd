@@ -10,6 +10,8 @@ var exit_state : State
 
 @export var animation : AnimationState
 
+signal starting_cutscene
+
 func enter(_previous_state_path: String, _data := {}) -> void:
 	entered.emit()
 	var coll = player.collision_layer
@@ -17,6 +19,7 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 	player.hide()
 	await get_tree().create_timer(invisible_duration).timeout
 	animation.enter()
+	starting_cutscene.emit()
 	await get_tree().process_frame
 	await get_tree().process_frame
 	player.show.call_deferred()

@@ -4144,6 +4144,10 @@ invisible_duration = 0.5
 cutscene_duration = 3.667
 animation = NodePath("../../nova/FallCutscene")
 
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="StateMachine/Fall Cutscene" unique_id=1140871095]
+event_name = "event:/Player/Nova Fall Cutscene"
+event_guid = "{628abb9b-48e3-4f0a-93a8-d69c46c95936}"
+
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1295868431]
 script = ExtResource("5_xhleb")
 
@@ -4511,18 +4515,18 @@ bones/10/position = Vector3(0.007249624, 0, 0)
 bones/10/rotation = Quaternion(-4.6566134e-10, 5.5115384e-10, -0.12919243, 0.99161965)
 bones/11/position = Vector3(0.0061893025, 0, 0)
 bones/11/rotation = Quaternion(0.99759185, -0.06935874, 4.016329e-09, -1.0331861e-09)
-bones/14/rotation = Quaternion(-0.065341204, 0.52216434, -0.506574, 0.68297714)
-bones/15/rotation = Quaternion(-0.1691355, 0.56625795, 0.23399518, 0.7720048)
-bones/16/rotation = Quaternion(-0.5041626, -0.47490796, -0.26085728, 0.6724849)
-bones/21/rotation = Quaternion(-0.14363049, 0.37309092, -0.46381962, 0.79059786)
-bones/22/rotation = Quaternion(-0.07421984, 0.37688345, 0.18556833, 0.90444165)
-bones/23/rotation = Quaternion(0.14095265, 0.108465716, -0.083025545, 0.98054796)
+bones/14/rotation = Quaternion(-0.075529374, 0.526532, -0.5068083, 0.678384)
+bones/15/rotation = Quaternion(-0.15377285, 0.54181653, 0.22938587, 0.7938331)
+bones/16/rotation = Quaternion(-0.5159876, -0.46699896, -0.22853047, 0.68076617)
+bones/21/rotation = Quaternion(-0.13015626, 0.40291643, -0.47377446, 0.77217585)
+bones/22/rotation = Quaternion(-0.055276394, 0.3222357, 0.16774909, 0.9300371)
+bones/23/rotation = Quaternion(0.10815308, 0.13258605, -0.07483556, 0.98240703)
 bones/28/rotation = Quaternion(0.137926, 0.87453514, -0.36135563, -0.2925523)
 bones/29/rotation = Quaternion(0.9109137, -0.023371102, 0.41183046, 0.009257983)
 bones/30/rotation = Quaternion(0.07798597, -0.22068192, -0.040313754, 0.9713869)
 bones/33/rotation = Quaternion(-0.3066148, 0.15129691, 0.007547995, 0.9397019)
 bones/35/rotation = Quaternion(-0.1819961, -0.14555843, 0.0828098, 0.9689338)
-bones/38/rotation = Quaternion(-0.35033756, 0.7062662, 0.06135913, 0.6121165)
+bones/38/rotation = Quaternion(-0.35026672, 0.7063012, 0.06142064, 0.61211056)
 bones/39/rotation = Quaternion(0, 0, 0.00029500158, 1)
 bones/40/rotation = Quaternion(0, 0, -0.0012173046, 0.9999993)
 
@@ -4546,7 +4550,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_oc7x5")
 surface_material_override/0 = SubResource("ShaderMaterial_0ksem")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.004102495, -0.56998944, 0.82164156, -0.4211225, 0.74622166, 0.5155665, -0.9069944, -0.34389663, -0.24309681, 0.0060371873, 0.0071988013, -0.013195957)
+transform = Transform3D(-0.0042163413, -0.5699887, 0.82164156, -0.4209725, 0.74630606, 0.5155668, -0.90706354, -0.34371465, -0.24309634, 0.006035409, 0.0072011473, -0.013197031)
 bone_name = "nova_rig_sword2"
 bone_idx = 40
 
@@ -4715,7 +4719,7 @@ min_a = 10
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]
 [connection signal="special_available" from="." to="Special Ready" method="play_one_shot"]
-[connection signal="entered" from="StateMachine/Fall Cutscene" to="nova/Idle" method="enter"]
+[connection signal="starting_cutscene" from="StateMachine/Fall Cutscene" to="StateMachine/Fall Cutscene/FmodEventEmitter3D" method="play"]
 [connection signal="entered" from="StateMachine/Idle" to="nova/Idle" method="enter"]
 [connection signal="entered" from="StateMachine/Dash" to="StateMachine/Dash/Dash SFX" method="play" binds= [true]]
 [connection signal="entered" from="StateMachine/Dash" to="dashFX" method="set_emitting" binds= [true]]
