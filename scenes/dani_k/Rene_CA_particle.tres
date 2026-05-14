@@ -1,7 +1,7 @@
 [gd_resource type="VisualShader" format=3 uid="uid://8cqwu6d7hdaw"]
 
 [ext_resource type="Script" uid="uid://c5htaqrg6esp3" path="res://addons/shaderV/uv/scaleUV.gd" id="2_6yark"]
-[ext_resource type="Texture2D" uid="uid://bxp5vij0wughf" path="res://VFX/Kenny Particle Pack/trace_02.png" id="3_6yark"]
+[ext_resource type="Texture2D" uid="uid://bxp5vij0wughf" path="res://vfx/Kenny Particle Pack/trace_02.png" id="3_6yark"]
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_il5f1"]
 
