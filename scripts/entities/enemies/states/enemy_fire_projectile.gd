@@ -1,5 +1,6 @@
 extends EnemyState
 
+@export var fire_node : Node3D
 @export var projectile: PackedScene
 @export var done_state: State
 @export_category("Windup Stage")
@@ -19,6 +20,7 @@ signal fired
 
 var rotating: bool = false
 var rotation_speed = 0
+
 
 func update(_delta: float) -> void:
 	if not rotating:
@@ -62,7 +64,7 @@ func fire() -> void:
 
 func shoot() -> void:
 	var projectile_instance = enemy.projectile_scene.instantiate()
-	projectile_instance.global_transform = enemy.global_transform
+	projectile_instance.global_transform = fire_node.global_transform
 	var dir : Vector3 = enemy.global_position.direction_to(GameManager.curr_player.global_position)
 	dir.y = 0
 	projectile_instance.direction = dir

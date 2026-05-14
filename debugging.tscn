@@ -18,6 +18,12 @@ func _process(delta: float) -> void:
 	if (Engine.is_editor_hint()):
 		curve = convert_curve_to_hit_domain(curve)
 
+var time : float= 0 
+func check_fire_process(delta :float) -> bool:
+	time += delta
+	var event_probability : float = curve.sample(time)
+	return is_equal_approx(event_probability, 1)
+
 func convert_curve_to_hit_domain(value : Curve) -> Curve:
 	if (value):
 			value.max_domain = 1
@@ -35,8 +41,8 @@ func convert_curve_to_hit_domain(value : Curve) -> Curve:
 "
 
 [sub_resource type="Curve" id="Curve_y42x8"]
-_data = [Vector2(0, 1), 10.0, -10.0, 0, 0]
-point_count = 1
+_data = [Vector2(0.2939914, 1), 10.0, -10.0, 0, 0, Vector2(0.50085765, 1), 10.0, -10.0, 0, 0, Vector2(0.7169812, 1), 10.0, -10.0, 0, 0, Vector2(0.9056604, 1), 10.0, -10.0, 0, 0]
+point_count = 4
 
 [node name="Node3D" type="Node3D" unique_id=1549191776]
 

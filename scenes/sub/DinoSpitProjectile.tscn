@@ -27,7 +27,6 @@ material_override = SubResource("StandardMaterial3D_5wod2")
 mesh = SubResource("QuadMesh_7haj0")
 
 [node name="Timer" type="Timer" parent="." unique_id=1880769084]
-wait_time = 1.5
 one_shot = true
 autostart = true
 
