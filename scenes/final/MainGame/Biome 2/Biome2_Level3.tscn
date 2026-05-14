@@ -477,16 +477,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, 8.64628)
 initial_state = NodePath("Fall Cutscene")
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="0" unique_id=344550742]
-bones/14/rotation = Quaternion(-0.06784086, 0.52352977, -0.506307, 0.68188524)
-bones/15/rotation = Quaternion(-0.16135816, 0.5541099, 0.23178688, 0.7830713)
-bones/16/rotation = Quaternion(-0.5099358, -0.4671551, -0.24759345, 0.6785493)
-bones/21/rotation = Quaternion(-0.14867063, 0.39159584, -0.4574983, 0.7843756)
-bones/22/rotation = Quaternion(-0.06655912, 0.35588425, 0.17886646, 0.9148351)
-bones/23/rotation = Quaternion(0.14169341, 0.11271261, -0.0732847, 0.9807387)
-bones/38/rotation = Quaternion(-0.34863532, 0.70710427, 0.062835194, 0.6119712)
+bones/14/rotation = Quaternion(-0.0736139, 0.5250488, -0.50690126, 0.67967343)
+bones/15/rotation = Quaternion(-0.16027457, 0.5523702, 0.23145312, 0.78462017)
+bones/16/rotation = Quaternion(-0.51117957, -0.4737225, -0.23955578, 0.67594045)
+bones/21/rotation = Quaternion(-0.12701502, 0.38709873, -0.4792326, 0.77740467)
+bones/22/rotation = Quaternion(-0.061612353, 0.34150982, 0.17416535, 0.92154294)
+bones/23/rotation = Quaternion(0.10753602, 0.12807505, -0.083222754, 0.9823985)
+bones/38/rotation = Quaternion(-0.3517875, 0.70554835, 0.06010022, 0.6122378)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0068380428, -0.56996316, 0.82164174, -0.4175173, 0.74824136, 0.51557153, -0.9086432, -0.3395241, -0.24308608, 0.005994452, 0.007255196, -0.01322156)
+transform = Transform3D(-0.0017694242, -0.5700015, 0.82164156, -0.42418888, 0.74448574, 0.51556236, -0.9055719, -0.34761897, -0.24310564, 0.006073635, 0.007150835, -0.013173867)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(798221631, 1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -605,19 +605,19 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 
 
 [node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="0" unique_id=581899794]
-bones/2/rotation = Quaternion(0.047624633, -0.04748621, 0.7044784, 0.7065319)
-bones/15/rotation = Quaternion(0.015146429, -0.116229124, -0.6656579, 0.7369947)
-bones/16/rotation = Quaternion(-0.038703773, 0.41408467, 0.104968205, 0.90333694)
-bones/17/rotation = Quaternion(0.18958536, 0.10645219, -0.25584882, 0.94194835)
-bones/23/rotation = Quaternion(-0.081170015, -0.089828566, -0.68424565, 0.7191315)
-bones/24/rotation = Quaternion(-0.030843573, 0.2760178, 0.12686914, 0.95224327)
-bones/25/rotation = Quaternion(0.0035745592, 0.07986018, -0.17350654, 0.98158294)
-bones/30/rotation = Quaternion(0.010000073, 0.96645194, -0.2513018, -0.05213639)
-bones/31/rotation = Quaternion(0.99126095, -0.015964776, 0.130936, 0.0016645293)
-bones/32/rotation = Quaternion(0.55368525, -0.39095894, 0.4385199, 0.590156)
-bones/34/rotation = Quaternion(0.061546687, 0.17559189, 0.0159155, 0.9824084)
-bones/35/rotation = Quaternion(0.9822401, -0.01876785, 0.18666399, 0.0029743717)
-bones/36/rotation = Quaternion(0.58903587, -0.37642083, 0.38450894, 0.60290724)
+bones/2/rotation = Quaternion(0.028905803, -0.028821787, 0.7054885, 0.707545)
+bones/15/rotation = Quaternion(0.02017605, -0.10108468, -0.66709703, 0.73780507)
+bones/16/rotation = Quaternion(-0.035242364, 0.3915504, 0.10369219, 0.913616)
+bones/17/rotation = Quaternion(0.1804933, 0.09029775, -0.2547998, 0.94569844)
+bones/23/rotation = Quaternion(-0.0818644, -0.08635887, -0.68415266, 0.7195663)
+bones/24/rotation = Quaternion(-0.030533284, 0.27415565, 0.12654756, 0.95283383)
+bones/25/rotation = Quaternion(-0.0014679547, 0.055751856, -0.1779414, 0.9824594)
+bones/30/rotation = Quaternion(-0.0005485054, 0.96804523, -0.24966161, 0.023605451)
+bones/31/rotation = Quaternion(0.999242, -0.01019366, 0.03756911, 0.00027743232)
+bones/32/rotation = Quaternion(0.5720659, -0.3656237, 0.4164652, 0.60466254)
+bones/34/rotation = Quaternion(0.0608584, 0.10689677, 0.012639513, 0.9923254)
+bones/35/rotation = Quaternion(0.9934586, -0.0145199625, 0.1132591, 0.0013019958)
+bones/36/rotation = Quaternion(0.600687, -0.35601726, 0.36754796, 0.61427623)
 
 [node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(798221631, 618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)

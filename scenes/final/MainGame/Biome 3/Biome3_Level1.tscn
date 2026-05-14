@@ -39,12 +39,15 @@
 [ext_resource type="Texture2D" uid="uid://cmry0s7xbcgwi" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Double/xbox_rb_outline.png" id="28_1oxav"]
 [ext_resource type="Texture2D" uid="uid://fnpoipr8inu2" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Double/xbox_button_menu_outline.png" id="28_hnskj"]
 [ext_resource type="Texture2D" uid="uid://civbgldrjkacy" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Double/xbox_button_menu.png" id="29_b6nq8"]
+[ext_resource type="Script" uid="uid://bf2vjp8jufhy3" path="res://austin_newby/menu/menu_element.gd" id="29_g1n2i"]
 [ext_resource type="Texture2D" uid="uid://crftfesvfawj5" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_trigger_r1_alternative_outline.svg" id="30_h3hhl"]
 [ext_resource type="Texture2D" uid="uid://ccdigbg8l6cn7" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_trigger_r1_alternative.svg" id="31_srvbj"]
 [ext_resource type="Shader" uid="uid://cqwuclyvv1bu1" path="res://shaders/fog_particle_alpha_clip.tres" id="34_hokkd"]
 [ext_resource type="Texture2D" uid="uid://c7pey3cvnmqef" path="res://VFX/Kenny Particle Pack/light_01.png" id="35_ryj80"]
 [ext_resource type="Texture2D" uid="uid://deidc1m8sqrh" path="res://VFX/Kenny Particle Pack/flame_04.png" id="36_hnskj"]
 [ext_resource type="Shader" uid="uid://1ko4io3ntcb" path="res://shaders/non_billboard_particle_alpha_clip.tres" id="37_hnskj"]
+[ext_resource type="Texture2D" uid="uid://b4ke6b7y1gsxv" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation5_button_options_outline.svg" id="37_xbk8p"]
+[ext_resource type="Texture2D" uid="uid://dinsvcpm1w6td" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation5_button_options.svg" id="38_0gxvn"]
 [ext_resource type="Texture2D" uid="uid://dwbiubl2ivhhw" path="res://VFX/Kenny Particle Pack/dirt_03.png" id="38_b6nq8"]
 [ext_resource type="Texture2D" uid="uid://boduswaqj885e" path="res://VFX/Kenny Particle Pack/circle_01.png" id="39_h3hhl"]
 
@@ -239,7 +242,7 @@ unpressed_icon = ExtResource("21_qwi08")
 pressed_icon = ExtResource("28_1oxav")
 metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
 
-[sub_resource type="Resource" id="Resource_yccyq"]
+[sub_resource type="Resource" id="Resource_v3w65"]
 script = ExtResource("23_f513e")
 input_type = 3
 unpressed_icon = ExtResource("31_srvbj")
@@ -251,6 +254,13 @@ script = ExtResource("23_f513e")
 input_type = 2
 unpressed_icon = ExtResource("29_b6nq8")
 pressed_icon = ExtResource("28_hnskj")
+metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
+
+[sub_resource type="Resource" id="Resource_yccyq"]
+script = ExtResource("23_f513e")
+input_type = 3
+unpressed_icon = ExtResource("38_0gxvn")
+pressed_icon = ExtResource("37_xbk8p")
 metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6scqm"]
@@ -372,16 +382,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04858756, 0, -2.052517)
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, -2.052517)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="0" unique_id=344550742]
-bones/14/rotation = Quaternion(-0.07322768, 0.5248807, -0.5068964, 0.6798486)
-bones/15/rotation = Quaternion(-0.16087541, 0.5533244, 0.23163255, 0.78377134)
-bones/16/rotation = Quaternion(-0.51072586, -0.47407526, -0.24078572, 0.675599)
-bones/21/rotation = Quaternion(-0.1274219, 0.38589576, -0.4789939, 0.7780829)
-bones/22/rotation = Quaternion(-0.06233089, 0.34359533, 0.1748479, 0.9205897)
-bones/23/rotation = Quaternion(0.1086211, 0.12721491, -0.08362565, 0.9823567)
-bones/38/rotation = Quaternion(-0.35175505, 0.70556444, 0.06012835, 0.61223507)
+bones/14/rotation = Quaternion(-0.07502571, 0.5263464, -0.5067727, 0.6786103)
+bones/15/rotation = Quaternion(-0.15413219, 0.5424079, 0.22950453, 0.7933252)
+bones/16/rotation = Quaternion(-0.5157048, -0.46679494, -0.22960295, 0.68075955)
+bones/21/rotation = Quaternion(-0.13170668, 0.40257028, -0.4724281, 0.772918)
+bones/22/rotation = Quaternion(-0.055915844, 0.3242289, 0.16841848, 0.9291848)
+bones/23/rotation = Quaternion(0.11068909, 0.13119878, -0.07448508, 0.9823374)
+bones/38/rotation = Quaternion(-0.35008407, 0.70639145, 0.061579123, 0.6120951)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0018217576, -0.5700013, 0.8216416, -0.4241204, 0.7445247, 0.51556236, -0.9056039, -0.34753573, -0.24310564, 0.006072818, 0.0071519054, -0.013174363)
+transform = Transform3D(-0.004510078, -0.5699864, 0.8216415, -0.4205858, 0.74652374, 0.51556724, -0.90724134, -0.34324548, -0.24309514, 0.00603082, 0.007207196, -0.013199792)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(1115147818, 1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -500,19 +510,19 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 
 
 [node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="0" unique_id=581899794]
-bones/2/rotation = Quaternion(0.040112607, -0.03999601, 0.70494324, 0.7069981)
-bones/15/rotation = Quaternion(0.017478162, -0.10968453, -0.6663843, 0.7372896)
-bones/16/rotation = Quaternion(-0.03716721, 0.40422627, 0.10442854, 0.9079176)
-bones/17/rotation = Quaternion(0.18556859, 0.100335054, -0.2554557, 0.9435251)
-bones/23/rotation = Quaternion(-0.080904245, -0.08780738, -0.6843003, 0.7193591)
-bones/24/rotation = Quaternion(-0.030540476, 0.27419898, 0.12655504, 0.95282006)
-bones/25/rotation = Quaternion(0.001134245, 0.07081803, -0.1750926, 0.98200107)
-bones/30/rotation = Quaternion(0.0062191766, 0.96777785, -0.25065684, -0.023209505)
-bones/31/rotation = Quaternion(0.99527663, -0.013837146, 0.09608349, 0.0010196845)
-bones/32/rotation = Quaternion(0.56066984, -0.38147682, 0.430312, 0.5957821)
-bones/34/rotation = Quaternion(0.06125715, 0.14843296, 0.014679172, 0.98691434)
-bones/35/rotation = Quaternion(0.9873039, -0.01712529, 0.15790114, 0.002238832)
-bones/36/rotation = Quaternion(0.5936385, -0.36841288, 0.37790844, 0.6074953)
+bones/2/rotation = Quaternion(0.05504481, -0.054884806, 0.70394063, 0.7059926)
+bones/15/rotation = Quaternion(0.013522913, -0.12169943, -0.66512287, 0.73662615)
+bones/16/rotation = Quaternion(-0.039887898, 0.4215205, 0.1053545, 0.89979446)
+bones/17/rotation = Quaternion(0.19280979, 0.11371008, -0.25616947, 0.94035727)
+bones/23/rotation = Quaternion(-0.08054083, -0.08969987, -0.6843482, 0.71912074)
+bones/24/rotation = Quaternion(-0.030735103, 0.2753681, 0.12675703, 0.9524497)
+bones/25/rotation = Quaternion(0.0052207923, 0.09017584, -0.17146835, 0.9810401)
+bones/30/rotation = Quaternion(0.012543237, 0.9645733, -0.25193083, -0.077277966)
+bones/31/rotation = Quaternion(0.987113, -0.017650926, 0.15903161, 0.0023025095)
+bones/32/rotation = Quaternion(0.54794073, -0.39860296, 0.44512793, 0.5854382)
+bones/34/rotation = Quaternion(0.061838098, 0.1998611, 0.016808886, 0.97772646)
+bones/35/rotation = Quaternion(0.97733176, -0.020116724, 0.21072397, 0.0036722792)
+bones/36/rotation = Quaternion(0.58514655, -0.38312933, 0.38999036, 0.598935)
 
 [node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(1115147818, 618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -742,9 +752,9 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_r5ew7")
 script = ExtResource("18_f30ws")
 focused_control = NodePath("TextureRect/Label")
-open_time = 0.5
-open_animation_flags = 1
-close_time = 0.5
+open_time = 0.3
+open_animation_flags = 5
+close_time = 0.3
 close_animation_flags = 1
 
 [node name="TextureRect" type="TextureRect" parent="Tutorial2/Menu2" unique_id=1311487160]
@@ -755,6 +765,10 @@ offset_right = 763.0
 offset_bottom = 515.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("19_mq6a5")
+script = ExtResource("29_g1n2i")
+open_time = 0.3
+open_animation_flags = 2
+close_animation_flags = 4
 
 [node name="Label" type="Label" parent="Tutorial2/Menu2/TextureRect" unique_id=1647652223]
 layout_mode = 1
@@ -783,8 +797,8 @@ offset_bottom = 146.66672
 texture = ExtResource("21_qwi08")
 expand_mode = 1
 script = ExtResource("22_1oxav")
-icons = Array[ExtResource("23_f513e")]([SubResource("Resource_11igq"), SubResource("Resource_aiqxw"), SubResource("Resource_f513e"), SubResource("Resource_yccyq")])
-input_name = "basic_attack"
+icons = Array[ExtResource("23_f513e")]([SubResource("Resource_11igq"), SubResource("Resource_aiqxw"), SubResource("Resource_f513e"), SubResource("Resource_v3w65")])
+input_name = "next_char"
 metadata/_custom_type_script = "uid://dlb7i27u8fcw1"
 
 [node name="InputIconSwapper2" type="TextureRect" parent="Tutorial2/Menu2/TextureRect" unique_id=619294768]
@@ -797,7 +811,7 @@ texture = ExtResource("29_b6nq8")
 expand_mode = 1
 script = ExtResource("22_1oxav")
 icons = Array[ExtResource("23_f513e")]([SubResource("Resource_11igq"), SubResource("Resource_aiqxw"), SubResource("Resource_1ubc1"), SubResource("Resource_yccyq")])
-input_name = "basic_attack"
+input_name = "pause_game"
 metadata/_custom_type_script = "uid://dlb7i27u8fcw1"
 
 [node name="Menu SFX" type="Node" parent="Tutorial2/Menu2" unique_id=1503016704 node_paths=PackedStringArray("open_sfx", "close_sfx")]
