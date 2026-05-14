@@ -32,9 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://dojp7mylityup" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Vector/xbox_button_a.svg" id="19_ilqod"]
 [ext_resource type="Material" uid="uid://dek0aou47yvv2" path="res://art_assets/environment/Biome1/Level1/MountainBackground.tres" id="19_rquws"]
 [ext_resource type="Shader" uid="uid://ouq1gmh6ate2" path="res://shaders/grass - Dylearn/Shaders/AlphaToonShader.gdshader" id="20_33iv1"]
-[ext_resource type="Texture2D" uid="uid://wf636d7cdrs7" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_button_square_outline.svg" id="20_wne8n"]
 [ext_resource type="Texture2D" uid="uid://cgkae6nous5vh" path="res://art_assets/environment/Biome1/Level1/Level1Working_MountainScapeAlpha.png" id="21_rquws"]
-[ext_resource type="Texture2D" uid="uid://ddg5q5f0u2h6d" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_button_square.svg" id="21_t7605"]
 [ext_resource type="Texture2D" uid="uid://vqml4pj02ucs" path="res://shaders/grass - Dylearn/Textures and Materials/Albedo2Noise.tres" id="21_tib8f"]
 [ext_resource type="Shader" uid="uid://bvjdruuput33e" path="res://shaders/grass - Dylearn/Shaders/Grass.gdshader" id="22_0b1bm"]
 [ext_resource type="Texture2D" uid="uid://lufpdysn8blp" path="res://art_assets/Ui/Kenny Input Prompts/Keyboard & Mouse/Vector/keyboard_shift_outline.svg" id="23_t7605"]
@@ -62,7 +60,9 @@
 [ext_resource type="Texture2D" uid="uid://deidc1m8sqrh" path="res://VFX/Kenny Particle Pack/flame_04.png" id="35_mh5d3"]
 [ext_resource type="Texture2D" uid="uid://cjnelgd3s0blo" path="res://art_assets/Ui/Kenny Input Prompts/Nintendo Switch/Vector/switch_button_b.svg" id="35_xti0b"]
 [ext_resource type="Material" uid="uid://n4gsimn17mbj" path="res://shaders/Fog/LightBeamMaterial.tres" id="37_trr0h"]
+[ext_resource type="Texture2D" uid="uid://4i8xkd1f5bwd" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_button_circle_outline.svg" id="38_k0vot"]
 [ext_resource type="Texture2D" uid="uid://y6tyshqr2b5x" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_button_cross_outline.svg" id="38_y2y7d"]
+[ext_resource type="Texture2D" uid="uid://c0as6jwyqthq7" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_button_circle.svg" id="39_ac2uf"]
 [ext_resource type="Texture2D" uid="uid://cllwn1nmwwpvn" path="res://art_assets/Ui/Kenny Input Prompts/PlayStation Series/Vector/playstation_button_cross.svg" id="39_o8gtt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7oo5e"]
@@ -161,8 +161,8 @@ metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
 [sub_resource type="Resource" id="Resource_2ugvq"]
 script = ExtResource("12_rquws")
 input_type = 3
-unpressed_icon = ExtResource("21_t7605")
-pressed_icon = ExtResource("20_wne8n")
+unpressed_icon = ExtResource("39_ac2uf")
+pressed_icon = ExtResource("38_k0vot")
 metadata/_custom_type_script = "uid://dvsf3dgfmvi38"
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_opvqb"]
@@ -616,16 +616,16 @@ stage = 0
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 14.637955)
 
 [node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(492883031, 1837126418, 1395090033) index="0" unique_id=1156861599]
-bones/14/rotation = Quaternion(-0.07607629, 0.5263676, -0.50692326, 0.6783645)
-bones/15/rotation = Quaternion(-0.15549669, 0.5446493, 0.22995298, 0.79139096)
-bones/16/rotation = Quaternion(-0.51475406, -0.4702444, -0.23029126, 0.67887)
-bones/21/rotation = Quaternion(-0.125152, 0.39735898, -0.47930378, 0.77247053)
-bones/22/rotation = Quaternion(-0.056232587, 0.32523763, 0.16875915, 0.92875123)
-bones/23/rotation = Quaternion(0.1016043, 0.13410425, -0.07907184, 0.98256826)
-bones/38/rotation = Quaternion(-0.35126847, 0.7058058, 0.06055102, 0.6121946)
+bones/14/rotation = Quaternion(-0.06867457, 0.5238235, -0.50637156, 0.6815283)
+bones/15/rotation = Quaternion(-0.16059981, 0.5528996, 0.23155724, 0.7841499)
+bones/16/rotation = Quaternion(-0.5105689, -0.46720412, -0.24563286, 0.678752)
+bones/21/rotation = Quaternion(-0.14673638, 0.39266407, -0.45937258, 0.78310925)
+bones/22/rotation = Quaternion(-0.06539462, 0.3525609, 0.17778733, 0.91641474)
+bones/23/rotation = Quaternion(0.13806729, 0.114751354, -0.07357085, 0.980998)
+bones/38/rotation = Quaternion(-0.34879485, 0.7070259, 0.06269695, 0.611985)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.0026049693, -0.5699984, 0.8216417, -0.4230917, 0.7451089, 0.51556385, -0.906083, -0.3462867, -0.24310267, 0.006060582, 0.007167998, -0.013181804)
+transform = Transform3D(-0.0065816185, -0.5699662, 0.82164174, -0.41785535, 0.74805295, 0.5155712, -0.90848964, -0.3399341, -0.24308681, 0.005998458, 0.0072499085, -0.013219176)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(492883031, 1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -740,19 +740,19 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 
 
 [node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(492883031, 618181988, 1566855500) index="0" unique_id=581899794]
-bones/2/rotation = Quaternion(0.057780772, -0.057612825, 0.7037226, 0.7057739)
-bones/15/rotation = Quaternion(0.013163274, -0.12278009, -0.6649956, 0.73656815)
-bones/16/rotation = Quaternion(-0.040380087, 0.42457324, 0.105508, 0.89831793)
-bones/17/rotation = Quaternion(0.19386184, 0.11565325, -0.25625896, 0.9398795)
-bones/23/rotation = Quaternion(-0.080586545, -0.089885876, -0.6843397, 0.7191005)
-bones/24/rotation = Quaternion(-0.030755604, 0.2754909, 0.12677822, 0.9524107)
-bones/25/rotation = Quaternion(0.0059987875, 0.09370166, -0.17080633, 0.9808207)
-bones/30/rotation = Quaternion(0.013499937, 0.9636699, -0.25218523, -0.08695338)
-bones/31/rotation = Quaternion(0.9853076, -0.018289056, 0.16978835, 0.0025740636)
-bones/32/rotation = Quaternion(0.5457164, -0.40153313, 0.44764906, 0.58358824)
-bones/34/rotation = Quaternion(0.06195714, 0.20930147, 0.017146215, 0.9757358)
-bones/35/rotation = Quaternion(0.97525203, -0.020635514, 0.22009547, 0.0039643687)
-bones/36/rotation = Quaternion(0.5837009, -0.38561183, 0.3920048, 0.5974354)
+bones/2/rotation = Quaternion(0.035829987, -0.03572585, 0.7051725, 0.7072282)
+bones/15/rotation = Quaternion(0.018094884, -0.10701023, -0.6665341, 0.7375322)
+bones/16/rotation = Quaternion(-0.036649656, 0.4008606, 0.10423819, 0.90945154)
+bones/17/rotation = Quaternion(0.1841169, 0.09570851, -0.2552479, 0.944346)
+bones/23/rotation = Quaternion(-0.08197006, -0.08829117, -0.6841245, 0.7193464)
+bones/24/rotation = Quaternion(-0.030853637, 0.27607813, 0.12687953, 0.9522241)
+bones/25/rotation = Quaternion(0.0006504555, 0.06410778, -0.17651238, 0.9822084)
+bones/30/rotation = Quaternion(0.0043651764, 0.96813, -0.2502992, -0.007462835)
+bones/31/rotation = Quaternion(0.99689955, -0.012698675, 0.07765061, 0.00073682755)
+bones/32/rotation = Quaternion(0.56430066, -0.37648994, 0.42595372, 0.5986515)
+bones/34/rotation = Quaternion(0.061107203, 0.13398562, 0.014072984, 0.98899734)
+bones/35/rotation = Quaternion(0.9895502, -0.01627771, 0.1432545, 0.0019035432)
+bones/36/rotation = Quaternion(0.59597266, -0.36432976, 0.3745096, 0.6097729)
 
 [node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(492883031, 618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)

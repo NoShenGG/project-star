@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://cvw6ajdumfkos" path="res://scripts/entities/player/nova/nova_dummy_anim.gd" id="24_svdc4"]
 [ext_resource type="Script" path="res://scripts/utility/ui_consumable.gd" id="25_66khj"]
 [ext_resource type="Script" uid="uid://dhp5dxiok3t8i" path="res://scripts/dev/debug_render_hitboxes.gd" id="25_qvekr"]
+[ext_resource type="Script" uid="uid://dw33lw4fgmp0w" path="res://scripts/utility/UI_3D_Hider.gd" id="25_v1pct"]
 [ext_resource type="PackedScene" uid="uid://cjsubaculljwy" path="res://art_assets/characters/Rene/rene.glb" id="26_27ayv"]
 [ext_resource type="PackedScene" uid="uid://c3hpdu6n1fa6d" path="res://scenes/dev/anth/dissolveFX.tscn" id="26_66khj"]
 [ext_resource type="Script" uid="uid://frt2deamdebe" path="res://scripts/entities/player/rene/rene_construct.gd" id="27_6n52q"]
@@ -33,6 +34,7 @@
 [ext_resource type="Shader" uid="uid://cw2eeqmautiwo" path="res://shaders/grass - Dylearn/Shaders/ToonShader.gdshader" id="29_v1pct"]
 [ext_resource type="Shader" uid="uid://crwsrlgfy4fjb" path="res://shaders/grass - Dylearn/Shaders/Outline.gdshader" id="30_2qu1h"]
 [ext_resource type="PackedScene" uid="uid://bj2tgvkpsohid" path="res://VFX/dashFX.tscn" id="37_o1ymb"]
+[ext_resource type="Script" uid="uid://b23m0ymm5td5r" path="res://scripts/utility/3d_2d_ui.gd" id="37_v1pct"]
 [ext_resource type="Script" uid="uid://bk677e0jvjhsw" path="res://scripts/entities/HurtVFX.gd" id="39_wjvim"]
 [ext_resource type="Script" uid="uid://hrugoc51xhma" path="res://VFX/AutoStartVFX.gd" id="40_cjioh"]
 [ext_resource type="Script" uid="uid://bcubk2sk2mcrl" path="res://scripts/entities/player/IFrameFlash.gd" id="41_py2kl"]
@@ -372,7 +374,7 @@ albedo_color = Color(0.697, 0.73270005, 0.85, 0.078431375)
 collision_layer = 6
 collision_mask = 13
 script = ExtResource("1_njlal")
-ui_counters = [NodePath("ReneUI/HBoxContainer/Center/Charge1"), NodePath("ReneUI/HBoxContainer/Center2/Charge2"), NodePath("ReneUI/HBoxContainer/Center3/Charge3"), NodePath("ReneUI/HBoxContainer/Center4/Charge4")]
+ui_counters = [NodePath("ReneUI/Charge1"), NodePath("ReneUI/Charge2"), NodePath("ReneUI/Charge3"), NodePath("ReneUI/Charge4")]
 construct = NodePath("Hitboxes/Construct")
 targetting_box = NodePath("Hitboxes/Vision")
 max_click_time = 0.4
@@ -669,76 +671,74 @@ Charged Left Click = Charged Slash
 "
 
 [node name="ReneUI" type="Control" parent="." unique_id=1486202886]
+z_index = 5
 layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -268.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="HBoxContainer" type="VBoxContainer" parent="ReneUI" unique_id=1301167176]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -134.0
+offset_right = 127.0
+offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(32, 32)
+script = ExtResource("25_v1pct")
 
-[node name="Center" type="CenterContainer" parent="ReneUI/HBoxContainer" unique_id=961201797]
-layout_mode = 2
-
-[node name="Charge1" type="TextureRect" parent="ReneUI/HBoxContainer/Center" unique_id=911115523]
-visible = false
+[node name="Charge1" type="TextureRect" parent="ReneUI" unique_id=911115523]
 modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+layout_mode = 0
+offset_left = -37.0
+offset_top = 7.0
+offset_right = 27.0
+offset_bottom = 71.0
+pivot_offset = Vector2(32, 32)
 texture = ExtResource("24_rij6b")
 expand_mode = 2
 script = ExtResource("25_66khj")
 fade_in = SubResource("Curve_nhxyw")
 fade_out = SubResource("Curve_27ayv")
 
-[node name="Center2" type="CenterContainer" parent="ReneUI/HBoxContainer" unique_id=1070031794]
-layout_mode = 2
-
-[node name="Charge2" type="TextureRect" parent="ReneUI/HBoxContainer/Center2" unique_id=678065083]
-visible = false
+[node name="Charge2" type="TextureRect" parent="ReneUI" unique_id=678065083]
 modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+layout_mode = 0
+offset_left = -64.00001
+offset_top = -13.0
+offset_bottom = 51.0
+scale = Vector2(1.010288, 1.010288)
+pivot_offset = Vector2(32, 32)
 texture = ExtResource("24_rij6b")
 expand_mode = 2
 script = ExtResource("25_66khj")
 fade_in = SubResource("Curve_6n52q")
 fade_out = SubResource("Curve_ohtv4")
 
-[node name="Center3" type="CenterContainer" parent="ReneUI/HBoxContainer" unique_id=478782789]
-layout_mode = 2
-
-[node name="Charge3" type="TextureRect" parent="ReneUI/HBoxContainer/Center3" unique_id=318877313]
-visible = false
+[node name="Charge3" type="TextureRect" parent="ReneUI" unique_id=318877313]
 modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+layout_mode = 0
+offset_left = -64.0
+offset_top = -50.0
+offset_bottom = 14.0
+pivot_offset = Vector2(32, 32)
 texture = ExtResource("24_rij6b")
 expand_mode = 2
 script = ExtResource("25_66khj")
 fade_in = SubResource("Curve_ovtx8")
 fade_out = SubResource("Curve_r8iwf")
 
-[node name="Center4" type="CenterContainer" parent="ReneUI/HBoxContainer" unique_id=2131595954]
-layout_mode = 2
-
-[node name="Charge4" type="TextureRect" parent="ReneUI/HBoxContainer/Center4" unique_id=872430372]
-visible = false
+[node name="Charge4" type="TextureRect" parent="ReneUI" unique_id=872430372]
 modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
+layout_mode = 0
+offset_left = -37.0
+offset_top = -71.0
+offset_right = 27.0
+offset_bottom = -7.0
+pivot_offset = Vector2(32, 32)
 texture = ExtResource("24_rij6b")
 expand_mode = 2
 script = ExtResource("25_66khj")
@@ -897,6 +897,12 @@ meshes_root = NodePath("../rene")
 flash_overlay = SubResource("StandardMaterial3D_lcr6p")
 flash_speed = 15.0
 min_a = 10
+
+[node name="SpecialPivotUI2" type="Node3D" parent="." unique_id=1867713058 node_paths=PackedStringArray("ui")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -4.586, 0, 0.04)
+visible = false
+script = ExtResource("37_v1pct")
+ui = NodePath("../ReneUI")
 
 [connection signal="hurt" from="." to="Hurt SFX" method="play_one_shot" unbinds=1]
 [connection signal="killed" from="." to="Death SFX" method="play_one_shot"]

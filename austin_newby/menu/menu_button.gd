@@ -87,7 +87,7 @@ func _on_focus_enter():
 		%"Button Hover SFX".play(true)
 		print("play")
 func _on_focus_exit():
-	if (!menu.is_open or menu.transitioning): return
+	if (!menu.is_open or menu.transitioning) or (has_focus() or is_hovered()): return
 	if (tween): tween.kill()
 	
 	tween = create_tween()
