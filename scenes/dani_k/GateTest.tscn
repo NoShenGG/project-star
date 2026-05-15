@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://btebp8qd4usuy"]
+
+[ext_resource type="ArrayMesh" uid="uid://ni60ris2f5rn" path="res://scenes/dani_k/JTAS-Gate.obj" id="1_wvcpv"]
+[ext_resource type="Shader" uid="uid://pls7m2ck7wvn" path="res://scenes/dani_k/GateTex.tres" id="2_h2gyn"]
+[ext_resource type="Script" uid="uid://dtgf5tmek2eqp" path="res://scenes/dani_k/gateNew.gd" id="2_s0enp"]
+[ext_resource type="Shader" uid="uid://0x5jkvt875r3" path="res://scenes/dani_k/Gate.tres" id="3_5sq78"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0enp"]
+render_priority = 0
+shader = ExtResource("2_h2gyn")
+shader_parameter/Locked = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tltx6"]
+size = Vector2(2.625, 3.69)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmckd"]
+render_priority = 0
+shader = ExtResource("3_5sq78")
+shader_parameter/Locked = false
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2gyn"]
+size = Vector3(1, 4.8637695, 8.879822)
+
+[node name="Gate" type="StaticBody3D" unique_id=1204719514]
+script = ExtResource("2_s0enp")
+metadata/_custom_type_script = "uid://dtgf5tmek2eqp"
+
+[node name="GateModel" type="MeshInstance3D" parent="." unique_id=235893836]
+mesh = ExtResource("1_wvcpv")
+surface_material_override/2 = SubResource("ShaderMaterial_s0enp")
+
+[node name="Plane" type="MeshInstance3D" parent="." unique_id=447780809]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.031193256, 1.9831219, 1.9378643)
+mesh = SubResource("PlaneMesh_tltx6")
+surface_material_override/0 = SubResource("ShaderMaterial_vmckd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=269017913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9318848, 1.9188538)
+shape = SubResource("BoxShape3D_h2gyn")

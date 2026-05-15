@@ -1,0 +1,115 @@
+[gd_resource type="VisualShader" format=3 uid="uid://0x5jkvt875r3"]
+
+[ext_resource type="Texture2D" uid="uid://b0bku7fmfgx8q" path="res://scenes/dani_k/ScanlineTex.png" id="1_ym0tv"]
+[ext_resource type="Script" uid="uid://810pjajnct52" path="res://addons/shaderV/uv/transformUV.gd" id="2_487y1"]
+[ext_resource type="Script" uid="uid://br82640cmtanu" path="res://addons/shaderV/rgba/noise/worley3d.gd" id="3_487y1"]
+[ext_resource type="Script" uid="uid://cnne3rbu0jpid" path="res://addons/shaderV/uv/rotate.gd" id="4_dov5i"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_cfidj"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_y6yfc"]
+expanded_output_ports = [0]
+texture = ExtResource("1_ym0tv")
+
+[sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_cy4e8"]
+default_input_values = [1, Vector3(0, 0.35, 0), 2, Vector3(1, 1, 0), 3, Vector3(0.5, 0.5, 0), 4, 0.0, 5, Vector3(0.5, 0.5, 0)]
+initialized = true
+script = ExtResource("2_487y1")
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_vqbko"]
+default_input_values = [0, 0.0, 1, 0.35, 2, 0.0]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_wuqc2"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_ou3c0"]
+default_input_values = [0, 0.0, 1, 0.1]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_gr5i7"]
+default_input_values = [0, 0.4, 1, 0.0]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_newgh"]
+default_input_values = [0, 1.0, 1, 0.02, 2, 0.05]
+
+[sub_resource type="VisualShaderNodeSwitch" id="VisualShaderNodeSwitch_8084v"]
+default_input_values = [0, true, 1, Vector3(1, 1, 1), 2, Vector3(0, 0, 0)]
+op_type = 4
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_3jju8"]
+default_input_values = [0, 0.02, 1, 0.7, 2, 0.05]
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_t4vvu"]
+parameter_name = "Locked"
+default_value_enabled = true
+default_value = true
+
+[sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_xw5nh"]
+output_port_for_preview = 0
+default_input_values = [1, Vector3(0, 0, 0), 2, 3.0, 3, 2.94, 4, 0.0]
+initialized = true
+script = ExtResource("3_487y1")
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_dov5i"]
+output_port_for_preview = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_xt832"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_gk1t8"]
+default_input_values = [0, 0.0, 1, 0.3]
+operator = 2
+
+[sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_3krxb"]
+output_port_for_preview = 0
+default_input_values = [1, 1.5699999999999998, 2, Vector3(0.5, 0.5, 0)]
+expanded_output_ports = [0]
+initialized = true
+script = ExtResource("4_dov5i")
+
+[sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_64crh"]
+billboard_type = 3
+
+[resource]
+modes/cull = 2
+flags/unshaded = true
+flags/shadows_disabled = true
+nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_64crh")
+nodes/vertex/2/position = Vector2(20, 400)
+nodes/fragment/0/position = Vector2(760, 60)
+nodes/fragment/9/node = SubResource("VisualShaderNodeCustom_3krxb")
+nodes/fragment/9/position = Vector2(-1700, 640)
+nodes/fragment/10/node = SubResource("VisualShaderNodeInput_cfidj")
+nodes/fragment/10/position = Vector2(-2040, 760)
+nodes/fragment/12/node = SubResource("VisualShaderNodeTexture_y6yfc")
+nodes/fragment/12/position = Vector2(-880, 380)
+nodes/fragment/14/node = SubResource("VisualShaderNodeCustom_cy4e8")
+nodes/fragment/14/position = Vector2(-1280, 420)
+nodes/fragment/15/node = SubResource("VisualShaderNodeVectorCompose_vqbko")
+nodes/fragment/15/position = Vector2(-1680, 360)
+nodes/fragment/16/node = SubResource("VisualShaderNodeInput_wuqc2")
+nodes/fragment/16/position = Vector2(-2200, 420)
+nodes/fragment/17/node = SubResource("VisualShaderNodeFloatOp_ou3c0")
+nodes/fragment/17/position = Vector2(-1880, 420)
+nodes/fragment/23/node = SubResource("VisualShaderNodeFloatOp_gr5i7")
+nodes/fragment/23/position = Vector2(-600, 280)
+nodes/fragment/24/node = SubResource("VisualShaderNodeVectorCompose_newgh")
+nodes/fragment/24/position = Vector2(-580, -160)
+nodes/fragment/25/node = SubResource("VisualShaderNodeSwitch_8084v")
+nodes/fragment/25/position = Vector2(-200, 0)
+nodes/fragment/26/node = SubResource("VisualShaderNodeVectorCompose_3jju8")
+nodes/fragment/26/position = Vector2(-580, 60)
+nodes/fragment/28/node = SubResource("VisualShaderNodeBooleanParameter_t4vvu")
+nodes/fragment/28/position = Vector2(-960, -320)
+nodes/fragment/29/node = SubResource("VisualShaderNodeCustom_xw5nh")
+nodes/fragment/29/position = Vector2(-920, 760)
+nodes/fragment/30/node = SubResource("VisualShaderNodeFloatOp_dov5i")
+nodes/fragment/30/position = Vector2(-240, 420)
+nodes/fragment/31/node = SubResource("VisualShaderNodeInput_xt832")
+nodes/fragment/31/position = Vector2(-1380, 860)
+nodes/fragment/32/node = SubResource("VisualShaderNodeFloatOp_gk1t8")
+nodes/fragment/32/position = Vector2(-1100, 860)
+nodes/fragment/connections = PackedInt32Array(10, 0, 9, 0, 9, 0, 14, 0, 14, 0, 12, 0, 15, 0, 14, 1, 16, 0, 17, 0, 12, 4, 23, 1, 24, 0, 25, 1, 26, 0, 25, 2, 25, 0, 0, 0, 28, 0, 25, 0, 17, 0, 15, 1, 29, 0, 30, 1, 31, 0, 32, 0, 32, 0, 29, 4, 30, 0, 0, 1, 23, 0, 30, 0)
