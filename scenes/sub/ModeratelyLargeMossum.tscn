@@ -45,8 +45,8 @@ shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
 shader_parameter/shell_idx = 0
-shader_parameter/shell_displacement = 0.08
-shader_parameter/min_ambient_occlusion = 0.4
+shader_parameter/shell_displacement = 0.03
+shader_parameter/min_ambient_occlusion = 0.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6654o"]
 render_priority = 0
@@ -57,8 +57,8 @@ shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
 shader_parameter/shell_idx = 1
-shader_parameter/shell_displacement = 0.08
-shader_parameter/min_ambient_occlusion = 0.4
+shader_parameter/shell_displacement = 0.03
+shader_parameter/min_ambient_occlusion = 0.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r26gw"]
 render_priority = 0
@@ -69,8 +69,8 @@ shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
 shader_parameter/shell_idx = 2
-shader_parameter/shell_displacement = 0.08
-shader_parameter/min_ambient_occlusion = 0.4
+shader_parameter/shell_displacement = 0.03
+shader_parameter/min_ambient_occlusion = 0.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h2qck"]
 render_priority = 0
@@ -81,8 +81,8 @@ shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
 shader_parameter/shell_idx = 3
-shader_parameter/shell_displacement = 0.08
-shader_parameter/min_ambient_occlusion = 0.4
+shader_parameter/shell_displacement = 0.03
+shader_parameter/min_ambient_occlusion = 0.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1o7cq"]
 render_priority = 0
@@ -93,8 +93,8 @@ shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
 shader_parameter/shell_idx = 4
-shader_parameter/shell_displacement = 0.08
-shader_parameter/min_ambient_occlusion = 0.4
+shader_parameter/shell_displacement = 0.03
+shader_parameter/min_ambient_occlusion = 0.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b2xku"]
 render_priority = 0
@@ -105,8 +105,8 @@ shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
 shader_parameter/shell_idx = 5
-shader_parameter/shell_displacement = 0.08
-shader_parameter/min_ambient_occlusion = 0.4
+shader_parameter/shell_displacement = 0.03
+shader_parameter/min_ambient_occlusion = 0.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_41ax5"]
 render_priority = 0
@@ -117,8 +117,8 @@ shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
 shader_parameter/shell_idx = 6
-shader_parameter/shell_displacement = 0.08
-shader_parameter/min_ambient_occlusion = 0.4
+shader_parameter/shell_displacement = 0.03
+shader_parameter/min_ambient_occlusion = 0.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d00jb"]
 render_priority = 0
@@ -129,8 +129,8 @@ shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
 shader_parameter/shell_idx = 7
-shader_parameter/shell_displacement = 0.08
-shader_parameter/min_ambient_occlusion = 0.4
+shader_parameter/shell_displacement = 0.03
+shader_parameter/min_ambient_occlusion = 0.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2mnk"]
 render_priority = 0
@@ -141,8 +141,8 @@ shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
 shader_parameter/shell_idx = 8
-shader_parameter/shell_displacement = 0.08
-shader_parameter/min_ambient_occlusion = 0.4
+shader_parameter/shell_displacement = 0.03
+shader_parameter/min_ambient_occlusion = 0.39
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gsemf"]
 render_priority = 0
@@ -153,8 +153,8 @@ shader_parameter/texture_scale = 1.0
 shader_parameter/tint = Vector3(1, 1, 1)
 shader_parameter/shell_count = 10
 shader_parameter/shell_idx = 9
-shader_parameter/shell_displacement = 0.08
-shader_parameter/min_ambient_occlusion = 0.4
+shader_parameter/shell_displacement = 0.03
+shader_parameter/min_ambient_occlusion = 0.39
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efqdf"]
 transparency = 2
@@ -582,6 +582,185 @@ tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = PackedFloat32Array(0, 1, 0.029325606, -0.7416563, 0.22527184, 0.6311407, 0.033333335, 1, -0.034435485, -0.74248993, 0.1412386, 0.65389186, 0.06666667, 1, -0.111729905, -0.7323526, 0.012675852, 0.67157686, 0.1, 1, -0.16104376, -0.73315907, -0.075354084, 0.65640265, 0.13333334, 1, -0.18573633, -0.76416004, -0.102525845, 0.60913867, 0.16666667, 1, -0.22851518, -0.8090699, -0.11316592, 0.5295094, 0.2, 1, -0.1996418, -0.7806214, -0.11113019, 0.5817418, 0.23333333, 1, -0.098064214, -0.75300074, 0.016510362, 0.65046185, 0.26666668, 1, 0.03556309, -0.69915426, 0.1838944, 0.69000113, 0.3, 1, 0.14331877, -0.64346683, 0.3093741, 0.6853451, 0.33333334, 1, 0.16405918, -0.6564718, 0.33321837, 0.6565782, 0.36666667, 1, 0.09905915, -0.7034043, 0.2840187, 0.64400554, 0.4, 1, 0.057985093, -0.7282564, 0.25235, 0.6345076, 0.43333334, 1, 0.036634065, -0.7389972, 0.2338472, 0.6307587, 0.46666667, 1, 0.029325604, -0.7416563, 0.22527182, 0.6311407, 0.5, 1, 0.029325604, -0.7416563, 0.22527182, 0.6311407)
 
+[sub_resource type="Animation" id="Animation_ddhr7"]
+resource_name = "hurt"
+length = 0.25
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton3D:model_hips")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.00019545385, 0.17574205, 0.00048574703, 0.033333335, 1, -0.028880903, 0.19376473, 0.0005881301, 0.06666667, 1, -0.058150504, 0.21647343, 0.0012463618, 0.1, 1, -0.08268003, 0.23574328, 0.0020690432, 0.13333334, 1, -0.09973313, 0.24579717, 0.0006366377, 0.16666667, 1, -0.1087704, 0.24320577, -0.0074985228)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton3D:model_hips")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.70516247, 0.05240265, -0.70516235, -0.05240265, 0.033333335, 1, -0.6989686, 0.10330879, -0.7002593, -0.10201514, 0.06666667, 1, 0.6866236, -0.15695782, 0.69429266, 0.14788532, 0.1, 1, 0.6609504, -0.12501769, 0.73365045, 0.09629255, 0.13333334, 1, 0.60343057, 0.0028926192, 0.7961763, -0.044346333, 0.16666667, 1, 0.5190519, 0.14977594, 0.8269875, -0.15570474)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton3D:model_tailbone_001")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, -9.139114e-08, 0, 1)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton3D:model_tail_001")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.13635479, -0.10856267, 0.001153534, 0.98469293, 0.033333335, 1, 0.14074889, -0.12950034, 0.010189535, 0.98148644, 0.06666667, 1, 0.15057248, -0.168816, 0.028028019, 0.9736753, 0.1, 1, 0.10350582, -0.21692923, 0.03385777, 0.97009385, 0.13333334, 1, -0.0026204959, -0.2598776, 0.02035567, 0.96542346, 0.16666667, 1, -0.10785937, -0.28219345, -0.0056936005, 0.95325804)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = true
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton3D:model_tail_002")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.039256018, -0.16462144, -0.1956295, 0.96596473, 0.033333335, 1, 0.01858168, -0.15625633, -0.18145277, 0.97072846, 0.06666667, 1, -0.024753358, -0.14212112, -0.15129866, 0.9779047, 0.1, 1, -0.08162985, -0.12810108, -0.11103643, 0.98213935, 0.13333334, 1, -0.14198512, -0.11820313, -0.067576215, 0.9804599, 0.16666667, 1, -0.19520824, -0.11463652, -0.028814089, 0.97361284)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = true
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton3D:model_spine_001")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -1, 0, 7.5497894e-08, 0)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = true
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton3D:model_spine_002")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.14142135, 0, 0, 0.98994946)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = true
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton3D:model_neck")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.11740456, -7.67093e-08, 0, 0.9930842, 0.1, 1, 0.117404565, -7.542228e-08, 0, 0.9930842, 0.13333334, 1, 0.19910422, -7.105217e-08, -1.0783286e-08, 0.9799783, 0.16666667, 1, 0.50683963, -5.0320008e-08, -5.245041e-08, 0.8620404)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = true
+tracks/8/enabled = true
+tracks/8/path = NodePath("Skeleton3D:model_head")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, -0.36583066, -3.8835932e-08, 9.879948e-08, 0.93068147)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = true
+tracks/9/enabled = true
+tracks/9/path = NodePath("Skeleton3D:model_backThigh_R")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0.6914346, -0.06346727, -0.016118074, 0.7194653, 0.033333335, 1, 0.8965187, -0.07390067, 0.0004030608, 0.43679833, 0.06666667, 1, -0.9777423, 0.09240866, -0.013341309, -0.1878901, 0.1, 1, -0.9288753, 0.3174167, -0.09748929, -0.16411361, 0.13333334, 1, -0.6605439, 0.6502073, -0.1902947, -0.32357407, 0.16666667, 1, 0.3563792, -0.8007127, 0.12821324, 0.4641276)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = true
+tracks/10/enabled = true
+tracks/10/path = NodePath("Skeleton3D:model_backLeg_R")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0.3269951, 0.0014813326, 0.0040532365, 0.94501626, 0.033333335, 1, -0.07114826, -0.0002408351, -0.00093139947, 0.99746525, 0.06666667, 1, -0.3522311, -0.00028174964, -0.0048095244, 0.9359007, 0.1, 1, -0.3617776, -0.0002989324, -0.00494005, 0.93225133, 0.13333334, 1, -0.082411215, -0.00018846098, -0.0011092894, 0.99659777, 0.16666667, 1, 0.3698438, 0.0018934356, 0.0045277774, 0.929081)
+tracks/11/type = "rotation_3d"
+tracks/11/imported = true
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skeleton3D:model_backFoot_R")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 0.39575619, 0.0008404051, -0.064896025, 0.91605943, 0.033333335, 1, 0.50560206, 0.011066429, -0.06764898, 0.8600395, 0.06666667, 1, 0.5858856, 0.020892652, -0.07482646, 0.8066615, 0.1, 1, 0.5482632, 0.03864688, -0.27456135, 0.78900576, 0.13333334, 1, 0.36706674, 0.036080718, -0.5767274, 0.7289347, 0.16666667, 1, 0.2416295, -0.038979746, -0.6976601, 0.6733247)
+tracks/12/type = "rotation_3d"
+tracks/12/imported = true
+tracks/12/enabled = true
+tracks/12/path = NodePath("Skeleton3D:model_frontThigh_R")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, 0.8533858, 0.0267581, 0.0061588287, 0.5205562, 0.033333335, 1, 0.28863424, 0.9295725, 0.15594874, 0.1681223, 0.06666667, 1, -0.024537794, -0.956496, -0.2904766, -0.01169216, 0.1, 1, -0.2874754, -0.88221264, -0.28609952, -0.23917732, 0.13333334, 1, 0.6326621, 0.5577488, 0.0639071, 0.53345186, 0.16666667, 1, 0.6972671, 0.3952326, -0.041111812, 0.59659)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = true
+tracks/13/enabled = true
+tracks/13/path = NodePath("Skeleton3D:model_frontLeg_R")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, 0.5789698, 0.004743381, 0.0064411326, 0.81530976, 0.033333335, 1, 0.6091335, 0.0052877227, 0.006636128, 0.79302233, 0.06666667, 1, 0.5914398, 0.0049692765, 0.006520819, 0.80630755, 0.1, 1, 0.545669, 0.0042073578, 0.0061816243, 0.8379675, 0.13333334, 1, 0.3623029, 0.0029229852, 0.004137532, 0.9320467, 0.16666667, 1, -0.2446258, 3.0906336e-05, -0.0031743532, 0.96961236)
+tracks/14/type = "rotation_3d"
+tracks/14/imported = true
+tracks/14/enabled = true
+tracks/14/path = NodePath("Skeleton3D:model_frontFoot_R")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = PackedFloat32Array(0, 1, -0.13458455, 0.008027751, 0.02163515, 0.99063337, 0.033333335, 1, -0.061536953, 0.46941075, 0.81596154, 0.33177352, 0.06666667, 1, -0.018459171, 0.40420526, 0.9142332, 0.021335954, 0.1, 1, -0.018536601, 0.31858838, 0.8872791, 0.3330071, 0.13333334, 1, 0.07023969, 0.16455896, 0.6245797, 0.76018876, 0.16666667, 1, 0.41017166, -0.09416119, 0.5238377, 0.7405991)
+tracks/15/type = "rotation_3d"
+tracks/15/imported = true
+tracks/15/enabled = true
+tracks/15/path = NodePath("Skeleton3D:model_backThigh_L")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = PackedFloat32Array(0, 1, 0.8153712, 0.24127053, 0.008464858, 0.52620023, 0.033333335, 1, 0.94660866, 0.22439313, -0.03592799, 0.22866783, 0.06666667, 1, -0.97858506, -0.18099554, 0.03021153, -0.093270175, 0.1, 1, -0.9653584, -0.02505745, -0.019693177, -0.2589742, 0.13333334, 1, 0.72962254, -0.22556445, 0.06974651, 0.6417998, 0.16666667, 1, 0.19429164, -0.36940497, 0.03328924, 0.9081204)
+tracks/16/type = "rotation_3d"
+tracks/16/imported = true
+tracks/16/enabled = true
+tracks/16/path = NodePath("Skeleton3D:model_backLeg_L")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = PackedFloat32Array(0, 1, 0.18143778, -0.00046927214, -0.0023164167, 0.98339957, 0.033333335, 1, -0.34436333, -9.0878726e-05, 0.004821821, 0.93882406, 0.06666667, 1, -0.46626207, 1.2194471e-05, 0.0064700586, 0.884623, 0.1, 1, -0.20156296, -0.00028059274, 0.0029080138, 0.9794713, 0.13333334, 1, 0.32399413, -0.0020269635, -0.0037372047, 0.94604963, 0.16666667, 1, 0.695326, -0.007047872, -0.007038879, 0.7186255)
+tracks/17/type = "rotation_3d"
+tracks/17/imported = true
+tracks/17/enabled = true
+tracks/17/path = NodePath("Skeleton3D:model_backFoot_L")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = PackedFloat32Array(0, 1, 0.31221798, 0.015411139, 0.24032412, 0.91898143, 0.033333335, 1, 0.5482104, -0.04558444, 0.21481466, 0.80699575, 0.06666667, 1, 0.6017586, -0.051225636, 0.17591844, 0.7773772, 0.1, 1, 0.46425164, -0.032515187, 0.06297656, 0.88286316, 0.13333334, 1, 0.23107688, -0.013512073, -0.100700036, 0.96761584, 0.16666667, 1, 0.24503605, -0.021026501, -0.184408, 0.9515823)
+tracks/18/type = "rotation_3d"
+tracks/18/imported = true
+tracks/18/enabled = true
+tracks/18/path = NodePath("Skeleton3D:model_frontThigh_L")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = PackedFloat32Array(0, 1, 0.4789518, 0.04798525, 0.034743834, 0.8758398, 0.033333335, 1, 0.7540705, 0.34518275, 0.081584536, 0.5527844, 0.06666667, 1, -0.43131757, -0.8409016, -0.223666, -0.2383761, 0.1, 1, -0.3624009, -0.84357977, -0.2351779, -0.31895176, 0.13333334, 1, 0.6465345, 0.39056143, 0.107582584, 0.6464371, 0.16666667, 1, 0.6191303, 0.25574192, 0.066642605, 0.7394813)
+tracks/19/type = "rotation_3d"
+tracks/19/imported = true
+tracks/19/enabled = true
+tracks/19/path = NodePath("Skeleton3D:model_frontLeg_L")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = PackedFloat32Array(0, 1, 0.7633024, -0.008713828, -0.007116499, 0.6459434, 0.033333335, 1, 0.7370055, -0.00804126, -0.0071119354, 0.6758015, 0.06666667, 1, 0.49392986, -0.0040860255, -0.0053272024, 0.86947584, 0.1, 1, 0.38747072, -0.002201643, -0.0046604867, 0.9218677, 0.13333334, 1, 0.35984403, -0.0028888623, -0.00411494, 0.932999, 0.16666667, 1, -0.24462584, -3.0173649e-05, 0.0031744617, 0.96961236)
+tracks/20/type = "rotation_3d"
+tracks/20/imported = true
+tracks/20/enabled = true
+tracks/20/path = NodePath("Skeleton3D:model_frontFoot_L")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = PackedFloat32Array(0, 1, 0.13726087, 0.014675902, 0.05388946, 0.9889591, 0.033333335, 1, -0.17357896, 0.20638157, 0.2908283, 0.9179847, 0.06666667, 1, -0.099991165, 0.22740307, 0.8444506, 0.47454494, 0.1, 1, 0.048535444, 0.16605917, 0.8804873, 0.44137388, 0.13333334, 1, 0.18149751, 0.082988724, 0.48929882, 0.8489748, 0.16666667, 1, 0.5955448, -0.14165482, 0.36212707, 0.70293975)
+tracks/21/type = "rotation_3d"
+tracks/21/imported = true
+tracks/21/enabled = true
+tracks/21/path = NodePath("Skeleton3D:model_tail_003")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = PackedFloat32Array(0, 1, 0, 0.33857578, 0, 0.9409391, 0.033333335, 1, -0.014204293, 0.33853725, 0.005111107, 0.94083196, 0.06666667, 1, -0.04437361, 0.33819908, 0.015966864, 0.93989223, 0.1, 1, -0.08511244, 0.33718783, 0.030625835, 0.9370819, 0.16666667, 1, -0.17650834, 0.33256537, 0.06351264, 0.9242356)
+tracks/22/type = "rotation_3d"
+tracks/22/imported = true
+tracks/22/enabled = true
+tracks/22/path = NodePath("Skeleton3D:model_tail_004")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = PackedFloat32Array(0, 1, -0.05298553, 0.019728547, -0.7402244, 0.66997856)
+tracks/23/type = "position_3d"
+tracks/23/imported = true
+tracks/23/enabled = true
+tracks/23/path = NodePath("Skeleton3D:model_sword_joint")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = PackedFloat32Array(0, 1, -0.3734652, 0.16234113, 0.036524925, 0.033333335, 1, -0.39771727, 0.24034527, 0.04121999, 0.06666667, 1, -0.40798083, 0.32680252, 0.051173255, 0.1, 1, -0.42549956, 0.34757212, 0.037087105, 0.13333334, 1, -0.44375175, 0.29753235, -0.00919812, 0.16666667, 1, -0.42845023, 0.2405806, -0.074704066)
+tracks/24/type = "rotation_3d"
+tracks/24/imported = true
+tracks/24/enabled = true
+tracks/24/path = NodePath("Skeleton3D:model_sword_joint")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = PackedFloat32Array(0, 1, 0.029325606, -0.7416563, 0.22527184, 0.6311407, 0.033333335, 1, -0.034435485, -0.74248993, 0.1412386, 0.65389186, 0.06666667, 1, -0.111729905, -0.7323526, 0.012675852, 0.67157686, 0.1, 1, -0.16104376, -0.73315907, -0.075354084, 0.65640265, 0.13333334, 1, -0.18573633, -0.76416004, -0.102525845, 0.60913867, 0.16666667, 1, -0.22851518, -0.8090699, -0.11316592, 0.5295094)
+
 [sub_resource type="Animation" id="Animation_8o5ev"]
 resource_name = "idle"
 length = 0.8333333
@@ -946,9 +1125,18 @@ tracks/24/keys = PackedFloat32Array(0, 1, 0.029325604, -0.7416563, 0.22527182, 0
 _data = {
 &"attack": SubResource("Animation_ryfo6"),
 &"hurt": SubResource("Animation_sm1im"),
+&"hurt (2)": SubResource("Animation_ddhr7"),
 &"idle": SubResource("Animation_8o5ev"),
 &"run": SubResource("Animation_6lb2m")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ddhr7"]
+animation = &"hurt (2)"
+use_custom_timeline = true
+timeline_length = 2.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8o5ev"]
 animation = &"attack"
@@ -976,30 +1164,60 @@ xfade_time = 0.2
 xfade_time = 0.2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jf3l3"]
+xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ddhr7"]
+xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1rpqf"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6654o"]
+xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r26gw"]
+xfade_time = 0.3
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h2qck"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1o7cq"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b2xku"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_41ax5"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ymtjq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6unue"]
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d00jb"]
+xfade_time = 0.3
+
+[sub_resource type="Curve" id="Curve_ddhr7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 1), 2.7302349, 2.7302349, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f2mnk"]
+xfade_time = 0.5
+xfade_curve = SubResource("Curve_ddhr7")
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_18w0e"]
+"states/Pre Attack/node" = SubResource("AnimationNodeAnimation_ddhr7")
+"states/Pre Attack/position" = Vector2(267.00003, 217.59999)
 states/attack/node = SubResource("AnimationNodeAnimation_8o5ev")
-states/attack/position = Vector2(391, 199)
+states/attack/position = Vector2(441.4, 271.8)
 states/hurt/node = SubResource("AnimationNodeAnimation_6lb2m")
 states/hurt/position = Vector2(489, 92)
 states/idle/node = SubResource("AnimationNodeAnimation_jekpj")
 states/idle/position = Vector2(312, 100)
 states/run/node = SubResource("AnimationNodeAnimation_0fapi")
 states/run/position = Vector2(391, 51)
-transitions = ["idle", "attack", SubResource("AnimationNodeStateMachineTransition_8l553"), "attack", "hurt", SubResource("AnimationNodeStateMachineTransition_v2wbi"), "hurt", "attack", SubResource("AnimationNodeStateMachineTransition_efqdf"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_jf3l3"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_ddhr7"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_1rpqf"), "hurt", "run", SubResource("AnimationNodeStateMachineTransition_6654o"), "run", "hurt", SubResource("AnimationNodeStateMachineTransition_r26gw"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_h2qck"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_1o7cq")]
-graph_offset = Vector2(-11, 20)
+transitions = ["idle", "attack", SubResource("AnimationNodeStateMachineTransition_8l553"), "attack", "hurt", SubResource("AnimationNodeStateMachineTransition_v2wbi"), "hurt", "attack", SubResource("AnimationNodeStateMachineTransition_efqdf"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_jf3l3"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_ddhr7"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_1rpqf"), "hurt", "run", SubResource("AnimationNodeStateMachineTransition_6654o"), "run", "hurt", SubResource("AnimationNodeStateMachineTransition_r26gw"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_h2qck"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_1o7cq"), "idle", "Pre Attack", SubResource("AnimationNodeStateMachineTransition_b2xku"), "hurt", "Pre Attack", SubResource("AnimationNodeStateMachineTransition_41ax5"), "run", "Pre Attack", SubResource("AnimationNodeStateMachineTransition_ymtjq"), "Pre Attack", "idle", SubResource("AnimationNodeStateMachineTransition_6unue"), "Pre Attack", "hurt", SubResource("AnimationNodeStateMachineTransition_d00jb"), "Pre Attack", "attack", SubResource("AnimationNodeStateMachineTransition_f2mnk")]
+graph_offset = Vector2(-56, 163)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2wbi"]
 transparency = 1
@@ -1074,7 +1292,7 @@ scale_min = 0.79999995
 scale_max = 1.3
 scale_curve = SubResource("CurveTexture_jekpj")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tngdw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1rpqf"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 0)
@@ -1100,13 +1318,22 @@ metadata/_custom_type_script = "uid://dcfoaiv83pvo4"
 [node name="Walk" type="Node" parent="StateMachine" unique_id=624811352 node_paths=PackedStringArray("reached_enemy_state")]
 script = ExtResource("3_jf3l3")
 attack_distance = 1.5
-reached_enemy_state = NodePath("../Attack")
+reached_enemy_state = NodePath("../AttackPrep")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=234960577 node_paths=PackedStringArray("post_wait_state", "player_far_state")]
 script = ExtResource("4_ddhr7")
-post_wait_state = NodePath("../Walk")
+wait_time = 3.0
+post_wait_state = NodePath("../AttackPrep")
 max_player_distance = 1.5
-player_far_state = NodePath(".")
+player_far_state = NodePath("../Walk")
+
+[node name="AttackPrep" type="Node" parent="StateMachine" unique_id=43192745 node_paths=PackedStringArray("normal_animation", "post_wait_state")]
+script = ExtResource("4_ddhr7")
+normal_animation = NodePath("../../mossum_anims/preattack")
+rotate_to_player = false
+wait_time = 2.0
+post_wait_state = NodePath("../Attack")
+max_player_distance = 1.5
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=759393333 node_paths=PackedStringArray("hitbox", "finished_state", "animation")]
 unique_name_in_owner = true
@@ -1145,12 +1372,38 @@ texture = SubResource("ViewportTexture_ddhr7")
 [node name="mossum_anims" parent="." unique_id=656823653 instance=ExtResource("9_1o7cq")]
 transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 0, 0, 0)
 
-[node name="model_mossum" parent="mossum_anims/Skeleton3D" parent_id_path=PackedInt32Array(656823653, 13124971) index="0" unique_id=880995083]
-transform = Transform3D(0.99999994, -6.558302e-08, 8.096181e-08, 5.857943e-08, 0.98901594, 0.14780958, 3.012793e-08, -0.1478096, 0.98901576, -0.0028036484, 0.18634897, -0.00019545358)
+[node name="Skeleton3D" parent="mossum_anims" index="0" unique_id=597165472]
+bones/2/position = Vector3(0.00019545385, 0.17574205, 0.00048574712)
+bones/2/rotation = Quaternion(0.70516247, -0.05240265, 0.70516235, 0.052402653)
+bones/4/rotation = Quaternion(0.13635477, -0.10856266, 0.0011535331, 0.98469293)
+bones/5/rotation = Quaternion(0.03925602, -0.16462146, -0.1956295, 0.9659648)
+bones/6/rotation = Quaternion(0, 0.33857578, -4.440892e-16, 0.9409391)
+bones/7/rotation = Quaternion(-0.05298553, 0.01972855, -0.7402244, 0.66997856)
+bones/14/rotation = Quaternion(1, 0, -7.5497894e-08, 0)
+bones/15/rotation = Quaternion(0.14142136, 1.3322674e-15, -1.2107353e-16, 0.9899495)
+bones/16/rotation = Quaternion(0.11740456, -7.67093e-08, -1.5013405e-15, 0.9930842)
+bones/17/rotation = Quaternion(-0.36583066, -3.8835932e-08, 9.879948e-08, 0.93068147)
+bones/19/rotation = Quaternion(0.6914346, -0.063467264, -0.016118076, 0.7194654)
+bones/20/rotation = Quaternion(0.32699507, 0.0014813325, 0.004053237, 0.9450162)
+bones/21/rotation = Quaternion(0.39575613, 0.00084040314, -0.06489602, 0.9160595)
+bones/23/rotation = Quaternion(0.85338587, 0.026758112, 0.006158799, 0.5205562)
+bones/24/rotation = Quaternion(0.5789697, 0.00474338, 0.0064411312, 0.81530976)
+bones/25/rotation = Quaternion(-0.13458456, 0.008027741, 0.021635143, 0.9906334)
+bones/27/rotation = Quaternion(0.81537133, 0.24127057, 0.008464874, 0.52620023)
+bones/28/rotation = Quaternion(0.18143776, -0.00046927185, -0.002316417, 0.98339957)
+bones/29/rotation = Quaternion(0.312218, 0.015411146, 0.24032411, 0.91898143)
+bones/31/rotation = Quaternion(0.4789518, 0.047985237, 0.034743827, 0.8758398)
+bones/32/rotation = Quaternion(0.7633025, -0.00871383, -0.0071164994, 0.6459434)
+bones/33/rotation = Quaternion(0.13726087, 0.0146759115, 0.053889446, 0.9889591)
+bones/35/position = Vector3(-0.3734652, 0.16234113, 0.036524925)
+bones/35/rotation = Quaternion(0.0293256, -0.7416563, 0.2252718, 0.6311407)
+
+[node name="model_mossum" parent="mossum_anims/Skeleton3D" index="0" unique_id=1069152848]
+transform = Transform3D(1, -5.813244e-08, 8.09618e-08, 5.8579438e-08, 0.98901606, 0.1478095, 8.973258e-08, -0.1478095, 0.9890158, 0.00048573944, 0.17574205, -0.00019545385)
 bone_name = "model_spine_001"
 bone_idx = 14
 
-[node name="model_geo" parent="mossum_anims/Skeleton3D/model_mossum" index="0" unique_id=442190131]
+[node name="model_geo" parent="mossum_anims/Skeleton3D/model_mossum" index="0" unique_id=658691600]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18, 0)
 
 [node name="wool_shell_texturing_tool" type="Node3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo" index="0" unique_id=938286358]
@@ -1161,46 +1414,46 @@ shader = ExtResource("12_ymtjq")
 albedo = ExtResource("13_6unue")
 height_map = ExtResource("14_d00jb")
 tint = Color(0.5529412, 0.8156863, 0.49411765, 1)
-shell_displacement = 0.08
-min_ambient_occlusion = 0.4
+shell_displacement = 0.03
+min_ambient_occlusion = 0.39
 
-[node name="Shell_0" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=651055089]
+[node name="Shell_0" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=248564333]
 mesh = ExtResource("11_41ax5")
 surface_material_override/0 = SubResource("ShaderMaterial_1rpqf")
 
-[node name="Shell_1" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1786788877]
+[node name="Shell_1" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1716005910]
 mesh = ExtResource("11_41ax5")
 surface_material_override/0 = SubResource("ShaderMaterial_6654o")
 
-[node name="Shell_2" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1048207890]
+[node name="Shell_2" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1651811088]
 mesh = ExtResource("11_41ax5")
 surface_material_override/0 = SubResource("ShaderMaterial_r26gw")
 
-[node name="Shell_3" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=928450852]
+[node name="Shell_3" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=812587102]
 mesh = ExtResource("11_41ax5")
 surface_material_override/0 = SubResource("ShaderMaterial_h2qck")
 
-[node name="Shell_4" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=771823092]
+[node name="Shell_4" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1726445697]
 mesh = ExtResource("11_41ax5")
 surface_material_override/0 = SubResource("ShaderMaterial_1o7cq")
 
-[node name="Shell_5" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=175157100]
+[node name="Shell_5" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1743674066]
 mesh = ExtResource("11_41ax5")
 surface_material_override/0 = SubResource("ShaderMaterial_b2xku")
 
-[node name="Shell_6" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1815470872]
+[node name="Shell_6" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1284774417]
 mesh = ExtResource("11_41ax5")
 surface_material_override/0 = SubResource("ShaderMaterial_41ax5")
 
-[node name="Shell_7" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=35013837]
+[node name="Shell_7" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=1615052131]
 mesh = ExtResource("11_41ax5")
 surface_material_override/0 = SubResource("ShaderMaterial_d00jb")
 
-[node name="Shell_8" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=454911661]
+[node name="Shell_8" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=666243833]
 mesh = ExtResource("11_41ax5")
 surface_material_override/0 = SubResource("ShaderMaterial_f2mnk")
 
-[node name="Shell_9" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=208575436]
+[node name="Shell_9" type="MeshInstance3D" parent="mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool" unique_id=481265062]
 mesh = ExtResource("11_41ax5")
 surface_material_override/0 = SubResource("ShaderMaterial_gsemf")
 
@@ -1209,8 +1462,8 @@ transform = Transform3D(1.4, 1.2434496e-14, -2.842171e-14, -1.2434498e-14, 1.4, 
 mesh = ExtResource("11_41ax5")
 surface_material_override/0 = SubResource("StandardMaterial3D_efqdf")
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="mossum_anims/Skeleton3D" parent_id_path=PackedInt32Array(656823653, 13124971) index="4" unique_id=1322407014]
-transform = Transform3D(0.94898474, -0.24243517, -0.20162556, 0.12907803, 0.88207483, -0.4530815, 0.28769168, 0.40394208, 0.8683686, 0.020074364, 0.15620366, 0.37153015)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="mossum_anims/Skeleton3D" index="4" unique_id=1322407014]
+transform = Transform3D(0.94939137, -0.29713136, -0.101828076, 0.24085741, 0.89678526, -0.37116563, 0.20160292, 0.32785544, 0.9229665, 0.036524918, 0.16234113, 0.3734652)
 bone_name = "model_sword_joint"
 bone_idx = 35
 
@@ -1230,7 +1483,7 @@ curve = SubResource("CurveTexture_gsemf")
 _defaults_have_been_set = true
 metadata/_custom_type_script = "uid://drugjbbmd0wed"
 
-[node name="AnimationPlayer" parent="mossum_anims" index="1" unique_id=1885628729]
+[node name="AnimationPlayer" parent="mossum_anims" index="1" unique_id=715503641]
 libraries/ = SubResource("AnimationLibrary_jekpj")
 
 [node name="AnimationTree" type="AnimationTree" parent="mossum_anims" unique_id=778966451]
@@ -1261,6 +1514,13 @@ metadata/_custom_type_script = "uid://bjlnudp8j65ma"
 [node name="hurt" type="Node" parent="mossum_anims" unique_id=1679472516]
 script = ExtResource("15_f2mnk")
 state_name = "hurt"
+animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_18w0e"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
+
+metadata/_custom_type_script = "uid://bjlnudp8j65ma"
+
+[node name="preattack" type="Node" parent="mossum_anims" unique_id=2023295911]
+script = ExtResource("15_f2mnk")
+state_name = "Pre Attack"
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":SubResource("AnimationNodeStateMachine_18w0e"),"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 metadata/_custom_type_script = "uid://bjlnudp8j65ma"
@@ -1318,8 +1578,8 @@ process_mode = 3
 script = ExtResource("20_qix3h")
 vfx = NodePath("enemySummonFX")
 meshes_root = NodePath("../mossum_anims")
-_meshes = [NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_2"), null, NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_0"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_1"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_9"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_5"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_4"), null, NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_6"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_3"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/MeshInstance3D"), NodePath("../mossum_anims/Skeleton3D/model_body"), NodePath("../mossum_anims/Skeleton3D/model_everything_else"), NodePath("../mossum_anims/Skeleton3D/model_sword_geo")]
-hurt_overlay = SubResource("StandardMaterial3D_tngdw")
+_meshes = [NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_0"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_1"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_2"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_3"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_4"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_5"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_6"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_7"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_8"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/wool_shell_texturing_tool/Shell_9"), NodePath("../mossum_anims/Skeleton3D/model_mossum/model_geo/MeshInstance3D"), NodePath("../mossum_anims/Skeleton3D/model_body"), NodePath("../mossum_anims/Skeleton3D/model_everything_else"), NodePath("../mossum_anims/Skeleton3D/model_sword_geo")]
+hurt_overlay = SubResource("StandardMaterial3D_1rpqf")
 flash_duration = 2.0
 
 [node name="enemySummonFX" parent="Spawned" unique_id=352876712 instance=ExtResource("21_2bjxl")]
@@ -1339,6 +1599,7 @@ lifetime = 3.0
 [connection signal="spawned" from="." to="Spawned" method="spawned"]
 [connection signal="entered" from="StateMachine/Walk" to="mossum_anims/move" method="enter"]
 [connection signal="entered" from="StateMachine/Idle" to="mossum_anims/idle" method="enter"]
+[connection signal="entered" from="StateMachine/AttackPrep" to="mossum_anims/idle" method="enter"]
 [connection signal="body_entered" from="HitBoxes/Hitbox" to="." method="_on_aggro_body_entered"]
 [connection signal="body_exited" from="HitBoxes/Hitbox" to="." method="_on_aggro_body_exited"]
 

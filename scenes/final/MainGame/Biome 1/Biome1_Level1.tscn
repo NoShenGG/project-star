@@ -32,13 +32,13 @@
 [ext_resource type="Texture2D" uid="uid://dojp7mylityup" path="res://art_assets/Ui/Kenny Input Prompts/Xbox Series/Vector/xbox_button_a.svg" id="19_ilqod"]
 [ext_resource type="Material" uid="uid://dek0aou47yvv2" path="res://art_assets/environment/Biome1/Level1/MountainBackground.tres" id="19_rquws"]
 [ext_resource type="Shader" uid="uid://ouq1gmh6ate2" path="res://shaders/grass - Dylearn/Shaders/AlphaToonShader.gdshader" id="20_33iv1"]
-[ext_resource type="Texture2D" uid="uid://cgkae6nous5vh" path="res://art_assets/environment/Biome1/Level1/Level1Working_MountainScapeAlpha.png" id="21_rquws"]
+[ext_resource type="Texture2D" uid="uid://dl0boisit1lyt" path="res://art_assets/environment/Biome1/Level1/Level1Working_MountainScapeAlpha.png" id="21_rquws"]
 [ext_resource type="Texture2D" uid="uid://vqml4pj02ucs" path="res://shaders/grass - Dylearn/Textures and Materials/Albedo2Noise.tres" id="21_tib8f"]
 [ext_resource type="Shader" uid="uid://bvjdruuput33e" path="res://shaders/grass - Dylearn/Shaders/Grass.gdshader" id="22_0b1bm"]
 [ext_resource type="Texture2D" uid="uid://lufpdysn8blp" path="res://art_assets/Ui/Kenny Input Prompts/Keyboard & Mouse/Vector/keyboard_shift_outline.svg" id="23_t7605"]
-[ext_resource type="Texture2D" uid="uid://cqgqycukx0rde" path="res://shaders/grass - Dylearn/Textures and Materials/grassleaf.png" id="23_tnsi0"]
+[ext_resource type="Texture2D" uid="uid://cq6u5wnqjtakw" path="res://shaders/grass - Dylearn/Textures and Materials/grassleaf.png" id="23_tnsi0"]
 [ext_resource type="Texture2D" uid="uid://dj4jwbr4q8bpo" path="res://art_assets/Ui/Kenny Input Prompts/Keyboard & Mouse/Vector/keyboard_shift.svg" id="24_6scd3"]
-[ext_resource type="Texture2D" uid="uid://c6mr82xyarp16" path="res://shaders/grass - Dylearn/Textures and Materials/accentleaf.png" id="24_u1p3j"]
+[ext_resource type="Texture2D" uid="uid://dh4pg8soqy7s6" path="res://shaders/grass - Dylearn/Textures and Materials/accentleaf.png" id="24_u1p3j"]
 [ext_resource type="Texture2D" uid="uid://dt0xitdhnq4ef" path="res://art_assets/Ui/Kenny Input Prompts/Nintendo Switch/Double/switch_button_zr_outline.png" id="25_5pp6f"]
 [ext_resource type="Texture2D" uid="uid://c52v6tkx73uro" path="res://shaders/grass - Dylearn/Textures and Materials/Albedo3Noise.tres" id="25_l0vgp"]
 [ext_resource type="Texture2D" uid="uid://cg1u377jrbcvs" path="res://art_assets/Ui/Kenny Input Prompts/Nintendo Switch/Double/switch_button_zr.png" id="26_flrcs"]
@@ -615,20 +615,17 @@ stage = 0
 [node name="Nova" parent="PlayerManager" index="0" unique_id=1837126418]
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.04858756, 0, 14.637955)
 
-[node name="Nova\'s Circle" parent="PlayerManager/Nova" index="9" unique_id=646179578 node_paths=PackedStringArray("particles")]
-particles = [NodePath("sparks")]
-
-[node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(492883031, 1837126418, 1395090033) index="0" unique_id=344550742]
-bones/14/rotation = Quaternion(-0.06531197, 0.52214193, -0.50658405, 0.6829897)
-bones/15/rotation = Quaternion(-0.16931865, 0.5665398, 0.23404483, 0.7717427)
-bones/16/rotation = Quaternion(-0.5040289, -0.47513902, -0.26113012, 0.672316)
-bones/21/rotation = Quaternion(-0.14335914, 0.37260658, -0.46412328, 0.79069716)
-bones/22/rotation = Quaternion(-0.074375056, 0.37729853, 0.18569924, 0.904229)
-bones/23/rotation = Quaternion(0.14070727, 0.10846684, -0.0833373, 0.98055667)
-bones/38/rotation = Quaternion(-0.35040483, 0.706233, 0.06130079, 0.61212224)
+[node name="Skeleton3D" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(492883031, 1837126418, 1395090033) index="0" unique_id=384873980]
+bones/14/rotation = Quaternion(-0.06555774, 0.5220299, -0.5067461, 0.6829315)
+bones/15/rotation = Quaternion(-0.1705712, 0.56845766, 0.23437876, 0.76995325)
+bones/16/rotation = Quaternion(-0.5031932, -0.47804183, -0.26194352, 0.6705656)
+bones/21/rotation = Quaternion(-0.13773702, 0.36803126, -0.4702222, 0.79023576)
+bones/22/rotation = Quaternion(-0.074765146, 0.37833804, 0.18602653, 0.9036951)
+bones/23/rotation = Quaternion(0.13311066, 0.110945344, -0.087574966, 0.9809706)
+bones/38/rotation = Quaternion(-0.35088807, 0.70599407, 0.06088129, 0.6121629)
 
 [node name="BoneAttachment3D" parent="PlayerManager/Nova/nova/Skeleton3D" index="5" unique_id=316903610]
-transform = Transform3D(-0.003994371, -0.5699903, 0.8216416, -0.42126474, 0.74614143, 0.5155664, -0.9069288, -0.34406936, -0.24309729, 0.0060388767, 0.0071965763, -0.013194939)
+transform = Transform3D(-0.0032168773, -0.56999516, 0.8216416, -0.42228723, 0.7455642, 0.5155649, -0.9064563, -0.34531024, -0.24310015, 0.006051023, 0.0071805813, -0.0131876)
 
 [node name="Idle" parent="PlayerManager/Nova/nova" parent_id_path=PackedInt32Array(492883031, 1837126418, 1395090033) index="3" unique_id=1649251518]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
@@ -690,12 +687,6 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Hurt VFX" parent="PlayerManager/Nova/Hurt" parent_id_path=PackedInt32Array(492883031, 1837126418, 1726631496) index="0" unique_id=1245835924 node_paths=PackedStringArray("particles")]
-particles = [NodePath("GPUParticles3D")]
-
-[node name="Rene\'s Circle" parent="PlayerManager/Rene" parent_id_path=PackedInt32Array(492883031, 1678208346) index="10" unique_id=1327964703 node_paths=PackedStringArray("particles")]
-particles = [NodePath("sparks")]
-
 [node name="Idle" parent="PlayerManager/Rene/rene" parent_id_path=PackedInt32Array(492883031, 1678208346, 1073875666) index="3" unique_id=1766965671]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
@@ -752,29 +743,20 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":true,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"script":null)
 
 
-[node name="Hurt VFX" parent="PlayerManager/Rene/Hurt" parent_id_path=PackedInt32Array(492883031, 1678208346, 1701802945) index="0" unique_id=53827056 node_paths=PackedStringArray("particles")]
-particles = [NodePath("GPUParticles3D")]
-
-[node name="DawnChargeVFX" parent="PlayerManager/Dawn/Effects" parent_id_path=PackedInt32Array(492883031, 618181988, 352519910) index="2" unique_id=1925420706 node_paths=PackedStringArray("particles")]
-particles = [NodePath("MusicNotes"), NodePath("StaffRing"), NodePath("StreamCaustics"), NodePath("FloorCaustics"), NodePath("AuraCaustics"), NodePath("ChargeVFX")]
-
-[node name="Dawn\'s Circle" parent="PlayerManager/Dawn" parent_id_path=PackedInt32Array(492883031, 618181988) index="11" unique_id=2001956639 node_paths=PackedStringArray("particles")]
-particles = [NodePath("sparks")]
-
-[node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(492883031, 618181988, 1566855500) index="0" unique_id=581899794]
-bones/2/rotation = Quaternion(0.029757809, -0.029671323, 0.7054532, 0.7075096)
-bones/15/rotation = Quaternion(0.019749392, -0.10203582, -0.6669755, 0.73779565)
-bones/16/rotation = Quaternion(-0.03551883, 0.3933962, 0.10380252, 0.91279954)
-bones/17/rotation = Quaternion(0.18118457, 0.090561844, -0.25487807, 0.9455199)
-bones/23/rotation = Quaternion(-0.08217959, -0.08716639, -0.684097, 0.7194859)
-bones/24/rotation = Quaternion(-0.030691912, 0.2751089, 0.12671228, 0.952532)
-bones/25/rotation = Quaternion(-0.0009486764, 0.05628703, -0.17794035, 0.9824298)
-bones/30/rotation = Quaternion(0.0003609198, 0.96812534, -0.24975832, 0.018817477)
-bones/31/rotation = Quaternion(0.9989657, -0.010611467, 0.044215485, 0.00033984185)
-bones/32/rotation = Quaternion(0.57079417, -0.3674252, 0.41803512, 0.6036883)
-bones/34/rotation = Quaternion(0.060892213, 0.110893816, 0.012889485, 0.9918814)
-bones/35/rotation = Quaternion(0.9928987, -0.014801438, 0.11803134, 0.0013903383)
-bones/36/rotation = Quaternion(0.5999594, -0.35730734, 0.3686311, 0.61358887)
+[node name="Skeleton3D" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(492883031, 618181988, 1566855500) index="0" unique_id=1201434841]
+bones/2/rotation = Quaternion(0.051873937, -0.05172316, 0.7041799, 0.7062326)
+bones/15/rotation = Quaternion(0.014360577, -0.11914256, -0.66541016, 0.7367688)
+bones/16/rotation = Quaternion(-0.039307736, 0.41789326, 0.10516821, 0.90153193)
+bones/17/rotation = Quaternion(0.19125855, 0.11082914, -0.25603086, 0.9410555)
+bones/23/rotation = Quaternion(-0.080506414, -0.08955989, -0.6843546, 0.71913594)
+bones/24/rotation = Quaternion(-0.030719675, 0.27527568, 0.1267411, 0.952479)
+bones/25/rotation = Quaternion(0.0043297117, 0.08608165, -0.17223623, 0.98127776)
+bones/30/rotation = Quaternion(0.011407175, 0.96547055, -0.25165412, -0.066384204)
+bones/31/rotation = Quaternion(0.9890275, -0.016916934, 0.14674668, 0.0020112353)
+bones/32/rotation = Quaternion(0.5504617, -0.39525902, 0.44224596, 0.58752096)
+bones/34/rotation = Quaternion(0.061709717, 0.18930537, 0.016412187, 0.9798398)
+bones/35/rotation = Quaternion(0.9795691, -0.019525662, 0.20012991, 0.0033560307)
+bones/36/rotation = Quaternion(0.5868605, -0.38017756, 0.3875861, 0.60069704)
 
 [node name="Idle" parent="PlayerManager/Dawn/dawn" parent_id_path=PackedInt32Array(492883031, 618181988, 1566855500) index="3" unique_id=636726215]
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
@@ -828,17 +810,11 @@ animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode
 animation_tree = Object(AnimationTree,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","active":true,"deterministic":false,"reset_on_save":true,"root_node":NodePath(".."),"root_motion_track":NodePath(""),"root_motion_local":false,"audio_max_polyphony":32,"callback_mode_process":1,"callback_mode_method":0,"callback_mode_discrete":2,"tree_root":null,"advance_expression_base_node":NodePath("."),"anim_player":NodePath("../AnimationPlayer"),"parameters/basic_attack_hold/Blend2/blend_amount":1.2,"script":null)
 
 
-[node name="Hurt VFX" parent="PlayerManager/Dawn/Hurt" parent_id_path=PackedInt32Array(492883031, 618181988, 1819616284) index="0" unique_id=2037601868 node_paths=PackedStringArray("particles")]
-particles = [NodePath("GPUParticles3D")]
-
 [node name="Rene" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" parent_id_path=PackedInt32Array(492883031, 1776298804, 1757688413) index="2" unique_id=99432944]
 visible = false
 
 [node name="Dawn" parent="PlayerManager/Game Menu/GameUi/MarginContainer/Offset" parent_id_path=PackedInt32Array(492883031, 1776298804, 1757688413) index="3" unique_id=1894984408]
 visible = false
-
-[node name="characterSwapFX" parent="PlayerManager/Swap VFX" parent_id_path=PackedInt32Array(492883031, 1634736576) index="0" unique_id=5389629 node_paths=PackedStringArray("particles")]
-particles = [NodePath("GPUParticles3D"), NodePath("GPUParticles3D2")]
 
 [node name="WaveManager" type="Node3D" parent="." unique_id=90152963]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -48)
@@ -886,7 +862,7 @@ transform = Transform3D(8.671904, 0, 0, 0, 1, 0, 0, 0, 11.39728, 26.353638, 1.46
 transform = Transform3D(4.6267023, 0, 0, 0, 1, 0, 0, 0, 10, 29.291035, 1.4689131, 13.82622)
 
 [node name="SpawnArea4" parent="WaveManager" unique_id=1645871229 instance=ExtResource("7_pafkc")]
-transform = Transform3D(3.6162832, 0, 0, 0, 1, 0, 0, 0, 10.80695, 29.413383, 1.4689131, -20.453758)
+transform = Transform3D(3.6162832, 0, 0, 0, 1, 0, 0, 0, 10.80695, 29.413383, 1.4689131, -10.061043)
 
 [node name="LevelEnder" parent="." unique_id=800324681 instance=ExtResource("9_76imp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.47463, 4.5915575, -86.43587)
@@ -1450,14 +1426,14 @@ emitting = true
 
 [node name="Level1Working" parent="." unique_id=395432310 instance=ExtResource("17_e4lx6")]
 
-[node name="Cube_001" parent="Level1Working" index="2" unique_id=846910161]
+[node name="Cube_001" parent="Level1Working" index="2" unique_id=2125795349]
 transform = Transform3D(4.6512213, 0, -2.3749282, 0, 5.222465, 0, 2.3749282, 0, 4.6512213, -38.52727, -30.173037, -43.367542)
 surface_material_override/0 = ExtResource("19_rquws")
 
-[node name="Cube_003" parent="Level1Working" index="3" unique_id=279442148]
+[node name="Cube_003" parent="Level1Working" index="3" unique_id=1787947532]
 surface_material_override/0 = SubResource("ShaderMaterial_rquws")
 
-[node name="GrassTop Background" parent="Level1Working" index="4" unique_id=227178408]
+[node name="GrassTop Background" parent="Level1Working" index="4" unique_id=1015877643]
 transform = Transform3D(4.6512213, 0, -2.3749282, 0, 5.222465, 0, 2.3749282, 0, 4.6512213, -38.527386, -30.171495, -43.3673)
 
 [node name="Grass Mesh" type="MeshInstance3D" parent="Level1Working/GrassTop Background" index="0" unique_id=726040256]
@@ -1473,7 +1449,7 @@ material_override = SubResource("ShaderMaterial_f6gd0")
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_rquws")
 
-[node name="Camera" parent="Level1Working/Introduction Camera" parent_id_path=PackedInt32Array(395432310, 319694397) index="0" unique_id=1272690334]
+[node name="Camera" parent="Level1Working/Introduction Camera" parent_id_path=PackedInt32Array(395432310, 848390982) index="0" unique_id=1648208014]
 transform = Transform3D(0.7590699, -0.64618224, 0.07912709, 1.0528873e-07, -0.12154522, -0.99258554, 0.6510089, 0.7534421, -0.09226125, -10.519139, -5.6603775, -4.146492)
 
 [node name="Camera3D" type="Camera3D" parent="Level1Working/Introduction Camera/Camera" index="0" unique_id=1546431682 node_paths=PackedStringArray("game_camera")]
@@ -1484,61 +1460,61 @@ duration = 6.5
 game_camera = NodePath("../../../../PlayerManager/CameraTarget/Camera3D")
 curve = SubResource("Curve_5ytjf")
 
-[node name="Cube_002" parent="Level1Working" index="19" unique_id=176479502]
+[node name="Cube_002" parent="Level1Working" index="19" unique_id=1284646259]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_010" parent="Level1Working" index="20" unique_id=145256541]
+[node name="Cube_010" parent="Level1Working" index="20" unique_id=753325403]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_011" parent="Level1Working" index="21" unique_id=35196448]
+[node name="Cube_011" parent="Level1Working" index="21" unique_id=663037253]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_013" parent="Level1Working" index="22" unique_id=1259782002]
+[node name="Cube_013" parent="Level1Working" index="22" unique_id=622128077]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_014" parent="Level1Working" index="23" unique_id=1549830325]
+[node name="Cube_014" parent="Level1Working" index="23" unique_id=1786793626]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_016" parent="Level1Working" index="24" unique_id=745310284]
+[node name="Cube_016" parent="Level1Working" index="24" unique_id=422897566]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_018" parent="Level1Working" index="25" unique_id=289439740]
+[node name="Cube_018" parent="Level1Working" index="25" unique_id=1523545047]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_020" parent="Level1Working" index="26" unique_id=1731226162]
+[node name="Cube_020" parent="Level1Working" index="26" unique_id=988231832]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_021" parent="Level1Working" index="27" unique_id=889272948]
+[node name="Cube_021" parent="Level1Working" index="27" unique_id=1409584756]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_022" parent="Level1Working" index="28" unique_id=1314984319]
+[node name="Cube_022" parent="Level1Working" index="28" unique_id=334431149]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_023" parent="Level1Working" index="29" unique_id=2005071596]
+[node name="Cube_023" parent="Level1Working" index="29" unique_id=1464188370]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_024" parent="Level1Working" index="30" unique_id=1194521782]
+[node name="Cube_024" parent="Level1Working" index="30" unique_id=1994086417]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_025" parent="Level1Working" index="31" unique_id=342683923]
+[node name="Cube_025" parent="Level1Working" index="31" unique_id=1685880198]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_026" parent="Level1Working" index="32" unique_id=915291903]
+[node name="Cube_026" parent="Level1Working" index="32" unique_id=249957983]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_028" parent="Level1Working" index="33" unique_id=443150648]
+[node name="Cube_028" parent="Level1Working" index="33" unique_id=529387476]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_029" parent="Level1Working" index="34" unique_id=1341157652]
+[node name="Cube_029" parent="Level1Working" index="34" unique_id=227661917]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_031" parent="Level1Working" index="35" unique_id=1135593298]
+[node name="Cube_031" parent="Level1Working" index="35" unique_id=1191657196]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="Cube_032" parent="Level1Working" index="36" unique_id=481894079]
+[node name="Cube_032" parent="Level1Working" index="36" unique_id=1380995460]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="GrassTop" parent="Level1Working" index="37" unique_id=929774665]
+[node name="GrassTop" parent="Level1Working" index="37" unique_id=119218355]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.514, 2.74)
 
 [node name="Grass" type="MultiMeshInstance3D" parent="Level1Working/GrassTop" index="0" unique_id=1619427130]
@@ -1558,10 +1534,10 @@ material_override = SubResource("ShaderMaterial_5ytjf")
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_f6gd0")
 
-[node name="Cube_012" parent="Level1Working" index="38" unique_id=2005359500]
+[node name="Cube_012" parent="Level1Working" index="38" unique_id=834282593]
 surface_material_override/0 = ExtResource("29_rquws")
 
-[node name="AnimationPlayer" parent="Level1Working" index="44" unique_id=2145731486]
+[node name="AnimationPlayer" parent="Level1Working" index="44" unique_id=551578038]
 libraries/ = SubResource("AnimationLibrary_rquws")
 autoplay = &"Introduction Camera"
 

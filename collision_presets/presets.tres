@@ -8,7 +8,7 @@ script = ExtResource("1_5yekf")
 name = "Player"
 id = "2047292062806659354"
 layer = 6
-mask = 13
+mask = 5
 
 [sub_resource type="Resource" id="Resource_2mjqt"]
 script = ExtResource("1_5yekf")
