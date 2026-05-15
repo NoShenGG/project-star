@@ -14,7 +14,7 @@ func _ready():
 	#look_at(direction)
 	self.look_at(direction)
 
-	
+
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
 	#look_at(direction)
@@ -27,5 +27,5 @@ func _on_timer_timeout() -> void:
 func _on_hitbox_body_entered(body: Node3D) -> void:
 	if (body is Player):
 		#do damage here
-		(body as Player).try_damage(damage)
+		if(damage > 0): (body as Player).try_damage(damage)
 		queue_free()

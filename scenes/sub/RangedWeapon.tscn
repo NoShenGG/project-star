@@ -145,7 +145,7 @@ height = 0.6
 [node name="RangedWeapon" type="Node3D" unique_id=773822131 groups=["Enemies"]]
 top_level = true
 script = ExtResource("1_duflq")
-damage = 0.0
+damage = 1.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=186764661]
 material_overlay = SubResource("ShaderMaterial_q6bwp")
